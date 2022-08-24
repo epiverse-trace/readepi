@@ -39,7 +39,7 @@ jobs:
         run: |
           Sys.setenv(R_REMOTES_NO_ERRORS_FROM_WARNINGS = "true")
           options(install.packages.check.source = "no")
-          pkgs <- c("rmarkdown", "linelist", "pacman", "ggplot2")
+          pkgs <- c("rmarkdown", "readepi")
           install.packages(pkgs, repos = "https://cloud.r-project.org/")
         shell: Rscript {0}
  
