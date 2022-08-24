@@ -12,5 +12,6 @@ RoxygenNote: 7.2.1
 Imports:
     checkmate
 Suggests: 
+    covr,
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
