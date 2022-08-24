@@ -3,8 +3,8 @@
 
 # readepi
 
-*readepi* provides functions for importing epidemiological data into R
-from common health information systems.
+*readepi* provides functions for importing epidemiological data into
+**R** from common *health information systems*.
 
 <!-- badges: start -->
 
@@ -28,12 +28,13 @@ devtools::install_github("epiverse-trace/readepi")
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+These examples illustrate some of the current functionalities:
 
 ``` r
 library(readepi)
 
-# example of read_stuff()
+# example of read_stuff():
+# (a placeholder function returning its own argument)
 path_to_file <- "some_path_here"
 read_stuff(path_to_file)
 #> [1] "some_path_here"
