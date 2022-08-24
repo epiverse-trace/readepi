@@ -2,10 +2,10 @@ Package: readepi
 Title: Import Epidemiological Data into R
 Version: 0.0.1
 Authors@R: 
-    person("Thibaut", "Jombart", , "thibaut@data.org", role = c("aut", "cre"),
-           "Avinash", "Laddha", , "avinash@data.org", role = c("aut"))
+    c(person("Thibaut", "Jombart", , "thibaut@data.org", role = c("aut", "cre")),
+      person("Avinash", "Laddha", , "avinash@data.org", role = c("aut")))
 Description: This package implements functions to read epidemiological data from health information systems.
-License: `use_mit_license()`
+License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.1
