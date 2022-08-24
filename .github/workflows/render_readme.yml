@@ -12,7 +12,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'readme.Rmd'
+      - 'README.Rmd'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 # Important: ubuntu-latest is not set up properly for R, so use macOS
@@ -39,8 +39,9 @@ jobs:
         run: |
           Sys.setenv(R_REMOTES_NO_ERRORS_FROM_WARNINGS = "true")
           options(install.packages.check.source = "no")
-          pkgs <- c("rmarkdown", "readepi")
+          pkgs <- c("rmarkdown", "remotes")
           install.packages(pkgs, repos = "https://cloud.r-project.org/")
+	  remotes::install_github("epiverse-trace/readepi")
         shell: Rscript {0}
  
       - name: Compile the readme
