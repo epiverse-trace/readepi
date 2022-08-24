@@ -13,5 +13,10 @@
 #' read_stuff(some_path)
 
 read_stuff <- function(x) {
+  # check inputs
+  checkmate::assertCharacter(x, len = 1L)
+
+  
+  # do stuff
   x
 }
