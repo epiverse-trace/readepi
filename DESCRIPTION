@@ -4,8 +4,7 @@ Version: 0.0.1
 Authors@R: 
     person("Thibaut", "Jombart", , "thibaut@data.org", role = c("aut", "cre"),
            "Avinash", "Laddha", , "avinash@data.org", role = c("aut"))
-Description: This package implements functions to read epidemiological data from
-health information systems
+Description: This package implements functions to read epidemiological data from health information systems.
 License: `use_mit_license()`
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
