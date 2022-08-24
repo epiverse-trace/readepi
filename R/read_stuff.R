@@ -8,6 +8,9 @@
 #'
 #' @export
 #'
+#' @examples
+#' some_path <- "path to your file"
+#' read_stuff(some_path)
 
 read_stuff <- function(x) {
   x

@@ -12,6 +12,10 @@ read_stuff(x)
 \description{
 This function reads stuff into R. More details...
 }
+\examples{
+some_path <- "path to your file"
+read_stuff(some_path)
+}
 \author{
 Thibaut Jombart
 }
