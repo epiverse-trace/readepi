@@ -50,24 +50,24 @@ The function will return either a data frame (if import from file) or a list of 
 ## importing data from JSON file
 ```{r}
 file = "/Users/karimmane/Documents/Karim/LSHTM/Data/test.json"
-data = read_epi(file.path = file)
+data = readepi(file.path = file)
 ```
 
 ## importing data from excel file with 2 sheets
 here we are importing from the second excel sheet
 ```{r}
 file = "/Users/karimmane/Documents/Karim/LSHTM/Data/For_correlation.xlsx"
-data = read_epi(file.path = file, which = "Sheet2")
+data = readepi(file.path = file, which = "Sheet2")
 ```
 
 ## importing data from several files in a directory
 ```{r}
 # reading all files in the given directory
 dir.path = "/Users/karimmane/Documents/Karim/LSHTM/Data"
-data = read_epi(file.path = dir.path)
+data = readepi(file.path = dir.path)
 
 # reading only txt files
-data = read_epi(file.path = dir.path, pattern = "txt")
+data = readepi(file.path = dir.path, pattern = "txt")
 ```
 
 # Reading data from relational database management systems (RDBMS): HDSS, EMRS, REDCap
@@ -105,36 +105,36 @@ we were given access to the **Pats__Covid_19_Cohort_1_Screening**.
 credentials.file = "/Users/karimmane/Documents/Karim/LSHTM/Data/.credentials_karim.ini"
 
 # reading all fields and records the project
-data = read_epi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening")
+data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening")
 project.data = data$data
 project.metadeta = data$metadata
 
 # reading specified fields and all records from the project
 fields = c("day_1_q_ran_id","redcap_event_name","day_1_q_1a","day_1_q_1b","day_1_q_1c","day_1_q_1","day_1_q_2","day_1_q_3","day_1_q_4","day_1_q_5")
-data = read_epi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening", fields = fields)
+data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening", fields = fields)
 
 # reading specified records and all fields from the project
 records = c("C10001/3","C10002/1","C10003/7","C10004/5","C10005/9","C10006/8","C10007/6","C10008/4","C10009/2","C10010/1")
-data = read_epi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening", records =  records)
+data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening", records =  records)
 
 # reading specified records and fields from the project
-data = read_epi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening", records =  records, fields = fields)
+data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening", records =  records, fields = fields)
 ```
 
 ### importing from HDSS or EMRS
 we were given access to the **IBS_BHDSS** database.   
 ```{r}
 # reading all fields and all records from the `dss_events` table
-data = read_epi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events")
+data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events")
 
 # reading specified fields and all records from the table
-data = read_epi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", fields = fields)
+data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", fields = fields)
 
 # reading specified records and all fields from the table
-data = read_epi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records)
+data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records)
 
 # reading specified fields and records from the table
-data = read_epi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records, fields = fields)
+data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records, fields = fields)
 ```
 
 

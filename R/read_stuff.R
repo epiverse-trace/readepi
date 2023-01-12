@@ -179,7 +179,7 @@ readMSsqlCredentials = function(credentials.file){
        port=credentials$port)
 }
 
-
+#' function to read data from REDCap
 #' @param uri the URI of the server   
 #' @param token the user-specific string that serves as the password for a project
 #' @param project.id the name of the project you want to import data from
@@ -294,11 +294,11 @@ readCredentials = function(file.path, project.id){
 #' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.   
 #' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.   
 #' @param id.position the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.  
-#' @example data = read_epi(credentials.file, project.id="test")
+#' @example data = readepi(credentials.file, project.id="test")
 #' @returns a list with 2 data frames (data and metadata) when reading from REDCap. A data frame otherwise.   
 #' @export
 #' 
-read_epi = function(credentials.file=NULL, 
+readepi = function(credentials.file=NULL, 
                     file.path=NULL, 
                     sep=NULL, 
                     format=NULL, 
