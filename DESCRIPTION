@@ -13,5 +13,14 @@ Imports:
     checkmate
 Suggests: 
     covr,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    odbc,
+    DBI,
+    R.utils,
+    writexl,
+    readr,
+    data.table,
+    tidyverse,
+    REDCapR,
+    rio
 Config/testthat/edition: 3
