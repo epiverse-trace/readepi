@@ -19,6 +19,24 @@
     <loc>/reference/index.html</loc>
   </url>
   <url>
+    <loc>/reference/readCredentials.html</loc>
+  </url>
+  <url>
+    <loc>/reference/readMSsqlCredentials.html</loc>
+  </url>
+  <url>
+    <loc>/reference/read_from_file.html</loc>
+  </url>
+  <url>
+    <loc>/reference/read_from_ms_sql_server.html</loc>
+  </url>
+  <url>
+    <loc>/reference/read_from_redcap.html</loc>
+  </url>
+  <url>
     <loc>/reference/read_stuff.html</loc>
+  </url>
+  <url>
+    <loc>/reference/readepi.html</loc>
   </url>
 </urlset>
