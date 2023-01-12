@@ -6,11 +6,18 @@ name: render-readme
 # - button trigger from github action page
 # - on changes to readme.Rmd
 
+# on:
+#   workflow_dispatch:
+#   push:
+#     branches:
+#       - 'main'
+#     paths:
+#       - 'README.Rmd'
+
+
 on:
   workflow_dispatch:
   push:
-    branches:
-      # - 'main'
     paths:
       - 'README.Rmd'
 
