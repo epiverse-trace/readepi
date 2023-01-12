@@ -24,7 +24,7 @@ on:
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 # Important: ubuntu-latest is not set up properly for R, so use macOS
 jobs:
-  render-readme:
+  render-readme:     
     runs-on: macos-latest
     env:
       GITHUB_PAT: ${{ secrets.PAT_TIBO }}
