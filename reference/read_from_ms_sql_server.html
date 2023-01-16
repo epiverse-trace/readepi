@@ -21,6 +21,12 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/readepi-vignette.html">readepi-vignette</a>
+  </div>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -107,8 +113,8 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">data</span> <span class="op">=</span> <span class="fu">read_from_relationalDB</span><span class="op">(</span>user<span class="op">=</span><span class="st">"kmane"</span>, password<span class="op">=</span><span class="st">"****"</span>, host<span class="op">=</span><span class="st">"robin.mrc.gm"</span>, port<span class="op">=</span><span class="fl">1433</span>, database.name<span class="op">=</span><span class="st">"mrcg_db"</span>, table.name<span class="op">=</span><span class="st">"test"</span>, driver.name<span class="op">=</span><span class="st">"ODBC Driver 17 for SQL Server"</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in read_from_relationalDB(user = "kmane", password = "****", host = "robin.mrc.gm",     port = 1433, database.name = "mrcg_db", table.name = "test",     driver.name = "ODBC Driver 17 for SQL Server"):</span> could not find function "read_from_relationalDB"</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">data</span> <span class="op">=</span> <span class="fu">read_from_ms_sql_server</span><span class="op">(</span>user<span class="op">=</span><span class="st">"kmane"</span>, password<span class="op">=</span><span class="st">"Dakabantang@KD23"</span>, host<span class="op">=</span><span class="st">"robin.mrc.gm"</span>, port<span class="op">=</span><span class="fl">1433</span>, database.name<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, table.name<span class="op">=</span><span class="st">"dss_events"</span>, driver.name<span class="op">=</span><span class="st">"ODBC Driver 17 for SQL Server"</span><span class="op">)</span></span></span>
+<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> nanodbc/nanodbc.cpp:1021: 00000: [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired  [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: Error code 0x2AF9  [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online.  [Microsoft][ODBC Driver 17 for SQL Server]Invalid connection string attribute </span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -116,7 +122,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Thibaut Jombart, Avinash Laddha.</p>
+  <p></p><p>Developed by Karim Mané, Thibaut Jombart, Avinash Laddha.</p>
 </div>
 
 <div class="pkgdown-footer-right">

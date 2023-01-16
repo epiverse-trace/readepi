@@ -21,6 +21,12 @@
       <ul class="navbar-nav me-auto"><li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="../articles/readepi-vignette.html">readepi-vignette</a>
+  </div>
+</li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
@@ -87,8 +93,35 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">redcap.data</span> <span class="op">=</span> <span class="fu">read_from_redcap</span><span class="op">(</span><span class="va">uri</span>, <span class="va">token</span>, <span class="va">project.id</span>, id_position<span class="op">=</span><span class="fl">1</span>, records<span class="op">=</span><span class="cn">NULL</span>, fields<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span></span>
-<span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error in read_from_redcap(uri, token, project.id, id_position = 1, records = NULL,     fields = NULL):</span> unused argument (id_position = 1)</span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">redcap.data</span> <span class="op">=</span> <span class="fu">read_from_redcap</span><span class="op">(</span>uri<span class="op">=</span><span class="st">"https://redcap.mrc.gm:8443/redcap/api/"</span>, token<span class="op">=</span><span class="st">"9D71857D60F4016AB7BFFDA65970D737"</span>, project.id<span class="op">=</span><span class="st">"Pats__Covid_19_Cohort_1_Screening"</span>, id.position<span class="op">=</span><span class="fl">1</span>, records<span class="op">=</span><span class="cn">NULL</span>, fields<span class="op">=</span><span class="cn">NULL</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Starting to read 280 records  at 2023-01-16 15:48:40.</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">──</span> <span style="font-weight: bold;">Column specification</span> <span style="color: #00BBBB;">────────────────────────────────────────────────────────</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> cols(</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   .default = col_double(),</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_ran_id = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   redcap_event_name = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_1a = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_1b = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_1c = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_1 = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_2 = <span style="color: #0000BB;">col_datetime(format = "")</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_4 = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_6c = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_oth_spc_vac = <span style="color: #BBBB00;">col_logical()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_9e = <span style="color: #0000BB;">col_date(format = "")</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_9hi = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_9f_2 = <span style="color: #0000BB;">col_date(format = "")</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_11 = <span style="color: #0000BB;">col_time(format = "")</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_14 = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_16 = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_16a = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_16d = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_17 = <span style="color: #BB0000;">col_character()</span>,</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   day_1_q_17a = <span style="color: #BB0000;">col_character()</span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span>   # ... with 509 more columns</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> )</span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">ℹ</span> Use `spec()` for the full column specifications.</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
@@ -96,7 +129,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Thibaut Jombart, Avinash Laddha.</p>
+  <p></p><p>Developed by Karim Mané, Thibaut Jombart, Avinash Laddha.</p>
 </div>
 
 <div class="pkgdown-footer-right">
