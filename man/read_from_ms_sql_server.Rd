@@ -45,5 +45,5 @@ a data frame
 function to read data from relational databases hosted by online MS SQL server. The user needs to have read access to the database et should install the appropriate MS driver that is compatible with the SQLServer version
 }
 \examples{
-data = read_from_relationalDB(user="kmane", password="****", host="robin.mrc.gm", port=1433, database.name="mrcg_db", table.name="test", driver.name="ODBC Driver 17 for SQL Server")
+data = read_from_ms_sql_server(user="kmane", password="Dakabantang@KD23", host="robin.mrc.gm", port=1433, database.name="IBS_BHDSS", table.name="dss_events", driver.name="ODBC Driver 17 for SQL Server")
 }

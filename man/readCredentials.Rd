@@ -6,6 +6,17 @@
 \usage{
 readCredentials(file.path, project.id)
 }
+\arguments{
+\item{file.path}{the path to the file with the user-specific credential details for the projects of interest.}
+
+\item{project.id}{for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to.}
+}
+\value{
+a list with the user credential details.
+}
 \description{
 function to read credentials from a configuration file
+}
+\examples{
+credentials = readCredentials(file.path=system.file("extdata", "test.ini", package = "readepi"), project.id="Pats__Covid_19_Cohort_1_Screening")
 }
