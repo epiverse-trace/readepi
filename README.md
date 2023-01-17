@@ -23,7 +23,35 @@ You can install the development version of readepi from
 
 ``` r
 # install.packages("devtools")
-#devtools::install_github("epiverse-trace/readepi")
+devtools::install_github("epiverse-trace/readepi")
+#> Downloading GitHub repo epiverse-trace/readepi@HEAD
+#> curl       (4.3.3 -> 5.0.0) [CRAN]
+#> timechange (0.1.1 -> 0.2.0) [CRAN]
+#> dbplyr     (2.2.1 -> 2.3.0) [CRAN]
+#> writexl    (1.4.1 -> 1.4.2) [CRAN]
+#> odbc       (1.3.3 -> 1.3.4) [CRAN]
+#> Installing 5 packages: curl, timechange, dbplyr, writexl, odbc
+#> Installing packages into '/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpdSyzGQ/temp_libpatha283730def6'
+#> (as 'lib' is unspecified)
+#> 
+#>   There are binary versions available but the source versions are later:
+#>        binary source needs_compilation
+#> dbplyr  2.2.1  2.3.0             FALSE
+#> odbc    1.3.3  1.3.4              TRUE
+#> 
+#> 
+#> The downloaded binary packages are in
+#>  /var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T//RtmpRIrEwY/downloaded_packages
+#> installing the source packages 'dbplyr', 'odbc'
+#> ── R CMD build ─────────────────────────────────────────────────────────────────
+#> * checking for file ‘/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpRIrEwY/remotesa2e411e855ab/epiverse-trace-readepi-087662d/DESCRIPTION’ ... OK
+#> * preparing ‘readepi’:
+#> * checking DESCRIPTION meta-information ... OK
+#> * checking for LF line-endings in source and make files and shell scripts
+#> * checking for empty or unneeded directories
+#> * building ‘readepi_0.0.1.tar.gz’
+#> Installing package into '/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpdSyzGQ/temp_libpatha283730def6'
+#> (as 'lib' is unspecified)
 suppressPackageStartupMessages(library(readepi))
 ```
 
@@ -177,17 +205,31 @@ data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening",
 we were given access to the **IBS_BHDSS** database.
 
 ``` r
-# reading all fields and all records from the `dss_events` table
+# reading all fields and all records from one table (`dss_events`)
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events")
 
-# reading specified fields and all records from the table
+# reading specified fields and all records from one table
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", fields = fields)
 
-# reading specified records and all fields from the table
+# reading specified records and all fields from one table
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records)
 
-# reading specified fields and records from the table
+# reading specified fields and records one the table
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records, fields = fields)
+
+# reading data from several tables
+table.names = "accounts,account_books,account_currencies" #can also be table.names = c("account"s,"account_books","account_currencies")
+data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names)
+
+# reading data from several tables and subsetting fields across tables
+table.names = "accounts,account_books,account_currencies" #can also be table.names = c("account"s,"account_books","account_currencies")
+#note that first string in the field vector corresponds to names to be subset from the first table specified in the `table.name` argument  
+fields = c("id,name,balance,created_by", "id,status,name", "id,name")
+data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, fields = fields)
+
+# reading data from several tables and subsetting records across tables 
+records = c("3,8,13", "1,2,3", "1")
+data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records)
 ```
 
 ## Development

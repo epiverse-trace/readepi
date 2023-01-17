@@ -11,7 +11,7 @@ read_from_ms_sql_server(
   port,
   database.name,
   driver.name,
-  table.name,
+  table.names,
   records = NULL,
   fields = NULL,
   id.position = 1
@@ -30,13 +30,13 @@ read_from_ms_sql_server(
 
 \item{driver.name}{the name of the MS driver. use \code{odbc::odbcListDrivers()} to display the list of installed drivers}
 
-\item{table.name}{the name of the target table}
+\item{table.names}{a vector or a comma-separated list of table names from the project or database}
 
 \item{records}{a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.}
 
-\item{fields}{a vector or a comma-separated string of column names. If provided, only those columns will be imported}
+\item{fields}{a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the \code{table.names} argument and so on...}
 
-\item{id.position}{the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.}
+\item{id.position}{a vector of the column positions of the variable that unique identifies the subjects in each table. This should only be specified when the column with the subject IDs is not the first column. default is 1.}
 }
 \value{
 a data frame
@@ -45,5 +45,5 @@ a data frame
 function to read data from relational databases hosted by online MS SQL server. The user needs to have read access to the database et should install the appropriate MS driver that is compatible with the SQLServer version
 }
 \examples{
-data = read_from_ms_sql_server(user="kmane", password="Dakabantang@KD23", host="robin.mrc.gm", port=1433, database.name="IBS_BHDSS", table.name="dss_events", driver.name="ODBC Driver 17 for SQL Server")
+data = read_from_ms_sql_server(user="kmane", password="Dakabantang@KD23", host="robin.mrc.gm", port=1433, database.name="IBS_BHDSS", table.names="dss_events", driver.name="ODBC Driver 17 for SQL Server")
 }

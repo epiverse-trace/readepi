@@ -14,7 +14,7 @@
 read_stuff <- function(x) {
   # check inputs
   checkmate::assertCharacter(x, len = 1L)
-  
+
   # do stuff
   x
 }
@@ -35,7 +35,7 @@ read_from_file = function(file.path, sep=NULL, format=NULL, which=NULL, pattern=
   if(!file.exists(file.path) & !dir.exists(file.path)){
     stop(file.path, " No such file or directory!")
   }
-  
+
   # reading data from file
   if(file.exists(file.path) & !dir.exists(file.path)){
     if(is.null(sep)){
@@ -47,7 +47,7 @@ read_from_file = function(file.path, sep=NULL, format=NULL, which=NULL, pattern=
       data = data.table::fread(file.path, sep = sep)
     }
   }
-  
+
   # reading several files from a directory
   if(dir.exists(file.path) & length(list.files(file.path))>0){
     if(!is.null(pattern)) data = rio::import_list(list.files(file.path, full.names = TRUE, pattern = pattern))
@@ -84,25 +84,83 @@ getExtension = function(file.path){
   extension
 }
 
+
+#' function to subset fields
+#' @param data.frame the input data frame
+#' @param fields the list of columns of interest
+#' @param table.name the table names
+#' @examples data = subsetFields(data.frame=res, fields="id,name,balance,created_by", table.name="accounts")
+#' @returns a list of 2 elements: the subset data frame and an integer that tells whether all fields were missing in the table (1) or not (0)
+#' @importFrom magrittr %>%
+#' @export
+subsetFields = function(data.frame, fields, table.name){
+  not.found = 0
+  target.fields = as.character(unlist(strsplit(fields, ",")))
+  idx = which(target.fields %in% names(data.frame))
+  if(length(idx)==0){
+    message("\nThere is no column named as: ",paste(target.fields, collapse = ", ")," in ",table.name)
+    not.found=1
+  }else if(length(idx) != length(target.fields)){
+    message("\nThe following fields were not found in ",table.name,": ",paste(target.fields[-idx], collapse = ", "))
+    target.fields = target.fields[idx]
+    data = data.frame %>% dplyr::select(all_of(target.fields))
+  }else{
+    data = data.frame %>% dplyr::select(all_of(target.fields))
+  }
+  list(data=data, not_found=not.found)
+}
+
+#' function to subset records
+#' @param data.frame the input data frame
+#' @param records the list of columns of interest
+#' @param id.position a vector of the column position of the variable that unique identifies the subjects. If not provided, it will assumes the first column as the subject ID column in all the tables
+#' @param table.name the table name
+#' @examples data = subsetRecords(data.frame, records, id.position=1, table.name)
+#' @returns a list of 2 elements: the subset data frame and an integer that tells whether all fields were missing in the table (1) or not (0)
+#' @importFrom magrittr %>%
+#' @export
+subsetRecords = function(data.frame, records, id.position=1, table.name){
+  not.found = 0
+  records = as.character(unlist(strsplit(records, ",")))
+  id.column.name = names(data.frame)[id.position]
+  if(is.numeric(data.frame[[id.column.name]])){
+    records = as.numeric(records)
+  }
+  idx = which(records %in% data.frame[[id.column.name]])
+  if(length(idx)==0){
+    message("\nThere is no subject ID named as: ",paste(records, collapse = ", ")," in ",table.name)
+    not.found=1
+  }else if(length(idx) != length(records)){
+    message("\nThe following records were not found in ",table.name,": ",paste(records[-idx], collapse = ", "))
+    records = records[idx]
+    data = data.frame %>% dplyr::filter(data.frame[[id.column.name]] %in% records)
+  }else{
+    data = data.frame %>% dplyr::filter(data.frame[[id.column.name]] %in% records)
+  }
+
+  list(data=data, not_found=not.found)
+}
+
+
 #' function to read data from relational databases hosted by online MS SQL server. The user needs to have read access to the database et should install the appropriate MS driver that is compatible with the SQLServer version
 #' @param user the user name
 #' @param password the user password
 #' @param host the name of the host server
 #' @param port the port ID
 #' @param database.name the name of the database that contains the table from which the data should be pulled
-#' @param table.name the name of the target table
+#' @param table.names a vector or a comma-separated list of table names from the project or database
 #' @param driver.name the name of the MS driver. use `odbc::odbcListDrivers()` to display the list of installed drivers
 #' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
-#' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported
-#' @param id.position the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.
+#' @param fields a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the `table.names` argument and so on...
+#' @param id.position a vector of the column positions of the variable that unique identifies the subjects in each table. This should only be specified when the column with the subject IDs is not the first column. default is 1.
 #' @returns a data frame
-#' @examples data = read_from_ms_sql_server(user="kmane", password="Dakabantang@KD23", host="robin.mrc.gm", port=1433, database.name="IBS_BHDSS", table.name="dss_events", driver.name="ODBC Driver 17 for SQL Server")
+#' @examples data = read_from_ms_sql_server(user="kmane", password="Dakabantang@KD23", host="robin.mrc.gm", port=1433, database.name="IBS_BHDSS", table.names="dss_events", driver.name="ODBC Driver 17 for SQL Server")
 #' @export
 #' @importFrom magrittr %>%
-read_from_ms_sql_server = function(user, password, host, port, database.name, driver.name, table.name, records=NULL, fields=NULL, id.position=1){
+read_from_ms_sql_server = function(user, password, host, port, database.name, driver.name, table.names, records=NULL, fields=NULL, id.position=1){
   # reading in user credentials
   # credentials = readMSsqlCredentials(credentials.file)
-  
+
   # establishing the connection to the server
   con = DBI::dbConnect(odbc::odbc(),
                        driver = driver.name,
@@ -111,47 +169,79 @@ read_from_ms_sql_server = function(user, password, host, port, database.name, dr
                        uid = user,
                        pwd = password,
                        port = as.numeric(port))
-  
+
   # listing the names of the tables present in the database
   tables = DBI::dbListTables(conn = con)
-  
+
   # checking if the specified table exists in the database
-  if(!(table.name %in% tables)){
-    stop("Could not found table called ",table.name," in ",database.name,"!\n")
+  if(is.character(table.names)){
+    table.names = as.character(unlist(strsplit(table.names, ",")))
   }
-  
-  # extract the data from the given table and store the output in an R object
-  sql = DBI::dbSendQuery(con,paste0("select * from ",table.name))
-  data = DBI::dbFetch(sql, -1)
-  DBI::dbClearResult(sql)
-  
+  idx = which(table.names %in% tables)
+  if(length(idx)==0){
+    stop("Could not found tables called ",paste(table.names, collapse = ", ")," in ",database.name,"!\n")
+  }else if(length(idx) != length(table.names)){
+    message("The following tables are not available in the database: ", paste(table.names[-idx], collapse = ", "))
+  }
+  table.names = table.names[idx]
+
+  # extract the data from the given tables and store the output in an R object
+  # subsetting the columns
+  data = list()
+  if(!is.null(fields)){
+    j=1
+    not.found=0
+    for(table in table.names){
+      cat("\nFetching data from",table)
+      sql = DBI::dbSendQuery(con,paste0("select * from ",table))
+      res = DBI::dbFetch(sql, -1)
+      DBI::dbClearResult(sql)
+      if(!is.na(fields[j])){
+        subset.data = subsetFields(res, fields[j], table)
+        data[[table]] = subset.data$data
+        not.found = not.found+subset.data$not_found
+        j=j+1
+      }else{
+        data[[table]] = res
+        j=j+1
+      }
+    }
+    if(not.found == length(table.names)){
+      stop("Specified fields not found in the tables of interest!")
+    }
+  }else{
+    for(table in table.names){
+      cat("\nFetching data from",table)
+      sql = DBI::dbSendQuery(con,paste0("select * from ",table))
+      data[[table]] = DBI::dbFetch(sql, -1)
+      DBI::dbClearResult(sql)
+    }
+  }
+  cat("\n")
+
+  # subsetting the records
+  if(!is.null(records)){
+    j=1
+    not.found=0
+    for(table in names(data)){
+      if(!is.na(records[j])){
+        id.position = ifelse(!is.na(id.position[j]), id.position[j], id.position[1])
+        res = subsetRecords(data[[table]], records[j], id.position, table)
+        data[[table]] = res$data
+        not.found = not.found+res$not_found
+        j=j+1
+      }
+    }
+  }
+  cat("\n")
+  if(not.found == length(table.names)){
+    stop("Specified records not found in the tables of interest!")
+  }
+
   # closing the connection
   DBI::dbDisconnect(conn = con)
-  
-  # subsetting
-  if(!is.null(fields)){
-    if(is.character(fields)){
-      fields = as.character(unlist(strsplit(fields, ",")))
-    }
-    if(!all((fields %in% names(data)))){
-      stop("Some of the specified fields do not exist in the table ",table.name)
-    }
-    data = data %>% dplyr::select(all_of(fields))
-  }
-  if(!is.null(records)){
-    if(is.character(records)){
-      records = as.character(unlist(strsplit(records, ",")))
-    }
-    id.column.name = names(data)[id.position]
-    if(is.numeric(data[[id.column.name]])){
-      records = as.numeric(records)
-    }
-    if(!all((records %in% data[[id.column.name]]))){
-      stop("Some of the specified records do not exist in the table ",table.name)
-    }
-    data = data %>% filter(data[[id.column.name]] %in% records)
-  }
-  
+
+  #return the dataset of interest
   data
 }
 
@@ -188,7 +278,7 @@ read_from_redcap = function(uri, token, project.id, id.position=1L, records=NULL
   # credentials = readCredentials(credentials.file, project.id)
   # redcap.uri = uri
   # token = token
-  
+
   # importing data and the metadata into R
   if(is.null(records) & is.null(fields)){
     # redcap.data = REDCapR::redcap_read_oneshot(redcap_uri = redcap.uri, token = token, records=NULL, fields=NULL, verbose = FALSE)
@@ -221,13 +311,13 @@ read_from_redcap = function(uri, token, project.id, id.position=1L, records=NULL
     redcap.data = REDCapR::redcap_read(redcap_uri = uri, token = token, id_position=as.integer(id.position), records_collapsed=records, verbose = FALSE)
     metadata = REDCapR::redcap_metadata_read(redcap_uri = uri, token = token, verbose = FALSE)
   }
-  
+
   # checking whether the importing was successful and extract the desired records and columns
   if(redcap.data$success & metadata$success){
     data = redcap.data$data
     meta = metadata$data
   }
-  
+
   # return the imported data
   list(data = data,
        metadata = meta)
@@ -244,7 +334,7 @@ readCredentials = function(file.path, project.id){
   if(!file.exists(file.path)){
     stop("Could not find ",file.path)
   }
-  
+
   credentials = data.table::fread(file.path, sep = "\t")
   if(ncol(credentials)!=7){
     stop("credential file should be tab-separated file with 7 columns.")
@@ -317,17 +407,17 @@ readepi = function(credentials.file=NULL,
                    records=NULL,
                    fields=NULL,
                    id.position=1){
-  
+
   # some check points
   if(!is.null(credentials.file) & !is.null(file.path)){
     stop("Impossible to import data from DBMS and file at the same time.")
   }
-  
+
   # reading from file
   if(!is.null(file.path)){
     res = read_from_file(file.path, sep=sep, format=format, which=which, pattern=pattern)
   }
-  
+
   # reading from DBMS
   if(!is.null(credentials.file)){
     credentials = readCredentials(credentials.file, project.id)
@@ -336,11 +426,11 @@ readepi = function(credentials.file=NULL,
                              records=records, fields=fields)
     }else if(credentials$dbms %in% c('sqlserver','SQLServer')){
       res = read_from_ms_sql_server(user=credentials$user, password=credentials$pwd, host=credentials$host, port=credentials$port,
-                                    database.name=credentials$project, table.name=table.name, driver.name=driver.name, records=records,
+                                    database.name=credentials$project, table.names=table.name, driver.name=driver.name, records=records,
                                     fields=fields)
     }
   }
-  
+
   res
 }
 
