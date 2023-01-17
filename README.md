@@ -27,7 +27,7 @@ devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
 #> Downloading GitHub repo epiverse-trace/readepi@HEAD
 #> 
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpLNsDaJ/remotesad6c634b7820/epiverse-trace-readepi-719a27f/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmptYDvkp/remotesae2e2ccd7bbd/epiverse-trace-readepi-6b4907c/DESCRIPTION’ ... OK
 #> * preparing ‘readepi’:
 #> * checking DESCRIPTION meta-information ... OK
 #> * installing the package to build vignettes
@@ -35,12 +35,15 @@ devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
 #> * checking for LF line-endings in source and make files and shell scripts
 #> * checking for empty or unneeded directories
 #> * building ‘readepi_0.0.1.tar.gz’
-#> Installing package into '/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpILig3C/temp_libpatha9903bd0a471'
+#> Installing package into '/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpILig3C/temp_libpatha990709b3ab0'
 #> (as 'lib' is unspecified)
 suppressPackageStartupMessages(library(readepi))
+```
 
-# browser the vignette
-# browseVignettes("readepi")
+## Vignette
+
+``` r
+browseVignettes("readepi")
 ```
 
 # Reading data from file or directory

@@ -35,9 +35,11 @@ You can install the development version of readepi from
 # install.packages("devtools")
 devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
 suppressPackageStartupMessages(library(readepi))
+```
 
-# browser the vignette
-# browseVignettes("readepi")
+## Vignette
+```{r eval=FALSE}
+browseVignettes("readepi")
 ```
 
 # Reading data from file or directory
