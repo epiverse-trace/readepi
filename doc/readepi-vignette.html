@@ -388,6 +388,88 @@ code > span.er { color: #a61717; background-color: #e3d2d2; }
 <span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Loading required package: REDCapR</span></span>
 <span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; </span></span>
 <span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co">#&gt; Loading required package: rio</span></span></code></pre></div>
+<div id="reading-data-from-file-or-directory" class="section level1">
+<h1>Reading data from file or directory</h1>
+<div id="importing-data-from-json-file" class="section level2">
+<h2>importing data from JSON file</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>file <span class="ot">=</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;test.json&quot;</span>, <span class="at">package =</span> <span class="st">&quot;readepi&quot;</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(<span class="at">file.path =</span> file)</span></code></pre></div>
+</div>
+<div id="importing-data-from-excel-file-with-2-sheets" class="section level2">
+<h2>importing data from excel file with 2 sheets</h2>
+<p>here we are importing from the second excel sheet</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>file <span class="ot">=</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;test.xlsx&quot;</span>, <span class="at">package =</span> <span class="st">&quot;readepi&quot;</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(<span class="at">file.path =</span> file, <span class="at">which =</span> <span class="st">&quot;Sheet2&quot;</span>)</span></code></pre></div>
+</div>
+<div id="importing-data-from-several-files-in-a-directory" class="section level2">
+<h2>importing data from several files in a directory</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reading all files in the given directory</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dir.path <span class="ot">=</span> <span class="st">&quot;inst/extdata&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(<span class="at">file.path =</span> dir.path)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="co"># reading only txt files</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(<span class="at">file.path =</span> dir.path, <span class="at">pattern =</span> <span class="st">&quot;txt&quot;</span>)</span></code></pre></div>
+</div>
+</div>
+<div id="importing-from-redcap" class="section level1">
+<h1>importing from REDCap</h1>
+<p>we were given access to the
+**Pats__Covid_19_Cohort_1_Screening**.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># display the structure of the credentials file</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">show_example_file</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># credentials.file = system.file(&quot;extdata&quot;, &quot;test.ini&quot;, package = &quot;readepi&quot;)</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="co"># reading all fields and records the project</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;Pats__Covid_19_Cohort_1_Screening&quot;</span>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>project.data <span class="ot">=</span> data<span class="sc">$</span>data</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>project.metadeta <span class="ot">=</span> data<span class="sc">$</span>metadata</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co"># reading specified fields and all records from the project</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>fields <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;day_1_q_ran_id&quot;</span>,<span class="st">&quot;redcap_event_name&quot;</span>,<span class="st">&quot;day_1_q_1a&quot;</span>,<span class="st">&quot;day_1_q_1b&quot;</span>,<span class="st">&quot;day_1_q_1c&quot;</span>,<span class="st">&quot;day_1_q_1&quot;</span>,<span class="st">&quot;day_1_q_2&quot;</span>,<span class="st">&quot;day_1_q_3&quot;</span>,<span class="st">&quot;day_1_q_4&quot;</span>,<span class="st">&quot;day_1_q_5&quot;</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;Pats__Covid_19_Cohort_1_Screening&quot;</span>, <span class="at">fields =</span> fields)</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co"># reading specified records and all fields from the project</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>records <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;C10001/3&quot;</span>,<span class="st">&quot;C10002/1&quot;</span>,<span class="st">&quot;C10003/7&quot;</span>,<span class="st">&quot;C10004/5&quot;</span>,<span class="st">&quot;C10005/9&quot;</span>,<span class="st">&quot;C10006/8&quot;</span>,<span class="st">&quot;C10007/6&quot;</span>,<span class="st">&quot;C10008/4&quot;</span>,<span class="st">&quot;C10009/2&quot;</span>,<span class="st">&quot;C10010/1&quot;</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;Pats__Covid_19_Cohort_1_Screening&quot;</span>, <span class="at">records =</span>  records)</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># reading specified records and fields from the project</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;Pats__Covid_19_Cohort_1_Screening&quot;</span>, <span class="at">records =</span>  records, <span class="at">fields =</span> fields)</span></code></pre></div>
+</div>
+<div id="importing-from-hdss-or-emrs" class="section level1">
+<h1>importing from HDSS or EMRS</h1>
+<p>we were given access to the <strong>IBS_BHDSS</strong> database.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># reading all fields and all records from one table (`dss_events`)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;IBS_BHDSS&quot;</span>, <span class="at">driver.name =</span> <span class="st">&quot;ODBC Driver 17 for SQL Server&quot;</span>, <span class="at">table.name =</span> <span class="st">&quot;dss_events&quot;</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co"># reading specified fields and all records from one table</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;IBS_BHDSS&quot;</span>, <span class="at">driver.name =</span> <span class="st">&quot;ODBC Driver 17 for SQL Server&quot;</span>, <span class="at">table.name =</span> <span class="st">&quot;dss_events&quot;</span>, <span class="at">fields =</span> fields)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># reading specified records and all fields from one table</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;IBS_BHDSS&quot;</span>, <span class="at">driver.name =</span> <span class="st">&quot;ODBC Driver 17 for SQL Server&quot;</span>, <span class="at">table.name =</span> <span class="st">&quot;dss_events&quot;</span>, <span class="at">records =</span> records)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># reading specified fields and records one the table</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;IBS_BHDSS&quot;</span>, <span class="at">driver.name =</span> <span class="st">&quot;ODBC Driver 17 for SQL Server&quot;</span>, <span class="at">table.name =</span> <span class="st">&quot;dss_events&quot;</span>, <span class="at">records =</span> records, <span class="at">fields =</span> fields)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># reading data from several tables</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>table.names <span class="ot">=</span> <span class="st">&quot;accounts,account_books,account_currencies&quot;</span> <span class="co">#can also be table.names = c(&quot;account&quot;s,&quot;account_books&quot;,&quot;account_currencies&quot;)</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;IBS_BHDSS&quot;</span>, <span class="at">driver.name =</span> <span class="st">&quot;ODBC Driver 17 for SQL Server&quot;</span>, <span class="at">table.name =</span> table.names)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="co"># reading data from several tables and subsetting fields across tables</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>table.names <span class="ot">=</span> <span class="st">&quot;accounts,account_books,account_currencies&quot;</span> <span class="co">#can also be table.names = c(&quot;account&quot;s,&quot;account_books&quot;,&quot;account_currencies&quot;)</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co">#note that first string in the field vector corresponds to names to be subset from the first table specified in the `table.name` argument  </span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>fields <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;id,name,balance,created_by&quot;</span>, <span class="st">&quot;id,status,name&quot;</span>, <span class="st">&quot;id,name&quot;</span>)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;IBS_BHDSS&quot;</span>, <span class="at">driver.name =</span> <span class="st">&quot;ODBC Driver 17 for SQL Server&quot;</span>, <span class="at">table.name =</span> table.names, <span class="at">fields =</span> fields)</span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># reading data from several tables and subsetting records across tables </span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co">#note that first string in the records vector corresponds to the subject ID to be subset from the first table specified in the `table.name` argument and so on... When the ID column is not the first column in a table, use the `id.position` </span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>records <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;3,8,13&quot;</span>, <span class="st">&quot;1,2,3&quot;</span>, <span class="st">&quot;1&quot;</span>)</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;IBS_BHDSS&quot;</span>, <span class="at">driver.name =</span> <span class="st">&quot;ODBC Driver 17 for SQL Server&quot;</span>, <span class="at">table.name =</span> table.names, <span class="at">records =</span> records)</span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="co"># reading data from several tables and subsetting records and fields across tables </span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>fields <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;id,name,balance,created_by&quot;</span>, <span class="st">&quot;id,status,name&quot;</span>, <span class="st">&quot;id,name&quot;</span>)</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>records <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;3,8,13&quot;</span>, <span class="st">&quot;1,2,3&quot;</span>, <span class="st">&quot;1&quot;</span>)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">readepi</span>(credentials.file, <span class="at">project.id=</span><span class="st">&quot;IBS_BHDSS&quot;</span>, <span class="at">driver.name =</span> <span class="st">&quot;ODBC Driver 17 for SQL Server&quot;</span>, <span class="at">table.name =</span> table.names, <span class="at">records =</span> records, <span class="at">fields =</span> fields)</span></code></pre></div>
+</div>
 
 
 
