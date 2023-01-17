@@ -55,7 +55,7 @@
 <span>  <span class="va">port</span>,</span>
 <span>  <span class="va">database.name</span>,</span>
 <span>  <span class="va">driver.name</span>,</span>
-<span>  <span class="va">table.name</span>,</span>
+<span>  <span class="va">table.names</span>,</span>
 <span>  records <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  fields <span class="op">=</span> <span class="cn">NULL</span>,</span>
 <span>  id.position <span class="op">=</span> <span class="fl">1</span></span>
@@ -88,8 +88,8 @@
 <dd><p>the name of the MS driver. use <code><a href="https://rdrr.io/pkg/odbc/man/odbcListDrivers.html" class="external-link">odbc::odbcListDrivers()</a></code> to display the list of installed drivers</p></dd>
 
 
-<dt>table.name</dt>
-<dd><p>the name of the target table</p></dd>
+<dt>table.names</dt>
+<dd><p>a vector or a comma-separated list of table names from the project or database</p></dd>
 
 
 <dt>records</dt>
@@ -97,11 +97,11 @@
 
 
 <dt>fields</dt>
-<dd><p>a vector or a comma-separated string of column names. If provided, only those columns will be imported</p></dd>
+<dd><p>a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the <code>table.names</code> argument and so on...</p></dd>
 
 
 <dt>id.position</dt>
-<dd><p>the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.</p></dd>
+<dd><p>a vector of the column positions of the variable that unique identifies the subjects in each table. This should only be specified when the column with the subject IDs is not the first column. default is 1.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -113,7 +113,7 @@
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">data</span> <span class="op">=</span> <span class="fu">read_from_ms_sql_server</span><span class="op">(</span>user<span class="op">=</span><span class="st">"kmane"</span>, password<span class="op">=</span><span class="st">"Dakabantang@KD23"</span>, host<span class="op">=</span><span class="st">"robin.mrc.gm"</span>, port<span class="op">=</span><span class="fl">1433</span>, database.name<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, table.name<span class="op">=</span><span class="st">"dss_events"</span>, driver.name<span class="op">=</span><span class="st">"ODBC Driver 17 for SQL Server"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">data</span> <span class="op">=</span> <span class="fu">read_from_ms_sql_server</span><span class="op">(</span>user<span class="op">=</span><span class="st">"kmane"</span>, password<span class="op">=</span><span class="st">"Dakabantang@KD23"</span>, host<span class="op">=</span><span class="st">"robin.mrc.gm"</span>, port<span class="op">=</span><span class="fl">1433</span>, database.name<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, table.names<span class="op">=</span><span class="st">"dss_events"</span>, driver.name<span class="op">=</span><span class="st">"ODBC Driver 17 for SQL Server"</span><span class="op">)</span></span></span>
 <span class="r-err co"><span class="r-pr">#&gt;</span> <span class="error">Error:</span> nanodbc/nanodbc.cpp:1021: 00000: [Microsoft][ODBC Driver 17 for SQL Server]Login timeout expired  [Microsoft][ODBC Driver 17 for SQL Server]TCP Provider: Error code 0x2AF9  [Microsoft][ODBC Driver 17 for SQL Server]A network-related or instance-specific error has occurred while establishing a connection to SQL Server. Server is not found or not accessible. Check if instance name is correct and if SQL Server is configured to allow remote connections. For more information see SQL Server Books Online.  [Microsoft][ODBC Driver 17 for SQL Server]Invalid connection string attribute </span>
 </code></pre></div>
     </div>

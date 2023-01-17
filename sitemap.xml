@@ -48,4 +48,10 @@
   <url>
     <loc>/reference/show_example_file.html</loc>
   </url>
+  <url>
+    <loc>/reference/subsetFields.html</loc>
+  </url>
+  <url>
+    <loc>/reference/subsetRecords.html</loc>
+  </url>
 </urlset>
