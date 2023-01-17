@@ -23,36 +23,24 @@ You can install the development version of readepi from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("epiverse-trace/readepi")
+devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
 #> Downloading GitHub repo epiverse-trace/readepi@HEAD
-#> curl       (4.3.3 -> 5.0.0) [CRAN]
-#> timechange (0.1.1 -> 0.2.0) [CRAN]
-#> dbplyr     (2.2.1 -> 2.3.0) [CRAN]
-#> writexl    (1.4.1 -> 1.4.2) [CRAN]
-#> odbc       (1.3.3 -> 1.3.4) [CRAN]
-#> Installing 5 packages: curl, timechange, dbplyr, writexl, odbc
-#> Installing packages into '/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpdSyzGQ/temp_libpatha283730def6'
-#> (as 'lib' is unspecified)
 #> 
-#>   There are binary versions available but the source versions are later:
-#>        binary source needs_compilation
-#> dbplyr  2.2.1  2.3.0             FALSE
-#> odbc    1.3.3  1.3.4              TRUE
-#> 
-#> 
-#> The downloaded binary packages are in
-#>  /var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T//RtmpRIrEwY/downloaded_packages
-#> installing the source packages 'dbplyr', 'odbc'
 #> ── R CMD build ─────────────────────────────────────────────────────────────────
-#> * checking for file ‘/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpRIrEwY/remotesa2e411e855ab/epiverse-trace-readepi-087662d/DESCRIPTION’ ... OK
+#> * checking for file ‘/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpLNsDaJ/remotesad6c634b7820/epiverse-trace-readepi-719a27f/DESCRIPTION’ ... OK
 #> * preparing ‘readepi’:
 #> * checking DESCRIPTION meta-information ... OK
+#> * installing the package to build vignettes
+#> * creating vignettes ... OK
 #> * checking for LF line-endings in source and make files and shell scripts
 #> * checking for empty or unneeded directories
 #> * building ‘readepi_0.0.1.tar.gz’
-#> Installing package into '/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpdSyzGQ/temp_libpatha283730def6'
+#> Installing package into '/private/var/folders/8_/94bmwfl969x84t1ctyxhbtdh0000gn/T/RtmpILig3C/temp_libpatha9903bd0a471'
 #> (as 'lib' is unspecified)
 suppressPackageStartupMessages(library(readepi))
+
+# browser the vignette
+# browseVignettes("readepi")
 ```
 
 # Reading data from file or directory
@@ -228,8 +216,14 @@ fields = c("id,name,balance,created_by", "id,status,name", "id,name")
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, fields = fields)
 
 # reading data from several tables and subsetting records across tables 
+#note that first string in the records vector corresponds to the subject ID to be subset from the first table specified in the `table.name` argument and so on... When the ID column is not the first column in a table, use the `id.position` 
 records = c("3,8,13", "1,2,3", "1")
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records)
+
+# reading data from several tables and subsetting records and fields across tables 
+fields = c("id,name,balance,created_by", "id,status,name", "id,name")
+records = c("3,8,13", "1,2,3", "1")
+data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records, fields = fields)
 ```
 
 ## Development
