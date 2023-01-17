@@ -119,7 +119,101 @@
 <span><span class="co">#&gt; Loading required package: REDCapR</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Loading required package: rio</span></span></code></pre></div>
-  </main>
+<div class="section level2">
+<h2 id="reading-data-from-file-or-directory">Reading data from file or directory<a class="anchor" aria-label="anchor" href="#reading-data-from-file-or-directory"></a>
+</h2>
+<div class="section level3">
+<h3 id="importing-data-from-json-file">importing data from JSON file<a class="anchor" aria-label="anchor" href="#importing-data-from-json-file"></a>
+</h3>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">file</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.json"</span>, package <span class="op">=</span> <span class="st">"readepi"</span><span class="op">)</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span>file.path <span class="op">=</span> <span class="va">file</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="importing-data-from-excel-file-with-2-sheets">importing data from excel file with 2 sheets<a class="anchor" aria-label="anchor" href="#importing-data-from-excel-file-with-2-sheets"></a>
+</h3>
+<p>here we are importing from the second excel sheet</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">file</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.xlsx"</span>, package <span class="op">=</span> <span class="st">"readepi"</span><span class="op">)</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span>file.path <span class="op">=</span> <span class="va">file</span>, which <span class="op">=</span> <span class="st">"Sheet2"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level3">
+<h3 id="importing-data-from-several-files-in-a-directory">importing data from several files in a directory<a class="anchor" aria-label="anchor" href="#importing-data-from-several-files-in-a-directory"></a>
+</h3>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># reading all files in the given directory</span></span>
+<span><span class="va">dir.path</span> <span class="op">=</span> <span class="st">"inst/extdata"</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span>file.path <span class="op">=</span> <span class="va">dir.path</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># reading only txt files</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span>file.path <span class="op">=</span> <span class="va">dir.path</span>, pattern <span class="op">=</span> <span class="st">"txt"</span><span class="op">)</span></span></code></pre></div>
+</div>
+</div>
+<div class="section level2">
+<h2 id="importing-from-redcap">importing from REDCap<a class="anchor" aria-label="anchor" href="#importing-from-redcap"></a>
+</h2>
+<p>we were given access to the
+**Pats__Covid_19_Cohort_1_Screening**.</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># display the structure of the credentials file</span></span>
+<span><span class="fu"><a href="../reference/show_example_file.html">show_example_file</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="co"># credentials.file = system.file("extdata", "test.ini", package = "readepi")</span></span>
+<span></span>
+<span><span class="co"># reading all fields and records the project</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"Pats__Covid_19_Cohort_1_Screening"</span><span class="op">)</span></span>
+<span><span class="va">project.data</span> <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">data</span></span>
+<span><span class="va">project.metadeta</span> <span class="op">=</span> <span class="va">data</span><span class="op">$</span><span class="va">metadata</span></span>
+<span></span>
+<span><span class="co"># reading specified fields and all records from the project</span></span>
+<span><span class="va">fields</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"day_1_q_ran_id"</span>,<span class="st">"redcap_event_name"</span>,<span class="st">"day_1_q_1a"</span>,<span class="st">"day_1_q_1b"</span>,<span class="st">"day_1_q_1c"</span>,<span class="st">"day_1_q_1"</span>,<span class="st">"day_1_q_2"</span>,<span class="st">"day_1_q_3"</span>,<span class="st">"day_1_q_4"</span>,<span class="st">"day_1_q_5"</span><span class="op">)</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"Pats__Covid_19_Cohort_1_Screening"</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># reading specified records and all fields from the project</span></span>
+<span><span class="va">records</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"C10001/3"</span>,<span class="st">"C10002/1"</span>,<span class="st">"C10003/7"</span>,<span class="st">"C10004/5"</span>,<span class="st">"C10005/9"</span>,<span class="st">"C10006/8"</span>,<span class="st">"C10007/6"</span>,<span class="st">"C10008/4"</span>,<span class="st">"C10009/2"</span>,<span class="st">"C10010/1"</span><span class="op">)</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"Pats__Covid_19_Cohort_1_Screening"</span>, records <span class="op">=</span>  <span class="va">records</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># reading specified records and fields from the project</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"Pats__Covid_19_Cohort_1_Screening"</span>, records <span class="op">=</span>  <span class="va">records</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="importing-from-hdss-or-emrs">importing from HDSS or EMRS<a class="anchor" aria-label="anchor" href="#importing-from-hdss-or-emrs"></a>
+</h2>
+<p>we were given access to the <strong>IBS_BHDSS</strong> database.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># reading all fields and all records from one table (`dss_events`)</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, driver.name <span class="op">=</span> <span class="st">"ODBC Driver 17 for SQL Server"</span>, table.name <span class="op">=</span> <span class="st">"dss_events"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># reading specified fields and all records from one table</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, driver.name <span class="op">=</span> <span class="st">"ODBC Driver 17 for SQL Server"</span>, table.name <span class="op">=</span> <span class="st">"dss_events"</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># reading specified records and all fields from one table</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, driver.name <span class="op">=</span> <span class="st">"ODBC Driver 17 for SQL Server"</span>, table.name <span class="op">=</span> <span class="st">"dss_events"</span>, records <span class="op">=</span> <span class="va">records</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># reading specified fields and records one the table</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, driver.name <span class="op">=</span> <span class="st">"ODBC Driver 17 for SQL Server"</span>, table.name <span class="op">=</span> <span class="st">"dss_events"</span>, records <span class="op">=</span> <span class="va">records</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># reading data from several tables</span></span>
+<span><span class="va">table.names</span> <span class="op">=</span> <span class="st">"accounts,account_books,account_currencies"</span> <span class="co">#can also be table.names = c("account"s,"account_books","account_currencies")</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, driver.name <span class="op">=</span> <span class="st">"ODBC Driver 17 for SQL Server"</span>, table.name <span class="op">=</span> <span class="va">table.names</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># reading data from several tables and subsetting fields across tables</span></span>
+<span><span class="va">table.names</span> <span class="op">=</span> <span class="st">"accounts,account_books,account_currencies"</span> <span class="co">#can also be table.names = c("account"s,"account_books","account_currencies")</span></span>
+<span><span class="co">#note that first string in the field vector corresponds to names to be subset from the first table specified in the `table.name` argument  </span></span>
+<span><span class="va">fields</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id,name,balance,created_by"</span>, <span class="st">"id,status,name"</span>, <span class="st">"id,name"</span><span class="op">)</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, driver.name <span class="op">=</span> <span class="st">"ODBC Driver 17 for SQL Server"</span>, table.name <span class="op">=</span> <span class="va">table.names</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># reading data from several tables and subsetting records across tables </span></span>
+<span><span class="co">#note that first string in the records vector corresponds to the subject ID to be subset from the first table specified in the `table.name` argument and so on... When the ID column is not the first column in a table, use the `id.position` </span></span>
+<span><span class="va">records</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"3,8,13"</span>, <span class="st">"1,2,3"</span>, <span class="st">"1"</span><span class="op">)</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, driver.name <span class="op">=</span> <span class="st">"ODBC Driver 17 for SQL Server"</span>, table.name <span class="op">=</span> <span class="va">table.names</span>, records <span class="op">=</span> <span class="va">records</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># reading data from several tables and subsetting records and fields across tables </span></span>
+<span><span class="va">fields</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"id,name,balance,created_by"</span>, <span class="st">"id,status,name"</span>, <span class="st">"id,name"</span><span class="op">)</span></span>
+<span><span class="va">records</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"3,8,13"</span>, <span class="st">"1,2,3"</span>, <span class="st">"1"</span><span class="op">)</span></span>
+<span><span class="va">data</span> <span class="op">=</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials.file</span>, project.id<span class="op">=</span><span class="st">"IBS_BHDSS"</span>, driver.name <span class="op">=</span> <span class="st">"ODBC Driver 17 for SQL Server"</span>, table.name <span class="op">=</span> <span class="va">table.names</span>, records <span class="op">=</span> <span class="va">records</span>, fields <span class="op">=</span> <span class="va">fields</span><span class="op">)</span></span></code></pre></div>
+</div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside>
 </div>
 
 
