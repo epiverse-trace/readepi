@@ -130,7 +130,14 @@ data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening",
 ```
 
 ### importing from HDSS or EMRS
-we were given access to the **IBS_BHDSS** database.   
+
+#### show list of tables in the database
+To show the list of tables in the database of interest:    
+```{r}
+showTables(credentials.file=system.file("extdata", "test.ini", package = "readepi"), project.id="IBS_BHDSS", driver.name="ODBC Driver 17 for SQL Server")
+```
+
+#### importing data
 ```{r eval=FALSE}
 # reading all fields and all records from one table (`dss_events`)
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events")

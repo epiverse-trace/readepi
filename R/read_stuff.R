@@ -142,13 +142,41 @@ subsetRecords = function(data.frame, records, id.position=1, table.name){
 }
 
 
+#' Function to display the list of tables in a database
+#' @param credentials.file the path to the file with the user-specific credential details for the projects of interest. See the help of the `readepi` function for more details.
+#' @param project.id the name of the target database
+#' @param driver.name the name of the MS driver. use `odbc::odbcListDrivers()` to display the list of installed drivers
+#' @examples  showTables(credentials.file=system.file("extdata", "test.ini", package = "readepi"), project.id="my_db", driver.name="ODBC Driver 17 for SQL Server")
+#' @returns the list of tables in the specified database
+#' @export
+#'
+showTables = function(credentials.file=NULL, project.id=NULL, driver.name=NULL){
+  # reading the credentials from the credential file
+  credentials = readCredentials(credentials.file, project.id)
+
+  # establishing the connection to the server
+  con = DBI::dbConnect(odbc::odbc(),
+                       driver = driver.name,
+                       server = credentials$host,
+                       database = credentials$project,
+                       uid = credentials$user,
+                       pwd = credentials$pwd,
+                       port = credentials$port)
+
+  # listing the names of the tables present in the database
+  tables = DBI::dbListTables(conn = con)
+  print(tables)
+}
+
+
+
 #' function to read data from relational databases hosted by online MS SQL server. The user needs to have read access to the database et should install the appropriate MS driver that is compatible with the SQLServer version
 #' @param user the user name
 #' @param password the user password
 #' @param host the name of the host server
 #' @param port the port ID
 #' @param database.name the name of the database that contains the table from which the data should be pulled
-#' @param table.names a vector or a comma-separated list of table names from the project or database
+#' @param table.names a vector or a comma-separated list of table names from the project or database. When this is not specified, the function will extract data from all tables in the database.
 #' @param driver.name the name of the MS driver. use `odbc::odbcListDrivers()` to display the list of installed drivers
 #' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
 #' @param fields a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the `table.names` argument and so on...
@@ -157,7 +185,7 @@ subsetRecords = function(data.frame, records, id.position=1, table.name){
 #' @examples data = read_from_ms_sql_server(user="kmane", password="****", host="robin.mrc.gm", port=1433, database.name="my_db", table.names="my_table", driver.name="ODBC Driver 17 for SQL Server")
 #' @export
 #' @importFrom magrittr %>%
-read_from_ms_sql_server = function(user, password, host, port, database.name, driver.name, table.names, records=NULL, fields=NULL, id.position=1){
+read_from_ms_sql_server = function(user, password, host, port, database.name, driver.name, table.names=NULL, records=NULL, fields=NULL, id.position=1){
   # reading in user credentials
   # credentials = readMSsqlCredentials(credentials.file)
 
@@ -174,16 +202,30 @@ read_from_ms_sql_server = function(user, password, host, port, database.name, dr
   tables = DBI::dbListTables(conn = con)
 
   # checking if the specified table exists in the database
-  if(is.character(table.names)){
-    table.names = as.character(unlist(strsplit(table.names, ",")))
+  if(!is.null(table.names)){
+    if(is.character(table.names)){
+      table.names = as.character(unlist(strsplit(table.names, ",")))
+    }
+    idx = which(table.names %in% tables)
+    if(length(idx)==0){
+      message("Could not found tables called ",paste(table.names, collapse = ", ")," in ",database.name,"!\n")
+      cat("\nBelow is the list of all tables in the specified database:\n")
+      print(tables)
+      stop()
+    }else if(length(idx) != length(table.names)){
+      message("The following tables are not available in the database: ", paste(table.names[-idx], collapse = ", "))
+    }
+    table.names = table.names[idx]
+  }else{
+    warning("No table name was specified. Data from all tables will be fetched.")
+    for(table in tables){
+      cat("\nFetching data from",table)
+      sql = DBI::dbSendQuery(con,paste0("select * from ",table))
+      data[[table]] = DBI::dbFetch(sql, -1)
+      DBI::dbClearResult(sql)
+    }
   }
-  idx = which(table.names %in% tables)
-  if(length(idx)==0){
-    stop("Could not found tables called ",paste(table.names, collapse = ", ")," in ",database.name,"!\n")
-  }else if(length(idx) != length(table.names)){
-    message("The following tables are not available in the database: ", paste(table.names[-idx], collapse = ", "))
-  }
-  table.names = table.names[idx]
+
 
   # extract the data from the given tables and store the output in an R object
   # subsetting the columns
@@ -330,9 +372,12 @@ read_from_redcap = function(uri, token, project.id, id.position=1L, records=NULL
 #' @returns  a list with the user credential details.
 #' @examples credentials = readCredentials(file.path=system.file("extdata", "test.ini", package = "readepi"), project.id="Pats__Covid_19_Cohort_1_Screening")
 #' @export
-readCredentials = function(file.path, project.id){
-  if(!file.exists(file.path)){
+readCredentials = function(file.path=NULL, project.id=NULL){
+  if(!file.exists(file.path) | is.null(file.path)){
     stop("Could not find ",file.path)
+  }
+  if(is.null(project.id)){
+    stop("Database name or project ID nor specified!")
   }
 
   credentials = data.table::fread(file.path, sep = "\t")

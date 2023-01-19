@@ -4,7 +4,7 @@
 \alias{readCredentials}
 \title{function to read credentials from a configuration file}
 \usage{
-readCredentials(file.path, project.id)
+readCredentials(file.path = NULL, project.id = NULL)
 }
 \arguments{
 \item{file.path}{the path to the file with the user-specific credential details for the projects of interest.}
