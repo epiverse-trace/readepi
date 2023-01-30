@@ -47,7 +47,7 @@ we were given access to the **Pats__Covid_19_Cohort_1_Screening**.
 ```{r eval=FALSE}
 # display the structure of the credentials file
 show_example_file()
-# credentials.file = system.file("extdata", "test.ini", package = "readepi")
+credentials.file = system.file("extdata", "test.ini", package = "readepi")
 
 # reading all fields and records the project
 data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening")

@@ -33,7 +33,7 @@ You can install the development version of readepi from
 
 ```{r}
 # install.packages("devtools")
-devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
+#devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
 suppressPackageStartupMessages(library(readepi))
 ```
 
@@ -171,6 +171,57 @@ fields = c("id,name,balance,created_by", "id,status,name", "id,name")
 records = c("3,8,13", "1,2,3", "1")
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records, fields = fields)
 ```
+
+# Processing the genomic data
+To account for the genomic data in the analysis, our suggested input file format is: [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format. This is a common file format in the field of **Bioinformatics**.     
+The `readepi` package contains functions that can perform genome assembly on genomic sequences from [nanopore](https://nanoporetech.com) as well as [illumina](https://www.illumina.com) platform.      
+It also contains a function for **clade assignment** using both [nextclade](https://clades.nextstrain.org/) and [pangolin](https://cov-lineages.org/resources/pangolin.html).      
+Currently, these function can only be run on a **Linux system** or **Mac OS**.    
+
+## Genome assembly of nanopore reads
+Nanopore sequences are assembled using the [ARTIC](https://artic.network/ncov-2019/ncov2019-bioinformatics-sop.html) pipeline. After creating the **conda environment** for ARTIC, use the function `genome_assembly()` with the following parameters:   
+
+* `input.dir`: the path to the folder with the input fastq files. Each sample/barcode will have a directory in this folder,     
+* `assembly.dir`: the path to the folder where the output files from the genome assembly will be stored,     
+* `consensus.fasta.dir`: the path to the folder where the merged consensus fasta file will be stored. That file is the one that will be used for the subsequent analysis,      
+* `num.samples`: the number of samples in the dataset. This will serve for the parallelisation purpose to speed up the genome assembly process,     
+* `device`: the name of the nanopore sequencing device (either _MinION_ or _PromethION_),      
+* `partition`: the partition name. Only set this when running on a HPC, default is NULL.    
+
+### Genome assembly of nanopore reads on PC (Mac OS or linux system)
+```{r eval=FALSE}
+genome_assembly(input.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Covadis", 
+                assembly.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/genome_assembly", 
+                consensus.fasta.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/consensus_dir", 
+                num.samples=60, 
+                device="MinION", 
+                partition=NULL)
+```
+
+### Genome assembly of nanopore reads on HPC
+```{r eval=FALSE}
+genome_assembly(input.dir="/nfsscratch/Karim/LSHTM/Covadis", 
+                assembly.dir="/nfsscratch/Karim/LSHTM/assembly_results", 
+                consensus.fasta.dir="/nfsscratch/Karim/LSHTM/consensus_dir", 
+                num.samples=60, 
+                device="MinION", 
+                partition="standard")
+```
+
+## Genome assembly of illumina reads
+
+
+## Clade assignment
+After generating the consensus genome for each samples and merging them into a single file (this is done by the step above), the clade assignment can be performed using the `clade_assignment()`. This function assumes that both **nextclade** and **pangolin** are installed using **conda**. The `clade_assignment()` function needs arguments below:    
+
+* `merged.fasta`: path to the fasta file with the sequences from all samples. This corresponds to file in the folder specified by the `consensus.fasta.dir` argument in the genome assembly step,     
+* `output.dir`: path to the folder where the clade assignment results will be stored.     
+
+```{r eval=FALSE}
+clade_assignment(merged.fasta="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/consensu_dir/consensus_genomes.fasta", 
+                 output.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/clade_assignment")
+```
+
 
 
 
