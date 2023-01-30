@@ -28,6 +28,8 @@ Depends:
     data.table,
     tidyverse,
     REDCapR,
-    rio
+    rio,
+    parallel,
+    doParallel
 Config/testthat/edition: 3
 VignetteBuilder: knitr
