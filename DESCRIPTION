@@ -30,6 +30,8 @@ Depends:
     REDCapR,
     rio,
     parallel,
-    doParallel
+    doParallel,
+    datimutils,
+    httr
 Config/testthat/edition: 3
 VignetteBuilder: knitr
