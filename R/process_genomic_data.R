@@ -27,7 +27,7 @@ genome_assembly = function(input.dir, assembly.dir, consensus.fasta.dir, num.sam
 
   # identifying the support system
   if(grepl("Darwin", system(sprintf("uname -a"), intern = TRUE)) | is.null(partition)){
-    cat("\nRunning genome assembly on Mac OS ...")
+    cat("\nRunning genome assembly on Mac OS ...\n")
     sample.dirs = list.dirs(input.dir, recursive = FALSE, full.names = TRUE)
     if(length(sample.dirs)==0){
       stop("Fastq files must be stored in individual directories, 1 derectory per sample")
@@ -51,7 +51,7 @@ genome_assembly = function(input.dir, assembly.dir, consensus.fasta.dir, num.sam
                    assembly.dir,
                    consensus.fasta.dir))
   }else{
-    cat("\nRunning genome assembly on HPC ...")
+    cat("\nRunning genome assembly on HPC ...\n")
     if(num.samples>5){
       jid = system(sprintf("sbatch -J \"%s\" --partition=%s --qos=%s --array=[1-%d]%%5 covid_assembly_artic.sh --input-dir %s --output-dir %s",
                            "genome_assembly",

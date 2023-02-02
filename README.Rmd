@@ -133,7 +133,7 @@ data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening",
 
 #### show list of tables in the database
 To show the list of tables in the database of interest:    
-```{r}
+```{r eval=FALSE}
 showTables(credentials.file=system.file("extdata", "test.ini", package = "readepi"), project.id="IBS_BHDSS", driver.name="ODBC Driver 17 for SQL Server")
 ```
 
@@ -218,8 +218,8 @@ After generating the consensus genome for each samples and merging them into a s
 * `output.dir`: path to the folder where the clade assignment results will be stored.     
 
 ```{r eval=FALSE}
-clade_assignment(merged.fasta="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/consensu_dir/consensus_genomes.fasta", 
-                 output.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/clade_assignment")
+clade_assignment(merged.fasta="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_consensus/consensus_genomes.fasta", 
+                 output.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_assignment")
 ```
 
 
