@@ -413,6 +413,42 @@ show_example_file = function(){
 }
 
 
+#' function to import data into R form DHIS2
+#' @param base.url the web address of the server the user wishes to log in to
+#' @param user the user name
+#' @param password the user password
+#' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
+#' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
+#' @examples
+#' @returns
+#' @export
+read_from_dhis2 = function(base.url, user, password, records=NULL, fields=NULL){
+  if(!is.null(records) & !is.null(fields)){
+    # use datimutils package to read user specified records and fields
+    if(is.vector(fields)){
+      fields = paste(fields, collapse = ",")
+    }
+    if(is.character(records)){
+      records = as.character(unlist(strsplit(records,",")))
+    }
+    datimutils::loginToDATIM(username = user, password = password, base_url = base.url)
+    data = datimutils::getDataElementGroups(records, fields = fields)
+  }else if(is.null(records) & is.null(fields)){
+    # use httr and readr packages to read the entire dataset
+    login = httr::GET(base.url, httr::authenticate(user,password))
+    if(login$status != 200L){
+      stop("Could not login")
+    }
+    data = paste0(base.url,"api/reportTables/KJFbpIymTAo/data.csv") %>% #Define the API endpoint
+      httr::GET(.,httr::authenticate(user,password)) %>% #Make the HTTP call
+      httr::content(.,"text") %>% #Read the response
+      readr::read_csv() #Parse the CSV
+  }
+
+  data
+}
+
+
 
 #' Function to import epidemiology-related data from different sources into R
 #' @description the function allows import of data stored in database management systems (DBMS) including both relational and NoSQL databases. It also contains functions to import data from common file types such as csv, txt, xlsx, xml, json, etc.
@@ -473,6 +509,9 @@ readepi = function(credentials.file=NULL,
       res = read_from_ms_sql_server(user=credentials$user, password=credentials$pwd, host=credentials$host, port=credentials$port,
                                     database.name=credentials$project, table.names=table.name, driver.name=driver.name, records=records,
                                     fields=fields)
+    }else if(credentials$dbms %in% c('dhis2','DHIS2')){
+      res = read_from_dhis2(base.url=credentials$host, password=credentials$pwd, user=credentials$user, project.id=credentials$project,
+                            id.position=id.position, records=records, fields=fields)
     }
   }
 
