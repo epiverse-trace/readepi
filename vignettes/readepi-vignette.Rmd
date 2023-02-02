@@ -68,7 +68,7 @@ data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening",
 
 # importing from HDSS or EMRS
 To show the list of all tables in that database:      
-```{r}
+```{r eval=FALSE}
 showTables(credentials.file=system.file("extdata", "test.ini", package = "readepi"), project.id="IBS_BHDSS", driver.name="ODBC Driver 17 for SQL Server")
 ```
 

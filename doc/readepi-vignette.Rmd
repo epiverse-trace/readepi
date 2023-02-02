@@ -47,7 +47,7 @@ we were given access to the **Pats__Covid_19_Cohort_1_Screening**.
 ```{r eval=FALSE}
 # display the structure of the credentials file
 show_example_file()
-# credentials.file = system.file("extdata", "test.ini", package = "readepi")
+credentials.file = system.file("extdata", "test.ini", package = "readepi")
 
 # reading all fields and records the project
 data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening")
@@ -67,7 +67,12 @@ data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening",
 ```
 
 # importing from HDSS or EMRS
-we were given access to the **IBS_BHDSS** database.   
+To show the list of all tables in that database:      
+```{r eval=FALSE}
+showTables(credentials.file=system.file("extdata", "test.ini", package = "readepi"), project.id="IBS_BHDSS", driver.name="ODBC Driver 17 for SQL Server")
+```
+
+data import:      
 ```{r eval=FALSE}
 # reading all fields and all records from one table (`dss_events`)
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events")

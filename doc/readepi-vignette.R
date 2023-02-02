@@ -26,7 +26,7 @@ library(readepi)
 ## ----eval=FALSE---------------------------------------------------------------
 #  # display the structure of the credentials file
 #  show_example_file()
-#  # credentials.file = system.file("extdata", "test.ini", package = "readepi")
+#  credentials.file = system.file("extdata", "test.ini", package = "readepi")
 #  
 #  # reading all fields and records the project
 #  data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening")
@@ -43,6 +43,9 @@ library(readepi)
 #  
 #  # reading specified records and fields from the project
 #  data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening", records =  records, fields = fields)
+
+## ----eval=FALSE---------------------------------------------------------------
+#  showTables(credentials.file=system.file("extdata", "test.ini", package = "readepi"), project.id="IBS_BHDSS", driver.name="ODBC Driver 17 for SQL Server")
 
 ## ----eval=FALSE---------------------------------------------------------------
 #  # reading all fields and all records from one table (`dss_events`)
