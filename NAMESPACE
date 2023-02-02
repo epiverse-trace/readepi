@@ -3,6 +3,7 @@
 export(clade_assignment)
 export(genome_assembly)
 export(readCredentials)
+export(read_from_dhis2)
 export(read_from_file)
 export(read_from_ms_sql_server)
 export(read_from_redcap)
