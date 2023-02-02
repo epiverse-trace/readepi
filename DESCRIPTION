@@ -12,14 +12,7 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.2.3
 Imports:
     checkmate,
-    magrittr
-Suggests: 
-    covr,
-    testthat (>= 3.0.0),
-    knitr,
-    rmarkdown,
-    devtools
-Depends: 
+    magrittr,
     odbc,
     DBI,
     R.utils,
@@ -33,5 +26,13 @@ Depends:
     doParallel,
     datimutils,
     httr
+Suggests: 
+    covr,
+    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    devtools
+Remotes:
+  pepfar-datim/datimutils
 Config/testthat/edition: 3
 VignetteBuilder: knitr
