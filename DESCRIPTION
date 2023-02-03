@@ -24,7 +24,6 @@ Imports:
     rio,
     parallel,
     doParallel,
-    datimutils,
     httr
 Suggests: 
     covr,
