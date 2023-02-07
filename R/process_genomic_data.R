@@ -7,10 +7,10 @@
 #' @param num.samples the number of samples in the dataset
 #' @param device the sequencing device (either MinION or PromethION)
 #' @param partition the partition. Only set this when running on a HPC, default is NULL
-#' @examples genome_assembly(input.dir, assembly.dir, consensus.fasta.dir, num.samples, device="MinION", partition=NULL)
 #' @returns the output of this function is the merged fasta file that will be in the folder specified using the consensus.fasta.dir parameter
 #' @export
 genome_assembly = function(input.dir, assembly.dir, consensus.fasta.dir, num.samples, device="MinION", partition=NULL){
+  #@examples genome_assembly(input.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam_10", assembly.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_assembly", consensus.fasta.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_consensus", num.samples=5, device="MinION", partition=NULL)
   # checking the input parameters
   if(!dir.exists(input.dir)){
     stop(input.dir," not found!")
@@ -33,7 +33,8 @@ genome_assembly = function(input.dir, assembly.dir, consensus.fasta.dir, num.sam
       stop("Fastq files must be stored in individual directories, 1 derectory per sample")
     }
     cores = parallel::detectCores()-1
-    cl = parallel::makeCluster(cores)
+    cl = ifelse(num.samples<cores, parallel::makeCluster(num.samples), parallel::makeCluster(cores))
+    # cl = parallel::makeCluster(cores)
     doParallel::registerDoParallel(cl)
     num.threads=2
     foreach::foreach(i=1:length(sample.dirs)) %dopar%{
@@ -88,7 +89,7 @@ genome_assembly = function(input.dir, assembly.dir, consensus.fasta.dir, num.sam
 #' @param output.dir path to the folder where the clade assignment results will be stored
 #' @details install both nextclade and pangolin using **conda**
 #' @returns the output files in the specified output directory
-#' @examples clade_assignment(merged.fasta, output.dir)
+#' @examples clade_assignment(merged.fasta="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_consensus/consensus_genomes.fasta", output.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_assignment")
 #' @export
 clade_assignment = function(merged.fasta, output.dir){
   if(!file.exists(merged.fasta)){

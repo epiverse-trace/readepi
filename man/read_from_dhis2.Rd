@@ -17,6 +17,9 @@ read_from_dhis2(base.url, user, password, records = NULL, fields = NULL)
 
 \item{fields}{a vector or a comma-separated string of column names. If provided, only those columns will be imported.}
 }
+\value{
+a data frame
+}
 \description{
 function to import data into R form DHIS2
 }

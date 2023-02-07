@@ -21,6 +21,3 @@ a list of 2 elements: the subset data frame and an integer that tells whether al
 \description{
 function to subset records
 }
-\examples{
-data = subsetRecords(data.frame, records, id.position=1, table.name)
-}
