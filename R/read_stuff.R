@@ -89,7 +89,7 @@ getExtension = function(file.path){
 #' @param data.frame the input data frame
 #' @param fields the list of columns of interest
 #' @param table.name the table names
-#' @examples data = subsetFields(data.frame=res, fields="id,name,balance,created_by", table.name="accounts")
+#' @examples data = subsetFields(data.frame=data.frame, fields="id,data_entry_date", table.name="dss_events")
 #' @returns a list of 2 elements: the subset data frame and an integer that tells whether all fields were missing in the table (1) or not (0)
 #' @importFrom magrittr %>%
 #' @export
@@ -115,7 +115,6 @@ subsetFields = function(data.frame, fields, table.name){
 #' @param records the list of columns of interest
 #' @param id.position a vector of the column position of the variable that unique identifies the subjects. If not provided, it will assumes the first column as the subject ID column in all the tables
 #' @param table.name the table name
-#' @examples data = subsetRecords(data.frame, records, id.position=1, table.name)
 #' @returns a list of 2 elements: the subset data frame and an integer that tells whether all fields were missing in the table (1) or not (0)
 #' @importFrom magrittr %>%
 #' @export
@@ -126,16 +125,22 @@ subsetRecords = function(data.frame, records, id.position=1, table.name){
   if(is.numeric(data.frame[[id.column.name]])){
     records = as.numeric(records)
   }
-  idx = which(records %in% data.frame[[id.column.name]])
+  # idx = which(records %in% data.frame[[id.column.name]])
+  m = match(records, data.frame[[id.column.name]])
+  idx = m[!is.na(m)]
   if(length(idx)==0){
     message("\nThere is no subject ID named as: ",paste(records, collapse = ", ")," in ",table.name)
     not.found=1
   }else if(length(idx) != length(records)){
-    message("\nThe following records were not found in ",table.name,": ",paste(records[-idx], collapse = ", "))
-    records = records[idx]
-    data = data.frame %>% dplyr::filter(data.frame[[id.column.name]] %in% records)
+    mm = which(is.na(m))
+    message("\nThe following records were not found in ",table.name,": ",paste(records[mm], collapse = ", "))
+    # records = records[idx]
+    # data = data.frame %>% dplyr::filter(data.frame[[id.column.name]] %in% records)
+    data = data.frame[idx,]
   }else{
-    data = data.frame %>% dplyr::filter(data.frame[[id.column.name]] %in% records)
+    # records = records[idx]
+    data = data.frame[idx,]
+    # data = data.frame %>% dplyr::filter(data.frame[[id.column.name]] %in% records)
   }
 
   list(data=data, not_found=not.found)
@@ -146,7 +151,7 @@ subsetRecords = function(data.frame, records, id.position=1, table.name){
 #' @param credentials.file the path to the file with the user-specific credential details for the projects of interest. See the help of the `readepi` function for more details.
 #' @param project.id the name of the target database
 #' @param driver.name the name of the MS driver. use `odbc::odbcListDrivers()` to display the list of installed drivers
-#' @examples  showTables(credentials.file=system.file("extdata", "test.ini", package = "readepi"), project.id="my_db", driver.name="ODBC Driver 17 for SQL Server")
+#' @examples  showTables(credentials.file=system.file("extdata", "test.ini", package = "readepi"), project.id="IBS_BHDSS", driver.name="ODBC Driver 17 for SQL Server")
 #' @returns the list of tables in the specified database
 #' @export
 #'
@@ -182,7 +187,7 @@ showTables = function(credentials.file=NULL, project.id=NULL, driver.name=NULL){
 #' @param fields a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the `table.names` argument and so on...
 #' @param id.position a vector of the column positions of the variable that unique identifies the subjects in each table. This should only be specified when the column with the subject IDs is not the first column. default is 1.
 #' @returns a data frame
-#' @examples data = read_from_ms_sql_server(user="kmane", password="****", host="robin.mrc.gm", port=1433, database.name="my_db", table.names="my_table", driver.name="ODBC Driver 17 for SQL Server")
+#' @examples data = read_from_ms_sql_server(user="kmane", password="Dakabantang@KD23", host="robin.mrc.gm", port=1433, database.name="IBS_BHDSS", table.names="dss_events", driver.name="ODBC Driver 17 for SQL Server")
 #' @export
 #' @importFrom magrittr %>%
 read_from_ms_sql_server = function(user, password, host, port, database.name, driver.name, table.names=NULL, records=NULL, fields=NULL, id.position=1){
@@ -274,12 +279,11 @@ read_from_ms_sql_server = function(user, password, host, port, database.name, dr
         j=j+1
       }
     }
+    if(not.found == length(table.names)){
+      stop("Specified records not found in the tables of interest!")
+    }
   }
   cat("\n")
-  if(not.found == length(table.names)){
-    stop("Specified records not found in the tables of interest!")
-  }
-
   # closing the connection
   DBI::dbDisconnect(conn = con)
 
@@ -312,7 +316,7 @@ readMSsqlCredentials = function(credentials.file){
 #' @param id.position the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.
 #' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
 #' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
-#' @examples redcap.data = read_from_redcap(uri="https://redcap.mrc.gm:8443/redcap/api/", token="9B11857D60F4019GK7BFFDA65970B007", project.id="Pats__Covid_19_Cohort_1_Screening", id.position=1, records=NULL, fields=NULL)
+#' @examples redcap.data = read_from_redcap(uri="https://redcap.mrc.gm:8443/redcap/api/", token="9D71857D60F4016AB7BFFDA65970D737", project.id="Pats__Covid_19_Cohort_1_Screening", id.position=1, records=NULL, fields=NULL)
 #' @returns a list with 2 data frames: the data of interest and the metadata associated to the data.
 #' @export
 read_from_redcap = function(uri, token, project.id, id.position=1L, records=NULL, fields=NULL){
@@ -418,33 +422,32 @@ show_example_file = function(){
 #' @param password the user password
 #' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
 #' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
-#' @examples
-#' @returns
+#' @returns a data frame
 #' @export
 read_from_dhis2 = function(base.url, user, password, records=NULL, fields=NULL){
-  # if(!is.null(records) & !is.null(fields)){
-  #   # use datimutils package to read user specified records and fields
-  #   if(is.vector(fields)){
-  #     fields = paste(fields, collapse = ",")
-  #   }
-  #   if(is.character(records)){
-  #     records = as.character(unlist(strsplit(records,",")))
-  #   }
-  #   datimutils::loginToDATIM(username = user, password = password, base_url = base.url)
-  #   data = datimutils::getDataElementGroups(records, fields = fields)
-  # }else if(is.null(records) & is.null(fields)){
-  #   # use httr and readr packages to read the entire dataset
-  #   login = httr::GET(base.url, httr::authenticate(user,password))
-  #   if(login$status != 200L){
-  #     stop("Could not login")
-  #   }
-  #   data = paste0(base.url,"api/reportTables/KJFbpIymTAo/data.csv") %>% #Define the API endpoint
-  #     httr::GET(.,httr::authenticate(user,password)) %>% #Make the HTTP call
-  #     httr::content(.,"text") %>% #Read the response
-  #     readr::read_csv() #Parse the CSV
-  # }
-  #
-  # data
+  if(!is.null(records) & !is.null(fields)){
+    # use datimutils package to read user specified records and fields
+    if(is.vector(fields)){
+      fields = paste(fields, collapse = ",")
+    }
+    if(is.character(records)){
+      records = as.character(unlist(strsplit(records,",")))
+    }
+    datimutils::loginToDATIM(username = user, password = password, base_url = base.url)
+    data = datimutils::getDataElementGroups(records, fields = fields)
+  }else if(is.null(records) & is.null(fields)){
+    # use httr and readr packages to read the entire dataset
+    login = httr::GET(base.url, httr::authenticate(user,password))
+    if(login$status != 200L){
+      stop("Could not login")
+    }
+    data = paste0(base.url,"api/reportTables/KJFbpIymTAo/data.csv") %>% #Define the API endpoint
+      httr::GET(.,httr::authenticate(user,password)) %>% #Make the HTTP call
+      httr::content(.,"text") %>% #Read the response
+      readr::read_csv() #Parse the CSV
+  }
+
+  data
 }
 
 
@@ -508,11 +511,12 @@ readepi = function(credentials.file=NULL,
       res = read_from_ms_sql_server(user=credentials$user, password=credentials$pwd, host=credentials$host, port=credentials$port,
                                     database.name=credentials$project, table.names=table.name, driver.name=driver.name, records=records,
                                     fields=fields)
-    }else if(credentials$dbms %in% c('dhis2','DHIS2')){
-      cat("")
-      # res = read_from_dhis2(base.url=credentials$host, password=credentials$pwd, user=credentials$user, project.id=credentials$project,
-      #                       id.position=id.position, records=records, fields=fields)
     }
+    # else if(credentials$dbms %in% c('dhis2','DHIS2')){
+    #   cat("")
+    #   res = read_from_dhis2(base.url=credentials$host, password=credentials$pwd, user=credentials$user, project.id=credentials$project,
+    #                         id.position=id.position, records=records, fields=fields)
+    # }
   }
 
   res

@@ -21,5 +21,5 @@ function to perform clade assignment using \strong{nextclade} and \strong{pangol
 install both nextclade and pangolin using \strong{conda}
 }
 \examples{
-clade_assignment(merged.fasta, output.dir)
+clade_assignment(merged.fasta="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_consensus/consensus_genomes.fasta", output.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_assignment")
 }

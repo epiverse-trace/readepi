@@ -32,6 +32,3 @@ the output of this function is the merged fasta file that will be in the folder 
 \description{
 Function to perform the genome assembly
 }
-\examples{
-genome_assembly(input.dir, assembly.dir, consensus.fasta.dir, num.samples, device="MinION", partition=NULL)
-}
