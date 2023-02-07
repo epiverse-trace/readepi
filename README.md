@@ -202,6 +202,8 @@ data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Dri
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records)
 
 # reading specified fields and records one the table
+fields = "id,data_entry_date start_date,status"
+records = "1,2,3,5,8"
 data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records, fields = fields)
 
 # reading data from several tables
