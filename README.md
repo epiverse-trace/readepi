@@ -100,8 +100,9 @@ If you are using a Unix-based system, you will need to install the MS
 ODBC driver that is compatible with the version of the target MS SQL
 server. For **SQL server 2019, version 15.0**, we installed **ODBC
 Driver 17 for SQL Server** on the mac OS. This is compatible with the
-MRCG test server `robin.mrc.gm`. Details about how to install a driver
-can be found
+MRCG test server `robin.mrc.gm`. Details about how to install the
+**odbc** package and odbc drivers can be found at [the odbc github
+page](https://github.com/r-dbi/odbc#installation) and
 [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15).  
 Once installed, the list of drivers can be displayed in R using:
 `odbc::odbcListDrivers()`.  
@@ -301,8 +302,8 @@ below:
   will be stored.
 
 ``` r
-clade_assignment(merged.fasta="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/consensu_dir/consensus_genomes.fasta", 
-                 output.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/clade_assignment")
+clade_assignment(merged.fasta="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_consensus/consensus_genomes.fasta", 
+                 output.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_assignment")
 ```
 
 ## Development

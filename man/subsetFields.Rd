@@ -20,5 +20,5 @@ a list of 2 elements: the subset data frame and an integer that tells whether al
 function to subset fields
 }
 \examples{
-data = subsetFields(data.frame=res, fields="id,name,balance,created_by", table.name="accounts")
+data = subsetFields(data.frame=data.frame, fields="id,data_entry_date", table.name="dss_events")
 }
