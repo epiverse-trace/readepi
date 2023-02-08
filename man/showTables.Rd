@@ -20,5 +20,5 @@ the list of tables in the specified database
 Function to display the list of tables in a database
 }
 \examples{
- showTables(credentials.file=system.file("extdata", "test.ini", package = "readepi"), project.id="IBS_BHDSS", driver.name="ODBC Driver 17 for SQL Server")
+showTables(credentials.file = system.file("extdata", "test.ini", package = "readepi"), project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server")
 }

@@ -30,5 +30,5 @@ a data frame (import from file) or a list (import several files from directory)
 function to read data from all supported file types in the \code{rio} package.
 }
 \examples{
-data = read_from_file(file.path = system.file("extdata", "test.txt", package = "readepi"), sep=NULL, format=NULL, which=NULL, pattern=NULL)
+data <- read_from_file(file.path = system.file("extdata", "test.txt", package = "readepi"), sep = NULL, format = NULL, which = NULL, pattern = NULL)
 }
