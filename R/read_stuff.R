@@ -302,7 +302,9 @@ read_from_ms_sql_server <- function(user, password, host, port, database.name, d
   data
 }
 
-#' function to read user credentials from file
+#' function to read user credentials from file, deprecated
+#' @param credentials.file the file with the user credentials
+#' @returns a list with the user credentials details
 readMSsqlCredentials <- function(credentials.file) {
   if (!file.exists(credentials.file)) {
     stop("Could not find ", credentials.file)
