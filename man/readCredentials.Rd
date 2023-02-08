@@ -18,5 +18,5 @@ a list with the user credential details.
 function to read credentials from a configuration file
 }
 \examples{
-credentials = readCredentials(file.path=system.file("extdata", "test.ini", package = "readepi"), project.id="Pats__Covid_19_Cohort_1_Screening")
+credentials <- readCredentials(file.path = system.file("extdata", "test.ini", package = "readepi"), project.id = "Pats__Covid_19_Cohort_1_Screening")
 }
