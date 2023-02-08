@@ -2,10 +2,16 @@
 % Please edit documentation in R/read_stuff.R
 \name{readMSsqlCredentials}
 \alias{readMSsqlCredentials}
-\title{function to read user credentials from file}
+\title{function to read user credentials from file, deprecated}
 \usage{
 readMSsqlCredentials(credentials.file)
 }
+\arguments{
+\item{credentials.file}{the file with the user credentials}
+}
+\value{
+a list with the user credentials details
+}
 \description{
-function to read user credentials from file
+function to read user credentials from file, deprecated
 }
