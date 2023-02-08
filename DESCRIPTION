@@ -16,15 +16,16 @@ Imports:
     odbc,
     DBI,
     R.utils,
-    writexl,
     readr,
     data.table,
-    tidyverse,
+    dplyr,
     REDCapR,
     rio,
     parallel,
     doParallel,
-    httr
+    httr,
+    datimutils,
+    foreach
 Suggests: 
     covr,
     testthat (>= 3.0.0),
