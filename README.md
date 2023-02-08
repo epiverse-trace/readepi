@@ -23,7 +23,7 @@ You can install the development version of readepi from
 
 ``` r
 # install.packages("devtools")
-#devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
+# devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
 suppressPackageStartupMessages(library(readepi))
 ```
 
@@ -61,8 +61,8 @@ list of data frames (if several files were imported from a directory).
 ## importing data from JSON file
 
 ``` r
-file = system.file("extdata", "test.json", package = "readepi")
-data = readepi(file.path = file)
+file <- system.file("extdata", "test.json", package = "readepi")
+data <- readepi(file.path = file)
 ```
 
 ## importing data from excel file with 2 sheets
@@ -70,19 +70,19 @@ data = readepi(file.path = file)
 here we are importing from the second excel sheet
 
 ``` r
-file = system.file("extdata", "test.xlsx", package = "readepi")
-data = readepi(file.path = file, which = "Sheet2")
+file <- system.file("extdata", "test.xlsx", package = "readepi")
+data <- readepi(file.path = file, which = "Sheet2")
 ```
 
 ## importing data from several files in a directory
 
 ``` r
 # reading all files in the given directory
-dir.path = "inst/extdata"
-data = readepi(file.path = dir.path)
+dir.path <- "inst/extdata"
+data <- readepi(file.path = dir.path)
 
 # reading only txt files
-data = readepi(file.path = dir.path, pattern = "txt")
+data <- readepi(file.path = dir.path, pattern = "txt")
 ```
 
 # Reading data from relational database management systems (RDBMS): HDSS, EMRS, REDCap
@@ -163,20 +163,20 @@ show_example_file()
 # credentials.file = system.file("extdata", "test.ini", package = "readepi")
 
 # reading all fields and records the project
-data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening")
-project.data = data$data
-project.metadeta = data$metadata
+data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening")
+project.data <- data$data
+project.metadeta <- data$metadata
 
 # reading specified fields and all records from the project
-fields = c("day_1_q_ran_id","redcap_event_name","day_1_q_1a","day_1_q_1b","day_1_q_1c","day_1_q_1","day_1_q_2","day_1_q_3","day_1_q_4","day_1_q_5")
-data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening", fields = fields)
+fields <- c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a", "day_1_q_1b", "day_1_q_1c", "day_1_q_1", "day_1_q_2", "day_1_q_3", "day_1_q_4", "day_1_q_5")
+data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening", fields = fields)
 
 # reading specified records and all fields from the project
-records = c("C10001/3","C10002/1","C10003/7","C10004/5","C10005/9","C10006/8","C10007/6","C10008/4","C10009/2","C10010/1")
-data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening", records =  records)
+records <- c("C10001/3", "C10002/1", "C10003/7", "C10004/5", "C10005/9", "C10006/8", "C10007/6", "C10008/4", "C10009/2", "C10010/1")
+data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening", records = records)
 
 # reading specified records and fields from the project
-data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening", records =  records, fields = fields)
+data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening", records = records, fields = fields)
 ```
 
 ### importing from HDSS or EMRS
@@ -186,45 +186,45 @@ data = readepi(credentials.file, project.id="Pats__Covid_19_Cohort_1_Screening",
 To show the list of tables in the database of interest:
 
 ``` r
-showTables(credentials.file=system.file("extdata", "test.ini", package = "readepi"), project.id="IBS_BHDSS", driver.name="ODBC Driver 17 for SQL Server")
+showTables(credentials.file = system.file("extdata", "test.ini", package = "readepi"), project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server")
 ```
 
 #### importing data
 
 ``` r
 # reading all fields and all records from one table (`dss_events`)
-data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events")
+data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events")
 
 # reading specified fields and all records from one table
-data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", fields = fields)
+data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", fields = fields)
 
 # reading specified records and all fields from one table
-data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records)
+data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records)
 
 # reading specified fields and records one the table
-fields = "id,data_entry_date start_date,status"
-records = "1,2,3,5,8"
-data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records, fields = fields)
+fields <- "id,data_entry_date start_date,status"
+records <- "1,2,3,5,8"
+data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records, fields = fields)
 
 # reading data from several tables
-table.names = "accounts,account_books,account_currencies" #can also be table.names = c("account"s,"account_books","account_currencies")
-data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names)
+table.names <- "accounts,account_books,account_currencies" # can also be table.names = c("account"s,"account_books","account_currencies")
+data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names)
 
 # reading data from several tables and subsetting fields across tables
-table.names = "accounts,account_books,account_currencies" #can also be table.names = c("account"s,"account_books","account_currencies")
-#note that first string in the field vector corresponds to names to be subset from the first table specified in the `table.name` argument  
-fields = c("id,name,balance,created_by", "id,status,name", "id,name")
-data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, fields = fields)
+table.names <- "accounts,account_books,account_currencies" # can also be table.names = c("account"s,"account_books","account_currencies")
+# note that first string in the field vector corresponds to names to be subset from the first table specified in the `table.name` argument
+fields <- c("id,name,balance,created_by", "id,status,name", "id,name")
+data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, fields = fields)
 
-# reading data from several tables and subsetting records across tables 
-#note that first string in the records vector corresponds to the subject ID to be subset from the first table specified in the `table.name` argument and so on... When the ID column is not the first column in a table, use the `id.position` 
-records = c("3,8,13", "1,2,3", "1")
-data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records)
+# reading data from several tables and subsetting records across tables
+# note that first string in the records vector corresponds to the subject ID to be subset from the first table specified in the `table.name` argument and so on... When the ID column is not the first column in a table, use the `id.position`
+records <- c("3,8,13", "1,2,3", "1")
+data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records)
 
-# reading data from several tables and subsetting records and fields across tables 
-fields = c("id,name,balance,created_by", "id,status,name", "id,name")
-records = c("3,8,13", "1,2,3", "1")
-data = readepi(credentials.file, project.id="IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records, fields = fields)
+# reading data from several tables and subsetting records and fields across tables
+fields <- c("id,name,balance,created_by", "id,status,name", "id,name")
+records <- c("3,8,13", "1,2,3", "1")
+data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records, fields = fields)
 ```
 
 # Processing the genomic data
@@ -267,23 +267,27 @@ function `genome_assembly()` with the following parameters:
 ### Genome assembly of nanopore reads on PC (Mac OS or linux system)
 
 ``` r
-genome_assembly(input.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Covadis", 
-                assembly.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/genome_assembly", 
-                consensus.fasta.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/consensus_dir", 
-                num.samples=60, 
-                device="MinION", 
-                partition=NULL)
+genome_assembly(
+  input.dir = "/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Covadis",
+  assembly.dir = "/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/genome_assembly",
+  consensus.fasta.dir = "/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/consensus_dir",
+  num.samples = 60,
+  device = "MinION",
+  partition = NULL
+)
 ```
 
 ### Genome assembly of nanopore reads on HPC
 
 ``` r
-genome_assembly(input.dir="/nfsscratch/Karim/LSHTM/Covadis", 
-                assembly.dir="/nfsscratch/Karim/LSHTM/assembly_results", 
-                consensus.fasta.dir="/nfsscratch/Karim/LSHTM/consensus_dir", 
-                num.samples=60, 
-                device="MinION", 
-                partition="standard")
+genome_assembly(
+  input.dir = "/nfsscratch/Karim/LSHTM/Covadis",
+  assembly.dir = "/nfsscratch/Karim/LSHTM/assembly_results",
+  consensus.fasta.dir = "/nfsscratch/Karim/LSHTM/consensus_dir",
+  num.samples = 60,
+  device = "MinION",
+  partition = "standard"
+)
 ```
 
 ## Genome assembly of illumina reads
@@ -304,8 +308,10 @@ below:
   will be stored.
 
 ``` r
-clade_assignment(merged.fasta="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_consensus/consensus_genomes.fasta", 
-                 output.dir="/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_assignment")
+clade_assignment(
+  merged.fasta = "/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_consensus/consensus_genomes.fasta",
+  output.dir = "/Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/Genomic_data/Gam10_assignment"
+)
 ```
 
 ## Development
