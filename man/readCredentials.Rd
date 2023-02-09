@@ -13,8 +13,12 @@ readCredentials(file.path = NULL, project.id = NULL)
 }
 \value{
 a list with the user credential details.
-\dontrun{
 }
 \description{
 function to read credentials from a configuration file
+}
+\examples{
+\dontrun{
+credentials <- readCredentials(file.path = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "my_project_id")
+}
 }

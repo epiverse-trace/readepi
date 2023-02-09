@@ -200,8 +200,9 @@ showTables <- function(credentials.file = NULL, project.id = NULL, driver.name =
 #' @param fields a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the `table.names` argument and so on...
 #' @param id.position a vector of the column positions of the variable that unique identifies the subjects in each table. This should only be specified when the column with the subject IDs is not the first column. default is 1.
 #' @returns a data frame
+#' @examples
 #' \dontrun{
-#' @examples data <- read_from_ms_sql_server(user = "kmane", password = "****", host = "robin.mrc.gm", port = 1433, database.name = "my_db", table.names = "my_table", driver.name = "ODBC Driver 17 for SQL Server")
+#' data <- read_from_ms_sql_server(user = "kmane", password = "****", host = "robin.mrc.gm", port = 1433, database.name = "my_db", table.names = "my_table", driver.name = "ODBC Driver 17 for SQL Server")
 #' }
 #' @export
 #' @importFrom magrittr %>%
@@ -399,8 +400,9 @@ read_from_redcap <- function(uri, token, project.id, id.position = 1L, records =
 #' @param file.path the path to the file with the user-specific credential details for the projects of interest.
 #' @param project.id for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to.
 #' @returns  a list with the user credential details.
+#' @examples
 #' \dontrun{
-#' @examples credentials <- readCredentials(file.path = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "my_project_id")
+#' credentials <- readCredentials(file.path = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "my_project_id")
 #' }
 #' @export
 readCredentials <- function(file.path = NULL, project.id = NULL) {

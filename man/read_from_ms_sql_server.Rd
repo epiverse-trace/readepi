@@ -40,8 +40,12 @@ read_from_ms_sql_server(
 }
 \value{
 a data frame
-\dontrun{
 }
 \description{
 function to read data from relational databases hosted by online MS SQL server. The user needs to have read access to the database et should install the appropriate MS driver that is compatible with the SQLServer version
+}
+\examples{
+\dontrun{
+data <- read_from_ms_sql_server(user = "kmane", password = "****", host = "robin.mrc.gm", port = 1433, database.name = "my_db", table.names = "my_table", driver.name = "ODBC Driver 17 for SQL Server")
+}
 }
