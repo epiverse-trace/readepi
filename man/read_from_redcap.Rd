@@ -33,5 +33,7 @@ a list with 2 data frames: the data of interest and the metadata associated to t
 function to read data from REDCap
 }
 \examples{
-redcap.data <- read_from_redcap(uri = "https://redcap.mrc.gm:8443/redcap/api/", token = "9D71857D60F4016AB7BFFDA65970D737", project.id = "Pats__Covid_19_Cohort_1_Screening", id.position = 1, records = NULL, fields = NULL)
+\dontrun{
+redcap.data <- read_from_redcap(uri = "https://redcap.mrc.gm:8443/redcap/api/", token = "****", project.id = "my_project_id", id.position = 1, records = NULL, fields = NULL)
+}
 }
