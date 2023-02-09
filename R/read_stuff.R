@@ -160,7 +160,7 @@ subsetRecords <- function(data.frame, records, id.position = 1, table.name) {
 #' @param credentials.file the path to the file with the user-specific credential details for the projects of interest. See the help of the `readepi` function for more details.
 #' @param project.id the name of the target database
 #' @param driver.name the name of the MS driver. use `odbc::odbcListDrivers()` to display the list of installed drivers
-#' @examples showTables(credentials.file = system.file("extdata", "test.ini", package = "readepi"), project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server")
+#' @examples showTables(credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server")
 #' @returns the list of tables in the specified database
 #' @export
 #'
@@ -391,7 +391,7 @@ read_from_redcap <- function(uri, token, project.id, id.position = 1L, records =
 #' @param file.path the path to the file with the user-specific credential details for the projects of interest.
 #' @param project.id for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to.
 #' @returns  a list with the user credential details.
-#' @examples credentials <- readCredentials(file.path = system.file("extdata", "test.ini", package = "readepi"), project.id = "Pats__Covid_19_Cohort_1_Screening")
+#' @examples credentials <- readCredentials(file.path = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "Pats__Covid_19_Cohort_1_Screening")
 #' @export
 readCredentials <- function(file.path = NULL, project.id = NULL) {
   if (!file.exists(file.path) | is.null(file.path)) {
@@ -431,7 +431,7 @@ readCredentials <- function(file.path = NULL, project.id = NULL) {
 #' @export
 #' @examples show_example_file()
 show_example_file <- function() {
-  example.data <- data.table::fread(system.file("extdata", "test.ini", package = "readepi"))
+  example.data <- data.table::fread(system.file("extdata", "fake_test.ini", package = "readepi"))
   print(example.data)
 }
 
@@ -494,7 +494,7 @@ read_from_dhis2 <- function(base.url, user, password, records = NULL, fields = N
 #' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
 #' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
 #' @param id.position the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.
-#' @examples data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"), project.id = "Pats__Covid_19_Cohort_1_Screening")
+#' @examples data <- readepi(credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "Pats__Covid_19_Cohort_1_Screening")
 #' @returns a list with 2 data frames (data and metadata) when reading from REDCap. A data frame otherwise.
 #' @export
 readepi <- function(credentials.file = NULL,
