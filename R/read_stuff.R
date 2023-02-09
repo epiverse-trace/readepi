@@ -160,7 +160,10 @@ subsetRecords <- function(data.frame, records, id.position = 1, table.name) {
 #' @param credentials.file the path to the file with the user-specific credential details for the projects of interest. See the help of the `readepi` function for more details.
 #' @param project.id the name of the target database
 #' @param driver.name the name of the MS driver. use `odbc::odbcListDrivers()` to display the list of installed drivers
-#' @examples showTables(credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server")
+#' @examples
+#' \dontrun{
+#' showTables(credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server")
+#' }
 #' @returns the list of tables in the specified database
 #' @export
 #'
@@ -197,7 +200,9 @@ showTables <- function(credentials.file = NULL, project.id = NULL, driver.name =
 #' @param fields a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the `table.names` argument and so on...
 #' @param id.position a vector of the column positions of the variable that unique identifies the subjects in each table. This should only be specified when the column with the subject IDs is not the first column. default is 1.
 #' @returns a data frame
-#' @examples data <- read_from_ms_sql_server(user = "kmane", password = "Dakabantang@KD23", host = "robin.mrc.gm", port = 1433, database.name = "IBS_BHDSS", table.names = "dss_events", driver.name = "ODBC Driver 17 for SQL Server")
+#' \dontrun{
+#' @examples data <- read_from_ms_sql_server(user = "kmane", password = "****", host = "robin.mrc.gm", port = 1433, database.name = "my_db", table.names = "my_table", driver.name = "ODBC Driver 17 for SQL Server")
+#' }
 #' @export
 #' @importFrom magrittr %>%
 read_from_ms_sql_server <- function(user, password, host, port, database.name, driver.name, table.names = NULL, records = NULL, fields = NULL, id.position = 1) {
@@ -331,7 +336,10 @@ readMSsqlCredentials <- function(credentials.file) {
 #' @param id.position the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.
 #' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
 #' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
-#' @examples redcap.data <- read_from_redcap(uri = "https://redcap.mrc.gm:8443/redcap/api/", token = "9D71857D60F4016AB7BFFDA65970D737", project.id = "Pats__Covid_19_Cohort_1_Screening", id.position = 1, records = NULL, fields = NULL)
+#' @examples
+#' \dontrun{
+#' redcap.data <- read_from_redcap(uri = "https://redcap.mrc.gm:8443/redcap/api/", token = "****", project.id = "my_project_id", id.position = 1, records = NULL, fields = NULL)
+#' }
 #' @returns a list with 2 data frames: the data of interest and the metadata associated to the data.
 #' @export
 read_from_redcap <- function(uri, token, project.id, id.position = 1L, records = NULL, fields = NULL) {
@@ -391,7 +399,9 @@ read_from_redcap <- function(uri, token, project.id, id.position = 1L, records =
 #' @param file.path the path to the file with the user-specific credential details for the projects of interest.
 #' @param project.id for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to.
 #' @returns  a list with the user credential details.
-#' @examples credentials <- readCredentials(file.path = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "Pats__Covid_19_Cohort_1_Screening")
+#' \dontrun{
+#' @examples credentials <- readCredentials(file.path = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "my_project_id")
+#' }
 #' @export
 readCredentials <- function(file.path = NULL, project.id = NULL) {
   if (!file.exists(file.path) | is.null(file.path)) {
@@ -494,7 +504,10 @@ read_from_dhis2 <- function(base.url, user, password, records = NULL, fields = N
 #' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
 #' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
 #' @param id.position the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.
-#' @examples data <- readepi(credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "Pats__Covid_19_Cohort_1_Screening")
+#' @examples
+#' \dontrun{
+#' data <- readepi(credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "my_project_id")
+#' }
 #' @returns a list with 2 data frames (data and metadata) when reading from REDCap. A data frame otherwise.
 #' @export
 readepi <- function(credentials.file = NULL,

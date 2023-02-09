@@ -60,5 +60,7 @@ a list with 2 data frames (data and metadata) when reading from REDCap. A data f
 the function allows import of data stored in database management systems (DBMS) including both relational and NoSQL databases. It also contains functions to import data from common file types such as csv, txt, xlsx, xml, json, etc.
 }
 \examples{
-data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"), project.id = "Pats__Covid_19_Cohort_1_Screening")
+\dontrun{
+data <- readepi(credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "my_project_id")
+}
 }
