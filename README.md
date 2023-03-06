@@ -34,7 +34,8 @@ including:
 
 - all file formats in the
   [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html)
-  package. \* file formats that are not accounted for by `rio`
+  package.  
+- file formats that are not accounted for by `rio`
 
 When reading data from file or directory, the function expects the
 following arguments:  
