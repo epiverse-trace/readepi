@@ -41,7 +41,8 @@ suppressPackageStartupMessages(library(readepi))
 # Reading data from file or directory
 `readepi` allows importing data from several file types into R, including:
 
-* all file formats in the [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html) package.  * file formats that are not accounted for by `rio`    
+* all file formats in the [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html) package.    
+* file formats that are not accounted for by `rio`    
 
 When reading data from file or directory, the function expects the following arguments:   
 `file.path`: the path to the file of interest. When several files need to be imported from a directory, this should be the path to that directory,      
