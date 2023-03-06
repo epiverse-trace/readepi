@@ -19,89 +19,148 @@ library(readepi)
 ```
 
 # Reading data from file or directory
+
+`readepi` provides functions for reading data from `common health information systems` as well as from various file types. When several files of different formats are stored in the same folder, the user can provide `readepi` with a specific pattern, allowing reading only the matching files.     
+
 ## importing data from JSON file
+Many database management systems (DBMS) can export data into `JSON` format that can be read into R using the `readepi()` function.      
 ```{r eval=FALSE}
 file <- system.file("extdata", "test.json", package = "readepi")
 data <- readepi(file.path = file)
 ```
 
-## importing data from excel file with 2 sheets
-here we are importing from the second excel sheet
+## importing data from excel file 
+`readepi()` can import data from MS excel file with a single sheet. The user must specify the names of the excel sheets with the data of interest when the files contains several sheets.      
 ```{r eval=FALSE}
+# IMPORTING DATA FROM THE SECOND EXCEL SHEET 
 file <- system.file("extdata", "test.xlsx", package = "readepi")
 data <- readepi(file.path = file, which = "Sheet2")
+
+# IMPORTING DATA FROM THE FIRST AND SECOND EXCEL SHEETS 
+file <- system.file("extdata", "test.xlsx", package = "readepi")
+data <- readepi(file.path = file, which = c("Sheet2","Sheet1"))
 ```
 
 ## importing data from several files in a directory
+`readepi()` can be used to read data from multiple files that are all stored in the same directory. When there are different file format in that directory, the user is expected to specify the file type of interest with the `pattern` argument.     
 ```{r eval=FALSE}
-# reading all files in the given directory
+# READING ALL FILES IN THE GIVEN DIRECTOR
 dir.path <- "inst/extdata"
 data <- readepi(file.path = dir.path)
 
-# reading only txt files
-data <- readepi(file.path = dir.path, pattern = "txt")
+# READING ONLY '.txt' FILES
+data <- readepi(file.path = dir.path, pattern = ".txt")
+
+# READING '.txt' and '.xlsx' FILES
+data <- readepi(file.path = dir.path, pattern = c(".txt",".xlsx"))
 ```
 
-# importing from REDCap
-we were given access to the **Pats__Covid_19_Cohort_1_Screening**.    
-```{r eval=FALSE}
-# display the structure of the credentials file
-show_example_file()
-credentials.file <- system.file("extdata", "test.ini", package = "readepi")
+# importing from DBMS (database management systems)
+To import data from DBMS such as **REDCap**, **MS SQL server**, **DHIS2**, etc, the user must provide `readepi()` with at least:   
 
-# reading all fields and records the project
-data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening")
+* a file with the user credentials (these details are required to established the connexion to the DBMS)
+* the database name or the project ID (for REDCap) 
+
+## structure of the credentials file
+This must be a tab-delimited file with 7 columns. Use the `show_example_file()` as below to view the credentials file use as template in the **readepi** package.      
+```{r eval=FALSE}
+# DISPLAY THE STRUCTURE OF THE CREDENTIALS FILE
+show_example_file()
+```
+All demos in the sections below rely on the credentials stored in the template file, that is declared as following:
+```{r eval=FALSE}
+# DEFINING THE CREDENTIALS FILE
+credentials.file <- system.file("extdata", "test.ini", package = "readepi")
+```
+
+
+## importing from REDCap
+To import data from REDCap, the user must call the `readepi` function with the following arguments:     
+
+* the credentials file (required)
+* the project ID (required)
+* the list of the desired records (optional)
+* the list of the desired columns (optional)
+
+Both the data and its associated metadata will be will be returned after a successful import.    
+
+```{r eval=FALSE}
+# READING ALL FIELDS AND RECORDS THE PROJECT
+data <- readepi(credentials.file = credentials.file, 
+                project.id = "Pats__Covid_19_Cohort_1_Screening"
+                )
 project.data <- data$data
 project.metadeta <- data$metadata
 
-# reading specified fields and all records from the project
+# READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT
 fields <- c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a", "day_1_q_1b", "day_1_q_1c", "day_1_q_1", "day_1_q_2", "day_1_q_3", "day_1_q_4", "day_1_q_5")
-data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening", fields = fields)
+data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening", 
+                fields = fields)
 
-# reading specified records and all fields from the project
+# READING SPECIFIC RECORDS AND ALL FIELDS FROM THE PROJECT
 records <- c("C10001/3", "C10002/1", "C10003/7", "C10004/5", "C10005/9", "C10006/8", "C10007/6", "C10008/4", "C10009/2", "C10010/1")
-data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening", records = records)
+data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening",
+                records = records)
 
-# reading specified records and fields from the project
-data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening", records = records, fields = fields)
+# READING SPECIFIC RECORDS AND FIELDS FROM THE PROJECT
+data <- readepi(credentials.file, project.id = "Pats__Covid_19_Cohort_1_Screening",
+                records = records, 
+                fields = fields
+                )
+project.data <- data$data
+project.metadeta <- data$metadata
 ```
 
-# importing from HDSS or EMRS
-To show the list of all tables in that database:      
+## importing from HDSS or EMRS (reading from SQLserver)
+Similarly to reading data from REDCap, the `readepi()` function needs:   
+
+* the credentials file (required)
+* the database name (required)
+* the driver name (required)
+* the table name (required)
+* the list of the desired records (optional)
+* the list of the desired columns (optional)
+
+### list the names of all tables in the database
+To displays the list of tables from the database of interest, use:  
 ```{r eval=FALSE}
-showTables(credentials.file = system.file("extdata", "test.ini", package = "readepi"), project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server")
+showTables(credentials.file = credentials.file,
+           project.id = "IBS_BHDSS", 
+           driver.name = "ODBC Driver 17 for SQL Server")
 ```
 
-data import:      
+Note that in the above, the value for the `project.id` argument is the name of the database of interest.    
+
+### importing the data    
 ```{r eval=FALSE}
-# reading all fields and all records from one table (`dss_events`)
+# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`DSS_EVENTS`)
 data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events")
 
-# reading specified fields and all records from one table
+# READING SPECIFIED FIELDS AND ALL RECORDS FROM ONE TABLE
 data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", fields = fields)
 
-# reading specified records and all fields from one table
+# READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE
 data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records)
 
-# reading specified fields and records one the table
+# READING SPECIFIED FIELDS AND RECORDS ONE THE TABLE
 data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = "dss_events", records = records, fields = fields)
 
-# reading data from several tables
+# READING DATA FROM SEVERAL TABLES
 table.names <- "accounts,account_books,account_currencies" # can also be table.names = c("account"s,"account_books","account_currencies")
 data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names)
 
-# reading data from several tables and subsetting fields across tables
+# READING DATA FROM SEVERAL TABLES AND SUBSETTING FIELDS ACROSS TABLES
 table.names <- "accounts,account_books,account_currencies" # can also be table.names = c("account"s,"account_books","account_currencies")
 # note that first string in the field vector corresponds to names to be subset from the first table specified in the `table.name` argument
 fields <- c("id,name,balance,created_by", "id,status,name", "id,name")
 data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, fields = fields)
 
-# reading data from several tables and subsetting records across tables
+# READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS ACROSS TABLES
 # note that first string in the records vector corresponds to the subject ID to be subset from the first table specified in the `table.name` argument and so on... When the ID column is not the first column in a table, use the `id.position`
 records <- c("3,8,13", "1,2,3", "1")
 data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records)
 
-# reading data from several tables and subsetting records and fields across tables
+# READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS TABLES
 fields <- c("id,name,balance,created_by", "id,status,name", "id,name")
 records <- c("3,8,13", "1,2,3", "1")
 data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records, fields = fields)
