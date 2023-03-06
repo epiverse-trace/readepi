@@ -70,7 +70,8 @@ show_example_file()
 All demos in the sections below rely on the credentials stored in the template file, that is declared as following:
 ```{r eval=FALSE}
 # DEFINING THE CREDENTIALS FILE
-credentials.file <- system.file("extdata", "test.ini", package = "readepi")
+# credentials.file <- system.file("extdata", "test.ini", package = "readepi")
+credentials.file <- system.file("extdata", "fake_test.ini", package = "readepi")
 ```
 
 
