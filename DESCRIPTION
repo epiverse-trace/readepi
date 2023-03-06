@@ -2,9 +2,9 @@ Package: readepi
 Title: Import Epidemiological Data into R
 Version: 0.0.1
 Authors@R: 
-    c(person("Karim", "Mané", , "lshkm1@lshtm.ac.uk", role = c("aut", "cre")),
-    person("Thibaut", "Jombart", , "thibaut@data.org", role = c("aut")),
-    person("Avinash", "Laddha", , "avinash@data.org", role = c("aut")))
+    c(
+        person("Karim", "Mané", , "lshkm1@lshtm.ac.uk", role = c("aut", "cre"))
+    )
 Description: This package implements functions to read epidemiological data from health information systems.
 License: MIT + file LICENSE
 Encoding: UTF-8
