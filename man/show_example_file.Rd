@@ -2,12 +2,12 @@
 % Please edit documentation in R/show_example_file.R
 \name{show_example_file}
 \alias{show_example_file}
-\title{function to display the structure of the credentials file}
+\title{Display the structure of the credentials file}
 \usage{
 show_example_file()
 }
 \description{
-function to display the structure of the credentials file
+Display the structure of the credentials file
 }
 \examples{
 show_example_file()

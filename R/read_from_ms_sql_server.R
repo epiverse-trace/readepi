@@ -1,6 +1,8 @@
-
-
-#' function to read data from relational databases hosted by online MS SQL server. The user needs to have read access to the database et should install the appropriate MS driver that is compatible with the SQLServer version
+#' Read data from relational databases hosted by a MS SQL server.
+#' @description For a user with read access to a Microsoft SQL server,
+#' this function allows data import from the database into R. It required the installation
+#' of the appropriate MS driver that is compatible with the SQL server version hosting the
+#' database.
 #' @param user the user name
 #' @param password the user password
 #' @param host the name of the host server
@@ -14,20 +16,21 @@
 #' @returns a list of data frames
 #' @examples
 #' \dontrun{
-#' data <- read_from_ms_sql_server(user = "kmane",
-#' password = "****",
-#' host = "robin.mrc.gm",
-#' port = 1433,
-#' database.name = "my_db",
-#' table.names = "my_table",
-#' driver.name = "ODBC Driver 17 for SQL Server")
+#' data <- read_from_ms_sql_server(
+#'   user = "kmane",
+#'   password = "****",
+#'   host = "robin.mrc.gm",
+#'   port = 1433,
+#'   database.name = "my_db",
+#'   table.names = "my_table",
+#'   driver.name = "ODBC Driver 17 for SQL Server"
+#' )
 #' }
 #' @export
 #' @importFrom magrittr %>%
-read_from_ms_sql_server <- function(user, password, host, port=1433, database.name,
+read_from_ms_sql_server <- function(user, password, host, port = 1433, database.name,
                                     driver.name, table.names = NULL, records = NULL,
                                     fields = NULL, id.position = 1) {
-
   # check the input arguments
   checkmate::assert_number(id.position, lower = 1)
   checkmate::assert_number(port, lower = 1)
@@ -35,22 +38,28 @@ read_from_ms_sql_server <- function(user, password, host, port=1433, database.na
   checkmate::assert_character(password, any.missing = FALSE, len = 1, null.ok = FALSE)
   checkmate::assert_character(database.name, any.missing = FALSE, len = 1, null.ok = FALSE)
   checkmate::assert_character(driver.name, len = 1, null.ok = TRUE)
-  checkmate::assert_vector(table.names, any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(records, any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(fields, any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(table.names,
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(records,
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(fields,
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
 
 
   # establishing the connection to the server
   con <- DBI::dbConnect(odbc::odbc(),
-                        driver = driver.name,
-                        server = host,
-                        database = database.name,
-                        uid = user,
-                        pwd = password,
-                        port = as.numeric(port)
+    driver = driver.name,
+    server = host,
+    database = database.name,
+    uid = user,
+    pwd = password,
+    port = as.numeric(port)
   )
 
   # listing the names of the tables present in the database
@@ -73,9 +82,9 @@ read_from_ms_sql_server <- function(user, password, host, port=1433, database.na
     table.names <- table.names[idx]
   } else {
     warning("No table name was specified. Data from all tables will be fetched. This might take several minutes...")
-    table.names = tables
+    table.names <- tables
   }
-  result = list()
+  result <- list()
   for (table in table.names) {
     R.utils::cat("\nFetching data from", table)
     sql <- DBI::dbSendQuery(con, paste0("select * from ", table))
@@ -142,4 +151,3 @@ read_from_ms_sql_server <- function(user, password, host, port=1433, database.na
   # return the datasets of interest
   result
 }
-

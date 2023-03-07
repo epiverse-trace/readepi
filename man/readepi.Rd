@@ -2,7 +2,7 @@
 % Please edit documentation in R/readepi.R
 \name{readepi}
 \alias{readepi}
-\title{Function to import epidemiology-related data from different sources into R}
+\title{Import data from different sources into R}
 \usage{
 readepi(
   credentials.file = NULL,
@@ -20,7 +20,9 @@ readepi(
 )
 }
 \arguments{
-\item{credentials.file}{the path to the file with the user-specific credential details for the projects of interest. It is required when importing data from DBMS. This is a tab-delimited file with the following columns:
+\item{credentials.file}{the path to the file with the user-specific credential details
+for the projects of interest. It is required when importing data from DBMS. This is a
+tab-delimited file with the following columns:
 \enumerate{
 \item user_name: the user name
 \item password: the user password (for REDCap, this corresponds to the \strong{token} that serves as password to the project)
@@ -29,7 +31,9 @@ readepi(
 \item comment: a summary description about the project or database of interest
 \item dbms: the name of the DBMS: 'redcap' or 'REDCap' when reading from REDCap, 'sqlserver' or 'SQLServer' when reading from MS SQLServer
 \item port: the port ID (used for MS SQLServers)
-}}
+}
+Use the \code{show_example_file()} function to display the structure of the template
+credentials file}
 
 \item{file.path}{the path to the file to be read. When several files need to be imported from a directory, this should be the path to that directory}
 
@@ -57,11 +61,14 @@ readepi(
 a list with 2 data frames (data and metadata) when reading from REDCap. A data frame otherwise.
 }
 \description{
-the function allows import of data stored in database management systems (DBMS) including both relational and NoSQL databases. It also contains functions to import data from common file types such as csv, txt, xlsx, xml, json, etc.
+the function allows import of data from files or health information systems (HIS)
+The HIS are database management systems (DBMS), both relational and NoSQL databases.
 }
 \examples{
 \dontrun{
-data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-project.id = "my_project_id")
+data <- readepi(
+  credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+  project.id = "my_project_id"
+)
 }
 }
