@@ -1,6 +1,4 @@
-
-
-#' function to read data from REDCap
+#' Import data from REDCap into R
 #' @param uri the URI of the server
 #' @param token the user-specific string that serves as the password for a project
 #' @param id.position the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.
@@ -8,11 +6,13 @@
 #' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
 #' @examples
 #' \dontrun{
-#' redcap.data <- read_from_redcap(uri = "https://redcap.mrc.gm:8443/redcap/api/",
-#' token = "****",
-#' id.position = 1,
-#' records = NULL,
-#' fields = NULL)
+#' redcap.data <- read_from_redcap(
+#'   uri = "https://redcap.mrc.gm:8443/redcap/api/",
+#'   token = "****",
+#'   id.position = 1,
+#'   records = NULL,
+#'   fields = NULL
+#' )
 #' }
 #' @returns a list with 2 data frames: the data of interest and the metadata associated to the data.
 #' @export
@@ -22,28 +22,40 @@ read_from_redcap <- function(uri, token, id.position = 1,
   checkmate::assert_number(id.position, lower = 1)
   checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE)
   checkmate::assert_character(uri, len = 1, null.ok = FALSE)
-  checkmate::assert_vector(records, any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(fields, any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(records,
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(fields,
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
 
   # importing data and the metadata into R
   if (is.null(records) & is.null(fields)) {
     # redcap.data = REDCapR::redcap_read_oneshot(redcap_uri = redcap.uri, token = token, records=NULL, fields=NULL, verbose = FALSE)
-    redcap.data <- REDCapR::redcap_read(redcap_uri = uri, token = token, records = NULL,
-                                        fields = NULL, verbose = FALSE,
-                                        id_position = as.integer(id.position))
-    metadata <- REDCapR::redcap_metadata_read(redcap_uri = uri, token = token,
-                                              fields = NULL, verbose = FALSE)
+    redcap.data <- REDCapR::redcap_read(
+      redcap_uri = uri, token = token, records = NULL,
+      fields = NULL, verbose = FALSE,
+      id_position = as.integer(id.position)
+    )
+    metadata <- REDCapR::redcap_metadata_read(
+      redcap_uri = uri, token = token,
+      fields = NULL, verbose = FALSE
+    )
   } else if (!is.null(records) & !is.null(fields)) {
     if (is.vector(fields)) {
       fields <- paste(fields, collapse = ", ")
     }
-    redcap.data <- REDCapR::redcap_read(redcap_uri = uri, token = token,
-                                        id_position = as.integer(id.position),
-                                        fields_collapsed = fields, verbose = FALSE)
-    metadata <- REDCapR::redcap_metadata_read(redcap_uri = uri, token = token,
-                                              fields_collapsed = fields, verbose = FALSE)
+    redcap.data <- REDCapR::redcap_read(
+      redcap_uri = uri, token = token,
+      id_position = as.integer(id.position),
+      fields_collapsed = fields, verbose = FALSE
+    )
+    metadata <- REDCapR::redcap_metadata_read(
+      redcap_uri = uri, token = token,
+      fields_collapsed = fields, verbose = FALSE
+    )
     id.column.name <- names(redcap.data$data)[id.position]
     if (is.character(records)) {
       records <- as.character(unlist(strsplit(records, ",")))
@@ -56,27 +68,35 @@ read_from_redcap <- function(uri, token, id.position = 1,
     if (is.vector(fields)) {
       fields <- paste(fields, collapse = ", ")
     }
-    redcap.data <- REDCapR::redcap_read(redcap_uri = uri, token = token,
-                                        id_position = as.integer(id.position),
-                                        fields_collapsed = fields, verbose = FALSE)
-    metadata <- REDCapR::redcap_metadata_read(redcap_uri = uri, token = token,
-                                              fields_collapsed = fields, verbose = FALSE)
+    redcap.data <- REDCapR::redcap_read(
+      redcap_uri = uri, token = token,
+      id_position = as.integer(id.position),
+      fields_collapsed = fields, verbose = FALSE
+    )
+    metadata <- REDCapR::redcap_metadata_read(
+      redcap_uri = uri, token = token,
+      fields_collapsed = fields, verbose = FALSE
+    )
   } else if (!is.null(records) & is.null(fields)) {
     if (is.vector(records)) {
       records <- paste(records, collapse = ", ")
     }
-    redcap.data <- REDCapR::redcap_read(redcap_uri = uri, token = token,
-                                        id_position = as.integer(id.position),
-                                        records_collapsed = records, verbose = FALSE)
-    metadata <- REDCapR::redcap_metadata_read(redcap_uri = uri, token = token,
-                                              verbose = FALSE)
+    redcap.data <- REDCapR::redcap_read(
+      redcap_uri = uri, token = token,
+      id_position = as.integer(id.position),
+      records_collapsed = records, verbose = FALSE
+    )
+    metadata <- REDCapR::redcap_metadata_read(
+      redcap_uri = uri, token = token,
+      verbose = FALSE
+    )
   }
 
   # checking whether the importing was successful and extract the desired records and columns
   if (redcap.data$success & metadata$success) {
     data <- redcap.data$data
     meta <- metadata$data
-  }else{
+  } else {
     stop("Error in reading from REDCap. Please check your credentials or project ID.")
   }
 
@@ -86,5 +106,3 @@ read_from_redcap <- function(uri, token, id.position = 1,
     metadata = meta
   )
 }
-
-

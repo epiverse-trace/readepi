@@ -1,6 +1,4 @@
-
-
-#' function to display the structure of the credentials file
+#' Display the structure of the credentials file
 #' @export
 #' @examples show_example_file()
 show_example_file <- function() {

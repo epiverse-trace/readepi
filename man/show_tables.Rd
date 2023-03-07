@@ -2,7 +2,7 @@
 % Please edit documentation in R/show_tables.R
 \name{show_tables}
 \alias{show_tables}
-\title{Function to display the list of tables in a database}
+\title{Display the list of tables in a database}
 \usage{
 show_tables(credentials.file, project.id, driver.name)
 }
@@ -17,12 +17,14 @@ show_tables(credentials.file, project.id, driver.name)
 the list of tables in the specified database
 }
 \description{
-Function to display the list of tables in a database
+Display the list of tables in a database
 }
 \examples{
 \dontrun{
-show_tables(credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"),
-project.id = "IBS_BHDSS",
-driver.name = "ODBC Driver 17 for SQL Server")
+show_tables(
+  credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"),
+  project.id = "IBS_BHDSS",
+  driver.name = "ODBC Driver 17 for SQL Server"
+)
 }
 }

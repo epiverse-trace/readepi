@@ -1,4 +1,3 @@
-
 #' Get file extension
 #'
 #' @param file.path the target file path
@@ -6,90 +5,92 @@
 #' @return a string that corresponds to the file extension
 #' @export
 #'
-#' @examples ext = getExtension(file.path=system.file("extdata", "test.txt", package = "readepi"))
-getExtension = function(file.path){
-  splits = unlist(strsplit(basename(file.path),".",fixed = TRUE))
-  extension = splits[length(splits)]
+#' @examples ext <- getExtension(file.path = system.file("extdata", "test.txt", package = "readepi"))
+getExtension <- function(file.path) {
+  splits <- unlist(strsplit(basename(file.path), ".", fixed = TRUE))
+  extension <- splits[length(splits)]
   extension
 }
 
-get_base_name = function(x){
-  ext = getExtension(x)
-  bn = gsub(paste0('.',ext),'',basename(x))
+get_base_name <- function(x) {
+  ext <- getExtension(x)
+  bn <- gsub(paste0(".", ext), "", basename(x))
   bn
 }
 
-detect_separator = function(x){
-  special.characters = c('\t','|',',',';',' ')  # look for other common sep
-  sep=NULL
-  for(spec.char in special.characters){
-    if(stringr::str_detect(x,spec.char)){
-      sep = c(sep,spec.char)
+detect_separator <- function(x) {
+  special.characters <- c("\t", "|", ",", ";", " ") # look for other common sep
+  sep <- NULL
+  for (spec.char in special.characters) {
+    if (stringr::str_detect(x, spec.char)) {
+      sep <- c(sep, spec.char)
     }
   }
   unique(sep)
 }
 
-read_multiple_files = function(files, dirs, format=NULL, which=NULL){
+read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
   # filter out directories from files
-  idx = which(files %in% dirs)
-  if(length(idx)>0){
-    files = files[-idx]
+  idx <- which(files %in% dirs)
+  if (length(idx) > 0) {
+    files <- files[-idx]
   }
 
   # defining rio package file extensions
-  rio.extensions = c('csv','psv','tsv','csvy','sas7bdat','sav','zsav','dta','xpt',
-                     'por','xls','R','RData','rda','rds','rec','mtp','syd','dbf',
-                     'arff','dif','no recognized extension','fwf','csv.gz','parquet',
-                     'wf1','feather','fst','json','mat','ods','html','xml','yml')
+  rio.extensions <- c(
+    "csv", "psv", "tsv", "csvy", "sas7bdat", "sav", "zsav", "dta", "xpt",
+    "por", "xls", "R", "RData", "rda", "rds", "rec", "mtp", "syd", "dbf",
+    "arff", "dif", "no recognized extension", "fwf", "csv.gz", "parquet",
+    "wf1", "feather", "fst", "json", "mat", "ods", "html", "xml", "yml"
+  )
 
   # getting files extensions and basenames
-  files.extensions = as.character(lapply(files, getExtension))
-  files.base.names = as.character(lapply(files, get_base_name))
+  files.extensions <- as.character(lapply(files, getExtension))
+  files.base.names <- as.character(lapply(files, get_base_name))
 
   # reading files with extensions that are taken care by rio
-  idx = which(files.extensions %in% rio.extensions)
-  result = list()
-  if(length(idx)>0){
-    tmp.files = files[idx]
-    tmp.bn = files.base.names[idx]
-    i=1
-    for(file in tmp.files){
-      data <- rio::import(file) #, format = format, which = which
-      result[[tmp.bn[i]]] = data
-      i=i+1
+  idx <- which(files.extensions %in% rio.extensions)
+  result <- list()
+  if (length(idx) > 0) {
+    tmp.files <- files[idx]
+    tmp.bn <- files.base.names[idx]
+    i <- 1
+    for (file in tmp.files) {
+      data <- rio::import(file) # , format = format, which = which
+      result[[tmp.bn[i]]] <- data
+      i <- i + 1
     }
-    files = files[-idx]
-    files.base.names = files.base.names[-idx]
-    files.extensions = files.extensions[-idx]
+    files <- files[-idx]
+    files.base.names <- files.base.names[-idx]
+    files.extensions <- files.extensions[-idx]
   }
 
   # reading files which extensions are not taken care by rio
-  i=1
-  for(file in files){
-    if(files.extensions[i] %in% c('xlsx','xls')){
+  i <- 1
+  for (file in files) {
+    if (files.extensions[i] %in% c("xlsx", "xls")) {
       data <- readxl::read_xlsx(file)
-      result[[files.base.names[i]]] = data
-      i=i+1
-    }else{
-      tmp.string = readLines(con = file, n=1)
-      sep = detect_separator(tmp.string)
-      if(length(sep)==1 && sep=='|'){
-        sep="|"
-      }else{
-        sep = sep[-(which(sep=='|'))]
-        if(length(sep)==2 && ' ' %in% sep){
-          sep = sep[-(which(sep==' '))]
-          if(length(sep)>1){
-            R.utils::cat("\nCan't resolve separator in",file,"\n")
-            i=i+1
+      result[[files.base.names[i]]] <- data
+      i <- i + 1
+    } else {
+      tmp.string <- readLines(con = file, n = 1)
+      sep <- detect_separator(tmp.string)
+      if (length(sep) == 1 && sep == "|") {
+        sep <- "|"
+      } else {
+        sep <- sep[-(which(sep == "|"))]
+        if (length(sep) == 2 && " " %in% sep) {
+          sep <- sep[-(which(sep == " "))]
+          if (length(sep) > 1) {
+            R.utils::cat("\nCan't resolve separator in", file, "\n")
+            i <- i + 1
             next
           }
         }
       }
       data <- data.table::fread(file, sep = sep, nThread = 4)
-      result[[files.base.names[i]]] = data
-      i=i+1
+      result[[files.base.names[i]]] <- data
+      i <- i + 1
     }
   }
   result
@@ -102,9 +103,11 @@ read_multiple_files = function(files, dirs, format=NULL, which=NULL){
 #' @param table.name the table names
 #' @examples
 #' \dontrun{
-#' data <- subset_fields(data.frame = data.frame,
-#' fields = "id,data_entry_date",
-#' table.name = "dss_events")
+#' data <- subset_fields(
+#'   data.frame = data.frame,
+#'   fields = "id,data_entry_date",
+#'   table.name = "dss_events"
+#' )
 #' }
 #' @returns a list of 2 elements: the subset data frame and an integer that tells whether all fields were missing in the table (1) or not (0)
 #' @importFrom magrittr %>%
@@ -113,8 +116,10 @@ read_multiple_files = function(files, dirs, format=NULL, which=NULL){
 subset_fields <- function(data.frame, fields, table.name) {
   checkmate::assert_data_frame(data.frame, null.ok = FALSE)
   checkmate::assertCharacter(table.name, len = 1L, null.ok = FALSE)
-  checkmate::assert_vector(fields, any.missing = FALSE, min.len = 1,
-                           null.ok = FALSE, unique = TRUE)
+  checkmate::assert_vector(fields,
+    any.missing = FALSE, min.len = 1,
+    null.ok = FALSE, unique = TRUE
+  )
   not.found <- 0
   target.fields <- as.character(unlist(strsplit(fields, ",")))
   idx <- which(target.fields %in% names(data.frame))
@@ -141,14 +146,16 @@ subset_fields <- function(data.frame, fields, table.name) {
 #' @importFrom magrittr %>%
 #' @examples
 #' \dontrun{
-#' sub.data = subset_records(data.frame, records, id.position = 1, table.name)
+#' sub.data <- subset_records(data.frame, records, id.position = 1, table.name)
 #' }
 #' @export
 subset_records <- function(data.frame, records, id.position = 1, table.name) {
   checkmate::assert_data_frame(data.frame, null.ok = FALSE)
   checkmate::assertCharacter(table.name, len = 1L, null.ok = FALSE)
-  checkmate::assert_vector(records, any.missing = FALSE, min.len = 1,
-                           null.ok = FALSE, unique = TRUE)
+  checkmate::assert_vector(records,
+    any.missing = FALSE, min.len = 1,
+    null.ok = FALSE, unique = TRUE
+  )
   checkmate::assert_number(id.position, lower = 1, null.ok = FALSE)
   not.found <- 0
   records <- as.character(unlist(strsplit(records, ",")))
@@ -217,8 +224,3 @@ read_credentials <- function(file.path = system.file("extdata", "test.ini", pack
   }
   project.credentials
 }
-
-
-
-
-

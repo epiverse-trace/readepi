@@ -1,6 +1,4 @@
-
-
-#' function to import data into R form DHIS2
+#' Import data form DHIS2 into R
 #' @param base.url the web address of the server the user wishes to log in to
 #' @param user the user name
 #' @param password the user password
@@ -33,5 +31,3 @@ read_from_dhis2 <- function(base.url, user, password, records = NULL, fields = N
 
   data
 }
-
-

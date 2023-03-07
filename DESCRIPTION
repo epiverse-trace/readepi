@@ -24,7 +24,6 @@ Imports:
     parallel,
     doParallel,
     httr,
-    datimutils,
     foreach
 Suggests: 
     covr,
