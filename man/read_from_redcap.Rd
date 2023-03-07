@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_from_redcap.R
 \name{read_from_redcap}
 \alias{read_from_redcap}
-\title{function to read data from REDCap}
+\title{Import data from REDCap into R}
 \usage{
 read_from_redcap(uri, token, id.position = 1, records = NULL, fields = NULL)
 }
@@ -21,14 +21,16 @@ read_from_redcap(uri, token, id.position = 1, records = NULL, fields = NULL)
 a list with 2 data frames: the data of interest and the metadata associated to the data.
 }
 \description{
-function to read data from REDCap
+Import data from REDCap into R
 }
 \examples{
 \dontrun{
-redcap.data <- read_from_redcap(uri = "https://redcap.mrc.gm:8443/redcap/api/",
-token = "****",
-id.position = 1,
-records = NULL,
-fields = NULL)
+redcap.data <- read_from_redcap(
+  uri = "https://redcap.mrc.gm:8443/redcap/api/",
+  token = "****",
+  id.position = 1,
+  records = NULL,
+  fields = NULL
+)
 }
 }

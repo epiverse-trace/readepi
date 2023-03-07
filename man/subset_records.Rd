@@ -23,6 +23,6 @@ function to subset records
 }
 \examples{
 \dontrun{
-sub.data = subset_records(data.frame, records, id.position = 1, table.name)
+sub.data <- subset_records(data.frame, records, id.position = 1, table.name)
 }
 }

@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_from_ms_sql_server.R
 \name{read_from_ms_sql_server}
 \alias{read_from_ms_sql_server}
-\title{function to read data from relational databases hosted by online MS SQL server. The user needs to have read access to the database et should install the appropriate MS driver that is compatible with the SQLServer version}
+\title{Read data from relational databases hosted by a MS SQL server.}
 \usage{
 read_from_ms_sql_server(
   user,
@@ -42,16 +42,21 @@ read_from_ms_sql_server(
 a list of data frames
 }
 \description{
-function to read data from relational databases hosted by online MS SQL server. The user needs to have read access to the database et should install the appropriate MS driver that is compatible with the SQLServer version
+For a user with read access to a Microsoft SQL server,
+this function allows data import from the database into R. It required the installation
+of the appropriate MS driver that is compatible with the SQL server version hosting the
+database.
 }
 \examples{
 \dontrun{
-data <- read_from_ms_sql_server(user = "kmane",
-password = "****",
-host = "robin.mrc.gm",
-port = 1433,
-database.name = "my_db",
-table.names = "my_table",
-driver.name = "ODBC Driver 17 for SQL Server")
+data <- read_from_ms_sql_server(
+  user = "kmane",
+  password = "****",
+  host = "robin.mrc.gm",
+  port = 1433,
+  database.name = "my_db",
+  table.names = "my_table",
+  driver.name = "ODBC Driver 17 for SQL Server"
+)
 }
 }

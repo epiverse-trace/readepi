@@ -21,8 +21,10 @@ function to subset fields
 }
 \examples{
 \dontrun{
-data <- subset_fields(data.frame = data.frame,
-fields = "id,data_entry_date",
-table.name = "dss_events")
+data <- subset_fields(
+  data.frame = data.frame,
+  fields = "id,data_entry_date",
+  table.name = "dss_events"
+)
 }
 }

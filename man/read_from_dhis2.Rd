@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_from_dhis2.R
 \name{read_from_dhis2}
 \alias{read_from_dhis2}
-\title{function to import data into R form DHIS2}
+\title{Import data form DHIS2 into R}
 \usage{
 read_from_dhis2(base.url, user, password, records = NULL, fields = NULL)
 }
@@ -21,5 +21,5 @@ read_from_dhis2(base.url, user, password, records = NULL, fields = NULL)
 a data frame
 }
 \description{
-function to import data into R form DHIS2
+Import data form DHIS2 into R
 }
