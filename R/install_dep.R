@@ -14,7 +14,7 @@ install_odbc_driver = function(driver.version=17){
     R.utils::cat("\ndetecting the Apple chip")
     apple.chip = system(sprintf("uname -m"), intern = TRUE)
 
-    R.utils::cat("\ninstalling unixodbc")
+    R.utils::cat("\ninstalling unixodbc\n")
     system(sprintf("brew install unixodbc"))
 
     R.utils::cat("\ninstalling SQL Server ODBC Drivers")
@@ -23,19 +23,19 @@ install_odbc_driver = function(driver.version=17){
     target.driver=paste0("msodbcsql",driver.version)
     system(sprintf("brew install %s mssql-tools",target.driver))
 
-    R.utils::cat("\nmaking the necessary symlinks")
+    # R.utils::cat("\nmaking the necessary symlinks")
     odbcinst = ifelse(apple.chip=="arm64", "/opt/homebrew/etc/odbcinst.ini", "/etc/odbcinst.ini")
-    odbc.alone = ifelse(apple.chip=="arm64", "/opt/homebrew/etc/odbc.ini", "/etc/odbc.ini")
-    if(file.exists("/etc/odbcinst.ini")){
-      system(sprintf("sudo unlink %s", "/etc/odbcinst.ini"))
-    }
-    if(file.exists("/etc/odbc.ini")){
-      system(sprintf("sudo unlink %s", "/etc/odbc.ini"))
-    }
-    system(sprintf("sudo ln -s %s %s",
-                   odbcinst, "/etc/odbcinst.ini"))
-    system(sprintf("sudo ln -s %s %s",
-                   odbc.alone, "/etc/odbc.ini"))
+    # odbc.alone = ifelse(apple.chip=="arm64", "/opt/homebrew/etc/odbc.ini", "/etc/odbc.ini")
+    # if(file.exists("/etc/odbcinst.ini")){
+    #   system(sprintf("sudo unlink %s", "/etc/odbcinst.ini"))
+    # }
+    # if(file.exists("/etc/odbc.ini")){
+    #   system(sprintf("sudo unlink %s", "/etc/odbc.ini"))
+    # }
+    # system(sprintf("sudo ln -s %s %s",
+    #                odbcinst, "/etc/odbcinst.ini"))
+    # system(sprintf("sudo ln -s %s %s",
+    #                odbc.alone, "/etc/odbc.ini"))
 
     R.utils::cat("\nconfiguring the home directory")
     system(sprintf("cp -f %s %s",
@@ -44,7 +44,7 @@ install_odbc_driver = function(driver.version=17){
     system(sprintf("ODBCSYSINI=/"))
   }else if(grepl("Linux", system(sprintf("uname -a"), intern = TRUE))){
     R.utils::cat("\ninstalling unixodbc and MS ODBC driver")
-    system(sprintf("./install_dependencies.sh"))
+    system(sprintf("./install_dependencies.sh %s", driver.version))
   }
 
   R.utils::cat("\ninstalling odbc R package")
@@ -53,6 +53,6 @@ install_odbc_driver = function(driver.version=17){
   if(nrow(driver.list)==0){
     message("\ninstallation was unsuccessfull!!!")
   }else{
-    R.utils::cat("\nODBC driver was successfully installed...")
+    stop("\nODBC driver was successfully installed ...")
   }
 }
