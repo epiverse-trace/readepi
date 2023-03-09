@@ -101,6 +101,7 @@ show_tables(
   project.id = "IBS_BHDSS",
   driver.name = "ODBC Driver 17 for SQL Server"
 )
+
 # READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
 data <- readepi(
   credentials.file = credentials.file, 
@@ -108,9 +109,6 @@ data <- readepi(
   driver.name = "ODBC Driver 17 for SQL Server", 
   table.name = "dss_events"
   )
-
-
-#CS_OPD, robin, 
 ```
 
 ## Vignette
