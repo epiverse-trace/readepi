@@ -32,7 +32,7 @@ common _health information systems_.
 You can install the development version of readepi from
 [GitHub](https://github.com/) with:
 
-```{r}
+```{r eval=FALSE}
 # install.packages("devtools")
 # devtools::install_github("epiverse-trace/readepi@develop", build_vignettes = TRUE)
 suppressPackageStartupMessages(library(readepi))
@@ -48,7 +48,7 @@ The `readepi()` function allows importing data from several file types and datab
 * DHIS2      
 
 ### Importing data from files
-```{r}
+```{r eval=FALSE}
 # READING DATA FROM JSON file
 file <- system.file("extdata", "test.json", package = "readepi")
 data <- readepi(file.path = file)
@@ -63,7 +63,7 @@ data <- readepi(file.path = file, which = c("Sheet2", "Sheet1"))
 ```
 
 ### Importing data from several files in a directory
-```{r}
+```{r eval=FALSE}
 # READING ALL FILES IN A GIVEN DIRECTOR
 dir.path <- "inst/extdata"
 data <- readepi(file.path = dir.path)
@@ -81,7 +81,7 @@ This requires the users to:
 1. install the MS SQL driver that is compatible with their SQL server version. Details about this installation process can be found in the **vignette**.    
 2. create a credentials file where the credential will be stored. Use the `show_example_file()` to see a template of this file.     
 
-```{r}
+```{r eval=FALSE}
 # DISPLAY THE STRUCTURE OF THE CREDENTIALS FILE
 show_example_file()
 
