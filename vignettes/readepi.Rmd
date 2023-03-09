@@ -22,6 +22,14 @@ library(readepi)
 
 `readepi` provides functions for reading data from `common health information systems` as well as from various file types. When several files of different formats are stored in the same folder, the user can provide `readepi` with a specific pattern, allowing reading only the matching files.     
 
+When reading data from file or directory, the function expects the following arguments:   
+`file.path`: the path to the file of interest. When several files need to be imported from a directory, this should be the path to that directory,      
+`sep`: the separator between the columns in the file. This is only required for space-separated files,     
+`format`: a string used to specify the file format. This is useful when a file does not have an extension, or has a file extension that does not match its actual type,      
+`which`: a string used to specify which objects should be extracted (e.g. the name of the excel sheet to import),     
+`pattern`: when provided, only files that contain this pattern will be imported from the specified directory.    
+The function will return a list of data frames (if several files were imported from a directory).    
+
 ## importing data from JSON file
 Many database management systems (DBMS) can export data into `JSON` format that can be read into R using the `readepi()` function.      
 ```{r eval=FALSE}
@@ -56,13 +64,51 @@ data <- readepi(file.path = dir.path, pattern = c(".txt", ".xlsx"))
 ```
 
 # importing from DBMS (database management systems)
-To import data from DBMS such as **REDCap**, **MS SQL server**, **DHIS2**, etc, the user must provide `readepi()` with at least:   
+Users should be granted with read access to be able to pull data from the RDBMS. 
 
-* a file with the user credentials (these details are required to established the connexion to the DBMS)
-* the database name or the project ID (for REDCap) 
+## Reading data from relational database management systems (RDBMS): HDSS, EMRS, REDCap
+Research data are usually stored in either relational databases or NoSQL databases. For instance, at the MRCG, project data are stored in relational databases. The HDSS and EMRS host databases that run under MS SQL Server, while REDCap (that uses an EAV schema) run under a MySQL server.    
+To import data from a HDSS or EMRS (MS SQL Server) into R, some dependencies need to be installed first.    
 
-## structure of the credentials file
-This must be a tab-delimited file with 7 columns. Use the `show_example_file()` as below to view the credentials file use as template in the **readepi** package.      
+### installation of dependencies
+If you are using a Unix-based system, you will need to install the MS ODBC driver that is compatible with the version of the target MS SQL server. For **SQL server 2019, version 15.0**, we installed **ODBC Driver 17 for SQL Server** on the mac OS which is compatible with the test server. 
+The `install_odbc_driver()` function can be used to installed the chosen driver on your system.     
+
+```{r eval=FALSE}
+install_odbc_driver(driver.version=17)
+```
+
+If after running this command, you still have issues related to the MS SQL driver installation, use the links below for more details about how to install the **odbc** package in R and odbc drivers:     
+[the odbc github page](https://github.com/r-dbi/odbc#installation)      
+
+[here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15)     
+
+Once installed, the list of drivers can be displayed in R using:       
+```{r eval=FALSE}
+odbc::odbcListDrivers()   
+```
+
+It is important to view the data that is stored in the MS SQL server. I recommend to install a GUI such as `Azure Data Studio`.         
+
+### needed argument for importing data from RDBMS into R
+To be able to read data from RDBMS, the **read_epi()** expects the following arguments:     
+`credentials.file`: the path to the file with the user-specific credential details for the projects of interest. This is a tab-delimited file with the following 7  columns:    
+
+* user_name: the user name,    
+* password: the user password (for REDCap, this corresponds to the **token** that serves as password to the project),    
+* host_name: the host name (for HDSS and EMRS) or the URI (for REDCap),    
+* project_id: the project ID (for REDCap) or the name of the database (for HDSS and EMRS) you are access to,   
+* comment: a summary description about the project or database of interest,     
+* dbms: the name of the DBMS: 'redcap' or 'REDCap' when reading from REDCap, 'sqlserver' or 'SQLServer' when reading from MS SQL Server,    
+* port: the port ID (used for MS SQL Servers only).    
+`project.id` for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to. Note that this should be similar to the value of the **project_id** field in the credential file.  
+`driver.name` the name of the MS driver (only for HDSS and EMRS). use `odbc::odbcListDrivers()` to display the list of installed drivers,    
+`table.name`: the name of the target table (only for HDSS and EMRS),   
+`records`: a vector or a comma-separated string of a subset of subject IDs. When specified, only the records that correspond to these subjects will be imported,    
+`fields`: a vector or a comma-separated string of column names. If provided, only those columns will be imported,     
+`id.position`: the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.    
+
+Use the `show_example_file()` as below to view the credentials file used as template in the **readepi** package.      
 ```{r eval=FALSE}
 # DISPLAY THE STRUCTURE OF THE CREDENTIALS FILE
 show_example_file()
@@ -74,66 +120,12 @@ All demos in the sections below rely on the credentials stored in the template f
 credentials.file <- system.file("extdata", "fake_test.ini", package = "readepi")
 ```
 
-
-## importing from REDCap
-To import data from REDCap, the user must call the `readepi` function with the following arguments:     
-
-* the credentials file (required)
-* the project ID (required)
-* the list of the desired records (optional)
-* the list of the desired columns (optional)
-
-Both the data and its associated metadata will be will be returned after a successful import.    
-
-```{r eval=FALSE}
-# READING ALL FIELDS AND RECORDS THE PROJECT
-data <- readepi(
-  credentials.file = credentials.file,
-  project.id = "Pats__Covid_19_Cohort_1_Screening"
-)
-project.data <- data$data
-project.metadeta <- data$metadata
-
-# READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT
-fields <- c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a", "day_1_q_1b", "day_1_q_1c", "day_1_q_1", "day_1_q_2", "day_1_q_3", "day_1_q_4", "day_1_q_5")
-data <- readepi(credentials.file,
-  project.id = "Pats__Covid_19_Cohort_1_Screening",
-  fields = fields
-)
-
-# READING SPECIFIC RECORDS AND ALL FIELDS FROM THE PROJECT
-records <- c("C10001/3", "C10002/1", "C10003/7", "C10004/5", "C10005/9", "C10006/8", "C10007/6", "C10008/4", "C10009/2", "C10010/1")
-data <- readepi(credentials.file,
-  project.id = "Pats__Covid_19_Cohort_1_Screening",
-  records = records
-)
-
-# READING SPECIFIC RECORDS AND FIELDS FROM THE PROJECT
-data <- readepi(credentials.file,
-  project.id = "Pats__Covid_19_Cohort_1_Screening",
-  records = records,
-  fields = fields
-)
-project.data <- data$data
-project.metadeta <- data$metadata
-```
-
-## importing from HDSS or EMRS (reading from SQLserver)
-Similarly to reading data from REDCap, the `readepi()` function needs:   
-
-* the credentials file (required)
-* the database name (required)
-* the driver name (required)
-* the table name (required)
-* the list of the desired records (optional)
-* the list of the desired columns (optional)
-
 ### list the names of all tables in the database
 To displays the list of tables from the database of interest, use:  
 ```{r eval=FALSE}
-showTables(
+show_tables(
   credentials.file = credentials.file,
-  project.id = "IBS_BHDSS",
+  project.id = "IBS_BHDSS", # this is the database name
   driver.name = "ODBC Driver 17 for SQL Server"
 )
 ```
@@ -174,3 +166,49 @@ fields <- c("id,name,balance,created_by", "id,status,name", "id,name")
 records <- c("3,8,13", "1,2,3", "1")
 data <- readepi(credentials.file, project.id = "IBS_BHDSS", driver.name = "ODBC Driver 17 for SQL Server", table.name = table.names, records = records, fields = fields)
 ```
+
+## importing from REDCap
+To import data from REDCap, the user must call the `readepi` function with the following arguments:     
+
+* the credentials file (required)
+* the project ID (required)
+* the list of the desired records (optional)
+* the list of the desired columns (optional)
+
+Both the data and its associated metadata will be will be returned after a successful import.    
+
+```{r eval=FALSE}
+# READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT
+data <- readepi(
+  credentials.file = credentials.file,
+  project.id = "Pats__Covid_19_Cohort_1_Screening"
+)
+project.data <- data$data
+project.metadeta <- data$metadata
+
+# READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT
+fields <- c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a", "day_1_q_1b", "day_1_q_1c", "day_1_q_1", "day_1_q_2", "day_1_q_3", "day_1_q_4", "day_1_q_5")
+data <- readepi(credentials.file,
+  project.id = "Pats__Covid_19_Cohort_1_Screening",
+  fields = fields
+)
+
+# READING SPECIFIC RECORDS AND ALL FIELDS FROM THE PROJECT
+records <- c("C10001/3", "C10002/1", "C10003/7", "C10004/5", "C10005/9", "C10006/8", "C10007/6", "C10008/4", "C10009/2", "C10010/1")
+data <- readepi(credentials.file,
+  project.id = "Pats__Covid_19_Cohort_1_Screening",
+  records = records
+)
+
+# READING SPECIFIC RECORDS AND FIELDS FROM THE PROJECT
+data <- readepi(credentials.file,
+  project.id = "Pats__Covid_19_Cohort_1_Screening",
+  records = records,
+  fields = fields
+)
+project.data <- data$data
+project.metadeta <- data$metadata
+```
+
+
+

@@ -28,9 +28,12 @@
 #' @param id.position the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.
 #' @examples
 #' \dontrun{
+#' # reading from a MS SQL server
 #' data <- readepi(
 #'   credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-#'   project.id = "my_project_id"
+#'   project.id = "IBS_BHDSS",
+#'   driver.name = "ODBC Driver 17 for SQL Server",
+#'   table.name = "dss_events"
 #' )
 #' }
 #' @returns a list with 2 data frames (data and metadata) when reading from REDCap. A data frame otherwise.
