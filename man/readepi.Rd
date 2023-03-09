@@ -66,9 +66,12 @@ The HIS are database management systems (DBMS), both relational and NoSQL databa
 }
 \examples{
 \dontrun{
+# reading from a MS SQL server
 data <- readepi(
   credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-  project.id = "my_project_id"
+  project.id = "IBS_BHDSS",
+  driver.name = "ODBC Driver 17 for SQL Server",
+  table.name = "dss_events"
 )
 }
 }

@@ -4,12 +4,10 @@
 \alias{install_odbc_driver}
 \title{Install the Microsoft ODBC driver for SQL server}
 \usage{
-install_odbc_driver(driver.version = 17, apple.chip = NULL)
+install_odbc_driver(driver.version = 17)
 }
 \arguments{
 \item{driver.version}{the version of the driver that is compatible with your system}
-
-\item{apple.chip}{the chip name of the Mac OS. Possible values are: 'M1','M2','intel'}
 }
 \description{
 Install the Microsoft ODBC driver for SQL server
