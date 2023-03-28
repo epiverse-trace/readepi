@@ -4,14 +4,23 @@
 \alias{read_from_redcap}
 \title{Import data from REDCap into R}
 \usage{
-read_from_redcap(uri, token, id.position = 1, records = NULL, fields = NULL)
+read_from_redcap(
+  uri,
+  token,
+  id.position = 1,
+  id.col.name = NULL,
+  records = NULL,
+  fields = NULL
+)
 }
 \arguments{
 \item{uri}{the URI of the server}
 
 \item{token}{the user-specific string that serves as the password for a project}
 
-\item{id.position}{the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.}
+\item{id.position}{the column position of the variable that unique identifies the subjects. When the column name with the subject IDs is known, use the \code{id.col.name} argument instead. default is 1}
+
+\item{id.col.name}{the column name with the subject IDs}
 
 \item{records}{a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.}
 
@@ -29,6 +38,7 @@ redcap.data <- read_from_redcap(
   uri = "https://redcap.mrc.gm:8443/redcap/api/",
   token = "****",
   id.position = 1,
+  id.col.name = NULL,
   records = NULL,
   fields = NULL
 )

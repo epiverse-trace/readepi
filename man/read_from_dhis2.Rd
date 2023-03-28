@@ -4,21 +4,45 @@
 \alias{read_from_dhis2}
 \title{Import data form DHIS2 into R}
 \usage{
-read_from_dhis2(base.url, user, password, records = NULL, fields = NULL)
+read_from_dhis2(
+  base.url,
+  user.name,
+  password,
+  dataset,
+  organisation.unit,
+  data.element.group,
+  start.date,
+  end.date,
+  records,
+  fields,
+  id.col.name = "dataElement"
+)
 }
 \arguments{
 \item{base.url}{the web address of the server the user wishes to log in to}
 
-\item{user}{the user name}
+\item{user.name}{the user name}
 
 \item{password}{the user password}
+
+\item{dataset}{a vector or a list of comma-separated data set identifiers}
+
+\item{organisation.unit}{a vector or a list of comma-separated organisation unit identifiers}
+
+\item{data.element.group}{a vector or a list of comma-separated data element group identifiers}
+
+\item{start.date}{the start date for the time span of the values to export}
+
+\item{end.date}{the end date for the time span of the values to export}
 
 \item{records}{a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.}
 
 \item{fields}{a vector or a comma-separated string of column names. If provided, only those columns will be imported.}
+
+\item{id.col.name}{the column name with the records of interest.}
 }
 \value{
-a data frame
+a list of data frames
 }
 \description{
 Import data form DHIS2 into R

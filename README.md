@@ -74,11 +74,12 @@ data <- readepi(file.path = dir.path, pattern = c(".txt", ".xlsx"))
 
 This requires the users to:
 
-1.  install the MS SQL driver that is compatible with their SQL server
+1.  install the MS SQL driver that is compatible with your SQL server
     version. Details about this installation process can be found in the
     **vignette**.  
-2.  create a credentials file where the credential will be stored. Use
-    the `show_example_file()` to see a template of this file.
+2.  create a credentials file where the user credential details will be
+    stored. Use the `show_example_file()` to see a template of this
+    file.
 
 ``` r
 # DISPLAY THE STRUCTURE OF THE CREDENTIALS FILE
@@ -108,6 +109,17 @@ data <- readepi(
   project.id = "IBS_BHDSS",  #this is the database name
   driver.name = "ODBC Driver 17 for SQL Server", 
   table.name = "dss_events"
+  )
+
+# READING DATA FROM DHIS2
+data <- readepi(
+  credentials.file = credentials.file, 
+  project.id = "DHIS2_DEMO",
+  dataset="pBOMPrpg1QX",
+  organisation.unit="DiszpKrYNg8",
+  data.element.group=NULL,
+  start.date="2014",
+  end.date="2023"
   )
 ```
 

@@ -25,7 +25,13 @@
 #' @param table.name the name of the target table
 #' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
 #' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
-#' @param id.position the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.
+#' @param id.position the column position of the variable that unique identifies the subjects. When the name of the column with the subject IDs is known, this can be provided using the `id.col.name` argument
+#' @param dataset a vector or a list of comma-separated data set identifiers.
+#' @param organisation.unit a vector or a list of comma-separated organisation unit identifiers.
+#' @param data.element.group a vector or a list of comma-separated data element group identifiers.
+#' @param start.date the start date for the time span of the values to export
+#' @param end.date the end date for the time span of the values to export
+#' @param id.col.name the column name with the subject IDs.
 #' @examples
 #' \dontrun{
 #' # reading from a MS SQL server
@@ -49,7 +55,13 @@ readepi <- function(credentials.file = NULL,
                     table.name = NULL,
                     records = NULL,
                     fields = NULL,
-                    id.position = 1) {
+                    id.position = 1,
+                    dataset = NULL,
+                    organisation.unit = NULL,
+                    data.element.group = NULL,
+                    start.date = NULL,
+                    end.date = NULL,
+                    id.col.name = NULL) {
   # check the input arguments
   checkmate::assertCharacter(credentials.file, len = 1L, null.ok = TRUE)
   checkmate::assertCharacter(file.path, len = 1L, null.ok = TRUE)
@@ -74,9 +86,23 @@ readepi <- function(credentials.file = NULL,
     any.missing = FALSE, min.len = 1,
     null.ok = TRUE, unique = TRUE
   )
-  checkmate::assert_number(id.position, lower = 1)
-
-
+  checkmate::assert_vector(dataset,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(organisation.unit,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(data.element.group,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(start.date,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(end.date,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_number(id.position, lower = 1, null.ok = TRUE)
+  checkmate::assertCharacter(id.col.name, len = 1L, null.ok = TRUE, any.missing = FALSE)
 
   # some check points
   if (!is.null(credentials.file) & !is.null(file.path)) {
@@ -93,22 +119,29 @@ readepi <- function(credentials.file = NULL,
     credentials <- read_credentials(credentials.file, project.id)
     if (credentials$dbms %in% c("redcap", "REDCap")) {
       res <- read_from_redcap(
-        uri = credentials$host, token = credentials$pwd, id.position = id.position,
+        uri = credentials$host, token = credentials$pwd,
+        id.position = id.position, id.col.name = id.col.name,
         records = records, fields = fields
-      ) # project.id = credentials$project,
+      )
     } else if (credentials$dbms %in% c("sqlserver", "SQLServer")) {
       res <- read_from_ms_sql_server(
-        user = credentials$user, password = credentials$pwd, host = credentials$host, port = credentials$port,
-        database.name = credentials$project, table.names = table.name, driver.name = driver.name, records = records,
-        fields = fields
+        user = credentials$user, password = credentials$pwd,
+        host = credentials$host, port = credentials$port,
+        database.name = credentials$project, table.names = table.name,
+        driver.name = driver.name, records = records, fields = fields,
+        id.position = 1, id.col.name = NULL
       )
     }
-    # else if(credentials$dbms %in% c('dhis2','DHIS2')){
-    #   R.utils::cat("")
-    #   res = read_from_dhis2(base.url=credentials$host, password=credentials$pwd,
-    #                         user=credentials$user, project.id=credentials$project,
-    #                         id.position=id.position, records=records, fields=fields)
-    # }
+    else if(credentials$dbms %in% c('dhis2','DHIS2')){
+      R.utils::cat("")
+      res = read_from_dhis2(base.url=credentials$host, user.name=credentials$user,
+                            password=credentials$pwd, dataset=dataset,
+                            organisation.unit=organisation.unit,
+                            data.element.group = data.element.group,
+                            start.date = start.date, end.date = end.date,
+                            records=records, fields=fields,
+                            id.col.name = id.col.name)
+    }
   }
 
   res

@@ -12,7 +12,8 @@
 #' @param driver.name the name of the MS driver. use `odbc::odbcListDrivers()` to display the list of installed drivers
 #' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
 #' @param fields a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the `table.names` argument and so on...
-#' @param id.position a vector of the column positions of the variable that unique identifies the subjects in each table. This should only be specified when the column with the subject IDs is not the first column. default is 1.
+#' @param id.position a vector of the column positions of the variable that unique identifies the subjects in each table. When the column name with the subject IDs is known, use the `id.col.name` argument instead. default is. default is 1.
+#' @param id.col.name the column name with the subject IDs
 #' @returns a list of data frames
 #' @examples
 #' \dontrun{
@@ -28,11 +29,14 @@
 #' }
 #' @export
 #' @importFrom magrittr %>%
-read_from_ms_sql_server <- function(user, password, host, port = 1433, database.name,
-                                    driver.name, table.names = NULL, records = NULL,
-                                    fields = NULL, id.position = 1) {
+read_from_ms_sql_server <- function(user, password, host, port = 1433,
+                                    database.name, driver.name,
+                                    table.names = NULL, records = NULL,
+                                    fields = NULL, id.position = 1,
+                                    id.col.name = NULL) {
   # check the input arguments
-  checkmate::assert_number(id.position, lower = 1)
+  checkmate::assert_number(id.position, lower = 1, null.ok = TRUE)
+  checkmate::assertCharacter(id.col.name, len = 1L, null.ok = TRUE, any.missing = FALSE)
   checkmate::assert_number(port, lower = 1)
   checkmate::assert_character(user, any.missing = FALSE, len = 1, null.ok = FALSE)
   checkmate::assert_character(password, any.missing = FALSE, len = 1, null.ok = FALSE)
@@ -50,6 +54,10 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433, database.
     any.missing = FALSE, min.len = 1,
     null.ok = TRUE, unique = TRUE
   )
+
+  if(is.null(id.position) & is.null(id.col.name)){
+    stop("Cannot specify both 'id.position' and 'id.col.name' at the same time.")
+  }
 
 
   # establishing the connection to the server
@@ -96,29 +104,35 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433, database.
   # extract the data from the given tables and store the output in an R object
   # subsetting the columns
   if (!is.null(fields)) {
-    j <- 1
-    not.found <- 0
-    for (table in table.names) {
-      R.utils::cat("\nFetching data from", table)
-      sql <- DBI::dbSendQuery(con, paste0("select * from ", table))
+    if(length(table.names)==1){
+      sql <- DBI::dbSendQuery(con, paste0("select * from ", table.names))
       res <- DBI::dbFetch(sql, -1)
       DBI::dbClearResult(sql)
-      if (!is.na(fields[j])) {
-        subset.data <- subset_fields(res, fields[j], table)
-        result[[table]] <- subset.data$data
-        not.found <- not.found + subset.data$not_found
-        j <- j + 1
-      } else {
-        result[[table]] <- res
-        j <- j + 1
+      subset.data <- subset_fields(res, fields, table.names)
+      result[[table.names]] <- subset.data$data
+    }else{
+      j <- 1
+      not.found <- 0
+      for (table in table.names) {
+        sql <- DBI::dbSendQuery(con, paste0("select * from ", table))
+        res <- DBI::dbFetch(sql, -1)
+        DBI::dbClearResult(sql)
+        if (!is.na(fields[j])) {
+          subset.data <- subset_fields(res, fields[j], table)
+          result[[table]] <- subset.data$data
+          not.found <- not.found + subset.data$not_found
+          j <- j + 1
+        } else {
+          result[[table]] <- res
+          j <- j + 1
+        }
       }
-    }
-    if (not.found == length(table.names)) {
-      stop("Specified fields not found in the tables of interest!")
+      if (not.found == length(table.names)) {
+        stop("Specified fields not found in the tables of interest!")
+      }
     }
   } else {
     for (table in table.names) {
-      R.utils::cat("\nFetching data from", table)
       sql <- DBI::dbSendQuery(con, paste0("select * from ", table))
       result[[table]] <- DBI::dbFetch(sql, -1)
       DBI::dbClearResult(sql)
@@ -128,20 +142,34 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433, database.
 
   # subsetting the records
   if (!is.null(records)) {
-    j <- 1
-    not.found <- 0
-    for (table in names(result)) {
-      if (!is.na(records[j])) {
-        id.position <- ifelse(!is.na(id.position[j]), id.position[j], id.position[1])
-        res <- subset_records(result[[table]], records[j], id.position, table)
-        result[[table]] <- res$data
-        not.found <- not.found + res$not_found
-        j <- j + 1
+    if(length(table.names)==1){
+      id.pos = ifelse(!(is.null(id.position)), id.position,
+                      which(names(result[[table.names]]) == id.col.name))
+      res <- subset_records(result[[table.names]], records, id.pos,
+                            table.names)
+      result[[table.names]] <- res$data
+    }else{
+      j <- 1
+      not.found <- 0
+      for (table in names(result)) {
+        if (!is.na(records[j])) {
+          if(!is.null(id.position)){
+            id.pos <- ifelse(!is.na(id.position[j]), id.position[j], id.position[1])
+          }else{
+            id.col <- ifelse(!is.na(id.col.name[j]), id.col.name[j], id.col.name[1])
+            id.pos = which(names(result[[table]]) == id.col)
+          }
+          res <- subset_records(result[[table]], records[j], id.pos, table)
+          result[[table]] <- res$data
+          not.found <- not.found + res$not_found
+          j <- j + 1
+        }
+      }
+      if (not.found == length(table.names)) {
+        stop("Specified records not found in the tables of interest!")
       }
     }
-    if (not.found == length(table.names)) {
-      stop("Specified records not found in the tables of interest!")
-    }
+
   }
   cat("\n")
 
