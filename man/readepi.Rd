@@ -16,7 +16,13 @@ readepi(
   table.name = NULL,
   records = NULL,
   fields = NULL,
-  id.position = 1
+  id.position = 1,
+  dataset = NULL,
+  organisation.unit = NULL,
+  data.element.group = NULL,
+  start.date = NULL,
+  end.date = NULL,
+  id.col.name = NULL
 )
 }
 \arguments{
@@ -55,7 +61,19 @@ credentials file}
 
 \item{fields}{a vector or a comma-separated string of column names. If provided, only those columns will be imported.}
 
-\item{id.position}{the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.}
+\item{id.position}{the column position of the variable that unique identifies the subjects. When the name of the column with the subject IDs is known, this can be provided using the \code{id.col.name} argument}
+
+\item{dataset}{a vector or a list of comma-separated data set identifiers.}
+
+\item{organisation.unit}{a vector or a list of comma-separated organisation unit identifiers.}
+
+\item{data.element.group}{a vector or a list of comma-separated data element group identifiers.}
+
+\item{start.date}{the start date for the time span of the values to export}
+
+\item{end.date}{the end date for the time span of the values to export}
+
+\item{id.col.name}{the column name with the subject IDs.}
 }
 \value{
 a list with 2 data frames (data and metadata) when reading from REDCap. A data frame otherwise.

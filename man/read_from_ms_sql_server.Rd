@@ -14,7 +14,8 @@ read_from_ms_sql_server(
   table.names = NULL,
   records = NULL,
   fields = NULL,
-  id.position = 1
+  id.position = 1,
+  id.col.name = NULL
 )
 }
 \arguments{
@@ -36,7 +37,9 @@ read_from_ms_sql_server(
 
 \item{fields}{a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the \code{table.names} argument and so on...}
 
-\item{id.position}{a vector of the column positions of the variable that unique identifies the subjects in each table. This should only be specified when the column with the subject IDs is not the first column. default is 1.}
+\item{id.position}{a vector of the column positions of the variable that unique identifies the subjects in each table. When the column name with the subject IDs is known, use the \code{id.col.name} argument instead. default is. default is 1.}
+
+\item{id.col.name}{the column name with the subject IDs}
 }
 \value{
 a list of data frames
