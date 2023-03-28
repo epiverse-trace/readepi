@@ -13,6 +13,7 @@
 #' @param id.col.name the column name with the records of interest.
 #' @returns a list of data frames
 #' @export
+#' @importFrom base |>
 read_from_dhis2 <- function(base.url,
                             user.name,
                             password,
@@ -130,38 +131,6 @@ read_from_dhis2 <- function(base.url,
 
 
 
-# mydata<-paste0(base.url,"api/dataValueSets?dataSet=BfMAe6Itzgt&orgUnit=DiszpKrYNg8&period=201401") %>%
-#   GET(.,authenticate(username,password)) %>%
-#   httr::content()
-#
-#
-#
-# require(httr)
-# username <- "admin"
-# password <- "district"
-# base.url <- "https://play.dhis2.org/dev/"
-#
-# mydata = GET(
-#   paste0(base.url, "/api/dataValueSets"),
-#   authenticate(username, password),
-#   query = list(dataSet = "pBOMPrpg1QX",
-#                orgUnit = "DiszpKrYNg8",
-#                startDate = "2014",
-#                endDate = "2023")
-# ) |>
-#   content() |>
-#   purrr::flatten_dfr()
-
-# test = do.call(rbind.data.frame,mydata$dataValues)
-# jsonlite::fromJSON()
-
-# r=content(GET(url="https://covid19.moh.gm/tracker/api/dataValueSets?dataSet=kIfMNugiTgd&orgUnit=Y5lAjWXDjfy",
-#               authenticate(username,password),
-#               add_headers(Accept="application/xml")), as="text")
-
-# r=content(GET(url="https://play.dhis2.org/demo/api/dataValueSets?dataSet=pBOMPrpg1QX&period=201401&orgUnit=DiszpKrYNg8",
-#               authenticate("admin","district"),
-#               add_headers(Accept="application/xml")), as="text")
 
 
 
