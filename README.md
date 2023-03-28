@@ -48,7 +48,7 @@ data <- readepi(file.path = file)
 
 # IMPORTING DATA FROM THE SECOND EXCEL SHEET
 file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(file.path = file, which = "Sheet2")
+data <- readepi(file.path = file, which = "Sheet2") 
 
 # IMPORTING DATA FROM THE FIRST AND SECOND EXCEL SHEETS
 file <- system.file("extdata", "test.xlsx", package = "readepi")
@@ -58,8 +58,8 @@ data <- readepi(file.path = file, which = c("Sheet2", "Sheet1"))
 ### Importing data from several files in a directory
 
 ``` r
-# READING ALL FILES IN A GIVEN DIRECTOR
-dir.path <- "inst/extdata"
+# READING ALL FILES IN A GIVEN DIRECTORY
+dir.path <- system.file("extdata", "test.xlsx", package = "readepi")
 data <- readepi(file.path = dir.path)
 
 # READING ONLY '.txt' FILES
@@ -96,17 +96,28 @@ project.data <- data$data
 project.metadeta <- data$metadata
 
 # DISPLAY THE LIST OF ALL TABLES IN A DATABASE HOSTED BY AN SQL SERVER
+# for MS windows user, replace "ODBC Driver 17 for SQL Server" by "SQL Server"
 show_tables(
   credentials.file = credentials.file,
   project.id = "IBS_BHDSS",
   driver.name = "ODBC Driver 17 for SQL Server"
 )
 
+
+
 # READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
 data <- readepi(
   credentials.file = credentials.file, 
   project.id = "IBS_BHDSS",  #this is the database name
   driver.name = "ODBC Driver 17 for SQL Server", 
+  table.name = "dss_events"
+  )
+
+# the below does not work for microsoft 
+data <- readepi(
+  credentials.file = credentials.file, 
+  project.id = "IBS_BHDSS",  #this is the database name
+  driver.name = "SQL Server", 
   table.name = "dss_events"
   )
 
