@@ -43,9 +43,7 @@ The `readepi()` function allows importing data from several file types and datab
 
 * all file formats in the [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html) package.    
 * file formats that are not accounted for by `rio`      
-* REDCap       
-* relational database management systems (RDBMS)       
-* DHIS2      
+* relational database management systems (RDBMS) such as **REDCap**, **MS SQL server**, **DHIS2**       
 
 ### Importing data from files
 ```{r eval=FALSE}

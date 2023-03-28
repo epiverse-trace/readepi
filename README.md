@@ -36,9 +36,8 @@ and database management systems. These include:
   [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html)
   package.  
 - file formats that are not accounted for by `rio`  
-- REDCap  
-- relational database management systems (RDBMS)  
-- DHIS2
+- relational database management systems (RDBMS) such as **REDCap**,
+  **MS SQL server**, **DHIS2**
 
 ### Importing data from files
 
