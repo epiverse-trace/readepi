@@ -24,7 +24,8 @@ Imports:
     parallel,
     doParallel,
     httr,
-    foreach
+    foreach,
+    purrr
 Suggests: 
     covr,
     testthat (>= 3.0.0),
