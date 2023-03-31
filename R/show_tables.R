@@ -5,7 +5,7 @@
 #' @examples
 #' \dontrun{
 #' show_tables(
-#'   credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"),
+#'   credentials.file = system.file("extdata", "test.ini", package = "readepi"),
 #'   project.id = "IBS_BHDSS",
 #'   driver.name = "ODBC Driver 17 for SQL Server"
 #' )
@@ -37,5 +37,4 @@ show_tables <- function(credentials.file, project.id, driver.name) {
   # listing the names of the tables present in the database
   tables <- DBI::dbListTables(conn = con)
   R.utils::cat(paste(tables, collapse = "\n"))
-  # print(tables)
 }

@@ -22,7 +22,7 @@ Display the list of tables in a database
 \examples{
 \dontrun{
 show_tables(
-  credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"),
+  credentials.file = system.file("extdata", "test.ini", package = "readepi"),
   project.id = "IBS_BHDSS",
   driver.name = "ODBC Driver 17 for SQL Server"
 )

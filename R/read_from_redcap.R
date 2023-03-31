@@ -34,12 +34,12 @@ read_from_redcap <- function(uri, token, id.position = 1, id.col.name = NULL,
   )
   checkmate::assertCharacter(id.col.name, len = 1L, null.ok = TRUE, any.missing = FALSE)
 
-  if(!is.null(id.position) & !is.null(id.col.name)){
+  if (!is.null(id.position) & !is.null(id.col.name)) {
     stop("Cannot specify both 'id.position' and 'id.col.name' at the same time.")
   }
 
-  if(is.null(id.position)){
-    id.position=1
+  if (is.null(id.position)) {
+    id.position <- 1
   }
 
   # importing data and the metadata into R
@@ -66,18 +66,21 @@ read_from_redcap <- function(uri, token, id.position = 1, id.col.name = NULL,
       redcap_uri = uri, token = token,
       fields_collapsed = fields, verbose = FALSE
     )
-    if(!is.null(id.col.name)){
-      if(!(id.col.name %in% names(redcap.data$data))) stop("Specified ID column name not found!")
-      id.column.name = id.col.name
-      id.position = which(names(redcap.data$data)==id.column.name)
-    }else {id.column.name <- names(redcap.data$data)[id.position]}
+    if (!is.null(id.col.name)) {
+      if (!(id.col.name %in% names(redcap.data$data))) stop("Specified ID column name not found!")
+      id.column.name <- id.col.name
+      id.position <- which(names(redcap.data$data) == id.column.name)
+    } else {
+      id.column.name <- names(redcap.data$data)[id.position]
+    }
     if (is.character(records)) {
       records <- as.character(unlist(strsplit(records, ",")))
     }
     if (is.numeric(redcap.data$data[[id.column.name]])) {
       records <- as.numeric(records)
     }
-    redcap.data$data <- redcap.data$data[which(redcap.data$data[[id.column.name]] %in% records), ]
+    redcap.data$data <-
+      redcap.data$data[which(redcap.data$data[[id.column.name]] %in% records), ]
   } else if (!is.null(fields) & is.null(records)) {
     if (is.vector(fields)) {
       fields <- paste(fields, collapse = ", ")
@@ -100,11 +103,13 @@ read_from_redcap <- function(uri, token, id.position = 1, id.col.name = NULL,
       fields = NULL, verbose = FALSE,
       id_position = as.integer(id.position)
     )
-    if(!is.null(id.col.name)){
-      if(!(id.col.name %in% names(redcap.data$data))) stop("Specified ID column name not found!")
-      id.column.name = id.col.name
-      id.position = which(names(redcap.data$data)==id.column.name)
-    }else {id.column.name <- names(redcap.data$data)[id.position]}
+    if (!is.null(id.col.name)) {
+      if (!(id.col.name %in% names(redcap.data$data))) stop("Specified ID column name not found!")
+      id.column.name <- id.col.name
+      id.position <- which(names(redcap.data$data) == id.column.name)
+    } else {
+      id.column.name <- names(redcap.data$data)[id.position]
+    }
     redcap.data <- REDCapR::redcap_read(
       redcap_uri = uri, token = token,
       id_position = as.integer(id.position),

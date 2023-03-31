@@ -29,10 +29,12 @@ a list
 Check the DHIS2 attributes for data import
 }
 \examples{
-attributes = check_dhis2_attributes(username="admin",
-password="district",
-base.url="https://play.dhis2.org/dev/",
-dataset="pBOMPrpg1QX",
-organisation.unit="DiszpKrYNg8",
-data.element.group=NULL)
+attributes <- check_dhis2_attributes(
+  username = "admin",
+  password = "district",
+  base.url = "https://play.dhis2.org/dev/",
+  dataset = "pBOMPrpg1QX",
+  organisation.unit = "DiszpKrYNg8",
+  data.element.group = NULL
+)
 }

@@ -23,8 +23,8 @@ function to subset fields
 \dontrun{
 data <- subset_fields(
   data.frame = data.frame,
-  fields = "id,data_entry_date",
-  table.name = "dss_events"
+  fields = "date,sex,age",
+  table.name = "covid"
 )
 }
 }
