@@ -48,7 +48,7 @@ data <- readepi(file.path = file)
 
 # IMPORTING DATA FROM THE SECOND EXCEL SHEET
 file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(file.path = file, which = "Sheet2") 
+data <- readepi(file.path = file, which = "Sheet2")
 
 # IMPORTING DATA FROM THE FIRST AND SECOND EXCEL SHEETS
 file <- system.file("extdata", "test.xlsx", package = "readepi")
@@ -106,30 +106,30 @@ show_tables(
 # READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
 ## ON MAC AND LINUX
 data <- readepi(
-  credentials.file = credentials.file, 
-  project.id = "TEST_READEPI",  #this is the database name
-  driver.name = "ODBC Driver 17 for SQL Server", 
+  credentials.file = credentials.file,
+  project.id = "TEST_READEPI", # this is the database name
+  driver.name = "ODBC Driver 17 for SQL Server",
   table.name = "covid"
-  )
+)
 
 ## MS WINDOWS
 data <- readepi(
-  credentials.file = credentials.file, 
-  project.id = "TEST_READEPI",  #this is the database name
-  driver.name = "SQL Server", 
+  credentials.file = credentials.file,
+  project.id = "TEST_READEPI", # this is the database name
+  driver.name = "SQL Server",
   table.name = "covid"
-  )
+)
 
 # READING DATA FROM DHIS2
 data <- readepi(
-  credentials.file = credentials.file, 
+  credentials.file = credentials.file,
   project.id = "DHIS2_DEMO",
-  dataset="pBOMPrpg1QX",
-  organisation.unit="DiszpKrYNg8",
-  data.element.group=NULL,
-  start.date="2014",
-  end.date="2023"
-  )
+  dataset = "pBOMPrpg1QX",
+  organisation.unit = "DiszpKrYNg8",
+  data.element.group = NULL,
+  start.date = "2014",
+  end.date = "2023"
+)
 ```
 
 ## Vignette

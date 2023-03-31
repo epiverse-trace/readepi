@@ -87,26 +87,33 @@ readepi <- function(credentials.file = NULL,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(dataset,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
   checkmate::assert_vector(organisation.unit,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
   checkmate::assert_vector(data.element.group,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
   checkmate::assert_vector(start.date,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
   checkmate::assert_vector(end.date,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
   checkmate::assert_vector(id.position,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = FALSE)
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = FALSE
+  )
   checkmate::assert_vector(id.col.name,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = FALSE)
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = FALSE
+  )
   # some check points
   if (!is.null(credentials.file) & !is.null(file.path)) {
     stop("Impossible to import data from DBMS and file at the same time.")
@@ -134,16 +141,17 @@ readepi <- function(credentials.file = NULL,
         driver.name = driver.name, records = records, fields = fields,
         id.position = id.position, id.col.name = id.col.name
       )
-    }
-    else if(credentials$dbms %in% c('dhis2','DHIS2')){
+    } else if (credentials$dbms %in% c("dhis2", "DHIS2")) {
       R.utils::cat("")
-      res = read_from_dhis2(base.url=credentials$host, user.name=credentials$user,
-                            password=credentials$pwd, dataset=dataset,
-                            organisation.unit=organisation.unit,
-                            data.element.group = data.element.group,
-                            start.date = start.date, end.date = end.date,
-                            records=records, fields=fields,
-                            id.col.name = id.col.name)
+      res <- read_from_dhis2(
+        base.url = credentials$host, user.name = credentials$user,
+        password = credentials$pwd, dataset = dataset,
+        organisation.unit = organisation.unit,
+        data.element.group = data.element.group,
+        start.date = start.date, end.date = end.date,
+        records = records, fields = fields,
+        id.col.name = id.col.name
+      )
     }
   }
 

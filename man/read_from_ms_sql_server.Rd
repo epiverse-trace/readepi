@@ -53,12 +53,12 @@ database.
 \examples{
 \dontrun{
 data <- read_from_ms_sql_server(
-  user = "kmane",
-  password = "****",
-  host = "robin.mrc.gm",
+  user = "epiverse",
+  password = "epiverse-trace1",
+  host = "172.23.33.99",
   port = 1433,
-  database.name = "my_db",
-  table.names = "my_table",
+  database.name = "TEST_READEPI",
+  table.names = "covid",
   driver.name = "ODBC Driver 17 for SQL Server"
 )
 }

@@ -179,6 +179,3 @@ test_that("readepi fails as expected", {
     regexp = cat("Assertion on',format,'failed: Must be a character of length 1.")
   )
 })
-
-
-
