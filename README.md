@@ -59,7 +59,7 @@ data <- readepi(file.path = file, which = c("Sheet2", "Sheet1"))
 
 ``` r
 # READING ALL FILES IN A GIVEN DIRECTORY
-dir.path <- system.file("extdata", "test.xlsx", package = "readepi")
+dir.path <- system.file("extdata", package = "readepi")
 data <- readepi(file.path = dir.path)
 
 # READING ONLY '.txt' FILES
@@ -103,8 +103,6 @@ show_tables(
   driver.name = "ODBC Driver 17 for SQL Server"
 )
 
-
-
 # READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
 ## ON MAC AND LINUX
 data <- readepi(
@@ -120,14 +118,6 @@ data <- readepi(
   project.id = "TEST_READEPI",  #this is the database name
   driver.name = "SQL Server", 
   table.name = "covid"
-  )
-
-# the below does not work for microsoft 
-data <- readepi(
-  credentials.file = credentials.file, 
-  project.id = "IBS_BHDSS",  #this is the database name
-  driver.name = "SQL Server", 
-  table.name = "dss_events"
   )
 
 # READING DATA FROM DHIS2
