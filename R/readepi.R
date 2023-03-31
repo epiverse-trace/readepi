@@ -55,7 +55,7 @@ readepi <- function(credentials.file = NULL,
                     table.name = NULL,
                     records = NULL,
                     fields = NULL,
-                    id.position = 1,
+                    id.position = NULL,
                     dataset = NULL,
                     organisation.unit = NULL,
                     data.element.group = NULL,
@@ -101,9 +101,12 @@ readepi <- function(credentials.file = NULL,
   checkmate::assert_vector(end.date,
                            any.missing = FALSE, min.len = 1,
                            null.ok = TRUE, unique = TRUE)
-  checkmate::assert_number(id.position, lower = 1, null.ok = TRUE)
-  checkmate::assertCharacter(id.col.name, len = 1L, null.ok = TRUE, any.missing = FALSE)
-
+  checkmate::assert_vector(id.position,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = FALSE)
+  checkmate::assert_vector(id.col.name,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = FALSE)
   # some check points
   if (!is.null(credentials.file) & !is.null(file.path)) {
     stop("Impossible to import data from DBMS and file at the same time.")
@@ -129,7 +132,7 @@ readepi <- function(credentials.file = NULL,
         host = credentials$host, port = credentials$port,
         database.name = credentials$project, table.names = table.name,
         driver.name = driver.name, records = records, fields = fields,
-        id.position = 1, id.col.name = NULL
+        id.position = id.position, id.col.name = id.col.name
       )
     }
     else if(credentials$dbms %in% c('dhis2','DHIS2')){
