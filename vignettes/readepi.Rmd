@@ -75,7 +75,7 @@ If you are using a Unix-based system, you will need to install the MS ODBC drive
 The `install_odbc_driver()` function can be used to installed the chosen driver on your system.     
 
 ```{r eval=FALSE}
-install_odbc_driver(driver.version=17)
+install_odbc_driver(driver.version = 17)
 ```
 
 If after running this command, you still have issues related to the MS SQL driver installation, use the links below for more details about how to install the **odbc** package in R and odbc drivers:     
@@ -85,7 +85,7 @@ If after running this command, you still have issues related to the MS SQL drive
 
 Once installed, the list of drivers can be displayed in R using:       
 ```{r eval=FALSE}
-odbc::odbcListDrivers()   
+odbc::odbcListDrivers()
 ```
 
 It is important to view the data that is stored in the MS SQL server. I recommend to install a GUI such as `Azure Data Studio`.         
@@ -135,79 +135,95 @@ Note that in the above, the value for the `project.id` argument is the name of t
 ### importing the data    
 ```{r eval=FALSE}
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`DSS_EVENTS`)
-data <- readepi(credentials.file, 
-                project.id = "TEST_READEPI", 
-                driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = "covid")
+data <- readepi(credentials.file,
+  project.id = "TEST_READEPI",
+  driver.name = "ODBC Driver 17 for SQL Server",
+  table.name = "covid"
+)
 
 # READING SPECIFIED FIELDS AND ALL RECORDS FROM ONE TABLE
-fields = "date,sex,age" #same as fields = "idate, sex, age" and fields = c("date","sex","age")
-data <- readepi(credentials.file, 
-                project.id = "TEST_READEPI", 
-                driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = "covid", 
-                fields = fields)
+fields <- "date,sex,age" # same as fields = "idate, sex, age" and fields = c("date","sex","age")
+data <- readepi(credentials.file,
+  project.id = "TEST_READEPI",
+  driver.name = "ODBC Driver 17 for SQL Server",
+  table.name = "covid",
+  fields = fields
+)
 
 # READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE
-records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223"  #same as records=c("e38000191","e38000247","e38000020","e38000130","e38000122","e38000223") and records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223"
-data <- readepi(credentials.file, 
-                project.id = "TEST_READEPI", 
-                driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = "covid", 
-                records = records,
-                id.position = 5)
+records <- "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223" # same as records=c("e38000191","e38000247","e38000020","e38000130","e38000122","e38000223") and records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223"
+data <- readepi(credentials.file,
+  project.id = "TEST_READEPI",
+  driver.name = "ODBC Driver 17 for SQL Server",
+  table.name = "covid",
+  records = records,
+  id.position = 5
+)
 
 # READING SPECIFIED FIELDS AND RECORDS ONE THE TABLE
-fields = "date,sex,age,ccg_code"
-data <- readepi(credentials.file, 
-                project.id = "TEST_READEPI", 
-                driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = "covid", 
-                records = records, 
-                fields = fields,
-                id.col.name = "ccg_code")
+fields <- "date,sex,age,ccg_code"
+data <- readepi(credentials.file,
+  project.id = "TEST_READEPI",
+  driver.name = "ODBC Driver 17 for SQL Server",
+  table.name = "covid",
+  records = records,
+  fields = fields,
+  id.col.name = "ccg_code"
+)
 
 # READING DATA FROM SEVERAL TABLES
-table.names <- "covid,ebola,iris" 
-data <- readepi(credentials.file, 
-                project.id = "TEST_READEPI", 
-                driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = table.names)
+table.names <- "covid,ebola,iris"
+data <- readepi(credentials.file,
+  project.id = "TEST_READEPI",
+  driver.name = "ODBC Driver 17 for SQL Server",
+  table.name = table.names
+)
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING FIELDS ACROSS TABLES
 table.names <- "covid, ebola, iris"
-fields <- c("date,sex,age,ccg_code", "id,date_of_onset,district",
-            "Sepal.Length,Species")  # the first string in the field vector corresponds to the name of the columns of interest from the first table specified in the `table.names` argument and so on...  
-data <- readepi(credentials.file, 
-                project.id = "TEST_READEPI", 
-                driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = table.names, 
-                fields = fields)
+fields <- c(
+  "date,sex,age,ccg_code", "id,date_of_onset,district",
+  "Sepal.Length,Species"
+) # the first string in the field vector corresponds to the name of the columns of interest from the first table specified in the `table.names` argument and so on...
+data <- readepi(credentials.file,
+  project.id = "TEST_READEPI",
+  driver.name = "ODBC Driver 17 for SQL Server",
+  table.name = table.names,
+  fields = fields
+)
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS ACROSS TABLES
-records <- c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-             "9375,881,4539", 
-             "setosa")  #"note that first string in the records vector corresponds to the records of interest from the first table specified in the `table.name` argument and so on... when the id column is not the first column in a table, use the `id.position`"
-data <- readepi(credentials.file, 
-                project.id = "TEST_READEPI", 
-                driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = table.names, 
-                records = records,
-                id.position=c(5,1,5))
+records <- c(
+  "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+  "9375,881,4539",
+  "setosa"
+) # "note that first string in the records vector corresponds to the records of interest from the first table specified in the `table.name` argument and so on... when the id column is not the first column in a table, use the `id.position`"
+data <- readepi(credentials.file,
+  project.id = "TEST_READEPI",
+  driver.name = "ODBC Driver 17 for SQL Server",
+  table.name = table.names,
+  records = records,
+  id.position = c(5, 1, 5)
+)
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS TABLES
-fields <- c("date,sex,age,ccg_code", "id,date_of_onset,district",
-            "Sepal.Length,Species")
-records <- c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-             "9375,881,4539", 
-             "setosa")
-data <- readepi(credentials.file, 
-                project.id = "TEST_READEPI", 
-                driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = table.names, 
-                records = records, 
-                fields = fields,
-                id.col.name = c("ccg_code","id","Species"))
+fields <- c(
+  "date,sex,age,ccg_code", "id,date_of_onset,district",
+  "Sepal.Length,Species"
+)
+records <- c(
+  "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+  "9375,881,4539",
+  "setosa"
+)
+data <- readepi(credentials.file,
+  project.id = "TEST_READEPI",
+  driver.name = "ODBC Driver 17 for SQL Server",
+  table.name = table.names,
+  records = records,
+  fields = fields,
+  id.col.name = c("ccg_code", "id", "Species")
+)
 ```
 
 ## importing from REDCap
@@ -271,58 +287,61 @@ To import data from **DHIS2**, the user must call the `readepi` function with th
 
 ```{r eval=FALSE}
 # GETTING THE DATA ELEMENT IDENTIFIERS AND NAMES
-data.elements = get_data_elements(base.url="https://play.dhis2.org/dev/",
-                                  username="admin",
-                                  password="district"
-                                  )
+data.elements <- get_data_elements(
+  base.url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district"
+)
 
 # GETTING THE ORGANISATION UNIT IDENTIFIERS AND NAMES
-organisation.units = get_data_sets(base.url="https://play.dhis2.org/dev/",
-                                   username="admin",
-                                   password="district"
-                                  )
+organisation.units <- get_data_sets(
+  base.url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district"
+)
 
 # GETTING THE DATA ELEMENT GROUP IDENTIFIERS AND NAMES
-data.element.groups=get_organisation_units(base.url="https://play.dhis2.org/dev/",
-                                           username="admin",
-                                           password="district"
-                                           )
+data.element.groups <- get_organisation_units(
+  base.url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district"
+)
 
 # READING THE DATASET ID `pBOMPrpg1QX`
 data <- readepi(
-  credentials.file = credentials.file, 
+  credentials.file = credentials.file,
   project.id = "DHIS2_DEMO",
-  dataset="pBOMPrpg1QX",
-  organisation.unit="DiszpKrYNg8",
-  data.element.group=NULL,
-  start.date="2014",
-  end.date="2023"
-  )
+  dataset = "pBOMPrpg1QX",
+  organisation.unit = "DiszpKrYNg8",
+  data.element.group = NULL,
+  start.date = "2014",
+  end.date = "2023"
+)
 
 # READING DATA FROM 2 DATASETS `pBOMPrpg1QX`
 data <- readepi(
-  credentials.file = credentials.file, 
+  credentials.file = credentials.file,
   project.id = "DHIS2_DEMO",
-  dataset="pBOMPrpg1QX,BfMAe6Itzgt", # same as dataset=c("pBOMPrpg1QX","BfMAe6Itzgt")
-  organisation.unit="DiszpKrYNg8",
-  data.element.group=NULL,
-  start.date="2014",
-  end.date="2023"
-  )
+  dataset = "pBOMPrpg1QX,BfMAe6Itzgt", # same as dataset=c("pBOMPrpg1QX","BfMAe6Itzgt")
+  organisation.unit = "DiszpKrYNg8",
+  data.element.group = NULL,
+  start.date = "2014",
+  end.date = "2023"
+)
 
 # READING SPECIFIC DATA ELEMENTS FROM THE DATASET ID `pBOMPrpg1QX`
 data.elts <- c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea")
 data <- readepi(
-  credentials.file = credentials.file, 
+  credentials.file = credentials.file,
   project.id = "DHIS2_DEMO",
-  dataset="pBOMPrpg1QX",
-  organisation.unit="DiszpKrYNg8",
-  data.element.group=NULL,
-  start.date="2014",
-  end.date="2023",
+  dataset = "pBOMPrpg1QX",
+  organisation.unit = "DiszpKrYNg8",
+  data.element.group = NULL,
+  start.date = "2014",
+  end.date = "2023",
   records = data.elts,
   id.col.name = "dataElement"
-  )
+)
 
 test.data <- data$data
 ```

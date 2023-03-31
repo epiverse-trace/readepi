@@ -105,8 +105,8 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
 #' \dontrun{
 #' data <- subset_fields(
 #'   data.frame = data.frame,
-#'   fields = "id,data_entry_date",
-#'   table.name = "dss_events"
+#'   fields = "date,sex,age",
+#'   table.name = "covid"
 #' )
 #' }
 #' @returns a list of 2 elements: the subset data frame and an integer that tells whether all fields were missing in the table (1) or not (0)
@@ -122,7 +122,9 @@ subset_fields <- function(data.frame, fields, table.name) {
   )
   not.found <- 0
   target.fields <- as.character(unlist(strsplit(fields, ",")))
-  target.fields <- as.character(lapply(target.fields, function(x){gsub(" ","",x)}))
+  target.fields <- as.character(lapply(target.fields, function(x) {
+    gsub(" ", "", x)
+  }))
   idx <- which(target.fields %in% names(data.frame))
   if (length(idx) == 0) {
     message("\nThere is no column named as: ", paste(target.fields, collapse = ", "), " in ", table.name)
@@ -160,19 +162,19 @@ subset_records <- function(data.frame, records, id.position = 1, table.name) {
   checkmate::assert_number(id.position, lower = 1, null.ok = FALSE)
   not.found <- 0
   records <- as.character(unlist(strsplit(records, ",")))
-  records <- as.character(lapply(records, function(x){gsub(" ","",x)}))
+  records <- as.character(lapply(records, function(x) {
+    gsub(" ", "", x)
+  }))
   id.column.name <- names(data.frame)[id.position]
   if (is.numeric(data.frame[[id.column.name]])) {
     records <- as.numeric(records)
   }
-  # m <- match(records, data.frame[[id.column.name]])
-  # idx <- m[!is.na(m)]
-  idx = which(data.frame[[id.column.name]] %in% records)
-  if(length(idx) == 0) {
-    message("\nCould not find record named as: ", paste(records, collapse = ", "), " in column ",id.column.name, " of table ", table.name)
+  idx <- which(data.frame[[id.column.name]] %in% records)
+  if (length(idx) == 0) {
+    message("\nCould not find record named as: ", paste(records, collapse = ", "), " in column ", id.column.name, " of table ", table.name)
     not.found <- 1
-  }else  {
-      data <- data.frame[idx, ]
+  } else {
+    data <- data.frame[idx, ]
   }
   list(data = data, not_found = not.found)
 }
@@ -184,7 +186,7 @@ subset_records <- function(data.frame, records, id.position = 1, table.name) {
 #' @returns  a list with the user credential details.
 #' @examples
 #' \dontrun{
-#' credentials <- read_credentials(file.path = system.file("extdata", "fake_test.ini", package = "readepi"), project.id = "my_project_id")
+#' credentials <- read_credentials(file.path = system.file("extdata", "test.ini", package = "readepi"), project.id = "TEST_READEPI")
 #' }
 #' @export
 read_credentials <- function(file.path = system.file("extdata", "test.ini", package = "readepi"),
@@ -226,44 +228,41 @@ read_credentials <- function(file.path = system.file("extdata", "test.ini", pack
 
 
 #' function to check authentication details
-login = function(username,password,base.url) {
+login <- function(username, password, base.url) {
   checkmate::assertCharacter(base.url, len = 1L, null.ok = FALSE, any.missing = FALSE)
   checkmate::assertCharacter(username, len = 1L, null.ok = FALSE, any.missing = FALSE)
   checkmate::assertCharacter(password, len = 1L, null.ok = FALSE, any.missing = FALSE)
 
-  url = paste0(base.url,"/api/me")
-  resp = httr::GET(url,httr::authenticate(username,password))
+  url <- paste0(base.url, "/api/me")
+  resp <- httr::GET(url, httr::authenticate(username, password))
   httr::stop_for_status(resp)
   R.utils::cat("\nLogged in successfully!")
 }
 
 #' function to get the data element identifiers and names
-get_data_elements = function(base.url,username,password) {
-  url = paste0(base.url,"/api/dataElements?fields=id,name,shortName&paging=false")
-  r = httr::content(httr::GET(url,httr::authenticate(username,password)),as="parsed")
-  do.call(rbind.data.frame,r$dataElements)
+get_data_elements <- function(base.url, username, password) {
+  url <- paste0(base.url, "/api/dataElements?fields=id,name,shortName&paging=false")
+  r <- httr::content(httr::GET(url, httr::authenticate(username, password)), as = "parsed")
+  do.call(rbind.data.frame, r$dataElements)
 }
 
 #' function to get the datasets identifiers and names
-get_data_sets = function(base.url,username,password) {
-  url = paste0(base.url,"/api/dataSets?fields=id,name,shortName&paging=false")
-  r = httr::content(httr::GET(url,httr::authenticate(username,password)),as="parsed")
-  do.call(rbind.data.frame,r$dataSets)
+get_data_sets <- function(base.url, username, password) {
+  url <- paste0(base.url, "/api/dataSets?fields=id,name,shortName&paging=false")
+  r <- httr::content(httr::GET(url, httr::authenticate(username, password)), as = "parsed")
+  do.call(rbind.data.frame, r$dataSets)
 }
 
 #' function to get the organisation unit identifiers and names
-get_organisation_units = function(base.url,username,password) {
-  url = paste0(base.url,"/api/organisationUnits?fields=id,name,shortName&paging=false")
-  r = httr::content(httr::GET(url,httr::authenticate(username,password)),as="parsed")
-  do.call(rbind.data.frame,r$organisationUnits)
+get_organisation_units <- function(base.url, username, password) {
+  url <- paste0(base.url, "/api/organisationUnits?fields=id,name,shortName&paging=false")
+  r <- httr::content(httr::GET(url, httr::authenticate(username, password)), as = "parsed")
+  do.call(rbind.data.frame, r$organisationUnits)
 }
 
 #' function to get the data element group identifiers and names
-get_data_element_groups = function(base.url,username,password) {
-  url = paste0(base.url,"/api/dataElementGroups?fields=id,name,shortName&paging=false")
-  r = httr::content(httr::GET(url,httr::authenticate(username,password)),as="parsed")
-  do.call(rbind.data.frame,r$dataElementgroups)
+get_data_element_groups <- function(base.url, username, password) {
+  url <- paste0(base.url, "/api/dataElementGroups?fields=id,name,shortName&paging=false")
+  r <- httr::content(httr::GET(url, httr::authenticate(username, password)), as = "parsed")
+  do.call(rbind.data.frame, r$dataElementgroups)
 }
-
-
-
