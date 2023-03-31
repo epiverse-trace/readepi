@@ -8,7 +8,7 @@ check_dhis2_attributes(
   username,
   password,
   base.url,
-  dataset = NULL,
+  dataset,
   organisation.unit = NULL,
   data.element.group = NULL
 )

@@ -63,7 +63,7 @@ data <- readepi(file.path = file, which = c("Sheet2", "Sheet1"))
 ### Importing data from several files in a directory
 ```{r eval=FALSE}
 # READING ALL FILES IN A GIVEN DIRECTORY
-dir.path <- system.file("extdata", "test.xlsx", package = "readepi")
+dir.path <- system.file("extdata", package = "readepi")
 data <- readepi(file.path = dir.path)
 
 # READING ONLY '.txt' FILES
@@ -98,26 +98,25 @@ project.metadeta <- data$metadata
 # for MS windows user, replace "ODBC Driver 17 for SQL Server" by "SQL Server"
 show_tables(
   credentials.file = credentials.file,
-  project.id = "IBS_BHDSS",
+  project.id = "TEST_READEPI",
   driver.name = "ODBC Driver 17 for SQL Server"
 )
 
-
-
 # READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
+## ON MAC AND LINUX
 data <- readepi(
   credentials.file = credentials.file, 
-  project.id = "IBS_BHDSS",  #this is the database name
+  project.id = "TEST_READEPI",  #this is the database name
   driver.name = "ODBC Driver 17 for SQL Server", 
-  table.name = "dss_events"
+  table.name = "covid"
   )
 
-# the below does not work for microsoft 
+## MS WINDOWS
 data <- readepi(
   credentials.file = credentials.file, 
-  project.id = "IBS_BHDSS",  #this is the database name
+  project.id = "TEST_READEPI",  #this is the database name
   driver.name = "SQL Server", 
-  table.name = "dss_events"
+  table.name = "covid"
   )
 
 # READING DATA FROM DHIS2

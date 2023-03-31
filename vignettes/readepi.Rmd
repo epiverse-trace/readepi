@@ -125,7 +125,7 @@ To displays the list of tables from the database of interest, use:
 ```{r eval=FALSE}
 show_tables(
   credentials.file = credentials.file,
-  project.id = "IBS_BHDSS", # this is the database name
+  project.id = "TEST_READEPI", # this is the database name
   driver.name = "ODBC Driver 17 for SQL Server"
 )
 ```
@@ -136,72 +136,78 @@ Note that in the above, the value for the `project.id` argument is the name of t
 ```{r eval=FALSE}
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`DSS_EVENTS`)
 data <- readepi(credentials.file, 
-                project.id = "IBS_BHDSS", 
+                project.id = "TEST_READEPI", 
                 driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = "dss_events")
+                table.name = "covid")
 
 # READING SPECIFIED FIELDS AND ALL RECORDS FROM ONE TABLE
-fields = "id,status,village" #same as fields = "id, status, village" and fields = c("id","status","village")
+fields = "date,sex,age" #same as fields = "idate, sex, age" and fields = c("date","sex","age")
 data <- readepi(credentials.file, 
-                project.id = "IBS_BHDSS", 
+                project.id = "TEST_READEPI", 
                 driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = "dss_events", 
+                table.name = "covid", 
                 fields = fields)
 
 # READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE
-records = "1,3,5"  #same as records=c("1","3","5") and records = "1, 3, 5"
+records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223"  #same as records=c("e38000191","e38000247","e38000020","e38000130","e38000122","e38000223") and records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223"
 data <- readepi(credentials.file, 
-                project.id = "IBS_BHDSS", 
+                project.id = "TEST_READEPI", 
                 driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = "dss_events", 
+                table.name = "covid", 
                 records = records,
-                id.col.name = "id")
+                id.position = 5)
 
 # READING SPECIFIED FIELDS AND RECORDS ONE THE TABLE
+fields = "date,sex,age,ccg_code"
 data <- readepi(credentials.file, 
-                project.id = "IBS_BHDSS", 
+                project.id = "TEST_READEPI", 
                 driver.name = "ODBC Driver 17 for SQL Server", 
-                table.name = "dss_events", 
+                table.name = "covid", 
                 records = records, 
                 fields = fields,
-                id.position = 1)
+                id.col.name = "ccg_code")
 
 # READING DATA FROM SEVERAL TABLES
-table.names <- "accounts,account_books,account_currencies" # can also be table.names = c("account"s,"account_books","account_currencies")
+table.names <- "covid,ebola,iris" 
 data <- readepi(credentials.file, 
-                project.id = "IBS_BHDSS", 
+                project.id = "TEST_READEPI", 
                 driver.name = "ODBC Driver 17 for SQL Server", 
                 table.name = table.names)
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING FIELDS ACROSS TABLES
-table.names <- "accounts,account_books,account_currencies" # can also be table.names = c("account"s,"account_books","account_currencies")
-# note that first string in the field vector corresponds to names to be subset from the first table specified in the `table.name` argument
-fields <- c("id,name,balance,created_by", "id,status,name", "id,name")
+table.names <- "covid, ebola, iris"
+fields <- c("date,sex,age,ccg_code", "id,date_of_onset,district",
+            "Sepal.Length,Species")  # the first string in the field vector corresponds to the name of the columns of interest from the first table specified in the `table.names` argument and so on...  
 data <- readepi(credentials.file, 
-                project.id = "IBS_BHDSS", 
+                project.id = "TEST_READEPI", 
                 driver.name = "ODBC Driver 17 for SQL Server", 
                 table.name = table.names, 
                 fields = fields)
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS ACROSS TABLES
-# note that first string in the records vector corresponds to the subject ID to be subset from the first table specified in the `table.name` argument and so on... When the ID column is not the first column in a table, use the `id.position`
-records <- c("3,8,13", "1,2,3", "1")
+records <- c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+             "9375,881,4539", 
+             "setosa")  #"note that first string in the records vector corresponds to the records of interest from the first table specified in the `table.name` argument and so on... when the id column is not the first column in a table, use the `id.position`"
 data <- readepi(credentials.file, 
-                project.id = "IBS_BHDSS", 
+                project.id = "TEST_READEPI", 
                 driver.name = "ODBC Driver 17 for SQL Server", 
                 table.name = table.names, 
-                records = records)
+                records = records,
+                id.position=c(5,1,5))
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS TABLES
-fields <- c("id,name,balance,created_by", "id,status,name", "id,name")
-records <- c("3,8,13", "1,2,3", "1")
+fields <- c("date,sex,age,ccg_code", "id,date_of_onset,district",
+            "Sepal.Length,Species")
+records <- c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+             "9375,881,4539", 
+             "setosa")
 data <- readepi(credentials.file, 
-                project.id = "IBS_BHDSS", 
+                project.id = "TEST_READEPI", 
                 driver.name = "ODBC Driver 17 for SQL Server", 
                 table.name = table.names, 
                 records = records, 
                 fields = fields,
-                id.col.name = "id")
+                id.col.name = c("ccg_code","id","Species"))
 ```
 
 ## importing from REDCap

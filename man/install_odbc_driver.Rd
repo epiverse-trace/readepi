@@ -7,8 +7,13 @@
 install_odbc_driver(driver.version = 17)
 }
 \arguments{
-\item{driver.version}{the version of the driver that is compatible with your system}
+\item{driver.version}{the version of the driver that is compatible with your SQL server}
 }
 \description{
 Install the Microsoft ODBC driver for SQL server
+}
+\examples{
+\dontrun{
+install_odbc_driver(driver.version=17)
+}
 }

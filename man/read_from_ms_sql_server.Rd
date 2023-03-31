@@ -14,7 +14,7 @@ read_from_ms_sql_server(
   table.names = NULL,
   records = NULL,
   fields = NULL,
-  id.position = 1,
+  id.position = NULL,
   id.col.name = NULL
 )
 }

@@ -34,7 +34,7 @@ read_from_redcap <- function(uri, token, id.position = 1, id.col.name = NULL,
   )
   checkmate::assertCharacter(id.col.name, len = 1L, null.ok = TRUE, any.missing = FALSE)
 
-  if(is.null(id.position) & is.null(id.col.name)){
+  if(!is.null(id.position) & !is.null(id.col.name)){
     stop("Cannot specify both 'id.position' and 'id.col.name' at the same time.")
   }
 

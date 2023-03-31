@@ -1,14 +1,14 @@
 test_that("readepi works as expected when reading from DBMS", {
   data <- readepi(
     credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-    project.id = "IBS_BHDSS",
+    project.id = "TEST_READEPI",
     file.path = NULL,
     sep = NULL,
     format = NULL,
     which = NULL,
     pattern = NULL,
     driver.name = "ODBC Driver 17 for SQL Server",
-    table.name = "dss_events",
+    table.name = "covid",
     records = NULL,
     fields = NULL,
     id.position = 1
@@ -37,14 +37,14 @@ test_that("readepi works as expected when reading from file", {
 test_that("readepi works as expected when reading from DBMS", {
   data <- readepi(
     credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-    project.id = "IBS_BHDSS",
+    project.id = "TEST_READEPI",
     file.path = NULL,
     sep = NULL,
     format = NULL,
     which = NULL,
     pattern = NULL,
     driver.name = "ODBC Driver 17 for SQL Server",
-    table.name = "dss_events",
+    table.name = "covid",
     records = NULL,
     fields = NULL,
     id.position = 1
@@ -74,14 +74,14 @@ test_that("readepi fails as expected", {
   expect_error(
     data <- readepi(
       credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-      project.id = "IBS_BHDSS",
+      project.id = "TEST_READEPI",
       file.path = system.file("extdata", "test.json", package = "readepi"),
       sep = NULL,
       format = NULL,
       which = NULL,
       pattern = NULL,
       driver.name = "ODBC Driver 17 for SQL Server",
-      table.name = "dss_events",
+      table.name = "covid",
       records = NULL,
       fields = NULL,
       id.position = 1
@@ -92,14 +92,14 @@ test_that("readepi fails as expected", {
   expect_error(
     data <- readepi(
       credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-      project.id = c("IBS_BHDSS", "IBS_BHDSS"),
+      project.id = c("TEST_READEPI", "TEST_READEPI"),
       file.path = NULL,
       sep = NULL,
       format = NULL,
       which = NULL,
       pattern = NULL,
       driver.name = "ODBC Driver 17 for SQL Server",
-      table.name = "dss_events",
+      table.name = "covid",
       records = NULL,
       fields = NULL,
       id.position = 1
@@ -110,32 +110,14 @@ test_that("readepi fails as expected", {
   expect_error(
     data <- readepi(
       credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-      project.id = "IBS_BHDSS",
-      file.path = NULL,
-      sep = NULL,
-      format = NULL,
-      which = NULL,
-      pattern = NULL,
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.name = "dss_events",
-      records = NULL,
-      fields = NULL,
-      id.position = -1
-    ),
-    regexp = cat("Assertion on',id.position,failed: Must be greater than or equal 1.")
-  )
-
-  expect_error(
-    data <- readepi(
-      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-      project.id = "IBS_BHDSS",
+      project.id = "TEST_READEPI",
       file.path = NULL,
       sep = NULL,
       format = NULL,
       which = NULL,
       pattern = NULL,
       driver.name = NULL,
-      table.name = "dss_events",
+      table.name = "covid",
       records = NULL,
       fields = NULL,
       id.position = 1
@@ -146,14 +128,14 @@ test_that("readepi fails as expected", {
   expect_error(
     data <- readepi(
       credentials.file = NULL,
-      project.id = "IBS_BHDSS",
+      project.id = "TEST_READEPI",
       file.path = NULL,
       sep = NULL,
       format = NULL,
       which = NULL,
       pattern = NULL,
       driver.name = NULL,
-      table.name = "dss_events",
+      table.name = "covid",
       records = NULL,
       fields = NULL,
       id.position = 1
@@ -199,6 +181,4 @@ test_that("readepi fails as expected", {
 })
 
 
-# might need 'register_new_user()' to register a new user
 
-#

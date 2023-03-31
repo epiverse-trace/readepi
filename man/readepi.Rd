@@ -16,7 +16,7 @@ readepi(
   table.name = NULL,
   records = NULL,
   fields = NULL,
-  id.position = 1,
+  id.position = NULL,
   dataset = NULL,
   organisation.unit = NULL,
   data.element.group = NULL,
