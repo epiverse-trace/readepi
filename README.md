@@ -99,18 +99,27 @@ project.metadeta <- data$metadata
 # for MS windows user, replace "ODBC Driver 17 for SQL Server" by "SQL Server"
 show_tables(
   credentials.file = credentials.file,
-  project.id = "IBS_BHDSS",
+  project.id = "TEST_READEPI",
   driver.name = "ODBC Driver 17 for SQL Server"
 )
 
 
 
 # READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
+## ON MAC AND LINUX
 data <- readepi(
   credentials.file = credentials.file, 
-  project.id = "IBS_BHDSS",  #this is the database name
+  project.id = "TEST_READEPI",  #this is the database name
   driver.name = "ODBC Driver 17 for SQL Server", 
-  table.name = "dss_events"
+  table.name = "covid"
+  )
+
+## MS WINDOWS
+data <- readepi(
+  credentials.file = credentials.file, 
+  project.id = "TEST_READEPI",  #this is the database name
+  driver.name = "SQL Server", 
+  table.name = "covid"
   )
 
 # the below does not work for microsoft 

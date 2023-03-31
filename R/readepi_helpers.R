@@ -165,17 +165,14 @@ subset_records <- function(data.frame, records, id.position = 1, table.name) {
   if (is.numeric(data.frame[[id.column.name]])) {
     records <- as.numeric(records)
   }
-  m <- match(records, data.frame[[id.column.name]])
-  idx <- m[!is.na(m)]
-  if (length(idx) == 0) {
-    message("\nThere is no subject ID named as: ", paste(records, collapse = ", "), " in ", table.name)
+  # m <- match(records, data.frame[[id.column.name]])
+  # idx <- m[!is.na(m)]
+  idx = which(data.frame[[id.column.name]] %in% records)
+  if(length(idx) == 0) {
+    message("\nCould not find record named as: ", paste(records, collapse = ", "), " in column ",id.column.name, " of table ", table.name)
     not.found <- 1
-  } else if (length(idx) != length(records)) {
-    mm <- which(is.na(m))
-    message("\nThe following records were not found in ", table.name, ": ", paste(records[mm], collapse = ", "))
-    data <- data.frame[idx, ]
-  } else {
-    data <- data.frame[idx, ]
+  }else  {
+      data <- data.frame[idx, ]
   }
   list(data = data, not_found = not.found)
 }

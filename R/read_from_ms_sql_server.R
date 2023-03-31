@@ -32,11 +32,15 @@
 read_from_ms_sql_server <- function(user, password, host, port = 1433,
                                     database.name, driver.name,
                                     table.names = NULL, records = NULL,
-                                    fields = NULL, id.position = 1,
+                                    fields = NULL, id.position = NULL,
                                     id.col.name = NULL) {
   # check the input arguments
-  checkmate::assert_number(id.position, lower = 1, null.ok = TRUE)
-  checkmate::assertCharacter(id.col.name, len = 1L, null.ok = TRUE, any.missing = FALSE)
+  checkmate::assert_vector(id.position,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = FALSE)
+  checkmate::assert_vector(id.col.name,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = FALSE)
   checkmate::assert_number(port, lower = 1)
   checkmate::assert_character(user, any.missing = FALSE, len = 1, null.ok = FALSE)
   checkmate::assert_character(password, any.missing = FALSE, len = 1, null.ok = FALSE)
@@ -55,7 +59,7 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
     null.ok = TRUE, unique = TRUE
   )
 
-  if(is.null(id.position) & is.null(id.col.name)){
+  if(!is.null(id.position) & !is.null(id.col.name)){
     stop("Cannot specify both 'id.position' and 'id.col.name' at the same time.")
   }
 
@@ -93,11 +97,16 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
     table.names <- tables
   }
   result <- list()
+  j=1
   for (table in table.names) {
     R.utils::cat("\nFetching data from", table)
     sql <- DBI::dbSendQuery(con, paste0("select * from ", table))
     result[[table]] <- DBI::dbFetch(sql, -1)
     DBI::dbClearResult(sql)
+    if(!is.null(id.position[j])){
+      id.col.name = c(id.col.name, names(result[[table]][id.position[j]]))
+      j=j+1
+    }
   }
 
 
@@ -143,8 +152,9 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
   # subsetting the records
   if (!is.null(records)) {
     if(length(table.names)==1){
-      id.pos = ifelse(!(is.null(id.position)), id.position,
-                      which(names(result[[table.names]]) == id.col.name))
+      # id.pos = ifelse(!(is.null(id.position)), id.position,
+      #                 which(names(result[[table.names]]) == id.col.name))
+      id.pos = which(names(result[[table.names]]) == id.col.name)
       res <- subset_records(result[[table.names]], records, id.pos,
                             table.names)
       result[[table.names]] <- res$data
@@ -153,12 +163,17 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
       not.found <- 0
       for (table in names(result)) {
         if (!is.na(records[j])) {
-          if(!is.null(id.position)){
-            id.pos <- ifelse(!is.na(id.position[j]), id.position[j], id.position[1])
-          }else{
-            id.col <- ifelse(!is.na(id.col.name[j]), id.col.name[j], id.col.name[1])
-            id.pos = which(names(result[[table]]) == id.col)
-          }
+          # if(!is.null(id.position)){
+            # id.pos <- ifelse(!is.na(id.position[j]), id.position[j],
+            #                  id.position[1])
+            id.pos <- ifelse(!is.na(id.col.name[j]),
+                             which(names(result[[table]]) == id.col.name[j]),
+                             which(names(result[[table]]) == id.col.name[1]))
+          # }else{
+          #   id.col <- ifelse(!is.na(id.col.name[j]), id.col.name[j],
+          #                    id.col.name[1])
+          #   id.pos = which(names(result[[table]]) == id.col)
+          # }
           res <- subset_records(result[[table]], records[j], id.pos, table)
           result[[table]] <- res$data
           not.found <- not.found + res$not_found

@@ -7,7 +7,7 @@ test_that("install_odbc_driver works", {
   )
 })
 
-test_that("show_tables fails as expected", {
+test_that("install_odbc_driver fails as expected", {
   expect_error(
     install_odbc_driver(
       driver.version=NULL
@@ -20,5 +20,12 @@ test_that("show_tables fails as expected", {
       driver.version=-17
     ),
     regexp = cat("Assertion on',driver.version,'failed: Negative values not allowed")
+  )
+
+  expect_error(
+    install_odbc_driver(
+      driver.version="17"
+    ),
+    regexp = cat("Assertion on',driver.version,'failed: Must be of type numeric")
   )
 })

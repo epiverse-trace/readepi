@@ -13,7 +13,6 @@
 #' @param id.col.name the column name with the records of interest.
 #' @returns a list of data frames
 #' @export
-#' @importFrom base |>
 read_from_dhis2 <- function(base.url,
                             user.name,
                             password,
