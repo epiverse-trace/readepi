@@ -10,7 +10,8 @@
 #' install_odbc_driver(driver.version = 17)
 #' }
 install_odbc_driver <- function(driver_version = 17) {
-  checkmate::assertNumber(driver_version, null.ok = FALSE, lower = 13.1)
+  checkmate::assertNumber(driver_version, null.ok = FALSE, lower = 13.1,
+                          na.ok = FALSE)
   driver.list <- odbc::odbcListDrivers()
   if (nrow(driver.list) == 0) {
     if (grepl("Darwin", system(sprintf("uname -a"), intern = TRUE))) {
@@ -65,11 +66,15 @@ install_odbc_driver <- function(driver_version = 17) {
         target.driver <- paste0("msodbcsql@", driver_version,".9.2")
         target.mstool <- paste0("msodbcsql@", driver_version,"14.0.6.0")
       }
-      system(sprintf("sudo ACCEPT_EULA=Y apt-get install -y %s",target.driver))
-      system(sprintf("sudo ACCEPT_EULA=Y apt-get install -y %s",target.mstool))
+      # system("sudo -kS ls", input = rstudioapi::askForPassword("sudo password"))
+      system(sprintf("sudo ACCEPT_EULA=Y apt-get install -y %s",target.driver),
+             input = rstudioapi::askForPassword("sudo password"))
+      system(sprintf("sudo ACCEPT_EULA=Y apt-get install -y %s",target.mstool),
+             input = rstudioapi::askForPassword("sudo password"))
       system(sprintf("echo 'export PATH=\"$PATH:/opt/%s/bin\"' >> ~/.bashrc",target.mstool))
       system(sprintf("source ~/.bashrc"))
-      system(sprintf("sudo apt-get install -y unixodbc-dev"))
+      system(sprintf("sudo apt-get install -y unixodbc-dev"),
+             input = rstudioapi::askForPassword("sudo password"))
       # system(sprintf("./install_dependencies.sh %s", driver_version))
     }
     R.utils::cat("\ninstalling odbc R package\n")

@@ -28,4 +28,11 @@ test_that("install_odbc_driver fails as expected", {
     ),
     regexp = cat("Assertion on',driver_version,'failed: Must be of type numeric")
   )
+
+  expect_error(
+    install_odbc_driver(
+      driver_version = NA
+    ),
+    regexp = cat("Assertion on',driver_version,'failed: Must be provided")
+  )
 })
