@@ -53,7 +53,7 @@ data <- readepi(file.path = file, which = c("Sheet2", "Sheet1"))
 `readepi()` can be used to read data from multiple files that are all stored in the same directory. When there are different file format in that directory, the user is expected to specify the file type of interest with the `pattern` argument.     
 ```{r eval=FALSE}
 # READING ALL FILES IN THE GIVEN DIRECTOR
-dir.path <- "inst/extdata"
+dir.path <- system.file("extdata", package = "readepi")
 data <- readepi(file.path = dir.path)
 
 # READING ONLY '.txt' FILES
@@ -75,7 +75,7 @@ If you are using a Unix-based system, you will need to install the MS ODBC drive
 The `install_odbc_driver()` function can be used to installed the chosen driver on your system.     
 
 ```{r eval=FALSE}
-install_odbc_driver(driver.version = 17)
+install_odbc_driver(driver_version = 17)
 ```
 
 If after running this command, you still have issues related to the MS SQL driver installation, use the links below for more details about how to install the **odbc** package in R and odbc drivers:     
