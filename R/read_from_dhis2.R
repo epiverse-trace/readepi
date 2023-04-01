@@ -95,8 +95,8 @@ read_from_dhis2 <- function(base.url,
       startDate = start.date, # "2014"
       endDate = end.date
     ) # "2023"
-  ) |>
-    httr::content() |>
+  ) %>%  #|>
+    httr::content() %>%   #|>
     purrr::flatten_dfr()
 
   # add the variable names
