@@ -50,10 +50,31 @@ install_odbc_driver <- function(driver_version = 17) {
       system(sprintf("ODBCSYSINI=/"))
     } else if (grepl("Linux", system(sprintf("uname -a"), intern = TRUE))) {
       R.utils::cat("\ninstalling unixodbc and MS ODBC driver\n")
-      system(sprintf("./install_dependencies.sh %s", driver_version))
+      supportd.releases = c("16.04", "18.04", "20.04", "22.04")
+      current.release = system(sprintf("lsb_release -rs"), intern = TRUE)
+      if(!(current.release %in% supportd.releases)){
+        stop("Ubuntu ",current.release," is not currently supported.")
+      }
+      system(sprintf("curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -"))
+      system(sprintf("curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list"))
+      system(sprintf("sudo apt-get update"))
+      if(driver_version!=13.1){
+        target.driver <- paste0("msodbcsql", driver_version)
+        target.mstool <- paste0("mssql-tools", driver_version)
+      }else{
+        target.driver <- paste0("msodbcsql@", driver_version,".9.2")
+        target.mstool <- paste0("msodbcsql@", driver_version,"14.0.6.0")
+      }
+      system(sprintf("sudo ACCEPT_EULA=Y apt-get install -y %s",target.driver))
+      system(sprintf("sudo ACCEPT_EULA=Y apt-get install -y %s",target.mstool))
+      system(sprintf("echo 'export PATH=\"$PATH:/opt/%s/bin\"' >> ~/.bashrc",target.mstool))
+      system(sprintf("source ~/.bashrc"))
+      system(sprintf("sudo apt-get install -y unixodbc-dev"))
+      # system(sprintf("./install_dependencies.sh %s", driver_version))
     }
     R.utils::cat("\ninstalling odbc R package\n")
-    install.packages("odbc")
+    if (!require("odbc", quietly = TRUE))
+      install.packages("odbc")
     driver.list <- odbc::odbcListDrivers()
     if (nrow(driver.list) == 0) {
       message("\ninstallation was unsuccessfull!!!")
