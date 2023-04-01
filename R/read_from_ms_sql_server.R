@@ -36,7 +36,7 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
                                     id.col.name = NULL) {
   # check the input arguments
   checkmate::assert_vector(id.position,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = FALSE
   )
   checkmate::assert_vector(id.col.name,

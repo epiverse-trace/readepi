@@ -23,9 +23,20 @@ install_odbc_driver <- function(driver_version = 17) {
       R.utils::cat("\ninstalling SQL Server ODBC Drivers\n")
       system(sprintf("brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release"))
       system(sprintf("brew update"))
-      target.driver <- paste0("msodbcsql", driver_version)
-      system(sprintf("yes YES | brew install %s", target.driver))
-      system(sprintf("yes YES | brew install mssql-tools"))
+      if(driver_version!=13.1){
+        target.driver <- paste0("msodbcsql", driver_version)
+        system(sprintf("yes 2>/dev/null | brew install %s && exit", target.driver))
+        system(sprintf("yes 2>/dev/null | brew install mssql-tools && exit"))
+      }else{
+        target.driver <- paste0("msodbcsql@", driver_version,".9.2")
+        target.mstool <- paste0("msodbcsql@", driver_version,"14.0.6.0")
+        system(sprintf("yes 2>/dev/null | brew install %s && exit", target.driver))
+        system(sprintf("yes 2>/dev/null | brew install %s && exit",target.mstool))
+      }
+      # system(sprintf("yes YES | brew install %s && exit", target.driver))
+      # system(sprintf("yes YES | brew install mssql-tools && exit"))
+      # system(sprintf("yes 2>/dev/null | brew install %s && exit", target.driver))
+      # system(sprintf("yes 2>/dev/null | brew install mssql-tools && exit"))
 
       R.utils::cat("\nconfiguring the home directory\n")
       odbcinst <- ifelse(apple.chip == "arm64", "/opt/homebrew/etc/odbcinst.ini",

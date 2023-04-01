@@ -159,12 +159,19 @@ subset_records <- function(data.frame, records, id.position = 1, table.name) {
     any.missing = FALSE, min.len = 1,
     null.ok = FALSE, unique = TRUE
   )
-  checkmate::assert_number(id.position, lower = 1, null.ok = FALSE)
+  # checkmate::assert_vector(id.position,
+  #                          any.missing = FALSE, min.len = 0,
+  #                          null.ok = TRUE, unique = FALSE
+  # )
+  checkmate::assert_number(id.position, lower = 1, null.ok = TRUE)
   not.found <- 0
   records <- as.character(unlist(strsplit(records, ",")))
   records <- as.character(lapply(records, function(x) {
     gsub(" ", "", x)
   }))
+  if(is.null(id.position)){
+    id.position=1
+  }
   id.column.name <- names(data.frame)[id.position]
   if (is.numeric(data.frame[[id.column.name]])) {
     records <- as.numeric(records)
