@@ -13,7 +13,9 @@ test_that("read_from_ms_sql_server works with valid input", {
     id.col.name = NULL
   )
   expect_type(res, "list")
+})
 
+test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
     user = "epiverse",
     password = "epiverse-trace1",
@@ -28,7 +30,9 @@ test_that("read_from_ms_sql_server works with valid input", {
     id.col.name = "ccg_code"
   )
   expect_type(res, "list")
+})
 
+test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
     user = "epiverse",
     password = "epiverse-trace1",
@@ -43,7 +47,9 @@ test_that("read_from_ms_sql_server works with valid input", {
     id.col.name = NULL
   )
   expect_type(res, "list")
+})
 
+test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
     user = "epiverse",
     password = "epiverse-trace1",
@@ -58,7 +64,9 @@ test_that("read_from_ms_sql_server works with valid input", {
     id.col.name = NULL
   )
   expect_type(res, "list")
+})
 
+test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
     user = "epiverse",
     password = "epiverse-trace1",
@@ -73,7 +81,9 @@ test_that("read_from_ms_sql_server works with valid input", {
     id.col.name = "ccg_code"
   )
   expect_type(res, "list")
+})
 
+test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
     user = "epiverse",
     password = "epiverse-trace1",
@@ -108,7 +118,9 @@ test_that("read_from_ms_sql_server works with valid input", {
     id.col.name = NULL
   )
   expect_type(res, "list")
+})
 
+test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
     user = "epiverse",
     password = "epiverse-trace1",
@@ -143,7 +155,9 @@ test_that("read_from_ms_sql_server works with valid input", {
     id.col.name = NULL
   )
   expect_type(res, "list")
+})
 
+test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
     user = "epiverse",
     password = "epiverse-trace1",
@@ -158,279 +172,881 @@ test_that("read_from_ms_sql_server works with valid input", {
     id.col.name = "ccg_code"
   )
   expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "epiverse",
+    password = "epiverse-trace1",
+    host = "172.23.33.99",
+    port = 1433,
+    database.name = "TEST_READEPI",
+    driver.name = "ODBC Driver 17 for SQL Server",
+    table.names = "covid,ebola,iris",
+    records = NULL,
+    fields = NULL,
+    id.position = NULL,
+    id.col.name = NULL
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "epiverse",
+    password = "epiverse-trace1",
+    host = "172.23.33.99",
+    port = 1433,
+    database.name = "TEST_READEPI",
+    driver.name = "ODBC Driver 17 for SQL Server",
+    table.names = "covid,ebola,iris",
+    records = NULL,
+    fields = c("date,sex,age,ccg_code", "id,date_of_onset,district",
+               "Sepal.Length,Species"),
+    id.position = NULL,
+    id.col.name = NULL
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "epiverse",
+    password = "epiverse-trace1",
+    host = "172.23.33.99",
+    port = 1433,
+    database.name = "TEST_READEPI",
+    driver.name = "ODBC Driver 17 for SQL Server",
+    table.names = "covid,ebola,iris",
+    records = c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+                "9375,881,4539",
+                "setosa"),
+    fields = NULL,
+    id.position = c(5,1,5),
+    id.col.name = NULL
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "epiverse",
+    password = "epiverse-trace1",
+    host = "172.23.33.99",
+    port = 1433,
+    database.name = "TEST_READEPI",
+    driver.name = "ODBC Driver 17 for SQL Server",
+    table.names = "covid,ebola,iris",
+    records = c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+                "9375,881,4539",
+                "setosa"),
+    fields = NULL,
+    id.position = NULL,
+    id.col.name = c("ccg_code","id","Species")
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "epiverse",
+    password = "epiverse-trace1",
+    host = "172.23.33.99",
+    port = 1433,
+    database.name = "TEST_READEPI",
+    driver.name = "ODBC Driver 17 for SQL Server",
+    table.names = "covid,ebola,iris",
+    records = c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+                "9375,881,4539",
+                "setosa"),
+    fields = c("date,sex,age,ccg_code", "id,date_of_onset,district",
+               "Sepal.Length,Species"),
+    id.position = c(5,1,5),
+    id.col.name = NULL
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "epiverse",
+    password = "epiverse-trace1",
+    host = "172.23.33.99",
+    port = 1433,
+    database.name = "TEST_READEPI",
+    driver.name = "ODBC Driver 17 for SQL Server",
+    table.names = "covid,ebola,iris",
+    records = c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+                "9375,881,4539",
+                "setosa"),
+    fields = c("date,sex,age,ccg_code", "id,date_of_onset,district",
+               "Sepal.Length,Species"),
+    id.position = NULL,
+    id.col.name = c("ccg_code","id","Species")
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server fails with port of type character", {
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = c("e38000191", "e38000247", "e38000020", "e38000130",
+                  "e38000122", "e38000223"),
+      fields = c("date", "sex", "age", "ccg_code"),
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = c("e38000191", "e38000247", "e38000020", "e38000130",
+                  "e38000122", "e38000223"),
+      fields = c("date", "sex", "age", "ccg_code"),
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = c("e38000191", "e38000247", "e38000020", "e38000130",
+                  "e38000122", "e38000223"),
+      fields = NULL,
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = c("e38000191", "e38000247", "e38000020", "e38000130",
+                  "e38000122", "e38000223"),
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = c("date", "sex", "age", "ccg_code"),
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+})
+
+test_that("read_from_ms_sql_server fails with port of type character", {
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = "date, sex, age, ccg_code",
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = "date, sex, age, ccg_code",
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = NULL,
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = "date, sex, age, ccg_code",
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+})
+
+test_that("read_from_ms_sql_server fails with port of type character", {
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      fields = "date,sex,age,ccg_code",
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      fields = "date,sex,age,ccg_code",
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      fields = NULL,
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = "1433",
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = "date,sex,age,ccg_code",
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+})
+
+test_that("read_from_ms_sql_server fails with negative port", {
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = c("e38000191", "e38000247", "e38000020", "e38000130",
+                  "e38000122", "e38000223"),
+      fields = c("date", "sex", "age", "ccg_code"),
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = c("e38000191", "e38000247", "e38000020", "e38000130",
+                  "e38000122", "e38000223"),
+      fields = c("date", "sex", "age", "ccg_code"),
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = c("date", "sex", "age", "ccg_code"),
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = c("e38000191", "e38000247", "e38000020", "e38000130",
+                  "e38000122", "e38000223"),
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = c("e38000191", "e38000247", "e38000020", "e38000130",
+                  "e38000122", "e38000223"),
+      fields = NULL,
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+})
+
+test_that("read_from_ms_sql_server fails with negative port", {
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      fields = "date,sex,age,ccg_code",
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      fields = "date,sex,age,ccg_code",
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = "date,sex,age,ccg_code",
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      fields = NULL,
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+})
+
+test_that("read_from_ms_sql_server fails with negative port", {
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = "date, sex, age, ccg_code",
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = "date, sex, age, ccg_code",
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = "date, sex, age, ccg_code",
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = NULL,
+      id.position = 5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = -1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = NULL,
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
+  )
+})
+
+test_that("read_from_ms_sql_server fails with invalid id.position", {
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = 1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = "date, sex, age, ccg_code",
+      id.position = -5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = 1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = "date, sex, age, ccg_code",
+      id.position = -5,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = 1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      fields = NULL,
+      id.position = -5,
+      id.col.name = "ccg_code"
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
+  )
+})
+
+test_that("read_from_ms_sql_server fails with invalid id.position", {
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = 1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      fields = "date,sex,age,ccg_code",
+      id.position = -5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = 1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      fields = NULL,
+      id.position = -5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
+  )
+})
+
+test_that("read_from_ms_sql_server fails with invalid id.position", {
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = 1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = c("e38000191", "e38000247", "e38000020", "e38000130",
+                  "e38000122", "e38000223"),
+      fields = c("date", "sex", "age", "ccg_code"),
+      id.position = -5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "epiverse",
+      password = "epiverse-trace1",
+      host = "172.23.33.99",
+      port = 1433,
+      database.name = "TEST_READEPI",
+      driver.name = "ODBC Driver 17 for SQL Server",
+      table.names = "covid",
+      records = c("e38000191", "e38000247", "e38000020", "e38000130",
+                  "e38000122", "e38000223"),
+      fields = NULL,
+      id.position = -5,
+      id.col.name = NULL
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
+  )
 })
 
 test_that("read_from_ms_sql_server fails as expected", {
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
-      fields = "date, sex, age, ccg_code",
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-      fields = "date,sex,age,ccg_code",
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c(
-        "e38000191", "e38000247", "e38000020", "e38000130",
-        "e38000122", "e38000223"
-      ),
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c(
-        "e38000191", "e38000247", "e38000020", "e38000130",
-        "e38000122", "e38000223"
-      ),
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c(
-        "e38000191", "e38000247", "e38000020", "e38000130",
-        "e38000122", "e38000223"
-      ),
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c(
-        "e38000191", "e38000247", "e38000020", "e38000130",
-        "e38000122", "e38000223"
-      ),
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = "1",
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',id.position,'failed: Must be of type 'numeric' not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-      fields = "date,sex,age,ccg_code",
-      id.position = "1",
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',id.position,'failed: Must be of type 'numeric' not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
-      fields = "date,sex,age,ccg_code",
-      id.position = "1",
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',id.position,'failed: Must be of type 'numeric' not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
-      fields = "date, sex, age, ccg_code",
-      id.position = -1,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-      fields = "date,sex,age,ccg_code",
-      id.position = -1,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c(
-        "e38000191", "e38000247", "e38000020", "e38000130",
-        "e38000122", "e38000223"
-      ),
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = -1,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
-  )
-
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
