@@ -6,6 +6,13 @@
 \usage{
 get_organisation_units(base.url, username, password)
 }
+\arguments{
+\item{base.url}{the base URL of the DHIS2 server}
+
+\item{username}{the user name}
+
+\item{password}{the user's password}
+}
 \description{
 function to get the organisation unit identifiers and names
 }
