@@ -4,16 +4,18 @@
 \alias{install_odbc_driver}
 \title{Install the Microsoft ODBC driver for SQL server}
 \usage{
-install_odbc_driver(driver_version = 17)
+install_odbc_driver(driver_version = 17, force_install = FALSE)
 }
 \arguments{
 \item{driver_version}{the version of the driver that is compatible with your SQL server}
+
+\item{force_install}{a Boolean to specify whether to force the installation of the given MS driver version. default is FALSE}
 }
 \description{
 Install the Microsoft ODBC driver for SQL server
 }
 \examples{
 \dontrun{
-install_odbc_driver(driver.version = 17)
+install_odbc_driver(driver_version = 17, force_install=FALSE)
 }
 }
