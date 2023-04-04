@@ -2,10 +2,15 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{install_odbc_driver_linux}
 \alias{install_odbc_driver_linux}
-\title{install ODBC driver for Linux}
+\title{install MS SQL ODBC driver for Linux}
 \usage{
 install_odbc_driver_linux(driver_version, force_install)
 }
+\arguments{
+\item{driver_version}{the MS ODBC driver version of interest}
+
+\item{force_install}{if TRUE, the selected MS ODBC driver version will be force installed}
+}
 \description{
-install ODBC driver for Linux
+install MS SQL ODBC driver for Linux
 }

@@ -6,6 +6,13 @@
 \usage{
 login(username, password, base.url)
 }
+\arguments{
+\item{username}{the user name}
+
+\item{password}{the user's password}
+
+\item{base.url}{the base URL of the DHIS2 server}
+}
 \description{
 function to check authentication details
 }

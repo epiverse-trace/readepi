@@ -2,10 +2,17 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{get_data_sets}
 \alias{get_data_sets}
-\title{function to get the datasets identifiers and names}
+\title{function to get the dataset identifiers and names}
 \usage{
 get_data_sets(base.url, username, password)
 }
+\arguments{
+\item{base.url}{the base URL of the DHIS2 server}
+
+\item{username}{the user name}
+
+\item{password}{the user's password}
+}
 \description{
-function to get the datasets identifiers and names
+function to get the dataset identifiers and names
 }

@@ -65,7 +65,7 @@ readepi <- function(credentials.file = NULL,
   # check the input arguments
   checkmate::assertCharacter(credentials.file, len = 1L, null.ok = TRUE)
   checkmate::assertCharacter(file.path, len = 1L, null.ok = TRUE)
-  checkmate::assertCharacter(sep, len = 1L, null.ok = TRUE, n.chars = 1)
+  checkmate::assertCharacter(sep, len = 1L, null.ok = TRUE)
   checkmate::assertCharacter(format, len = 1L, null.ok = TRUE)
   checkmate::assert_vector(which,
     any.missing = FALSE, min.len = 1,
