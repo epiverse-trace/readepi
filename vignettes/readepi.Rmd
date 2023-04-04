@@ -75,8 +75,9 @@ If you are using a Unix-based system, you will need to install the MS ODBC drive
 The `install_odbc_driver()` function can be used to installed the chosen driver on your system.     
 
 ```{r eval=FALSE}
-install_odbc_driver(driver_version = 17)
+install_odbc_driver(driver_version = 17, force_install = FALSE)
 ```
+Note that when prompted to agree with the license terms, enter **YES** in capital letters.    
 
 If after running this command, you still have issues related to the MS SQL driver installation, use the links below for more details about how to install the **odbc** package in R and odbc drivers:     
 [the odbc github page](https://github.com/r-dbi/odbc#installation)      
