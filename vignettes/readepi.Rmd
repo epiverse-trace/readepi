@@ -117,7 +117,7 @@ All demos in the sections below rely on the credentials stored in the template f
 ```{r eval=FALSE}
 # DEFINING THE CREDENTIALS FILE
 # credentials.file <- system.file("extdata", "test.ini", package = "readepi")
-credentials.file <- system.file("extdata", "fake_test.ini", package = "readepi")
+credentials.file <- system.file("extdata", "test.ini", package = "readepi")
 ```
 
 ### list the names of all tables in the database
