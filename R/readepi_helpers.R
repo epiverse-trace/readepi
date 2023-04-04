@@ -359,7 +359,7 @@ install_odbc_driver_mac = function(driver_version, force_install){
       system(sprintf("brew reinstall %s && exit",target.driver),
              input = rstudioapi::askForPassword("Do you accept the license terms? (Enter YES or NO)"))
       system(sprintf("sudo unlink %s", target.mstool),
-             input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
+             input = rstudioapi::askForPassword("sudo password"))
       system(sprintf("brew reinstall %s",target.mstool),
              input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
     }
