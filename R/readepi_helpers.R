@@ -351,24 +351,24 @@ install_odbc_driver_mac = function(driver_version, force_install){
     target.driver <- paste0("msodbcsql@", driver_version,".9.2")
     target.mstool <- "mssql-tools@14.0.6.0"
     if(!force_install){
-      system(sprintf("brew install %s",target.driver),
+      system(sprintf("brew reinstall %s",target.driver),
              input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
-      system(sprintf("brew install %s",target.mstool),
+      system(sprintf("brew reinstall %s",target.mstool),
              input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
     }else{
       system(sprintf("brew reinstall %s && exit",target.driver),
              input = rstudioapi::askForPassword("Do you accept the license terms? (Enter YES or NO)"))
-      system(sprintf("brew unlink mssql-tools"))
-      system(sprintf("brew unlink %s", target.mstool))
+      system(sprintf("sudo unlink %s", target.mstool),
+             input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
       system(sprintf("brew reinstall %s",target.mstool),
              input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
     }
   }
 
-  R.utils::cat("\nconfiguring the home directory\n")
-  odbcinst <- ifelse(apple.chip == "arm64", "/opt/homebrew/etc/odbcinst.ini",
-                     "/etc/odbcinst.ini")
-  system(sprintf("cp -f %s %s",odbcinst,"~/.odbcinst.ini"))
+  # R.utils::cat("\nconfiguring the home directory\n")
+  # odbcinst <- ifelse(apple.chip == "arm64", "/opt/homebrew/etc/odbcinst.ini",
+  #                    "/etc/odbcinst.ini")
+  # system(sprintf("cp -f %s %s",odbcinst,"~/.odbcinst.ini"))
   system(sprintf("ODBCSYSINI=/"))
 }
 
