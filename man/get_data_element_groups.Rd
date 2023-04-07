@@ -2,7 +2,7 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{get_data_element_groups}
 \alias{get_data_element_groups}
-\title{function to get the data element group identifiers and names}
+\title{Get the data element group identifiers and names}
 \usage{
 get_data_element_groups(base.url, username, password)
 }
@@ -14,5 +14,5 @@ get_data_element_groups(base.url, username, password)
 \item{password}{the user's password}
 }
 \description{
-function to get the data element group identifiers and names
+Get the data element group identifiers and names
 }

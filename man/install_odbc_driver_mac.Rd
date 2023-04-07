@@ -2,7 +2,7 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{install_odbc_driver_mac}
 \alias{install_odbc_driver_mac}
-\title{install MS SQL ODBC driver for Mac}
+\title{Install MS SQL ODBC driver for Mac}
 \usage{
 install_odbc_driver_mac(driver_version, force_install)
 }
@@ -12,5 +12,5 @@ install_odbc_driver_mac(driver_version, force_install)
 \item{force_install}{if TRUE, the selected MS ODBC driver version will be force installed}
 }
 \description{
-install MS SQL ODBC driver for Mac
+Install MS SQL ODBC driver for Mac
 }

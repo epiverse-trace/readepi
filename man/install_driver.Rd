@@ -2,7 +2,7 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{install_driver}
 \alias{install_driver}
-\title{install MS SQL ODBC driver}
+\title{Install MS SQL ODBC driver}
 \usage{
 install_driver(driver_version, force_install)
 }
@@ -12,5 +12,5 @@ install_driver(driver_version, force_install)
 \item{force_install}{if TRUE, the selected MS ODBC driver version will be force installed}
 }
 \description{
-install MS SQL ODBC driver
+Install MS SQL ODBC driver
 }
