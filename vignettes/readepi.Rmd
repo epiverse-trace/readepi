@@ -71,18 +71,55 @@ Research data are usually stored in either relational databases or NoSQL databas
 To import data from a HDSS or EMRS (MS SQL Server) into R, some dependencies need to be installed first.    
 
 ### installation of dependencies
-If you are using a Unix-based system, you will need to install the MS ODBC driver that is compatible with the version of the target MS SQL server. For **SQL server 2019, version 15.0**, we installed **ODBC Driver 17 for SQL Server** on the mac OS which is compatible with the test server. 
-The `install_odbc_driver()` function can be used to installed the chosen driver on your system.     
+If you are using a Unix-based system, you will need to install the MS ODBC driver that is compatible with the version of the target MS SQL server. For **SQL server 2019, version 15.0**, we installed **ODBC Driver 17 for SQL Server** on the mac OS which is compatible with the test server.    
+
+#### installation of MS SQL driver on Mac
+The `install_odbc_driver()` function can be used to installed the chosen driver on Mac.     
 
 ```{r eval=FALSE}
 install_odbc_driver(driver_version = 17, force_install = FALSE)
 ```
-Note that when prompted to agree with the license terms, enter **YES** in capital letters.    
-
-If after running this command, you still have issues related to the MS SQL driver installation, use the links below for more details about how to install the **odbc** package in R and odbc drivers:     
+Note that when prompted to agree with the license terms, enter **YES in capital letters**.    
+If after running this command, you still have issues related to the MS SQL driver installation, use the links below for more details about how to install the **odbc** package in R and the odbc drivers:     
 [the odbc github page](https://github.com/r-dbi/odbc#installation)      
 
 [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15)     
+
+#### installation of MS SQL driver version 17 or 18 on `Ubuntu`
+Note that this requires **Ubuntu 16.04 and above**.     
+```{bash eval=FALSE}
+driver=17
+sudo su
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list
+exit
+
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install -y msodbcsql${driver}
+sudo ACCEPT_EULA=Y apt-get install -y mssql-tools${driver}
+echo 'export PATH="$PATH:/opt/mssql-tools${driver}/bin"' >> ~/.bashrc
+source ~/.bashrc
+sudo apt-get install -y unixodbc-dev
+```
+
+#### installation of MS SQL driver version 13.1 on `Ubuntu`
+Note that this works for older versions of Ubuntu, including version 16.04.   
+```{bash eval=FALSE}
+sudo su
+curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > /etc/apt/sources.list.d/mssql-release.list
+exit
+sudo apt-get update
+sudo ACCEPT_EULA=Y apt-get install msodbcsql
+sudo ACCEPT_EULA=Y apt-get install mssql-tools
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
+source ~/.bashrc
+sudo apt-get install unixodbc-dev
+```
+
+#### installation of MS SQL driver on other Linux distributions
+When working on a Linux distribution other than Ubuntu, follow the instructions [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline).       
+
 
 Once installed, the list of drivers can be displayed in R using:       
 ```{r eval=FALSE}
@@ -91,23 +128,26 @@ odbc::odbcListDrivers()
 
 It is important to view the data that is stored in the MS SQL server. I recommend to install a GUI such as `Azure Data Studio`.         
 
-### needed argument for importing data from RDBMS into R
-To be able to read data from RDBMS, the **read_epi()** expects the following arguments:     
-`credentials.file`: the path to the file with the user-specific credential details for the projects of interest. This is a tab-delimited file with the following 7  columns:    
+## importing from MS SQL server
+To be able to read data from a MS SQL server, the **read_epi()** expects the following arguments:     
+`credentials.file`: the path to the file with the user-specific credential details for the projects of interest. This is a tab-delimited file with the following 7  columns:     
 
-* user_name: the user name,    
-* password: the user password (for REDCap, this corresponds to the **token** that serves as password to the project),    
-* host_name: the host name (for HDSS and EMRS) or the URI (for REDCap),    
-* project_id: the project ID (for REDCap) or the name of the database (for HDSS and EMRS) you are access to,   
-* comment: a summary description about the project or database of interest,     
-* dbms: the name of the DBMS: 'redcap' or 'REDCap' when reading from REDCap, 'sqlserver' or 'SQLServer' when reading from MS SQL Server,    
-* port: the port ID (used for MS SQL Servers only).    
+* *user_name*: the user name,    
+* *password*: the user password (for REDCap, this corresponds to the **token** that serves as password to the project),    
+* *host_name*: the host name (for HDSS and EMRS) or the URI (for REDCap),    
+* *project_id*: the project ID (for REDCap) or the name of the database (for HDSS and EMRS) you are access to,   
+* *comment*: a summary description about the project or database of interest,     
+* *dbms*: the name of the DBMS: 'redcap' or 'REDCap' when reading from REDCap, 'sqlserver' or 'SQLServer' when reading from MS SQL Server,    
+* *port*: the port ID (used for MS SQL Servers only).    
+
 `project.id` for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to. Note that this should be similar to the value of the **project_id** field in the credential file.  
 `driver.name` the name of the MS driver (only for HDSS and EMRS). use `odbc::odbcListDrivers()` to display the list of installed drivers,    
 `table.name`: the name of the target table (only for HDSS and EMRS),   
 `records`: a vector or a comma-separated string of a subset of subject IDs. When specified, only the records that correspond to these subjects will be imported,    
 `fields`: a vector or a comma-separated string of column names. If provided, only those columns will be imported,     
-`id.position`: the column position of the variable that unique identifies the subjects. This should only be specified when the column with the subject IDs is not the first column. default is 1.    
+`id.position`: the column position of the variable that unique identifies the subjects. default is 1.    
+`id.col.name`: the name of the column that unique identifies the subjects.
+
 
 Use the `show_example_file()` as below to view the credentials file used as template in the **readepi** package.      
 ```{r eval=FALSE}
@@ -289,6 +329,13 @@ To import data from **DHIS2**, the user must call the `readepi` function with th
 ```{r eval=FALSE}
 # GETTING THE DATA ELEMENT IDENTIFIERS AND NAMES
 data.elements <- get_data_elements(
+  base.url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district"
+)
+
+# GETTING THE DATASET IDENTIFIERS AND NAMES
+datasets <- get_data_sets(
   base.url = "https://play.dhis2.org/dev/",
   username = "admin",
   password = "district"

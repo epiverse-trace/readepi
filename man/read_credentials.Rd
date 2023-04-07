@@ -2,7 +2,7 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{read_credentials}
 \alias{read_credentials}
-\title{function to read credentials from a configuration file}
+\title{Read credentials from a configuration file}
 \usage{
 read_credentials(
   file.path = system.file("extdata", "test.ini", package = "readepi"),
@@ -18,7 +18,7 @@ read_credentials(
 a list with the user credential details.
 }
 \description{
-function to read credentials from a configuration file
+Read credentials from a configuration file
 }
 \examples{
 \dontrun{

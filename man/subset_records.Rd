@@ -2,7 +2,7 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{subset_records}
 \alias{subset_records}
-\title{function to subset records}
+\title{Subset records}
 \usage{
 subset_records(data.frame, records, id.position = 1, table.name)
 }
@@ -19,7 +19,7 @@ subset_records(data.frame, records, id.position = 1, table.name)
 a list of 2 elements: the subset data frame and an integer that tells whether all fields were missing in the table (1) or not (0)
 }
 \description{
-function to subset records
+Subset records
 }
 \examples{
 \dontrun{

@@ -2,6 +2,10 @@
 
 export(check_dhis2_attributes)
 export(getExtension)
+export(get_data_element_groups)
+export(get_data_elements)
+export(get_data_sets)
+export(get_organisation_units)
 export(install_odbc_driver)
 export(read_credentials)
 export(read_from_dhis2)

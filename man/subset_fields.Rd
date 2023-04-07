@@ -2,7 +2,7 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{subset_fields}
 \alias{subset_fields}
-\title{function to subset fields}
+\title{Subset fields}
 \usage{
 subset_fields(data.frame, fields, table.name)
 }
@@ -17,7 +17,7 @@ subset_fields(data.frame, fields, table.name)
 a list of 2 elements: the subset data frame and an integer that tells whether all fields were missing in the table (1) or not (0)
 }
 \description{
-function to subset fields
+Subset fields
 }
 \examples{
 \dontrun{
