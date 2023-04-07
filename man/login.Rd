@@ -2,7 +2,7 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{login}
 \alias{login}
-\title{function to check authentication details}
+\title{Check DHIS2 authentication details}
 \usage{
 login(username, password, base.url)
 }
@@ -14,5 +14,5 @@ login(username, password, base.url)
 \item{base.url}{the base URL of the DHIS2 server}
 }
 \description{
-function to check authentication details
+Check DHIS2 authentication details
 }

@@ -29,6 +29,8 @@ detect_separator <- function(x) {
   unique(sep)
 }
 
+#' Read multiple files, including multiple files in a directory
+#'
 read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
   # filter out directories from files
   idx <- which(files %in% dirs)
@@ -97,7 +99,8 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
 }
 
 
-#' function to subset fields
+#' Subset fields
+#'
 #' @param data.frame the input data frame
 #' @param fields the list of columns of interest
 #' @param table.name the table names
@@ -140,7 +143,7 @@ subset_fields <- function(data.frame, fields, table.name) {
 }
 
 
-#' function to subset records
+#' Subset records
 #' @param data.frame the input data frame
 #' @param records the list of columns of interest
 #' @param id.position a vector of the column position of the variable that unique identifies the subjects. If not provided, it will assumes the first column as the subject ID column in all the tables
@@ -184,7 +187,8 @@ subset_records <- function(data.frame, records, id.position = 1, table.name) {
 }
 
 
-#' function to read credentials from a configuration file
+#' Read credentials from a configuration file
+#'
 #' @param file.path the path to the file with the user-specific credential details for the projects of interest.
 #' @param project.id for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to.
 #' @returns  a list with the user credential details.
@@ -231,7 +235,7 @@ read_credentials <- function(file.path = system.file("extdata", "test.ini", pack
 }
 
 
-#' function to check authentication details
+#' Check DHIS2 authentication details
 #'
 #' @param username the user name
 #' @param password the user's password
@@ -252,11 +256,13 @@ login <- function(username, password, base.url) {
   R.utils::cat("\nLogged in successfully!")
 }
 
-#' function to get the data element identifiers and names
+#' Get the data element identifiers and names
 #'
 #' @param username the user name
 #' @param password the user's password
 #' @param base.url the base URL of the DHIS2 server
+#'
+#' @export
 #'
 get_data_elements <- function(base.url, username, password) {
   checkmate::assertCharacter(base.url, len = 1L, null.ok = TRUE, any.missing = FALSE)
@@ -268,11 +274,13 @@ get_data_elements <- function(base.url, username, password) {
   do.call(rbind.data.frame, r$dataElements)
 }
 
-#' function to get the dataset identifiers and names
+#' Get the dataset identifiers and names
 #'
 #' @param username the user name
 #' @param password the user's password
 #' @param base.url the base URL of the DHIS2 server
+#'
+#' @export
 #'
 get_data_sets <- function(base.url, username, password) {
   checkmate::assertCharacter(base.url, len = 1L, null.ok = TRUE, any.missing = FALSE)
@@ -284,11 +292,13 @@ get_data_sets <- function(base.url, username, password) {
   do.call(rbind.data.frame, r$dataSets)
 }
 
-#' function to get the organisation unit identifiers and names
+#' Get the organisation unit identifiers and names
 #'
 #' @param username the user name
 #' @param password the user's password
 #' @param base.url the base URL of the DHIS2 server
+#'
+#' @export
 #'
 get_organisation_units <- function(base.url, username, password) {
   checkmate::assertCharacter(base.url, len = 1L, null.ok = TRUE, any.missing = FALSE)
@@ -300,11 +310,13 @@ get_organisation_units <- function(base.url, username, password) {
   do.call(rbind.data.frame, r$organisationUnits)
 }
 
-#' function to get the data element group identifiers and names
+#' Get the data element group identifiers and names
 #'
 #' @param username the user name
 #' @param password the user's password
 #' @param base.url the base URL of the DHIS2 server
+#'
+#' @export
 #'
 get_data_element_groups <- function(base.url, username, password) {
   checkmate::assertCharacter(base.url, len = 1L, null.ok = TRUE, any.missing = FALSE)
@@ -316,7 +328,7 @@ get_data_element_groups <- function(base.url, username, password) {
   do.call(rbind.data.frame, r$dataElementgroups)
 }
 
-#' install MS SQL ODBC driver for Mac
+#' Install MS SQL ODBC driver for Mac
 #'
 #' @param driver_version the MS ODBC driver version of interest
 #' @param force_install if TRUE, the selected MS ODBC driver version will be force installed
@@ -372,107 +384,20 @@ install_odbc_driver_mac = function(driver_version, force_install){
   system(sprintf("ODBCSYSINI=/"))
 }
 
-#' install MS SQL ODBC driver for Ubuntu
+
+#' Install MS SQL ODBC driver
 #'
 #' @param driver_version the MS ODBC driver version of interest
 #' @param force_install if TRUE, the selected MS ODBC driver version will be force installed
-#'
-install_odbc_driver_ubuntu = function(driver_version, force_install){
-  checkmate::assertNumber(driver_version, null.ok = FALSE, lower = 13.1,
-                          na.ok = FALSE)
-  checkmate::assertLogical(force_install, any.missing = FALSE, len = 1,
-                           null.ok = TRUE)
-
-  # check whether the ubuntu release is supported
-  supportd.releases = c("16.04", "18.04", "20.04", "22.04")
-  current.release = system(sprintf("lsb_release -rs"), intern = TRUE)
-  if(!(current.release %in% supportd.releases)){
-    stop("Ubuntu ",current.release," is not currently supported.")
-  }
-
-  # install the driver
-  system(sprintf("curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -"))
-  system(sprintf("curl https://packages.microsoft.com/config/ubuntu/$(lsb_release -rs)/prod.list > /etc/apt/sources.list.d/mssql-release.list"))
-  system(sprintf("sudo apt-get update"),
-         input = rstudioapi::askForPassword("sudo password"))
-
-  target.driver = switch (driver_version,
-                          '17' = paste0("msodbcsql", driver_version),
-                          '18' = paste0("msodbcsql", driver_version),
-                          '13.1' = "msodbcsql",
-                          '13' = "msodbcsql=13.0.1.0-1"
-                          )
-  target.mstool = switch(driver_version,
-                         '17' = "mssql-tools",
-                         '18' = paste0("mssql-tools", driver_version),
-                         '13.1' = "mssql-tools",
-                         '13' = "mssql-tools=14.0.2.0-1"
-                         )
-  if(driver_version==13){
-    if(!force_install){
-      system(sprintf("sudo ACCEPT_EULA=Y apt-get install %s %s",target.driver,target.mstool),
-             input = rstudioapi::askForPassword("sudo password"))
-      system(sprintf("sudo apt-get install unixodbc-dev-utf16"),
-             input = rstudioapi::askForPassword("sudo password"))
-      system(sprintf("ln -sfn /opt/mssql-tools/bin/sqlcmd-13.0.1.0 /usr/bin/sqlcmd"))
-      system(sprintf("ln -sfn /opt/mssql-tools/bin/bcp-13.0.1.0 /usr/bin/bcp"))
-    }else{
-
-    }
-  }else{
-    if(!force_install){
-      system(sprintf("sudo ACCEPT_EULA=Y apt-get install -y %s",target.driver),
-             input = rstudioapi::askForPassword("sudo password"))
-      system(sprintf("sudo ACCEPT_EULA=Y apt-get install -y %s",target.mstool),
-             input = rstudioapi::askForPassword("sudo password"))
-      system(sprintf("echo 'export PATH=\"$PATH:/opt/%s/bin\"' >> ~/.bashrc", target.mstool))
-      system(sprintf("source ~/.bashrc"))
-      system(sprintf("sudo apt-get install -y unixodbc-dev"),
-             input = rstudioapi::askForPassword("sudo password"))
-    }else{
-
-    }
-  }
-
-}
-
-#' install MS SQL ODBC driver for Linux
-#'
-#' @param driver_version the MS ODBC driver version of interest
-#' @param force_install if TRUE, the selected MS ODBC driver version will be force installed
-#'
-install_odbc_driver_linux = function(driver_version, force_install){
-  checkmate::assertNumber(driver_version, null.ok = FALSE, lower = 13.1,
-                          na.ok = FALSE)
-  checkmate::assertLogical(force_install, any.missing = FALSE, len = 1,
-                           null.ok = TRUE)
-
-  # get the Linux distribution ID
-  distribution.id = system(sprintf("lsb_release -ds"), intern = TRUE)
-  distribution.id = unlist(strsplit(distribution.id," "))[1]
-
-  switch(distribution.id,
-         "Ubuntu" = install_odbc_driver_ubuntu(driver_version, force_install),
-         "Debian" = install_odbc_driver_ubuntu(driver_version, force_install)
-         )
-}
-
-#' install MS SQL ODBC driver
-#'
-#' @param driver_version the MS ODBC driver version of interest
-#' @param force_install if TRUE, the selected MS ODBC driver version will be force installed
-#'
+#' @export
 install_driver = function(driver_version, force_install){
   checkmate::assertNumber(driver_version, null.ok = FALSE, lower = 13.1,
                           na.ok = FALSE)
   checkmate::assertLogical(force_install, any.missing = FALSE, len = 1,
                            null.ok = TRUE)
   R.utils::cat("\ninstalling unixodbc and MS ODBC driver\n")
-  if (grepl("Darwin", system(sprintf("uname -a"), intern = TRUE))) {
-    install_odbc_driver_mac(driver_version, force_install)
-  } else if (grepl("Linux", system(sprintf("uname -a"), intern = TRUE))) {
-    install_odbc_driver_linux(driver_version, force_install)
-  }
+  install_odbc_driver_mac(driver_version, force_install)
+
   R.utils::cat("\ninstalling odbc R package\n")
   if (!require("odbc", quietly = TRUE))
     install.packages("odbc")

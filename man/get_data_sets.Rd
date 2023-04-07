@@ -2,7 +2,7 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{get_data_sets}
 \alias{get_data_sets}
-\title{function to get the dataset identifiers and names}
+\title{Get the dataset identifiers and names}
 \usage{
 get_data_sets(base.url, username, password)
 }
@@ -14,5 +14,5 @@ get_data_sets(base.url, username, password)
 \item{password}{the user's password}
 }
 \description{
-function to get the dataset identifiers and names
+Get the dataset identifiers and names
 }

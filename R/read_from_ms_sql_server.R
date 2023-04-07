@@ -83,6 +83,7 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
   # checking if the specified table exists in the database
   if (!is.null(table.names)) {
     if (is.character(table.names)) {
+      table.names = gsub(" ","",table.names)
       table.names <- as.character(unlist(strsplit(table.names, ",")))
     }
     idx <- which(table.names %in% tables)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/readepi_helpers.R
 \name{get_organisation_units}
 \alias{get_organisation_units}
-\title{function to get the organisation unit identifiers and names}
+\title{Get the organisation unit identifiers and names}
 \usage{
 get_organisation_units(base.url, username, password)
 }
@@ -14,5 +14,5 @@ get_organisation_units(base.url, username, password)
 \item{password}{the user's password}
 }
 \description{
-function to get the organisation unit identifiers and names
+Get the organisation unit identifiers and names
 }
