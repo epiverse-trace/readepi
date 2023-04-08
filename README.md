@@ -112,7 +112,7 @@ data <- readepi(
   table.name = "covid"
 )
 
-## MS WINDOWS
+## ON MS WINDOWS
 data <- readepi(
   credentials.file = credentials.file,
   project.id = "TEST_READEPI", # this is the database name

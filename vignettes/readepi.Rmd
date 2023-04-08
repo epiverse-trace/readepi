@@ -86,7 +86,7 @@ If after running this command, you still have issues related to the MS SQL drive
 [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15)     
 
 #### installation of MS SQL driver version 17 or 18 on `Ubuntu`
-Note that this requires **Ubuntu 16.04 and above**.     
+Note that this requires **Ubuntu 16.04 and above**. Open the terminal and type the code below:         
 ```{bash eval=FALSE}
 driver=17
 sudo su

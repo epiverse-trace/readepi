@@ -260,3 +260,593 @@ test_that("read_credentials fails as expected", {
     regexp = cat("Assertion on',project.id,'failed: Impossible to read from multiple databases or projects.")
   )
 })
+
+
+test_that("login works as expected", {
+  expect_output(
+    login(
+      username = "admin",
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    ""
+  )
+})
+
+test_that("login fails as expected", {
+  expect_error(
+    login(
+      username = NULL,
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be specified.")
+  )
+
+  expect_error(
+    login(
+      username = NA,
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be specified.")
+  )
+
+  expect_error(
+    login(
+      username = c("admin","admin1"),
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    login(
+      username = "admin",
+      password = NULL,
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be specified.")
+  )
+
+  expect_error(
+    login(
+      username = "admin",
+      password = NA,
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be specified.")
+  )
+
+  expect_error(
+    login(
+      username = "admin",
+      password = c("district","district1"),
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    login(
+      username = "admin",
+      password = "district",
+      base.url = NULL
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
+  )
+
+  expect_error(
+    login(
+      username = "admin",
+      password = "district",
+      base.url = NA
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
+  )
+
+  expect_error(
+    login(
+      username = "admin",
+      password = "district",
+      base.url = c("https://play.dhis2.org/dev/","https://play.dhis2.org/dev/test/")
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be of type character with length 1.")
+  )
+})
+
+
+test_that("get_data_elements works as expected", {
+  data_element = get_data_elements(
+    username = "admin",
+    password = "district",
+    base.url = "https://play.dhis2.org/dev/"
+  )
+  expect_s3_class(data_element, class = "data.frame")
+})
+
+test_that("get_data_elements fails as expected", {
+  expect_error(
+    data_element = get_data_elements(
+      username = NULL,
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element = get_data_elements(
+      username = NA,
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element = get_data_elements(
+      username = c("admin","admin1"),
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    data_element = get_data_elements(
+      username = "admin",
+      password = NULL,
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element = get_data_elements(
+      username = "admin",
+      password = NA,
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element = get_data_elements(
+      username = "admin",
+      password = c("district","district1"),
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    data_element = get_data_elements(
+      username = "admin",
+      password = "district",
+      base.url = NULL
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element = get_data_elements(
+      username = "admin",
+      password = "district",
+      base.url = NA
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element = get_data_elements(
+      username = "admin",
+      password = "district",
+      base.url = c("https://play.dhis2.org/dev/","https://play.dhis2.org/dev/test/")
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be of type character with length 1.")
+  )
+})
+
+
+test_that("get_data_sets works as expected", {
+  dataset = get_data_sets(
+    username = "admin",
+    password = "district",
+    base.url = "https://play.dhis2.org/dev/"
+  )
+  expect_s3_class(dataset, class = "data.frame")
+})
+
+test_that("get_data_sets fails as expected", {
+  expect_error(
+    dataset = get_data_sets(
+      username = NULL,
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be specified.")
+  )
+
+  expect_error(
+    dataset = get_data_sets(
+      username = NA,
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be specified.")
+  )
+
+  expect_error(
+    dataset = get_data_sets(
+      username = c("admin","admin1"),
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    dataset = get_data_sets(
+      username = "admin",
+      password = NULL,
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be specified.")
+  )
+
+  expect_error(
+    dataset = get_data_sets(
+      username = "admin",
+      password = NA,
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be specified.")
+  )
+
+  expect_error(
+    dataset = get_data_sets(
+      username = "admin",
+      password = c("district","district1"),
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    dataset = get_data_sets(
+      username = "admin",
+      password = "district",
+      base.url = NULL
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
+  )
+
+  expect_error(
+    dataset = get_data_sets(
+      username = "admin",
+      password = "district",
+      base.url = NA
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
+  )
+
+  expect_error(
+    dataset = get_data_sets(
+      username = "admin",
+      password = c("district","district1"),
+      base.url = c("https://play.dhis2.org/dev/","https://play.dhis2.org/dev/test/")
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be of type character with length 1.")
+  )
+})
+
+test_that("get_organisation_units works as expected", {
+  organisation_units = get_organisation_units(
+    username = "admin",
+    password = "district",
+    base.url = "https://play.dhis2.org/dev/"
+  )
+  expect_s3_class(organisation_units, class = "data.frame")
+})
+
+test_that("get_organisation_units fails as expected", {
+  expect_error(
+    organisation_units = get_organisation_units(
+      username = NULL,
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be specified.")
+  )
+
+  expect_error(
+    organisation_units = get_organisation_units(
+      username = NA,
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be specified.")
+  )
+
+  expect_error(
+    organisation_units = get_organisation_units(
+      username = c("admin","admin1"),
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    organisation_units = get_organisation_units(
+      username = "admin",
+      password = NULL,
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be specified.")
+  )
+
+  expect_error(
+    organisation_units = get_organisation_units(
+      username = "admin",
+      password = NA,
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be specified.")
+  )
+
+  expect_error(
+    organisation_units = get_organisation_units(
+      username = "admin",
+      password = c("district","district1"),
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    organisation_units = get_organisation_units(
+      username = "admin",
+      password = "district",
+      base.url = NULL
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
+  )
+
+  expect_error(
+    organisation_units = get_organisation_units(
+      username = "admin",
+      password = "district",
+      base.url = NA
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
+  )
+
+  expect_error(
+    organisation_units = get_organisation_units(
+      username = "admin",
+      password = "district",
+      base.url = c("https://play.dhis2.org/dev/","https://play.dhis2.org/dev/test/")
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be of type character with length 1.")
+  )
+})
+
+
+test_that("get_data_element_groups works as expected", {
+  data_element_groups = get_data_element_groups(
+    username = "admin",
+    password = "district",
+    base.url = "https://play.dhis2.org/dev/"
+  )
+  expect_s3_class(data_element_groups, class = "data.frame")
+})
+
+test_that("get_data_element_groups fails as expected", {
+  expect_error(
+    data_element_groups = get_data_element_groups(
+      username = NULL,
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element_groups = get_data_element_groups(
+      username = NA,
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element_groups = get_data_element_groups(
+      username = c("admin","admin1"),
+      password = "district",
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',username,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    data_element_groups = get_data_element_groups(
+      username = "admin",
+      password = NULL,
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element_groups = get_data_element_groups(
+      username = "admin",
+      password = NA,
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element_groups = get_data_element_groups(
+      username = "admin",
+      password = c("district","district1"),
+      base.url = "https://play.dhis2.org/dev/"
+    ),
+    regexp = cat("Assertion on',password,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    data_element_groups = get_data_element_groups(
+      username = "admin",
+      password = "district",
+      base.url = NULL
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element_groups = get_data_element_groups(
+      username = "admin",
+      password = "district",
+      base.url = NA
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data_element_groups = get_data_element_groups(
+      username = "admin",
+      password = "district",
+      base.url = c("https://play.dhis2.org/dev/", "https://play.dhis2.org/dev/test/")
+    ),
+    regexp = cat("Assertion on',base.url,'failed: Must be of type character with length 1.")
+  )
+})
+
+
+test_that("install_driver works as expected", {
+  expect_output(
+    install_driver(
+      driver_version = 17,
+      force_install = FALSE
+    ),
+    ""
+  )
+})
+
+test_that("install_driver fails as expected", {
+  expect_error(
+    install_driver(
+      driver_version = NULL,
+      force_install = FALSE
+    ),
+    regexp = cat("Assertion on',driver_version,'failed: Must be specified.")
+  )
+
+  expect_error(
+    install_driver(
+      driver_version = NA,
+      force_install = FALSE
+    ),
+    regexp = cat("Assertion on',driver_version,'failed: Must be specified.")
+  )
+
+  expect_error(
+    install_driver(
+      driver_version = "17",
+      force_install = FALSE
+    ),
+    regexp = cat("Assertion on',driver_version,'failed: Must be of type numeric.")
+  )
+
+  expect_error(
+    install_driver(
+      driver_version = 17,
+      force_install = NA
+    ),
+    regexp = cat("Assertion on',force_install,'failed: Must be logical TRUE/FALSE.")
+  )
+
+  expect_error(
+    install_driver(
+      driver_version = 17,
+      force_install = c(TRUE,FALSE)
+    ),
+    regexp = cat("Assertion on',force_install,'failed: Must be logical of lenth 1.")
+  )
+
+  expect_error(
+    install_driver(
+      driver_version = 17,
+      force_install = "TRUE"
+    ),
+    regexp = cat("Assertion on',force_install,'failed: Must be logical not character.")
+  )
+})
+
+
+test_that("install_odbc_driver_mac works as expected", {
+  expect_output(
+    install_odbc_driver_mac(
+      driver_version = 17,
+      force_install = FALSE
+    ),
+    ""
+  )
+})
+
+test_that("install_odbc_driver_mac fails as expected", {
+  expect_error(
+    install_odbc_driver_mac(
+      driver_version = NULL,
+      force_install = FALSE
+    ),
+    regexp = cat("Assertion on',driver_version,'failed: Must be specified.")
+  )
+
+  expect_error(
+    install_odbc_driver_mac(
+      driver_version = NA,
+      force_install = FALSE
+    ),
+    regexp = cat("Assertion on',driver_version,'failed: Must be specified.")
+  )
+
+  expect_error(
+    install_odbc_driver_mac(
+      driver_version = "17",
+      force_install = FALSE
+    ),
+    regexp = cat("Assertion on',driver_version,'failed: Must be of type numeric.")
+  )
+
+  expect_error(
+    install_odbc_driver_mac(
+      driver_version = 17,
+      force_install = NA
+    ),
+    regexp = cat("Assertion on',force_install,'failed: Must be logical TRUE/FALSE.")
+  )
+
+  expect_error(
+    install_odbc_driver_mac(
+      driver_version = 17,
+      force_install = c(TRUE,FALSE)
+    ),
+    regexp = cat("Assertion on',force_install,'failed: Must be logical of lenth 1.")
+  )
+
+  expect_error(
+    install_odbc_driver_mac(
+      driver_version = 17,
+      force_install = "TRUE"
+    ),
+    regexp = cat("Assertion on',force_install,'failed: Must be logical not character.")
+  )
+})
+
+
