@@ -242,10 +242,6 @@ read_credentials <- function(file.path = system.file("extdata", "test.ini", pack
 #' @param base.url the base URL of the DHIS2 server
 #'
 login <- function(username, password, base.url) {
-  checkmate::assertCharacter(base.url, len = 1L, null.ok = TRUE, any.missing = FALSE)
-  checkmate::assertCharacter(username, len = 1L, null.ok = TRUE, any.missing = FALSE)
-  checkmate::assertCharacter(password, len = 1L, null.ok = TRUE, any.missing = FALSE)
-
   checkmate::assertCharacter(base.url, len = 1L, null.ok = FALSE, any.missing = FALSE)
   checkmate::assertCharacter(username, len = 1L, null.ok = FALSE, any.missing = FALSE)
   checkmate::assertCharacter(password, len = 1L, null.ok = FALSE, any.missing = FALSE)
@@ -283,9 +279,9 @@ get_data_elements <- function(base.url, username, password) {
 #' @export
 #'
 get_data_sets <- function(base.url, username, password) {
-  checkmate::assertCharacter(base.url, len = 1L, null.ok = TRUE, any.missing = FALSE)
-  checkmate::assertCharacter(username, len = 1L, null.ok = TRUE, any.missing = FALSE)
-  checkmate::assertCharacter(password, len = 1L, null.ok = TRUE, any.missing = FALSE)
+  checkmate::assertCharacter(base.url, len = 1L, null.ok = FALSE, any.missing = FALSE)
+  checkmate::assertCharacter(username, len = 1L, null.ok = FALSE, any.missing = FALSE)
+  checkmate::assertCharacter(password, len = 1L, null.ok = FALSE, any.missing = FALSE)
 
   url <- paste0(base.url, "/api/dataSets?fields=id,name,shortName&paging=false")
   r <- httr::content(httr::GET(url, httr::authenticate(username, password)), as = "parsed")
@@ -301,9 +297,9 @@ get_data_sets <- function(base.url, username, password) {
 #' @export
 #'
 get_organisation_units <- function(base.url, username, password) {
-  checkmate::assertCharacter(base.url, len = 1L, null.ok = TRUE, any.missing = FALSE)
-  checkmate::assertCharacter(username, len = 1L, null.ok = TRUE, any.missing = FALSE)
-  checkmate::assertCharacter(password, len = 1L, null.ok = TRUE, any.missing = FALSE)
+  checkmate::assertCharacter(base.url, len = 1L, null.ok = FALSE, any.missing = FALSE)
+  checkmate::assertCharacter(username, len = 1L, null.ok = FALSE, any.missing = FALSE)
+  checkmate::assertCharacter(password, len = 1L, null.ok = FALSE, any.missing = FALSE)
 
   url <- paste0(base.url, "/api/organisationUnits?fields=id,name,shortName&paging=false")
   r <- httr::content(httr::GET(url, httr::authenticate(username, password)), as = "parsed")
@@ -319,9 +315,9 @@ get_organisation_units <- function(base.url, username, password) {
 #' @export
 #'
 get_data_element_groups <- function(base.url, username, password) {
-  checkmate::assertCharacter(base.url, len = 1L, null.ok = TRUE, any.missing = FALSE)
-  checkmate::assertCharacter(username, len = 1L, null.ok = TRUE, any.missing = FALSE)
-  checkmate::assertCharacter(password, len = 1L, null.ok = TRUE, any.missing = FALSE)
+  checkmate::assertCharacter(base.url, len = 1L, null.ok = FALSE, any.missing = FALSE)
+  checkmate::assertCharacter(username, len = 1L, null.ok = FALSE, any.missing = FALSE)
+  checkmate::assertCharacter(password, len = 1L, null.ok = FALSE, any.missing = FALSE)
 
   url <- paste0(base.url, "/api/dataElementGroups?fields=id,name,shortName&paging=false")
   r <- httr::content(httr::GET(url, httr::authenticate(username, password)), as = "parsed")
