@@ -306,105 +306,222 @@ get_organisation_units <- function(base.url, username, password) {
   do.call(rbind.data.frame, r$organisationUnits)
 }
 
-#' Get the data element group identifiers and names
+
+#' Get indicator ID from indicator name
 #'
-#' @param username the user name
-#' @param password the user's password
-#' @param base.url the base URL of the DHIS2 server
+#' @param metadata a list with the fingertips metadata
+#' @param indicator_name the indicator name
 #'
+#' @return the indicator ID
 #' @export
 #'
-get_data_element_groups <- function(base.url, username, password) {
-  checkmate::assertCharacter(base.url, len = 1L, null.ok = FALSE, any.missing = FALSE)
-  checkmate::assertCharacter(username, len = 1L, null.ok = FALSE, any.missing = FALSE)
-  checkmate::assertCharacter(password, len = 1L, null.ok = FALSE, any.missing = FALSE)
+get_indicatorID_from_indicatorName = function(metadata, indicator_name){
+  checkmate::assert_list(metadata, any.missing = FALSE, len = 3, null.ok = FALSE)
+  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
 
-  url <- paste0(base.url, "/api/dataElementGroups?fields=id,name,shortName&paging=false")
-  r <- httr::content(httr::GET(url, httr::authenticate(username, password)), as = "parsed")
-  do.call(rbind.data.frame, r$dataElementgroups)
-}
-
-#' Install MS SQL ODBC driver for Mac
-#'
-#' @param driver_version the MS ODBC driver version of interest
-#' @param force_install if TRUE, the selected MS ODBC driver version will be force installed
-#'
-install_odbc_driver_mac = function(driver_version, force_install){
-  checkmate::assertNumber(driver_version, null.ok = FALSE, lower = 13.1,
-                          na.ok = FALSE)
-  checkmate::assertLogical(force_install, any.missing = FALSE, len = 1,
-                           null.ok = TRUE)
-
-  apple.chip <- system(sprintf("uname -m"), intern = TRUE)
-  R.utils::cat("\ninstalling unixodbc\n")
-  system(sprintf("brew install unixodbc"))
-
-  R.utils::cat("\ninstalling SQL Server ODBC Drivers\n")
-  system(sprintf("brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release"))
-  system(sprintf("brew update"))
-  if(driver_version!=13.1){
-    target.driver <- paste0("msodbcsql", driver_version)
-    if(!force_install){
-      system(sprintf("brew install %s",target.driver),
-             input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
-      system(sprintf("brew install mssql-tools"),
-             input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
+  indicator_name = unlist(strsplit(indicator_name,","))
+  idx = which(metadata$indicator_ids_names$IndicatorName==indicator_name)
+  if(length(idx)==0){
+    subs = metadata$indicator_ids_names[grepl(tolower(indicator_name),
+                                              tolower(metadata$indicator_ids_names$IndicatorName)),]
+    if(nrow(subs)==0){
+      R.utils::cat("\nCould not find specified indicator name.\n
+             Below is the list of all indicator names in Fingertips.\n")
+      print(metadata$indicator_ids_names)
+      stop()
     }else{
-      system(sprintf("brew reinstall %s",target.driver),
-             input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
-      system(sprintf("brew reinstall mssql-tools"),
-             input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
+      R.utils::cat("\nspecified indicator name not found but detected following similar indicator names:\n")
+      print(subs)
     }
   }else{
-    target.driver <- paste0("msodbcsql@", driver_version,".9.2")
-    target.mstool <- "mssql-tools@14.0.6.0"
-    if(!force_install){
-      system(sprintf("brew reinstall %s",target.driver),
-             input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
-      system(sprintf("brew reinstall %s",target.mstool),
-             input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
+    indicator_id = metadata$indicator_ids_names$IndicatorID[idx]
+  }
+  indicator_id
+}
+
+
+#' Get indicator ID from domain ID
+#'
+#' @param metadata a list with the fingertips metadata
+#' @param domain_id the domain ID
+#' @param indicator_name the indicator name
+#'
+#' @return the indicator ID
+#' @export
+#'
+get_indicatorID_from_domainID = function(metadata, domain_id, indicator_name=NULL){
+  checkmate::assert_list(metadata, any.missing = FALSE, len = 3, null.ok = FALSE)
+  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(domain_id, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+
+  idx = which(metadata$indicator_profile_domain$DomainID==domain_id)
+  if(length(idx)==0){
+    subs = metadata$indicator_profile_domain[grepl(domain_id,
+                                                   metadata$indicator_profile_domain$DomainID),]
+    if(nrow(subs)==0){
+      R.utils::cat("\nCould not find specified domain ID.\n
+             Below is the list of all domain IDs in Fingertips.\n")
+      print(metadata$indicator_profile_domain %>% dplyr::select(c(DomainID,DomainName)))
+      stop()
     }else{
-      system(sprintf("brew reinstall %s && exit",target.driver),
-             input = rstudioapi::askForPassword("Do you accept the license terms? (Enter YES or NO)"))
-      system(sprintf("sudo unlink %s", target.mstool),
-             input = rstudioapi::askForPassword("sudo password"))
-      system(sprintf("brew reinstall %s",target.mstool),
-             input = rstudioapi::askForPassword("Do you accept the license terms? (YES or NO)"))
+      R.utils::cat("\nspecified domain ID not found but detected following similar domain IDs:\n")
+      print(subs %>% dplyr::select(c(DomainID,DomainName)))
+    }
+  }else{
+    if(!is.null(indicator_name)){
+      indicator_name = unlist(strsplit(indicator_name,","))
+      subs = metadata$indicator_profile_domain[idx,] %>%
+        dplyr::filter(IndicatorName == indicator_name)
+      indicator_id = subs$IndicatorID
+    }else{
+      indicator_id = metadata$indicator_profile_domain$IndicatorID[idx]
     }
   }
-
-  # R.utils::cat("\nconfiguring the home directory\n")
-  # odbcinst <- ifelse(apple.chip == "arm64", "/opt/homebrew/etc/odbcinst.ini",
-  #                    "/etc/odbcinst.ini")
-  # system(sprintf("cp -f %s %s",odbcinst,"~/.odbcinst.ini"))
-  system(sprintf("ODBCSYSINI=/"))
+  indicator_id
 }
 
 
-#' Install MS SQL ODBC driver
+#' Get indicator ID from domain name
 #'
-#' @param driver_version the MS ODBC driver version of interest
-#' @param force_install if TRUE, the selected MS ODBC driver version will be force installed
+#' @param metadata a list with the fingertips metadata
+#' @param domain_name the domain name
+#' @param indicator_name the indicator name
+#'
+#' @return the indicator ID
 #' @export
-install_driver = function(driver_version, force_install){
-  checkmate::assertNumber(driver_version, null.ok = FALSE, lower = 13.1,
-                          na.ok = FALSE)
-  checkmate::assertLogical(force_install, any.missing = FALSE, len = 1,
-                           null.ok = TRUE)
-  R.utils::cat("\ninstalling unixodbc and MS ODBC driver\n")
-  install_odbc_driver_mac(driver_version, force_install)
+#'
+get_indicatorID_from_domainName = function(metadata, domain_name, indicator_name=NULL){
+  checkmate::assert_list(metadata, any.missing = FALSE, len = 3, null.ok = FALSE)
+  checkmate::assert_vector(domain_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
 
-  R.utils::cat("\ninstalling odbc R package\n")
-  if (!require("odbc", quietly = TRUE))
-    install.packages("odbc")
-  driver.list <- odbc::odbcListDrivers()
-  if (nrow(driver.list) == 0) {
-    message("\ninstallation was unsuccessfull!!!")
-    stop()
-  } else {
-    message("\nODBC driver was successfully installed ...")
+  domain_name = unlist(strsplit(domain_name,","))
+  idx = which(metadata$indicator_profile_domain$DomainName==domain_name)
+  if(length(idx)==0){
+    subs = metadata$indicator_profile_domain[grepl(domain_name,
+                                                   metadata$indicator_profile_domain$DomainName),]
+    if(nrow(subs)==0){
+      R.utils::cat("\nCould not find specified domain name.\n
+             Below is the list of all domain names in Fingertips.\n")
+      print(metadata$indicator_profile_domain %>%
+              dplyr::select(c(DomainID,DomainName)))
+      stop()
+    }else{
+      R.utils::cat("\nspecified domain name not found but detected following similar domain names:\n")
+      print(subs %>% dplyr::select(c(DomainID,DomainName)))
+    }
+  }else{
+    if(!is.null(indicator_name)){
+      indicator_name = unlist(strsplit(indicator_name,","))
+      subs = metadata$indicator_profile_domain[idx,] %>%
+        dplyr::filter(IndicatorName==indicator_name)
+      indicator_id = subs$IndicatorID
+    }else{
+      indicator_id = metadata$indicator_profile_domain$IndicatorID[idx]
+    }
   }
+  indicator_id
 }
+
+
+#' Get indicator ID from profile ID and/or profile name
+#'
+#' @param metadata a list with the fingertips metadata
+#' @param domain_id the domain ID
+#' @param domain_name the domain name
+#' @param indicator_name the indicator name
+#' @param profile_name the profile name
+#' @param profile_id the profile ID
+#'
+#' @return the indicator ID
+#' @export
+#'
+get_indicatorID_from_profile = function(metadata, domain_id=NULL, domain_name=NULL,
+                                        indicator_name=NULL,profile_name=NULL,
+                                        profile_id=NULL){
+  checkmate::assert_list(metadata, any.missing = FALSE, len = 3, null.ok = FALSE)
+  checkmate::assert_vector(domain_id, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(domain_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(profile_id, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(profile_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+
+  if(!is.null(profile_id) & !is.null(profile_name)){
+    profile_name = unlist(strsplit(profile_name,","))
+    idx = which(metadata$indicator_profile_domain$ProfileID==profile_id &
+                  metadata$indicator_profile_domain$ProfileName == profile_name)
+  }else if(!is.null(profile_id) & is.null(profile_name)){
+    idx = which(metadata$indicator_profile_domain$ProfileID==profile_id)
+  }else if(!is.null(profile_name) & is.null(profile_id)){
+    profile_name = unlist(strsplit(profile_name,","))
+    idx = which(metadata$indicator_profile_domain$ProfileName==profile_name)
+  }
+
+  if(length(idx)==0){
+    if(!is.null(profile_id) & is.null(profile_name)){
+      subs = metadata$indicator_profile_domain[grepl(profile_id,
+                                                     metadata$indicator_profile_domain$ProfileID),]
+    }else if(!is.null(profile_name) & is.null(profile_id)){
+      subs = metadata$indicator_profile_domain[grepl(profile_name,
+                                                     metadata$indicator_profile_domain$ProfileName),]
+    }else if(!is.null(profile_id) & !is.null(profile_name)){
+      subs = metadata$indicator_profile_domain[(grepl(profile_id,metadata$indicator_profile_domain$ProfileID) |
+                                                  grepl(profile_name,metadata$indicator_profile_domain$ProfileName)),]
+    }
+
+    if(nrow(subs)==0){
+      R.utils::cat("\nCould not find specified profile ID or name.\n
+             Below is the list of all profile IDs and names in Fingertips.\n")
+      print(metadata$indicator_profile_domain %>%
+              dplyr::select(c(ProfileID,ProfileName)))
+      stop()
+    }else{
+      R.utils::cat("\nspecified profile name or ID not found but detected following similar profile IDs or names:\n")
+      print(subs %>% dplyr::select(c(ProfileID,ProfileName)))
+    }
+  }else{
+    subs = metadata$indicator_profile_domain[idx,]
+    if(!is.null(domain_id)){
+      subs = subs %>% dplyr::filter(subs$DomainID==domain_id)
+    }
+    if(!is.null(domain_name)){
+      domain_name = unlist(strsplit(domain_name,","))
+      subs = subs %>% dplyr::filter(subs$DomainName==domain_name)
+    }
+    if(!is.null(indicator_name)){
+      indicator_name = unlist(strsplit(indicator_name,","))
+      subs = subs %>% dplyr::filter(subs$IndicatorName==indicator_name)
+    }
+    indicator_id = subs$IndicatorID
+  }
+  indicator_id
+}
+
+
+#' get fingertips metadata
+#'
+#' @return a list of data frames
+#' @export
+#'
+get_fingertips_metadata = function(){
+  list(
+    indicator_profile_domain = fingertipsR::indicators(), #indicators, profiles, domains
+    indicator_ids_names = fingertipsR::indicators_unique(), #indicators, ids, names
+    area_type = fingertipsR::area_types() #area type ids, descriptions, mapping o parent area types
+  )
+}
+
+
 
 
 

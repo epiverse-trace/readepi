@@ -37,7 +37,8 @@ and database management systems. These include:
   package.  
 - file formats that are not accounted for by `rio`  
 - relational database management systems (RDBMS) such as **REDCap**,
-  **MS SQL server**, **DHIS2**
+  **MS SQL server**, **DHIS2**  
+- Fingertips (repository of public health indicators in England)
 
 ### Importing data from files
 
@@ -130,12 +131,19 @@ data <- readepi(
   start.date = "2014",
   end.date = "2023"
 )
+
+# READING FROM FINFERTIPS
+data = readepi(indicator_id=90362, 
+               area_type_id=202, 
+               parent_area_type_id=6
+               )
 ```
 
 ## Vignette
 
-The vignette of the **readepi** contains detailed illustration about the
-used of each function. This can be accessed by typing the command below:
+The vignette of the **readepi** contains detailed illustrations about
+the used of each function. This can be accessed by typing the command
+below:
 
 ``` r
 browseVignettes("readepi")

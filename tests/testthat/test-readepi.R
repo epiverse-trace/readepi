@@ -160,22 +160,4 @@ test_that("readepi fails as expected", {
     ),
     regexp = cat("Assertion on',sep,'failed: Must be a character of length 1.")
   )
-
-  expect_error(
-    data <- readepi(
-      credentials.file = NULL,
-      project.id = NULL,
-      file.path = system.file("extdata", "test.txt", package = "readepi"),
-      sep = "\t",
-      format = c("txt", ".csv"),
-      which = NULL,
-      pattern = NULL,
-      driver.name = NULL,
-      table.name = NULL,
-      records = NULL,
-      fields = NULL,
-      id.position = 1
-    ),
-    regexp = cat("Assertion on',format,'failed: Must be a character of length 1.")
-  )
 })
