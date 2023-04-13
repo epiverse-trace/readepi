@@ -43,7 +43,8 @@ The `readepi()` function allows importing data from several file types and datab
 
 * all file formats in the [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html) package.    
 * file formats that are not accounted for by `rio`      
-* relational database management systems (RDBMS) such as **REDCap**, **MS SQL server**, **DHIS2**       
+* relational database management systems (RDBMS) such as **REDCap**, **MS SQL server**, **DHIS2**      
+* Fingertips (repository of public health indicators in England)     
 
 ### Importing data from files
 ```{r eval=FALSE}
@@ -129,16 +130,19 @@ data <- readepi(
   start.date = "2014",
   end.date = "2023"
 )
+
+# READING FROM FINFERTIPS
+data = readepi(indicator_id=90362, 
+               area_type_id=202, 
+               parent_area_type_id=6
+               )
 ```
 
 ## Vignette
-The vignette of the **readepi** contains detailed illustration about the used of each function. This can be accessed by typing the command below:      
+The vignette of the **readepi** contains detailed illustrations about the used of each function. This can be accessed by typing the command below:      
 ```{r eval=FALSE}
 browseVignettes("readepi")
 ```
-
-
-
 
 
 ## Development

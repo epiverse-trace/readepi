@@ -7,22 +7,11 @@
 readepi(
   credentials.file = NULL,
   file.path = NULL,
-  sep = NULL,
-  format = NULL,
-  which = NULL,
-  pattern = NULL,
-  project.id = NULL,
-  driver.name = NULL,
-  table.name = NULL,
   records = NULL,
   fields = NULL,
   id.position = NULL,
-  dataset = NULL,
-  organisation.unit = NULL,
-  data.element.group = NULL,
-  start.date = NULL,
-  end.date = NULL,
-  id.col.name = NULL
+  id.col.name = NULL,
+  ...
 )
 }
 \arguments{
@@ -43,53 +32,27 @@ credentials file}
 
 \item{file.path}{the path to the file to be read. When several files need to be imported from a directory, this should be the path to that directory}
 
-\item{sep}{the separator between the columns in the file. This is only required for space-separated files.}
-
-\item{format}{a string used to specify the file format. This is useful when a file does not have an extension, or has a file extension that does not match its actual type}
-
-\item{which}{a string used to specify which objects should be extracted (the name of the excel sheet to import)}
-
-\item{pattern}{when specified, only files with this suffix will be imported from the specified directory}
-
-\item{project.id}{for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to.}
-
-\item{driver.name}{the name of the MS driver. use \code{odbc::odbcListDrivers()} to display the list of installed drivers}
-
-\item{table.name}{the name of the target table}
-
-\item{records}{a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.}
+\item{records}{a vector or a comma-separated string of subject IDs. When specified, only these records will be imported.}
 
 \item{fields}{a vector or a comma-separated string of column names. If provided, only those columns will be imported.}
 
 \item{id.position}{the column position of the variable that unique identifies the subjects. When the name of the column with the subject IDs is known, this can be provided using the \code{id.col.name} argument}
 
-\item{dataset}{a vector or a list of comma-separated data set identifiers.}
-
-\item{organisation.unit}{a vector or a list of comma-separated organisation unit identifiers.}
-
-\item{data.element.group}{a vector or a list of comma-separated data element group identifiers.}
-
-\item{start.date}{the start date for the time span of the values to export}
-
-\item{end.date}{the end date for the time span of the values to export}
-
 \item{id.col.name}{the column name with the subject IDs.}
 }
 \value{
-a list with 2 data frames (data and metadata) when reading from REDCap. A data frame otherwise.
+a list of data frames.
 }
 \description{
-the function allows import of data from files or health information systems (HIS)
-The HIS are database management systems (DBMS), both relational and NoSQL databases.
+the function allows import of data from files, folders, or health information systems (HIS)
+The HIS consist of database management systems (DBMS) and website of public data collection.
 }
 \examples{
-\dontrun{
 # reading from a MS SQL server
 data <- readepi(
   credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-  project.id = "IBS_BHDSS",
+  project.id = "TEST_READEPI",
   driver.name = "ODBC Driver 17 for SQL Server",
-  table.name = "dss_events"
+  table.name = "ebola"
 )
-}
 }

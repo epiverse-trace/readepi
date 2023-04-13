@@ -48,7 +48,7 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
   checkmate::assert_character(password, any.missing = FALSE, len = 1, null.ok = FALSE)
   checkmate::assert_character(host, any.missing = FALSE, len = 1, null.ok = FALSE)
   checkmate::assert_character(database.name, any.missing = FALSE, len = 1, null.ok = FALSE)
-  checkmate::assert_character(driver.name, len = 1, null.ok = TRUE, any.missing = FALSE)
+  checkmate::assert_character(driver.name, len = 1, null.ok = FALSE, any.missing = FALSE)
   checkmate::assert_vector(table.names,
     any.missing = FALSE, min.len = 1,
     null.ok = TRUE, unique = TRUE
