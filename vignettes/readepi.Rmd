@@ -23,11 +23,11 @@ library(readepi)
 `readepi` provides functions for reading data from `common health information systems` as well as from various file types. When several files of different formats are stored in the same folder, the user can provide `readepi` with a specific pattern, allowing reading only the matching files.     
 
 When reading data from file or directory, the function expects the following arguments:   
-`file.path`: the path to the file of interest. When several files need to be imported from a directory, this should be the path to that directory,      
-`sep`: the separator between the columns in the file. This is only required for space-separated files,     
-`format`: a string used to specify the file format. This is useful when a file does not have an extension, or has a file extension that does not match its actual type,      
-`which`: a string used to specify which objects should be extracted (e.g. the name of the excel sheet to import),     
-`pattern`: when provided, only files that contain this pattern will be imported from the specified directory.    
+* *file.path*: the path to the file of interest. When several files need to be imported from a directory, this should be the path to that directory,      
+* *sep*: the separator between the columns in the file. This is only required for space-separated files,     
+* *format*: a string used to specify the file format. This is useful when a file does not have an extension, or has a file extension that does not match its actual type,      
+* *which*: a string used to specify which objects should be extracted (e.g. the name of the excel sheet to import),     
+* *pattern*: when provided, only files that contain this pattern will be imported from the specified directory.    
 The function will return a list of data frames (if several files were imported from a directory).    
 
 ## importing data from JSON file
@@ -74,16 +74,28 @@ To import data from a HDSS or EMRS (MS SQL Server) into R, some dependencies nee
 If you are using a Unix-based system, you will need to install the MS ODBC driver that is compatible with the version of the target MS SQL server. For **SQL server 2019, version 15.0**, we installed **ODBC Driver 17 for SQL Server** on the mac OS which is compatible with the test server.    
 
 #### installation of MS SQL driver on Mac
-The `install_odbc_driver()` function can be used to installed the chosen driver on Mac.     
+Mac users can follow the instructions below to install the MS SQL ODBC driver.     
 
-```{r eval=FALSE}
-install_odbc_driver(driver_version = 17, force_install = FALSE)
+##### installation of MS SQL driver 17 or 18 on Mac
+```{bash eval=FALSE}
+driver=17
+brew install unixodbc
+brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
+brew update
+brew install msodbcsql${driver}
+brew install mssql-tools
+ODBCSYSINI=/
 ```
-Note that when prompted to agree with the license terms, enter **YES in capital letters**.    
-If after running this command, you still have issues related to the MS SQL driver installation, use the links below for more details about how to install the **odbc** package in R and the odbc drivers:     
-[the odbc github page](https://github.com/r-dbi/odbc#installation)      
 
-[here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15)     
+##### installation of MS SQL driver 13.1 on Mac
+```{bash eval=FALSE}
+brew install unixodbc
+brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
+brew update
+brew install msodbcsql@13.1.9.2
+brew install mssql-tools@14.0.6.0
+ODBCSYSINI=/
+```
 
 #### installation of MS SQL driver version 17 or 18 on `Ubuntu`
 Note that this requires **Ubuntu 16.04 and above**. Open the terminal and type the code below:         
@@ -96,8 +108,8 @@ exit
 
 sudo apt-get update
 sudo ACCEPT_EULA=Y apt-get install -y msodbcsql${driver}
-sudo ACCEPT_EULA=Y apt-get install -y mssql-tools${driver}
-echo 'export PATH="$PATH:/opt/mssql-tools${driver}/bin"' >> ~/.bashrc
+sudo ACCEPT_EULA=Y apt-get install -y mssql-tools
+echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 source ~/.bashrc
 sudo apt-get install -y unixodbc-dev
 ```
@@ -118,35 +130,39 @@ sudo apt-get install unixodbc-dev
 ```
 
 #### installation of MS SQL driver on other Linux distributions
-When working on a Linux distribution other than Ubuntu, follow the instructions [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline).       
+When working on a Linux distribution other than Ubuntu, follow the instructions [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline) for the MS SQL driver installation process.           
 
 
-Once installed, the list of drivers can be displayed in R using:       
+After the driver installation, the list of drivers can be displayed in R using:       
 ```{r eval=FALSE}
 odbc::odbcListDrivers()
 ```
 
-It is important to view the data that is stored in the MS SQL server. I recommend to install a GUI such as `Azure Data Studio`.         
+If the command above does not return the list of installed drivers or if you are facing issues during the driver installation process, consult    
+[the odbc github page](https://github.com/r-dbi/odbc#installation) or the [MS documentation on this topic](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15)     
+
+
+**Note that it is important to view the data that is stored in the MS SQL server. We recommend to install a GUI such as `Azure Data Studio` for that purpose.**         
 
 ## importing from MS SQL server
 To be able to read data from a MS SQL server, the **read_epi()** expects the following arguments:     
-`credentials.file`: the path to the file with the user-specific credential details for the projects of interest. This is a tab-delimited file with the following 7  columns:     
+* *credentials.file*: the path to the file with the user-specific credential details for the projects of interest. This is a tab-delimited file with the following 7  columns:     
 
-* *user_name*: the user name,    
-* *password*: the user password (for REDCap, this corresponds to the **token** that serves as password to the project),    
-* *host_name*: the host name (for HDSS and EMRS) or the URI (for REDCap),    
-* *project_id*: the project ID (for REDCap) or the name of the database (for HDSS and EMRS) you are access to,   
-* *comment*: a summary description about the project or database of interest,     
-* *dbms*: the name of the DBMS: 'redcap' or 'REDCap' when reading from REDCap, 'sqlserver' or 'SQLServer' when reading from MS SQL Server,    
-* *port*: the port ID (used for MS SQL Servers only).    
+`user_name`: the user name,    
+`password`: the user password (for REDCap, this corresponds to the **token** that serves as password to the project),    
+`host_name`: the host name (for HDSS and EMRS) or the URI (for REDCap),    
+`project_id`: the project ID (for REDCap) or the name of the database (for HDSS and EMRS) you are access to,   
+`comment`: a summary description about the project or database of interest,     
+`dbms`: the name of the DBMS: 'redcap' or 'REDCap' when reading from REDCap, 'sqlserver' or 'SQLServer' when reading from MS SQL Server,    
+`port`: the port ID (used for MS SQL Servers only).    
 
-`project.id` for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to. Note that this should be similar to the value of the **project_id** field in the credential file.  
-`driver.name` the name of the MS driver (only for HDSS and EMRS). use `odbc::odbcListDrivers()` to display the list of installed drivers,    
-`table.name`: the name of the target table (only for HDSS and EMRS),   
-`records`: a vector or a comma-separated string of a subset of subject IDs. When specified, only the records that correspond to these subjects will be imported,    
-`fields`: a vector or a comma-separated string of column names. If provided, only those columns will be imported,     
-`id.position`: the column position of the variable that unique identifies the subjects. default is 1.    
-`id.col.name`: the name of the column that unique identifies the subjects.
+* *project.id*: for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to. Note that this should be similar to the value of the **project_id** field in the credential file.  
+* *driver.name*: the name of the MS driver (only for HDSS and EMRS). use  `odbc::odbcListDrivers()` to display the list of installed drivers,    
+* *table.name*: the name of the target table (only for HDSS and EMRS),   
+* *records*: a vector or a comma-separated string of a subset of subject IDs. When specified, only the records that correspond to these subjects will be imported,    
+* *fields*: a vector or a comma-separated string of column names. If provided, only those columns will be imported,     
+* *id.position*: the column position of the variable that unique identifies the subjects. default is 1.    
+* *id.col.name*: the name of the column that unique identifies the subjects.
 
 
 Use the `show_example_file()` as below to view the credentials file used as template in the **readepi** package.      
@@ -270,10 +286,10 @@ data <- readepi(credentials.file,
 ## importing from REDCap
 To import data from REDCap, the user must call the `readepi` function with the following arguments:     
 
-* the credentials file (required)
-* the project ID (required)
-* the list of the desired records (optional)
-* the list of the desired columns (optional)
+* *credentials.file*: the credentials file (required)
+* *project.id*: the project ID (required)
+* *records*: the list of the desired records (optional)
+* *fields*: the list of the desired columns (optional)
 
 Both the data and its associated metadata will be will be returned after a successful import.    
 
@@ -315,16 +331,16 @@ project.metadeta <- data$metadata
 ## importing from DHIS2
 To import data from **DHIS2**, the user must call the `readepi` function with the following arguments:     
 
-* the credentials file (required)
-* the project ID (required)
-* the dataset identifier (required)
-* the organisation unit identifier (required)    
-* the data element group (optional)    
-* the start date for the time span of the values to export (required)    
-* the end date for the time span of the values to export (required)   
-* id.col.name the column name with the records of interest (optional)    
-* the list of the desired records (optional)     
-* the list of the desired columns (optional)    
+* *credentials.file*: the credentials file (required)
+* *project.id*: the project ID (required)
+* *dataset*: the dataset identifier (required)
+* *organisation.unit*: the organisation unit identifier (required)    
+* *data.element.group*: the data element group (optional)    
+* *start.date*: the start date for the time span of the values to export (required)    
+* *end.date*: the end date for the time span of the values to export (required)   
+* *id.col.name*: the column name with the records of interest (optional)    
+* *records*: the list of the desired records (optional)     
+* *fields*: the list of the desired columns (optional)    
 
 ```{r eval=FALSE}
 # GETTING THE DATA ELEMENT IDENTIFIERS AND NAMES
@@ -392,6 +408,71 @@ data <- readepi(
 )
 
 test.data <- data$data
+```
+
+## importing from Fingertips
+[Fingertips](https://fingertips.phe.org.uk/) is a repository of public health data indicators in England. The data in Fingertips website is organised into themed profiles. The `readepi()` function takes the arguments listed below to import data from Fingertips through its API:     
+
+* *indicator_id*: the indicator ID
+* *indicator_name*: the indicator name
+* *area_type_id*: the area type ID. This determines the geographic area for the imported data
+* *parent_area_type_id*: the parent area type code of the specified area type ID
+* *profile_id*: the profile ID
+* *profile_name*: the profile name
+* *domain_id*: the domain ID
+* *domain_name*: the domain name
+* *records*: the list of the desired records     
+* *fields*: the list of the desired columns 
+* *id.col.name*: the column name with the records of interest 
+* *id.position*: the column position of the variable that unique identifies the subjects. default is 1. 
+
+Note that the `readepi()` function makes call of wrapper around the major function in the [fingertipsR](https://docs.ropensci.org/fingertipsR/) package.    
+
+```{r eval=FALSE}
+# GET THE INFORMATION ABOUT THE INDICATOR PROFILES, DOMAIN, AREA TYPE, ...
+metadata = get_fingertips_metadata()
+head(metadata$indicator_profile_domain) #indicator_profile_domain contains the indicator, profile, and domain information.    
+head(metadata$indicator_ids_names) #indicator_ids_names contains the list of indicators IDs together with their names.     
+head(metadata$area_type) #area_type contains the list of all area types with their associated parent area types.
+
+# IMPORTING DATA USING THE INDICATOR ID
+data = readepi(indicator_id=90362, 
+               area_type_id=202)
+
+# IMPORTING DATA USING THE INDICATOR NAME
+data = readepi(indicator_name="Healthy life expectancy at birth", 
+               area_type_id=202)
+
+# IMPORTING DATA USING THE DOMAIN NAME
+data = readepi(indicator_name="A. Overarching indicators", 
+                            area_type_id=202)
+
+data = readepi(indicator_name="A. Overarching indicators", 
+               area_type_id=202,
+               indicator_name="Healthy life expectancy at birth")
+
+# IMPORTING DATA USING THE PROFILE ID
+data = readepi(profile_id=19, 
+               area_type_id=202)
+
+# IMPORTING DATA FROM SPECIFIC INDICATOR, DOMAIN, PROFILE, AREA TYPE 
+data = readepi(indicator_id=90362, 
+               indicator_name="Healthy life expectancy at birth",
+               area_type_id=202, parent_area_type_id=6,
+               profile_id=19, 
+               profile_name="Public Health Outcomes Framework",
+               domain_id=1000049, domain_name="A. Overarching indicators",
+               fields=NULL, records=NULL,
+               id.position=NULL, id.column.name=NULL
+               )
+
+# IMPORTING DATA AND SUBSETTING SPECIFIC RECORDS AND FIELDS
+data = readepi(indicator_id=90362, 
+               area_type_id=202, 
+               fields=c("IndicatorID","AreaCode","Age","Value"),
+               records=c("E92000001","E12000002","E12000009"),
+               id.column.name="AreaCode"
+               )
 ```
 
 

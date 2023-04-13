@@ -25,7 +25,8 @@ Imports:
     doParallel,
     httr,
     foreach,
-    purrr
+    purrr,
+    fingertipsR
 Suggests: 
     covr,
     testthat (>= 3.0.0),

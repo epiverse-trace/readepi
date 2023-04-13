@@ -544,9 +544,9 @@ test_that("get_data_sets fails as expected", {
 
 test_that("get_organisation_units works as expected", {
   organisation_units = get_organisation_units(
+    base.url = "https://play.dhis2.org/dev/",
     username = "admin",
-    password = "district",
-    base.url = "https://play.dhis2.org/dev/"
+    password = "district"
   )
   expect_s3_class(organisation_units, class = "data.frame")
 })
@@ -554,9 +554,9 @@ test_that("get_organisation_units works as expected", {
 test_that("get_organisation_units fails as expected", {
   expect_error(
     organisation_units = get_organisation_units(
+      base.url = "https://play.dhis2.org/dev/",
       username = NULL,
-      password = "district",
-      base.url = "https://play.dhis2.org/dev/"
+      password = "district"
     ),
     regexp = cat("Assertion on',username,'failed: Must be specified.")
   )
@@ -635,218 +635,388 @@ test_that("get_organisation_units fails as expected", {
 })
 
 
-test_that("get_data_element_groups works as expected", {
-  data_element_groups = get_data_element_groups(
-    username = "admin",
-    password = "district",
-    base.url = "https://play.dhis2.org/dev/"
+test_that("get_indicatorID_from_indicatorName works as expected", {
+  indicator_id = get_indicatorID_from_indicatorName(
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
+    ),
+    indicator_name = "Pupil absence"
   )
-  expect_s3_class(data_element_groups, class = "data.frame")
+  expect_vector(indicator_id)
 })
 
-test_that("get_data_element_groups fails as expected", {
+test_that("get_indicatorID_from_indicatorName fails with a bad metadata list", {
   expect_error(
-    data_element_groups = get_data_element_groups(
-      username = NULL,
-      password = "district",
-      base.url = "https://play.dhis2.org/dev/"
+    indicator_id = get_indicatorID_from_indicatorName(
+      metadata = list(),
+      indicator_name = "Pupil absence"
     ),
-    regexp = cat("Assertion on',username,'failed: Must be specified.")
+    regexp = cat("Assertion on',metadata,'failed: Must be a list of 3 data frames")
   )
 
   expect_error(
-    data_element_groups = get_data_element_groups(
-      username = NA,
-      password = "district",
-      base.url = "https://play.dhis2.org/dev/"
+    indicator_id = get_indicatorID_from_indicatorName(
+      metadata = NA,
+      indicator_name = "Pupil absence"
     ),
-    regexp = cat("Assertion on',username,'failed: Must be specified.")
+    regexp = cat("Assertion on',metadata,'failed: Must be provided.")
   )
 
   expect_error(
-    data_element_groups = get_data_element_groups(
-      username = c("admin","admin1"),
-      password = "district",
-      base.url = "https://play.dhis2.org/dev/"
+    indicator_id = get_indicatorID_from_indicatorName(
+      metadata = NULL,
+      indicator_name = "Pupil absence"
     ),
-    regexp = cat("Assertion on',username,'failed: Must be of type character with length 1.")
+    regexp = cat("Assertion on',metadata,'failed: Must be provided.")
   )
 
   expect_error(
-    data_element_groups = get_data_element_groups(
-      username = "admin",
-      password = NULL,
-      base.url = "https://play.dhis2.org/dev/"
+    indicator_id = get_indicatorID_from_indicatorName(
+      metadata = metadata,
+      indicator_name = NA
     ),
-    regexp = cat("Assertion on',password,'failed: Must be specified.")
-  )
-
-  expect_error(
-    data_element_groups = get_data_element_groups(
-      username = "admin",
-      password = NA,
-      base.url = "https://play.dhis2.org/dev/"
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be specified.")
-  )
-
-  expect_error(
-    data_element_groups = get_data_element_groups(
-      username = "admin",
-      password = c("district","district1"),
-      base.url = "https://play.dhis2.org/dev/"
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be of type character with length 1.")
-  )
-
-  expect_error(
-    data_element_groups = get_data_element_groups(
-      username = "admin",
-      password = "district",
-      base.url = NULL
-    ),
-    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
-  )
-
-  expect_error(
-    data_element_groups = get_data_element_groups(
-      username = "admin",
-      password = "district",
-      base.url = NA
-    ),
-    regexp = cat("Assertion on',base.url,'failed: Must be specified.")
-  )
-
-  expect_error(
-    data_element_groups = get_data_element_groups(
-      username = "admin",
-      password = "district",
-      base.url = c("https://play.dhis2.org/dev/", "https://play.dhis2.org/dev/test/")
-    ),
-    regexp = cat("Assertion on',base.url,'failed: Must be of type character with length 1.")
+    regexp = cat("Assertion on',indicator_name,'failed: Missing indicator_name not allowed.")
   )
 })
 
 
-test_that("install_driver works as expected", {
-  expect_output(
-    install_driver(
-      driver_version = 17,
-      force_install = FALSE
+test_that("get_indicatorID_from_domainID works as expected", {
+  indicator_id = get_indicatorID_from_domainID(
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
     ),
-    ""
+    domain_id = 1000041,
+    indicator_name = "Pupil absence"
+  )
+  expect_vector(indicator_id)
+
+  indicator_id = get_indicatorID_from_domainID(
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
+    ),
+    domain_id = 1000041,
+    indicator_name = NULL
+  )
+  expect_vector(indicator_id)
+})
+
+test_that("get_indicatorID_from_domainID fails as expected", {
+  expect_error(
+    indicator_id = get_indicatorID_from_domainID(
+      metadata = list(),
+      domain_id = 1000041,
+      indicator_name = "Pupil absence"
+    ),
+    regexp = cat("Assertion on',metadata,'failed: Must be a list of 3 data frames")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_domainID(
+      metadata = NA,
+      domain_id = 1000041,
+      indicator_name = "Pupil absence"
+    ),
+    regexp = cat("Assertion on',metadata,'failed: Must be provided.")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_domainID(
+      metadata = NULL,
+      domain_id = 1000041,
+      indicator_name = "Pupil absence"
+    ),
+    regexp = cat("Assertion on',metadata,'failed: Must be provided.")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_domainID(
+      metadata = list(
+        indicator_profile_domain = fingertipsR::indicators(),
+        indicator_ids_names = fingertipsR::indicators_unique(),
+        area_type = fingertipsR::area_types()
+      ),
+      domain_id = 1000041,
+      indicator_name = NA
+    ),
+    regexp = cat("Assertion on',indicator_name,'failed: Missing indicator_name not allowed.")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_domainID(
+      metadata = list(
+        indicator_profile_domain = fingertipsR::indicators(),
+        indicator_ids_names = fingertipsR::indicators_unique(),
+        area_type = fingertipsR::area_types()
+      ),
+      domain_id = NA,
+      indicator_name = "Pupil absence"
+    ),
+    regexp = cat("Assertion on',domain_id,'failed: Missing domain_id not allowed.")
   )
 })
 
-test_that("install_driver fails as expected", {
-  expect_error(
-    install_driver(
-      driver_version = NULL,
-      force_install = FALSE
+
+test_that("get_indicatorID_from_domainName works as expected", {
+  indicator_id = get_indicatorID_from_domainName(
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
     ),
-    regexp = cat("Assertion on',driver_version,'failed: Must be specified.")
+    domain_name = "B. Wider determinants of health",
+    indicator_name = "Pupil absence"
+  )
+  expect_vector(indicator_id)
+
+  indicator_id = get_indicatorID_from_domainName(
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
+    ),
+    domain_name = "B. Wider determinants of health",
+    indicator_name = NULL
+  )
+  expect_vector(indicator_id)
+})
+
+test_that("get_indicatorID_from_domainName fails as expected", {
+  expect_error(
+    indicator_id = get_indicatorID_from_domainName(
+      metadata = list(),
+      domain_name = "B. Wider determinants of health",
+      indicator_name = "Pupil absence"
+    ),
+    regexp = cat("Assertion on',metadata,'failed: Must be a list of 3 data frames")
   )
 
   expect_error(
-    install_driver(
-      driver_version = NA,
-      force_install = FALSE
+    indicator_id = get_indicatorID_from_domainName(
+      metadata = NA,
+      domain_name = "B. Wider determinants of health",
+      indicator_name = "Pupil absence"
     ),
-    regexp = cat("Assertion on',driver_version,'failed: Must be specified.")
+    regexp = cat("Assertion on',metadata,'failed: Must be provided.")
   )
 
   expect_error(
-    install_driver(
-      driver_version = "17",
-      force_install = FALSE
+    indicator_id = get_indicatorID_from_domainName(
+      metadata = NULL,
+      domain_name = "B. Wider determinants of health",
+      indicator_name = "Pupil absence"
     ),
-    regexp = cat("Assertion on',driver_version,'failed: Must be of type numeric.")
+    regexp = cat("Assertion on',metadata,'failed: Must be provided.")
   )
 
   expect_error(
-    install_driver(
-      driver_version = 17,
-      force_install = NA
+    indicator_id = get_indicatorID_from_domainName(
+      metadata = list(
+        indicator_profile_domain = fingertipsR::indicators(),
+        indicator_ids_names = fingertipsR::indicators_unique(),
+        area_type = fingertipsR::area_types()
+      ),
+      domain_name = "B. Wider determinants of health",
+      indicator_name = NA
     ),
-    regexp = cat("Assertion on',force_install,'failed: Must be logical TRUE/FALSE.")
+    regexp = cat("Assertion on',indicator_name,'failed: Missing indicator_name not allowed.")
   )
 
   expect_error(
-    install_driver(
-      driver_version = 17,
-      force_install = c(TRUE,FALSE)
+    indicator_id = get_indicatorID_from_domainName(
+      metadata = list(
+        indicator_profile_domain = fingertipsR::indicators(),
+        indicator_ids_names = fingertipsR::indicators_unique(),
+        area_type = fingertipsR::area_types()
+      ),
+      domain_name = NA,
+      indicator_name = "Pupil absence"
     ),
-    regexp = cat("Assertion on',force_install,'failed: Must be logical of lenth 1.")
-  )
-
-  expect_error(
-    install_driver(
-      driver_version = 17,
-      force_install = "TRUE"
-    ),
-    regexp = cat("Assertion on',force_install,'failed: Must be logical not character.")
+    regexp = cat("Assertion on',domain_name,'failed: Missing domain_name not allowed.")
   )
 })
 
 
-test_that("install_odbc_driver_mac works as expected", {
-  expect_output(
-    install_odbc_driver_mac(
-      driver_version = 17,
-      force_install = FALSE
+test_that("get_indicatorID_from_profile works as expected", {
+  indicator_id = get_indicatorID_from_profile(
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
     ),
-    ""
+    domain_id = 1000041,
+    domain_name = "B. Wider determinants of health",
+    indicator_name = "Pupil absence",
+    profile_name = "Public Health Outcomes Framework",
+    profile_id = 19
+  )
+  expect_vector(indicator_id)
+
+  indicator_id = get_indicatorID_from_profile(
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
+    ),
+    domain_id = NULL,
+    domain_name = NULL,
+    indicator_name = NULL,
+    profile_name = "Public Health Outcomes Framework",
+    profile_id = NULL
+  )
+  expect_vector(indicator_id)
+
+  indicator_id = get_indicatorID_from_profile(
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
+    ),
+    domain_id = NULL,
+    domain_name = NULL,
+    indicator_name = NULL,
+    profile_name = NULL,
+    profile_id = 19
+  )
+  expect_vector(indicator_id)
+})
+
+
+test_that("get_indicatorID_from_profile fails as expected", {
+  expect_error(
+    indicator_id = get_indicatorID_from_profile(
+      metadata = list(),
+      domain_id = 1000041,
+      domain_name = "B. Wider determinants of health",
+      indicator_name = "Pupil absence",
+      profile_name = "Public Health Outcomes Framework",
+      profile_id = 19
+    ),
+    regexp = cat("Assertion on',metadata,'failed: Must be a list of 3 data frames")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_profile(
+      metadata = NA,
+      domain_id = 1000041,
+      domain_name = "B. Wider determinants of health",
+      indicator_name = "Pupil absence",
+      profile_name = "Public Health Outcomes Framework",
+      profile_id = 19
+    ),
+    regexp = cat("Assertion on',metadata,'failed: Must be provided.")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_profile(
+      metadata = NULL,
+      domain_id = 1000041,
+      domain_name = "B. Wider determinants of health",
+      indicator_name = "Pupil absence",
+      profile_name = "Public Health Outcomes Framework",
+      profile_id = 19
+    ),
+    regexp = cat("Assertion on',metadata,'failed: Must be provided.")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_profile(
+      metadata = list(
+        indicator_profile_domain = fingertipsR::indicators(),
+        indicator_ids_names = fingertipsR::indicators_unique(),
+        area_type = fingertipsR::area_types()
+      ),
+      domain_id = 1000041,
+      domain_name = "B. Wider determinants of health",
+      indicator_name = NA,
+      profile_name = "Public Health Outcomes Framework",
+      profile_id = 19
+    ),
+    regexp = cat("Assertion on',indicator_name,'failed: Missing indicator_name not allowed.")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_profile(
+      metadata = list(
+        indicator_profile_domain = fingertipsR::indicators(),
+        indicator_ids_names = fingertipsR::indicators_unique(),
+        area_type = fingertipsR::area_types()
+      ),
+      domain_id = 1000041,
+      domain_name = NA,
+      indicator_name = "Pupil absence",
+      profile_name = "Public Health Outcomes Framework",
+      profile_id = 19
+    ),
+    regexp = cat("Assertion on',domain_name,'failed: Missing domain_name not allowed.")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_profile(
+      metadata = list(
+        indicator_profile_domain = fingertipsR::indicators(),
+        indicator_ids_names = fingertipsR::indicators_unique(),
+        area_type = fingertipsR::area_types()
+      ),
+      domain_id = NA,
+      domain_name = "B. Wider determinants of health",
+      indicator_name = "Pupil absence",
+      profile_name = "Public Health Outcomes Framework",
+      profile_id = 19
+    ),
+    regexp = cat("Assertion on',domain_id,'failed: Missing domain_id not allowed.")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_profile(
+      metadata = list(
+        indicator_profile_domain = fingertipsR::indicators(),
+        indicator_ids_names = fingertipsR::indicators_unique(),
+        area_type = fingertipsR::area_types()
+      ),
+      domain_id = 1000041,
+      domain_name = "B. Wider determinants of health",
+      indicator_name = "Pupil absence",
+      profile_name = NA,
+      profile_id = 19
+    ),
+    regexp = cat("Assertion on',profile_name,'failed: Missing profile_name not allowed.")
+  )
+
+  expect_error(
+    indicator_id = get_indicatorID_from_profile(
+      metadata = list(
+        indicator_profile_domain = fingertipsR::indicators(),
+        indicator_ids_names = fingertipsR::indicators_unique(),
+        area_type = fingertipsR::area_types()
+      ),
+      domain_id = 1000041,
+      domain_name = "B. Wider determinants of health",
+      indicator_name = "Pupil absence",
+      profile_name = "Public Health Outcomes Framework",
+      profile_id = NA
+    ),
+    regexp = cat("Assertion on',profile_id,'failed: Missing profile_id not allowed.")
   )
 })
 
-test_that("install_odbc_driver_mac fails as expected", {
-  expect_error(
-    install_odbc_driver_mac(
-      driver_version = NULL,
-      force_install = FALSE
-    ),
-    regexp = cat("Assertion on',driver_version,'failed: Must be specified.")
-  )
 
-  expect_error(
-    install_odbc_driver_mac(
-      driver_version = NA,
-      force_install = FALSE
-    ),
-    regexp = cat("Assertion on',driver_version,'failed: Must be specified.")
-  )
-
-  expect_error(
-    install_odbc_driver_mac(
-      driver_version = "17",
-      force_install = FALSE
-    ),
-    regexp = cat("Assertion on',driver_version,'failed: Must be of type numeric.")
-  )
-
-  expect_error(
-    install_odbc_driver_mac(
-      driver_version = 17,
-      force_install = NA
-    ),
-    regexp = cat("Assertion on',force_install,'failed: Must be logical TRUE/FALSE.")
-  )
-
-  expect_error(
-    install_odbc_driver_mac(
-      driver_version = 17,
-      force_install = c(TRUE,FALSE)
-    ),
-    regexp = cat("Assertion on',force_install,'failed: Must be logical of lenth 1.")
-  )
-
-  expect_error(
-    install_odbc_driver_mac(
-      driver_version = 17,
-      force_install = "TRUE"
-    ),
-    regexp = cat("Assertion on',force_install,'failed: Must be logical not character.")
-  )
+test_that("get_fingertips_metadata works as expected", {
+  metadata = get_fingertips_metadata()
+  expect_type(metadata, "list")
+  expect_length(metadata, 3)
+  expect_named(metadata, c("indicator_profile_domain", "indicator_ids_names", "area_type"))
+  expect_s3_class(metadata$indicator_profile_domain, "data.frame")
+  expect_s3_class(metadata$indicator_ids_names, "data.frame")
+  expect_s3_class(metadata$area_type, "data.frame")
 })
+
+
+
 
 
