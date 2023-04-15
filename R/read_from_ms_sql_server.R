@@ -88,7 +88,7 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
     }
     idx <- which(table.names %in% tables)
     if (length(idx) == 0) {
-      message("Could not found tables called ", paste(table.names, collapse = ", "), " in ", database.name, "!\n")
+      message("Could not find tables called ", paste(table.names, collapse = ", "), " in ", database.name, "!\n")
       R.utils::cat("\nBelow is the list of all tables in the specified database:\n")
       print(tables)
       stop()
