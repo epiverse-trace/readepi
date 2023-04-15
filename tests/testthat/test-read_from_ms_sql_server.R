@@ -7,7 +7,7 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid",
-    records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+    records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
     fields = "date,sex,age,ccg_code",
     id.position = 5,
     id.col.name = NULL
@@ -24,7 +24,7 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid",
-    records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+    records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
     fields = "date,sex,age,ccg_code",
     id.position = NULL,
     id.col.name = "ccg_code"
@@ -75,7 +75,7 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid",
-    records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+    records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
     fields = NULL,
     id.position = NULL,
     id.col.name = "ccg_code"
@@ -92,7 +92,7 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid",
-    records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+    records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
     fields = NULL,
     id.position = 5,
     id.col.name = NULL
@@ -109,10 +109,7 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid",
-    records = c(
-      "e38000191", "e38000247", "e38000020", "e38000130",
-      "e38000122", "e38000223"
-    ),
+    records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
     fields = c("date", "sex", "age", "ccg_code"),
     id.position = 5,
     id.col.name = NULL
@@ -129,10 +126,7 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid",
-    records = c(
-      "e38000191", "e38000247", "e38000020", "e38000130",
-      "e38000122", "e38000223"
-    ),
+    records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
     fields = c("date", "sex", "age", "ccg_code"),
     id.position = NULL,
     id.col.name = "ccg_code"
@@ -149,7 +143,7 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid",
-    records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+    records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
     fields = "date, sex, age, ccg_code",
     id.position = 5,
     id.col.name = NULL
@@ -166,7 +160,7 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid",
-    records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+    records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
     fields = "date, sex, age, ccg_code",
     id.position = NULL,
     id.col.name = "ccg_code"
@@ -201,7 +195,7 @@ test_that("read_from_ms_sql_server works with valid input", {
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid,ebola,iris",
     records = NULL,
-    fields = c("date,sex,age,ccg_code", "id,date_of_onset,district",
+    fields = c("date,sex,age,ccg_code", "case_id,date_of_infection,gender",
                "Sepal.Length,Species"),
     id.position = NULL,
     id.col.name = NULL
@@ -218,8 +212,8 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid,ebola,iris",
-    records = c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-                "9375,881,4539",
+    records = c("e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+                "6ca927,bbc70d,f63811",
                 "setosa"),
     fields = NULL,
     id.position = c(5,1,5),
@@ -237,12 +231,12 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid,ebola,iris",
-    records = c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-                "9375,881,4539",
+    records = c("e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+                "6ca927,bbc70d,f63811",
                 "setosa"),
     fields = NULL,
     id.position = NULL,
-    id.col.name = c("ccg_code","id","Species")
+    id.col.name = c("ccg_code","case_id","Species")
   )
   expect_type(res, "list")
 })
@@ -256,10 +250,10 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid,ebola,iris",
-    records = c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+    records = c("e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
                 "9375,881,4539",
                 "setosa"),
-    fields = c("date,sex,age,ccg_code", "id,date_of_onset,district",
+    fields = c("date,sex,age,ccg_code", "case_id,date_of_infection,gender",
                "Sepal.Length,Species"),
     id.position = c(5,1,5),
     id.col.name = NULL
@@ -276,13 +270,13 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "TEST_READEPI",
     driver.name = "ODBC Driver 17 for SQL Server",
     table.names = "covid,ebola,iris",
-    records = c("e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-                "9375,881,4539",
+    records = c("e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+                "6ca927,bbc70d,f63811",
                 "setosa"),
-    fields = c("date,sex,age,ccg_code", "id,date_of_onset,district",
+    fields = c("date,sex,age,ccg_code", "case_id,date_of_infection,gender",
                "Sepal.Length,Species"),
     id.position = NULL,
-    id.col.name = c("ccg_code","id","Species")
+    id.col.name = c("ccg_code","case_id","Species")
   )
   expect_type(res, "list")
 })
@@ -297,8 +291,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = c("date", "sex", "age", "ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -315,8 +308,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = c("date", "sex", "age", "ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -350,8 +342,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -368,8 +359,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -405,7 +395,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -422,7 +412,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -456,7 +446,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -473,7 +463,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -509,7 +499,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -526,7 +516,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -560,7 +550,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -577,7 +567,7 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -613,8 +603,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = c("date", "sex", "age", "ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -631,8 +620,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = c("date", "sex", "age", "ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -666,8 +654,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -684,8 +671,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -721,7 +707,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -738,7 +724,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -772,7 +758,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -789,7 +775,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -825,7 +811,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -842,7 +828,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -876,7 +862,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -893,7 +879,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -929,7 +915,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = -5,
       id.col.name = NULL
@@ -946,7 +932,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = -5,
       id.col.name = "ccg_code"
@@ -963,7 +949,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = -5,
       id.col.name = "ccg_code"
@@ -982,7 +968,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = -5,
       id.col.name = NULL
@@ -999,7 +985,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = -5,
       id.col.name = NULL
@@ -1018,8 +1004,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = c("date", "sex", "age", "ccg_code"),
       id.position = -5,
       id.col.name = NULL
@@ -1036,8 +1021,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = NULL,
       id.position = -5,
       id.col.name = NULL
@@ -1056,7 +1040,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NA,
       id.col.name = NULL
@@ -1073,7 +1057,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NA,
       id.col.name = "ccg_code"
@@ -1090,7 +1074,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NA,
       id.col.name = "ccg_code"
@@ -1109,7 +1093,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NA,
       id.col.name = NULL
@@ -1126,7 +1110,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NA,
       id.col.name = NULL
@@ -1145,8 +1129,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = c("date", "sex", "age", "ccg_code"),
       id.position = NA,
       id.col.name = NULL
@@ -1163,8 +1146,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = NULL,
       id.position = NA,
       id.col.name = NULL
@@ -1201,8 +1183,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1219,8 +1200,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -1254,8 +1234,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1272,8 +1251,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -1292,7 +1270,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -1309,7 +1287,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1343,7 +1321,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1360,7 +1338,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -1379,7 +1357,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -1396,7 +1374,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1430,7 +1408,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1447,7 +1425,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -1484,8 +1462,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1502,8 +1479,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -1537,8 +1513,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1555,8 +1530,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -1575,7 +1549,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -1592,7 +1566,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1626,7 +1600,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1643,7 +1617,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -1662,7 +1636,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -1679,7 +1653,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1713,7 +1687,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1730,7 +1704,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -1767,8 +1741,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1785,8 +1758,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -1820,8 +1792,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1838,8 +1809,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -1858,7 +1828,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -1875,7 +1845,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1909,7 +1879,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1926,7 +1896,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -1945,7 +1915,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -1962,7 +1932,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -1996,7 +1966,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2013,7 +1983,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -2058,8 +2028,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2076,8 +2045,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -2111,8 +2079,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2129,8 +2096,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -2149,7 +2115,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -2166,7 +2132,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2200,7 +2166,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2217,7 +2183,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -2236,7 +2202,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -2253,7 +2219,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2287,7 +2253,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2304,7 +2270,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -2341,8 +2307,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2359,8 +2324,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -2394,8 +2358,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2412,8 +2375,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -2432,7 +2394,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -2449,7 +2411,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2483,7 +2445,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2500,7 +2462,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -2519,7 +2481,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -2536,7 +2498,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2570,7 +2532,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2587,7 +2549,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -2624,8 +2586,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2642,8 +2603,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -2677,8 +2637,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2695,8 +2654,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -2715,7 +2673,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -2732,7 +2690,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2766,7 +2724,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2783,7 +2741,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -2802,7 +2760,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -2819,7 +2777,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2853,7 +2811,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2870,7 +2828,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -2919,8 +2877,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -2937,8 +2894,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -2972,8 +2928,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -2992,7 +2947,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -3009,7 +2964,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3043,7 +2998,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3060,7 +3015,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -3079,7 +3034,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -3096,7 +3051,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3130,7 +3085,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3147,7 +3102,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -3184,8 +3139,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3202,8 +3156,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -3237,8 +3190,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3255,8 +3207,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -3275,7 +3226,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -3292,7 +3243,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3326,7 +3277,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3343,7 +3294,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -3362,7 +3313,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -3379,7 +3330,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3413,7 +3364,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3430,7 +3381,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -3467,8 +3418,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3485,8 +3435,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -3520,8 +3469,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3538,8 +3486,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -3558,7 +3505,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -3575,7 +3522,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3609,7 +3556,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3626,7 +3573,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -3645,7 +3592,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -3662,7 +3609,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3696,7 +3643,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3713,7 +3660,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -3760,8 +3707,7 @@ test_that("read_from_ms_sql_server fails with incorrect driver name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3778,8 +3724,7 @@ test_that("read_from_ms_sql_server fails with incorrect driver name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -3813,8 +3758,7 @@ test_that("read_from_ms_sql_server fails with incorrect driver name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -3833,7 +3777,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -3850,7 +3794,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3884,7 +3828,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3901,7 +3845,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -3920,7 +3864,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -3937,7 +3881,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3971,7 +3915,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -3988,7 +3932,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NULL,
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -4025,8 +3969,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4043,8 +3986,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -4078,8 +4020,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4096,8 +4037,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -4116,7 +4056,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -4133,7 +4073,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4167,7 +4107,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4184,7 +4124,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -4203,7 +4143,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -4220,7 +4160,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4254,7 +4194,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4271,7 +4211,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = NA,
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -4308,8 +4248,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4326,8 +4265,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -4361,8 +4299,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4379,8 +4316,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
       table.names = "covid",
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -4399,7 +4335,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -4416,7 +4352,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4450,7 +4386,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4467,7 +4403,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
       table.names = "covid",
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -4513,7 +4449,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -4530,7 +4466,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4564,7 +4500,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4581,7 +4517,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = "covid",
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -4639,8 +4575,7 @@ test_that("read_from_ms_sql_server fails with incorrect table name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4657,8 +4592,7 @@ test_that("read_from_ms_sql_server fails with incorrect table name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -4692,8 +4626,7 @@ test_that("read_from_ms_sql_server fails with incorrect table name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -4712,7 +4645,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -4729,7 +4662,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4763,7 +4696,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4780,7 +4713,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -4799,7 +4732,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -4816,7 +4749,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4850,7 +4783,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4867,7 +4800,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NULL,
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -4904,8 +4837,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4922,8 +4854,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = c("date","sex","age","ccg_code"),
       id.position = 5,
       id.col.name = NULL
@@ -4957,8 +4888,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -4975,8 +4905,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = c("e38000191", "e38000247", "e38000020", "e38000130",
-                  "e38000122", "e38000223"),
+      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
       fields = NULL,
       id.position = 5,
       id.col.name = "ccg_code"
@@ -4995,7 +4924,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -5012,7 +4941,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = "date,sex,age,ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -5046,7 +4975,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -5063,7 +4992,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
+      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL
@@ -5082,7 +5011,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = 5,
       id.col.name = NULL
@@ -5099,7 +5028,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = "date, sex, age, ccg_code",
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -5133,7 +5062,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = NULL,
       id.col.name = "ccg_code"
@@ -5150,7 +5079,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       database.name = "TEST_READEPI",
       driver.name = "ODBC Driver 17 for SQL Server",
       table.names = NA,
-      records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223",
+      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
       fields = NULL,
       id.position = 5,
       id.col.name = NULL

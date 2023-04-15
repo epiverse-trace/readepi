@@ -199,7 +199,7 @@ data <- readepi(credentials.file,
 )
 
 # READING SPECIFIED FIELDS AND ALL RECORDS FROM ONE TABLE
-fields <- "date,sex,age" # same as fields = "idate, sex, age" and fields = c("date","sex","age")
+fields <- "date,sex,age" # same as fields = "date, sex, age" and fields = c("date","sex","age")
 data <- readepi(credentials.file,
   project.id = "TEST_READEPI",
   driver.name = "ODBC Driver 17 for SQL Server",
@@ -208,7 +208,7 @@ data <- readepi(credentials.file,
 )
 
 # READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE
-records <- "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223" # same as records=c("e38000191","e38000247","e38000020","e38000130","e38000122","e38000223") and records = "e38000191, e38000247, e38000020, e38000130, e38000122, e38000223"
+records <- "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143" # same as records=c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143") and records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143"
 data <- readepi(credentials.file,
   project.id = "TEST_READEPI",
   driver.name = "ODBC Driver 17 for SQL Server",
@@ -239,7 +239,7 @@ data <- readepi(credentials.file,
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING FIELDS ACROSS TABLES
 table.names <- "covid, ebola, iris"
 fields <- c(
-  "date,sex,age,ccg_code", "id,date_of_onset,district",
+  "date,sex,age,ccg_code", "case_id,date_of_infection,gender",
   "Sepal.Length,Species"
 ) # the first string in the field vector corresponds to the name of the columns of interest from the first table specified in the `table.names` argument and so on...
 data <- readepi(credentials.file,
@@ -251,8 +251,8 @@ data <- readepi(credentials.file,
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS ACROSS TABLES
 records <- c(
-  "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-  "9375,881,4539",
+  "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+  "6ca927,bbc70d,f63811",
   "setosa"
 ) # "note that first string in the records vector corresponds to the records of interest from the first table specified in the `table.name` argument and so on... when the id column is not the first column in a table, use the `id.position`"
 data <- readepi(credentials.file,
@@ -265,12 +265,12 @@ data <- readepi(credentials.file,
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS TABLES
 fields <- c(
-  "date,sex,age,ccg_code", "id,date_of_onset,district",
+  "date,sex,age,ccg_code", "case_id,date_of_infection,gender",
   "Sepal.Length,Species"
 )
 records <- c(
-  "e38000191,e38000247,e38000020,e38000130,e38000122,e38000223",
-  "9375,881,4539",
+  "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+  "6ca927,bbc70d,f63811",
   "setosa"
 )
 data <- readepi(credentials.file,
@@ -279,7 +279,7 @@ data <- readepi(credentials.file,
   table.name = table.names,
   records = records,
   fields = fields,
-  id.col.name = c("ccg_code", "id", "Species")
+  id.col.name = c("ccg_code", "case_id", "Species")
 )
 ```
 
