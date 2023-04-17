@@ -8,8 +8,8 @@
 #' @examples
 #' \dontrun{
 #' redcap.data <- read_from_redcap(
-#'   uri = "https://redcap.mrc.gm:8443/redcap/api/",
-#'   token = "****",
+#'   uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+#'   token = "7C9E783877D94E0C1E67B662054CD253",
 #'   id.position = 1,
 #'   id.col.name = NULL,
 #'   records = NULL,
@@ -125,6 +125,10 @@ read_from_redcap <- function(uri, token, id.position = 1, id.col.name = NULL,
   if (redcap.data$success & metadata$success) {
     data <- redcap.data$data
     meta <- metadata$data
+  }else if(redcap.data$success & !metadata$success){
+    warning("\nNote that the metadata was not imported.")
+    data <- redcap.data$data
+    meta <- NULL
   } else {
     stop("Error in reading from REDCap. Please check your credentials or project ID.")
   }

@@ -1,7 +1,7 @@
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = 1,
     id.col.name = NULL,
     records = NULL,
@@ -16,10 +16,10 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = NULL,
-    id.col.name = "day_1_q_ran_id",
+    id.col.name = "id",
     records = NULL,
     fields = NULL
   )
@@ -32,12 +32,12 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = 1,
     id.col.name = NULL,
-    fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
-    records = c("C10001/3", "C10002/1", "C10003/7")
+    fields = c("id", "age", "sex"),
+    records = c("SK_1", "SK_1", "SK_1", "SK_97", "SK_98", "SK_99")
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -48,12 +48,12 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = NULL,
-    id.col.name = "day_1_q_ran_id",
-    fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
-    records = c("C10001/3", "C10002/1", "C10003/7")
+    id.col.name = "id",
+    fields = c("id", "age", "sex"),
+    records = c("SK_1", "SK_1", "SK_1", "SK_97", "SK_98", "SK_99")
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -64,12 +64,12 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = 1,
     id.col.name = NULL,
-    fields = "day_1_q_ran_id,redcap_event_name,day_1_q_1a",
-    records = "C10001/3,C10002/1,C10003/7"
+    fields = "id,age,sex",
+    records = "SK_1,SK_2,SK_3,SK_97,SK_98,SK_99"
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -80,12 +80,12 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = NULL,
-    id.col.name = "day_1_q_ran_id",
-    fields = "day_1_q_ran_id,redcap_event_name,day_1_q_1a",
-    records = "C10001/3,C10002/1,C10003/7"
+    id.col.name = "id",
+    fields = "id,age,sex",
+    records = "SK_1,SK_2,SK_3,SK_97,SK_98,SK_99"
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -96,12 +96,12 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = 1,
     id.col.name = NULL,
     fields = NULL,
-    records = "C10001/3,C10002/1,C10003/7"
+    records = "SK_1,SK_2,SK_3,SK_97,SK_98,SK_99"
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -112,12 +112,12 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = NULL,
-    id.col.name = "day_1_q_ran_id",
+    id.col.name = "id",
     fields = NULL,
-    records = "C10001/3,C10002/1,C10003/7"
+    records = "SK_1,SK_2,SK_3,SK_97,SK_98,SK_99"
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -128,11 +128,11 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = 1,
     id.col.name = NULL,
-    fields = "day_1_q_ran_id,redcap_event_name,day_1_q_1a",
+    fields = "id, sex, age",
     records = NULL
   )
   expect_type(res, "list")
@@ -144,11 +144,11 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = NULL,
-    id.col.name = "day_1_q_ran_id",
-    fields = "day_1_q_ran_id,redcap_event_name,day_1_q_1a",
+    id.col.name = "id",
+    fields = "id, age, sex",
     records = NULL
   )
   expect_type(res, "list")
@@ -160,12 +160,12 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = 1,
     id.col.name = NULL,
     fields = NULL,
-    records = c("C10001/3", "C10002/1", "C10003/7")
+    records = c("SK_1","SK_2","SK_3","SK_97","SK_98","SK_99")
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -176,12 +176,12 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = NULL,
-    id.col.name = "day_1_q_ran_id",
+    id.col.name = "id",
     fields = NULL,
-    records = c("C10001/3", "C10002/1", "C10003/7")
+    records = c("SK_1","SK_2","SK_3","SK_97","SK_98","SK_99")
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -192,11 +192,11 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = 1,
     id.col.name = NULL,
-    fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
+    fields = c("id", "age", "sex"),
     records = NULL
   )
   expect_type(res, "list")
@@ -208,11 +208,11 @@ test_that("read_from_redcap works with valid input", {
 
 test_that("read_from_redcap works with valid input", {
   res <- read_from_redcap(
-    uri = "https://redcap.mrc.gm:8443/redcap/api/",
-    token = "9D71857D60F4016AB7BFFDA65970D737",
+    uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+    token = "7C9E783877D94E0C1E67B662054CD253",
     id.position = NULL,
-    id.col.name = "day_1_q_ran_id",
-    fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
+    id.col.name = "id",
+    fields = c("id", "age", "sex"),
     records = NULL
   )
   expect_type(res, "list")
@@ -223,25 +223,13 @@ test_that("read_from_redcap works with valid input", {
 })
 
 test_that("read_from_redcap fails as expected", {
-  # expect_error(
-  #   read_from_redcap(
-  #     uri = "https://redcap.mrc.gm:8443/redcap/api/",
-  #     token = "9D71857D60F4016AB7BFFDA65970D737",
-  #     id.position = 1,
-  #     id.col.name = "day_1_q_ran_id",
-  #     fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
-  #     records = NULL
-  #   ),
-  #   regexp = cat("Assertion on',id.position,'and',id.col.name,'failed: id.position and id.col.name must not be specied at the same time.")
-  # )
-
   expect_error(
     read_from_redcap(
-      uri = "https://redcap.mrc.gm:8443/redcap/api/",
-      token = "9D71857D60F4016AB7BFFDA65970D737",
+      uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+      token = "7C9E783877D94E0C1E67B662054CD253",
       id.position = "1",
       id.col.name = NULL,
-      fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
+      fields = c("id", "age", "sex"),
       records = NULL
     ),
     regexp = cat("Assertion on',id.position,'failed: Must be of type 'numeric' not 'character'.")
@@ -249,11 +237,11 @@ test_that("read_from_redcap fails as expected", {
 
   expect_error(
     read_from_redcap(
-      uri = "https://redcap.mrc.gm:8443/redcap/api/",
-      token = "9D71857D60F4016AB7BFFDA65970D737",
+      uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+      token = "7C9E783877D94E0C1E67B662054CD253",
       id.position = -1,
       id.col.name = NULL,
-      fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
+      fields = c("id", "age", "sex"),
       records = NULL
     ),
     regexp = cat("Assertion on',id.position,'failed: Must be >= 1.")
@@ -261,11 +249,11 @@ test_that("read_from_redcap fails as expected", {
 
   expect_error(
     read_from_redcap(
-      uri = "https://redcap.mrc.gm:8443/redcap/api/",
+      uri = "http://172.23.33.99/redcap_v13.4.8/API/",
       token = 1234,
       id.position = 1,
       id.col.name = NULL,
-      fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
+      fields = c("id", "age", "sex"),
       records = NULL
     ),
     regexp = cat("Assertion on',token,'failed: Must be of type 'character' not 'number'")
@@ -273,11 +261,11 @@ test_that("read_from_redcap fails as expected", {
 
   expect_error(
     read_from_redcap(
-      uri = "https://redcap.mrc.gm:8443/redcap/api/",
+      uri = "http://172.23.33.99/redcap_v13.4.8/API/",
       token = -1234,
       id.position = 1,
       id.col.name = NULL,
-      fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
+      fields = c("id", "age", "sex"),
       records = NULL
     ),
     regexp = cat("Assertion on',token,'failed: Must be of type 'character' not 'number'")
@@ -285,11 +273,11 @@ test_that("read_from_redcap fails as expected", {
 
   expect_error(
     read_from_redcap(
-      uri = "https://redcap.mrc.gm:8443/redcap/api/",
-      token = c("9D71857D60F4016AB7BFFDA65970D737", "9D71857D60F4016AB7BFFDA65970D737"),
+      uri = "http://172.23.33.99/redcap_v13.4.8/API/",
+      token = c("7C9E783877D94E0C1E67B662054CD253", "7C9E783877D94E0C1E67B662054CD253"),
       id.position = 1,
       id.col.name = NULL,
-      fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
+      fields = c("id", "age", "sex"),
       records = NULL
     ),
     regexp = cat("Assertion on',token,'failed: Must be of type 'character' of length 1")
@@ -298,10 +286,10 @@ test_that("read_from_redcap fails as expected", {
   expect_error(
     read_from_redcap(
       uri = NULL,
-      token = "9D71857D60F4016AB7BFFDA65970D737",
+      token = "7C9E783877D94E0C1E67B662054CD253",
       id.position = 1,
       id.col.name = NULL,
-      fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
+      fields = c("id", "age", "sex"),
       records = NULL
     ),
     regexp = cat("Assertion on',uri,'failed: Must be provided.")
@@ -309,11 +297,11 @@ test_that("read_from_redcap fails as expected", {
 
   expect_error(
     read_from_redcap(
-      uri = c("https://redcap.mrc.gm:8443/redcap/api/", "https://redcap.mrc.gm:8443/redcap/api/"),
-      token = "9D71857D60F4016AB7BFFDA65970D737",
+      uri = c("http://172.23.33.99/redcap_v13.4.8/API/", "http://172.23.33.99/redcap_v13.4.8/API/"),
+      token = "7C9E783877D94E0C1E67B662054CD253",
       id.position = 1,
       id.col.name = NULL,
-      fields = c("day_1_q_ran_id", "redcap_event_name", "day_1_q_1a"),
+      fields = c("id", "age", "sex"),
       records = NULL
     ),
     regexp = cat("Assertion on',uri,'failed: Must be of type 'character' of length 1")
