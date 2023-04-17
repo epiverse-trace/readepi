@@ -98,7 +98,7 @@ readepi <- function(credentials.file = NULL,
                                profile_id=profile_id, profile_name=profile_name,
                                domain_id=domain_id, domain_name=domain_name,
                                fields=fields, records=records,
-                               id.position=id.position, id.column.name=id.col.name
+                               id.position=id.position, id.col.name=id.col.name
                                )
   }
 

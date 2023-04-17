@@ -23,7 +23,7 @@ read_from_fingertips = function(indicator_id=NULL, indicator_name=NULL,
                                 profile_id=NULL, profile_name=NULL,
                                 domain_id=NULL, domain_name=NULL,
                                 fields=NULL, records=NULL,
-                                id.position=NULL, id.column.name=NULL
+                                id.position=NULL, id.col.name=NULL
                                 ){
   checkmate::assert_vector(indicator_id, any.missing = FALSE, min.len = 0,
                            null.ok = TRUE, unique = TRUE)
@@ -46,7 +46,7 @@ read_from_fingertips = function(indicator_id=NULL, indicator_name=NULL,
   checkmate::assert_vector(fields,any.missing = FALSE, min.len = 0,
                            null.ok = TRUE, unique = TRUE)
   checkmate::assert_number(id.position, null.ok = TRUE, na.ok = FALSE, lower = 1)
-  checkmate::assert_character(id.column.name, any.missing = FALSE, len = 1, null.ok = TRUE)
+  checkmate::assert_character(id.col.name, any.missing = FALSE, len = 1, null.ok = TRUE)
 
 
   # check if one of these is not provided
@@ -97,7 +97,7 @@ read_from_fingertips = function(indicator_id=NULL, indicator_name=NULL,
 
   # subset columns
   if(!is.null(fields)){
-    id.column.name = ifelse(!is.null(id.column.name), id.column.name,
+    id.col.name = ifelse(!is.null(id.col.name), id.col.name,
                             names(data)[id.position])
     fields = unlist(strsplit(fields,","))
     fields = gsub(" ","",fields)
@@ -112,15 +112,15 @@ read_from_fingertips = function(indicator_id=NULL, indicator_name=NULL,
   }
 
   # subset rows
-  if(!is.null(id.position) | !is.null(id.column.name)){
-    # id.column.name = ifelse(!is.null(id.column.name), id.column.name,
-    #                         names(data)[id.position])
-    if(all(records %in% data[[id.column.name]])){
-      data = data[which(data[[id.column.name]] %in% records),]
+  if(!is.null(records)){
+    records = unlist(strsplit(records,","))
+    records = gsub(" ","",records)
+    if(all(records %in% data[[id.col.name]])){
+      data = data[which(data[[id.col.name]] %in% records),]
     }else{
-      idx = which(records %in% data[[id.column.name]])
+      idx = which(records %in% data[[id.col.name]])
       warning("\n",length(records[-idx])," records were not found in the data.")
-      data = data[which(data[[id.column.name]] %in% records[idx]),]
+      data = data[which(data[[id.col.name]] %in% records[idx]),]
     }
   }
 
