@@ -16,7 +16,7 @@ read_from_fingertips(
   fields = NULL,
   records = NULL,
   id.position = NULL,
-  id.column.name = NULL
+  id.col.name = NULL
 )
 }
 \arguments{
