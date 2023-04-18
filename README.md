@@ -91,7 +91,7 @@ credentials.file <- system.file("extdata", "test.ini", package = "readepi")
 # READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT
 data <- readepi(
   credentials.file = credentials.file,
-  project.id = "Pats__Covid_19_Cohort_1_Screening"
+  project.id = "TEST_REDCap"
 )
 project.data <- data$data
 project.metadeta <- data$metadata
