@@ -2,8 +2,8 @@ test_that("Function 'show_tables' correctly displays the table names", {
   expect_output(
     show_tables(
       credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-      project.id = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server"
+      project.id = "Rfam",
+      driver.name = ""
     ),
     ""
   )

@@ -14,6 +14,7 @@
 #' @param fields a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the `table.names` argument and so on...
 #' @param id.position a vector of the column positions of the variable that unique identifies the subjects in each table. When the column name with the subject IDs is known, use the `id.col.name` argument instead. default is. default is 1.
 #' @param id.col.name the column name with the subject IDs
+#' @param dbms the SQL server type
 #' @returns a list of data frames
 #' @examples
 #' \dontrun{
