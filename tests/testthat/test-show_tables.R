@@ -13,8 +13,8 @@ test_that("show_tables fails as expected", {
   expect_error(
     show_tables(
       credentials.file = c(system.file("extdata", "test.ini", package = "readepi"), system.file("extdata", "test.ini", package = "readepi")),
-      project.id = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server"
+      project.id = "Rfam",
+      driver.name = ""
     ),
     regexp = cat("Assertion on',credentials.file,'failed: Must be of type 'character' of length 1.")
   )
@@ -22,8 +22,8 @@ test_that("show_tables fails as expected", {
   expect_error(
     show_tables(
       credentials.file = NULL,
-      project.id = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server"
+      project.id = "Rfam",
+      driver.name = ""
     ),
     regexp = cat("Assertion on',credentials.file,'failed: Credential file not found.")
   )
@@ -31,8 +31,8 @@ test_that("show_tables fails as expected", {
   expect_error(
     show_tables(
       credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"),
-      project.id = c("TEST_READEPI", "TEST_READEPI"),
-      driver.name = "ODBC Driver 17 for SQL Server"
+      project.id = c("Rfam", "TEST_READEPI"),
+      driver.name = ""
     ),
     regexp = cat("Assertion on',project.id,'failed: Must be of type 'character' of length 1.")
   )
@@ -41,7 +41,7 @@ test_that("show_tables fails as expected", {
     show_tables(
       credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"),
       project.id = NULL,
-      driver.name = "ODBC Driver 17 for SQL Server"
+      driver.name = ""
     ),
     regexp = cat("Assertion on',project.id,'failed: Must be specified.")
   )
@@ -49,8 +49,8 @@ test_that("show_tables fails as expected", {
   expect_error(
     show_tables(
       credentials.file = system.file("extdata", "fake_test.ini", package = "readepi"),
-      project.id = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server", "ODBC Driver 17 for SQL Server")
+      project.id = "Rfam",
+      driver.name = c("", "ODBC Driver 17 for SQL Server")
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type 'character' of length 1.")
   )
