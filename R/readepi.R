@@ -27,9 +27,9 @@
 #' # reading from a MS SQL server
 #' data <- readepi(
 #'   credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-#'   project.id = "TEST_READEPI",
-#'   driver.name = "ODBC Driver 17 for SQL Server",
-#'   table.name = "ebola"
+#'   project.id = "Rfam",
+#'   driver.name = "",
+#'   table.name = "author"
 #' )
 #' @returns a list of data frames.
 #' @export
