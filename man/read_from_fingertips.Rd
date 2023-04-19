@@ -51,5 +51,7 @@ a data frame
 Read from Fingertips
 }
 \examples{
+\dontrun{
 data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
+}
 }

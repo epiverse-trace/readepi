@@ -1,14 +1,14 @@
 test_that("readepi works as expected when reading from DBMS", {
   data <- readepi(
     credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-    project.id = "TEST_READEPI",
+    project.id = "Rfam",
     file.path = NULL,
     sep = NULL,
     format = NULL,
     which = NULL,
     pattern = NULL,
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.name = "covid",
+    driver.name = "",
+    table.name = "author",
     records = NULL,
     fields = NULL,
     id.position = 1
@@ -125,14 +125,14 @@ test_that("readepi works as expected when reading from file", {
 test_that("readepi works as expected when reading from DBMS", {
   data <- readepi(
     credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-    project.id = "TEST_READEPI",
+    project.id = "Rfam",
     file.path = NULL,
     sep = NULL,
     format = NULL,
     which = NULL,
     pattern = NULL,
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.name = "covid",
+    driver.name = "",
+    table.name = "author",
     records = NULL,
     fields = NULL,
     id.position = 1
