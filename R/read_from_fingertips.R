@@ -12,7 +12,7 @@
 #' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
 #' @param records a vector or a comma-separated string of records. When specified, only these records will be imported.
 #' @param id.position the column position of the variable that unique identifies the subjects. When the name of the column with the subject IDs is known, this can be provided using the `id.col.name` argument
-#' @param id.column.name the column name with the subject IDs.
+#' @param id.col.name the column name with the subject IDs.
 #'
 #' @return a data frame
 #' @export

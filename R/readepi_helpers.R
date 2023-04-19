@@ -118,7 +118,7 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
 #' @export
 subset_fields <- function(data.frame, fields, table.name) {
   checkmate::assert_data_frame(data.frame, null.ok = FALSE)
-  checkmate::assertCharacter(table.name, len = 1L, null.ok = FALSE)
+  checkmate::assertCharacter(table.name, len = 1L, null.ok = FALSE, any.missing=FALSE)
   checkmate::assert_vector(fields,
     any.missing = FALSE, min.len = 1,
     null.ok = FALSE, unique = TRUE
@@ -157,12 +157,12 @@ subset_fields <- function(data.frame, fields, table.name) {
 #' @export
 subset_records <- function(data.frame, records, id.position = 1, table.name) {
   checkmate::assert_data_frame(data.frame, null.ok = FALSE)
-  checkmate::assertCharacter(table.name, len = 1L, null.ok = FALSE)
+  checkmate::assertCharacter(table.name, len = 1L, null.ok = FALSE, any.missing = FALSE)
   checkmate::assert_vector(records,
     any.missing = FALSE, min.len = 1,
     null.ok = FALSE, unique = TRUE
   )
-  checkmate::assert_number(id.position, lower = 1, null.ok = TRUE)
+  checkmate::assert_number(id.position, lower = 1, null.ok = TRUE, na.ok = FALSE)
 
   not.found <- 0
   records <- as.character(unlist(strsplit(records, ",")))
@@ -194,7 +194,8 @@ subset_records <- function(data.frame, records, id.position = 1, table.name) {
 #' @returns  a list with the user credential details.
 #' @examples
 #' \dontrun{
-#' credentials <- read_credentials(file.path = system.file("extdata", "test.ini", package = "readepi"), project.id = "TEST_READEPI")
+#' credentials <- read_credentials(file.path = system.file("extdata", "test.ini", package = "readepi"),
+#' project.id = "TEST_READEPI")
 #' }
 #' @export
 read_credentials <- function(file.path = system.file("extdata", "test.ini", package = "readepi"),

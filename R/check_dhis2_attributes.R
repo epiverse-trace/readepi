@@ -1,5 +1,7 @@
 #' Check the DHIS2 attributes for data import
 #'
+#' @param username the user name
+#' @param password the user's password
 #' @param base.url the web address of the server the user wishes to log in to
 #' @param dataset the dataSets identifiers
 #' @param organisation.unit the organisationUnits identifiers

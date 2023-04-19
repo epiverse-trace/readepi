@@ -1,489 +1,402 @@
 test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid",
-    records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-    fields = "date,sex,age,ccg_code",
-    id.position = 5,
-    id.col.name = NULL
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author",
+    records = "1,34,15,70,118,20",
+    fields = "author_id,name,last_name,initials",
+    id.position = 1,
+    id.col.name = NULL,
+    dbms = "MySQL"
   )
   expect_type(res, "list")
 })
 
 test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid",
-    records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-    fields = "date,sex,age,ccg_code",
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author",
+    records = "1,34,15,70,118,20",
+    fields = "author_id,name,last_name,initials",
     id.position = NULL,
-    id.col.name = "ccg_code"
+    id.col.name = "author_id",
+    dbms = "MySQL"
   )
   expect_type(res, "list")
 })
 
 test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid",
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author",
     records = NULL,
-    fields = "date,sex,age,ccg_code",
+    fields = "author_id,name,last_name,initials",
     id.position = NULL,
-    id.col.name = NULL
+    id.col.name = NULL,
+    dbms = "MySQL"
   )
   expect_type(res, "list")
 })
 
 test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid",
-    records = NULL,
-    fields = NULL,
-    id.position = NULL,
-    id.col.name = NULL
-  )
-  expect_type(res, "list")
-})
-
-test_that("read_from_ms_sql_server works with valid input", {
-  res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid",
-    records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-    fields = NULL,
-    id.position = NULL,
-    id.col.name = "ccg_code"
-  )
-  expect_type(res, "list")
-})
-
-test_that("read_from_ms_sql_server works with valid input", {
-  res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid",
-    records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-    fields = NULL,
-    id.position = 5,
-    id.col.name = NULL
-  )
-  expect_type(res, "list")
-})
-
-test_that("read_from_ms_sql_server works with valid input", {
-  res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid",
-    records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-    fields = c("date", "sex", "age", "ccg_code"),
-    id.position = 5,
-    id.col.name = NULL
-  )
-  expect_type(res, "list")
-})
-
-test_that("read_from_ms_sql_server works with valid input", {
-  res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid",
-    records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-    fields = c("date", "sex", "age", "ccg_code"),
-    id.position = NULL,
-    id.col.name = "ccg_code"
-  )
-  expect_type(res, "list")
-})
-
-test_that("read_from_ms_sql_server works with valid input", {
-  res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid",
-    records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-    fields = "date, sex, age, ccg_code",
-    id.position = 5,
-    id.col.name = NULL
-  )
-  expect_type(res, "list")
-})
-
-test_that("read_from_ms_sql_server works with valid input", {
-  res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid",
-    records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-    fields = "date, sex, age, ccg_code",
-    id.position = NULL,
-    id.col.name = "ccg_code"
-  )
-  expect_type(res, "list")
-})
-
-test_that("read_from_ms_sql_server works with valid input", {
-  res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid,ebola,iris",
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author",
     records = NULL,
     fields = NULL,
     id.position = NULL,
-    id.col.name = NULL
+    id.col.name = NULL,
+    dbms = "MySQL"
   )
   expect_type(res, "list")
 })
 
 test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid,ebola,iris",
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author",
+    records = "1,34,15,70,118,20",
+    fields = NULL,
+    id.position = NULL,
+    id.col.name = "author_id",
+    dbms = "MySQL"
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author",
+    records = "1,34,15,70,118,20",
+    fields = NULL,
+    id.position = 1,
+    id.col.name = NULL,
+    dbms = "MySQL"
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author",
+    records = c("1","34","15","70","118","20"),
+    fields = c("author_id","name","last_name","initials"),
+    id.position = 1,
+    id.col.name = NULL,
+    dbms = "MySQL"
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author",
+    records = c("1","34","15","70","118","20"),
+    fields = c("author_id","name","last_name","initials"),
+    id.position = NULL,
+    id.col.name = "author_id",
+    dbms = "MySQL"
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author",
+    records = "1, 34, 15, 70, 118, 20",
+    fields = "author_id, name, last_name, initials",
+    id.position = 1,
+    id.col.name = NULL,
+    dbms = "MySQL"
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author",
+    records = "1, 34, 15, 70, 118, 20",
+    fields = "author_id, name, last_name, initials",
+    id.position = NULL,
+    id.col.name = "author_id",
+    dbms = "MySQL"
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author,family_author",
     records = NULL,
-    fields = c("date,sex,age,ccg_code", "case_id,date_of_infection,gender",
-               "Sepal.Length,Species"),
-    id.position = NULL,
-    id.col.name = NULL
-  )
-  expect_type(res, "list")
-})
-
-test_that("read_from_ms_sql_server works with valid input", {
-  res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid,ebola,iris",
-    records = c("e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-                "6ca927,bbc70d,f63811",
-                "setosa"),
-    fields = NULL,
-    id.position = c(5,1,5),
-    id.col.name = NULL
-  )
-  expect_type(res, "list")
-})
-
-test_that("read_from_ms_sql_server works with valid input", {
-  res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid,ebola,iris",
-    records = c("e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-                "6ca927,bbc70d,f63811",
-                "setosa"),
     fields = NULL,
     id.position = NULL,
-    id.col.name = c("ccg_code","case_id","Species")
+    id.col.name = NULL,
+    dbms = "MySQL"
   )
   expect_type(res, "list")
 })
 
 test_that("read_from_ms_sql_server works with valid input", {
   res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid,ebola,iris",
-    records = c("e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-                "9375,881,4539",
-                "setosa"),
-    fields = c("date,sex,age,ccg_code", "case_id,date_of_infection,gender",
-               "Sepal.Length,Species"),
-    id.position = c(5,1,5),
-    id.col.name = NULL
-  )
-  expect_type(res, "list")
-})
-
-test_that("read_from_ms_sql_server works with valid input", {
-  res <- read_from_ms_sql_server(
-    user = "epiverse",
-    password = "epiverse-trace1",
-    host = "172.23.33.99",
-    port = 1433,
-    database.name = "TEST_READEPI",
-    driver.name = "ODBC Driver 17 for SQL Server",
-    table.names = "covid,ebola,iris",
-    records = c("e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-                "6ca927,bbc70d,f63811",
-                "setosa"),
-    fields = c("date,sex,age,ccg_code", "case_id,date_of_infection,gender",
-               "Sepal.Length,Species"),
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author,family_author",
+    records = NULL,
+    fields = c("author_id,name,last_name,initials", "rfam_acc,author_id"),
     id.position = NULL,
-    id.col.name = c("ccg_code","case_id","Species")
+    id.col.name = NULL,
+    dbms = "MySQL"
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author,family_author",
+    records = c("1,34,15,70,118,20",
+                "RF00520,RF00592,RF01421,RF01527"),
+    fields = NULL,
+    id.position = c(1,1),
+    id.col.name = NULL,
+    dbms = "MySQL"
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author,family_author",
+    records = c("1,34,15,70,118,20",
+                          "RF00520,RF00592,RF01421,RF01527"),
+    fields = NULL,
+    id.position = NULL,
+    id.col.name = c("author_id", "rfam_acc"),
+    dbms = "MySQL"
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author,family_author",
+    records = c("1,34,15,70,118,20",
+                "RF00520,RF00592,RF01421,RF01527"),
+    fields = c("author_id,name,last_name,initials",
+               "rfam_acc","author_id"),
+    id.position = c(1,1),
+    id.col.name = NULL,
+    dbms = "MySQL"
+  )
+  expect_type(res, "list")
+})
+
+test_that("read_from_ms_sql_server works with valid input", {
+  res <- read_from_ms_sql_server(
+    user = "rfamro",
+    password = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    port = 4497,
+    database.name = "Rfam",
+    driver.name = "",
+    table.names = "author,family_author",
+    records = c("1,34,15,70,118,20",
+                "RF00520,RF00592,RF01421,RF01527"),
+    fields = c("author_id,name,last_name,initials",
+               "rfam_acc","author_id"),
+    id.position = NULL,
+    id.col.name = c("author_id","rfam_acc"),
+    dbms = "MySQL"
   )
   expect_type(res, "list")
 })
 
 test_that("read_from_ms_sql_server fails with port of type character", {
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-      fields = c("date", "sex", "age", "ccg_code"),
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118","20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
 
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = 5,
-      id.col.name = NULL
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118","20"),
+      fields = c("author_id","name","last_name","initials"),
+      id.position = 1,
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
 
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
 
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
-      id.position = 5,
-      id.col.name = NULL
+      id.position = 1,
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
 
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
 
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date", "sex", "age", "ccg_code"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
-  )
-})
-
-test_that("read_from_ms_sql_server fails with port of type character", {
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = NULL,
-      fields = NULL,
-      id.position = NULL,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = NULL,
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = NULL,
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = NULL,
-      fields = "date, sex, age, ccg_code",
-      id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
@@ -491,103 +404,201 @@ test_that("read_from_ms_sql_server fails with port of type character", {
 
 test_that("read_from_ms_sql_server fails with port of type character", {
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
+      id.position = 1,
+      id.col.name = NULL,
+      dbms = "MySQL"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
 
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
 
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
-      id.position = 5,
-      id.col.name = NULL
+      id.position = 1,
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
 
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
 
   expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = "1433",
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+})
+
+test_that("read_from_ms_sql_server fails with port of type character", {
+  expect_error(
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
+      id.position = NULL,
+      id.col.name = "author_id",
+      dbms = "MySQL"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
+      id.position = 1,
+      id.col.name = NULL,
+      dbms = "MySQL"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    res <- read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = NULL,
+      id.position = 1,
+      id.col.name = NULL,
+      dbms = "MySQL"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = NULL,
+      id.position = NULL,
+      id.col.name = "author_id",
+      dbms = "MySQL"
+    ),
+    regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = "4497",
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = NULL,
+      fields = "author_id,name,last_name,initials",
+      id.position = NULL,
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Must be of type 'numeric', not 'character'.")
   )
@@ -596,102 +607,108 @@ test_that("read_from_ms_sql_server fails with port of type character", {
 test_that("read_from_ms_sql_server fails with negative port", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-      fields = c("date", "sex", "age", "ccg_code"),
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-      fields = c("date", "sex", "age", "ccg_code"),
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date", "sex", "age", "ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
@@ -700,102 +717,108 @@ test_that("read_from_ms_sql_server fails with negative port", {
 test_that("read_from_ms_sql_server fails with negative port", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = "rfamro",
+      password = "rfamro",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
@@ -804,102 +827,108 @@ test_that("read_from_ms_sql_server fails with negative port", {
 test_that("read_from_ms_sql_server fails with negative port", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = -1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = -4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',port,'failed: Negative port not allowed.")
   )
@@ -908,51 +937,54 @@ test_that("read_from_ms_sql_server fails with negative port", {
 test_that("read_from_ms_sql_server fails with invalid id.position", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = -5,
-      id.col.name = NULL
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = -5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = -5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
   )
@@ -961,70 +993,36 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
 test_that("read_from_ms_sql_server fails with invalid id.position", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = -5,
-      id.col.name = NULL
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = -5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
-  )
-})
-
-test_that("read_from_ms_sql_server fails with invalid id.position", {
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-      fields = c("date", "sex", "age", "ccg_code"),
-      id.position = -5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-      fields = NULL,
-      id.position = -5,
-      id.col.name = NULL
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
   )
@@ -1033,51 +1031,92 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
 test_that("read_from_ms_sql_server fails with invalid id.position", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118", "20"),
+      fields = c("author_id","name","last_name","initials"),
+      id.position = -5,
+      id.col.name = "author_id",
+      dbms = "MySQL"
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
+  )
+
+  expect_error(
+    read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118","20"),
+      fields = NULL,
+      id.position = -5,
+      id.col.name = "author_id",
+      dbms = "MySQL"
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Negative column number not allowed.")
+  )
+})
+
+test_that("read_from_ms_sql_server fails with invalid id.position", {
+  expect_error(
+    read_from_ms_sql_server(
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NA,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Missing values not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NA,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Missing values not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NA,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Missing values not allowed.")
   )
@@ -1086,34 +1125,36 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
 test_that("read_from_ms_sql_server fails with invalid id.position", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NA,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Missing values not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NA,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Missing values not allowed.")
   )
@@ -1122,34 +1163,36 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
 test_that("read_from_ms_sql_server fails with invalid id.position", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-      fields = c("date", "sex", "age", "ccg_code"),
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NA,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Missing values not allowed.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118", "20"),
       fields = NULL,
       id.position = NA,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',id.position,'failed: Missing values not allowed.")
   )
@@ -1160,16 +1203,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1177,16 +1221,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1194,16 +1239,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1211,16 +1257,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1228,16 +1275,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118","20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1245,16 +1293,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028","e38000030","e38000222","e38000051","e38000057","e38000143"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1","34","15","70","118","20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1264,16 +1313,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1281,16 +1331,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1298,16 +1349,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1315,16 +1367,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1332,16 +1385,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1351,16 +1405,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1368,16 +1423,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1385,16 +1441,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1402,16 +1459,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1419,16 +1477,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NULL,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1439,16 +1498,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1456,16 +1516,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1473,16 +1534,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1490,16 +1552,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1507,16 +1570,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1524,16 +1588,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1543,16 +1608,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1560,16 +1626,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1577,16 +1644,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1594,16 +1662,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1611,16 +1680,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1630,16 +1700,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1647,16 +1718,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1664,16 +1736,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1681,16 +1754,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1698,16 +1772,17 @@ test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
       user = NA,
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must provide user name.")
   )
@@ -1717,102 +1792,108 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
@@ -1821,85 +1902,90 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
@@ -1908,85 +1994,90 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("epiverse","trace"),
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = c("rfamro","trace"),
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',user,'failed: Must be of type character of length 1.")
   )
@@ -2004,102 +2095,108 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
@@ -2108,85 +2205,90 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
@@ -2195,85 +2297,90 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NULL,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
@@ -2283,102 +2390,108 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
@@ -2387,85 +2500,90 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
@@ -2474,85 +2592,90 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
+      user = "rfamro",
       password = NA,
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must provide user's password.")
   )
@@ -2562,102 +2685,108 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
@@ -2666,85 +2795,90 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
@@ -2753,85 +2887,90 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = c("epiverse","trace"),
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = "rfamro",
+      password = c("rfamro","trace"),
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character of length 1.")
   )
@@ -2853,85 +2992,90 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect host name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
@@ -2940,85 +3084,90 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
 test_that("read_from_ms_sql_server fails with incorrect host name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
@@ -3027,85 +3176,90 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
 test_that("read_from_ms_sql_server fails with incorrect host name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NULL,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
@@ -3115,102 +3269,108 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
@@ -3219,85 +3379,90 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect host name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
@@ -3306,85 +3471,90 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
 test_that("read_from_ms_sql_server fails with incorrect host name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
+      user = "rfamro",
+      password = "",
       host = NA,
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must provide host name.")
   )
@@ -3394,102 +3564,108 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
 test_that("read_from_ms_sql_server fails with incorrect host name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "172.23.33.99",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      user = "rfamro",
+      password = "mysql-rfam-public.ebi.ac.uk",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
@@ -3498,172 +3674,182 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 })
 
-test_that("read_from_ms_sql_server fails with incorrect password", {
+test_that("read_from_ms_sql_server fails with incorrect host", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
@@ -3683,85 +3869,90 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 test_that("read_from_ms_sql_server fails with incorrect driver name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
@@ -3770,85 +3961,90 @@ test_that("read_from_ms_sql_server fails with incorrect driver name", {
 test_that("read_from_ms_sql_server fails with incorrect host name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
@@ -3857,85 +4053,90 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
 test_that("read_from_ms_sql_server fails with incorrect host name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NULL,
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
@@ -3945,102 +4146,108 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
 test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
@@ -4049,85 +4256,90 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
 test_that("read_from_ms_sql_server fails with incorrect host name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
@@ -4136,85 +4348,90 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
 test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
       driver.name = NA,
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must provide MS SQL driver name.")
   )
@@ -4224,102 +4441,108 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
 test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
@@ -4328,85 +4551,90 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
 test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = c("ODBC Driver 17 for SQL Server","ODBC Driver 18 for SQL Server"),
-      table.names = "covid",
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      table.names = "author",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',driver.name,'failed: Must be of type character of length 1.")
   )
@@ -4442,85 +4670,90 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
 test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = c("172.23.33.99","172.23.33.90"),
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = "covid",
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      user = "rfamro",
+      password = "",
+      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
+      table.names = "author",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',host,'failed: Must be of type character of length 1.")
   )
@@ -4532,383 +4765,113 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# database names not null
-test_that("read_from_ms_sql_server fails with incorrect table name", {
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = NULL,
-      fields = NULL,
-      id.position = NULL,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = NULL,
-      fields = c("date","sex","age","ccg_code"),
-      id.position = NULL,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = NULL,
-      id.position = 5,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-})
-
-test_that("read_from_ms_sql_server fails with incorrect host name", {
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = NULL,
-      fields = "date,sex,age,ccg_code",
-      id.position = NULL,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = NULL,
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = NULL,
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-})
-
-test_that("read_from_ms_sql_server fails with incorrect host name", {
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = NULL,
-      fields = "date, sex, age, ccg_code",
-      id.position = NULL,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = NULL,
-      id.position = NULL,
-      id.col.name = "ccg_code"
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-
-  expect_error(
-    read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.names = NULL,
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = NULL,
-      id.position = 5,
-      id.col.name = NULL
-    ),
-    regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
-  )
-})
 
 # driver name not missing
 test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
       records = NULL,
       fields = NULL,
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
-      fields = c("date","sex","age","ccg_code"),
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
       records = NULL,
-      fields = c("date","sex","age","ccg_code"),
+      fields = c("author_id","name","last_name","initials"),
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = c("e38000028", "e38000030", "e38000222", "e38000051", "e38000057", "e38000143"),
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
@@ -4917,85 +4880,90 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
 test_that("read_from_ms_sql_server fails with incorrect host name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
-      fields = "date,sex,age,ccg_code",
+      records = "1,34,15,70,118,20",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
       records = NULL,
-      fields = "date,sex,age,ccg_code",
+      fields = "author_id,name,last_name,initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = "e38000028,e38000030,e38000222,e38000051,e38000057,e38000143",
+      records = "1,34,15,70,118,20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
@@ -5004,85 +4972,90 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
 test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
-      fields = "date, sex, age, ccg_code",
+      records = "1, 34, 15, 70, 118, 20",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
       records = NULL,
-      fields = "date, sex, age, ccg_code",
+      fields = "author_id, name, last_name, initials",
       id.position = NULL,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = NULL,
-      id.col.name = "ccg_code"
+      id.col.name = "author_id",
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )
 
   expect_error(
     read_from_ms_sql_server(
-      user = "epiverse",
-      password = "epiverse-trace1",
-      host = "172.23.33.99",
-      port = 1433,
-      database.name = "TEST_READEPI",
-      driver.name = "ODBC Driver 17 for SQL Server",
+      user = "rfamro",
+      password = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      port = 4497,
+      database.name = "Rfam",
+      driver.name = "",
       table.names = NA,
-      records = "e38000028, e38000030, e38000222, e38000051, e38000057, e38000143",
+      records = "1, 34, 15, 70, 118, 20",
       fields = NULL,
       id.position = 5,
-      id.col.name = NULL
+      id.col.name = NULL,
+      dbms = "MySQL"
     ),
     regexp = cat("Assertion on',table.names,'failed: Must provide table name.")
   )

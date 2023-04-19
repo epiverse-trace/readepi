@@ -33,7 +33,7 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
                                     database.name, driver.name,
                                     table.names = NULL, records = NULL,
                                     fields = NULL, id.position = NULL,
-                                    id.col.name = NULL) {
+                                    id.col.name = NULL, dbms) {
   # check the input arguments
   checkmate::assert_vector(id.position,
     any.missing = FALSE, min.len = 0,
@@ -45,6 +45,7 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
   )
   checkmate::assert_number(port, lower = 1)
   checkmate::assert_character(user, any.missing = FALSE, len = 1, null.ok = FALSE)
+  checkmate::assert_character(dbms, any.missing = FALSE, len = 1, null.ok = FALSE)
   checkmate::assert_character(password, any.missing = FALSE, len = 1, null.ok = FALSE)
   checkmate::assert_character(host, any.missing = FALSE, len = 1, null.ok = FALSE)
   checkmate::assert_character(database.name, any.missing = FALSE, len = 1, null.ok = FALSE)
@@ -68,13 +69,16 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
 
 
   # establishing the connection to the server
-  con <- DBI::dbConnect(odbc::odbc(),
-    driver = driver.name,
-    server = host,
-    database = database.name,
-    uid = user,
-    pwd = password,
-    port = as.numeric(port)
+  con <- switch(dbms,
+               'SQLServer' = DBI::dbConnect(odbc::odbc(), driver = driver.name,
+                                            server = host, database = database.name,
+                                            uid = user, pwd = password, port = as.numeric(port)),
+               'MySQL' = DBI::dbConnect(RMySQL::MySQL(), driver = driver.name,
+                                        host = host, dbname = database.name,
+                                        user = user, password = password, port = as.numeric(port)),
+               'PostgreSQL' = DBI::dbConnect(odbc::odbc(), driver = driver.name,
+                                             host = host, database = database.name,
+                                             uid = user, pwd = password, port = as.numeric(port))
   )
 
   # listing the names of the tables present in the database
