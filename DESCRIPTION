@@ -22,15 +22,15 @@ Imports:
     rio,
     httr,
     purrr,
-    RMySQL
+    RMySQL,
+    fingertipsR (>= 1.0.10.9001)
 Suggests: 
     covr,
     testthat (>= 3.0.0),
     knitr,
     rmarkdown,
     devtools
-Remotes:
-  pepfar-datim/datimutils,
-  rOpenSci/fingertipsR
+Remotes: 
+    rOpenSci/fingertipsR
 Config/testthat/edition: 3
 VignetteBuilder: knitr
