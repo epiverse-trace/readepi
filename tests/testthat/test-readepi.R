@@ -158,9 +158,296 @@ test_that("readepi works as expected when reading from a directory", {
   expect_type(data, "list")
 })
 
-# test_that("readepi works as expected when reading from DHIS2", {
-#
-# })
+test_that("readepi works as expected when reading from DHIS2", {
+  data <- readepi(
+    credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+    project.id = "DHIS2_DEMO",
+    dataset = "pBOMPrpg1QX",
+    organisation.unit = "DiszpKrYNg8",
+    data.element.group = NULL,
+    start.date = "2014",
+    end.date = "2023"
+  )
+  expect_type(data, "list")
+})
+
+test_that("readepi fails as expected when reading from DHIS2", {
+  expect_error(
+    data <- readepi(
+      credentials.file = NULL,
+      project.id = "DHIS2_DEMO",
+      dataset = "pBOMPrpg1QX",
+      organisation.unit = "DiszpKrYNg8",
+      data.element.group = NULL,
+      start.date = "2014",
+      end.date = "2023"
+    ),
+    regexp = cat("Assertion on',credentials.file,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data <- readepi(
+      credentials.file = c(system.file("extdata", "test.ini", package = "readepi"),
+                           system.file("extdata", "fake_test.ini", package = "readepi")),
+      project.id = "DHIS2_DEMO",
+      dataset = "pBOMPrpg1QX",
+      organisation.unit = "DiszpKrYNg8",
+      data.element.group = NULL,
+      start.date = "2014",
+      end.date = "2023"
+    ),
+    regexp = cat("Assertion on',credentials.file,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = c("DHIS2_DEMO","test"),
+      dataset = "pBOMPrpg1QX",
+      organisation.unit = "DiszpKrYNg8",
+      data.element.group = NULL,
+      start.date = "2014",
+      end.date = "2023"
+    ),
+    regexp = cat("Assertion on',project.id,'failed: Must be of type character with length 1.")
+  )
+
+  expect_error(
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "DHIS2_DEMO",
+      dataset = NA,
+      organisation.unit = "DiszpKrYNg8",
+      data.element.group = NULL,
+      start.date = "2014",
+      end.date = "2023"
+    ),
+    regexp = cat("Assertion on',dataset,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "DHIS2_DEMO",
+      dataset = NULL,
+      organisation.unit = "DiszpKrYNg8",
+      data.element.group = NULL,
+      start.date = "2014",
+      end.date = "2023"
+    ),
+    regexp = cat("Assertion on',dataset,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "DHIS2_DEMO",
+      dataset = "pBOMPrpg1QX",
+      organisation.unit = NA,
+      data.element.group = NULL,
+      start.date = "2014",
+      end.date = "2023"
+    ),
+    regexp = cat("Assertion on',organisation.unit,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "DHIS2_DEMO",
+      dataset = "pBOMPrpg1QX",
+      organisation.unit = NULL,
+      data.element.group = NULL,
+      start.date = "2014",
+      end.date = "2023"
+    ),
+    regexp = cat("Assertion on',organisation.unit,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "DHIS2_DEMO",
+      dataset = "pBOMPrpg1QX",
+      organisation.unit = "DiszpKrYNg8",
+      data.element.group = NA,
+      start.date = "2014",
+      end.date = "2023"
+    ),
+    regexp = cat("Assertion on',data.element.group,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "DHIS2_DEMO",
+      dataset = "pBOMPrpg1QX",
+      organisation.unit = "DiszpKrYNg8",
+      data.element.group = NULL,
+      start.date = NA,
+      end.date = "2023"
+    ),
+    regexp = cat("Assertion on',start.date,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "DHIS2_DEMO",
+      dataset = "pBOMPrpg1QX",
+      organisation.unit = "DiszpKrYNg8",
+      data.element.group = NULL,
+      start.date = "2014",
+      end.date = NA
+    ),
+    regexp = cat("Assertion on',end.date,'failed: Missing value not allowed.")
+  )
+})
+
+test_that("readepi works as expected when reading from REDCap", {
+  data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                  project.id = "TEST_REDCap",
+                  records = c("SK_1", "SK_2", "SK_3", "SK_97", "SK_98", "SK_99"),
+                  fields = c("id", "age", "sex"),
+                  id.col.name = "id"
+  )
+  expect_type(data, "list")
+  expect_length(data, 2)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data$data, class = "data.frame")
+  expect_s3_class(data$metadata, class = "data.frame")
+
+  data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                  project.id = "TEST_REDCap",
+                  records = c("SK_1", "SK_2", "SK_3", "SK_97", "SK_98", "SK_99"),
+                  fields = c("id", "age", "sex"),
+                  id.position =  1
+  )
+  expect_type(data, "list")
+  expect_length(data, 2)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data$data, class = "data.frame")
+  expect_s3_class(data$metadata, class = "data.frame")
+
+  data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                  project.id = "TEST_REDCap",
+                  records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
+                  fields = "id, age, sex",
+                  id.position = 1
+  )
+  expect_type(data, "list")
+  expect_length(data, 2)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data$data, class = "data.frame")
+  expect_s3_class(data$metadata, class = "data.frame")
+
+  data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                  project.id = "TEST_REDCap",
+                  records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
+                  fields = "id, age, sex",
+                  id.col.name = "id"
+  )
+  expect_type(data, "list")
+  expect_length(data, 2)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data$data, class = "data.frame")
+  expect_s3_class(data$metadata, class = "data.frame")
+
+  data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                  project.id = "TEST_REDCap",
+                  records = NULL,
+                  fields = NULL
+  )
+  expect_type(data, "list")
+  expect_length(data, 2)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data$data, class = "data.frame")
+  expect_s3_class(data$metadata, class = "data.frame")
+})
+
+test_that("readepi fails as expected when reading from REDCap", {
+  expect_error(
+    data <- readepi(credentials.file = c(system.file("extdata", "test.ini", package = "readepi"),
+                                         system.file("extdata", "fake_test.ini", package = "readepi")),
+                    project.id = "TEST_REDCap",
+                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
+                    fields = "id, age, sex",
+                    id.col.name = "id"
+    ),
+    regexp = cat("Assertion on',credentials.file,'failed: Must be of type character of length 1.")
+  )
+
+  expect_error(
+    data <- readepi(credentials.file = NULL,
+                    project.id = "TEST_REDCap",
+                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
+                    fields = "id, age, sex",
+                    id.col.name = "id"
+    ),
+    regexp = cat("Assertion on',credentials.file,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                    project.id = NULL,
+                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
+                    fields = "id, age, sex",
+                    id.col.name = "id"
+    ),
+    regexp = cat("Assertion on',project.id,'failed: Must be specified.")
+  )
+
+  expect_error(
+    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                    project.id = NA,
+                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
+                    fields = "id, age, sex",
+                    id.col.name = "id"
+    ),
+    regexp = cat("Assertion on',project.id,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                    project.id = "TEST_REDCap",
+                    records = NA,
+                    fields = "id, age, sex",
+                    id.col.name = "id"
+    ),
+    regexp = cat("Assertion on',records,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                    project.id = "TEST_REDCap",
+                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
+                    fields = NA,
+                    id.col.name = "id"
+    ),
+    regexp = cat("Assertion on',fields,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                    project.id = "TEST_REDCap",
+                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
+                    fields = "id, age, sex",
+                    id.col.name = NA
+    ),
+    regexp = cat("Assertion on',id.col.name,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+                    project.id = "TEST_REDCap",
+                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
+                    fields = "id, age, sex",
+                    id.col.name = NULL,
+                    id.position = NA
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Missing value not allowed.")
+  )
+})
 
 test_that("readepi fails as expected when reading from DBMS, files and folders", {
   expect_error(

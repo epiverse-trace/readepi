@@ -25,13 +25,19 @@ show_tables <- function(credentials.file, project.id, driver.name) {
   credentials <- read_credentials(credentials.file, project.id)
 
   # establishing the connection to the server
-  con <- DBI::dbConnect(odbc::odbc(),
-    driver = driver.name,
-    server = credentials$host,
-    database = credentials$project,
-    uid = credentials$user,
-    pwd = credentials$pwd,
-    port = credentials$port
+  con <- switch(credentials$dbms,
+                'SQLServer' = DBI::dbConnect(odbc::odbc(), driver = driver.name,
+                                             server = credentials$host, database = credentials$project,
+                                             uid = credentials$user, pwd = credentials$pwd,
+                                             port = as.numeric(credentials$port)),
+                'MySQL' = DBI::dbConnect(RMySQL::MySQL(), driver = driver.name,
+                                         host = credentials$host, dbname = credentials$project,
+                                         user = credentials$user, password = credentials$pwd,
+                                         port = as.numeric(credentials$port)),
+                'PostgreSQL' = DBI::dbConnect(odbc::odbc(), driver = driver.name,
+                                              host = credentials$host, database = credentials$project,
+                                              uid = credentials$user, pwd = credentials$pwd,
+                                              port = as.numeric(credentials$port))
   )
 
   # listing the names of the tables present in the database

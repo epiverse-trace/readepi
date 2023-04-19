@@ -16,16 +16,13 @@ Imports:
     odbc,
     DBI,
     R.utils,
-    readr,
     data.table,
     dplyr,
     REDCapR,
     rio,
-    parallel,
-    doParallel,
     httr,
-    foreach,
-    purrr
+    purrr,
+    RMySQL
 Suggests: 
     covr,
     testthat (>= 3.0.0),

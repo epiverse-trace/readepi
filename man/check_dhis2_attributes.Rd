@@ -14,6 +14,10 @@ check_dhis2_attributes(
 )
 }
 \arguments{
+\item{username}{the user name}
+
+\item{password}{the user's password}
+
 \item{base.url}{the web address of the server the user wishes to log in to}
 
 \item{dataset}{the dataSets identifiers}

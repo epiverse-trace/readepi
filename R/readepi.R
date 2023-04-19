@@ -22,6 +22,7 @@
 #' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
 #' @param id.position the column position of the variable that unique identifies the subjects. When the name of the column with the subject IDs is known, this can be provided using the `id.col.name` argument
 #' @param id.col.name the column name with the subject IDs.
+#' @param ... additional arguments passed to the readepi function. These are enumarated in the vignette.
 #' @examples
 #' # reading from a MS SQL server
 #' data <- readepi(
@@ -56,7 +57,7 @@ readepi <- function(credentials.file = NULL,
   )
   checkmate::assert_vector(id.col.name,
                            any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = FALSE
+                           null.ok = TRUE, unique = TRUE
   )
 
   # get the additional arguments
@@ -107,21 +108,21 @@ readepi <- function(credentials.file = NULL,
     if("project.id" %in% names(args.list)){project.id = args.list$project.id}
     else {stop("The project ID/database name must be provided to read data from DBMS.")}
     credentials <- read_credentials(credentials.file, project.id)
-    if (credentials$dbms %in% c("redcap", "REDCap")) {
+    if (credentials$dbms=="REDCap") {
       res <- read_from_redcap(
         uri = credentials$host, token = credentials$pwd,
         id.position = id.position, id.col.name = id.col.name,
         records = records, fields = fields
       )
-    } else if (credentials$dbms %in% c("sqlserver", "SQLServer")) {
+    } else if (credentials$dbms %in% c("MySQL", "SQLServer", "PostgreSQL")) {
       if("table.name" %in% names(args.list)){table.name = args.list$table.name} else {table.name=NULL}
-      if("driver.name" %in% names(args.list)){driver.name = args.list$driver.name} else {driver.name=NULL}
+      if("driver.name" %in% names(args.list)){driver.name = args.list$driver.name} else {driver.name=""}
       res <- read_from_ms_sql_server(
         user = credentials$user, password = credentials$pwd,
         host = credentials$host, port = credentials$port,
         database.name = credentials$project, table.names = table.name,
         driver.name = driver.name, records = records, fields = fields,
-        id.position = id.position, id.col.name = id.col.name
+        id.position = id.position, id.col.name = id.col.name, dbms=credentials$dbms
       )
     } else if (credentials$dbms %in% c("dhis2", "DHIS2")) {
       if("dataset" %in% names(args.list)){dataset = args.list$dataset} else {dataset=NULL}
