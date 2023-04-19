@@ -64,7 +64,7 @@ read_from_redcap <- function(uri, token, id.position = 1, id.col.name = NULL,
     )
     metadata <- REDCapR::redcap_metadata_read(
       redcap_uri = uri, token = token,
-      fields_collapsed = fields, verbose = FALSE
+      verbose = FALSE
     )
     if (!is.null(id.col.name)) {
       if (!(id.col.name %in% names(redcap.data$data))) stop("Specified ID column name not found!")
@@ -92,7 +92,7 @@ read_from_redcap <- function(uri, token, id.position = 1, id.col.name = NULL,
     )
     metadata <- REDCapR::redcap_metadata_read(
       redcap_uri = uri, token = token,
-      fields_collapsed = fields, verbose = FALSE
+      verbose = FALSE
     )
   } else if (!is.null(records) & is.null(fields)) {
     if (is.vector(records)) {

@@ -37,7 +37,7 @@ test_that("read_from_redcap works with valid input", {
     id.position = 1,
     id.col.name = NULL,
     fields = c("id", "age", "sex"),
-    records = c("SK_1", "SK_1", "SK_1", "SK_97", "SK_98", "SK_99")
+    records = c("SK_1", "SK_2", "SK_3", "SK_97", "SK_98", "SK_99")
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -53,7 +53,7 @@ test_that("read_from_redcap works with valid input", {
     id.position = NULL,
     id.col.name = "id",
     fields = c("id", "age", "sex"),
-    records = c("SK_1", "SK_1", "SK_1", "SK_97", "SK_98", "SK_99")
+    records = c("SK_1", "SK_2", "SK_3", "SK_97", "SK_98", "SK_99")
   )
   expect_type(res, "list")
   expect_length(res, 2)

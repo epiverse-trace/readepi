@@ -12,7 +12,8 @@ test_that("subset_fields works as expected", {
 
 test_that("subset_fields works as expected", {
   res <- subset_fields(
-    data.frame = iris, fields = c("Sepal.Length", "Sepal.Width"),
+    data.frame = iris,
+    fields = c("Sepal.Length", "Sepal.Width"),
     table.name = "iris"
   )
   expect_type(res, "list")
@@ -24,7 +25,8 @@ test_that("subset_fields works as expected", {
 
 test_that("subset_records works as expected", {
   res <- subset_records(
-    data.frame = iris, records = "setosa, virginica",
+    data.frame = iris,
+    records = "setosa, virginica",
     id.position = 5, table.name = "iris"
   )
   expect_type(res, "list")
@@ -49,7 +51,8 @@ test_that("subset_records works as expected", {
 test_that("subset_fields fails as expected", {
   expect_error(
     res <- subset_fields(
-      data.frame = NULL, fields = "Sepal.Length,Sepal.Width",
+      data.frame = NULL,
+      fields = "Sepal.Length,Sepal.Width",
       table.name = "iris"
     ),
     regexp = cat("Assertion on',data.frame,'failed: Must provide the data frame to subset from.")
@@ -57,16 +60,35 @@ test_that("subset_fields fails as expected", {
 
   expect_error(
     res <- subset_fields(
-      data.frame = NULL, fields = c("Sepal.Length", "Sepal.Width"),
+      data.frame = NULL,
+      fields = c("Sepal.Length", "Sepal.Width"),
       table.name = "iris"
     ),
     regexp = cat("Assertion on',data.frame,'failed: Must provide the data frame to subset from.")
   )
 
+  expect_error(
+    res <- subset_fields(
+      data.frame = NA,
+      fields = "Sepal.Length,Sepal.Width",
+      table.name = "iris"
+    ),
+    regexp = cat("Assertion on',data.frame,'failed: Missing value not allowed.")
+  )
 
   expect_error(
     res <- subset_fields(
-      data.frame = iris, fields = NULL,
+      data.frame = NA,
+      fields = c("Sepal.Length", "Sepal.Width"),
+      table.name = "iris"
+    ),
+    regexp = cat("Assertion on',data.frame,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    res <- subset_fields(
+      data.frame = iris,
+      fields = NULL,
       table.name = "iris"
     ),
     regexp = cat("Assertion on',fields,'failed: Must provide a vector or a string with the field to subset.")
@@ -74,7 +96,17 @@ test_that("subset_fields fails as expected", {
 
   expect_error(
     res <- subset_fields(
-      data.frame = iris, fields = "Sepal.Length,Sepal.Width",
+      data.frame = iris,
+      fields = NA,
+      table.name = "iris"
+    ),
+    regexp = cat("Assertion on',fields,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    res <- subset_fields(
+      data.frame = iris,
+      fields = "Sepal.Length,Sepal.Width",
       table.name = NULL
     ),
     regexp = cat("Assertion on',table.name,'failed: Must provide the table name.")
@@ -82,10 +114,29 @@ test_that("subset_fields fails as expected", {
 
   expect_error(
     res <- subset_fields(
-      data.frame = iris, fields = c("Sepal.Length", "Sepal.Width"),
+      data.frame = iris,
+      fields = c("Sepal.Length", "Sepal.Width"),
       table.name = NULL
     ),
     regexp = cat("Assertion on',table.name,'failed: Must provide the table name.")
+  )
+
+  expect_error(
+    res <- subset_fields(
+      data.frame = iris,
+      fields = "Sepal.Length,Sepal.Width",
+      table.name = NA
+    ),
+    regexp = cat("Assertion on',table.name,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    res <- subset_fields(
+      data.frame = iris,
+      fields = c("Sepal.Length", "Sepal.Width"),
+      table.name = NA
+    ),
+    regexp = cat("Assertion on',table.name,'failed: Missing value not allowed.")
   )
 
   expect_error(
@@ -156,6 +207,22 @@ test_that("subset_records fails as expected", {
 
   expect_error(
     res <- subset_records(
+      data.frame = NA, records = "setosa, virginica",
+      id.position = 5, table.name = "iris"
+    ),
+    regexp = cat("Assertion on',data.frame,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    res <- subset_records(
+      data.frame = NA, records = c("setosa", "virginica"),
+      id.position = 5, table.name = "iris"
+    ),
+    regexp = cat("Assertion on',data.frame,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    res <- subset_records(
       data.frame = iris, records = NULL,
       id.position = 5, table.name = "iris"
     ),
@@ -164,6 +231,14 @@ test_that("subset_records fails as expected", {
 
   expect_error(
     res <- subset_records(
+      data.frame = iris, records = NA,
+      id.position = 5, table.name = "iris"
+    ),
+    regexp = cat("Assertion on',records,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    res <- subset_records(
       data.frame = iris, records = "setosa, virginica",
       id.position = -1, table.name = NULL
     ),
@@ -196,8 +271,16 @@ test_that("subset_records fails as expected", {
 
   expect_error(
     res <- subset_records(
+      data.frame = iris, records = c("setosa", "virginica"),
+      id.position = NA, table.name = "iris"
+    ),
+    regexp = cat("Assertion on',id.position,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    res <- subset_records(
       data.frame = iris, records = "setosa, virginica",
-      id.position = 5, table.name = c("iris", "iris")
+      id.position = 5, table.name = c("iris", "iris3")
     ),
     regexp = cat("Assertion on',table.name,'failed: Must be of type character of length 1.")
   )
@@ -205,16 +288,48 @@ test_that("subset_records fails as expected", {
   expect_error(
     res <- subset_records(
       data.frame = iris, records = c("setosa", "virginica"),
-      id.position = 5, table.name = c("iris", "iris")
+      id.position = 5, table.name = c("iris", "iris3")
     ),
     regexp = cat("Assertion on',table.name,'failed: Must be of type character of length 1.")
+  )
+
+  expect_error(
+    res <- subset_records(
+      data.frame = iris, records = "setosa, virginica",
+      id.position = 5, table.name = NULL
+    ),
+    regexp = cat("Assertion on',table.name,'failed: Must be provided.")
+  )
+
+  expect_error(
+    res <- subset_records(
+      data.frame = iris, records = c("setosa", "virginica"),
+      id.position = 5, table.name = NULL
+    ),
+    regexp = cat("Assertion on',table.name,'failed: Must be provided.")
+  )
+
+  expect_error(
+    res <- subset_records(
+      data.frame = iris, records = "setosa, virginica",
+      id.position = 5, table.name = NA
+    ),
+    regexp = cat("Assertion on',table.name,'failed: Missing value not allowed.")
+  )
+
+  expect_error(
+    res <- subset_records(
+      data.frame = iris, records = c("setosa", "virginica"),
+      id.position = 5, table.name = NA
+    ),
+    regexp = cat("Assertion on',table.name,'failed: Missing value not allowed.")
   )
 })
 
 test_that("read_credentials works as expected", {
   res <- read_credentials(
     file.path = system.file("extdata", "test.ini", package = "readepi"),
-    project.id = "Pats__Covid_19_Cohort_1_Screening"
+    project.id = "Rfam"
   )
   expect_type(res, "list")
   expect_length(res, 6)
@@ -231,7 +346,7 @@ test_that("read_credentials fails as expected", {
   expect_error(
     res <- read_credentials(
       file.path = NULL,
-      project.id = "Pats__Covid_19_Cohort_1_Screening"
+      project.id = "Rfam"
     ),
     regexp = cat("Assertion on',file.path,'failed: Must provide a path to the credential file.")
   )
@@ -239,7 +354,7 @@ test_that("read_credentials fails as expected", {
   expect_error(
     res <- read_credentials(
       file.path = c(system.file("extdata", "test.ini", package = "readepi"), system.file("extdata", "test.ini", package = "readepi")),
-      project.id = "Pats__Covid_19_Cohort_1_Screening"
+      project.id = "Rfam"
     ),
     regexp = cat("Assertion on',file.path,'failed: Impossible to read from multiple credential files.")
   )
@@ -255,7 +370,7 @@ test_that("read_credentials fails as expected", {
   expect_error(
     res <- read_credentials(
       file.path = system.file("extdata", "test.ini", package = "readepi"),
-      project.id = c("Pats__Covid_19_Cohort_1_Screening", "Pats__Covid_19_Cohort_1_Screening")
+      project.id = c("Rfam", "TEST_REDCap")
     ),
     regexp = cat("Assertion on',project.id,'failed: Impossible to read from multiple databases or projects.")
   )

@@ -39,6 +39,8 @@ credentials file}
 \item{id.position}{the column position of the variable that unique identifies the subjects. When the name of the column with the subject IDs is known, this can be provided using the \code{id.col.name} argument}
 
 \item{id.col.name}{the column name with the subject IDs.}
+
+\item{...}{additional arguments passed to the readepi function. These are enumarated in the vignette.}
 }
 \value{
 a list of data frames.
