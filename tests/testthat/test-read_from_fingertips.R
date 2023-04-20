@@ -43,7 +43,7 @@ test_that("read_from_fingertips works", {
     area_type_id = 202, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
-    fields = NULL, records = c("E92000001", "E12000002"),
+    fields = NULL, records = c("E92000001", "E12000002", "E12000009"),
     id.position = NULL, id.col.name = "AreaCode"
   )
   expect_type(data, type = "list")
