@@ -23,7 +23,9 @@ Imports:
     httr,
     purrr,
     RMySQL,
-    fingertipsR (>= 1.0.10.9001)
+    fingertipsR (>= 1.0.10.9001),
+    readxl,
+    stringr
 Suggests: 
     covr,
     testthat (>= 3.0.0),

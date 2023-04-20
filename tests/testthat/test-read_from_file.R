@@ -107,24 +107,6 @@ test_that("read_from_file fails as expected", {
     regexp = cat("Assertion on',format,'failed: Must be of type 'character' not 'numeric'.")
   )
 
-  # expect_error(
-  #   read_from_file(file.path=system.file("extdata", "test.txt", package = "readepi"),
-  #                  sep = ' ',
-  #                  format = 'txt',
-  #                  which = 1,
-  #                  pattern = '.txt'),
-  #   regexp = cat("Assertion on',which,'failed: Must be of type 'character' not 'numeric'.")
-  # )
-
-  # expect_error(
-  #   read_from_file(file.path=system.file("extdata", "test.txt", package = "readepi"),
-  #                  sep = ' ',
-  #                  format = 'txt',
-  #                  which = 'Sheet2',
-  #                  pattern = c(".txt",".csv")),
-  #   regexp = cat("Assertion on',pattern,'failed: Must be of type 'character' of length 1.")
-  # )
-
   expect_error(
     read_from_file(
       file.path = NULL,
