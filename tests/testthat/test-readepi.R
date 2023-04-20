@@ -617,7 +617,7 @@ test_that("readepi fails as expected when reading from Fingertips", {
       profile_id = 19,
       profile_name = "Public Health Outcomes Framework",
       fields=c("IndicatorID","AreaCode","Age","Value"),
-      records=c("E12000002","E12000001","E12000009"),
+      records=c("E12000002","E12000001"),
       id.col.name="AreaCode"
     ),
     regexp = cat("Assertion on',domain_name,'failed: Missing value not allowed.")
