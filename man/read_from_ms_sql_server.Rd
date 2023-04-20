@@ -41,6 +41,8 @@ read_from_ms_sql_server(
 \item{id.position}{a vector of the column positions of the variable that unique identifies the subjects in each table. When the column name with the subject IDs is known, use the \code{id.col.name} argument instead. default is. default is 1.}
 
 \item{id.col.name}{the column name with the subject IDs}
+
+\item{dbms}{the SQL server type}
 }
 \value{
 a list of data frames

@@ -35,8 +35,8 @@ Import data from REDCap into R
 \examples{
 \dontrun{
 redcap.data <- read_from_redcap(
-  uri = "http://172.23.33.99/redcap_v13.4.8/API/",
-  token = "7C9E783877D94E0C1E67B662054CD253",
+  uri = "https://bbmc.ouhsc.edu/redcap/api/",
+  token = "9A81268476645C4E5F03428B8AC3AA7B",
   id.position = 1,
   id.col.name = NULL,
   records = NULL,

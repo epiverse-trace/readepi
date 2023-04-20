@@ -285,32 +285,32 @@ Both the data and its associated metadata will be will be returned after a succe
 # READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT
 data <- readepi(
   credentials.file = credentials.file,
-  project.id = "TEST_REDCap"
+  project.id = "SD_DATA"
 )
 project.data <- data$data
 project.metadeta <- data$metadata
 
 # READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT
-fields <- c("id", "age", "sex")
+fields <- c("record_id", "name_first", "age", "bmi")
 data <- readepi(credentials.file,
-  project.id = "TEST_REDCap",
+  project.id = "SD_DATA",
   fields = fields
 )
 
 # READING SPECIFIC RECORDS AND ALL FIELDS FROM THE PROJECT
-records <- c("SK_1", "SK_2", "SK_3", "SK_97", "SK_98", "SK_99")
+records <- c("1", "3", "5")
 data <- readepi(credentials.file,
-  project.id = "TEST_REDCap",
+  project.id = "SD_DATA",
   records = records,
-  id.col.name = "id"
+  id.col.name = "record_id"
 )
 
 # READING SPECIFIC RECORDS AND FIELDS FROM THE PROJECT
 data <- readepi(credentials.file,
-  project.id = "TEST_REDCap",
+  project.id = "SD_DATA",
   records = records,
   fields = fields,
-  id.col.name = "id"
+  id.col.name = "record_id"
 )
 project.data <- data$data
 project.metadeta <- data$metadata
