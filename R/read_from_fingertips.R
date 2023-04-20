@@ -1,4 +1,3 @@
-
 #' Read from Fingertips
 #'
 #' @param indicator_id a numeric vector of indicator IDs
@@ -21,111 +20,137 @@
 #' \dontrun{
 #' data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
 #' }
-read_from_fingertips = function(indicator_id=NULL, indicator_name=NULL,
-                                area_type_id, parent_area_type_id=NULL,
-                                profile_id=NULL, profile_name=NULL,
-                                domain_id=NULL, domain_name=NULL,
-                                fields=NULL, records=NULL,
-                                id.position=NULL, id.col.name=NULL
-                                ){
-  checkmate::assert_vector(indicator_id, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(area_type_id, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(parent_area_type_id, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(profile_id, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(profile_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(domain_id, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(domain_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(records, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(fields,any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
+read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
+                                 area_type_id, parent_area_type_id = NULL,
+                                 profile_id = NULL, profile_name = NULL,
+                                 domain_id = NULL, domain_name = NULL,
+                                 fields = NULL, records = NULL,
+                                 id.position = NULL, id.col.name = NULL) {
+  checkmate::assert_vector(indicator_id,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(indicator_name,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(area_type_id,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(parent_area_type_id,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(profile_id,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(profile_name,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(domain_id,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(domain_name,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(records,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(fields,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
   checkmate::assert_number(id.position, null.ok = TRUE, na.ok = FALSE, lower = 1)
   checkmate::assert_character(id.col.name, any.missing = FALSE, len = 1, null.ok = TRUE)
 
 
   # check if one of these is not provided
-  if(is.null(profile_id) & is.null(indicator_id) & is.null(domain_id) &
-     is.null(profile_name) & is.null(indicator_name) & is.null(domain_name)){
+  if (is.null(profile_id) & is.null(indicator_id) & is.null(domain_id) &
+    is.null(profile_name) & is.null(indicator_name) & is.null(domain_name)) {
     stop("\nPlease use the get_fingertips_metadata() function to see the Fingertips metadata.")
   }
 
   # extract the metadata
-  metadata = get_fingertips_metadata()
+  metadata <- get_fingertips_metadata()
 
   # check if the area type ID is not provided
-  if(is.null(area_type_id)){
+  if (is.null(area_type_id)) {
     message("\narea_type_id not provided! Please choose an area type ID from the list below:\n")
     print(metadata$area_type)
     stop()
   }
 
   # get the indicator ID from the indicator name
-  if(!is.null(indicator_name) & is.null(indicator_id)){
-    indicator_id = get_indicatorID_from_indicatorName(metadata, indicator_name)
+  if (!is.null(indicator_name) & is.null(indicator_id)) {
+    indicator_id <- get_indicatorID_from_indicatorName(metadata, indicator_name)
   }
 
   # get the indicator ID from the domain ID
-  if(!is.null(domain_id) & is.null(indicator_id)){
-    indicator_id = get_indicatorID_from_domainID(metadata, domain_id, indicator_name)
+  if (!is.null(domain_id) & is.null(indicator_id)) {
+    indicator_id <- get_indicatorID_from_domainID(metadata, domain_id, indicator_name)
   }
 
   # get the indicator ID from the domain name
-  if(!is.null(domain_name) & is.null(indicator_id) & is.null(domain_id)){
-    indicator_id = get_indicatorID_from_domainName(metadata, domain_name, indicator_name)
+  if (!is.null(domain_name) & is.null(indicator_id) & is.null(domain_id)) {
+    indicator_id <- get_indicatorID_from_domainName(metadata, domain_name, indicator_name)
   }
   # get the indicator ID from the profile ID or profile name
-  if((!is.null(profile_id) | !is.null(profile_name)) & is.null(indicator_id)){
-    indicator_id = get_indicatorID_from_profile(metadata, domain_id, domain_name,
-                                                indicator_name, profile_name, profile_id)
+  if ((!is.null(profile_id) | !is.null(profile_name)) & is.null(indicator_id)) {
+    indicator_id <- get_indicatorID_from_profile(
+      metadata, domain_id, domain_name,
+      indicator_name, profile_name, profile_id
+    )
   }
 
   # extract the data
-  if(is.null(parent_area_type_id)){
-    data = fingertipsR::fingertips_data(IndicatorID = indicator_id,
-                                        AreaTypeID = area_type_id)
-  }else{
-    data = fingertipsR::fingertips_data(IndicatorID = indicator_id,
-                                        AreaTypeID = area_type_id,
-                                        ParentAreaTypeID = parent_area_type_id)
+  if (is.null(parent_area_type_id)) {
+    data <- fingertipsR::fingertips_data(
+      IndicatorID = indicator_id,
+      AreaTypeID = area_type_id
+    )
+  } else {
+    data <- fingertipsR::fingertips_data(
+      IndicatorID = indicator_id,
+      AreaTypeID = area_type_id,
+      ParentAreaTypeID = parent_area_type_id
+    )
   }
 
   # subset columns
-  if(!is.null(fields)){
-    id.col.name = ifelse(!is.null(id.col.name), id.col.name,
-                            names(data)[id.position])
-    fields = unlist(strsplit(fields,","))
-    fields = gsub(" ","",fields)
-    idx = which(fields %in% names(data))
-    if(length(idx)==0){
+  if (!is.null(fields)) {
+    id.col.name <- ifelse(!is.null(id.col.name), id.col.name,
+      names(data)[id.position]
+    )
+    fields <- unlist(strsplit(fields, ","))
+    fields <- gsub(" ", "", fields)
+    idx <- which(fields %in% names(data))
+    if (length(idx) == 0) {
       stop("\nCould not find specified fields. The field names in the dataset are:\n", print(names(data)))
-    }else if(length(idx) != length(fields)){
+    } else if (length(idx) != length(fields)) {
       warning("\nCould not find the following fields:\n", print(fields[-idx]))
-    }else{
-      data = data %>% dplyr::select(dplyr::all_of(fields[idx]))
+    } else {
+      data <- data %>% dplyr::select(dplyr::all_of(fields[idx]))
     }
   }
 
   # subset rows
-  if(!is.null(records)){
-    records = unlist(strsplit(records,","))
-    records = gsub(" ","",records)
-    if(all(records %in% data[[id.col.name]])){
-      data = data[which(data[[id.col.name]] %in% records),]
-    }else{
-      idx = which(records %in% data[[id.col.name]])
-      warning("\n",length(records[-idx])," records were not found in the data.")
-      data = data[which(data[[id.col.name]] %in% records[idx]),]
+  if (!is.null(records)) {
+    records <- unlist(strsplit(records, ","))
+    records <- gsub(" ", "", records)
+    if (all(records %in% data[[id.col.name]])) {
+      data <- data[which(data[[id.col.name]] %in% records), ]
+    } else {
+      idx <- which(records %in% data[[id.col.name]])
+      warning("\n", length(records[-idx]), " records were not found in the data.")
+      data <- data[which(data[[id.col.name]] %in% records[idx]), ]
     }
   }
 
-  list(data=data)
+  list(data = data)
 }

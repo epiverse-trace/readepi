@@ -197,7 +197,7 @@ test_that("read_from_redcap works with valid input", {
     id.position = 1,
     id.col.name = NULL,
     fields = NULL,
-    records = c("1","3","5")
+    records = c("1", "3", "5")
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -213,7 +213,7 @@ test_that("read_from_redcap works with valid input", {
     id.position = NULL,
     id.col.name = "record_id",
     fields = NULL,
-    records = c("1","3","5")
+    records = c("1", "3", "5")
   )
   expect_type(res, "list")
   expect_length(res, 2)
@@ -476,7 +476,7 @@ test_that("read_from_redcap fails with more than 1 token", {
       id.position = 1,
       id.col.name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","3","5")
+      records = c("1", "3", "5")
     ),
     regexp = cat("Assertion on',token,'failed: Must provide only 1 at a time")
   )
@@ -488,7 +488,7 @@ test_that("read_from_redcap fails with more than 1 token", {
       id.position = NULL,
       id.col.name = "record_id",
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","3","5")
+      records = c("1", "3", "5")
     ),
     regexp = cat("Assertion on',token,'failed: Must provide only 1 at a time")
   )
@@ -514,7 +514,7 @@ test_that("read_from_redcap fails with a NULL token", {
       id.position = 1,
       id.col.name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","3","5")
+      records = c("1", "3", "5")
     ),
     regexp = cat("Assertion on',token,'failed: Must be provided")
   )
@@ -526,7 +526,7 @@ test_that("read_from_redcap fails with a NULL token", {
       id.position = NULL,
       id.col.name = "record_id",
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","3","5")
+      records = c("1", "3", "5")
     ),
     regexp = cat("Assertion on',token,'failed: Must be provided")
   )
@@ -552,7 +552,7 @@ test_that("read_from_redcap fails with a missing token", {
       id.position = 1,
       id.col.name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","3","5")
+      records = c("1", "3", "5")
     ),
     regexp = cat("Assertion on',token,'failed: Missing value not allowed")
   )
@@ -564,7 +564,7 @@ test_that("read_from_redcap fails with a missing token", {
       id.position = NULL,
       id.col.name = "record_id",
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","3","5")
+      records = c("1", "3", "5")
     ),
     regexp = cat("Assertion on',token,'failed: Missing value not allowed")
   )
@@ -590,7 +590,7 @@ test_that("read_from_redcap fails with a NULL URI", {
       id.position = 1,
       id.col.name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","3","5")
+      records = c("1", "3", "5")
     ),
     regexp = cat("Assertion on',uri,'failed: Must be provided.")
   )
@@ -602,7 +602,7 @@ test_that("read_from_redcap fails with a NULL URI", {
       id.position = NULL,
       id.col.name = "record_id",
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","3","5")
+      records = c("1", "3", "5")
     ),
     regexp = cat("Assertion on',uri,'failed: Must be provided.")
   )
@@ -628,7 +628,7 @@ test_that("read_from_redcap fails with a missing URI", {
       id.position = 1,
       id.col.name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","3","5")
+      records = c("1", "3", "5")
     ),
     regexp = cat("Assertion on',uri,'failed: Missing value not allowed.")
   )
@@ -640,7 +640,7 @@ test_that("read_from_redcap fails with a missing URI", {
       id.position = NULL,
       id.col.name = "record_id",
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","3","5")
+      records = c("1", "3", "5")
     ),
     regexp = cat("Assertion on',uri,'failed: Missing value not allowed.")
   )
@@ -666,7 +666,7 @@ test_that("read_from_redcap fails with multiple URI", {
       id.position = 1,
       id.col.name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","2","3")
+      records = c("1", "2", "3")
     ),
     regexp = cat("Assertion on',uri,'failed: Must specify only 1 URI at a time.")
   )
@@ -678,7 +678,7 @@ test_that("read_from_redcap fails with multiple URI", {
       id.position = NULL,
       id.col.name = "record_id",
       fields = c("record_id", "name_first", "age", "bmi"),
-      records = c("1","2","3")
+      records = c("1", "2", "3")
     ),
     regexp = cat("Assertion on',uri,'failed: Must specify only 1 URI at a time.")
   )
@@ -718,7 +718,7 @@ test_that("read_from_redcap fails with missing fields", {
       id.position = 1,
       id.col.name = NULL,
       fields = NA,
-      records = c("1","2","3")
+      records = c("1", "2", "3")
     ),
     regexp = cat("Assertion on',fileds,'failed: Missing value not allowed.")
   )
@@ -730,7 +730,7 @@ test_that("read_from_redcap fails with missing fields", {
       id.position = NULL,
       id.col.name = "record_id",
       fields = NA,
-      records = c("1","2","3")
+      records = c("1", "2", "3")
     ),
     regexp = cat("Assertion on',fileds,'failed: Missing value not allowed.")
   )

@@ -26,18 +26,24 @@ show_tables <- function(credentials.file, project.id, driver.name) {
 
   # establishing the connection to the server
   con <- switch(credentials$dbms,
-                'SQLServer' = DBI::dbConnect(odbc::odbc(), driver = driver.name,
-                                             server = credentials$host, database = credentials$project,
-                                             uid = credentials$user, pwd = credentials$pwd,
-                                             port = as.numeric(credentials$port)),
-                'MySQL' = DBI::dbConnect(RMySQL::MySQL(), driver = driver.name,
-                                         host = credentials$host, dbname = credentials$project,
-                                         user = credentials$user, password = credentials$pwd,
-                                         port = as.numeric(credentials$port)),
-                'PostgreSQL' = DBI::dbConnect(odbc::odbc(), driver = driver.name,
-                                              host = credentials$host, database = credentials$project,
-                                              uid = credentials$user, pwd = credentials$pwd,
-                                              port = as.numeric(credentials$port))
+    "SQLServer" = DBI::dbConnect(odbc::odbc(),
+      driver = driver.name,
+      server = credentials$host, database = credentials$project,
+      uid = credentials$user, pwd = credentials$pwd,
+      port = as.numeric(credentials$port)
+    ),
+    "MySQL" = DBI::dbConnect(RMySQL::MySQL(),
+      driver = driver.name,
+      host = credentials$host, dbname = credentials$project,
+      user = credentials$user, password = credentials$pwd,
+      port = as.numeric(credentials$port)
+    ),
+    "PostgreSQL" = DBI::dbConnect(odbc::odbc(),
+      driver = driver.name,
+      host = credentials$host, database = credentials$project,
+      uid = credentials$user, pwd = credentials$pwd,
+      port = as.numeric(credentials$port)
+    )
   )
 
   # listing the names of the tables present in the database
