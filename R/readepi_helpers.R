@@ -29,7 +29,16 @@ detect_separator <- function(x) {
   unique(sep)
 }
 
+
 #' Read multiple files, including multiple files in a directory
+#'
+#' @param files a file or vector of file path to import
+#' @param dirs a directory or a vector of directories where files will be imported from
+#' @param format a string used to specify the file format. This is useful when a file does not have an extension, or has a file extension that does not match its actual type
+#' @param which a string used to specify the name of the excel sheet to import
+#'
+#' @return a list of data frames where each data frame contains data from a file
+#' @export
 #'
 read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
   # filter out directories from files
