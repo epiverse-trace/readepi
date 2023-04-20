@@ -182,7 +182,7 @@ To displays the list of tables from the database of interest, use:
 show_tables(
   credentials.file = credentials.file,
   project.id = "Rfam", # this is the database name
-  driver.name = "" #ODBC Driver 17 for SQL Server
+  driver.name = "" # ODBC Driver 17 for SQL Server
 )
 ```
 
@@ -193,7 +193,7 @@ Note that in the above, the value for the `project.id` argument is the name of t
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`DSS_EVENTS`)
 data <- readepi(credentials.file,
   project.id = "Rfam",
-  driver.name = "", #ODBC Driver 17 for SQL Server
+  driver.name = "", # ODBC Driver 17 for SQL Server
   table.name = "author"
 )
 
@@ -419,49 +419,61 @@ Note that the `readepi()` function makes call of wrapper around the major functi
 
 ```{r eval=FALSE}
 # GET THE INFORMATION ABOUT THE INDICATOR PROFILES, DOMAIN, AREA TYPE, ...
-metadata = get_fingertips_metadata()
-head(metadata$indicator_profile_domain) #indicator_profile_domain contains the indicator, profile, and domain information.    
-head(metadata$indicator_ids_names) #indicator_ids_names contains the list of indicators IDs together with their names.     
-head(metadata$area_type) #area_type contains the list of all area types with their associated parent area types.
+metadata <- get_fingertips_metadata()
+head(metadata$indicator_profile_domain) # indicator_profile_domain contains the indicator, profile, and domain information.
+head(metadata$indicator_ids_names) # indicator_ids_names contains the list of indicators IDs together with their names.
+head(metadata$area_type) # area_type contains the list of all area types with their associated parent area types.
 
 # IMPORTING DATA USING THE INDICATOR ID
-data = readepi(indicator_id=90362, 
-               area_type_id=202)
+data <- readepi(
+  indicator_id = 90362,
+  area_type_id = 202
+)
 
 # IMPORTING DATA USING THE INDICATOR NAME
-data = readepi(indicator_name="Healthy life expectancy at birth", 
-               area_type_id=202)
+data <- readepi(
+  indicator_name = "Healthy life expectancy at birth",
+  area_type_id = 202
+)
 
 # IMPORTING DATA USING THE DOMAIN NAME
-data = readepi(indicator_name="A. Overarching indicators", 
-                            area_type_id=202)
+data <- readepi(
+  indicator_name = "A. Overarching indicators",
+  area_type_id = 202
+)
 
-data = readepi(indicator_name="A. Overarching indicators", 
-               area_type_id=202,
-               indicator_name="Healthy life expectancy at birth")
+data <- readepi(
+  indicator_name = "A. Overarching indicators",
+  area_type_id = 202,
+  indicator_name = "Healthy life expectancy at birth"
+)
 
 # IMPORTING DATA USING THE PROFILE ID
-data = readepi(profile_id=19, 
-               area_type_id=202)
+data <- readepi(
+  profile_id = 19,
+  area_type_id = 202
+)
 
-# IMPORTING DATA FROM SPECIFIC INDICATOR, DOMAIN, PROFILE, AREA TYPE 
-data = readepi(indicator_id=90362, 
-               indicator_name="Healthy life expectancy at birth",
-               area_type_id=202, parent_area_type_id=6,
-               profile_id=19, 
-               profile_name="Public Health Outcomes Framework",
-               domain_id=1000049, domain_name="A. Overarching indicators",
-               fields=NULL, records=NULL,
-               id.position=NULL, id.column.name=NULL
-               )
+# IMPORTING DATA FROM SPECIFIC INDICATOR, DOMAIN, PROFILE, AREA TYPE
+data <- readepi(
+  indicator_id = 90362,
+  indicator_name = "Healthy life expectancy at birth",
+  area_type_id = 202, parent_area_type_id = 6,
+  profile_id = 19,
+  profile_name = "Public Health Outcomes Framework",
+  domain_id = 1000049, domain_name = "A. Overarching indicators",
+  fields = NULL, records = NULL,
+  id.position = NULL, id.column.name = NULL
+)
 
 # IMPORTING DATA AND SUBSETTING SPECIFIC RECORDS AND FIELDS
-data = readepi(indicator_id=90362, 
-               area_type_id=202, 
-               fields=c("IndicatorID","AreaCode","Age","Value"),
-               records=c("E92000001","E12000002","E12000009"),
-               id.column.name="AreaCode"
-               )
+data <- readepi(
+  indicator_id = 90362,
+  area_type_id = 202,
+  fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+  records = c("E92000001", "E12000002", "E12000009"),
+  id.column.name = "AreaCode"
+)
 ```
 
 

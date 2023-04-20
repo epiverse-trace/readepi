@@ -125,7 +125,7 @@ read_from_redcap <- function(uri, token, id.position = 1, id.col.name = NULL,
   if (redcap.data$success & metadata$success) {
     data <- redcap.data$data
     meta <- metadata$data
-  }else if(redcap.data$success & !metadata$success){
+  } else if (redcap.data$success & !metadata$success) {
     warning("\nNote that the metadata was not imported.")
     data <- redcap.data$data
     meta <- NULL

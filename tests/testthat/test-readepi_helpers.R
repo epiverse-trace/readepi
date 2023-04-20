@@ -409,7 +409,7 @@ test_that("login fails as expected", {
 
   expect_error(
     login(
-      username = c("admin","admin1"),
+      username = c("admin", "admin1"),
       password = "district",
       base.url = "https://play.dhis2.org/dev/"
     ),
@@ -437,7 +437,7 @@ test_that("login fails as expected", {
   expect_error(
     login(
       username = "admin",
-      password = c("district","district1"),
+      password = c("district", "district1"),
       base.url = "https://play.dhis2.org/dev/"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character with length 1.")
@@ -465,7 +465,7 @@ test_that("login fails as expected", {
     login(
       username = "admin",
       password = "district",
-      base.url = c("https://play.dhis2.org/dev/","https://play.dhis2.org/dev/test/")
+      base.url = c("https://play.dhis2.org/dev/", "https://play.dhis2.org/dev/test/")
     ),
     regexp = cat("Assertion on',base.url,'failed: Must be of type character with length 1.")
   )
@@ -473,7 +473,7 @@ test_that("login fails as expected", {
 
 
 test_that("get_data_elements works as expected", {
-  data_element = get_data_elements(
+  data_element <- get_data_elements(
     username = "admin",
     password = "district",
     base.url = "https://play.dhis2.org/dev/"
@@ -502,7 +502,7 @@ test_that("get_data_elements fails as expected", {
 
   expect_error(
     data_element = get_data_elements(
-      username = c("admin","admin1"),
+      username = c("admin", "admin1"),
       password = "district",
       base.url = "https://play.dhis2.org/dev/"
     ),
@@ -530,7 +530,7 @@ test_that("get_data_elements fails as expected", {
   expect_error(
     data_element = get_data_elements(
       username = "admin",
-      password = c("district","district1"),
+      password = c("district", "district1"),
       base.url = "https://play.dhis2.org/dev/"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character with length 1.")
@@ -558,7 +558,7 @@ test_that("get_data_elements fails as expected", {
     data_element = get_data_elements(
       username = "admin",
       password = "district",
-      base.url = c("https://play.dhis2.org/dev/","https://play.dhis2.org/dev/test/")
+      base.url = c("https://play.dhis2.org/dev/", "https://play.dhis2.org/dev/test/")
     ),
     regexp = cat("Assertion on',base.url,'failed: Must be of type character with length 1.")
   )
@@ -566,7 +566,7 @@ test_that("get_data_elements fails as expected", {
 
 
 test_that("get_data_sets works as expected", {
-  dataset = get_data_sets(
+  dataset <- get_data_sets(
     username = "admin",
     password = "district",
     base.url = "https://play.dhis2.org/dev/"
@@ -595,7 +595,7 @@ test_that("get_data_sets fails as expected", {
 
   expect_error(
     dataset = get_data_sets(
-      username = c("admin","admin1"),
+      username = c("admin", "admin1"),
       password = "district",
       base.url = "https://play.dhis2.org/dev/"
     ),
@@ -623,7 +623,7 @@ test_that("get_data_sets fails as expected", {
   expect_error(
     dataset = get_data_sets(
       username = "admin",
-      password = c("district","district1"),
+      password = c("district", "district1"),
       base.url = "https://play.dhis2.org/dev/"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character with length 1.")
@@ -650,15 +650,15 @@ test_that("get_data_sets fails as expected", {
   expect_error(
     dataset = get_data_sets(
       username = "admin",
-      password = c("district","district1"),
-      base.url = c("https://play.dhis2.org/dev/","https://play.dhis2.org/dev/test/")
+      password = c("district", "district1"),
+      base.url = c("https://play.dhis2.org/dev/", "https://play.dhis2.org/dev/test/")
     ),
     regexp = cat("Assertion on',base.url,'failed: Must be of type character with length 1.")
   )
 })
 
 test_that("get_organisation_units works as expected", {
-  organisation_units = get_organisation_units(
+  organisation_units <- get_organisation_units(
     base.url = "https://play.dhis2.org/dev/",
     username = "admin",
     password = "district"
@@ -687,7 +687,7 @@ test_that("get_organisation_units fails as expected", {
 
   expect_error(
     organisation_units = get_organisation_units(
-      username = c("admin","admin1"),
+      username = c("admin", "admin1"),
       password = "district",
       base.url = "https://play.dhis2.org/dev/"
     ),
@@ -715,7 +715,7 @@ test_that("get_organisation_units fails as expected", {
   expect_error(
     organisation_units = get_organisation_units(
       username = "admin",
-      password = c("district","district1"),
+      password = c("district", "district1"),
       base.url = "https://play.dhis2.org/dev/"
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character with length 1.")
@@ -743,7 +743,7 @@ test_that("get_organisation_units fails as expected", {
     organisation_units = get_organisation_units(
       username = "admin",
       password = "district",
-      base.url = c("https://play.dhis2.org/dev/","https://play.dhis2.org/dev/test/")
+      base.url = c("https://play.dhis2.org/dev/", "https://play.dhis2.org/dev/test/")
     ),
     regexp = cat("Assertion on',base.url,'failed: Must be of type character with length 1.")
   )
@@ -751,7 +751,7 @@ test_that("get_organisation_units fails as expected", {
 
 
 test_that("get_indicatorID_from_indicatorName works as expected", {
-  indicator_id = get_indicatorID_from_indicatorName(
+  indicator_id <- get_indicatorID_from_indicatorName(
     metadata = list(
       indicator_profile_domain = fingertipsR::indicators(),
       indicator_ids_names = fingertipsR::indicators_unique(),
@@ -798,7 +798,7 @@ test_that("get_indicatorID_from_indicatorName fails with a bad metadata list", {
 
 
 test_that("get_indicatorID_from_domainID works as expected", {
-  indicator_id = get_indicatorID_from_domainID(
+  indicator_id <- get_indicatorID_from_domainID(
     metadata = list(
       indicator_profile_domain = fingertipsR::indicators(),
       indicator_ids_names = fingertipsR::indicators_unique(),
@@ -809,7 +809,7 @@ test_that("get_indicatorID_from_domainID works as expected", {
   )
   expect_vector(indicator_id)
 
-  indicator_id = get_indicatorID_from_domainID(
+  indicator_id <- get_indicatorID_from_domainID(
     metadata = list(
       indicator_profile_domain = fingertipsR::indicators(),
       indicator_ids_names = fingertipsR::indicators_unique(),
@@ -878,7 +878,7 @@ test_that("get_indicatorID_from_domainID fails as expected", {
 
 
 test_that("get_indicatorID_from_domainName works as expected", {
-  indicator_id = get_indicatorID_from_domainName(
+  indicator_id <- get_indicatorID_from_domainName(
     metadata = list(
       indicator_profile_domain = fingertipsR::indicators(),
       indicator_ids_names = fingertipsR::indicators_unique(),
@@ -889,7 +889,7 @@ test_that("get_indicatorID_from_domainName works as expected", {
   )
   expect_vector(indicator_id)
 
-  indicator_id = get_indicatorID_from_domainName(
+  indicator_id <- get_indicatorID_from_domainName(
     metadata = list(
       indicator_profile_domain = fingertipsR::indicators(),
       indicator_ids_names = fingertipsR::indicators_unique(),
@@ -958,7 +958,7 @@ test_that("get_indicatorID_from_domainName fails as expected", {
 
 
 test_that("get_indicatorID_from_profile works as expected", {
-  indicator_id = get_indicatorID_from_profile(
+  indicator_id <- get_indicatorID_from_profile(
     metadata = list(
       indicator_profile_domain = fingertipsR::indicators(),
       indicator_ids_names = fingertipsR::indicators_unique(),
@@ -972,7 +972,7 @@ test_that("get_indicatorID_from_profile works as expected", {
   )
   expect_vector(indicator_id)
 
-  indicator_id = get_indicatorID_from_profile(
+  indicator_id <- get_indicatorID_from_profile(
     metadata = list(
       indicator_profile_domain = fingertipsR::indicators(),
       indicator_ids_names = fingertipsR::indicators_unique(),
@@ -986,7 +986,7 @@ test_that("get_indicatorID_from_profile works as expected", {
   )
   expect_vector(indicator_id)
 
-  indicator_id = get_indicatorID_from_profile(
+  indicator_id <- get_indicatorID_from_profile(
     metadata = list(
       indicator_profile_domain = fingertipsR::indicators(),
       indicator_ids_names = fingertipsR::indicators_unique(),
@@ -1122,7 +1122,7 @@ test_that("get_indicatorID_from_profile fails as expected", {
 
 
 test_that("get_fingertips_metadata works as expected", {
-  metadata = get_fingertips_metadata()
+  metadata <- get_fingertips_metadata()
   expect_type(metadata, "list")
   expect_length(metadata, 3)
   expect_named(metadata, c("indicator_profile_domain", "indicator_ids_names", "area_type"))
@@ -1130,8 +1130,3 @@ test_that("get_fingertips_metadata works as expected", {
   expect_s3_class(metadata$indicator_ids_names, "data.frame")
   expect_s3_class(metadata$area_type, "data.frame")
 })
-
-
-
-
-
