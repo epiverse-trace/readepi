@@ -306,10 +306,10 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
 test_that("readepi works as expected when reading from REDCap", {
   data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                  project.id = "TEST_REDCap",
-                  records = c("SK_1", "SK_2", "SK_3", "SK_97", "SK_98", "SK_99"),
-                  fields = c("id", "age", "sex"),
-                  id.col.name = "id"
+                  project.id = "SD_DATA",
+                  records = c("1", "3", "5"),
+                  fields = c("record_id", "name_first", "age", "bmi"),
+                  id.col.name = "record_id"
   )
   expect_type(data, "list")
   expect_length(data, 2)
@@ -318,9 +318,9 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$metadata, class = "data.frame")
 
   data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                  project.id = "TEST_REDCap",
-                  records = c("SK_1", "SK_2", "SK_3", "SK_97", "SK_98", "SK_99"),
-                  fields = c("id", "age", "sex"),
+                  project.id = "SD_DATA",
+                  records = c("1", "3", "5"),
+                  fields = c("record_id", "name_first", "age", "bmi"),
                   id.position =  1
   )
   expect_type(data, "list")
@@ -330,9 +330,9 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$metadata, class = "data.frame")
 
   data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                  project.id = "TEST_REDCap",
-                  records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
-                  fields = "id, age, sex",
+                  project.id = "SD_DATA",
+                  records = "1, 3, 5",
+                  fields = "record_id, name_first, age, bmi",
                   id.position = 1
   )
   expect_type(data, "list")
@@ -342,10 +342,10 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$metadata, class = "data.frame")
 
   data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                  project.id = "TEST_REDCap",
-                  records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
-                  fields = "id, age, sex",
-                  id.col.name = "id"
+                  project.id = "SD_DATA",
+                  records = "1, 3, 5",
+                  fields = "record_id, name_first, age, bmi",
+                  id.col.name = "record_id"
   )
   expect_type(data, "list")
   expect_length(data, 2)
@@ -354,7 +354,7 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$metadata, class = "data.frame")
 
   data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                  project.id = "TEST_REDCap",
+                  project.id = "SD_DATA",
                   records = NULL,
                   fields = NULL
   )
@@ -369,9 +369,9 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(credentials.file = c(system.file("extdata", "test.ini", package = "readepi"),
                                          system.file("extdata", "fake_test.ini", package = "readepi")),
-                    project.id = "TEST_REDCap",
-                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
-                    fields = "id, age, sex",
+                    project.id = "SD_DATA",
+                    records = "1, 3, 5",
+                    fields = "record_id, name_first, age, bmi",
                     id.col.name = "id"
     ),
     regexp = cat("Assertion on',credentials.file,'failed: Must be of type character of length 1.")
@@ -379,9 +379,9 @@ test_that("readepi fails as expected when reading from REDCap", {
 
   expect_error(
     data <- readepi(credentials.file = NULL,
-                    project.id = "TEST_REDCap",
-                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
-                    fields = "id, age, sex",
+                    project.id = "SD_DATA",
+                    records = "1, 3, 5",
+                    fields = "record_id, name_first, age, bmi",
                     id.col.name = "id"
     ),
     regexp = cat("Assertion on',credentials.file,'failed: Must be specified.")
@@ -390,8 +390,8 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
                     project.id = NULL,
-                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
-                    fields = "id, age, sex",
+                    records = "1, 3, 5",
+                    fields = "record_id, name_first, age, bmi",
                     id.col.name = "id"
     ),
     regexp = cat("Assertion on',project.id,'failed: Must be specified.")
@@ -400,8 +400,8 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
                     project.id = NA,
-                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
-                    fields = "id, age, sex",
+                    records = "1, 3, 5",
+                    fields = "record_id, name_first, age, bmi",
                     id.col.name = "id"
     ),
     regexp = cat("Assertion on',project.id,'failed: Missing value not allowed.")
@@ -409,9 +409,9 @@ test_that("readepi fails as expected when reading from REDCap", {
 
   expect_error(
     data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                    project.id = "TEST_REDCap",
+                    project.id = "SD_DATA",
                     records = NA,
-                    fields = "id, age, sex",
+                    fields = "record_id, name_first, age, bmi",
                     id.col.name = "id"
     ),
     regexp = cat("Assertion on',records,'failed: Missing value not allowed.")
@@ -419,8 +419,8 @@ test_that("readepi fails as expected when reading from REDCap", {
 
   expect_error(
     data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                    project.id = "TEST_REDCap",
-                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
+                    project.id = "SD_DATA",
+                    records = "1, 3, 5",
                     fields = NA,
                     id.col.name = "id"
     ),
@@ -429,9 +429,9 @@ test_that("readepi fails as expected when reading from REDCap", {
 
   expect_error(
     data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                    project.id = "TEST_REDCap",
-                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
-                    fields = "id, age, sex",
+                    project.id = "SD_DATA",
+                    records = "1, 3, 5",
+                    fields = "record_id, name_first, age, bmi",
                     id.col.name = NA
     ),
     regexp = cat("Assertion on',id.col.name,'failed: Missing value not allowed.")
@@ -439,9 +439,9 @@ test_that("readepi fails as expected when reading from REDCap", {
 
   expect_error(
     data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                    project.id = "TEST_REDCap",
-                    records = "SK_1, SK_2, SK_3, SK_97, SK_98, SK_99",
-                    fields = "id, age, sex",
+                    project.id = "SD_DATA",
+                    records = "1, 3, 5",
+                    fields = "record_id, name_first, age, bmi",
                     id.col.name = NULL,
                     id.position = NA
     ),
@@ -453,14 +453,14 @@ test_that("readepi fails as expected when reading from DBMS, files and folders",
   expect_error(
     data <- readepi(
       credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-      project.id = "TEST_READEPI",
+      project.id = "Rfam",
       file.path = system.file("extdata", "test.json", package = "readepi"),
       sep = NULL,
       format = NULL,
       which = NULL,
       pattern = NULL,
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.name = "covid",
+      driver.name = "",
+      table.name = "author",
       records = NULL,
       fields = NULL,
       id.position = 1
@@ -471,14 +471,14 @@ test_that("readepi fails as expected when reading from DBMS, files and folders",
   expect_error(
     data <- readepi(
       credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-      project.id = c("TEST_READEPI", "TEST_READEPI"),
+      project.id = c("Rfam", "Rfam"),
       file.path = NULL,
       sep = NULL,
       format = NULL,
       which = NULL,
       pattern = NULL,
-      driver.name = "ODBC Driver 17 for SQL Server",
-      table.name = "covid",
+      driver.name = "",
+      table.name = "author",
       records = NULL,
       fields = NULL,
       id.position = 1
@@ -489,14 +489,14 @@ test_that("readepi fails as expected when reading from DBMS, files and folders",
   expect_error(
     data <- readepi(
       credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-      project.id = "TEST_READEPI",
+      project.id = "Rfam",
       file.path = NULL,
       sep = NULL,
       format = NULL,
       which = NULL,
       pattern = NULL,
       driver.name = NULL,
-      table.name = "covid",
+      table.name = "author",
       records = NULL,
       fields = NULL,
       id.position = 1
@@ -507,14 +507,14 @@ test_that("readepi fails as expected when reading from DBMS, files and folders",
   expect_error(
     data <- readepi(
       credentials.file = NULL,
-      project.id = "TEST_READEPI",
+      project.id = "Rfam",
       file.path = NULL,
       sep = NULL,
       format = NULL,
       which = NULL,
       pattern = NULL,
       driver.name = NULL,
-      table.name = "covid",
+      table.name = "author",
       records = NULL,
       fields = NULL,
       id.position = 1
