@@ -71,15 +71,21 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
 
   # establishing the connection to the server
   con <- switch(dbms,
-               'SQLServer' = DBI::dbConnect(odbc::odbc(), driver = driver.name,
-                                            server = host, database = database.name,
-                                            uid = user, pwd = password, port = as.numeric(port)),
-               'MySQL' = DBI::dbConnect(RMySQL::MySQL(), driver = driver.name,
-                                        host = host, dbname = database.name,
-                                        user = user, password = password, port = as.numeric(port)),
-               'PostgreSQL' = DBI::dbConnect(odbc::odbc(), driver = driver.name,
-                                             host = host, database = database.name,
-                                             uid = user, pwd = password, port = as.numeric(port))
+    "SQLServer" = DBI::dbConnect(odbc::odbc(),
+      driver = driver.name,
+      server = host, database = database.name,
+      uid = user, pwd = password, port = as.numeric(port)
+    ),
+    "MySQL" = DBI::dbConnect(RMySQL::MySQL(),
+      driver = driver.name,
+      host = host, dbname = database.name,
+      user = user, password = password, port = as.numeric(port)
+    ),
+    "PostgreSQL" = DBI::dbConnect(odbc::odbc(),
+      driver = driver.name,
+      host = host, database = database.name,
+      uid = user, pwd = password, port = as.numeric(port)
+    )
   )
 
   # listing the names of the tables present in the database
@@ -88,7 +94,7 @@ read_from_ms_sql_server <- function(user, password, host, port = 1433,
   # checking if the specified table exists in the database
   if (!is.null(table.names)) {
     if (is.character(table.names)) {
-      table.names = gsub(" ","",table.names)
+      table.names <- gsub(" ", "", table.names)
       table.names <- as.character(unlist(strsplit(table.names, ",")))
     }
     idx <- which(table.names %in% tables)

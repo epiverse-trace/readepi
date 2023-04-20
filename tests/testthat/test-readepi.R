@@ -25,9 +25,9 @@ test_that("readepi works as expected when reading from Fingertips", {
     domain_name = "A. Overarching indicators",
     profile_id = 19,
     profile_name = "Public Health Outcomes Framework",
-    fields=c("IndicatorID","AreaCode","Age","Value"),
-    records=c("E12000002","E12000001","E12000009"),
-    id.col.name="AreaCode"
+    fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+    records = c("E12000002", "E12000001", "E12000009"),
+    id.col.name = "AreaCode"
   )
   expect_type(data, "list")
 
@@ -187,8 +187,10 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     data <- readepi(
-      credentials.file = c(system.file("extdata", "test.ini", package = "readepi"),
-                           system.file("extdata", "fake_test.ini", package = "readepi")),
+      credentials.file = c(
+        system.file("extdata", "test.ini", package = "readepi"),
+        system.file("extdata", "fake_test.ini", package = "readepi")
+      ),
       project.id = "DHIS2_DEMO",
       dataset = "pBOMPrpg1QX",
       organisation.unit = "DiszpKrYNg8",
@@ -202,7 +204,7 @@ test_that("readepi fails as expected when reading from DHIS2", {
   expect_error(
     data <- readepi(
       credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-      project.id = c("DHIS2_DEMO","test"),
+      project.id = c("DHIS2_DEMO", "test"),
       dataset = "pBOMPrpg1QX",
       organisation.unit = "DiszpKrYNg8",
       data.element.group = NULL,
@@ -305,11 +307,12 @@ test_that("readepi fails as expected when reading from DHIS2", {
 })
 
 test_that("readepi works as expected when reading from REDCap", {
-  data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                  project.id = "SD_DATA",
-                  records = c("1", "3", "5"),
-                  fields = c("record_id", "name_first", "age", "bmi"),
-                  id.col.name = "record_id"
+  data <- readepi(
+    credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+    project.id = "SD_DATA",
+    records = c("1", "3", "5"),
+    fields = c("record_id", "name_first", "age", "bmi"),
+    id.col.name = "record_id"
   )
   expect_type(data, "list")
   expect_length(data, 2)
@@ -317,11 +320,12 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$data, class = "data.frame")
   expect_s3_class(data$metadata, class = "data.frame")
 
-  data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                  project.id = "SD_DATA",
-                  records = c("1", "3", "5"),
-                  fields = c("record_id", "name_first", "age", "bmi"),
-                  id.position =  1
+  data <- readepi(
+    credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+    project.id = "SD_DATA",
+    records = c("1", "3", "5"),
+    fields = c("record_id", "name_first", "age", "bmi"),
+    id.position = 1
   )
   expect_type(data, "list")
   expect_length(data, 2)
@@ -329,11 +333,12 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$data, class = "data.frame")
   expect_s3_class(data$metadata, class = "data.frame")
 
-  data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                  project.id = "SD_DATA",
-                  records = "1, 3, 5",
-                  fields = "record_id, name_first, age, bmi",
-                  id.position = 1
+  data <- readepi(
+    credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+    project.id = "SD_DATA",
+    records = "1, 3, 5",
+    fields = "record_id, name_first, age, bmi",
+    id.position = 1
   )
   expect_type(data, "list")
   expect_length(data, 2)
@@ -341,11 +346,12 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$data, class = "data.frame")
   expect_s3_class(data$metadata, class = "data.frame")
 
-  data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                  project.id = "SD_DATA",
-                  records = "1, 3, 5",
-                  fields = "record_id, name_first, age, bmi",
-                  id.col.name = "record_id"
+  data <- readepi(
+    credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+    project.id = "SD_DATA",
+    records = "1, 3, 5",
+    fields = "record_id, name_first, age, bmi",
+    id.col.name = "record_id"
   )
   expect_type(data, "list")
   expect_length(data, 2)
@@ -353,10 +359,11 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$data, class = "data.frame")
   expect_s3_class(data$metadata, class = "data.frame")
 
-  data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                  project.id = "SD_DATA",
-                  records = NULL,
-                  fields = NULL
+  data <- readepi(
+    credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+    project.id = "SD_DATA",
+    records = NULL,
+    fields = NULL
   )
   expect_type(data, "list")
   expect_length(data, 2)
@@ -367,83 +374,93 @@ test_that("readepi works as expected when reading from REDCap", {
 
 test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
-    data <- readepi(credentials.file = c(system.file("extdata", "test.ini", package = "readepi"),
-                                         system.file("extdata", "fake_test.ini", package = "readepi")),
-                    project.id = "SD_DATA",
-                    records = "1, 3, 5",
-                    fields = "record_id, name_first, age, bmi",
-                    id.col.name = "id"
+    data <- readepi(
+      credentials.file = c(
+        system.file("extdata", "test.ini", package = "readepi"),
+        system.file("extdata", "fake_test.ini", package = "readepi")
+      ),
+      project.id = "SD_DATA",
+      records = "1, 3, 5",
+      fields = "record_id, name_first, age, bmi",
+      id.col.name = "id"
     ),
     regexp = cat("Assertion on',credentials.file,'failed: Must be of type character of length 1.")
   )
 
   expect_error(
-    data <- readepi(credentials.file = NULL,
-                    project.id = "SD_DATA",
-                    records = "1, 3, 5",
-                    fields = "record_id, name_first, age, bmi",
-                    id.col.name = "id"
+    data <- readepi(
+      credentials.file = NULL,
+      project.id = "SD_DATA",
+      records = "1, 3, 5",
+      fields = "record_id, name_first, age, bmi",
+      id.col.name = "id"
     ),
     regexp = cat("Assertion on',credentials.file,'failed: Must be specified.")
   )
 
   expect_error(
-    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                    project.id = NULL,
-                    records = "1, 3, 5",
-                    fields = "record_id, name_first, age, bmi",
-                    id.col.name = "id"
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = NULL,
+      records = "1, 3, 5",
+      fields = "record_id, name_first, age, bmi",
+      id.col.name = "id"
     ),
     regexp = cat("Assertion on',project.id,'failed: Must be specified.")
   )
 
   expect_error(
-    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                    project.id = NA,
-                    records = "1, 3, 5",
-                    fields = "record_id, name_first, age, bmi",
-                    id.col.name = "id"
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = NA,
+      records = "1, 3, 5",
+      fields = "record_id, name_first, age, bmi",
+      id.col.name = "id"
     ),
     regexp = cat("Assertion on',project.id,'failed: Missing value not allowed.")
   )
 
   expect_error(
-    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                    project.id = "SD_DATA",
-                    records = NA,
-                    fields = "record_id, name_first, age, bmi",
-                    id.col.name = "id"
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "SD_DATA",
+      records = NA,
+      fields = "record_id, name_first, age, bmi",
+      id.col.name = "id"
     ),
     regexp = cat("Assertion on',records,'failed: Missing value not allowed.")
   )
 
   expect_error(
-    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                    project.id = "SD_DATA",
-                    records = "1, 3, 5",
-                    fields = NA,
-                    id.col.name = "id"
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "SD_DATA",
+      records = "1, 3, 5",
+      fields = NA,
+      id.col.name = "id"
     ),
     regexp = cat("Assertion on',fields,'failed: Missing value not allowed.")
   )
 
   expect_error(
-    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                    project.id = "SD_DATA",
-                    records = "1, 3, 5",
-                    fields = "record_id, name_first, age, bmi",
-                    id.col.name = NA
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "SD_DATA",
+      records = "1, 3, 5",
+      fields = "record_id, name_first, age, bmi",
+      id.col.name = NA
     ),
     regexp = cat("Assertion on',id.col.name,'failed: Missing value not allowed.")
   )
 
   expect_error(
-    data <- readepi(credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-                    project.id = "SD_DATA",
-                    records = "1, 3, 5",
-                    fields = "record_id, name_first, age, bmi",
-                    id.col.name = NULL,
-                    id.position = NA
+    data <- readepi(
+      credentials.file = system.file("extdata", "test.ini", package = "readepi"),
+      project.id = "SD_DATA",
+      records = "1, 3, 5",
+      fields = "record_id, name_first, age, bmi",
+      id.col.name = NULL,
+      id.position = NA
     ),
     regexp = cat("Assertion on',id.position,'failed: Missing value not allowed.")
   )
@@ -552,9 +569,9 @@ test_that("readepi fails as expected when reading from Fingertips", {
       domain_name = "A. Overarching indicators",
       profile_id = 19,
       profile_name = "Public Health Outcomes Framework",
-      fields=c("IndicatorID","AreaCode","Age","Value"),
-      records=c("E12000002","E12000001","E12000009"),
-      id.col.name="AreaCode"
+      fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+      records = c("E12000002", "E12000001", "E12000009"),
+      id.col.name = "AreaCode"
     ),
     regexp = cat("Assertion on',indicator_id,'failed: Missing value not allowed.")
   )
@@ -568,9 +585,9 @@ test_that("readepi fails as expected when reading from Fingertips", {
       domain_name = "A. Overarching indicators",
       profile_id = 19,
       profile_name = "Public Health Outcomes Framework",
-      fields=c("IndicatorID","AreaCode","Age","Value"),
-      records=c("E12000002","E12000001","E12000009"),
-      id.col.name="AreaCode"
+      fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+      records = c("E12000002", "E12000001", "E12000009"),
+      id.col.name = "AreaCode"
     ),
     regexp = cat("Assertion on',indicator_name,'failed: Missing value not allowed.")
   )
@@ -584,9 +601,9 @@ test_that("readepi fails as expected when reading from Fingertips", {
       domain_name = "A. Overarching indicators",
       profile_id = 19,
       profile_name = "Public Health Outcomes Framework",
-      fields=c("IndicatorID","AreaCode","Age","Value"),
-      records=c("E12000002","E12000001","E12000009"),
-      id.col.name="AreaCode"
+      fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+      records = c("E12000002", "E12000001", "E12000009"),
+      id.col.name = "AreaCode"
     ),
     regexp = cat("Assertion on',area_type_id,'failed: Missing value not allowed.")
   )
@@ -600,9 +617,9 @@ test_that("readepi fails as expected when reading from Fingertips", {
       domain_name = "A. Overarching indicators",
       profile_id = 19,
       profile_name = "Public Health Outcomes Framework",
-      fields=c("IndicatorID","AreaCode","Age","Value"),
-      records=c("E12000002","E12000001","E12000009"),
-      id.col.name="AreaCode"
+      fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+      records = c("E12000002", "E12000001", "E12000009"),
+      id.col.name = "AreaCode"
     ),
     regexp = cat("Assertion on',domain_id,'failed: Missing value not allowed.")
   )
@@ -616,9 +633,9 @@ test_that("readepi fails as expected when reading from Fingertips", {
       domain_name = NA,
       profile_id = 19,
       profile_name = "Public Health Outcomes Framework",
-      fields=c("IndicatorID","AreaCode","Age","Value"),
-      records=c("E12000002","E12000001"),
-      id.col.name="AreaCode"
+      fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+      records = c("E12000002", "E12000001"),
+      id.col.name = "AreaCode"
     ),
     regexp = cat("Assertion on',domain_name,'failed: Missing value not allowed.")
   )
@@ -632,9 +649,9 @@ test_that("readepi fails as expected when reading from Fingertips", {
       domain_name = "A. Overarching indicators",
       profile_id = NA,
       profile_name = "Public Health Outcomes Framework",
-      fields=c("IndicatorID","AreaCode","Age","Value"),
-      records=c("E12000002","E12000001","E12000009"),
-      id.col.name="AreaCode"
+      fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+      records = c("E12000002", "E12000001", "E12000009"),
+      id.col.name = "AreaCode"
     ),
     regexp = cat("Assertion on',profile_id,'failed: Missing value not allowed.")
   )
@@ -648,9 +665,9 @@ test_that("readepi fails as expected when reading from Fingertips", {
       domain_name = "A. Overarching indicators",
       profile_id = 19,
       profile_name = NA,
-      fields=c("IndicatorID","AreaCode","Age","Value"),
-      records=c("E12000002","E12000001","E12000009"),
-      id.col.name="AreaCode"
+      fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+      records = c("E12000002", "E12000001", "E12000009"),
+      id.col.name = "AreaCode"
     ),
     regexp = cat("Assertion on',profile_name,'failed: Missing value not allowed.")
   )

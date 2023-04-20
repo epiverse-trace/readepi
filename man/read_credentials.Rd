@@ -22,7 +22,9 @@ Read credentials from a configuration file
 }
 \examples{
 \dontrun{
-credentials <- read_credentials(file.path = system.file("extdata", "test.ini", package = "readepi"),
-project.id = "TEST_READEPI")
+credentials <- read_credentials(
+  file.path = system.file("extdata", "test.ini", package = "readepi"),
+  project.id = "TEST_READEPI"
+)
 }
 }

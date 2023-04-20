@@ -115,8 +115,8 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "Rfam",
     driver.name = "",
     table.names = "author",
-    records = c("1","34","15","70","118","20"),
-    fields = c("author_id","name","last_name","initials"),
+    records = c("1", "34", "15", "70", "118", "20"),
+    fields = c("author_id", "name", "last_name", "initials"),
     id.position = 1,
     id.col.name = NULL,
     dbms = "MySQL"
@@ -133,8 +133,8 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "Rfam",
     driver.name = "",
     table.names = "author",
-    records = c("1","34","15","70","118","20"),
-    fields = c("author_id","name","last_name","initials"),
+    records = c("1", "34", "15", "70", "118", "20"),
+    fields = c("author_id", "name", "last_name", "initials"),
     id.position = NULL,
     id.col.name = "author_id",
     dbms = "MySQL"
@@ -223,10 +223,12 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "Rfam",
     driver.name = "",
     table.names = "author,family_author",
-    records = c("1,34,15,70,118,20",
-                "RF00520,RF00592,RF01421,RF01527"),
+    records = c(
+      "1,34,15,70,118,20",
+      "RF00520,RF00592,RF01421,RF01527"
+    ),
     fields = NULL,
-    id.position = c(1,1),
+    id.position = c(1, 1),
     id.col.name = NULL,
     dbms = "MySQL"
   )
@@ -242,8 +244,10 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "Rfam",
     driver.name = "",
     table.names = "author,family_author",
-    records = c("1,34,15,70,118,20",
-                          "RF00520,RF00592,RF01421,RF01527"),
+    records = c(
+      "1,34,15,70,118,20",
+      "RF00520,RF00592,RF01421,RF01527"
+    ),
     fields = NULL,
     id.position = NULL,
     id.col.name = c("author_id", "rfam_acc"),
@@ -261,11 +265,15 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "Rfam",
     driver.name = "",
     table.names = "author,family_author",
-    records = c("1,34,15,70,118,20",
-                "RF00520,RF00592,RF01421,RF01527"),
-    fields = c("author_id,name,last_name,initials",
-               "rfam_acc","author_id"),
-    id.position = c(1,1),
+    records = c(
+      "1,34,15,70,118,20",
+      "RF00520,RF00592,RF01421,RF01527"
+    ),
+    fields = c(
+      "author_id,name,last_name,initials",
+      "rfam_acc", "author_id"
+    ),
+    id.position = c(1, 1),
     id.col.name = NULL,
     dbms = "MySQL"
   )
@@ -281,12 +289,16 @@ test_that("read_from_ms_sql_server works with valid input", {
     database.name = "Rfam",
     driver.name = "",
     table.names = "author,family_author",
-    records = c("1,34,15,70,118,20",
-                "RF00520,RF00592,RF01421,RF01527"),
-    fields = c("author_id,name,last_name,initials",
-               "rfam_acc","author_id"),
+    records = c(
+      "1,34,15,70,118,20",
+      "RF00520,RF00592,RF01421,RF01527"
+    ),
+    fields = c(
+      "author_id,name,last_name,initials",
+      "rfam_acc", "author_id"
+    ),
     id.position = NULL,
-    id.col.name = c("author_id","rfam_acc"),
+    id.col.name = c("author_id", "rfam_acc"),
     dbms = "MySQL"
   )
   expect_type(res, "list")
@@ -302,8 +314,8 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118","20"),
-      fields = c("author_id","name","last_name","initials"),
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -320,8 +332,8 @@ test_that("read_from_ms_sql_server fails with port of type character", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118","20"),
-      fields = c("author_id","name","last_name","initials"),
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 1,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -614,8 +626,8 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -632,8 +644,8 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -651,7 +663,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       driver.name = "",
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -668,7 +680,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118", "20"),
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "author_id",
@@ -686,7 +698,7 @@ test_that("read_from_ms_sql_server fails with negative port", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118", "20"),
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
       id.col.name = NULL,
@@ -1038,8 +1050,8 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = -5,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -1056,7 +1068,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118","20"),
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = -5,
       id.col.name = "author_id",
@@ -1170,8 +1182,8 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NA,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -1188,7 +1200,7 @@ test_that("read_from_ms_sql_server fails with invalid id.position", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118", "20"),
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NA,
       id.col.name = NULL,
@@ -1227,8 +1239,8 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -1245,8 +1257,8 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      records = c("1", "34", "15", "70", "118", "20"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -1264,7 +1276,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       driver.name = "",
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -1281,7 +1293,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118","20"),
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = NULL,
       id.col.name = "author_id",
@@ -1299,7 +1311,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
-      records = c("1","34","15","70","118","20"),
+      records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
       id.position = 5,
       id.col.name = "author_id",
@@ -1523,7 +1535,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -1541,7 +1553,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -1559,7 +1571,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       driver.name = "",
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -1792,7 +1804,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1810,7 +1822,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1828,7 +1840,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1846,7 +1858,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1854,7 +1866,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
       driver.name = "",
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -1864,7 +1876,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1882,7 +1894,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1902,7 +1914,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1920,7 +1932,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1938,7 +1950,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1956,7 +1968,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1974,7 +1986,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -1994,7 +2006,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 test_that("read_from_ms_sql_server fails with bad user name", {
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -2012,7 +2024,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -2030,7 +2042,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -2048,7 +2060,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -2066,7 +2078,7 @@ test_that("read_from_ms_sql_server fails with bad user name", {
 
   expect_error(
     read_from_ms_sql_server(
-      user = c("rfamro","trace"),
+      user = c("rfamro", "trace"),
       password = "",
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
@@ -2121,7 +2133,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -2139,7 +2151,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -2157,7 +2169,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       driver.name = "",
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -2416,7 +2428,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -2434,7 +2446,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -2452,7 +2464,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       driver.name = "",
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -2686,7 +2698,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2704,14 +2716,14 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -2722,14 +2734,14 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -2740,14 +2752,14 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -2758,7 +2770,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2776,7 +2788,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2796,7 +2808,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2814,7 +2826,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2832,7 +2844,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2850,7 +2862,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2868,7 +2880,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2888,7 +2900,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2906,7 +2918,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2924,7 +2936,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2942,7 +2954,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -2960,7 +2972,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
   expect_error(
     read_from_ms_sql_server(
       user = "rfamro",
-      password = c("rfamro","trace"),
+      password = c("rfamro", "trace"),
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
@@ -3018,7 +3030,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -3036,7 +3048,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -3054,7 +3066,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
       driver.name = "",
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -3295,7 +3307,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -3313,7 +3325,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -3331,7 +3343,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
       driver.name = "",
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -3566,7 +3578,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3584,13 +3596,13 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "mysql-rfam-public.ebi.ac.uk",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -3602,13 +3614,13 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -3620,13 +3632,13 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -3638,7 +3650,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3656,7 +3668,7 @@ test_that("read_from_ms_sql_server fails with incorrect host name", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3676,7 +3688,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3694,7 +3706,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3712,7 +3724,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3730,7 +3742,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3748,7 +3760,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3768,7 +3780,7 @@ test_that("read_from_ms_sql_server fails with incorrect host", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3786,7 +3798,7 @@ test_that("read_from_ms_sql_server fails with incorrect host", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3804,7 +3816,7 @@ test_that("read_from_ms_sql_server fails with incorrect host", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3822,7 +3834,7 @@ test_that("read_from_ms_sql_server fails with incorrect host", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3840,7 +3852,7 @@ test_that("read_from_ms_sql_server fails with incorrect host", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -3895,7 +3907,7 @@ test_that("read_from_ms_sql_server fails with incorrect driver name", {
       driver.name = NULL,
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -3913,7 +3925,7 @@ test_that("read_from_ms_sql_server fails with incorrect driver name", {
       driver.name = NULL,
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -3931,7 +3943,7 @@ test_that("read_from_ms_sql_server fails with incorrect driver name", {
       driver.name = NULL,
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -4172,7 +4184,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       driver.name = NA,
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -4190,7 +4202,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       driver.name = NA,
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -4208,7 +4220,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       driver.name = NA,
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -4446,7 +4458,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = NULL,
       fields = NULL,
@@ -4464,10 +4476,10 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -4482,10 +4494,10 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -4500,10 +4512,10 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -4518,7 +4530,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
@@ -4536,7 +4548,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = c("1", "34", "15", "70", "118", "20"),
       fields = NULL,
@@ -4556,7 +4568,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = "1,34,15,70,118,20",
       fields = "author_id,name,last_name,initials",
@@ -4574,7 +4586,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = "1,34,15,70,118,20",
       fields = "author_id,name,last_name,initials",
@@ -4592,7 +4604,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = NULL,
       fields = "author_id,name,last_name,initials",
@@ -4610,7 +4622,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = "1,34,15,70,118,20",
       fields = NULL,
@@ -4628,7 +4640,7 @@ test_that("read_from_ms_sql_server fails with incorrect MS SQL driver name", {
       host = "mysql-rfam-public.ebi.ac.uk",
       port = 4497,
       database.name = "Rfam",
-      driver.name = c("","ODBC Driver 18 for SQL Server"),
+      driver.name = c("", "ODBC Driver 18 for SQL Server"),
       table.names = "author",
       records = "1,34,15,70,118,20",
       fields = NULL,
@@ -4672,7 +4684,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -4690,7 +4702,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -4708,7 +4720,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -4726,7 +4738,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -4744,7 +4756,7 @@ test_that("read_from_ms_sql_server fails with incorrect password", {
     read_from_ms_sql_server(
       user = "rfamro",
       password = "",
-      host = c("mysql-rfam-public.ebi.ac.uk","172.23.33.90"),
+      host = c("mysql-rfam-public.ebi.ac.uk", "172.23.33.90"),
       port = 4497,
       database.name = "Rfam",
       driver.name = "",
@@ -4796,7 +4808,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       driver.name = "",
       table.names = NA,
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = "author_id",
       dbms = "MySQL"
@@ -4814,7 +4826,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       driver.name = "",
       table.names = NA,
       records = c("1", "34", "15", "70", "118", "20"),
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = 5,
       id.col.name = NULL,
       dbms = "MySQL"
@@ -4832,7 +4844,7 @@ test_that("read_from_ms_sql_server fails with missing MS SQL driver name", {
       driver.name = "",
       table.names = NA,
       records = NULL,
-      fields = c("author_id","name","last_name","initials"),
+      fields = c("author_id", "name", "last_name", "initials"),
       id.position = NULL,
       id.col.name = NULL,
       dbms = "MySQL"

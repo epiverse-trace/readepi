@@ -123,10 +123,11 @@ data <- readepi(
 )
 
 # READING FROM FINFERTIPS
-data = readepi(indicator_id=90362, 
-               area_type_id=202, 
-               parent_area_type_id=6  # optional
-               )
+data <- readepi(
+  indicator_id = 90362,
+  area_type_id = 202,
+  parent_area_type_id = 6 # optional
+)
 ```
 
 ## Vignette

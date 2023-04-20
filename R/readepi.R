@@ -44,20 +44,20 @@ readepi <- function(credentials.file = NULL,
   checkmate::assertCharacter(credentials.file, len = 1L, null.ok = TRUE)
   checkmate::assertCharacter(file.path, len = 1L, null.ok = TRUE)
   checkmate::assert_vector(records,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(fields,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(id.position,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = FALSE
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = FALSE
   )
   checkmate::assert_vector(id.col.name,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
   )
 
   # get the additional arguments
@@ -70,66 +70,148 @@ readepi <- function(credentials.file = NULL,
 
   # reading from file
   if (!is.null(file.path)) {
-    if("sep" %in% names(args.list)){sep = args.list$sep} else {sep=NULL}
-    if("format" %in% names(args.list)){format = args.list$format} else {format=NULL}
-    if("which" %in% names(args.list)){which = args.list$which} else {which=NULL}
-    if("pattern" %in% names(args.list)){pattern=args.list$pattern} else {pattern=NULL}
-    res <- read_from_file(file.path, sep = sep, format = format,
-                          which = which, pattern = pattern)
+    if ("sep" %in% names(args.list)) {
+      sep <- args.list$sep
+    } else {
+      sep <- NULL
+    }
+    if ("format" %in% names(args.list)) {
+      format <- args.list$format
+    } else {
+      format <- NULL
+    }
+    if ("which" %in% names(args.list)) {
+      which <- args.list$which
+    } else {
+      which <- NULL
+    }
+    if ("pattern" %in% names(args.list)) {
+      pattern <- args.list$pattern
+    } else {
+      pattern <- NULL
+    }
+    res <- read_from_file(file.path,
+      sep = sep, format = format,
+      which = which, pattern = pattern
+    )
   }
 
   # reading from Fingertips
-  if("indicator_id" %in% names(args.list) |
-     "indicator_name" %in% names(args.list) |
-     "area_type_id" %in% names(args.list) |
-     "profile_id" %in% names(args.list) |
-     "profile_name" %in% names(args.list) |
-     "domain_id" %in% names(args.list) |
-     "domain_name" %in% names(args.list)){
-    if("indicator_id" %in% names(args.list)){indicator_id = args.list$indicator_id} else {indicator_id=NULL}
-    if("indicator_name" %in% names(args.list)){indicator_name = args.list$indicator_name} else {indicator_name=NULL}
-    if("area_type_id" %in% names(args.list)){area_type_id = args.list$area_type_id} else {area_type_id=NULL}
-    if("profile_id" %in% names(args.list)){profile_id = args.list$profile_id} else {profile_id=NULL}
-    if("profile_name" %in% names(args.list)){profile_name = args.list$profile_name} else {profile_name=NULL}
-    if("domain_id" %in% names(args.list)){domain_id = args.list$domain_id} else {domain_id=NULL}
-    if("domain_name" %in% names(args.list)){domain_name = args.list$domain_name} else {domain_name=NULL}
-    if("parent_area_type_id" %in% names(args.list)){parent_area_type_id = args.list$parent_area_type_id} else {parent_area_type_id=NULL}
-    res = read_from_fingertips(indicator_id=indicator_id, indicator_name=indicator_name,
-                               area_type_id=area_type_id, parent_area_type_id=parent_area_type_id,
-                               profile_id=profile_id, profile_name=profile_name,
-                               domain_id=domain_id, domain_name=domain_name,
-                               fields=fields, records=records,
-                               id.position=id.position, id.col.name=id.col.name
-                               )
+  if ("indicator_id" %in% names(args.list) |
+    "indicator_name" %in% names(args.list) |
+    "area_type_id" %in% names(args.list) |
+    "profile_id" %in% names(args.list) |
+    "profile_name" %in% names(args.list) |
+    "domain_id" %in% names(args.list) |
+    "domain_name" %in% names(args.list)) {
+    if ("indicator_id" %in% names(args.list)) {
+      indicator_id <- args.list$indicator_id
+    } else {
+      indicator_id <- NULL
+    }
+    if ("indicator_name" %in% names(args.list)) {
+      indicator_name <- args.list$indicator_name
+    } else {
+      indicator_name <- NULL
+    }
+    if ("area_type_id" %in% names(args.list)) {
+      area_type_id <- args.list$area_type_id
+    } else {
+      area_type_id <- NULL
+    }
+    if ("profile_id" %in% names(args.list)) {
+      profile_id <- args.list$profile_id
+    } else {
+      profile_id <- NULL
+    }
+    if ("profile_name" %in% names(args.list)) {
+      profile_name <- args.list$profile_name
+    } else {
+      profile_name <- NULL
+    }
+    if ("domain_id" %in% names(args.list)) {
+      domain_id <- args.list$domain_id
+    } else {
+      domain_id <- NULL
+    }
+    if ("domain_name" %in% names(args.list)) {
+      domain_name <- args.list$domain_name
+    } else {
+      domain_name <- NULL
+    }
+    if ("parent_area_type_id" %in% names(args.list)) {
+      parent_area_type_id <- args.list$parent_area_type_id
+    } else {
+      parent_area_type_id <- NULL
+    }
+    res <- read_from_fingertips(
+      indicator_id = indicator_id, indicator_name = indicator_name,
+      area_type_id = area_type_id, parent_area_type_id = parent_area_type_id,
+      profile_id = profile_id, profile_name = profile_name,
+      domain_id = domain_id, domain_name = domain_name,
+      fields = fields, records = records,
+      id.position = id.position, id.col.name = id.col.name
+    )
   }
 
   # reading from DBMS
   if (!is.null(credentials.file)) {
-    if("project.id" %in% names(args.list)){project.id = args.list$project.id}
-    else {stop("The project ID/database name must be provided to read data from DBMS.")}
+    if ("project.id" %in% names(args.list)) {
+      project.id <- args.list$project.id
+    } else {
+      stop("The project ID/database name must be provided to read data from DBMS.")
+    }
     credentials <- read_credentials(credentials.file, project.id)
-    if (credentials$dbms=="REDCap") {
+    if (credentials$dbms == "REDCap") {
       res <- read_from_redcap(
         uri = credentials$host, token = credentials$pwd,
         id.position = id.position, id.col.name = id.col.name,
         records = records, fields = fields
       )
     } else if (credentials$dbms %in% c("MySQL", "SQLServer", "PostgreSQL")) {
-      if("table.name" %in% names(args.list)){table.name = args.list$table.name} else {table.name=NULL}
-      if("driver.name" %in% names(args.list)){driver.name = args.list$driver.name} else {driver.name=""}
+      if ("table.name" %in% names(args.list)) {
+        table.name <- args.list$table.name
+      } else {
+        table.name <- NULL
+      }
+      if ("driver.name" %in% names(args.list)) {
+        driver.name <- args.list$driver.name
+      } else {
+        driver.name <- ""
+      }
       res <- read_from_ms_sql_server(
         user = credentials$user, password = credentials$pwd,
         host = credentials$host, port = credentials$port,
         database.name = credentials$project, table.names = table.name,
         driver.name = driver.name, records = records, fields = fields,
-        id.position = id.position, id.col.name = id.col.name, dbms=credentials$dbms
+        id.position = id.position, id.col.name = id.col.name, dbms = credentials$dbms
       )
     } else if (credentials$dbms %in% c("dhis2", "DHIS2")) {
-      if("dataset" %in% names(args.list)){dataset = args.list$dataset} else {dataset=NULL}
-      if("organisation.unit" %in% names(args.list)){organisation.unit = args.list$organisation.unit} else {organisation.unit=NULL}
-      if("data.element.group" %in% names(args.list)){data.element.group = args.list$data.element.group} else {data.element.group=NULL}
-      if("start.date" %in% names(args.list)){start.date = args.list$start.date} else {start.date=NULL}
-      if("end.date" %in% names(args.list)){end.date = args.list$end.date} else {end.date=NULL}
+      if ("dataset" %in% names(args.list)) {
+        dataset <- args.list$dataset
+      } else {
+        dataset <- NULL
+      }
+      if ("organisation.unit" %in% names(args.list)) {
+        organisation.unit <- args.list$organisation.unit
+      } else {
+        organisation.unit <- NULL
+      }
+      if ("data.element.group" %in% names(args.list)) {
+        data.element.group <- args.list$data.element.group
+      } else {
+        data.element.group <- NULL
+      }
+      if ("start.date" %in% names(args.list)) {
+        start.date <- args.list$start.date
+      } else {
+        start.date <- NULL
+      }
+      if ("end.date" %in% names(args.list)) {
+        end.date <- args.list$end.date
+      } else {
+        end.date <- NULL
+      }
       res <- read_from_dhis2(
         base.url = credentials$host, user.name = credentials$user,
         password = credentials$pwd, dataset = dataset,
