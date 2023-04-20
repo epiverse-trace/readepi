@@ -105,7 +105,6 @@ show_tables(
 )
 
 # READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
-## ON MAC AND LINUX
 data <- readepi(
   credentials.file = credentials.file,
   project.id = "Rfam", # this is the database name

@@ -8,8 +8,8 @@
 #' @examples
 #' \dontrun{
 #' redcap.data <- read_from_redcap(
-#'   uri = "http://172.23.33.99/redcap_v13.4.8/API/",
-#'   token = "7C9E783877D94E0C1E67B662054CD253",
+#'   uri = "https://bbmc.ouhsc.edu/redcap/api/",
+#'   token = "9A81268476645C4E5F03428B8AC3AA7B",
 #'   id.position = 1,
 #'   id.col.name = NULL,
 #'   records = NULL,
@@ -21,9 +21,9 @@
 read_from_redcap <- function(uri, token, id.position = 1, id.col.name = NULL,
                              records = NULL, fields = NULL) {
   # check input variables
-  checkmate::assert_number(id.position, lower = 1, null.ok = TRUE)
-  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE)
-  checkmate::assert_character(uri, len = 1, null.ok = FALSE)
+  checkmate::assert_number(id.position, lower = 1, null.ok = TRUE, na.ok = FALSE)
+  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE, any.missing = FALSE)
+  checkmate::assert_character(uri, len = 1, null.ok = FALSE, any.missing = FALSE)
   checkmate::assert_vector(records,
     any.missing = FALSE, min.len = 1,
     null.ok = TRUE, unique = TRUE
