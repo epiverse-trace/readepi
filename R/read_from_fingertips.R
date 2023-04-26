@@ -8,10 +8,14 @@
 #' @param profile_name a vector or a comma-separated list of profile names
 #' @param domain_id a vector of domain IDs
 #' @param domain_name a vector or a comma-separated list of domain names
-#' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
-#' @param records a vector or a comma-separated string of records. When specified, only these records will be imported.
-#' @param id.position the column position of the variable that unique identifies the subjects. When the name of the column with the subject IDs is known, this can be provided using the `id.col.name` argument
-#' @param id.col.name the column name with the subject IDs.
+#' @param fields a vector or a comma-separated string of column names.
+#' If provided, only those columns will be imported.
+#' @param records a vector or a comma-separated string of records.
+#' When specified, only these records will be imported.
+#' @param id_position the column position of the variable that unique identifies
+#' the subjects. When the name of the column with the subject IDs is known,
+#' this can be provided using the `id_col_name` argument
+#' @param id_col_name the column name with the subject IDs.
 #'
 #' @return a data frame
 #' @export
@@ -25,7 +29,7 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
                                  profile_id = NULL, profile_name = NULL,
                                  domain_id = NULL, domain_name = NULL,
                                  fields = NULL, records = NULL,
-                                 id.position = NULL, id.col.name = NULL) {
+                                 id_position = NULL, id_col_name = NULL) {
   checkmate::assert_vector(indicator_id,
     any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
@@ -66,14 +70,17 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
     any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
-  checkmate::assert_number(id.position, null.ok = TRUE, na.ok = FALSE, lower = 1)
-  checkmate::assert_character(id.col.name, any.missing = FALSE, len = 1, null.ok = TRUE)
-
+  checkmate::assert_number(id_position, null.ok = TRUE, na.ok = FALSE,
+                           lower = 1)
+  checkmate::assert_character(id_col_name, any.missing = FALSE, len = 1,
+                              null.ok = TRUE)
 
   # check if one of these is not provided
-  if (is.null(profile_id) & is.null(indicator_id) & is.null(domain_id) &
-    is.null(profile_name) & is.null(indicator_name) & is.null(domain_name)) {
-    stop("\nPlease use the get_fingertips_metadata() function to see the Fingertips metadata.")
+  if (all(is.null(profile_id) & is.null(indicator_id) & is.null(domain_id) &
+          is.null(profile_name) & is.null(indicator_name) &
+          is.null(domain_name))) {
+    stop("\nPlease use the get_fingertips_metadata() function to see the
+         Fingertips metadata.")
   }
 
   # extract the metadata
@@ -81,76 +88,51 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
 
   # check if the area type ID is not provided
   if (is.null(area_type_id)) {
-    message("\narea_type_id not provided! Please choose an area type ID from the list below:\n")
+    message("\narea_type_id not provided! Please choose an area type ID from the
+            list below:\n")
     print(metadata$area_type)
     stop()
   }
 
   # get the indicator ID from the indicator name
-  if (!is.null(indicator_name) & is.null(indicator_id)) {
-    indicator_id <- get_indicatorID_from_indicatorName(metadata, indicator_name)
+  if (!is.null(indicator_name) && is.null(indicator_id)) {
+    indicator_id <- get_ind_id_from_ind_name(metadata,
+                                             indicator_name)
   }
 
   # get the indicator ID from the domain ID
-  if (!is.null(domain_id) & is.null(indicator_id)) {
-    indicator_id <- get_indicatorID_from_domainID(metadata, domain_id, indicator_name)
+  if (!is.null(domain_id) && is.null(indicator_id)) {
+    indicator_id <- get_ind_id_from_domain_id(metadata, domain_id,
+                                                  indicator_name)
   }
 
   # get the indicator ID from the domain name
-  if (!is.null(domain_name) & is.null(indicator_id) & is.null(domain_id)) {
-    indicator_id <- get_indicatorID_from_domainName(metadata, domain_name, indicator_name)
+  if (!is.null(domain_name) &&
+      all(is.null(indicator_id) & is.null(domain_id))) {
+    indicator_id <- get_ind_id_from_domain_name(metadata, domain_name,
+                                                    indicator_name)
   }
   # get the indicator ID from the profile ID or profile name
-  if ((!is.null(profile_id) | !is.null(profile_name)) & is.null(indicator_id)) {
-    indicator_id <- get_indicatorID_from_profile(
+  if (any(!is.null(profile_id) | !is.null(profile_name)) &&
+      is.null(indicator_id)) {
+    indicator_id <- get_ind_id_from_profile(
       metadata, domain_id, domain_name,
       indicator_name, profile_name, profile_id
     )
   }
 
   # extract the data
-  if (is.null(parent_area_type_id)) {
-    data <- fingertipsR::fingertips_data(
-      IndicatorID = indicator_id,
-      AreaTypeID = area_type_id
-    )
-  } else {
-    data <- fingertipsR::fingertips_data(
-      IndicatorID = indicator_id,
-      AreaTypeID = area_type_id,
-      ParentAreaTypeID = parent_area_type_id
-    )
-  }
+  data <- data <- fingertipsR::fingertips_data(
+    IndicatorID = indicator_id,
+    AreaTypeID = area_type_id,
+    ParentAreaTypeID = parent_area_type_id
+  )
 
   # subset columns
-  if (!is.null(fields)) {
-    id.col.name <- ifelse(!is.null(id.col.name), id.col.name,
-      names(data)[id.position]
-    )
-    fields <- unlist(strsplit(fields, ","))
-    fields <- gsub(" ", "", fields)
-    idx <- which(fields %in% names(data))
-    if (length(idx) == 0) {
-      stop("\nCould not find specified fields. The field names in the dataset are:\n", print(names(data)))
-    } else if (length(idx) != length(fields)) {
-      warning("\nCould not find the following fields:\n", print(fields[-idx]))
-    } else {
-      data <- data %>% dplyr::select(dplyr::all_of(fields[idx]))
-    }
-  }
+  data <- fingertips_subset_columns(fields, id_position, data, id_col_name)
 
   # subset rows
-  if (!is.null(records)) {
-    records <- unlist(strsplit(records, ","))
-    records <- gsub(" ", "", records)
-    if (all(records %in% data[[id.col.name]])) {
-      data <- data[which(data[[id.col.name]] %in% records), ]
-    } else {
-      idx <- which(records %in% data[[id.col.name]])
-      warning("\n", length(records[-idx]), " records were not found in the data.")
-      data <- data[which(data[[id.col.name]] %in% records[idx]), ]
-    }
-  }
+  data <- fingertips_subset_rows(records, id_col_name, data)
 
   list(data = data)
 }

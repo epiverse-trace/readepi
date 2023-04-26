@@ -4,17 +4,18 @@
 \alias{subset_fields}
 \title{Subset fields}
 \usage{
-subset_fields(data.frame, fields, table.name)
+subset_fields(data_frame, fields, table_name)
 }
 \arguments{
-\item{data.frame}{the input data frame}
+\item{data_frame}{the input data frame}
 
 \item{fields}{the list of columns of interest}
 
-\item{table.name}{the table names}
+\item{table_name}{the table names}
 }
 \value{
-a list of 2 elements: the subset data frame and an integer that tells whether all fields were missing in the table (1) or not (0)
+a list of 2 elements: the subset data frame and an integer that
+tells whether all fields were missing in the table (1) or not (0)
 }
 \description{
 Subset fields
@@ -22,9 +23,9 @@ Subset fields
 \examples{
 \dontrun{
 data <- subset_fields(
-  data.frame = data.frame,
+  data_frame = data_frame,
   fields = "date,sex,age",
-  table.name = "covid"
+  table_name = "covid"
 )
 }
 }

@@ -4,14 +4,17 @@
 \alias{show_tables}
 \title{Display the list of tables in a database}
 \usage{
-show_tables(credentials.file, project.id, driver.name)
+show_tables(credentials_file, project_id, driver_name)
 }
 \arguments{
-\item{credentials.file}{the path to the file with the user-specific credential details for the projects of interest. See the help of the \code{readepi} function for more details.}
+\item{credentials_file}{the path to the file with the user-specific
+credential details for the projects of interest. See the help of
+the \code{readepi} function for more details.}
 
-\item{project.id}{the name of the target database}
+\item{project_id}{the name of the target database}
 
-\item{driver.name}{the name of the MS driver. use \code{odbc::odbcListDrivers()} to display the list of installed drivers}
+\item{driver_name}{the name of the MS driver. use \code{odbc::odbcListDrivers()}
+to display the list of installed drivers}
 }
 \value{
 the list of tables in the specified database
@@ -22,9 +25,9 @@ Display the list of tables in a database
 \examples{
 \dontrun{
 show_tables(
-  credentials.file = system.file("extdata", "test.ini", package = "readepi"),
-  project.id = "IBS_BHDSS",
-  driver.name = "ODBC Driver 17 for SQL Server"
+  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+  project_id = "IBS_BHDSS",
+  driver_name = "ODBC Driver 17 for SQL Server"
 )
 }
 }

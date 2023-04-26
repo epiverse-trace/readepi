@@ -4,10 +4,10 @@
 \alias{get_organisation_units}
 \title{Get the organisation unit identifiers and names}
 \usage{
-get_organisation_units(base.url, username, password)
+get_organisation_units(base_url, username, password)
 }
 \arguments{
-\item{base.url}{the base URL of the DHIS2 server}
+\item{base_url}{the base URL of the DHIS2 server}
 
 \item{username}{the user name}
 

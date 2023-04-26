@@ -4,25 +4,28 @@
 \alias{subset_records}
 \title{Subset records}
 \usage{
-subset_records(data.frame, records, id.position = 1, table.name)
+subset_records(data_frame, records, id_position = 1, table_name)
 }
 \arguments{
-\item{data.frame}{the input data frame}
+\item{data_frame}{the input data frame}
 
 \item{records}{the list of columns of interest}
 
-\item{id.position}{a vector of the column position of the variable that unique identifies the subjects. If not provided, it will assumes the first column as the subject ID column in all the tables}
+\item{id_position}{a vector of the column position of the variable that
+unique identifies the subjects. If not provided, it will assumes the first
+column as the subject ID column in all the tables}
 
-\item{table.name}{the table name}
+\item{table_name}{the table name}
 }
 \value{
-a list of 2 elements: the subset data frame and an integer that tells whether all fields were missing in the table (1) or not (0)
+a list of 2 elements: the subset data frame and an integer that
+tells whether all fields were missing in the table (1) or not (0)
 }
 \description{
 Subset records
 }
 \examples{
 \dontrun{
-sub.data <- subset_records(data.frame, records, id.position = 1, table.name)
+sub.data <- subset_records(data_frame, records, id_position = 1, table_name)
 }
 }
