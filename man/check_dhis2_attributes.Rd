@@ -7,10 +7,10 @@
 check_dhis2_attributes(
   username,
   password,
-  base.url,
+  base_url,
   dataset,
-  organisation.unit = NULL,
-  data.element.group = NULL
+  organisation_unit = NULL,
+  data_element_group = NULL
 )
 }
 \arguments{
@@ -18,13 +18,13 @@ check_dhis2_attributes(
 
 \item{password}{the user's password}
 
-\item{base.url}{the web address of the server the user wishes to log in to}
+\item{base_url}{the web address of the server the user wishes to log in to}
 
 \item{dataset}{the dataSets identifiers}
 
-\item{organisation.unit}{the organisationUnits identifiers}
+\item{organisation_unit}{the organisationUnits identifiers}
 
-\item{data.element.group}{the dataElementGroups identifiers}
+\item{data_element_group}{the dataElementGroups identifiers}
 }
 \value{
 a list
@@ -36,9 +36,9 @@ Check the DHIS2 attributes for data import
 attributes <- check_dhis2_attributes(
   username = "admin",
   password = "district",
-  base.url = "https://play.dhis2.org/dev/",
+  base_url = "https://play.dhis2.org/dev/",
   dataset = "pBOMPrpg1QX",
-  organisation.unit = "DiszpKrYNg8",
-  data.element.group = NULL
+  organisation_unit = "DiszpKrYNg8",
+  data_element_group = NULL
 )
 }

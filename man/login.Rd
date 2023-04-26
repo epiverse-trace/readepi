@@ -4,14 +4,14 @@
 \alias{login}
 \title{Check DHIS2 authentication details}
 \usage{
-login(username, password, base.url)
+login(username, password, base_url)
 }
 \arguments{
 \item{username}{the user name}
 
 \item{password}{the user's password}
 
-\item{base.url}{the base URL of the DHIS2 server}
+\item{base_url}{the base URL of the DHIS2 server}
 }
 \description{
 Check DHIS2 authentication details

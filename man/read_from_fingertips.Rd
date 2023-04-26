@@ -15,8 +15,8 @@ read_from_fingertips(
   domain_name = NULL,
   fields = NULL,
   records = NULL,
-  id.position = NULL,
-  id.col.name = NULL
+  id_position = NULL,
+  id_col_name = NULL
 )
 }
 \arguments{
@@ -36,13 +36,17 @@ read_from_fingertips(
 
 \item{domain_name}{a vector or a comma-separated list of domain names}
 
-\item{fields}{a vector or a comma-separated string of column names. If provided, only those columns will be imported.}
+\item{fields}{a vector or a comma-separated string of column names.
+If provided, only those columns will be imported.}
 
-\item{records}{a vector or a comma-separated string of records. When specified, only these records will be imported.}
+\item{records}{a vector or a comma-separated string of records.
+When specified, only these records will be imported.}
 
-\item{id.position}{the column position of the variable that unique identifies the subjects. When the name of the column with the subject IDs is known, this can be provided using the \code{id.col.name} argument}
+\item{id_position}{the column position of the variable that unique identifies
+the subjects. When the name of the column with the subject IDs is known,
+this can be provided using the \code{id_col_name} argument}
 
-\item{id.col.name}{the column name with the subject IDs.}
+\item{id_col_name}{the column name with the subject IDs.}
 }
 \value{
 a data frame

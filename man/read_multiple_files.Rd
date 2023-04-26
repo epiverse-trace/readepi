@@ -9,9 +9,12 @@ read_multiple_files(files, dirs, format = NULL, which = NULL)
 \arguments{
 \item{files}{a file or vector of file path to import}
 
-\item{dirs}{a directory or a vector of directories where files will be imported from}
+\item{dirs}{a directory or a vector of directories where files will be
+imported from}
 
-\item{format}{a string used to specify the file format. This is useful when a file does not have an extension, or has a file extension that does not match its actual type}
+\item{format}{a string used to specify the file format. This is useful when a
+file does not have an extension, or has a file extension that does not match
+its actual type}
 
 \item{which}{a string used to specify the name of the excel sheet to import}
 }

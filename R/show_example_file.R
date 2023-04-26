@@ -2,6 +2,7 @@
 #' @export
 #' @examples show_example_file()
 show_example_file <- function() {
-  example.data <- data.table::fread(system.file("extdata", "test.ini", package = "readepi"))
-  print(example.data)
+  example_data <- data.table::fread(system.file("extdata", "test.ini",
+                                                package = "readepi"))
+  print(example_data)
 }

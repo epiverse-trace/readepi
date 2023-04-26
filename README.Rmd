@@ -50,76 +50,83 @@ The `readepi()` function allows importing data from several file types and datab
 ```{r eval=FALSE}
 # READING DATA FROM JSON file
 file <- system.file("extdata", "test.json", package = "readepi")
-data <- readepi(file.path = file)
+data <- readepi(file_path = file)
 
 # IMPORTING DATA FROM THE SECOND EXCEL SHEET
 file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(file.path = file, which = "Sheet2")
+data <- readepi(file_path = file, which = "Sheet2")
 
 # IMPORTING DATA FROM THE FIRST AND SECOND EXCEL SHEETS
 file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(file.path = file, which = c("Sheet2", "Sheet1"))
+data <- readepi(file_path = file, which = c("Sheet2", "Sheet1"))
 ```
 
 ### Importing data from several files in a directory
 ```{r eval=FALSE}
 # READING ALL FILES IN A GIVEN DIRECTORY
-dir.path <- system.file("extdata", package = "readepi")
-data <- readepi(file.path = dir.path)
+dir_path <- system.file("extdata", package = "readepi")
+data <- readepi(file_path = dir_path)
 
 # READING ONLY '.txt' FILES
-data <- readepi(file.path = dir.path, pattern = ".txt")
+data <- readepi(file_path = dir_path, pattern = ".txt")
 
 # READING '.txt' and '.xlsx' FILES
-data <- readepi(file.path = dir.path, pattern = c(".txt", ".xlsx"))
+data <- readepi(file_path = dir_path, pattern = c(".txt", ".xlsx"))
 ```
 
 ### Importing data from DBMS 
+The current version of `readepi` allows for data import from:   
+1. MS SQL server,      
+2. MySQL server,     
+3. PostgreSQL server.   
+
 This requires the users to: 
 
 1. install the MS SQL driver that is compatible with your SQL server version. Details about this installation process can be found in the **vignette**.    
-2. create a credentials file where the user credential details will be stored. Use the `show_example_file()` to see a template of this file.     
+2. create a credentials file where the user credential details will be stored. Use the `show_example_file()` to see a template of this file.    
+
+Note that the examples in this section are based on a MySQL server that does not require the user to specify the `driver name`. But it is important to keep in mind that specify the driver name is a requirement for MS SQL server.     
 
 ```{r eval=FALSE}
 # DISPLAY THE STRUCTURE OF THE CREDENTIALS FILE
 show_example_file()
 
 # DEFINING THE CREDENTIALS FILE
-credentials.file <- system.file("extdata", "test.ini", package = "readepi")
+credentials_file <- system.file("extdata", "test.ini", package = "readepi")
 
 # READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT
 data <- readepi(
-  credentials.file = credentials.file,
-  project.id = "TEST_REDCap"
+  credentials_file = credentials_file,
+  project_id = "TEST_REDCap"
 )
-project.data <- data$data
-project.metadeta <- data$metadata
+project_data <- data$data
+project_metadeta <- data$metadata
 
 # DISPLAY THE LIST OF ALL TABLES IN A DATABASE HOSTED IN A MySQL SERVER
 # for the test MySQL server, the driver name does not need to be specified
 show_tables(
-  credentials.file = credentials.file,
-  project.id = "Rfam",
-  driver.name = ""
+  credentials_file = credentials_file,
+  project_id = "Rfam",
+  driver_name = ""
 )
 
 # READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
 data <- readepi(
-  credentials.file = credentials.file,
-  project.id = "Rfam", # this is the database name
-  driver.name = "",
-  table.name = "author"
+  credentials_file = credentials_file,
+  project_id = "Rfam", # this is the database name
+  driver_name = "",
+  table_name = "author"
 )
 
 # READING DATA FROM DHIS2
 data <- readepi(
-  credentials.file = credentials.file,
-  project.id = "DHIS2_DEMO",
+  credentials_file = credentials_file,
+  project_id = "DHIS2_DEMO",
   dataset = "pBOMPrpg1QX",
-  organisation.unit = "DiszpKrYNg8",
-  data.element.group = NULL,
-  start.date = "2014",
-  end.date = "2023"
+  organisation_unit = "DiszpKrYNg8",
+  data_element_group = NULL,
+  start_date = "2014",
+  end_date = "2023"
 )
 
 # READING FROM FINFERTIPS

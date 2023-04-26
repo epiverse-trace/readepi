@@ -4,10 +4,10 @@
 \alias{get_data_elements}
 \title{Get the data element identifiers and names}
 \usage{
-get_data_elements(base.url, username, password)
+get_data_elements(base_url, username, password)
 }
 \arguments{
-\item{base.url}{the base URL of the DHIS2 server}
+\item{base_url}{the base URL of the DHIS2 server}
 
 \item{username}{the user name}
 
