@@ -25,7 +25,8 @@ Imports:
     RMySQL,
     fingertipsR (>= 1.0.10.9001),
     readxl,
-    stringr
+    stringr,
+    glue,
 Suggests: 
     covr,
     testthat (>= 3.0.0),

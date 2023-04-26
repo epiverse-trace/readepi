@@ -1,37 +1,42 @@
 #' Import data form DHIS2 into R
-#' @param base.url the web address of the server the user wishes to log in to
-#' @param user.name the user name
+#' @param base_url the web address of the server the user wishes to log in to
+#' @param user_name the user name
 #' @param password the user password
 #' @param dataset a vector or a list of comma-separated data set identifiers
-#' @param organisation.unit a vector or a list of comma-separated organisation unit identifiers
-#' @param data.element.group a vector or a list of comma-separated data element group identifiers
-#' @param start.date the start date for the time span of the values to export
-#' @param end.date the end date for the time span of the values to export
-#' @param records a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.
-#' @param fields a vector or a comma-separated string of column names. If provided, only those columns will be imported.
-#' @param id.col.name the column name with the records of interest.
+#' @param organisation_unit a vector or a list of comma-separated organisation
+#' unit identifiers
+#' @param data_element_group a vector or a list of comma-separated data element
+#' group identifiers
+#' @param start_date the start date for the time span of the values to export
+#' @param end_date the end date for the time span of the values to export
+#' @param records a vector or a comma-separated string of subset of subject IDs.
+#' When specified, only the records that correspond to these subjects will be
+#' imported.
+#' @param fields a vector or a comma-separated string of column names.
+#' If provided, only those columns will be imported.
+#' @param id_col_name the column name with the records of interest.
 #' @returns a list of data frames
 #' @export
-read_from_dhis2 <- function(base.url,
-                            user.name,
+read_from_dhis2 <- function(base_url,
+                            user_name,
                             password,
                             dataset,
-                            organisation.unit,
-                            data.element.group,
-                            start.date,
-                            end.date,
+                            organisation_unit,
+                            data_element_group,
+                            start_date,
+                            end_date,
                             records,
                             fields,
-                            id.col.name = "dataElement") {
-  checkmate::assertCharacter(id.col.name,
+                            id_col_name = "dataElement") {
+  checkmate::assertCharacter(id_col_name,
     len = 1L, null.ok = TRUE,
     any.missing = FALSE
   )
-  checkmate::assertCharacter(base.url,
+  checkmate::assertCharacter(base_url,
     len = 1L, null.ok = FALSE,
     any.missing = FALSE
   )
-  checkmate::assertCharacter(user.name,
+  checkmate::assertCharacter(user_name,
     len = 1L, null.ok = FALSE,
     any.missing = FALSE
   )
@@ -43,25 +48,22 @@ read_from_dhis2 <- function(base.url,
     any.missing = FALSE, min.len = 1,
     null.ok = FALSE, unique = TRUE
   )
-  checkmate::assert_vector(organisation.unit,
+  checkmate::assert_vector(organisation_unit,
     any.missing = FALSE, min.len = 1,
     null.ok = FALSE, unique = TRUE
   )
-  checkmate::assert_vector(data.element.group,
+  checkmate::assert_vector(data_element_group,
     any.missing = FALSE, min.len = 1,
     null.ok = TRUE, unique = TRUE
   )
-  checkmate::assert_vector(start.date,
+  checkmate::assert_vector(start_date,
     any.missing = FALSE, min.len = 1,
     null.ok = TRUE, unique = TRUE
   )
-  checkmate::assert_vector(end.date,
+  checkmate::assert_vector(end_date,
     any.missing = FALSE, min.len = 1,
     null.ok = TRUE, unique = TRUE
   )
-  # checkmate::assert_vector(period,
-  #                          any.missing = FALSE, min.len = 1,
-  #                          null.ok = TRUE, unique = TRUE)
   checkmate::assert_vector(records,
     any.missing = FALSE, min.len = 1,
     null.ok = TRUE, unique = TRUE
@@ -70,73 +72,50 @@ read_from_dhis2 <- function(base.url,
     any.missing = FALSE, min.len = 1,
     null.ok = TRUE, unique = TRUE
   )
-  # checkmate::assert_number(id.position, lower = 1)
 
   # checking user credentials
-  login(user.name, password, base.url)
+  login(user_name, password, base_url)
 
   # checking the attribute details
   attributes <- check_dhis2_attributes(
-    user.name,
+    user_name,
     password,
-    base.url,
+    base_url,
     dataset,
-    organisation.unit,
-    data.element.group
+    organisation_unit,
+    data_element_group
   )
 
   # fetching data
   data <- httr::GET(
-    paste0(base.url, "/api/dataValueSets"),
-    httr::authenticate(user.name, password),
+    paste0(base_url, "/", "api/dataValueSets"),
+    httr::authenticate(user_name, password),
     query = list(
       dataSet = attributes$dataset,
       orgUnit = attributes$organisation_unit,
-      startDate = start.date, # "2014"
-      endDate = end.date
+      startDate = start_date, # "2014"
+      endDate = end_date
     ) # "2023"
   ) %>% #|>
     httr::content() %>% #|>
     purrr::flatten_dfr()
 
   # add the variable names
-  tmp.data.elt <- attributes$data_elements %>%
-    dplyr::select(c(shortName, id)) %>%
+  tmp_data_elt <- attributes$data_elements[, c("shortName", "id")] %>%
     dplyr::rename("dataElement" = "id")
-  tmp.org.units <- attributes$org_units_details %>%
-    dplyr::select(c(shortName, id)) %>%
+  tmp_org_units <- attributes$org_units_details[, c("shortName", "id")] %>%
     dplyr::rename("orgUnit" = "id")
   data <- data %>%
-    dplyr::left_join(tmp.data.elt, by = "dataElement") %>%
+    dplyr::left_join(tmp_data_elt, by = "dataElement") %>%
     dplyr::rename("dataElementName" = "shortName") %>%
-    dplyr::left_join(tmp.org.units, by = "orgUnit") %>%
+    dplyr::left_join(tmp_org_units, by = "orgUnit") %>%
     dplyr::rename("OrgUnitName" = "shortName")
 
   # subsetting fields
-  if (!is.null(fields)) {
-    if (is.character(fields)) fields <- unlist(strsplit(fields, ","))
-    idx <- which(fields %in% names(data))
-    if (length(idx) == 0) stop("Specified column not not!\nThe data contains the following column:\n", names(data))
-    if (length(idx) != length(fields)) {
-      warning("The following fields were not found in the data: ", fields[-idx])
-      fields <- fields[idx]
-    }
-    data <- data %>% dplyr::select(dplyr::all_of(fields))
-  }
+  data <- dhis2_subset_fields(fields, data)
 
   # subsetting records
-  if (!is.null(records)) {
-    if (is.character(records)) records <- unlist(strsplit(records, ","))
-    id.column.name <- id.col.name # names(data)[id.position]
-    idx <- which(records %in% data[[id.column.name]])
-    if (length(idx) == 0) {
-      stop("Speficied records not found in column: ", id.column.name)
-    } else if (length(idx) < length(records)) {
-      warning("The following records were not found: ", records[-idx])
-      records <- records[idx]
-    }
-    data <- data[which(data[[id.column.name]] %in% records), ]
-  }
+ data <- dhis2_subset_records(records, id_col_name, data)
 
   list(data = data)
 }

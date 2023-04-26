@@ -5,14 +5,17 @@
 \title{Read credentials from a configuration file}
 \usage{
 read_credentials(
-  file.path = system.file("extdata", "test.ini", package = "readepi"),
-  project.id = NULL
+  file_path = system.file("extdata", "test.ini", package = "readepi"),
+  project_id = NULL
 )
 }
 \arguments{
-\item{file.path}{the path to the file with the user-specific credential details for the projects of interest.}
+\item{file_path}{the path to the file with the user-specific credential
+details for the projects of interest.}
 
-\item{project.id}{for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to.}
+\item{project_id}{for relational DB, this is the name of the database
+that contains the table from which the data should be pulled. Otherwise,
+it is the project ID you were given access to.}
 }
 \value{
 a list with the user credential details.
@@ -23,8 +26,8 @@ Read credentials from a configuration file
 \examples{
 \dontrun{
 credentials <- read_credentials(
-  file.path = system.file("extdata", "test.ini", package = "readepi"),
-  project.id = "TEST_READEPI"
+  file_path = system.file("extdata", "test.ini", package = "readepi"),
+  project_id = "TEST_READEPI"
 )
 }
 }

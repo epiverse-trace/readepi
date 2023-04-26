@@ -9,13 +9,13 @@ read_from_ms_sql_server(
   password,
   host,
   port = 1433,
-  database.name,
-  driver.name,
-  table.names = NULL,
+  database_name,
+  driver_name,
+  table_names = NULL,
   records = NULL,
   fields = NULL,
-  id.position = NULL,
-  id.col.name = NULL,
+  id_position = NULL,
+  id_col_name = NULL,
   dbms
 )
 }
@@ -28,19 +28,30 @@ read_from_ms_sql_server(
 
 \item{port}{the port ID}
 
-\item{database.name}{the name of the database that contains the table from which the data should be pulled}
+\item{database_name}{the name of the database that contains the table from
+which the data should be pulled}
 
-\item{driver.name}{the name of the MS driver. use \code{odbc::odbcListDrivers()} to display the list of installed drivers}
+\item{driver_name}{the name of the MS driver. use \code{odbc::odbcListDrivers()}
+to display the list of installed drivers}
 
-\item{table.names}{a vector or a comma-separated list of table names from the project or database. When this is not specified, the function will extract data from all tables in the database.}
+\item{table_names}{a vector or a comma-separated list of table names from
+the project or database. When this is not specified, the function will
+extract data from all tables in the database.}
 
-\item{records}{a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.}
+\item{records}{a vector or a comma-separated string of subset of subject IDs.
+When specified, only the records that correspond to these subjects will be
+imported.}
 
-\item{fields}{a vector of strings where each string is a comma-separated list of column names. The element of this vector should be a list of column names from the first table specified in the \code{table.names} argument and so on...}
+\item{fields}{a vector of strings where each string is a comma-separated list
+of column names. The element of this vector should be a list of column names
+from the first table specified in the \code{table_names} argument and so on...}
 
-\item{id.position}{a vector of the column positions of the variable that unique identifies the subjects in each table. When the column name with the subject IDs is known, use the \code{id.col.name} argument instead. default is. default is 1.}
+\item{id_position}{a vector of the column positions of the variable that
+unique identifies the subjects in each table. When the column name with the
+subject IDs is known, use the \code{id_col_name} argument instead. default is.
+default is 1.}
 
-\item{id.col.name}{the column name with the subject IDs}
+\item{id_col_name}{the column name with the subject IDs}
 
 \item{dbms}{the SQL server type}
 }
@@ -49,8 +60,10 @@ a list of data frames
 }
 \description{
 For a user with read access to a Microsoft SQL server,
-this function allows data import from the database into R. It required the installation
-of the appropriate MS driver that is compatible with the SQL server version hosting the
+this function allows data import from the database into R. It required the
+installation
+of the appropriate MS driver that is compatible with the SQL server version
+hosting the
 database.
 }
 \examples{
@@ -60,9 +73,9 @@ data <- read_from_ms_sql_server(
   password = "epiverse-trace1",
   host = "172.23.33.99",
   port = 1433,
-  database.name = "TEST_READEPI",
-  table.names = "covid",
-  driver.name = "ODBC Driver 17 for SQL Server"
+  database_name = "TEST_READEPI",
+  table_names = "covid",
+  driver_name = "ODBC Driver 17 for SQL Server"
 )
 }
 }

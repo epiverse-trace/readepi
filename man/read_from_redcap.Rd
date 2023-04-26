@@ -7,8 +7,8 @@
 read_from_redcap(
   uri,
   token,
-  id.position = 1,
-  id.col.name = NULL,
+  id_position = 1,
+  id_col_name = NULL,
   records = NULL,
   fields = NULL
 )
@@ -16,29 +16,36 @@ read_from_redcap(
 \arguments{
 \item{uri}{the URI of the server}
 
-\item{token}{the user-specific string that serves as the password for a project}
+\item{token}{the user-specific string that serves as the password for a
+project}
 
-\item{id.position}{the column position of the variable that unique identifies the subjects. When the column name with the subject IDs is known, use the \code{id.col.name} argument instead. default is 1}
+\item{id_position}{the column position of the variable that unique identifies
+the subjects. When the column name with the subject IDs is known, use
+the \code{id_col_name} argument instead. default is 1}
 
-\item{id.col.name}{the column name with the subject IDs}
+\item{id_col_name}{the column name with the subject IDs}
 
-\item{records}{a vector or a comma-separated string of subset of subject IDs. When specified, only the records that correspond to these subjects will be imported.}
+\item{records}{a vector or a comma-separated string of subset of subject IDs.
+When specified, only the records that correspond to these subjects will
+be imported.}
 
-\item{fields}{a vector or a comma-separated string of column names. If provided, only those columns will be imported.}
+\item{fields}{a vector or a comma-separated string of column names.
+If provided, only those columns will be imported.}
 }
 \value{
-a list with 2 data frames: the data of interest and the metadata associated to the data.
+a list with 2 data frames: the data of interest and the metadata
+associated to the data.
 }
 \description{
 Import data from REDCap into R
 }
 \examples{
 \dontrun{
-redcap.data <- read_from_redcap(
+redcap_data <- read_from_redcap(
   uri = "https://bbmc.ouhsc.edu/redcap/api/",
   token = "9A81268476645C4E5F03428B8AC3AA7B",
-  id.position = 1,
-  id.col.name = NULL,
+  id_position = 1,
+  id_col_name = NULL,
   records = NULL,
   fields = NULL
 )
