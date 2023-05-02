@@ -88,7 +88,7 @@ read_from_dhis2 <- function(base_url,
 
   # fetching data
   data <- httr::GET(
-    paste0(base_url, "/", "api/dataValueSets"),
+    file.path(base_url, "api", "dataValueSets"),
     httr::authenticate(user_name, password),
     query = list(
       dataSet = attributes$dataset,

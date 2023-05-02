@@ -25,7 +25,7 @@
 #' @returns a list with 2 data frames: the data of interest and the metadata
 #' associated to the data.
 #' @export
-read_from_redcap <- function(uri, token, id_position = 1, id_col_name = NULL,
+read_from_redcap <- function(uri, token, id_position = NULL, id_col_name = NULL,
                              records = NULL, fields = NULL) {
   # check input variables
   checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
@@ -42,7 +42,7 @@ read_from_redcap <- function(uri, token, id_position = 1, id_col_name = NULL,
     any.missing = FALSE, min.len = 1,
     null.ok = TRUE, unique = TRUE
   )
-  checkmate::assertCharacter(id_col_name, len = 1L, null.ok = TRUE,
+  checkmate::assertCharacter(id_col_name, len = 1, null.ok = TRUE,
                              any.missing = FALSE)
 
 

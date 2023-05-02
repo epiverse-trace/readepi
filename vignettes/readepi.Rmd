@@ -164,7 +164,7 @@ To be able to read data these data management information systems, the **readepi
 
 * *project_id*: for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to. Note that this should be similar to the value of the **project_id** field in the credential file.  
 * *driver_name*: the name of the MS driver (only for HDSS and EMRS). use  `odbc::odbcListDrivers()` to display the list of installed drivers,    
-* *table_name*: the name of the target table (only for HDSS and EMRS),   
+* *source*: This can be the names of the target tables or an SQL query. When table names are specified, subsetting from tables is done by specifying the `fields` and `records` parameters     
 * *records*: a vector or a comma-separated string of a subset of subject IDs. When specified, only the records that correspond to these subjects will be imported,    
 * *fields*: a vector or a comma-separated string of column names. If provided, only those columns will be imported,     
 * *id_position*: the column position of the variable that unique identifies the subjects. default is 1.    
@@ -197,13 +197,13 @@ show_tables(
 
 Note that in the above, the value for the `project_id` argument is the name of the database of interest.    
 
-### importing the data    
+### fetching the data using table names    
 ```{r eval=FALSE}
-# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`DSS_EVENTS`)
+# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`)
 data <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "", # ODBC Driver 17 for SQL Server
-  table_name = "author"
+  source = "author"
 )
 
 # READING SPECIFIED FIELDS AND ALL RECORDS FROM ONE TABLE
@@ -211,7 +211,7 @@ fields <- "author_id,name,last_name,initials"
 data <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  table_name = "author",
+  source = "author",
   fields = fields
 )
 
@@ -220,7 +220,7 @@ records <- "1, 34, 15, 70, 118, 20"
 data <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  table_name = "author",
+  source = "author",
   records = records,
   id_position = 1
 )
@@ -229,7 +229,7 @@ data <- readepi(credentials_file,
 data <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  table_name = "author",
+  source = "author",
   records = records,
   fields = fields,
   id_col_name = "author_id"
@@ -240,7 +240,7 @@ table_names <- "author,family_author"
 data <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  table_name = table_names
+  source = table_names
 )
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING FIELDS ACROSS TABLES
@@ -255,7 +255,7 @@ fields <- c(
 data <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  table_name = table_names,
+  source = table_names,
   fields = fields
 )
 
@@ -271,20 +271,64 @@ records <- c(
 data <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  table_name = table_names,
+  source = table_names,
   records = records,
   id_position = c(1, 1)
 )
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS
 # TABLES
-data <- readepi(credentials_file,
+data <- readepi(
+  credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  table_name = table_names,
+  source = table_names,
   records = records,
   fields = fields,
   id_col_name = c("author_id", "rfam_acc")
+)
+```
+
+### fetching the data using an SQL query
+```{r eval=FALSE}
+# SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source="select author.author_id, author.name, family_author.author_id from author left join family_author on author.author_id = family_author.author_id"
+)
+
+# SELECT ALL DATA FROM THE author TABLE
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source="select * from author"
+)
+
+# SELECT FEW COLUMNS FROM THE author TABLE
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source="select author_id, name, last_name from author"
+)
+
+# SELECT FEW RECORDS FROM THE author TABLE
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source="select * from author where author_id in ('1','20','50')"
+)
+
+# SELECT FEW RECORDS AND FIELDS FROM THE author TABLE
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source="select author_id, name, last_name from author where author_id in ('1','20','50')"
 )
 ```
 
