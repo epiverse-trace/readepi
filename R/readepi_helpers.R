@@ -314,7 +314,7 @@ login <- function(username, password, base_url) {
   checkmate::assertCharacter(password, len = 1L, null.ok = FALSE,
                              any.missing = FALSE)
 
-  url <- paste0(base_url, "/", "api/me")
+  url <- file.path(base_url, "api", "me")
   resp <- httr::GET(url, httr::authenticate(username, password))
   httr::stop_for_status(resp)
   R.utils::cat("\nLogged in successfully!")
@@ -543,6 +543,18 @@ get_ind_id_from_domain_name <- function(metadata, domain_name,
 #' @return a list with the profile name and their correspondent indexes
 #'
 get_profile_name <- function(profile_id, profile_name, metadata) {
+  checkmate::assert_vector(profile_id,
+                           any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(profile_name,
+                           any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(metadata,
+                           any.missing = FALSE,
+                           null.ok = FALSE
+  )
   if (all(!is.null(profile_id) & !is.null(profile_name))) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(metadata$indicator_profile_domain$ProfileID == profile_id &
@@ -574,10 +586,10 @@ get_profile_name <- function(profile_id, profile_name, metadata) {
 #' @export
 #'
 get_ind_id_from_profile <- function(metadata, domain_id = NULL,
-                                         domain_name = NULL,
-                                         indicator_name = NULL,
-                                         profile_name = NULL,
-                                         profile_id = NULL) {
+                                   domain_name = NULL,
+                                   indicator_name = NULL,
+                                   profile_name = NULL,
+                                   profile_id = NULL) {
   checkmate::assert_list(metadata, any.missing = FALSE, len = 3,
                          null.ok = FALSE)
   checkmate::assert_vector(domain_id,
@@ -677,6 +689,10 @@ get_fingertips_metadata <- function() {
 #' @return a list of data frames where each contains data read from a file
 #'
 read_files_in_directory <- function(file_path, pattern) {
+  checkmate::assert_character(pattern, null.ok = TRUE, min.len = 1,
+                              any.missing = FALSE)
+  checkmate::assert_character(file_path, null.ok = FALSE, len = 1,
+                              any.missing = FALSE)
   result <- NULL
   if (length(list.files(file_path, full.names = TRUE,
                        recursive = FALSE)) == 0) {
@@ -713,6 +729,12 @@ read_files_in_directory <- function(file_path, pattern) {
 #' @return a list of data frames where each contains data from a file
 #'
 read_files <- function(sep, file_path, which, format) {
+  checkmate::assert_character(sep, null.ok = TRUE, len = 1, any.missing = FALSE)
+  checkmate::assert_character(format, null.ok = TRUE, any.missing = FALSE)
+  checkmate::assert_vector(which, any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_character(file_path, null.ok = FALSE, len = 1,
+                              any.missing = FALSE)
   result <- NULL
   if (!is.null(sep)) {
     result[[1]] <- data.table::fread(file_path, sep = sep)
@@ -747,6 +769,7 @@ read_files <- function(sep, file_path, which, format) {
 #' @return a data frame with the records of interest
 #'
 fingertips_subset_rows <- function(records, id_col_name, data) {
+  checkmate::assert_data_frame(data, null.ok = FALSE)
   if (!is.null(records)) {
     records <- unlist(strsplit(records, ",", fixed = TRUE))
     records <- gsub(" ", "", records, fixed = TRUE)
@@ -773,12 +796,10 @@ fingertips_subset_rows <- function(records, id_col_name, data) {
 #'
 #' @return a data frame with the columns of interest
 #'
-fingertips_subset_columns <- function(fields, id_position, data, id_col_name) {
+
+fingertips_subset_columns <- function(fields, data) {
+  checkmate::assert_data_frame(data, null.ok = FALSE)
   if (!is.null(fields)) {
-    if (is.null(id_position)) id_position <- 1
-    id_col_name <- ifelse(!is.null(id_col_name), id_col_name,
-                          names(data)[id_position]
-    )
     fields <- unlist(strsplit(fields, ",", fixed = TRUE))
     fields <- gsub(" ", "", fields, fixed = TRUE)
     idx <- which(fields %in% names(data))
@@ -805,6 +826,12 @@ fingertips_subset_columns <- function(fields, id_position, data, id_col_name) {
 #' @return a list with the project data and its associated metadata
 #'
 redcap_read <- function(uri, token, id_position) {
+  checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
+                           na.ok = FALSE)
+  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  checkmate::assert_character(uri, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
   redcap_data <- REDCapR::redcap_read(
     redcap_uri = uri, token = token, records = NULL,
     fields = NULL, verbose = FALSE,
@@ -814,7 +841,10 @@ redcap_read <- function(uri, token, id_position) {
     redcap_uri = uri, token = token,
     fields = NULL, verbose = FALSE
   )
-  list(redcap_data, metadata)
+  list(
+    redcap_data = redcap_data,
+    metadata = metadata
+  )
 }
 
 
@@ -834,6 +864,22 @@ redcap_read <- function(uri, token, id_position) {
 #'
 redcap_read_rows_columns <- function(fields, uri, token, id_position,
                                     id_col_name, records) {
+  checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
+                           na.ok = FALSE)
+  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  checkmate::assert_character(uri, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  checkmate::assert_vector(records,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(fields,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assertCharacter(id_col_name, len = 1L, null.ok = TRUE,
+                             any.missing = FALSE)
   if (is.vector(fields)) {
     fields <- glue::glue_collapse(fields, sep = ", ")
   }
@@ -864,7 +910,10 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
   }
   redcap_data$data <-
     redcap_data$data[which(redcap_data$data[[id_column_name]] %in% records), ]
-  list(redcap_data, metadata)
+  list(
+    redcap_data = redcap_data,
+    metadata = metadata
+  )
 }
 
 
@@ -881,6 +930,16 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
 #' fields of interest
 #'
 redcap_read_fields <- function(fields, uri, token, id_position) {
+  checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
+                           na.ok = FALSE)
+  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  checkmate::assert_character(uri, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  checkmate::assert_vector(fields,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
   if (is.vector(fields)) {
     fields <- glue::glue_collapse(fields, sep = ", ")
   }
@@ -893,7 +952,10 @@ redcap_read_fields <- function(fields, uri, token, id_position) {
     redcap_uri = uri, token = token,
     verbose = FALSE
   )
-  list(redcap_data, metadata)
+  list(
+    redcap_data = redcap_data,
+    metadata = metadata
+  )
 }
 
 
@@ -911,6 +973,18 @@ redcap_read_fields <- function(fields, uri, token, id_position) {
 #' records of interest
 #'
 redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
+  checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
+                           na.ok = FALSE)
+  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  checkmate::assert_character(uri, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  checkmate::assert_vector(records,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assertCharacter(id_col_name, len = 1L, null.ok = TRUE,
+                             any.missing = FALSE)
   if (is.vector(records)) {
     records <- glue::glue_collapse(records, sep = ", ")
   }
@@ -937,7 +1011,10 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
     redcap_uri = uri, token = token,
     verbose = FALSE
   )
-  list(redcap_data, metadata)
+  list(
+    redcap_data = redcap_data,
+    metadata = metadata
+  )
 }
 
 
@@ -951,6 +1028,15 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
 #' @return a list of data from the tables of interest
 #'
 fetch_from_several_tables <- function(table_names, con, fields, result) {
+  checkmate::assert_vector(table_names,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(fields,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_list(result, null.ok = FALSE)
   j <- 1
   not_found <- 0
   for (table in table_names) {
@@ -1236,12 +1322,8 @@ get_relevant_data_elt_group <- function(data_element_group, base_url,
     data_element_group <- paste(data_element_group[idx], collapse = ",")
   }
 
-  list(
-    data_element_group,
-    data_elt_groups
-  )
+  list(data_element_group, data_elt_groups)
 }
-
 
 #' Import data from REDCap under all scenari
 #'

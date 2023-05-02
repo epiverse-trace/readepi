@@ -72,6 +72,8 @@ data <- readepi(file_path = dir_path, pattern = c(".txt", ".xlsx"))
 
 ### Importing data from DBMS
 
+To read data from DBMS, users can either provide the details of the
+tables of interest or an SQL query (see `vignette` for illustration).
 The current version of `readepi` allows for data import from:  
 1. MS SQL server,  
 2. MySQL server,  
@@ -119,7 +121,7 @@ data <- readepi(
   credentials_file = credentials_file,
   project_id = "Rfam", # this is the database name
   driver_name = "",
-  table_name = "author"
+  source = "author"
 )
 
 # READING DATA FROM DHIS2
