@@ -28,7 +28,7 @@
 read_from_redcap <- function(uri, token, id_position = NULL, id_col_name = NULL,
                              records = NULL, fields = NULL) {
   # check input variables
-  checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
+  checkmate::assert_number(id_position, null.ok = TRUE,
                            na.ok = FALSE)
   checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
                               any.missing = FALSE)

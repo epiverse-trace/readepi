@@ -16,6 +16,7 @@ a string that corresponds to the file extension
 Get file extension
 }
 \examples{
-ext <- get_extension(file_path = system.file("extdata", "test.txt",
-package = "readepi"))
+ext <- get_extension(
+file_path = system.file("extdata", "test.txt", package = "readepi")
+)
 }

@@ -130,7 +130,6 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
 
   # subset columns
   data <- fingertips_subset_columns(fields, data)
-  # data <- fingertips_subset_columns(fields, id_position, data, id_col_name)
 
   # subset rows
   data <- fingertips_subset_rows(records, id_col_name, data)

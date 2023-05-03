@@ -37,17 +37,18 @@
 #'   host = "mysql-rfam-public.ebi.ac.uk",
 #'   port = 4497,
 #'   database_name = "Rfam",
-#'   table_names = "author",
-#'   driver_name = ""
+#'   source = "author",
+#'   driver_name = "",
+#'   dbms = "MySQL"
 #' )
 #' }
 #' @export
 #' @importFrom magrittr %>%
 sql_server_read_data <- function(user, password, host, port = 1433,
-                                    database_name, driver_name,
-                                    source = NULL, records = NULL,
-                                    fields = NULL, id_position = NULL,
-                                    id_col_name = NULL, dbms) {
+                                 database_name, driver_name,
+                                 source = NULL, records = NULL,
+                                 fields = NULL, id_position = NULL,
+                                 id_col_name = NULL, dbms) {
   # check the input arguments
   checkmate::assert_vector(id_position,
                            any.missing = FALSE, min.len = 0,
