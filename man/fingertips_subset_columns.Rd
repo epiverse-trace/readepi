@@ -4,17 +4,12 @@
 \alias{fingertips_subset_columns}
 \title{Subset columns when reading from Fingertips}
 \usage{
-fingertips_subset_columns(fields, id_position, data, id_col_name)
+fingertips_subset_columns(fields, data)
 }
 \arguments{
 \item{fields}{a vector or a comma-separated string of column names}
 
-\item{id_position}{the column position of the variable that unique identifies
-the subjects}
-
 \item{data}{the data read from Fingertips}
-
-\item{id_col_name}{the column name with the subject IDs}
 }
 \value{
 a data frame with the columns of interest

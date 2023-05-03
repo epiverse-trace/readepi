@@ -5,7 +5,7 @@
 \title{Read data from file or directory}
 \usage{
 read_from_file(
-  file_path = system.file("extdata", "test.txt", package = "readepi"),
+  file_path,
   sep = NULL,
   format = NULL,
   which = NULL,

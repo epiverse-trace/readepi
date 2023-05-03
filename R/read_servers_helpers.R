@@ -39,13 +39,15 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
   con <- switch(dbms,
                 "SQLServer" = DBI::dbConnect(odbc::odbc(),
                                              driver = driver_name,
-                                             server = host, database = database_name,
+                                             server = host,
+                                             database = database_name,
                                              uid = user, pwd = password,
                                              port = as.numeric(port)
                 ),
                 "PostgreSQL" = DBI::dbConnect(odbc::odbc(),
                                               driver = driver_name,
-                                              host = host, database = database_name,
+                                              host = host,
+                                              database = database_name,
                                               uid = user, pwd = password,
                                               port = as.numeric(port)
                 ),
@@ -106,20 +108,21 @@ identify_table_name <- function(query, tables) {
 #' result <- fetch_data_from_query(
 #' source = "select author_id, name, last_name from author",
 #' dbms = "MySQL",
-#' tables = c("family_author", "author")
+#' tables = c("family_author", "author"),
 #' driver_name = "",
 #' host = "mysql-rfam-public.ebi.ac.uk",
 #' database_name = "Rfam",
 #' user = "rfamro",
 #' password = "",
-#' port = 4497)
+#' port = 4497
+#' )
 #'
-fetch_data_from_query = function(source, dbms, tables,
+fetch_data_from_query <- function(source, dbms, tables,
                                  driver_name, host, database_name,
                                  user, password, port) {
   checkmate::assert_vector(source,
                            any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
+                           null.ok = FALSE, unique = TRUE
   )
   checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
                               null.ok = FALSE)
@@ -140,7 +143,7 @@ fetch_data_from_query = function(source, dbms, tables,
 
   con <- connect_to_server(dbms, driver_name, host, database_name,
                            user, password, port)
-  result = list()
+  result <- list()
   for (query in source) {
     table <- identify_table_name(query, tables)
     stopifnot("Could not detect table name from the query" = !is.null(table))
@@ -248,7 +251,7 @@ sql_select_data <- function(table_names, dbms, id_col_name,
                             length(fields) > 1),
                       fields[j], fields)
       result[[table]] <- sql_select_fields_only(table, field, con)
-    } else { #(all(!is.null(fields) & is.null(records)))
+    } else {
       record <- ifelse(all(grepl(",", records, fixed = TRUE) == TRUE &
                              length(records) > 1),
                        records[j], records)
@@ -269,6 +272,11 @@ sql_select_data <- function(table_names, dbms, id_col_name,
 }
 
 #' get the id column name
+#'
+#' @param id_col_name the id column name
+#' @param j the index
+#' @param id_position the id position
+#'
 get_id_column_name <- function(id_col_name, j, id_position) {
   checkmate::assert_vector(id_col_name,
                            any.missing = FALSE, min.len = 1,
@@ -282,14 +290,14 @@ get_id_column_name <- function(id_col_name, j, id_position) {
   )
   id_column_name <- id_pos <- NULL
   if (!is.null(id_col_name)) {
-    id_col_name <- gsub(" ", "", id_col_name)
-    id_col_name <- unlist(strsplit(id_col_name, ","))
+    id_col_name <- gsub(" ", "", id_col_name, fixed = TRUE)
+    id_col_name <- unlist(strsplit(id_col_name, ",", fixed = TRUE))
     id_column_name <- ifelse(!is.na(id_col_name[j]), id_col_name[j], NULL)
   }
 
   if (!is.null(id_position)) {
-    id_position <- gsub(" ", "", id_position)
-    id_position <- unlist(strsplit(id_position, ","))
+    id_position <- gsub(" ", "", id_position, fixed = TRUE)
+    id_position <- unlist(strsplit(id_position, ",", fixed = TRUE))
     id_pos <- ifelse(!is.na(id_position[j]), id_position[j], NULL)
   }
 
@@ -334,8 +342,8 @@ sql_select_entire_dataset <- function(table, con) {
 #' @param table the table name
 #' @param record a vector or a comma-separated string of subset of subject IDs.
 #' @param con the connection object
-#' @param id_column_name the column names that unique identify the records in the
-#' tables
+#' @param id_column_name the column names that unique identify the records in
+#' the tables
 #' @param field a vector of strings where each string is a comma-separated list
 #' of column names.
 #' @param dbms the database management system type
@@ -390,9 +398,9 @@ sql_select_records_and_fields <- function(table, record, con,
     field <- as.character(lapply(field, function(x) {
       gsub(" ", "", x, fixed = TRUE)
     }))
-    field = unlist(strsplit(field, ",", fixed = TRUE))
+    field <- unlist(strsplit(field, ",", fixed = TRUE))
   }
-  res <- res %>% dplyr::select(all_of(field))
+  res <- res %>% dplyr::select(dplyr::all_of(field))
 
   res
 }
@@ -422,7 +430,7 @@ sql_select_records_and_fields <- function(table, record, con,
 #' display = TRUE,
 #' dbms =  "MySQL"
 #' )
-visualise_table <- function(table, con, dbms, display=TRUE) {
+visualise_table <- function(table, con, dbms, display = TRUE) {
   checkmate::assert_character(table, any.missing = FALSE, len = 1,
                               null.ok = FALSE)
   checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
@@ -435,8 +443,11 @@ visualise_table <- function(table, con, dbms, display=TRUE) {
   sql <- DBI::dbSendQuery(con, query)
   res <- DBI::dbFetch(sql, -1)
   DBI::dbClearResult(sql)
-  if (display) { print(res) }
-  else return(res)
+  if (display) {
+    print(res)
+  } else {
+    return(res)
+  }
 }
 
 
@@ -446,8 +457,8 @@ visualise_table <- function(table, con, dbms, display=TRUE) {
 #' @param record a vector or a comma-separated string of subset of subject IDs.
 #' @param con the connection object
 #' @param dbms the database management system type
-#' @param id_column_name the column names that unique identify the records in the
-#' tables
+#' @param id_column_name the column names that unique identify the records in
+#' the tables
 #' @param id_pos a vector of the column positions of the variable that
 #' unique identifies the subjects in each table
 #'
@@ -488,23 +499,22 @@ sql_select_records_only <- function(table, record, con, dbms,
                            null.ok = TRUE, unique = TRUE
   )
   tmp <- visualise_table(table, con, display = FALSE, dbms)
-  id_col_name = ifelse(!is.null(id_column_name),
+  id_col_name <- ifelse(!is.null(id_column_name),
                        id_column_name,
                        names(tmp)[id_pos])
-  if (!is.na(record)) {
-    if (is.vector(record)) {
-      record <- glue::glue_collapse(record, sep = ", ")
-    }
-    record <- as.character(lapply(record, function(x) {
-      gsub(" ", "", x, fixed = TRUE)
-    }))
-    record = gsub(",","','",record)
-    query <- paste0("select * from ", table,
-                    " where (", id_col_name," in ('", record, "'))")
-  } else {
-    query <- paste0("select * from ", table)
-  }
+  stopifnot("Missing or NULL value found in record argument" = (anyNA(record) ||
+                                                          !any(is.null(record)))
+  )
 
+  if (is.vector(record)) {
+    record <- glue::glue_collapse(record, sep = ", ")
+  }
+  record <- as.character(lapply(record, function(x) {
+    gsub(" ", "", x, fixed = TRUE)
+  }))
+  record <- gsub(",", "','", record, fixed = TRUE)
+  query <- paste0("select * from ", table,
+                  " where (", id_col_name, " in ('", record, "'))")
   sql <- DBI::dbSendQuery(con, query)
   res <- DBI::dbFetch(sql, -1)
   DBI::dbClearResult(sql)
@@ -542,20 +552,19 @@ sql_select_fields_only <- function(table, field, con) {
                            any.missing = FALSE, min.len = 1,
                            null.ok = TRUE, unique = TRUE
   )
-  if (!is.na(field)) {
-    if (is.vector(field)) {
-      field <- glue::glue_collapse(field, sep = ", ")
-    }
-    field <- as.character(lapply(field, function(x) {
-      gsub(" ", "", x, fixed = TRUE)
-    }))
-    field <- as.character(lapply(field, function(x) {
-      gsub(",", ", ", x, fixed = TRUE)
-    }))
-    query <- paste0("select ",field," from ",table)
-  }else{
-    query <- paste0("select * from ", table)
+  stopifnot("Missing or NULL value found in record argument" = (anyNA(field) ||
+                                                          !any(is.null(field)))
+  )
+  if (is.vector(field)) {
+    field <- glue::glue_collapse(field, sep = ", ")
   }
+  field <- as.character(lapply(field, function(x) {
+    gsub(" ", "", x, fixed = TRUE)
+  }))
+  field <- as.character(lapply(field, function(x) {
+    gsub(",", ", ", x, fixed = TRUE)
+  }))
+  query <- paste0("select ", field, " from ", table)
   sql <- DBI::dbSendQuery(con, query)
   res <- DBI::dbFetch(sql, -1)
   DBI::dbClearResult(sql)

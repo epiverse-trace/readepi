@@ -124,11 +124,6 @@ readepi <- function(credentials_file = NULL,
         records = records, fields = fields
       )
     } else if (credentials$dbms %in% c("MySQL", "SQLServer", "PostgreSQL")) {
-      if ("table_name" %in% names(args_list)) {
-        table_name <- args_list$table_name
-      } else {
-        table_name <- NULL
-      }
       if ("source" %in% names(args_list)) {
         source <- args_list$source
       } else {
@@ -139,15 +134,6 @@ readepi <- function(credentials_file = NULL,
       } else {
         driver_name <- ""
       }
-      # res <- read_from_ms_sql_server(
-      #   user = credentials$user, password = credentials$pwd,
-      #   host = credentials$host, port = credentials$port,
-      #   database_name = credentials$project, table_names = table_name,
-      #   driver_name = driver_name, records = records, fields = fields,
-      #   id_position = id_position, id_col_name = id_col_name,
-      #   dbms = credentials$dbms
-      # )
-
       res <- sql_server_read_data(
         user = credentials$user, password = credentials$pwd,
         host = credentials$host, port = credentials$port,

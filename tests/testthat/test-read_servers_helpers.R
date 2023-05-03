@@ -112,49 +112,6 @@ test_that("connect_to_server fails with incorrect host", {
   )
 })
 
-test_that("connect_to_server fails with incorrect host", {
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = NA,
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',host,'failed: Missing value not
-                 allowed for host name.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = NULL,
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',host,'failed: Must be provided.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = c("mysql-rfam-public.ebi.ac.uk", "test"),
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',host,'failed: Must be of type character
-                 with length 1.")
-  )
-})
-
 test_that("connect_to_server fails with incorrect database_name", {
   expect_error(
     connect_to_server(
@@ -315,7 +272,7 @@ test_that("connect_to_server fails with incorrect port", {
 })
 
 test_that("identify_table_name works as expected", {
-  table_name = identify_table_name(
+  table_name <- identify_table_name(
     query = "select * from author",
     tables = c("family_author", "author", "test")
   )
@@ -325,37 +282,49 @@ test_that("identify_table_name works as expected", {
 test_that("identify_table_name fails with an incorrect query", {
   expect_error(
     identify_table_name(
-      query = "select * from author",
+      query = NA,
       tables = c("family_author", "author", "test")
     ),
-    regexp = cat("Assertion on',port,'failed: Negative value not
-                 allowed for port name.")
+    regexp = cat("Assertion on',query,'failed: Missing value not allowed for
+                 query.")
   )
 
   expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 0
+    identify_table_name(
+      query = NULL,
+      tables = c("family_author", "author", "test")
     ),
-    regexp = cat("Assertion on',port,'failed: Must be greater than or
-                 equal to 1.")
+    regexp = cat("Assertion on',query,'failed: Must be provided.")
+  )
+
+  expect_error(
+    identify_table_name(
+      query = c("select * from author", "select * from family_author"),
+      tables = c("family_author", "author", "test")
+    ),
+    regexp = cat("Assertion on',query,'failed: Must be of type character with
+                 length 1.")
   )
 })
 
+test_that("identify_table_name fails with incorrect tables", {
+  expect_error(
+    identify_table_name(
+      query = "select * from author",
+      tables = NA
+    ),
+    regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
+                 tables.")
+  )
 
-
-
-
-
-
-
-
-
+  expect_error(
+    identify_table_name(
+      query = "select * from author",
+      tables = NULL
+    ),
+    regexp = cat("Assertion on',tables,'failed: Must be provided.")
+  )
+})
 
 test_that("fetch_data_from_query works as expected", {
   result <- fetch_data_from_query(
@@ -372,8 +341,34 @@ test_that("fetch_data_from_query works as expected", {
   expect_type(result, "list")
 })
 
+test_that("fetch_data_from_query fails with incorrect source", {
+  expect_error(
+    fetch_data_from_query(
+      source = NA,
+      dbms = "MySQL",
+      tables = c("family_author", "author"),
+      driver_name = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam",
+      user = "rfamro",
+      password = "",
+      port = 4497
+      ),
+    regexp = cat("Assertion on',source,'failed: Missing value not allowed for
+                 source.")
+  )
+})
+
+
+
+
+
+
+
+
+
 test_that("sql_select_data works as expected", {
-  result = sql_select_data(
+  result <- sql_select_data(
     table_names = "author",
     dbms = "MySQL",
     id_col_name = "author_id",
@@ -387,7 +382,7 @@ test_that("sql_select_data works as expected", {
     password = "",
     port = 4497
     )
-  expect_type(table_name, "list")
+  expect_type(result, "list")
 })
 
 test_that("get_id_column_name works as expected", {
@@ -496,5 +491,3 @@ test_that("sql_select_records_only works as expected", {
   )
   expect_s3_class(result, "data.frame")
 })
-
-

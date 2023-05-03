@@ -21,3 +21,12 @@ a list with the relevant organisation units
 \description{
 Get the relevant organisation units
 }
+\examples{
+result <- get_relevant_organisation_unit(
+organisation_unit = "DiszpKrYNg8",
+base_url = "https://play.dhis2.org/dev/",
+username = "admin",
+password = "district"
+)
+
+}

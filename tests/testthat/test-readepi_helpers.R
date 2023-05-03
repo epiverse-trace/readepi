@@ -1,352 +1,44 @@
-test_that("subset_fields works as expected", {
-  res <- subset_fields(
-    data_frame = iris, fields = "Sepal.Length,Sepal.Width",
-    table_name = "iris"
+test_that("get_extension works as expected", {
+  result <- get_extension(
+    file_path = system.file("extdata", "test.txt", package = "readepi")
   )
-  expect_type(res, "list")
-  expect_length(res, 2)
-  expect_named(res, c("data", "not_found"))
-  expect_s3_class(res$data, class = "data.frame")
-  expect_type(res$not_found, "double")
+  expect_type(result, "character")
 })
 
-test_that("subset_fields works as expected", {
-  res <- subset_fields(
-    data_frame = iris,
-    fields = c("Sepal.Length", "Sepal.Width"),
-    table_name = "iris"
+test_that("get_base_name works as expected", {
+  result <- get_base_name(
+    x = system.file("extdata", "test.txt", package = "readepi")
   )
-  expect_type(res, "list")
-  expect_length(res, 2)
-  expect_named(res, c("data", "not_found"))
-  expect_s3_class(res$data, class = "data.frame")
-  expect_type(res$not_found, "double")
+  expect_type(result, "character")
 })
 
-test_that("subset_records works as expected", {
-  res <- subset_records(
-    data_frame = iris,
-    records = "setosa, virginica",
-    id_position = 5, table_name = "iris"
+test_that("detect_separator works as expected", {
+  result <- detect_separator(
+    x = "My name is Karim"
   )
-  expect_type(res, "list")
-  expect_length(res, 2)
-  expect_named(res, c("data", "not_found"))
-  expect_s3_class(res$data, class = "data.frame")
-  expect_type(res$not_found, "double")
+  expect_type(result, "character")
 })
 
-test_that("subset_records works as expected", {
-  res <- subset_records(
-    data_frame = iris, records = c("setosa", "virginica"),
-    id_position = 5, table_name = "iris"
+test_that("read_rio_formats works as expected", {
+  result <- read_rio_formats(
+    files_extensions = ".txt",
+    rio_extensions = c("txt", "xlxs"),
+    files = system.file("extdata", "test.txt", package = "readepi"),
+    files_base_names = "test"
   )
-  expect_type(res, "list")
-  expect_length(res, 2)
-  expect_named(res, c("data", "not_found"))
-  expect_s3_class(res$data, class = "data.frame")
-  expect_type(res$not_found, "double")
+  expect_type(result, "list")
 })
 
-test_that("subset_fields fails as expected", {
-  expect_error(
-    res = subset_fields(
-      data_frame = NULL,
-      fields = "Sepal.Length,Sepal.Width",
-      table_name = "iris"
+test_that("read_multiple_files works as expected", {
+  result <- read_multiple_files(
+    files = system.file("extdata", "test.txt", package = "readepi"),
+    dirs = list.dirs(
+      path = system.file("extdata", package = "readepi")
     ),
-    regexp = cat("Assertion on',data_frame,'failed: Must provide the data frame
-                 to subset from.")
+    format = c("txt", "csv"),
+    which = NULL
   )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = NULL,
-      fields = c("Sepal.Length", "Sepal.Width"),
-      table_name = "iris"
-    ),
-    regexp = cat("Assertion on',data_frame,'failed: Must provide the data frame
-                 to subset from.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = NA,
-      fields = "Sepal.Length,Sepal.Width",
-      table_name = "iris"
-    ),
-    regexp = cat("Assertion on',data_frame,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = NA,
-      fields = c("Sepal.Length", "Sepal.Width"),
-      table_name = "iris"
-    ),
-    regexp = cat("Assertion on',data_frame,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = iris,
-      fields = NULL,
-      table_name = "iris"
-    ),
-    regexp = cat("Assertion on',fields,'failed: Must provide a vector or a
-                 string with the field to subset.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = iris,
-      fields = NA,
-      table_name = "iris"
-    ),
-    regexp = cat("Assertion on',fields,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = iris,
-      fields = "Sepal.Length,Sepal.Width",
-      table_name = NULL
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Must provide the
-                 table name.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = iris,
-      fields = c("Sepal.Length", "Sepal.Width"),
-      table_name = NULL
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Must provide the
-                 table name.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = iris,
-      fields = "Sepal.Length,Sepal.Width",
-      table_name = NA
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = iris,
-      fields = c("Sepal.Length", "Sepal.Width"),
-      table_name = NA
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = iris, fields = "Sepal.Length,Sepal.Width",
-      table_name = c("iris", "iris3")
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Must be of type character
-                 of length 1.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = iris, fields = c("Sepal.Length", "Sepal.Width"),
-      table_name = c("iris", "iris3")
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Must be of type character
-                 of length 1.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = NULL, fields = NULL,
-      table_name = NULL
-    ),
-    regexp = cat("Assertion on',subset_fields,'failed: Must provide the data
-                 frame to subset from, the fields to subset and the table name
-                 from which to subset.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = NULL, fields = "Sepal.Length,Sepal.Width",
-      table_name = NULL
-    ),
-    regexp = cat("Assertion on',subset_fields,'failed: Must provide the data
-                 frame to subset from, and the table name from which
-                 to subset.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = iris, fields = NULL,
-      table_name = NULL
-    ),
-    regexp = cat("Assertion on',subset_fields,'failed: Must provide the fields
-                 to subset, and the table name from which to subset.")
-  )
-
-  expect_error(
-    res = subset_fields(
-      data_frame = NULL, fields = NULL,
-      table_name = "iris"
-    ),
-    regexp = cat("Assertion on',subset_fields,'failed: Must provide the fields
-                 to subset, and the data frame from which to subset.")
-  )
-})
-
-test_that("subset_records fails as expected", {
-  expect_error(
-    res = subset_records(
-      data_frame = NULL, records = "setosa, virginica",
-      id_position = 5, table_name = "iris"
-    ),
-    regexp = cat("Assertion on',data_frame,'failed: Must provide the data frame
-                 to subset from.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = NULL, records = c("setosa", "virginica"),
-      id_position = 5, table_name = "iris"
-    ),
-    regexp = cat("Assertion on',data_frame,'failed: Must provide the data frame
-                 to subset from.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = NA, records = "setosa, virginica",
-      id_position = 5, table_name = "iris"
-    ),
-    regexp = cat("Assertion on',data_frame,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = NA, records = c("setosa", "virginica"),
-      id_position = 5, table_name = "iris"
-    ),
-    regexp = cat("Assertion on',data_frame,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = NULL,
-      id_position = 5, table_name = "iris"
-    ),
-    regexp = cat("Assertion on',records,'failed: Must provide a vector or a
-                 string with the field to subset.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = NA,
-      id_position = 5, table_name = "iris"
-    ),
-    regexp = cat("Assertion on',records,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = "setosa, virginica",
-      id_position = -1, table_name = NULL
-    ),
-    regexp = cat("Assertion on',id_position,'failed: Negative column number
-                 not allowed.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = c("setosa", "virginica"),
-      id_position = -1, table_name = NULL
-    ),
-    regexp = cat("Assertion on',id_position,'failed: Negative column number
-                 not allowed.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = "setosa, virginica",
-      id_position = "1", table_name = NULL
-    ),
-    regexp = cat("Assertion on',id_position,'failed: Must be of type numeric
-                 not character.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = c("setosa", "virginica"),
-      id_position = "1", table_name = NULL
-    ),
-    regexp = cat("Assertion on',id_position,'failed: Must be of type numeric
-                 not character.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = c("setosa", "virginica"),
-      id_position = NA, table_name = "iris"
-    ),
-    regexp = cat("Assertion on',id_position,'failed: Missing value
-                 not allowed.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = "setosa, virginica",
-      id_position = 5, table_name = c("iris", "iris3")
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Must be of type character
-                 of length 1.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = c("setosa", "virginica"),
-      id_position = 5, table_name = c("iris", "iris3")
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Must be of type character
-                 of length 1.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = "setosa, virginica",
-      id_position = 5, table_name = NULL
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Must be provided.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = c("setosa", "virginica"),
-      id_position = 5, table_name = NULL
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Must be provided.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = "setosa, virginica",
-      id_position = 5, table_name = NA
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    res = subset_records(
-      data_frame = iris, records = c("setosa", "virginica"),
-      id_position = 5, table_name = NA
-    ),
-    regexp = cat("Assertion on',table_name,'failed: Missing value not allowed.")
-  )
+  expect_type(result, "list")
 })
 
 test_that("read_credentials works as expected", {
@@ -410,7 +102,7 @@ test_that("login works as expected", {
     login(
       username = "admin",
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     ""
   )
@@ -421,7 +113,7 @@ test_that("login fails as expected", {
     login(
       username = NULL,
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be specified.")
   )
@@ -430,7 +122,7 @@ test_that("login fails as expected", {
     login(
       username = NA,
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be specified.")
   )
@@ -439,7 +131,7 @@ test_that("login fails as expected", {
     login(
       username = c("admin", "admin1"),
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be of type character
                  with length 1.")
@@ -449,7 +141,7 @@ test_that("login fails as expected", {
     login(
       username = "admin",
       password = NULL,
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be specified.")
   )
@@ -458,7 +150,7 @@ test_that("login fails as expected", {
     login(
       username = "admin",
       password = NA,
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be specified.")
   )
@@ -467,7 +159,7 @@ test_that("login fails as expected", {
     login(
       username = "admin",
       password = c("district", "district1"),
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character
                  with length 1.")
@@ -495,7 +187,7 @@ test_that("login fails as expected", {
     login(
       username = "admin",
       password = "district",
-      base_url = c(file.path("https:/","play.dhis2.org","dev",""),
+      base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
                    "https://play.dhis2.org/dev/test/")
     ),
     regexp = cat("Assertion on',base_url,'failed: Must be of type character
@@ -508,7 +200,7 @@ test_that("get_data_elements works as expected", {
   data_element <- get_data_elements(
     username = "admin",
     password = "district",
-    base_url = file.path("https:/","play.dhis2.org","dev","")
+    base_url = file.path("https:/", "play.dhis2.org", "dev", "")
   )
   expect_s3_class(data_element, class = "data.frame")
 })
@@ -518,7 +210,7 @@ test_that("get_data_elements fails as expected", {
     data_element = get_data_elements(
       username = NULL,
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be specified.")
   )
@@ -527,7 +219,7 @@ test_that("get_data_elements fails as expected", {
     data_element = get_data_elements(
       username = NA,
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be specified.")
   )
@@ -536,7 +228,7 @@ test_that("get_data_elements fails as expected", {
     data_element = get_data_elements(
       username = c("admin", "admin1"),
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be of type character
                  with length 1.")
@@ -546,7 +238,7 @@ test_that("get_data_elements fails as expected", {
     data_element = get_data_elements(
       username = "admin",
       password = NULL,
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be specified.")
   )
@@ -555,7 +247,7 @@ test_that("get_data_elements fails as expected", {
     data_element = get_data_elements(
       username = "admin",
       password = NA,
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be specified.")
   )
@@ -564,7 +256,7 @@ test_that("get_data_elements fails as expected", {
     data_element = get_data_elements(
       username = "admin",
       password = c("district", "district1"),
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character
                  with length 1.")
@@ -592,7 +284,7 @@ test_that("get_data_elements fails as expected", {
     data_element = get_data_elements(
       username = "admin",
       password = "district",
-      base_url = c(file.path("https:/","play.dhis2.org","dev",""),
+      base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
                    "https://play.dhis2.org/dev/test/")
     ),
     regexp = cat("Assertion on',base_url,'failed: Must be of type character
@@ -605,7 +297,7 @@ test_that("get_data_sets works as expected", {
   dataset <- get_data_sets(
     username = "admin",
     password = "district",
-    base_url = file.path("https:/","play.dhis2.org","dev","")
+    base_url = file.path("https:/", "play.dhis2.org", "dev", "")
   )
   expect_s3_class(dataset, class = "data.frame")
 })
@@ -615,7 +307,7 @@ test_that("get_data_sets fails as expected", {
     dataset = get_data_sets(
       username = NULL,
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be specified.")
   )
@@ -624,7 +316,7 @@ test_that("get_data_sets fails as expected", {
     dataset = get_data_sets(
       username = NA,
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be specified.")
   )
@@ -633,7 +325,7 @@ test_that("get_data_sets fails as expected", {
     dataset = get_data_sets(
       username = c("admin", "admin1"),
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be of type character
                  with length 1.")
@@ -643,7 +335,7 @@ test_that("get_data_sets fails as expected", {
     dataset = get_data_sets(
       username = "admin",
       password = NULL,
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be specified.")
   )
@@ -652,7 +344,7 @@ test_that("get_data_sets fails as expected", {
     dataset = get_data_sets(
       username = "admin",
       password = NA,
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be specified.")
   )
@@ -661,7 +353,7 @@ test_that("get_data_sets fails as expected", {
     dataset = get_data_sets(
       username = "admin",
       password = c("district", "district1"),
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character
                  with length 1.")
@@ -689,7 +381,7 @@ test_that("get_data_sets fails as expected", {
     dataset = get_data_sets(
       username = "admin",
       password = c("district", "district1"),
-      base_url = c(file.path("https:/","play.dhis2.org","dev",""),
+      base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
                    "https://play.dhis2.org/dev/test/")
     ),
     regexp = cat("Assertion on',base_url,'failed: Must be of type character
@@ -699,7 +391,7 @@ test_that("get_data_sets fails as expected", {
 
 test_that("get_organisation_units works as expected", {
   organisation_units <- get_organisation_units(
-    base_url = file.path("https:/","play.dhis2.org","dev",""),
+    base_url = file.path("https:/", "play.dhis2.org", "dev", ""),
     username = "admin",
     password = "district"
   )
@@ -709,7 +401,7 @@ test_that("get_organisation_units works as expected", {
 test_that("get_organisation_units fails as expected", {
   expect_error(
     organisation_units = get_organisation_units(
-      base_url = file.path("https:/","play.dhis2.org","dev",""),
+      base_url = file.path("https:/", "play.dhis2.org", "dev", ""),
       username = NULL,
       password = "district"
     ),
@@ -720,7 +412,7 @@ test_that("get_organisation_units fails as expected", {
     organisation_units = get_organisation_units(
       username = NA,
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be specified.")
   )
@@ -729,7 +421,7 @@ test_that("get_organisation_units fails as expected", {
     organisation_units = get_organisation_units(
       username = c("admin", "admin1"),
       password = "district",
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',username,'failed: Must be of type character
                  with length 1.")
@@ -739,7 +431,7 @@ test_that("get_organisation_units fails as expected", {
     organisation_units = get_organisation_units(
       username = "admin",
       password = NULL,
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be specified.")
   )
@@ -748,7 +440,7 @@ test_that("get_organisation_units fails as expected", {
     organisation_units = get_organisation_units(
       username = "admin",
       password = NA,
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be specified.")
   )
@@ -757,7 +449,7 @@ test_that("get_organisation_units fails as expected", {
     organisation_units = get_organisation_units(
       username = "admin",
       password = c("district", "district1"),
-      base_url = file.path("https:/","play.dhis2.org","dev","")
+      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
     ),
     regexp = cat("Assertion on',password,'failed: Must be of type character
                  with length 1.")
@@ -785,7 +477,7 @@ test_that("get_organisation_units fails as expected", {
     organisation_units = get_organisation_units(
       username = "admin",
       password = "district",
-      base_url = c(file.path("https:/","play.dhis2.org","dev",""),
+      base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
                    "https://play.dhis2.org/dev/test/")
     ),
     regexp = cat("Assertion on',base_url,'failed: Must be of type character
@@ -1345,7 +1037,7 @@ test_that("read_files fails as expected", {
   expect_error(
     read_files(
       file_path = system.file("extdata", "test.xlsx", package = "readepi"),
-      sep = c(" ","\t"),
+      sep = c(" ", "\t"),
       format = NULL,
       which = NULL
     ),
@@ -1514,38 +1206,116 @@ test_that("redcap_read_records works as expected", {
   expect_type(res$metadata, "list")
 })
 
-test_that("fetch_from_several_tables works as expected", {
-  res <- fetch_from_several_tables(
-    table_names = "author",
-    con = DBI::dbConnect(RMySQL::MySQL(),
-                         driver = "",
-                         host = "mysql-rfam-public.ebi.ac.uk",
-                         dbname = "Rfam",
-                         user = "rfamro",
-                         password = "",
-                         port = 4497
-    ),
-    fields = "author_id,name,last_name,initials",
-    result = list(DBI::dbFetch(
-      DBI::dbSendQuery(con, paste0("select * from ", "author")),
-      -1
-    ))
-
-    # result[["author"]] = list(DBI::dbFetch(
-    #   DBI::dbSendQuery(con, paste0("select * from ", "author")),
-    #   -1
-    # ))
+test_that("get_read_file_args works as expected", {
+  res <- get_read_file_args(
+    list(
+      sep = "\t",
+      format = ".txt",
+      which = NULL
+    )
   )
   expect_type(res, "list")
+  expect_length(res, 4)
+  expect_named(res, c("sep", "format", "which", "pattern"))
 })
 
+test_that("get_read_fingertips_args works as expected", {
+  res <- get_read_fingertips_args(
+    list(
+      indicator_id = 90362,
+      area_type_id = 202
+    )
+  )
+  expect_type(res, "list")
+  expect_length(res, 8)
+  expect_named(res, c("indicator_id", "indicator_name", "area_type_id",
+                      "profile_id", "profile_name", "domain_id", "domain_name",
+                      "parent_area_type_id"))
+})
 
+test_that("get_relevant_dataset works as expected", {
+  result <- get_relevant_dataset(
+    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+    base_url = "https://play.dhis2.org/dev/",
+    username = "admin",
+    password = "district"
+  )
+  expect_type(result, "list")
+  expect_length(result, 2)
+})
 
+test_that("get_relevant_organisation_unit works as expected", {
+  result <- get_relevant_organisation_unit(
+    organisation_unit = "DiszpKrYNg8",
+    base_url = "https://play.dhis2.org/dev/",
+    username = "admin",
+    password = "district"
+  )
+  expect_type(result, "list")
+  expect_length(result, 2)
+})
 
+test_that("import_redcap_data works as expected", {
+  result <- import_redcap_data(
+    uri = "https://bbmc.ouhsc.edu/redcap/api/",
+    token = "9A81268476645C4E5F03428B8AC3AA7B",
+    records = c("1", "3", "5"),
+    fields = c("record_id", "name_first", "age", "bmi"),
+    id_col_name = NULL,
+    id_position = 1
+  )
+  expect_type(result, "list")
+  expect_length(result, 2)
+})
 
+test_that("dhis2_subset_fields works as expected", {
+  result <- dhis2_subset_fields(
+    fields = c("dataElement", "period", "value"),
+    data = readepi(
+      credentials_file = system.file("extdata", "test.ini", package = "readepi")
+      , project_id = "DHIS2_DEMO",
+      dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+      organisation_unit = "DiszpKrYNg8",
+      data_element_group = NULL,
+      start_date = "2014",
+      end_date = "2023"
+    )$data
+  )
+  expect_s3_class(result, "data.frame")
+})
 
+test_that("dhis2_subset_records works as expected", {
+  result <- dhis2_subset_records(
+    records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+    id_col_name = "dataElement",
+    data = readepi(
+      credentials_file = system.file("extdata", "test.ini",
+                                     package = "readepi"),
+      project_id = "DHIS2_DEMO",
+      dataset = "pBOMPrpg1QX",
+      organisation_unit = "DiszpKrYNg8",
+      data_element_group = NULL,
+      start_date = "2014",
+      end_date = "2023"
+    )$data
+  )
+  expect_s3_class(result, "data.frame")
+})
 
-
-
-
-
+test_that("redcap_get_results works as expected", {
+  result <- redcap_get_results(
+    redcap_data = REDCapR::redcap_read(
+      redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
+      token = "9A81268476645C4E5F03428B8AC3AA7B",
+      records = c("1", "3", "5"),
+      fields = c("record_id", "name_first", "age", "bmi"), verbose = FALSE,
+      id_position = 1L),
+    metadata = REDCapR::redcap_metadata_read(
+      redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
+      token = "9A81268476645C4E5F03428B8AC3AA7B",
+      fields = NULL,
+      verbose = FALSE)
+  )
+  expect_type(result, "list")
+  expect_length(result, 2)
+})

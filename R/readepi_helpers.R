@@ -5,22 +5,51 @@
 #' @return a string that corresponds to the file extension
 #' @export
 #'
-#' @examples ext <- get_extension(file_path = system.file("extdata", "test.txt",
-#' package = "readepi"))
+#' @examples
+#' ext <- get_extension(
+#' file_path = system.file("extdata", "test.txt", package = "readepi")
+#' )
 get_extension <- function(file_path) {
+  checkmate::assert_character(file_path, any.missing = FALSE, null.ok = FALSE,
+                              len = 1)
+  checkmate::assert_file_exists(file_path)
   splits <- unlist(strsplit(basename(file_path), ".", fixed = TRUE))
   extension <- splits[length(splits)]
   extension
 }
 
+#' Get file base name
+#'
+#' @param x the file path
+#'
+#' @return the file base name
+#'
+#' @examples
+#' base_name <- get_base_name(
+#' x = system.file("extdata", "test.txt", package = "readepi")
+#' )
 get_base_name <- function(x) {
+  checkmate::assert_character(x, any.missing = FALSE, null.ok = FALSE,
+                              len = 1)
   ext <- get_extension(x)
   bn <- gsub(paste0(".", ext), "", basename(x))
   bn
 }
 
+#' Detect separator from a string
+#'
+#' @param x a string
+#'
+#' @return a vector of identified separators
+#' @export
+#'
+#' @examples
+#' sep <- detect_separator(
+#' x = "My name is Karim"
+#' )
 detect_separator <- function(x) {
-  special_characters <- c("\t", "|", ",", ";", " ") # look for other common sep
+  checkmate::assert_character(x, any.missing = FALSE, null.ok = FALSE)
+  special_characters <- c("\t", "|", ",", ";", " ")
   sep <- NULL
   for (spec.char in special_characters) {
     if (stringr::str_detect(x, spec.char)) {
@@ -44,6 +73,14 @@ detect_separator <- function(x) {
 #'
 read_rio_formats <- function(files_extensions, rio_extensions,
                             files, files_base_names) {
+  checkmate::assert_vector(files_extensions, any.missing = FALSE,
+                           null.ok = FALSE, min.len = 1)
+  checkmate::assert_vector(rio_extensions, any.missing = FALSE,
+                           null.ok = FALSE, min.len = 1)
+  checkmate::assert_vector(files, any.missing = FALSE,
+                           null.ok = FALSE, min.len = 1)
+  checkmate::assert_vector(files_base_names, any.missing = FALSE,
+                           null.ok = FALSE, min.len = 1)
   idx <- which(files_extensions %in% rio_extensions)
   result <- list()
   if (length(idx) > 0) {
@@ -82,6 +119,14 @@ read_rio_formats <- function(files_extensions, rio_extensions,
 #' @export
 #'
 read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
+  checkmate::assert_vector(files, any.missing = FALSE,
+                           null.ok = FALSE, min.len = 1)
+  checkmate::assert_vector(dirs, any.missing = FALSE,
+                           null.ok = FALSE, min.len = 1)
+  checkmate::assert_character(format, null.ok = TRUE, any.missing = FALSE)
+  checkmate::assert_vector(which, any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE)
+  result <- NULL
   # filter out directories from files
   idx <- which(files %in% dirs)
   if (length(idx) > 0) {
@@ -101,141 +146,45 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
   files_base_names <- as.character(lapply(files, get_base_name))
 
   # reading files with extensions that are taken care by rio
-  tmp.res <- read_rio_formats(files_extensions, rio_extensions,
-                             files, files_base_names)
-  files <- tmp.res$files
-  files_base_names <- tmp.res$files_base_names
-  files_extensions <- tmp.res$files_extensions
-  result <- tmp.res$result
+  if (length(files_extensions) > 0) {
+    tmp.res <- read_rio_formats(files_extensions, rio_extensions,
+                                files, files_base_names)
+    files <- tmp.res$files
+    files_base_names <- tmp.res$files_base_names
+    files_extensions <- tmp.res$files_extensions
+    result <- tmp.res$result
 
-  # reading files which extensions are not taken care by rio
-  i <- 1
-  for (file in files) {
-    if (files_extensions[i] %in% c("xlsx", "xls")) {
-      data <- readxl::read_xlsx(file)
-      result[[files_base_names[i]]] <- data
-      i <- i + 1
-    } else {
-      tmp_string <- readLines(con = file, n = 1)
-      sep <- detect_separator(tmp_string)
-      if (length(sep) == 1 && sep == "|") {
-        sep <- "|"
+    # reading files which extensions are not taken care by rio
+    i <- 1
+    for (file in files) {
+      if (files_extensions[i] %in% c("xlsx", "xls")) {
+        data <- readxl::read_xlsx(file)
+        result[[files_base_names[i]]] <- data
+        i <- i + 1
       } else {
-        sep <- sep[-(which(sep == "|"))]
-        if (length(sep) == 2 && " " %in% sep) {
-          sep <- sep[-(which(sep == " "))]
-          if (length(sep) > 1) {
-            R.utils::cat("\nCan't resolve separator in", file, "\n")
-            i <- i + 1
-            next
+        tmp_string <- readLines(con = file, n = 1)
+        sep <- detect_separator(tmp_string)
+        if (length(sep) == 1 && sep == "|") {
+          sep <- "|"
+        } else {
+          sep <- sep[-(which(sep == "|"))]
+          if (length(sep) == 2 && " " %in% sep) {
+            sep <- sep[-(which(sep == " "))]
+            if (length(sep) > 1) {
+              R.utils::cat("\nCan't resolve separator in", file, "\n")
+              i <- i + 1
+              next
+            }
           }
         }
+        data <- data.table::fread(file, sep = sep, nThread = 4)
+        result[[files_base_names[i]]] <- data
+        i <- i + 1
       }
-      data <- data.table::fread(file, sep = sep, nThread = 4)
-      result[[files_base_names[i]]] <- data
-      i <- i + 1
     }
   }
+
   result
-}
-
-
-#' Subset fields
-#'
-#' @param data_frame the input data frame
-#' @param fields the list of columns of interest
-#' @param table_name the table names
-#' @examples
-#' \dontrun{
-#' data <- subset_fields(
-#'   data_frame = data_frame,
-#'   fields = "date,sex,age",
-#'   table_name = "covid"
-#' )
-#' }
-#' @returns a list of 2 elements: the subset data frame and an integer that
-#' tells whether all fields were missing in the table (1) or not (0)
-#' @importFrom magrittr %>%
-#' @importFrom dplyr all_of
-#' @export
-subset_fields <- function(data_frame, fields, table_name) {
-  checkmate::assert_data_frame(data_frame, null.ok = FALSE)
-  checkmate::assertCharacter(table_name, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-  checkmate::assert_vector(fields,
-    any.missing = FALSE, min.len = 1,
-    null.ok = FALSE, unique = TRUE
-  )
-  not_found <- 0
-  target_fields <- as.character(unlist(strsplit(fields, ",", fixed = TRUE)))
-  target_fields <- as.character(lapply(target_fields, function(x) {
-    gsub(" ", "", x, fixed = TRUE)
-  }))
-  idx <- which(target_fields %in% names(data_frame))
-  if (length(idx) == 0) {
-    message("\nThere is no column named as: ",
-            glue::glue_collapse(target_fields, sep = ", "), " in ", table_name)
-    not_found <- 1
-  } else if (length(idx) != length(target_fields)) {
-    message("\nThe following fields were not found in ", table_name, ": ",
-            glue::glue_collapse(target_fields[-idx], sep = ", "))
-    target_fields <- target_fields[idx]
-    data <- data_frame %>% dplyr::select(all_of(target_fields))
-  } else {
-    data <- data_frame %>% dplyr::select(all_of(target_fields))
-  }
-  list(data = data, not_found = not_found)
-}
-
-
-#' Subset records
-#' @param data_frame the input data frame
-#' @param records the list of columns of interest
-#' @param id_position a vector of the column position of the variable that
-#' unique identifies the subjects. If not provided, it will assumes the first
-#' column as the subject ID column in all the tables
-#' @param table_name the table name
-#' @returns a list of 2 elements: the subset data frame and an integer that
-#' tells whether all fields were missing in the table (1) or not (0)
-#' @importFrom magrittr %>%
-#' @examples
-#' \dontrun{
-#' sub.data <- subset_records(data_frame, records, id_position = 1, table_name)
-#' }
-#' @export
-subset_records <- function(data_frame, records, id_position = 1, table_name) {
-  checkmate::assert_data_frame(data_frame, null.ok = FALSE)
-  checkmate::assertCharacter(table_name, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-  checkmate::assert_vector(records,
-    any.missing = FALSE, min.len = 1,
-    null.ok = FALSE, unique = TRUE
-  )
-  checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
-                           na.ok = FALSE)
-
-  not_found <- 0
-  records <- as.character(unlist(strsplit(records, ",", fixed = TRUE)))
-  records <- as.character(lapply(records, function(x) {
-    gsub(" ", "", x, fixed = TRUE)
-  }))
-  if (is.null(id_position)) {
-    id_position <- 1
-  }
-  id_column_name <- names(data_frame)[id_position]
-  if (is.numeric(data_frame[[id_column_name]])) {
-    records <- as.numeric(records)
-  }
-  idx <- which(data_frame[[id_column_name]] %in% records)
-  if (length(idx) == 0) {
-    message("\nCould not find record named as: ",
-            glue::glue_collapse(records, sep = ", "), " in column ",
-            id_column_name, " of table ", table_name)
-    not_found <- 1
-  } else {
-    data <- data_frame[idx, ]
-  }
-  list(data = data, not_found = not_found)
 }
 
 
@@ -705,6 +654,9 @@ read_files_in_directory <- function(file_path, pattern) {
                           full.names = TRUE, pattern = pat,
                           recursive = FALSE
       )
+      if (length(files) == 0) {
+        next
+      }
       dirs <- list.dirs(file_path, full.names = TRUE, recursive = FALSE)
       res <- read_multiple_files(files, dirs)
       result <- c(result, res)
@@ -789,10 +741,7 @@ fingertips_subset_rows <- function(records, id_col_name, data) {
 #' Subset columns when reading from Fingertips
 #'
 #' @param fields a vector or a comma-separated string of column names
-#' @param id_position the column position of the variable that unique identifies
-#' the subjects
 #' @param data the data read from Fingertips
-#' @param id_col_name the column name with the subject IDs
 #'
 #' @return a data frame with the columns of interest
 #'
@@ -1017,123 +966,20 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
   )
 }
 
-
-#' Fetch data from several files
-#'
-#' @param table_names a vector of table names
-#' @param con the established connection to the database
-#' @param fields a vector or a comma-separated string of column names
-#' @param result a list of data from the table name
-#'
-#' @return a list of data from the tables of interest
-#'
-fetch_from_several_tables <- function(table_names, con, fields, result) {
-  checkmate::assert_vector(table_names,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(fields,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_list(result, null.ok = FALSE)
-  j <- 1
-  not_found <- 0
-  for (table in table_names) {
-    sql <- DBI::dbSendQuery(con, paste0("select * from ", table))
-    res <- DBI::dbFetch(sql, -1)
-    DBI::dbClearResult(sql)
-    if (!is.na(fields[j])) {
-      subset_data <- subset_fields(res, fields[j], table)
-      result[[table]] <- subset_data$data
-      not_found <- not_found + subset_data$not_found
-      j <- j + 1
-    } else {
-      result[[table]] <- res
-      j <- j + 1
-    }
-  }
-  if (not_found == length(table_names)) {
-    stop("Specified fields not found in the tables of interest!")
-  }
-
-  result
-}
-
-
-#' Subset data from several tables
-#'
-#' @param result a list of data from the table name
-#' @param records a vector or a comma-separated string of subset of subject IDs
-#' @param id_col_name the column name with the subject IDs
-#' @param table_names a vector of table names
-#'
-#' @return a list of data from the tables of interest with the records and
-#' fields of interest
-#'
-subset_from_several_tables <- function(result, records,
-                                      id_col_name, table_names) {
-  j <- 1
-  not_found <- 0
-  for (table in names(result)) {
-    if (!is.na(records[j])) {
-      id_pos <- ifelse(!is.na(id_col_name[j]),
-                       which(names(result[[table]]) == id_col_name[j]),
-                       which(names(result[[table]]) == id_col_name[1])
-      )
-      res <- subset_records(result[[table]], records[j], id_pos, table)
-      result[[table]] <- res$data
-      not_found <- not_found + res$not_found
-      j <- j + 1
-    }
-  }
-  if (not_found == length(table_names)) {
-    stop("Specified records not found in the tables of interest!")
-  }
-
-  result
-}
-
-
-#' Check if tables of interest are part of the tables in the database
-#'
-#' @param table_names a vector of table names of interest
-#' @param tables the list of all tables in the database
-#' @param database_name the database name
-#'
-#' @return the list of tables of interest that are part of the database
-#'
-select_existing_tables <- function(table_names, tables, database_name) {
-  if (is.character(table_names)) {
-    table_names <- gsub(" ", "", table_names, fixed = TRUE)
-    table_names <- as.character(unlist(strsplit(table_names, ",",
-                                                fixed = TRUE)))
-  }
-  idx <- which(table_names %in% tables)
-  if (length(idx) == 0) {
-    message("Could not find tables called ",
-            glue::glue_collapse(table_names, sep = ", "), " in ",
-            database_name, "!\n")
-    R.utils::cat("\nBelow is the list of all tables in the specified
-                 database:\n")
-    print(tables)
-    stop()
-  } else if (length(idx) != length(table_names)) {
-    message("The following tables are not available in the database: ",
-            glue::glue_collapse(table_names[-idx], sep = ", "))
-  }
-  table_names <- table_names[idx]
-  table_names
-}
-
-
 #' Get arguments for reading from files
 #'
 #' @param args_list a list of user specified arguments
 #'
 #' @return a list of the parameters to be used for reading from file
+#' @examples
+#' args_list <- get_read_file_args(
+#' list(
+#' sep = "\t",
+#' format = ".txt",
+#' which = NULL))
 #'
 get_read_file_args <- function(args_list) {
+  checkmate::assert_list(args_list)
   if ("sep" %in% names(args_list)) {
     sep <- args_list$sep
   } else {
@@ -1160,7 +1006,7 @@ get_read_file_args <- function(args_list) {
     format = format,
     which = which,
     pattern = pattern
-    )
+  )
 }
 
 
@@ -1169,8 +1015,14 @@ get_read_file_args <- function(args_list) {
 #' @param args_list a list of user specified arguments
 #'
 #' @return a list of the parameters to be used for reading from Fingertips
+#' @examples
+#' args_list <- get_read_fingertips_args(
+#' list(
+#' indicator_id = 90362,
+#' area_type_id = 202))
 #'
 get_read_fingertips_args <- function(args_list) {
+  checkmate::assert_list(args_list)
   if ("indicator_id" %in% names(args_list)) {
     indicator_id <- args_list$indicator_id
   } else {
@@ -1233,8 +1085,30 @@ get_read_fingertips_args <- function(args_list) {
 #' @param password the user's password
 #'
 #' @return a list with the relevant datasets
-#'
+#' @examples
+#' result <- get_relevant_dataset(
+#' dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+#' base_url = "https://play.dhis2.org/dev/",
+#' username = "admin",
+#' password = "district"
+#' )
 get_relevant_dataset <- function(dataset, base_url, username, password) {
+  checkmate::assertCharacter(base_url,
+                             len = 1L, null.ok = FALSE,
+                             any.missing = FALSE
+  )
+  checkmate::assertCharacter(username,
+                             len = 1L, null.ok = FALSE,
+                             any.missing = FALSE
+  )
+  checkmate::assertCharacter(password,
+                             len = 1L, null.ok = FALSE,
+                             any.missing = FALSE
+  )
+  checkmate::assert_vector(dataset,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = FALSE, unique = TRUE
+  )
   if (!is.null(dataset)) {
     if (is.character(dataset)) dataset <- unlist(strsplit(dataset, ",",
                                                           fixed = TRUE))
@@ -1266,9 +1140,32 @@ get_relevant_dataset <- function(dataset, base_url, username, password) {
 #' @param password the user's password
 #'
 #' @return a list with the relevant organisation units
+#' @examples
+#' result <- get_relevant_organisation_unit(
+#' organisation_unit = "DiszpKrYNg8",
+#' base_url = "https://play.dhis2.org/dev/",
+#' username = "admin",
+#' password = "district"
+#' )
 #'
 get_relevant_organisation_unit <- function(organisation_unit, base_url,
                                            username, password) {
+  checkmate::assertCharacter(base_url,
+                             len = 1L, null.ok = FALSE,
+                             any.missing = FALSE
+  )
+  checkmate::assertCharacter(username,
+                             len = 1L, null.ok = FALSE,
+                             any.missing = FALSE
+  )
+  checkmate::assertCharacter(password,
+                             len = 1L, null.ok = FALSE,
+                             any.missing = FALSE
+  )
+  checkmate::assert_vector(organisation_unit,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = FALSE, unique = TRUE
+  )
   if (!is.null(organisation_unit)) {
     if (is.character(organisation_unit)) organisation_unit <-
         unlist(strsplit(organisation_unit, ",", fixed = TRUE))
@@ -1304,6 +1201,22 @@ get_relevant_organisation_unit <- function(organisation_unit, base_url,
 #'
 get_relevant_data_elt_group <- function(data_element_group, base_url,
                                             username, password) {
+  checkmate::assertCharacter(base_url,
+                             len = 1L, null.ok = FALSE,
+                             any.missing = FALSE
+  )
+  checkmate::assertCharacter(username,
+                             len = 1L, null.ok = FALSE,
+                             any.missing = FALSE
+  )
+  checkmate::assertCharacter(password,
+                             len = 1L, null.ok = FALSE,
+                             any.missing = FALSE
+  )
+  checkmate::assert_vector(data_element_group,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
   data_elt_groups <- NULL
   if (!is.null(data_element_group)) {
     if (is.character(data_element_group)) data_element_group <-
@@ -1322,7 +1235,10 @@ get_relevant_data_elt_group <- function(data_element_group, base_url,
     data_element_group <- paste(data_element_group[idx], collapse = ",")
   }
 
-  list(data_element_group, data_elt_groups)
+  list(
+    data_element_group,
+    data_elt_groups
+  )
 }
 
 #' Import data from REDCap under all scenari
@@ -1342,9 +1258,35 @@ get_relevant_data_elt_group <- function(data_element_group, base_url,
 #' @param id_col_name the column name with the subject IDs
 #'
 #' @return a list with the data of interest and its associated metadata
+#' @examples
+#' result = import_redcap_data(
+#' uri = "https://bbmc.ouhsc.edu/redcap/api/",
+#' token = "9A81268476645C4E5F03428B8AC3AA7B",
+#' records = c("1", "3", "5"),
+#' fields = c("record_id", "name_first", "age", "bmi"),
+#' id_col_name = NULL,
+#' id_position = 1
+# )
 #'
 import_redcap_data <- function(records, fields, uri, token,
                               id_position, id_col_name) {
+  checkmate::assert_number(id_position, null.ok = TRUE,
+                           na.ok = FALSE)
+  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  checkmate::assert_character(uri, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  checkmate::assert_vector(records,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(fields,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assertCharacter(id_col_name, len = 1, null.ok = TRUE,
+                             any.missing = FALSE)
+
   if (all(is.null(records) & is.null(fields))) {
     res <- redcap_read(uri, token, id_position)
     redcap_data <- res[[1]]
@@ -1384,8 +1326,27 @@ import_redcap_data <- function(records, fields, uri, token,
 #' @param data the input data frame
 #'
 #' @return the data frame with the fields of interest
-#'
+#' @examples
+#' # example code
+#' results <- dhis2_subset_fields(
+#' fields = c("dataElement","period","value"),
+#' data = readepi(
+#'  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+#'  project_id = "DHIS2_DEMO",
+#'  dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+#'  organisation_unit = "DiszpKrYNg8",
+#'  data_element_group = NULL,
+#'  start_date = "2014",
+#'  end_date = "2023",
+#'  fields = c("dataElement","period","value")
+#'  )
+#')
 dhis2_subset_fields <- function(fields, data) {
+  checkmate::assert_vector(fields,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_data_frame(data, null.ok = FALSE)
   if (!is.null(fields)) {
     if (is.character(fields)) fields <- unlist(strsplit(fields, ",",
                                                         fixed = TRUE))
@@ -1410,8 +1371,29 @@ dhis2_subset_fields <- function(fields, data) {
 #' @param data the input data frame
 #'
 #' @return a data frame with the records of interest
+#' @examples
+#' result <- dhis2_subset_records(
+#' records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+#' id_col_name = "dataElement",
+#' data = readepi(
+#'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+#'   project_id = "DHIS2_DEMO",
+#'   dataset = "pBOMPrpg1QX",
+#'   organisation_unit = "DiszpKrYNg8",
+#'   data_element_group = NULL,
+#'   start_date = "2014",
+#'   end_date = "2023"
+#'   )
+#' )
 #'
 dhis2_subset_records <- function(records, id_col_name, data) {
+  checkmate::assert_data_frame(data, null.ok = FALSE)
+  checkmate::assert_vector(records,
+                           any.missing = FALSE, min.len = 1,
+                           null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assertCharacter(id_col_name, len = 1, null.ok = TRUE,
+                             any.missing = FALSE)
   if (!is.null(records)) {
     if (is.character(records)) records <- unlist(strsplit(records, ",",
                                                           fixed = TRUE))
@@ -1438,6 +1420,8 @@ dhis2_subset_records <- function(records, id_col_name, data) {
 #' @return a list with the redcap dataset and its associated metadata as
 #' data frames
 redcap_get_results <- function(redcap_data, metadata) {
+  checkmate::assert_list(redcap_data, null.ok = FALSE, min.len = 2)
+  checkmate::assert_list(metadata, null.ok = FALSE, min.len = 2)
   if (all(redcap_data$success & metadata$success)) {
     data <- redcap_data$data
     meta <- metadata$data
