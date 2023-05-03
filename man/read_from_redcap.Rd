@@ -7,7 +7,7 @@
 read_from_redcap(
   uri,
   token,
-  id_position = 1,
+  id_position = NULL,
   id_col_name = NULL,
   records = NULL,
   fields = NULL

@@ -164,7 +164,7 @@ To be able to read data these data management information systems, the **readepi
 
 * *project_id*: for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to. Note that this should be similar to the value of the **project_id** field in the credential file.  
 * *driver_name*: the name of the MS driver (only for HDSS and EMRS). use  `odbc::odbcListDrivers()` to display the list of installed drivers,    
-* *source*: This can be the names of the target tables or an SQL query. When table names are specified, subsetting from tables is done by specifying the `fields` and `records` parameters     
+* *source*: This can be a vector of the table names or an SQL query. When table names are specified, subsetting from tables is done by specifying the `fields` and `records` parameters     
 * *records*: a vector or a comma-separated string of a subset of subject IDs. When specified, only the records that correspond to these subjects will be imported,    
 * *fields*: a vector or a comma-separated string of column names. If provided, only those columns will be imported,     
 * *id_position*: the column position of the variable that unique identifies the subjects. default is 1.    
@@ -236,7 +236,7 @@ data <- readepi(credentials_file,
 )
 
 # READING DATA FROM SEVERAL TABLES
-table_names <- "author,family_author"
+table_names <- c("author", "family_author")
 data <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
@@ -244,7 +244,6 @@ data <- readepi(credentials_file,
 )
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING FIELDS ACROSS TABLES
-table_names <- "author,family_author"
 fields <- c(
   "author_id,name,last_name,initials",
   "rfam_acc,author_id"
@@ -296,7 +295,8 @@ data <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  source="select author.author_id, author.name, family_author.author_id from author left join family_author on author.author_id = family_author.author_id"
+  source = "select author.author_id, author.name, family_author.author_id from 
+  author left join family_author on author.author_id = family_author.author_id"
 )
 
 # SELECT ALL DATA FROM THE author TABLE
@@ -304,7 +304,7 @@ data <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  source="select * from author"
+  source = "select * from author"
 )
 
 # SELECT FEW COLUMNS FROM THE author TABLE
@@ -312,7 +312,7 @@ data <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  source="select author_id, name, last_name from author"
+  source = "select author_id, name, last_name from author"
 )
 
 # SELECT FEW RECORDS FROM THE author TABLE
@@ -320,7 +320,7 @@ data <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  source="select * from author where author_id in ('1','20','50')"
+  source = "select * from author where author_id in ('1','20','50')"
 )
 
 # SELECT FEW RECORDS AND FIELDS FROM THE author TABLE
@@ -328,7 +328,8 @@ data <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  source="select author_id, name, last_name from author where author_id in ('1','20','50')"
+  source = "select author_id, name, last_name from author where 
+  author_id in ('1','20','50')"
 )
 ```
 
@@ -456,6 +457,18 @@ data <- readepi(
   end_date = "2023",
   records = data_elts,
   id_col_name = "dataElement"
+)
+
+# READING SPECIFIC COLUMNS FROM A DATASET
+data <- readepi(
+  credentials_file = credentials_file,
+  project_id = "DHIS2_DEMO",
+  dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+  organisation_unit = "DiszpKrYNg8",
+  data_element_group = NULL,
+  start_date = "2014",
+  end_date = "2023",
+  fields = c("dataElement", "period", "value")
 )
 
 test_data <- data$data

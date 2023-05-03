@@ -20,9 +20,8 @@
 #'   pattern = NULL
 #' )
 #' @export
-read_from_file <- function(
-    file_path = system.file("extdata", "test.txt", package = "readepi"),
-    sep = NULL, format = NULL, which = NULL, pattern = NULL) {
+read_from_file <- function(file_path, sep = NULL, format = NULL, which = NULL,
+                           pattern = NULL) {
 
   # check the input arguments
   checkmate::assert_character(sep, null.ok = TRUE, len = 1, any.missing = FALSE)

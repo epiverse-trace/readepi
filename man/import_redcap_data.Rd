@@ -30,3 +30,13 @@ REDCap i.e. around the function that all records and fields from the project,
 around the function that read specific records/fields or both at the same
 time
 }
+\examples{
+result = import_redcap_data(
+uri = "https://bbmc.ouhsc.edu/redcap/api/",
+token = "9A81268476645C4E5F03428B8AC3AA7B",
+records = c("1", "3", "5"),
+fields = c("record_id", "name_first", "age", "bmi"),
+id_col_name = NULL,
+id_position = 1
+
+}

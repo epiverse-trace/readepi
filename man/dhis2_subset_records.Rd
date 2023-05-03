@@ -19,3 +19,19 @@ a data frame with the records of interest
 \description{
 Title
 }
+\examples{
+result <- dhis2_subset_records(
+records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+id_col_name = "dataElement",
+data = readepi(
+  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+  project_id = "DHIS2_DEMO",
+  dataset = "pBOMPrpg1QX",
+  organisation_unit = "DiszpKrYNg8",
+  data_element_group = NULL,
+  start_date = "2014",
+  end_date = "2023"
+  )
+)
+
+}
