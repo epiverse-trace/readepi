@@ -17,9 +17,11 @@ Get arguments for reading from files
 }
 \examples{
 args_list <- get_read_file_args(
-list(
-sep = "\t",
-format = ".txt",
-which = NULL))
+ list(
+   sep = "\t",
+   format = ".txt",
+   which = NULL
+ )
+)
 
 }

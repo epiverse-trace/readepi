@@ -13,13 +13,13 @@
 #'
 #' @examples
 #' con <- connect_to_server(
-#' dbms = "MySQL",
-#' driver_name = "",
-#' host = "mysql-rfam-public.ebi.ac.uk",
-#' database_name = "Rfam",
-#' user = "rfamro",
-#' password = "",
-#' port = 4497
+#'  dbms = "MySQL",
+#'  driver_name = "",
+#'  host = "mysql-rfam-public.ebi.ac.uk",
+#'  database_name = "Rfam",
+#'  user = "rfamro",
+#'  password = "",
+#'  port = 4497
 #' )
 connect_to_server <- function(dbms, driver_name, host, database_name,
                               user, password, port) {
@@ -72,8 +72,9 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
 #'
 #' @examples
 #' table_name = identify_table_name(
-#' query = "select * from author",
-#' tables = c("family_author", "author", "test"))
+#'  query = "select * from author",
+#'  tables = c("family_author", "author", "test")
+#' )
 #'
 identify_table_name <- function(query, tables) {
   checkmate::assert_character(query, any.missing = FALSE, len = 1,
@@ -106,15 +107,15 @@ identify_table_name <- function(query, tables) {
 #'
 #' @examples
 #' result <- fetch_data_from_query(
-#' source = "select author_id, name, last_name from author",
-#' dbms = "MySQL",
-#' tables = c("family_author", "author"),
-#' driver_name = "",
-#' host = "mysql-rfam-public.ebi.ac.uk",
-#' database_name = "Rfam",
-#' user = "rfamro",
-#' password = "",
-#' port = 4497
+#'  source = "select author_id, name, last_name from author",
+#'  dbms = "MySQL",
+#'  tables = c("family_author", "author"),
+#'  driver_name = "",
+#'  host = "mysql-rfam-public.ebi.ac.uk",
+#'  database_name = "Rfam",
+#'  user = "rfamro",
+#'  password = "",
+#'  port = 4497
 #' )
 #'
 fetch_data_from_query <- function(source, dbms, tables,
@@ -178,18 +179,18 @@ fetch_data_from_query <- function(source, dbms, tables,
 #' @export
 #' @examples
 #' result = sql_select_data(
-#' table_names = "author",
-#' dbms = "MySQL",
-#' id_col_name = "author_id",
-#' fields = c("author_id", "name"),
-#' records = NULL,
-#' id_position = NULL,
-#' driver_name = "",
-#' host = "mysql-rfam-public.ebi.ac.uk",
-#' database_name = "Rfam",
-#' user = "rfamro",
-#' password = "",
-#' port = 4497
+#'  table_names = "author",
+#'  dbms = "MySQL",
+#'  id_col_name = "author_id",
+#'  fields = c("author_id", "name"),
+#'  records = NULL,
+#'  id_position = NULL,
+#'  driver_name = "",
+#'  host = "mysql-rfam-public.ebi.ac.uk",
+#'  database_name = "Rfam",
+#'  user = "rfamro",
+#'  password = "",
+#'  port = 4497
 #' )
 #'
 sql_select_data <- function(table_names, dbms, id_col_name,
@@ -317,15 +318,16 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 #'
 #' @examples
 #' result <- sql_select_entire_dataset(
-#' table = "author",
-#' con = DBI::dbConnect(RMySQL::MySQL(),
-#' driver = "",
-#' host = "mysql-rfam-public.ebi.ac.uk",
-#' dbname = "Rfam",
-#' user = "rfamro",
-#' password = "",
-#' port = 4497
-#' ))
+#'  table = "author",
+#'  con = DBI::dbConnect(RMySQL::MySQL(),
+#'    driver = "",
+#'    host = "mysql-rfam-public.ebi.ac.uk",
+#'    dbname = "Rfam",
+#'    user = "rfamro",
+#'    password = "",
+#'    port = 4497
+#'  )
+#' )
 sql_select_entire_dataset <- function(table, con) {
   checkmate::assert_character(table, any.missing = FALSE, len = 1,
                               null.ok = FALSE)
@@ -355,19 +357,21 @@ sql_select_entire_dataset <- function(table, con) {
 #'
 #' @examples
 #' result <- sql_select_records_and_fields(
-#' table = "author",
-#' record = c("1", "20", "50"),
-#' con = DBI::dbConnect(RMySQL::MySQL(),
-#' driver = "",
-#' host = "mysql-rfam-public.ebi.ac.uk",
-#' dbname = "Rfam",
-#' user = "rfamro",
-#' password = "",
-#' port = 4497),
-#' id_column_name = "author_id",
-#' field = c("author_id", "last_name"),
-#' dbms = "MySQL",
-#' id_pos = NULL)
+#'  table = "author",
+#'  record = c("1", "20", "50"),
+#'  con = DBI::dbConnect(RMySQL::MySQL(),
+#'    driver = "",
+#'    host = "mysql-rfam-public.ebi.ac.uk",
+#'    dbname = "Rfam",
+#'    user = "rfamro",
+#'    password = "",
+#'    port = 4497
+#'  ),
+#'  id_column_name = "author_id",
+#'  field = c("author_id", "last_name"),
+#'  dbms = "MySQL",
+#'  id_pos = NULL
+#' )
 #'
 sql_select_records_and_fields <- function(table, record, con,
                                           id_column_name, field, dbms,
@@ -419,16 +423,17 @@ sql_select_records_and_fields <- function(table, record, con,
 #'
 #' @examples
 #' visualise_table(
-#' table = "author",
-#' con = DBI::dbConnect(RMySQL::MySQL(),
-#' driver = "",
-#' host = "mysql-rfam-public.ebi.ac.uk",
-#' dbname = "Rfam",
-#' user = "rfamro",
-#' password = "",
-#' port = 4497),
-#' display = TRUE,
-#' dbms =  "MySQL"
+#'  table = "author",
+#'  con = DBI::dbConnect(RMySQL::MySQL(),
+#'    driver = "",
+#'    host = "mysql-rfam-public.ebi.ac.uk",
+#'    dbname = "Rfam",
+#'    user = "rfamro",
+#'    password = "",
+#'    port = 4497
+#'  ),
+#'    display = TRUE,
+#'    dbms =  "MySQL"
 #' )
 visualise_table <- function(table, con, dbms, display = TRUE) {
   checkmate::assert_character(table, any.missing = FALSE, len = 1,
@@ -467,18 +472,19 @@ visualise_table <- function(table, con, dbms, display = TRUE) {
 #'
 #' @examples
 #' result <- sql_select_records_only(
-#' table = "author",
-#' record = c("1", "20", "50"),
-#' con = DBI::dbConnect(RMySQL::MySQL(),
-#' driver = "",
-#' host = "mysql-rfam-public.ebi.ac.uk",
-#' dbname = "Rfam",
-#' user = "rfamro",
-#' password = "",
-#' port = 4497),
-#' dbms = "MySQL",
-#' id_column_name = NULL,
-#' id_pos = 1
+#'  table = "author",
+#'  record = c("1", "20", "50"),
+#'  con = DBI::dbConnect(RMySQL::MySQL(),
+#'    driver = "",
+#'    host = "mysql-rfam-public.ebi.ac.uk",
+#'    dbname = "Rfam",
+#'    user = "rfamro",
+#'    password = "",
+#'    port = 4497
+#'  ),
+#'  dbms = "MySQL",
+#'  id_column_name = NULL,
+#'  id_pos = 1
 #' )
 sql_select_records_only <- function(table, record, con, dbms,
                                     id_column_name, id_pos) {
@@ -534,16 +540,17 @@ sql_select_records_only <- function(table, record, con, dbms,
 #'
 #' @examples
 #' result <- sql_select_fields_only(
-#' table = "author",
-#' field = c("author_id", "name", "last_name"),
-#' con = DBI::dbConnect(RMySQL::MySQL(),
-#' driver = "",
-#' host = "mysql-rfam-public.ebi.ac.uk",
-#' dbname = "Rfam",
-#' user = "rfamro",
-#' password = "",
-#' port = 4497
-#' ))
+#'  table = "author",
+#'  field = c("author_id", "name", "last_name"),
+#'  con = DBI::dbConnect(RMySQL::MySQL(),
+#'    driver = "",
+#'    host = "mysql-rfam-public.ebi.ac.uk",
+#'    dbname = "Rfam",
+#'    user = "rfamro",
+#'    password = "",
+#'    port = 4497
+#'  )
+#' )
 #'
 sql_select_fields_only <- function(table, field, con) {
   checkmate::assert_character(table, any.missing = FALSE, len = 1,

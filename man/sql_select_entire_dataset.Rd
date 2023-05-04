@@ -19,13 +19,14 @@ Fetch entire dataset in a table
 }
 \examples{
 result <- sql_select_entire_dataset(
-table = "author",
-con = DBI::dbConnect(RMySQL::MySQL(),
-driver = "",
-host = "mysql-rfam-public.ebi.ac.uk",
-dbname = "Rfam",
-user = "rfamro",
-password = "",
-port = 4497
-))
+ table = "author",
+ con = DBI::dbConnect(RMySQL::MySQL(),
+   driver = "",
+   host = "mysql-rfam-public.ebi.ac.uk",
+   dbname = "Rfam",
+   user = "rfamro",
+   password = "",
+   port = 4497
+ )
+)
 }

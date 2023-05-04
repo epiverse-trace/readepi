@@ -40,7 +40,6 @@ associated to the data.
 Import data from REDCap into R
 }
 \examples{
-\dontrun{
 redcap_data <- read_from_redcap(
   uri = "https://bbmc.ouhsc.edu/redcap/api/",
   token = "9A81268476645C4E5F03428B8AC3AA7B",
@@ -49,5 +48,4 @@ redcap_data <- read_from_redcap(
   records = NULL,
   fields = NULL
 )
-}
 }

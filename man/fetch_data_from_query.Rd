@@ -43,15 +43,15 @@ Fetch data from server using an SQL query
 }
 \examples{
 result <- fetch_data_from_query(
-source = "select author_id, name, last_name from author",
-dbms = "MySQL",
-tables = c("family_author", "author"),
-driver_name = "",
-host = "mysql-rfam-public.ebi.ac.uk",
-database_name = "Rfam",
-user = "rfamro",
-password = "",
-port = 4497
+ source = "select author_id, name, last_name from author",
+ dbms = "MySQL",
+ tables = c("family_author", "author"),
+ driver_name = "",
+ host = "mysql-rfam-public.ebi.ac.uk",
+ database_name = "Rfam",
+ user = "rfamro",
+ password = "",
+ port = 4497
 )
 
 }

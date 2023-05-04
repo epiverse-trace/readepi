@@ -29,17 +29,18 @@ Select specified records from a table
 }
 \examples{
 result <- sql_select_records_only(
-table = "author",
-record = c("1", "20", "50"),
-con = DBI::dbConnect(RMySQL::MySQL(),
-driver = "",
-host = "mysql-rfam-public.ebi.ac.uk",
-dbname = "Rfam",
-user = "rfamro",
-password = "",
-port = 4497),
-dbms = "MySQL",
-id_column_name = NULL,
-id_pos = 1
+ table = "author",
+ record = c("1", "20", "50"),
+ con = DBI::dbConnect(RMySQL::MySQL(),
+   driver = "",
+   host = "mysql-rfam-public.ebi.ac.uk",
+   dbname = "Rfam",
+   user = "rfamro",
+   password = "",
+   port = 4497
+ ),
+ dbms = "MySQL",
+ id_column_name = NULL,
+ id_pos = 1
 )
 }

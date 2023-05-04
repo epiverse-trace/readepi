@@ -29,12 +29,12 @@ Establish connection to the server
 }
 \examples{
 con <- connect_to_server(
-dbms = "MySQL",
-driver_name = "",
-host = "mysql-rfam-public.ebi.ac.uk",
-database_name = "Rfam",
-user = "rfamro",
-password = "",
-port = 4497
+ dbms = "MySQL",
+ driver_name = "",
+ host = "mysql-rfam-public.ebi.ac.uk",
+ database_name = "Rfam",
+ user = "rfamro",
+ password = "",
+ port = 4497
 )
 }

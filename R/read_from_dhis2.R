@@ -53,23 +53,23 @@ read_from_dhis2 <- function(base_url,
     null.ok = FALSE, unique = TRUE
   )
   checkmate::assert_vector(data_element_group,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(start_date,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(end_date,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(records,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(fields,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
 
@@ -95,9 +95,9 @@ read_from_dhis2 <- function(base_url,
       orgUnit = attributes$organisation_unit,
       startDate = start_date, # "2014"
       endDate = end_date
-    ) # "2023"
-  ) %>% #|>
-    httr::content() %>% #|>
+    )
+  ) %>%
+    httr::content() %>%
     purrr::flatten_dfr()
 
   # add the variable names
