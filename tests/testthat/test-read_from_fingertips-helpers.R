@@ -401,8 +401,8 @@ test_that("get_profile_name works as expected", {
   res <- get_profile_name(profile_id = 19,
                           profile_name = "Public Health Outcomes Framework",
                           metadata = list(
-                            indicator_profile_domain = fingertipsR::indicators(),
-                            indicator_ids_names = fingertipsR::indicators_unique(),
+                          indicator_profile_domain = fingertipsR::indicators(),
+                        indicator_ids_names = fingertipsR::indicators_unique(),
                             area_type = fingertipsR::area_types()
                           ))
   expect_type(res, "list")
