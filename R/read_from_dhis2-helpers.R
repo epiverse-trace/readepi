@@ -107,5 +107,3 @@ dhis2_subset_records <- function(records, id_col_name, data) {
 
   data
 }
-
-

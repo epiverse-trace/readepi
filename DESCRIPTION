@@ -1,17 +1,12 @@
 Package: readepi
 Title: Import Data From Files and Health Information Systems Into R
 Version: 0.0.1
-Authors@R: c(
-        person(
-                given = "Karim", family = "Mané", 
-                email = "lshkm1@lshtm.ac.uk", 
-                role = c("aut", "cre")
-              )
-        )
+Authors@R: 
+    person("Karim", "Mané", , "lshkm1@lshtm.ac.uk", role = c("aut", "cre"))
 Description: Data import from several sources. These include files and
     health information systems (HIS). The current version of the package
     covers HIS such as REDCap, SQL, MySQL, PostGRESQL servers, DHIS2 and
-    Fingertips.  
+    Fingertips.
 License: MIT + file LICENSE
 URL: https://github.com/epiverse-trace/readepi
 BugReports: https://github.com/epiverse-trace/readepi/issues
@@ -37,7 +32,8 @@ Suggests:
     devtools,
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0)
+    testthat (>= 3.0.0),
+    usethis
 VignetteBuilder: 
     knitr
 Remotes: 

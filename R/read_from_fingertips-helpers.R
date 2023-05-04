@@ -182,7 +182,8 @@ get_profile_name <- function(profile_id, profile_name, metadata) {
   if (all(!is.null(profile_id) & !is.null(profile_name))) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(metadata$indicator_profile_domain$ProfileID == profile_id &
-                   metadata$indicator_profile_domain$ProfileName == profile_name)
+                   metadata$indicator_profile_domain$ProfileName ==
+                   profile_name)
   } else if (!is.null(profile_id) && is.null(profile_name)) {
     idx <- which(metadata$indicator_profile_domain$ProfileID == profile_id)
   } else if (!is.null(profile_name) && is.null(profile_id)) {
@@ -296,7 +297,7 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #'
 fingertips_subset_rows <- function(records, id_col_name, data) {
   checkmate::assert_data_frame(data, null.ok = FALSE)
-  checkmate::assert_character(id_col_name, any.missing = FALSE, len = 0,
+  checkmate::assert_character(id_col_name, any.missing = FALSE, len = 1,
                               null.ok = TRUE)
   checkmate::assert_vector(records,
                            any.missing = FALSE, min.len = 0,
