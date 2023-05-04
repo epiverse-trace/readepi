@@ -23,7 +23,7 @@
 #'  fields = c("record_id", "name_first", "age", "bmi"),
 #'  id_col_name = NULL,
 #'  id_position = 1
-# )
+#' )
 #'
 import_redcap_data <- function(records, fields, uri, token,
                                id_position, id_col_name) {
