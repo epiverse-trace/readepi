@@ -34,6 +34,5 @@ metadata = REDCapR::redcap_metadata_read(
   fields = NULL,
   verbose = FALSE
   )
- )
-
+)
 }

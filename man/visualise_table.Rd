@@ -36,4 +36,5 @@ visualise_table(
    display = TRUE,
    dbms =  "MySQL"
 )
+
 }
