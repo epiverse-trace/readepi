@@ -29,6 +29,6 @@ results <- dhis2_subset_fields(
    start_date = "2014",
    end_date = "2023",
    fields = c("dataElement","period","value")
- )
+ )$data
 )
 }

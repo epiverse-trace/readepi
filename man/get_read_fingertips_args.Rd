@@ -22,5 +22,4 @@ args_list <- get_read_fingertips_args(
    area_type_id = 202
  )
 )
-
 }
