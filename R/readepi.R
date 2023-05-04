@@ -42,7 +42,7 @@
 #'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
 #'   project_id = "Rfam",
 #'   driver_name = "",
-#'   table_name = "author"
+#'   source = "author"
 #' )
 #' @returns a list of data frames.
 #' @export

@@ -12,7 +12,6 @@
 #' @param fields a vector or a comma-separated string of column names.
 #' If provided, only those columns will be imported.
 #' @examples
-#' \dontrun{
 #' redcap_data <- read_from_redcap(
 #'   uri = "https://bbmc.ouhsc.edu/redcap/api/",
 #'   token = "9A81268476645C4E5F03428B8AC3AA7B",
@@ -21,7 +20,6 @@
 #'   records = NULL,
 #'   fields = NULL
 #' )
-#' }
 #' @returns a list with 2 data frames: the data of interest and the metadata
 #' associated to the data.
 #' @export

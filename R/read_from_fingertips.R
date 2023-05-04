@@ -21,9 +21,7 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
-#' }
 read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
                                  area_type_id, parent_area_type_id = NULL,
                                  profile_id = NULL, profile_name = NULL,

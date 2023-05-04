@@ -37,10 +37,10 @@ Read data from file or directory
 }
 \examples{
 data <- read_from_file(
-  file_path = system.file("extdata", "test.txt", package = "readepi"),
-  sep = NULL,
-  format = NULL,
-  which = NULL,
-  pattern = NULL
+ file_path = system.file("extdata", "test.txt", package = "readepi"),
+ sep = NULL,
+ format = NULL,
+ which = NULL,
+ pattern = NULL
 )
 }

@@ -13,11 +13,11 @@
 #' directory or reading several excel sheets) data frames
 #' @examples
 #' data <- read_from_file(
-#'   file_path = system.file("extdata", "test.txt", package = "readepi"),
-#'   sep = NULL,
-#'   format = NULL,
-#'   which = NULL,
-#'   pattern = NULL
+#'  file_path = system.file("extdata", "test.txt", package = "readepi"),
+#'  sep = NULL,
+#'  format = NULL,
+#'  which = NULL,
+#'  pattern = NULL
 #' )
 #' @export
 read_from_file <- function(file_path, sep = NULL, format = NULL, which = NULL,

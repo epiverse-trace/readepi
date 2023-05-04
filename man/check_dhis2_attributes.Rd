@@ -34,11 +34,11 @@ Check the DHIS2 attributes for data import
 }
 \examples{
 attributes <- check_dhis2_attributes(
-  username = "admin",
-  password = "district",
-  base_url = "https://play.dhis2.org/dev/",
-  dataset = "pBOMPrpg1QX",
-  organisation_unit = "DiszpKrYNg8",
-  data_element_group = NULL
+ username = "admin",
+ password = "district",
+ base_url = "https://play.dhis2.org/dev/",
+ dataset = "pBOMPrpg1QX",
+ organisation_unit = "DiszpKrYNg8",
+ data_element_group = NULL
 )
 }

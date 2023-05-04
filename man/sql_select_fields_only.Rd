@@ -21,15 +21,16 @@ Select specified fields from a table
 }
 \examples{
 result <- sql_select_fields_only(
-table = "author",
-field = c("author_id", "name", "last_name"),
-con = DBI::dbConnect(RMySQL::MySQL(),
-driver = "",
-host = "mysql-rfam-public.ebi.ac.uk",
-dbname = "Rfam",
-user = "rfamro",
-password = "",
-port = 4497
-))
+ table = "author",
+ field = c("author_id", "name", "last_name"),
+ con = DBI::dbConnect(RMySQL::MySQL(),
+   driver = "",
+   host = "mysql-rfam-public.ebi.ac.uk",
+   dbname = "Rfam",
+   user = "rfamro",
+   password = "",
+   port = 4497
+ )
+)
 
 }

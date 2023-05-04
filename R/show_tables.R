@@ -9,8 +9,8 @@
 #' \dontrun{
 #' show_tables(
 #'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-#'   project_id = "IBS_BHDSS",
-#'   driver_name = "ODBC Driver 17 for SQL Server"
+#'   project_id = "Rfam",
+#'   driver_name = ""
 #' )
 #' }
 #' @returns the list of tables in the specified database
