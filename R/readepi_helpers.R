@@ -72,6 +72,7 @@ read_credentials <- function(file_path = system.file("extdata", "test.ini",
 #'  )
 #' )
 #'
+#' @export
 get_read_file_args <- function(args_list) {
   checkmate::assert_list(args_list)
   if ("sep" %in% names(args_list)) {
@@ -115,7 +116,7 @@ get_read_file_args <- function(args_list) {
 #'    area_type_id = 202
 #'  )
 #' )
-#'
+#' @export
 get_read_fingertips_args <- function(args_list) {
   checkmate::assert_list(args_list)
   if ("indicator_id" %in% names(args_list)) {

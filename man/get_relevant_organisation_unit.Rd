@@ -28,5 +28,4 @@ result <- get_relevant_organisation_unit(
  username = "admin",
  password = "district"
 )
-
 }

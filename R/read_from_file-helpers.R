@@ -28,6 +28,7 @@ get_extension <- function(file_path) {
 #' base_name <- get_base_name(
 #'  x = system.file("extdata", "test.txt", package = "readepi")
 #' )
+#' @export
 get_base_name <- function(x) {
   checkmate::assert_character(x, any.missing = FALSE, null.ok = FALSE,
                               len = 1)

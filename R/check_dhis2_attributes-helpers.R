@@ -35,6 +35,7 @@ get_data_sets <- function(base_url, username, password) {
 #'  username = "admin",
 #'  password = "district"
 #' )
+#' @export
 get_relevant_dataset <- function(dataset, base_url, username, password) {
   checkmate::assertCharacter(base_url,
                              len = 1L, null.ok = FALSE,
@@ -90,7 +91,7 @@ get_relevant_dataset <- function(dataset, base_url, username, password) {
 #'  username = "admin",
 #'  password = "district"
 #' )
-#'
+#' @export
 get_relevant_organisation_unit <- function(organisation_unit, base_url,
                                            username, password) {
   checkmate::assertCharacter(base_url,
@@ -141,7 +142,7 @@ get_relevant_organisation_unit <- function(organisation_unit, base_url,
 #' @param password the user's password
 #'
 #' @return a list with the data elements of interest
-#'
+#' @export
 get_relevant_data_elt_group <- function(data_element_group, base_url,
                                         username, password) {
   checkmate::assertCharacter(base_url,

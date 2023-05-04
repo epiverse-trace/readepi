@@ -328,6 +328,7 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 #'    port = 4497
 #'  )
 #' )
+#'
 sql_select_entire_dataset <- function(table, con) {
   checkmate::assert_character(table, any.missing = FALSE, len = 1,
                               null.ok = FALSE)
@@ -435,6 +436,7 @@ sql_select_records_and_fields <- function(table, record, con,
 #'    display = TRUE,
 #'    dbms =  "MySQL"
 #' )
+#'
 visualise_table <- function(table, con, dbms, display = TRUE) {
   checkmate::assert_character(table, any.missing = FALSE, len = 1,
                               null.ok = FALSE)
@@ -445,7 +447,7 @@ visualise_table <- function(table, con, dbms, display = TRUE) {
   query <- ifelse(dbms == "MySQL",
                   paste0("select * from ", table, " limit 5"),
                   paste0("select top 5 * from ", table))
-  sql <- DBI::dbSendQuery(con, query)
+  sql <- DBI::dbSendQuery(conn = con, query)
   res <- DBI::dbFetch(sql, -1)
   DBI::dbClearResult(sql)
   if (display) {

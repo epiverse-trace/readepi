@@ -31,7 +31,7 @@ result <- dhis2_subset_records(
   data_element_group = NULL,
   start_date = "2014",
   end_date = "2023"
-  )
+  )$data
 )
 
 }

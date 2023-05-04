@@ -24,7 +24,7 @@
 #'  id_col_name = NULL,
 #'  id_position = 1
 #' )
-#'
+#' @export
 import_redcap_data <- function(records, fields, uri, token,
                                id_position, id_col_name) {
   checkmate::assert_number(id_position, null.ok = TRUE,
@@ -85,7 +85,7 @@ import_redcap_data <- function(records, fields, uri, token,
 #' the subjects
 #'
 #' @return a list with the project data and its associated metadata
-#'
+#' @export
 redcap_read <- function(uri, token, id_position) {
   checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
                            na.ok = FALSE)
@@ -121,7 +121,7 @@ redcap_read <- function(uri, token, id_position) {
 #'
 #' @return a list with the project data and its associated metadata with the
 #' fields and records of interest
-#'
+#' @export
 redcap_read_rows_columns <- function(fields, uri, token, id_position,
                                      id_col_name, records) {
   checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
@@ -188,7 +188,7 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
 #'
 #' @return a list with the project data and its associated metadata with the
 #' fields of interest
-#'
+#' @export
 redcap_read_fields <- function(fields, uri, token, id_position) {
   checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
                            na.ok = FALSE)
@@ -231,7 +231,7 @@ redcap_read_fields <- function(fields, uri, token, id_position) {
 #'
 #' @return a list with the project data and its associated metadata with the
 #' records of interest
-#'
+#' @export
 redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
   checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
                            na.ok = FALSE)
@@ -301,8 +301,8 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
 #'   fields = NULL,
 #'   verbose = FALSE
 #'   )
-#'  )
-#'
+#' )
+#' @export
 redcap_get_results <- function(redcap_data, metadata) {
   checkmate::assert_list(redcap_data, null.ok = FALSE, min.len = 2,
                          any.missing = FALSE)

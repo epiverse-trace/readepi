@@ -36,8 +36,9 @@ login <- function(username, password, base_url) {
 #'    start_date = "2014",
 #'    end_date = "2023",
 #'    fields = c("dataElement","period","value")
-#'  )
+#'  )$data
 #')
+#' @export
 dhis2_subset_fields <- function(fields, data) {
   checkmate::assert_vector(fields,
                            any.missing = FALSE, min.len = 1,
@@ -80,9 +81,10 @@ dhis2_subset_fields <- function(fields, data) {
 #'   data_element_group = NULL,
 #'   start_date = "2014",
 #'   end_date = "2023"
-#'   )
+#'   )$data
 #' )
 #'
+#' @export
 dhis2_subset_records <- function(records, id_col_name, data) {
   checkmate::assert_data_frame(data, null.ok = FALSE)
   checkmate::assert_vector(records,

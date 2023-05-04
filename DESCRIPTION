@@ -1,8 +1,21 @@
 Package: readepi
 Title: Import Data From Files and Health Information Systems Into R
 Version: 0.0.1
-Authors@R: 
-    person("Karim", "Mané", , "lshkm1@lshtm.ac.uk", role = c("aut", "cre"))
+Authors@R: c(
+    person("Karim", "Mané", , "lshkm1@lshtm.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9892-2999")),
+    person("Bubacarr", "Bah", , "Bubacarr.Bah1@lshtm.ac.uk", role = "ctb"),
+    person("Bankolé", "Ahadzie", , "Bankole.Ahadzie@lshtm.ac.uk", role = "ctb"),
+    person("Nuredin", "Mohammed", , 
+            "Nuredin.Mohammed@lshtm.ac.uk", role = "ctb"),
+    person("Hugo", "Gruson", , "hugo.gruson@lshtm.ac.uk", role = "rev",
+           comment = c(ORCID = "0000-0002-4094-1476")),
+    person("Pratik", "Gupte", , "pratik.gupte@lshtm.ac.uk", role = "rev",
+           comment = c(ORCID = "0000-0001-5294-7819")),
+    person("Andree", "Valle-Campos", , 
+            "andree.valle-campos@lshtm.ac.uk", role = "rev",
+            comment = c(ORCID = "0000-0002-7779-481X"))
+  )
 Description: Data import from several sources. These include files and
     health information systems (HIS). The current version of the package
     covers HIS such as REDCap, SQL, MySQL, PostGRESQL servers, DHIS2 and
