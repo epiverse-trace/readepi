@@ -40,18 +40,20 @@ Select specified records and fields from a table
 }
 \examples{
 result <- sql_select_records_and_fields(
-table = "author",
-record = c("1", "20", "50"),
-con = DBI::dbConnect(RMySQL::MySQL(),
-driver = "",
-host = "mysql-rfam-public.ebi.ac.uk",
-dbname = "Rfam",
-user = "rfamro",
-password = "",
-port = 4497),
-id_column_name = "author_id",
-field = c("author_id", "last_name"),
-dbms = "MySQL",
-id_pos = NULL)
+ table = "author",
+ record = c("1", "20", "50"),
+ con = DBI::dbConnect(RMySQL::MySQL(),
+   driver = "",
+   host = "mysql-rfam-public.ebi.ac.uk",
+   dbname = "Rfam",
+   user = "rfamro",
+   password = "",
+   port = 4497
+ ),
+ id_column_name = "author_id",
+ field = c("author_id", "last_name"),
+ dbms = "MySQL",
+ id_pos = NULL
+)
 
 }

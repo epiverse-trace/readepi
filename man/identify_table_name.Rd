@@ -19,7 +19,8 @@ Detect table names from an SQL query
 }
 \examples{
 table_name = identify_table_name(
-query = "select * from author",
-tables = c("family_author", "author", "test"))
+ query = "select * from author",
+ tables = c("family_author", "author", "test")
+)
 
 }
