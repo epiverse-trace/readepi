@@ -31,7 +31,7 @@ Select specified records from a table
 result <- sql_select_records_only(
  table = "author",
  record = c("1", "20", "50"),
- con = DBI::dbConnect(RMySQL::MySQL(),
+ con = pool::dbPool(RMySQL::MySQL(),
    driver = "",
    host = "mysql-rfam-public.ebi.ac.uk",
    dbname = "Rfam",

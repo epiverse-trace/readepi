@@ -25,7 +25,7 @@ Visualize the first 5 rows of the data from a table
 \examples{
 visualise_table(
  table = "author",
- con = DBI::dbConnect(RMySQL::MySQL(),
+ con = pool::dbPool(RMySQL::MySQL(),
    driver = "",
    host = "mysql-rfam-public.ebi.ac.uk",
    dbname = "Rfam",
