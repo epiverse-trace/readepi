@@ -18,19 +18,22 @@
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
-      <ul class="navbar-nav me-auto"><li class="active nav-item">
-  <a class="nav-link" href="../reference/index.html">Reference</a>
+      <ul class="navbar-nav me-auto"><li class="nav-item">
+  <a class="nav-link" href="../articles/readepi.html">Get started</a>
 </li>
-<li class="nav-item dropdown">
-  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
-  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
-    <a class="dropdown-item" href="../articles/readepi-vignette.html">readepi-vignette</a>
-  </div>
+<li class="active nav-item">
+  <a class="nav-link" href="../reference/index.html">Reference</a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
 
-      <ul class="navbar-nav"></ul></div>
+      <ul class="navbar-nav"><li class="nav-item">
+  <a class="external-link nav-link" href="https://github.com/epiverse-trace/readepi/" aria-label="github">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul></div>
 
     
   </div>
@@ -53,50 +56,270 @@
 
       <dl><dt>
           
-          <code><a href="readCredentials.html">readCredentials()</a></code> 
+          <code><a href="check_dhis2_attributes.html">check_dhis2_attributes()</a></code> 
         </dt>
-        <dd>function to read credentials from a configuration file</dd>
+        <dd>Check the DHIS2 attributes for data import</dd>
       </dl><dl><dt>
           
-          <code><a href="readMSsqlCredentials.html">readMSsqlCredentials()</a></code> 
+          <code><a href="connect_to_server.html">connect_to_server()</a></code> 
         </dt>
-        <dd>function to read user credentials from file</dd>
+        <dd>Establish connection to the server</dd>
+      </dl><dl><dt>
+          
+          <code><a href="detect_separator.html">detect_separator()</a></code> 
+        </dt>
+        <dd>Detect separator from a string</dd>
+      </dl><dl><dt>
+          
+          <code><a href="dhis2_subset_fields.html">dhis2_subset_fields()</a></code> 
+        </dt>
+        <dd>Subset fields when reading from DHIS2</dd>
+      </dl><dl><dt>
+          
+          <code><a href="dhis2_subset_records.html">dhis2_subset_records()</a></code> 
+        </dt>
+        <dd>Title</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fetch_data_from_query.html">fetch_data_from_query()</a></code> 
+        </dt>
+        <dd>Fetch data from server using an SQL query</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fingertips_subset_columns.html">fingertips_subset_columns()</a></code> 
+        </dt>
+        <dd>Subset columns when reading from Fingertips</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fingertips_subset_rows.html">fingertips_subset_rows()</a></code> 
+        </dt>
+        <dd>Subset records when reading from Fingertips</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_base_name.html">get_base_name()</a></code> 
+        </dt>
+        <dd>Get file base name</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_data_elements.html">get_data_elements()</a></code> 
+        </dt>
+        <dd>Get the data element identifiers and names</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_data_sets.html">get_data_sets()</a></code> 
+        </dt>
+        <dd>Get the dataset identifiers and names</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_extension.html">get_extension()</a></code> 
+        </dt>
+        <dd>Get file extension</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_fingertips_metadata.html">get_fingertips_metadata()</a></code> 
+        </dt>
+        <dd>get fingertips metadata</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_id_column_name.html">get_id_column_name()</a></code> 
+        </dt>
+        <dd>get the id column name</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_ind_id_from_domain_id.html">get_ind_id_from_domain_id()</a></code> 
+        </dt>
+        <dd>Get indicator ID from domain ID</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_ind_id_from_domain_name.html">get_ind_id_from_domain_name()</a></code> 
+        </dt>
+        <dd>Get indicator ID from domain name</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_ind_id_from_ind_name.html">get_ind_id_from_ind_name()</a></code> 
+        </dt>
+        <dd>Get indicator ID from indicator name</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_ind_id_from_profile.html">get_ind_id_from_profile()</a></code> 
+        </dt>
+        <dd>Get indicator ID from profile ID and/or profile name</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_organisation_units.html">get_organisation_units()</a></code> 
+        </dt>
+        <dd>Get the organisation unit identifiers and names</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_profile_name.html">get_profile_name()</a></code> 
+        </dt>
+        <dd>Get profile name from Fingertips</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_read_file_args.html">get_read_file_args()</a></code> 
+        </dt>
+        <dd>Get arguments for reading from files</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_read_fingertips_args.html">get_read_fingertips_args()</a></code> 
+        </dt>
+        <dd>Get arguments for reading from Fingertips</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_relevant_data_elt_group.html">get_relevant_data_elt_group()</a></code> 
+        </dt>
+        <dd>Get the relevant data element groups</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_relevant_dataset.html">get_relevant_dataset()</a></code> 
+        </dt>
+        <dd>Get the relevant dataset</dd>
+      </dl><dl><dt>
+          
+          <code><a href="get_relevant_organisation_unit.html">get_relevant_organisation_unit()</a></code> 
+        </dt>
+        <dd>Get the relevant organisation units</dd>
+      </dl><dl><dt>
+          
+          <code><a href="identify_table_name.html">identify_table_name()</a></code> 
+        </dt>
+        <dd>Detect table names from an SQL query</dd>
+      </dl><dl><dt>
+          
+          <code><a href="import_redcap_data.html">import_redcap_data()</a></code> 
+        </dt>
+        <dd>Import data from REDCap under all scenari</dd>
+      </dl><dl><dt>
+          
+          <code><a href="login.html">login()</a></code> 
+        </dt>
+        <dd>Check DHIS2 authentication details</dd>
+      </dl><dl><dt>
+          
+          <code><a href="read_credentials.html">read_credentials()</a></code> 
+        </dt>
+        <dd>Read credentials from a configuration file</dd>
+      </dl><dl><dt>
+          
+          <code><a href="read_files.html">read_files()</a></code> 
+        </dt>
+        <dd>Sub-function for reading files using rio package</dd>
+      </dl><dl><dt>
+          
+          <code><a href="read_files_in_directory.html">read_files_in_directory()</a></code> 
+        </dt>
+        <dd>Sub-function for reading file in a directory</dd>
+      </dl><dl><dt>
+          
+          <code><a href="read_from_dhis2.html">read_from_dhis2()</a></code> 
+        </dt>
+        <dd>Import data form DHIS2 into R</dd>
       </dl><dl><dt>
           
           <code><a href="read_from_file.html">read_from_file()</a></code> 
         </dt>
-        <dd>function to read data from all supported file types in the <code>rio</code> package.</dd>
+        <dd>Read data from file or directory</dd>
       </dl><dl><dt>
           
-          <code><a href="read_from_ms_sql_server.html">read_from_ms_sql_server()</a></code> 
+          <code><a href="read_from_fingertips.html">read_from_fingertips()</a></code> 
         </dt>
-        <dd>function to read data from relational databases hosted by online MS SQL server. The user needs to have read access to the database et should install the appropriate MS driver that is compatible with the SQLServer version</dd>
+        <dd>Read from Fingertips</dd>
       </dl><dl><dt>
           
           <code><a href="read_from_redcap.html">read_from_redcap()</a></code> 
         </dt>
-        <dd>function to read data from REDCap</dd>
+        <dd>Import data from REDCap into R</dd>
       </dl><dl><dt>
           
-          <code><a href="read_stuff.html">read_stuff()</a></code> 
+          <code><a href="read_multiple_files.html">read_multiple_files()</a></code> 
         </dt>
-        <dd>Example of a function to read stuff</dd>
+        <dd>Read multiple files, including multiple files in a directory</dd>
+      </dl><dl><dt>
+          
+          <code><a href="read_rio_formats.html">read_rio_formats()</a></code> 
+        </dt>
+        <dd>Title</dd>
       </dl><dl><dt>
           
           <code><a href="readepi.html">readepi()</a></code> 
         </dt>
-        <dd>Function to import epidemiology-related data from different sources into R</dd>
+        <dd>Import data from different sources into R</dd>
+      </dl><dl><dt>
+          
+          <code><a href="redcap_get_results.html">redcap_get_results()</a></code> 
+        </dt>
+        <dd>Check and return data fetch from redcap</dd>
+      </dl><dl><dt>
+          
+          <code><a href="redcap_read.html">redcap_read()</a></code> 
+        </dt>
+        <dd>Read all rows and columns from redcap</dd>
+      </dl><dl><dt>
+          
+          <code><a href="redcap_read_fields.html">redcap_read_fields()</a></code> 
+        </dt>
+        <dd>Subset fields from a REDCap project</dd>
+      </dl><dl><dt>
+          
+          <code><a href="redcap_read_records.html">redcap_read_records()</a></code> 
+        </dt>
+        <dd>Subset records from a REDCap project</dd>
+      </dl><dl><dt>
+          
+          <code><a href="redcap_read_rows_columns.html">redcap_read_rows_columns()</a></code> 
+        </dt>
+        <dd>Subset records and columns from a REDCap project</dd>
       </dl><dl><dt>
           
           <code><a href="show_example_file.html">show_example_file()</a></code> 
         </dt>
-        <dd>function to display the structure of the credentials file</dd>
+        <dd>Display the structure of the credentials file</dd>
+      </dl><dl><dt>
+          
+          <code><a href="show_tables.html">show_tables()</a></code> 
+        </dt>
+        <dd>Display the list of tables in a database</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_select_data.html">sql_select_data()</a></code> 
+        </dt>
+        <dd>Subset data read from servers</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_select_entire_dataset.html">sql_select_entire_dataset()</a></code> 
+        </dt>
+        <dd>Fetch entire dataset in a table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_select_fields_only.html">sql_select_fields_only()</a></code> 
+        </dt>
+        <dd>Select specified fields from a table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_select_records_and_fields.html">sql_select_records_and_fields()</a></code> 
+        </dt>
+        <dd>Select specified records and fields from a table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_select_records_only.html">sql_select_records_only()</a></code> 
+        </dt>
+        <dd>Select specified records from a table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_server_read_data.html">sql_server_read_data()</a></code> 
+        </dt>
+        <dd>Read data from relational databases hosted by a MS SQL server.</dd>
+      </dl><dl><dt>
+          
+          <code><a href="visualise_table.html">visualise_table()</a></code> 
+        </dt>
+        <dd>Visualize the first 5 rows of the data from a table</dd>
       </dl></div>
   </main></div>
 
 
     <footer><div class="pkgdown-footer-left">
-  <p></p><p>Developed by Karim Mané, Thibaut Jombart, Avinash Laddha.</p>
+  <p></p><p>Developed by Karim Mané.</p>
 </div>
 
 <div class="pkgdown-footer-right">
