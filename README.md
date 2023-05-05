@@ -155,13 +155,6 @@ browseVignettes("readepi")
 
 ## Development
 
-### Lifecycle
-
-This package is currently a *concept*, as defined by the [RECON software
-lifecycle](https://www.reconverse.org/lifecycle.html). This means that
-essential features and mechanisms are still being developed, and the
-package is not ready for use outside of the development team.
-
 ### Contributions
 
 Contributions are welcome via [pull
