@@ -101,7 +101,7 @@ sql_server_read_data <- function(user, password, host, port = 1433,
   tables <- DBI::dbListTables(conn = con)
   table_names <- NULL
   # closing the connection
-  DBI::dbDisconnect(conn = con)
+  pool::poolClose(con)
 
 
   # separate the sources

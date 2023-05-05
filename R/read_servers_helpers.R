@@ -37,25 +37,26 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
                               null.ok = FALSE)
   checkmate::assert_number(port, lower = 1)
   con <- switch(dbms,
-                "SQLServer" = DBI::dbConnect(odbc::odbc(),
+                "SQLServer" = pool::dbPool(odbc::odbc(),
                                              driver = driver_name,
                                              server = host,
                                              database = database_name,
                                              uid = user, pwd = password,
                                              port = as.numeric(port)
                 ),
-                "PostgreSQL" = DBI::dbConnect(odbc::odbc(),
+                "PostgreSQL" = pool::dbPool(odbc::odbc(),
                                               driver = driver_name,
                                               host = host,
                                               database = database_name,
                                               uid = user, pwd = password,
                                               port = as.numeric(port)
                 ),
-                "MySQL" = DBI::dbConnect(RMySQL::MySQL(),
-                                         dbname = database_name,
-                                         username = user, password = password,
-                                         host = host, port = as.numeric(port),
-                                         driver = driver_name
+                "MySQL" = pool::dbPool(drv = RMySQL::MySQL(),
+                                       dbname = database_name,
+                                       username = user, password = password,
+                                       host = host, port = as.numeric(port),
+                                       driver = driver_name,
+                                       maxSize = 50
                 )
   )
   con
@@ -142,17 +143,16 @@ fetch_data_from_query <- function(source, dbms, tables,
                               null.ok = FALSE)
   checkmate::assert_number(port, lower = 1)
 
-  con <- connect_to_server(dbms, driver_name, host, database_name,
+  pool <- connect_to_server(dbms, driver_name, host, database_name,
                            user, password, port)
   result <- list()
   for (query in source) {
     table <- identify_table_name(query, tables)
     stopifnot("Could not detect table name from the query" = !is.null(table))
-    sql <- DBI::dbSendQuery(con, source)
-    result[[table]] <- DBI::dbFetch(sql, -1)
-    DBI::dbClearResult(sql)
+    result[[table]] <- DBI::dbGetQuery(pool, source)
   }
-  DBI::dbDisconnect(conn = con)
+
+  pool::poolClose(pool)
   result
 }
 
@@ -268,7 +268,7 @@ sql_select_data <- function(table_names, dbms, id_col_name,
 
     j <- j + 1
   }
-  DBI::dbDisconnect(conn = con)
+  pool::poolClose(con)
   result
 }
 
@@ -319,7 +319,7 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 #' @examples
 #' result <- sql_select_entire_dataset(
 #'  table = "author",
-#'  con = DBI::dbConnect(RMySQL::MySQL(),
+#'  con = pool::dbPool(RMySQL::MySQL(),
 #'    driver = "",
 #'    host = "mysql-rfam-public.ebi.ac.uk",
 #'    dbname = "Rfam",
@@ -333,9 +333,7 @@ sql_select_entire_dataset <- function(table, con) {
   checkmate::assert_character(table, any.missing = FALSE, len = 1,
                               null.ok = FALSE)
   query <- paste0("select * from ", table)
-  sql <- DBI::dbSendQuery(con, query)
-  res <- DBI::dbFetch(sql, -1)
-  DBI::dbClearResult(sql)
+  res <- DBI::dbGetQuery(con, query)
 
   res
 }
@@ -360,7 +358,7 @@ sql_select_entire_dataset <- function(table, con) {
 #' result <- sql_select_records_and_fields(
 #'  table = "author",
 #'  record = c("1", "20", "50"),
-#'  con = DBI::dbConnect(RMySQL::MySQL(),
+#'  con = pool::dbPool(RMySQL::MySQL(),
 #'    driver = "",
 #'    host = "mysql-rfam-public.ebi.ac.uk",
 #'    dbname = "Rfam",
@@ -425,7 +423,7 @@ sql_select_records_and_fields <- function(table, record, con,
 #' @examples
 #' visualise_table(
 #'  table = "author",
-#'  con = DBI::dbConnect(RMySQL::MySQL(),
+#'  con = pool::dbPool(RMySQL::MySQL(),
 #'    driver = "",
 #'    host = "mysql-rfam-public.ebi.ac.uk",
 #'    dbname = "Rfam",
@@ -447,9 +445,7 @@ visualise_table <- function(table, con, dbms, display = TRUE) {
   query <- ifelse(dbms == "MySQL",
                   paste0("select * from ", table, " limit 5"),
                   paste0("select top 5 * from ", table))
-  sql <- DBI::dbSendQuery(conn = con, query)
-  res <- DBI::dbFetch(sql, -1)
-  DBI::dbClearResult(sql)
+  res <- DBI::dbGetQuery(con, query)
   if (display) {
     print(res)
   } else {
@@ -476,7 +472,7 @@ visualise_table <- function(table, con, dbms, display = TRUE) {
 #' result <- sql_select_records_only(
 #'  table = "author",
 #'  record = c("1", "20", "50"),
-#'  con = DBI::dbConnect(RMySQL::MySQL(),
+#'  con = pool::dbPool(RMySQL::MySQL(),
 #'    driver = "",
 #'    host = "mysql-rfam-public.ebi.ac.uk",
 #'    dbname = "Rfam",
@@ -523,10 +519,7 @@ sql_select_records_only <- function(table, record, con, dbms,
   record <- gsub(",", "','", record, fixed = TRUE)
   query <- paste0("select * from ", table,
                   " where (", id_col_name, " in ('", record, "'))")
-  sql <- DBI::dbSendQuery(con, query)
-  res <- DBI::dbFetch(sql, -1)
-  DBI::dbClearResult(sql)
-
+  res <- DBI::dbGetQuery(con, query)
   res
 }
 
@@ -544,7 +537,7 @@ sql_select_records_only <- function(table, record, con, dbms,
 #' result <- sql_select_fields_only(
 #'  table = "author",
 #'  field = c("author_id", "name", "last_name"),
-#'  con = DBI::dbConnect(RMySQL::MySQL(),
+#'  con = pool::dbPool(RMySQL::MySQL(),
 #'    driver = "",
 #'    host = "mysql-rfam-public.ebi.ac.uk",
 #'    dbname = "Rfam",
@@ -574,9 +567,6 @@ sql_select_fields_only <- function(table, field, con) {
     gsub(",", ", ", x, fixed = TRUE)
   }))
   query <- paste0("select ", field, " from ", table)
-  sql <- DBI::dbSendQuery(con, query)
-  res <- DBI::dbFetch(sql, -1)
-  DBI::dbClearResult(sql)
-
+  res <- DBI::dbGetQuery(con, query)
   res
 }
