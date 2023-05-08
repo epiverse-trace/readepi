@@ -4,12 +4,33 @@
 \alias{sql_select_entire_dataset}
 \title{Fetch entire dataset in a table}
 \usage{
-sql_select_entire_dataset(table, con)
+sql_select_entire_dataset(
+  table,
+  dbms,
+  driver_name,
+  host,
+  database_name,
+  user,
+  password,
+  port
+)
 }
 \arguments{
 \item{table}{the table name}
 
-\item{con}{the connection object}
+\item{dbms}{the database management system type}
+
+\item{driver_name}{the driver name}
+
+\item{host}{host server name}
+
+\item{database_name}{the database name}
+
+\item{user}{the user name}
+
+\item{password}{the user's password}
+
+\item{port}{the server port ID}
 }
 \value{
 a data frame with the entire dataset that is contained in the table
@@ -20,14 +41,13 @@ Fetch entire dataset in a table
 \examples{
 result <- sql_select_entire_dataset(
  table = "author",
- con = pool::dbPool(RMySQL::MySQL(),
-   driver = "",
-   host = "mysql-rfam-public.ebi.ac.uk",
-   dbname = "Rfam",
-   user = "rfamro",
-   password = "",
-   port = 4497
- )
+ dbms = "MySQL",
+ driver_name = "",
+ host = "mysql-rfam-public.ebi.ac.uk",
+ database_name = "Rfam",
+ user = "rfamro",
+ password = "",
+ port = 4497
 )
 
 }

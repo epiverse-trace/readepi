@@ -17,3 +17,14 @@ the indicator ID
 \description{
 Get indicator ID from indicator name
 }
+\examples{
+indicator_id <- get_ind_id_from_ind_name(
+metadata = list(
+  indicator_profile_domain = fingertipsR::indicators(),
+  indicator_ids_names = fingertipsR::indicators_unique(),
+  area_type = fingertipsR::area_types()
+  ),
+indicator_name = "Pupil absence"
+)
+
+}

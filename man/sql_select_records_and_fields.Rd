@@ -7,11 +7,16 @@
 sql_select_records_and_fields(
   table,
   record,
-  con,
   id_column_name,
   field,
+  id_pos,
   dbms,
-  id_pos
+  driver_name,
+  host,
+  database_name,
+  user,
+  password,
+  port
 )
 }
 \arguments{
@@ -19,18 +24,28 @@ sql_select_records_and_fields(
 
 \item{record}{a vector or a comma-separated string of subset of subject IDs.}
 
-\item{con}{the connection object}
-
 \item{id_column_name}{the column names that unique identify the records in
 the tables}
 
 \item{field}{a vector of strings where each string is a comma-separated list
 of column names.}
 
-\item{dbms}{the database management system type}
-
 \item{id_pos}{a vector of the column positions of the variable that
 unique identifies the subjects in each table}
+
+\item{dbms}{the database management system type}
+
+\item{driver_name}{the driver name}
+
+\item{host}{host server name}
+
+\item{database_name}{the database name}
+
+\item{user}{the user name}
+
+\item{password}{the user's password}
+
+\item{port}{the server port ID}
 }
 \value{
 a data frame with the specified columns and records
@@ -42,18 +57,16 @@ Select specified records and fields from a table
 result <- sql_select_records_and_fields(
  table = "author",
  record = c("1", "20", "50"),
- con = pool::dbPool(RMySQL::MySQL(),
-   driver = "",
-   host = "mysql-rfam-public.ebi.ac.uk",
-   dbname = "Rfam",
-   user = "rfamro",
-   password = "",
-   port = 4497
- ),
  id_column_name = "author_id",
  field = c("author_id", "last_name"),
+ id_pos = NULL,
  dbms = "MySQL",
- id_pos = NULL
+ driver_name = "",
+ host = "mysql-rfam-public.ebi.ac.uk",
+ database_name = "Rfam",
+ user = "rfamro",
+ password = "",
+ port = 4497
 )
 
 }

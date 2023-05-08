@@ -4,17 +4,17 @@
 \alias{visualise_table}
 \title{Visualize the first 5 rows of the data from a table}
 \usage{
-visualise_table(table, con, dbms, display = TRUE)
+visualise_table(credentials_file, source, project_id, driver_name)
 }
 \arguments{
-\item{table}{the table name}
+\item{credentials_file}{the path to the file with the user-specific
+credential details for the projects of interest}
 
-\item{con}{the connection object}
+\item{source}{the table name}
 
-\item{dbms}{the database management system type}
+\item{project_id}{the name of the target database}
 
-\item{display}{a boolean that specify whether to display the first 5 rows or
-not. default = TRUE}
+\item{driver_name}{the name of the MS driver}
 }
 \value{
 return the first 5 rows of the table if display=TRUE
@@ -24,17 +24,10 @@ Visualize the first 5 rows of the data from a table
 }
 \examples{
 visualise_table(
- table = "author",
- con = pool::dbPool(RMySQL::MySQL(),
-   driver = "",
-   host = "mysql-rfam-public.ebi.ac.uk",
-   dbname = "Rfam",
-   user = "rfamro",
-   password = "",
-   port = 4497
- ),
-   display = TRUE,
-   dbms =  "MySQL"
+ credentials_file <- system.file("extdata", "test.ini", package = "readepi"),
+  source = "author",
+  project_id = "Rfam",
+  driver_name = ""
 )
 
 }

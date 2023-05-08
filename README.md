@@ -116,6 +116,14 @@ show_tables(
   driver_name = ""
 )
 
+# VISUALIZE THE FIRST 5 ROWS OF THE TABLE 'author'
+visualise_table(
+  credentials_file = credentials_file,
+  source = "author", # this is the table name
+  project_id = "Rfam", # this is the database name
+  driver_name = ""
+)
+
 # READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
 data <- readepi(
   credentials_file = credentials_file,

@@ -4,22 +4,44 @@
 \alias{sql_select_records_only}
 \title{Select specified records from a table}
 \usage{
-sql_select_records_only(table, record, con, dbms, id_column_name, id_pos)
+sql_select_records_only(
+  table,
+  record,
+  id_column_name,
+  id_pos,
+  dbms,
+  driver_name,
+  host,
+  database_name,
+  user,
+  password,
+  port
+)
 }
 \arguments{
 \item{table}{the table name}
 
 \item{record}{a vector or a comma-separated string of subset of subject IDs.}
 
-\item{con}{the connection object}
-
-\item{dbms}{the database management system type}
-
 \item{id_column_name}{the column names that unique identify the records in
 the tables}
 
 \item{id_pos}{a vector of the column positions of the variable that
 unique identifies the subjects in each table}
+
+\item{dbms}{the database management system type}
+
+\item{driver_name}{the driver name}
+
+\item{host}{host server name}
+
+\item{database_name}{the database name}
+
+\item{user}{the user name}
+
+\item{password}{the user's password}
+
+\item{port}{the server port ID}
 }
 \value{
 a data frame with the records of interest
@@ -31,16 +53,14 @@ Select specified records from a table
 result <- sql_select_records_only(
  table = "author",
  record = c("1", "20", "50"),
- con = pool::dbPool(RMySQL::MySQL(),
-   driver = "",
-   host = "mysql-rfam-public.ebi.ac.uk",
-   dbname = "Rfam",
-   user = "rfamro",
-   password = "",
-   port = 4497
- ),
- dbms = "MySQL",
  id_column_name = NULL,
- id_pos = 1
+ id_pos = 1,
+ dbms = "MySQL",
+ driver_name = "",
+ host = "mysql-rfam-public.ebi.ac.uk",
+ database_name = "Rfam",
+ user = "rfamro",
+ password = "",
+ port = 4497
 )
 }

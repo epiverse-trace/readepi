@@ -17,3 +17,13 @@ a data frame with the columns of interest
 \description{
 Subset columns when reading from Fingertips
 }
+\examples{
+res <- fingertips_subset_columns(
+  fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+  data = readepi(
+    profile_id = 19,
+    area_type_id = 202
+  )$data
+)
+
+}

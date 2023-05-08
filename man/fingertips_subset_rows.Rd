@@ -19,3 +19,14 @@ a data frame with the records of interest
 \description{
 Subset records when reading from Fingertips
 }
+\examples{
+res <- fingertips_subset_rows(
+  records = c("E92000001", "E12000002", "E12000009"),
+  id_col_name = "AreaCode",
+  data = readepi(
+    profile_id = 19,
+    area_type_id = 202
+  )$data
+)
+
+}

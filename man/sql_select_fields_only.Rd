@@ -4,17 +4,39 @@
 \alias{sql_select_fields_only}
 \title{Select specified fields from a table}
 \usage{
-sql_select_fields_only(table, field, con)
+sql_select_fields_only(
+  table,
+  field,
+  dbms,
+  driver_name,
+  host,
+  database_name,
+  user,
+  password,
+  port
+)
 }
 \arguments{
 \item{table}{the table name}
 
 \item{field}{a vector of column names of interest}
 
-\item{con}{the connection object}
+\item{dbms}{the database management system type}
+
+\item{driver_name}{the driver name}
+
+\item{host}{host server name}
+
+\item{database_name}{the database name}
+
+\item{user}{the user name}
+
+\item{password}{the user's password}
+
+\item{port}{the server port ID}
 }
 \value{
-a data frame with the specified fileds
+a data frame with the specified fields
 }
 \description{
 Select specified fields from a table
@@ -23,14 +45,13 @@ Select specified fields from a table
 result <- sql_select_fields_only(
  table = "author",
  field = c("author_id", "name", "last_name"),
- con = pool::dbPool(RMySQL::MySQL(),
-   driver = "",
-   host = "mysql-rfam-public.ebi.ac.uk",
-   dbname = "Rfam",
-   user = "rfamro",
-   password = "",
-   port = 4497
- )
+ dbms = "MySQL",
+ driver_name = "",
+ host = "mysql-rfam-public.ebi.ac.uk",
+ database_name = "Rfam",
+ user = "rfamro",
+ password = "",
+ port = 4497
 )
 
 }
