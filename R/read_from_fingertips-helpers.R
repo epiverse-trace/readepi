@@ -2,6 +2,8 @@
 #'
 #' @return a list of data frames
 #' @export
+#' @examples
+#' metadata <- get_fingertips_metadata()
 #'
 get_fingertips_metadata <- function() {
   list(
@@ -22,12 +24,20 @@ get_fingertips_metadata <- function() {
 #'
 #' @return the indicator ID
 #' @export
+#' @examples
+#' indicator_id <- get_ind_id_from_ind_name(
+#' metadata = list(
+#'   indicator_profile_domain = fingertipsR::indicators(),
+#'   indicator_ids_names = fingertipsR::indicators_unique(),
+#'   area_type = fingertipsR::area_types()
+#'   ),
+#' indicator_name = "Pupil absence"
+#' )
 #'
 get_ind_id_from_ind_name <- function(metadata, indicator_name) {
   checkmate::assert_list(metadata, any.missing = FALSE, len = 3,
                          null.ok = FALSE)
-  checkmate::assert_vector(indicator_name,
-                           any.missing = FALSE, min.len = 0,
+  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
                            null.ok = TRUE, unique = TRUE
   )
 
@@ -62,19 +72,26 @@ get_ind_id_from_ind_name <- function(metadata, indicator_name) {
 #'
 #' @return the indicator ID
 #' @export
+#' @examples
+#' indicator_id <- get_ind_id_from_domain_id(
+#' metadata = list(
+#'   indicator_profile_domain = fingertipsR::indicators(),
+#'   indicator_ids_names = fingertipsR::indicators_unique(),
+#'   area_type = fingertipsR::area_types()
+#'   ),
+#' domain_id = 1000041,
+#' indicator_name = NULL
+#' )
 #'
 get_ind_id_from_domain_id <- function(metadata, domain_id,
                                       indicator_name = NULL) {
   checkmate::assert_list(metadata, any.missing = FALSE, len = 3,
                          null.ok = FALSE)
-  checkmate::assert_vector(indicator_name,
-                           any.missing = FALSE, min.len = 0,
+  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
                            null.ok = TRUE, unique = TRUE
   )
-  checkmate::assert_vector(domain_id,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
+  checkmate::assert_vector(domain_id, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
 
   idx <- which(metadata$indicator_profile_domain$DomainID == domain_id)
   if (length(idx) == 0) {
@@ -113,19 +130,24 @@ get_ind_id_from_domain_id <- function(metadata, domain_id,
 #'
 #' @return the indicator ID
 #' @export
+#' @examples
+#' indicator_id <- get_ind_id_from_domain_name(
+#' metadata = list(
+#'   indicator_profile_domain = fingertipsR::indicators(),
+#'   indicator_ids_names = fingertipsR::indicators_unique(),
+#'   area_type = fingertipsR::area_types()
+#'   ),
+#' domain_name = "B. Wider determinants of health",
+#' )
 #'
 get_ind_id_from_domain_name <- function(metadata, domain_name,
                                         indicator_name = NULL) {
   checkmate::assert_list(metadata, any.missing = FALSE, len = 3,
                          null.ok = FALSE)
-  checkmate::assert_vector(domain_name,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(indicator_name,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
+  checkmate::assert_vector(domain_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
 
   domain_name <- unlist(strsplit(domain_name, ",", fixed = TRUE))
   idx <- which(metadata$indicator_profile_domain$DomainName == domain_name)
@@ -165,20 +187,24 @@ get_ind_id_from_domain_name <- function(metadata, domain_name,
 #' @param metadata the Fingertips metadata
 #'
 #' @return a list with the profile name and their correspondent indexes
+#' @examples
+#' res <- get_profile_name(
+#' profile_id = 19,
+#' profile_name = "Public Health Outcomes Framework",
+#' metadata = list(
+#'   indicator_profile_domain = fingertipsR::indicators(),
+#'   indicator_ids_names = fingertipsR::indicators_unique(),
+#'   area_type = fingertipsR::area_types()
+#'   )
+#' )
 #'
 get_profile_name <- function(profile_id, profile_name, metadata) {
-  checkmate::assert_vector(profile_id,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(profile_name,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(metadata,
-                           any.missing = FALSE,
-                           null.ok = FALSE
-  )
+  checkmate::assert_vector(profile_id, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(profile_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(metadata, any.missing = FALSE, null.ok = FALSE)
+
   if (all(!is.null(profile_id) & !is.null(profile_name))) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(metadata$indicator_profile_domain$ProfileID == profile_id &
@@ -209,6 +235,15 @@ get_profile_name <- function(profile_id, profile_name, metadata) {
 #'
 #' @return the indicator ID
 #' @export
+#' @examples
+#' res <- get_ind_id_from_profile(
+#' metadata = list(
+#'   indicator_profile_domain = fingertipsR::indicators(),
+#'   indicator_ids_names = fingertipsR::indicators_unique(),
+#'   area_type = fingertipsR::area_types()
+#' ),
+#' profile_id = 19
+#' )
 #'
 get_ind_id_from_profile <- function(metadata, domain_id = NULL,
                                     domain_name = NULL,
@@ -217,26 +252,16 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
                                     profile_id = NULL) {
   checkmate::assert_list(metadata, any.missing = FALSE, len = 3,
                          null.ok = FALSE)
-  checkmate::assert_vector(domain_id,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(domain_name,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(profile_id,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(profile_name,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(indicator_name,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
+  checkmate::assert_vector(domain_id, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(domain_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(profile_id, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(profile_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
 
   tmp_res <- get_profile_name(profile_id, profile_name, metadata)
   profile_name <- tmp_res[[1]]
@@ -294,15 +319,23 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #' @param data the data read from Fingertips
 #'
 #' @return a data frame with the records of interest
+#' @examples
+#' res <- fingertips_subset_rows(
+#'   records = c("E92000001", "E12000002", "E12000009"),
+#'   id_col_name = "AreaCode",
+#'   data = readepi(
+#'     profile_id = 19,
+#'     area_type_id = 202
+#'   )$data
+#' )
 #'
 fingertips_subset_rows <- function(records, id_col_name, data) {
   checkmate::assert_data_frame(data, null.ok = FALSE)
   checkmate::assert_character(id_col_name, any.missing = FALSE, len = 1,
                               null.ok = TRUE)
-  checkmate::assert_vector(records,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
+  checkmate::assert_vector(records, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+
   if (!is.null(records)) {
     records <- unlist(strsplit(records, ",", fixed = TRUE))
     records <- gsub(" ", "", records, fixed = TRUE)
@@ -325,14 +358,20 @@ fingertips_subset_rows <- function(records, id_col_name, data) {
 #' @param data the data read from Fingertips
 #'
 #' @return a data frame with the columns of interest
+#' @examples
+#' res <- fingertips_subset_columns(
+#'   fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+#'   data = readepi(
+#'     profile_id = 19,
+#'     area_type_id = 202
+#'   )$data
+#' )
 #'
-
 fingertips_subset_columns <- function(fields, data) {
   checkmate::assert_data_frame(data, null.ok = FALSE)
-  checkmate::assert_vector(fields,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
+  checkmate::assert_vector(fields, any.missing = FALSE, min.len = 0,
+                           null.ok = TRUE, unique = TRUE)
+
   if (!is.null(fields)) {
     fields <- unlist(strsplit(fields, ",", fixed = TRUE))
     fields <- gsub(" ", "", fields, fixed = TRUE)

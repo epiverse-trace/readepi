@@ -12,3 +12,7 @@ a list of data frames
 \description{
 get fingertips metadata
 }
+\examples{
+metadata <- get_fingertips_metadata()
+
+}
