@@ -187,6 +187,7 @@ get_ind_id_from_domain_name <- function(metadata, domain_name,
 #' @param metadata the Fingertips metadata
 #'
 #' @return a list with the profile name and their correspondent indexes
+#' @export
 #' @examples
 #' res <- get_profile_name(
 #' profile_id = 19,
@@ -319,6 +320,7 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #' @param data the data read from Fingertips
 #'
 #' @return a data frame with the records of interest
+#' @export
 #' @examples
 #' res <- fingertips_subset_rows(
 #'   records = c("E92000001", "E12000002", "E12000009"),
@@ -358,6 +360,7 @@ fingertips_subset_rows <- function(records, id_col_name, data) {
 #' @param data the data read from Fingertips
 #'
 #' @return a data frame with the columns of interest
+#' @export
 #' @examples
 #' res <- fingertips_subset_columns(
 #'   fields = c("IndicatorID", "AreaCode", "Age", "Value"),
