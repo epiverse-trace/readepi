@@ -164,7 +164,7 @@ below:
 # OPEN THE VIGNETTE WITHIN RSTUDIO
 vignette("readepi")
 
-# OPEN THE VIGNETTE IN YOUR WEB BROWSER
+# OPEN THE VIGNETTE IN YOUR WEB BROWSER. 
 browseVignettes("readepi")
 ```
 

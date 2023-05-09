@@ -153,7 +153,7 @@ The vignette of the **readepi** contains detailed illustrations about the use of
 # OPEN THE VIGNETTE WITHIN RSTUDIO
 vignette("readepi")
 
-# OPEN THE VIGNETTE IN YOUR WEB BROWSER
+# OPEN THE VIGNETTE IN YOUR WEB BROWSER. 
 browseVignettes("readepi")
 ```
 
