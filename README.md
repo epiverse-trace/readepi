@@ -161,6 +161,10 @@ the use of each function. This can be accessed by typing the command
 below:
 
 ``` r
+# OPEN THE VIGNETTE WITHIN RSTUDIO
+vignette("readepi")
+
+# OPEN THE VIGNETTE IN YOUR WEB BROWSER
 browseVignettes("readepi")
 ```
 
