@@ -157,7 +157,7 @@ data <- readepi(
 ## Vignette
 
 The vignette of the **readepi** contains detailed illustrations about
-the used of each function. This can be accessed by typing the command
+the use of each function. This can be accessed by typing the command
 below:
 
 ``` r
