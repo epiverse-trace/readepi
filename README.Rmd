@@ -148,7 +148,7 @@ data <- readepi(
 ```
 
 ## Vignette
-The vignette of the **readepi** contains detailed illustrations about the use of each function. This can be accessed by typing the command below:      
+The vignette of the **readepi** contains detailed illustrations about the use of each function. This can be accessed by typing the command below:         
 ```{r eval=FALSE}
 # OPEN THE VIGNETTE WITHIN RSTUDIO
 vignette("readepi")
