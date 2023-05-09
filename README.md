@@ -23,7 +23,7 @@ You can install the development version of readepi from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("epiverse-trace/readepi@develop", build_vignettes = TRUE)
+# devtools::install_github("epiverse-trace/readepi@develop", build_vignettes = TRUE)
 library(readepi)
 ```
 
