@@ -28,7 +28,7 @@ When reading data from file or directory, the function expects the following arg
 * *format*: a string used to specify the file format. This is useful when a file does not have an extension, or has a file extension that does not match its actual type,      
 * *which*: a string used to specify which objects should be extracted (e.g. the name of the excel sheet to import),     
 * *pattern*: when provided, only files that contain this pattern will be imported from the specified directory.    
-The function will return a list of data frames (if several files were imported from a directory).    
+The function will return an object of class list with one or more data frames.       
 
 ## importing data from JSON file
 Many database management systems (DBMS) can export data into `JSON` format that can be read into R using the `readepi()` function.      

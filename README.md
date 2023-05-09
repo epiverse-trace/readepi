@@ -23,8 +23,8 @@ You can install the development version of readepi from
 
 ``` r
 # install.packages("devtools")
-# devtools::install_github("epiverse-trace/readepi@develop", build_vignettes = TRUE)
-suppressPackageStartupMessages(library(readepi))
+devtools::install_github("epiverse-trace/readepi@develop", build_vignettes = TRUE)
+library(readepi)
 ```
 
 ## Importing data in R
@@ -39,6 +39,9 @@ and database management systems. These include:
 - relational database management systems (RDBMS) such as **REDCap**,
   **MS SQL server**, **DHIS2**  
 - Fingertips (repository of public health indicators in England)
+
+The function returns an object of class list with one or more data
+frames.
 
 ### Importing data from files
 
@@ -103,7 +106,7 @@ credentials_file <- system.file("extdata", "test.ini", package = "readepi")
 # READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT
 data <- readepi(
   credentials_file = credentials_file,
-  project_id = "TEST_REDCap"
+  project_id = "SD_DATA"
 )
 project_data <- data$data
 project_metadeta <- data$metadata
