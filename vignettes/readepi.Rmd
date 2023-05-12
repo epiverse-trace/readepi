@@ -34,7 +34,7 @@ The function will return an object of class list with one or more data frames.
 Many database management systems (DBMS) can export data into `JSON` format that can be read into R using the `readepi()` function.      
 ```{r eval=FALSE}
 file <- system.file("extdata", "test.json", package = "readepi")
-data <- readepi(file_path = file)
+dat <- readepi(file_path = file)
 ```
 
 ## importing data from excel file 
@@ -42,11 +42,11 @@ data <- readepi(file_path = file)
 ```{r eval=FALSE}
 # IMPORTING DATA FROM THE SECOND EXCEL SHEET
 file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(file_path = file, which = "Sheet2")
+dat <- readepi(file_path = file, which = "Sheet2")
 
 # IMPORTING DATA FROM THE FIRST AND SECOND EXCEL SHEETS
 file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(file_path = file, which = c("Sheet2", "Sheet1"))
+dat <- readepi(file_path = file, which = c("Sheet2", "Sheet1"))
 ```
 
 ## importing data from several files in a directory
@@ -54,13 +54,13 @@ data <- readepi(file_path = file, which = c("Sheet2", "Sheet1"))
 ```{r eval=FALSE}
 # READING ALL FILES IN THE GIVEN DIRECTOR
 dir_path <- system.file("extdata", package = "readepi")
-data <- readepi(file_path = dir_path)
+dat <- readepi(file_path = dir_path)
 
 # READING ONLY '.txt' FILES
-data <- readepi(file_path = dir_path, pattern = ".txt")
+dat <- readepi(file_path = dir_path, pattern = ".txt")
 
 # READING '.txt' and '.xlsx' FILES
-data <- readepi(file_path = dir_path, pattern = c(".txt", ".xlsx"))
+dat <- readepi(file_path = dir_path, pattern = c(".txt", ".xlsx"))
 ```
 
 # importing from DBMS (database management systems)
@@ -200,7 +200,7 @@ Note that in the above, the value for the `project_id` argument is the name of t
 ### fetching the data using table names    
 ```{r eval=FALSE}
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`)
-data <- readepi(credentials_file,
+dat <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "", # ODBC Driver 17 for SQL Server
   source = "author"
@@ -216,7 +216,7 @@ visualise_table(
 
 # READING SPECIFIED FIELDS AND ALL RECORDS FROM ONE TABLE
 fields <- "author_id,name,last_name,initials"
-data <- readepi(credentials_file,
+dat <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
   source = "author",
@@ -225,7 +225,7 @@ data <- readepi(credentials_file,
 
 # READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE
 records <- "1, 34, 15, 70, 118, 20"
-data <- readepi(credentials_file,
+dat <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
   source = "author",
@@ -234,7 +234,7 @@ data <- readepi(credentials_file,
 )
 
 # READING SPECIFIED FIELDS AND RECORDS ONE THE TABLE
-data <- readepi(credentials_file,
+dat <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
   source = "author",
@@ -245,7 +245,7 @@ data <- readepi(credentials_file,
 
 # READING DATA FROM SEVERAL TABLES
 table_names <- c("author", "family_author")
-data <- readepi(credentials_file,
+dat <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
   source = table_names
@@ -259,7 +259,7 @@ fields <- c(
 # the first string in the field vector corresponds to the name of the
 # columns of interest from the first table specified in the `table_names`
 # argument and so on...
-data <- readepi(credentials_file,
+dat <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
   source = table_names,
@@ -275,7 +275,7 @@ records <- c(
 # interest from the first table specified in the `table_name` argument and so
 # on... when the id column is not the first column in a table,
 # use the `id_position`"
-data <- readepi(credentials_file,
+dat <- readepi(credentials_file,
   project_id = "Rfam",
   driver_name = "",
   source = table_names,
@@ -285,7 +285,7 @@ data <- readepi(credentials_file,
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS
 # TABLES
-data <- readepi(
+dat <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
@@ -299,7 +299,7 @@ data <- readepi(
 ### fetching the data using an SQL query
 ```{r eval=FALSE}
 # SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
-data <- readepi(
+dat <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
@@ -308,7 +308,7 @@ data <- readepi(
 )
 
 # SELECT ALL DATA FROM THE author TABLE
-data <- readepi(
+dat <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
@@ -316,7 +316,7 @@ data <- readepi(
 )
 
 # SELECT FEW COLUMNS FROM THE author TABLE
-data <- readepi(
+dat <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
@@ -324,7 +324,7 @@ data <- readepi(
 )
 
 # SELECT FEW RECORDS FROM THE author TABLE
-data <- readepi(
+dat <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
@@ -332,7 +332,7 @@ data <- readepi(
 )
 
 # SELECT FEW RECORDS AND FIELDS FROM THE author TABLE
-data <- readepi(
+dat <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
@@ -353,37 +353,37 @@ Both the data and its associated metadata will be will be returned after a succe
 
 ```{r eval=FALSE}
 # READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT
-data <- readepi(
+dat <- readepi(
   credentials_file = credentials_file,
   project_id = "SD_DATA"
 )
-project_data <- data$data
-project_metadeta <- data$metadata
+project_data <- dat$data
+project_metadeta <- dat$metadata
 
 # READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT
 fields <- c("record_id", "name_first", "age", "bmi")
-data <- readepi(credentials_file,
+dat <- readepi(credentials_file,
   project_id = "SD_DATA",
   fields = fields
 )
 
 # READING SPECIFIC RECORDS AND ALL FIELDS FROM THE PROJECT
 records <- c("1", "3", "5")
-data <- readepi(credentials_file,
+dat <- readepi(credentials_file,
   project_id = "SD_DATA",
   records = records,
   id_col_name = "record_id"
 )
 
 # READING SPECIFIC RECORDS AND FIELDS FROM THE PROJECT
-data <- readepi(credentials_file,
+dat <- readepi(credentials_file,
   project_id = "SD_DATA",
   records = records,
   fields = fields,
   id_col_name = "record_id"
 )
-project_data <- data$data
-project_metadeta <- data$metadata
+project_data <- dat$data
+project_metadeta <- dat$metadata
 ```
 
 
@@ -431,7 +431,7 @@ data_element_groups <- get_organisation_units(
 )
 
 # READING THE DATASET ID `pBOMPrpg1QX`
-data <- readepi(
+dat <- readepi(
   credentials_file = credentials_file,
   project_id = "DHIS2_DEMO",
   dataset = "pBOMPrpg1QX",
@@ -442,7 +442,7 @@ data <- readepi(
 )
 
 # READING DATA FROM 2 DATASETS `pBOMPrpg1QX`
-data <- readepi(
+dat <- readepi(
   credentials_file = credentials_file,
   project_id = "DHIS2_DEMO",
   dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
@@ -455,7 +455,7 @@ data <- readepi(
 
 # READING SPECIFIC DATA ELEMENTS FROM THE DATASET ID `pBOMPrpg1QX`
 data_elts <- c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea")
-data <- readepi(
+dat <- readepi(
   credentials_file = credentials_file,
   project_id = "DHIS2_DEMO",
   dataset = "pBOMPrpg1QX",
@@ -468,7 +468,7 @@ data <- readepi(
 )
 
 # READING SPECIFIC COLUMNS FROM A DATASET
-data <- readepi(
+dat <- readepi(
   credentials_file = credentials_file,
   project_id = "DHIS2_DEMO",
   dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
@@ -479,7 +479,7 @@ data <- readepi(
   fields = c("dataElement", "period", "value")
 )
 
-test_data <- data$data
+test_data <- dat$data
 ```
 
 ## importing from Fingertips
@@ -514,37 +514,37 @@ head(metadata$area_type)
 # parent area types.
 
 # IMPORTING DATA USING THE INDICATOR ID
-data <- readepi(
+dat <- readepi(
   indicator_id = 90362,
   area_type_id = 202
 )
 
 # IMPORTING DATA USING THE INDICATOR NAME
-data <- readepi(
+dat <- readepi(
   indicator_name = "Healthy life expectancy at birth",
   area_type_id = 202
 )
 
 # IMPORTING DATA USING THE DOMAIN NAME
-data <- readepi(
+dat <- readepi(
   domain_name = "A. Overarching indicators",
   area_type_id = 202
 )
 
-data <- readepi(
+dat <- readepi(
   indicator_name = "Healthy life expectancy at birth",
   area_type_id = 202,
   domain_name = "A. Overarching indicators"
 )
 
 # IMPORTING DATA USING THE PROFILE ID
-data <- readepi(
+dat <- readepi(
   profile_id = 19,
   area_type_id = 202
 )
 
 # IMPORTING DATA FROM SPECIFIC INDICATOR, DOMAIN, PROFILE, AREA TYPE
-data <- readepi(
+dat <- readepi(
   indicator_id = 90362,
   indicator_name = "Healthy life expectancy at birth",
   area_type_id = 202, parent_area_type_id = 6,
@@ -556,7 +556,7 @@ data <- readepi(
 )
 
 # IMPORTING DATA AND SUBSETTING SPECIFIC RECORDS AND FIELDS
-data <- readepi(
+dat <- readepi(
   indicator_id = 90362,
   area_type_id = 202,
   fields = c("IndicatorID", "AreaCode", "Age", "Value"),
@@ -564,6 +564,3 @@ data <- readepi(
   id_col_name = "AreaCode"
 )
 ```
-
-
-

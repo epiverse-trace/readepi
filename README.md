@@ -48,15 +48,15 @@ frames.
 ``` r
 # READING DATA FROM JSON file
 file <- system.file("extdata", "test.json", package = "readepi")
-data <- readepi(file_path = file)
+dat <- readepi(file_path = file)
 
 # IMPORTING DATA FROM THE SECOND EXCEL SHEET
 file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(file_path = file, which = "Sheet2")
+dat <- readepi(file_path = file, which = "Sheet2")
 
 # IMPORTING DATA FROM THE FIRST AND SECOND EXCEL SHEETS
 file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(file_path = file, which = c("Sheet2", "Sheet1"))
+dat <- readepi(file_path = file, which = c("Sheet2", "Sheet1"))
 ```
 
 ### Importing data from several files in a directory
@@ -64,13 +64,13 @@ data <- readepi(file_path = file, which = c("Sheet2", "Sheet1"))
 ``` r
 # READING ALL FILES IN A GIVEN DIRECTORY
 dir_path <- system.file("extdata", package = "readepi")
-data <- readepi(file_path = dir_path)
+dat <- readepi(file_path = dir_path)
 
 # READING ONLY '.txt' FILES
-data <- readepi(file_path = dir_path, pattern = ".txt")
+dat <- readepi(file_path = dir_path, pattern = ".txt")
 
 # READING '.txt' and '.xlsx' FILES
-data <- readepi(file_path = dir_path, pattern = c(".txt", ".xlsx"))
+dat <- readepi(file_path = dir_path, pattern = c(".txt", ".xlsx"))
 ```
 
 ### Importing data from DBMS
@@ -104,12 +104,12 @@ show_example_file()
 credentials_file <- system.file("extdata", "test.ini", package = "readepi")
 
 # READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT
-data <- readepi(
+dat <- readepi(
   credentials_file = credentials_file,
   project_id = "SD_DATA"
 )
-project_data <- data$data
-project_metadeta <- data$metadata
+project_data <- dat$data
+project_metadeta <- dat$metadata
 
 # DISPLAY THE LIST OF ALL TABLES IN A DATABASE HOSTED IN A MySQL SERVER
 # for the test MySQL server, the driver name does not need to be specified
@@ -128,7 +128,7 @@ visualise_table(
 )
 
 # READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
-data <- readepi(
+dat <- readepi(
   credentials_file = credentials_file,
   project_id = "Rfam", # this is the database name
   driver_name = "",
@@ -136,7 +136,7 @@ data <- readepi(
 )
 
 # READING DATA FROM DHIS2
-data <- readepi(
+dat <- readepi(
   credentials_file = credentials_file,
   project_id = "DHIS2_DEMO",
   dataset = "pBOMPrpg1QX",
@@ -147,7 +147,7 @@ data <- readepi(
 )
 
 # READING FROM FINFERTIPS
-data <- readepi(
+dat <- readepi(
   indicator_id = 90362,
   area_type_id = 202,
   parent_area_type_id = 6 # optional
