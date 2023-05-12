@@ -5,6 +5,7 @@
 
 *readepi* provides functions for importing data into **R** from files
 and common *health information systems*.
+<img src="man/figures/logo.png" align="right" width="130"/>
 
 <!-- badges: start -->
 
@@ -112,7 +113,7 @@ project_data <- data$data
 project_metadeta <- data$metadata
 
 # DISPLAY THE LIST OF ALL TABLES IN A DATABASE HOSTED IN A MySQL SERVER
-# for the test MySQL server, the driver name does not need to be specified
+# FOR THE TEST MYSQL SERVER, THE DRIVER NAME DOES NOT NEED TO BE SPECIFIED
 show_tables(
   credentials_file = credentials_file,
   project_id = "Rfam",
