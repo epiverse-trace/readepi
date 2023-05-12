@@ -1,1 +1,81 @@
-[{"Sepal.Length":5.1,"Sepal.Width":3.5,"Petal.Length":1.4,"Petal.Width":0.2,"Species":"setosa"},{"Sepal.Length":4.9,"Sepal.Width":3,"Petal.Length":1.4,"Petal.Width":0.2,"Species":"setosa"},{"Sepal.Length":4.7,"Sepal.Width":3.2,"Petal.Length":1.3,"Petal.Width":0.2,"Species":"setosa"},{"Sepal.Length":4.6,"Sepal.Width":3.1,"Petal.Length":1.5,"Petal.Width":0.2,"Species":"setosa"},{"Sepal.Length":5,"Sepal.Width":3.6,"Petal.Length":1.4,"Petal.Width":0.2,"Species":"setosa"},{"Sepal.Length":5.4,"Sepal.Width":3.9,"Petal.Length":1.7,"Petal.Width":0.4,"Species":"setosa"},{"Sepal.Length":4.6,"Sepal.Width":3.4,"Petal.Length":1.4,"Petal.Width":0.3,"Species":"setosa"},{"Sepal.Length":5,"Sepal.Width":3.4,"Petal.Length":1.5,"Petal.Width":0.2,"Species":"setosa"},{"Sepal.Length":4.4,"Sepal.Width":2.9,"Petal.Length":1.4,"Petal.Width":0.2,"Species":"setosa"},{"Sepal.Length":4.9,"Sepal.Width":3.1,"Petal.Length":1.5,"Petal.Width":0.1,"Species":"setosa"}]
+[
+  {
+    "case_id": "d1fafd",
+    "date_of_onset": "2014-04-07",
+    "date_of_hospitalisation": "2014-04-17",
+    "date_of_outcome": "2014-04-19",
+    "gender": "f"
+  },
+  {
+    "case_id": "53371b",
+    "date_of_infection": "2014-04-09",
+    "date_of_onset": "2014-04-15",
+    "date_of_hospitalisation": "2014-04-20",
+    "gender": "m"
+  },
+  {
+    "case_id": "f5c3d8",
+    "date_of_infection": "2014-04-18",
+    "date_of_onset": "2014-04-21",
+    "date_of_hospitalisation": "2014-04-25",
+    "date_of_outcome": "2014-04-30",
+    "outcome": "Recover",
+    "gender": "f"
+  },
+  {
+    "case_id": "6c286a",
+    "date_of_onset": "2014-04-27",
+    "date_of_hospitalisation": "2014-04-27",
+    "date_of_outcome": "2014-05-07",
+    "outcome": "Death",
+    "gender": "f"
+  },
+  {
+    "case_id": "0f58c4",
+    "date_of_infection": "2014-04-22",
+    "date_of_onset": "2014-04-26",
+    "date_of_hospitalisation": "2014-04-29",
+    "date_of_outcome": "2014-05-17",
+    "outcome": "Recover",
+    "gender": "f"
+  },
+  {
+    "case_id": "49731d",
+    "date_of_infection": "2014-03-19",
+    "date_of_onset": "2014-04-25",
+    "date_of_hospitalisation": "2014-05-02",
+    "date_of_outcome": "2014-05-07",
+    "gender": "f"
+  },
+  {
+    "case_id": "f9149b",
+    "date_of_onset": "2014-05-03",
+    "date_of_hospitalisation": "2014-05-04",
+    "outcome": "Recover",
+    "gender": "f"
+  },
+  {
+    "case_id": "881bd4",
+    "date_of_infection": "2014-04-26",
+    "date_of_onset": "2014-05-01",
+    "date_of_hospitalisation": "2014-05-05",
+    "outcome": "Death",
+    "gender": "f"
+  },
+  {
+    "case_id": "e66fa4",
+    "date_of_onset": "2014-04-21",
+    "date_of_hospitalisation": "2014-05-06",
+    "date_of_outcome": "2014-05-12",
+    "outcome": "Recover",
+    "gender": "m"
+  },
+  {
+    "case_id": "20b688",
+    "date_of_onset": "2014-05-05",
+    "date_of_hospitalisation": "2014-05-06",
+    "date_of_outcome": "2014-05-14",
+    "outcome": "Death",
+    "gender": "m"
+  }
+]
