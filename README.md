@@ -1,11 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# readepi
-
-*readepi* provides functions for importing data into **R** from files
-and common *health information systems*.
-<img src="man/figures/logo.png" align="right" width="130"/>
+# readepi: Read data from health information systems <img src="man/figures/logo.png" align="right" width="130"/>
 
 <!-- badges: start -->
 
@@ -17,9 +13,36 @@ coverage](https://codecov.io/gh/epiverse-trace/readepi/branch/main/graph/badge.s
 [![lifecycle-concept](https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-maturing.svg)](https://www.reconverse.org/lifecycle.html#concept)
 <!-- badges: end -->
 
+**readepi** is an R package for reading data from several health
+information systems (HIS) including public repositories, relational
+database management systems (RDBMS), and files of almost any format.
+
+**readepi** currently supports reading data from the following:
+
+- All file formats in the
+  [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html)
+  package  
+- File of formats that are not covered by `rio` package  
+- RDBMS servers such as MS SQL, MySQL, and PostgreSQL 
+- [REDCap](https://projectredcap.org/software/): (Research Electronic
+  Data Capture) is a secure web application for building and managing
+  online surveys and databases  
+- [DHIS2](https://dhis2.org/about/): an open source, web-based platform
+  used as a health management information system  
+- [Fingertips](https://fingertips.phe.org.uk/): a repository of public
+  health indicators in England
+
+**readepi** returns a list object containing one or more data frames. In
+addition, **readepi** has a number of auxiliary functions for
+manipulating the imported data.
+
+**readepi** is developed by
+[Epiverse-TRACE](https://data.org/initiatives/epiverse/) team at the
+London School of Hygiene and Tropical Medicine.
+
 ## Installation
 
-You can install the development version of readepi from
+You can install the development version of **readepi** from
 [GitHub](https://github.com/) with:
 
 ``` r
@@ -28,99 +51,74 @@ You can install the development version of readepi from
 library(readepi)
 ```
 
-## Importing data in R
+## Quick start
 
-The `readepi()` function allows importing data from several file types
-and database management systems. These include:
+The main function in the **readepi** package is `readepi()`, which reads
+data from a specified source. The `readepi()` function accepts the
+user-supplied string (combination of the path to the file, file name,
+and file extension) as argument. The examples below show how to use the
+`readepi()` function to import data from a variety of sources.
 
-- all file formats in the
-  [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html)
-  package.  
-- file formats that are not accounted for by `rio`  
-- relational database management systems (RDBMS) such as **REDCap**,
-  **MS SQL server**, **DHIS2**  
-- Fingertips (repository of public health indicators in England)
-
-The function returns an object of class list with one or more data
-frames.
-
-### Importing data from files
+### Reading data from files
 
 ``` r
-# READING DATA FROM JSON file
+# Reading data from json file 
 file <- system.file("extdata", "test.json", package = "readepi")
 data <- readepi(file_path = file)
 
-# IMPORTING DATA FROM THE SECOND EXCEL SHEET
+# Importing data from sheet in excel file
 file <- system.file("extdata", "test.xlsx", package = "readepi")
 data <- readepi(file_path = file, which = "Sheet2")
+# For reading more than one sheet
+data <- readepi(file_path = file, which = c("Sheet1", "Sheet2"))
 
-# IMPORTING DATA FROM THE FIRST AND SECOND EXCEL SHEETS
-file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(file_path = file, which = c("Sheet2", "Sheet1"))
-```
-
-### Importing data from several files in a directory
-
-``` r
-# READING ALL FILES IN A GIVEN DIRECTORY
+# Reading data from files in a directory
 dir_path <- system.file("extdata", package = "readepi")
 data <- readepi(file_path = dir_path)
 
-# READING ONLY '.txt' FILES
-data <- readepi(file_path = dir_path, pattern = ".txt")
-
-# READING '.txt' and '.xlsx' FILES
+# Reading data from files with specific extension(s) in the directory
 data <- readepi(file_path = dir_path, pattern = c(".txt", ".xlsx"))
 ```
 
-### Importing data from DBMS
+### Reading data from RDBMS and HIS
 
-To read data from DBMS, users can either provide the details of the
-tables of interest or an SQL query (see `vignette` for illustration).
-The current version of `readepi` allows for data import from:  
-1. MS SQL server,  
-2. MySQL server,  
-3. PostgreSQL server.
+The `readepi()` method can import data from a variety of DBMS servers,
+including MS SQL, MySQL, and PostgreSQL. However, reading data from a
+DBMS requires the following:
 
-This requires the users to:
+1.  MS SQL driver that is compatible with the version of DBMS of
+    interest. The **vignette** describes how to install the appropriate
+    driver for each DBMS server.  
+2.  Credentials to access the server. **readpi** accepts a file with
+    credentials details, use the `show_example_file()` function to see
+    the structure of this file.
 
-1.  install the MS SQL driver that is compatible with your SQL server
-    version. Details about this installation process can be found in the
-    **vignette**.  
-2.  create a credentials file where the user credential details will be
-    stored. Use the `show_example_file()` to see a template of this
-    file.
-
-Note that the examples in this section are based on a MySQL server that
-does not require the user to specify the `driver name`. But it is
-important to keep in mind that specify the driver name is a requirement
-for MS SQL server.
+Users can read data from DBMS by providing the details of the tables of
+interest or an SQL query (for more information, see the **vignette**).
 
 ``` r
-# DISPLAY THE STRUCTURE OF THE CREDENTIALS FILE
+# Use the below function to see the structure of credential file
 show_example_file()
 
-# DEFINING THE CREDENTIALS FILE
+# Specifying the credential file
 credentials_file <- system.file("extdata", "test.ini", package = "readepi")
 
-# READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT
+# Reading file from a project in a database
 data <- readepi(
   credentials_file = credentials_file,
   project_id = "SD_DATA"
 )
-project_data <- data$data
-project_metadeta <- data$metadata
+project_data <- data$data # accessing the acutal data
+project_metadeta <- data$metadata # acessing the metadata associated with project
 
-# DISPLAY THE LIST OF ALL TABLES IN A DATABASE HOSTED IN A MySQL SERVER
-# FOR THE TEST MYSQL SERVER, THE DRIVER NAME DOES NOT NEED TO BE SPECIFIED
+# Displaying the list of all tables in a MySQL database server
 show_tables(
   credentials_file = credentials_file,
   project_id = "Rfam",
   driver_name = ""
 )
-
-# VISUALIZE THE FIRST 5 ROWS OF THE TABLE 'author'
+# **Note** that the MS SQL server does not require  a driver. 
+# Visualize first 5 rows of the table 'author'
 visualise_table(
   credentials_file = credentials_file,
   source = "author", # this is the table name
@@ -128,7 +126,7 @@ visualise_table(
   driver_name = ""
 )
 
-# READING ALL FIELDS AND ALL RECORDS FROM A DATABASE HOSTED BY A MS SQL SERVER
+# Reading all fields and records from a MS SQL sever
 data <- readepi(
   credentials_file = credentials_file,
   project_id = "Rfam", # this is the database name
@@ -136,7 +134,7 @@ data <- readepi(
   source = "author"
 )
 
-# READING DATA FROM DHIS2
+# reading data from DHIS2
 data <- readepi(
   credentials_file = credentials_file,
   project_id = "DHIS2_DEMO",
@@ -147,7 +145,7 @@ data <- readepi(
   end_date = "2023"
 )
 
-# READING FROM FINFERTIPS
+# Reading data from Fingertips repo
 data <- readepi(
   indicator_id = 90362,
   area_type_id = 202,
@@ -155,7 +153,7 @@ data <- readepi(
 )
 ```
 
-## Vignette
+## Package Vignettes
 
 The vignette of the **readepi** contains detailed illustrations about
 the use of each function. This can be accessed by typing the command
@@ -169,14 +167,17 @@ vignette("readepi")
 browseVignettes("readepi")
 ```
 
-## Development
+## Help
 
-### Contributions
+To report a bug please open an
+[issue](https://github.com/%7B%7B%20gh_repo%20%7D%7D/issues/new/choose).
+
+## Contributions
 
 Contributions are welcome via [pull
 requests](https://github.com/epiverse-trace/readepi/pulls).
 
-### Code of Conduct
+## Code of Conduct
 
 Please note that the readepi project is released with a [Contributor
 Code of
