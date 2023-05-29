@@ -31,7 +31,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-# load readepi
+# LOAD readepi
 library(readepi)
 ```
 
