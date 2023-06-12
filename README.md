@@ -23,9 +23,10 @@ database management systems (RDBMS), and files of almost any formats.
   [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html)
   package  
 - Files of formats that are not covered by `rio` package  
-- RDBMS servers such as MS SQL, MySQL, and PostgreSQL 
+- RDBMS (Relational DataBase Management Systems) such as MS SQL, MySQL,
+  and PostgreSQL 
 - [REDCap](https://projectredcap.org/software/): Research Electronic
-  Data Capture is a secure web application for building and managing
+  Data Capture - a secure web application for building and managing
   online surveys and databases  
 - [DHIS2](https://dhis2.org/about/): an open source and web-based
   platform for managing health information  
@@ -33,12 +34,13 @@ database management systems (RDBMS), and files of almost any formats.
   health indicators in England
 
 **readepi** returns a list object containing one or more data frames.
-**readepi** also has a number of auxiliary functions for manipulating
-the imported data.
+**readepi** also has a number of auxiliary functions the import of a
+subset of original dataset.
 
 **readepi** is developed by
 [Epiverse-TRACE](https://data.org/initiatives/epiverse/) team at the
-London School of Hygiene and Tropical Medicine.
+Medical Research Center, The Gambia unit at London School of Hygiene and
+Tropical Medicine (<MRCG@LSHTM>).
 
 ## Installation
 
@@ -47,7 +49,7 @@ You can install the development version of **readepi** from
 
 ``` r
 # install.packages("devtools")
-# devtools::install_github("epiverse-trace/readepi@develop", build_vignettes = TRUE)
+# devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
 library(readepi)
 ```
 
@@ -82,21 +84,21 @@ data <- readepi(file_path = dir_path, pattern = c(".txt", ".xlsx"))
 
 ### Reading data from RDBMS and HIS
 
-The `readepi()` function can import data from a variety of RDBMS
-servers, including MS SQL, MySQL, and PostgreSQL. Reading data from a
-RDBMS requires the following:
+The `readepi()` function can import data from a variety of RDBMS,
+including MS SQL, MySQL, and PostgreSQL. Reading data from a RDBMS
+requires the following:
 
 1.  MS SQL driver that is compatible with the version of DBMS of
     interest. The **vignette** describes how to install the appropriate
-    driver for each DBMS server.  
+    driver for each database management system.  
 2.  Credentials to access the server. **readpi** allows users to create
     and save a file with credentials details, which can then be used as
     one of the `readepi()` function’s arguments to access a database.
     The `show_example_file()` function shows the structure of the
     credential file.
 
-Users can read data from a RDBMS server by providing the details of the
-tables of interest or an SQL query (for more information, see the
+Users can read data from a RDBMS by providing the details of the tables
+of interest or an SQL query (for more information, see the
 **vignette**).
 
 ``` r
@@ -111,16 +113,16 @@ data <- readepi(
   credentials_file = credentials_file,
   project_id = "SD_DATA"
 )
-project_data <- data$data # accessing the acutal data
-project_metadeta <- data$metadata # acessing the metadata associated with project
+project_data <- data$data # accessing the actual data
+project_metadeta <- data$metadata # accessing the metadata associated with project
 
-# VIEWING THE LIST OF ALL TABLES IN A MYSQL DATABASE
+# VIEWING THE LIST OF ALL TABLES IN A MySQL DATABASE
 show_tables(
   credentials_file = credentials_file,
   project_id = "Rfam",
-  driver_name = ""
+  driver_name = "" # note that this example mysql server does not require a driver
 )
-# NOTE THAT THE MS SQL SERVER DOES NOT REQUIRE A DRIVER
+
 # VISUAIZE FIRST 5 ROWS OF THE TABLE 'AUTHOR'
 visualise_table(
   credentials_file = credentials_file,
@@ -129,7 +131,7 @@ visualise_table(
   driver_name = ""
 )
 
-# READING ALL FILEDS AND RECORDS FROM AN MS SQL SERVER
+# READING ALL FILEDS AND RECORDS FROM A MySQL SERVER
 data <- readepi(
   credentials_file = credentials_file,
   project_id = "Rfam", # this is the database name
@@ -137,7 +139,7 @@ data <- readepi(
   source = "author"
 )
 
-# READING DATA FROM DHISE
+# READING DATA FROM DHIS2
 data <- readepi(
   credentials_file = credentials_file,
   project_id = "DHIS2_DEMO",
@@ -148,7 +150,7 @@ data <- readepi(
   end_date = "2023"
 )
 
-# READING DATA FROM FINGERTIPS REPO
+# READING DATA FROM THE FINGERTIPS REPOSITORY
 data <- readepi(
   indicator_id = 90362,
   area_type_id = 202,
@@ -173,7 +175,7 @@ browseVignettes("readepi")
 ## Help
 
 To report a bug please open an
-[issue](https://github.com/epiverse-trace/readepi/issues/new/choose).
+[issue](https://github.com/%7B%7B%20gh_repo%20%7D%7D/issues/new/choose).
 
 ## Contributions
 
