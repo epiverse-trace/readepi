@@ -175,7 +175,7 @@ browseVignettes("readepi")
 ## Help
 
 To report a bug please open an
-[issue](https://github.com/%7B%7B%20gh_repo%20%7D%7D/issues/new/choose).
+[issue](https://github.com/epiverse-trace/readepi/issues/new/choose).
 
 ## Contributions
 
