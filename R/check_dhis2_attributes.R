@@ -52,25 +52,25 @@ check_dhis2_attributes <- function(username,
   data_elt_groups <- data_sets <- org_units <- data_elements <- NULL
 
   # get the relevant dataset
-  tmp_res <- get_relevant_dataset(dataset, base_url, username, password)
+  tmp_res <- get_datasets(dataset, base_url, username, password)
   dataset <- tmp_res[[1]]
   data_sets <- tmp_res[[2]]
 
   # get the relevant organisation units
-  tmp_res <- get_relevant_organisation_unit(organisation_unit,
+  tmp_res <- get_organisation_units(organisation_unit,
                                                      base_url, username,
                                                      password)
   organisation_unit <- tmp_res[[1]]
   org_units <- tmp_res[[2]]
 
   # get the relevant data element groups
-  tmp_res <- get_relevant_data_elt_group(data_element_group, base_url,
+  tmp_res <- get_data_elements(data_element_group, base_url,
                                             username, password)
   data_element_group <- tmp_res[[1]]
   data_elt_groups <- tmp_res[[2]]
 
   # get the data element
-  data_elements <- get_data_elements(base_url, username, password)
+  data_elements <- all_data_elements(base_url, username, password)
 
   list(
     dataset = dataset,

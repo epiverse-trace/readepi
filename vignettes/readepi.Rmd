@@ -420,28 +420,28 @@ project_metadeta <- data$metadata
 
 ```{r eval=FALSE}
 # GETTING THE DATA ELEMENT IDENTIFIERS AND NAMES
-data_elements <- get_data_elements(
+data_elements <- all_data_elements(
   base_url = "https://play.dhis2.org/dev/",
   username = "admin",
   password = "district"
 )
 
 # GETTING THE DATASET IDENTIFIERS AND NAMES
-datasets <- get_data_sets(
+datasets <- all_datasets(
   base_url = "https://play.dhis2.org/dev/",
   username = "admin",
   password = "district"
 )
 
 # GETTING THE ORGANISATION UNIT IDENTIFIERS AND NAMES
-organisation_units <- get_data_sets(
+organisation_units <- all_datasets(
   base_url = "https://play.dhis2.org/dev/",
   username = "admin",
   password = "district"
 )
 
 # GETTING THE DATA ELEMENT GROUP IDENTIFIERS AND NAMES
-data_element_groups <- get_organisation_units(
+data_element_groups <- all_organisation_units(
   base_url = "https://play.dhis2.org/dev/",
   username = "admin",
   password = "district"

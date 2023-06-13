@@ -2,17 +2,30 @@
 % Please edit documentation in R/check_dhis2_attributes-helpers.R
 \name{get_organisation_units}
 \alias{get_organisation_units}
-\title{Get the organisation unit identifiers and names}
+\title{Get one or more organisation units from a DHIS2 server.}
 \usage{
-get_organisation_units(base_url, username, password)
+get_organisation_units(organisation_unit_ids, base_url, username, password)
 }
 \arguments{
-\item{base_url}{the base URL of the DHIS2 server}
+\item{organisation_unit_ids}{The organisation unit identifiers.}
 
-\item{username}{the user name}
+\item{base_url}{The base URL of the DHIS2 server.}
 
-\item{password}{the user's password}
+\item{username}{The user name.}
+
+\item{password}{The user's password.}
+}
+\value{
+A \code{list} with the relevant organisation units.
 }
 \description{
-Get the organisation unit identifiers and names
+Get one or more organisation units from a DHIS2 server.
+}
+\examples{
+result <- get_organisation_units(
+  organisation_unit_ids = "DiszpKrYNg8",
+  base_url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district"
+)
 }

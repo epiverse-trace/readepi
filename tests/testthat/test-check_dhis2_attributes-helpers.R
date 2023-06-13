@@ -1,5 +1,5 @@
-test_that("get_data_sets works as expected", {
-  dataset <- get_data_sets(
+test_that("all_datasets works as expected", {
+  dataset <- all_datasets(
     username = "admin",
     password = "district",
     base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -7,9 +7,9 @@ test_that("get_data_sets works as expected", {
   expect_s3_class(dataset, class = "data.frame")
 })
 
-test_that("get_data_sets fails as expected", {
+test_that("all_datasets fails as expected", {
   expect_error(
-    dataset = get_data_sets(
+    dataset = all_datasets(
       username = NULL,
       password = "district",
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -18,7 +18,7 @@ test_that("get_data_sets fails as expected", {
   )
 
   expect_error(
-    dataset = get_data_sets(
+    dataset = all_datasets(
       username = NA,
       password = "district",
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -27,7 +27,7 @@ test_that("get_data_sets fails as expected", {
   )
 
   expect_error(
-    dataset = get_data_sets(
+    dataset = all_datasets(
       username = c("admin", "admin1"),
       password = "district",
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -37,7 +37,7 @@ test_that("get_data_sets fails as expected", {
   )
 
   expect_error(
-    dataset = get_data_sets(
+    dataset = all_datasets(
       username = "admin",
       password = NULL,
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -46,7 +46,7 @@ test_that("get_data_sets fails as expected", {
   )
 
   expect_error(
-    dataset = get_data_sets(
+    dataset = all_datasets(
       username = "admin",
       password = NA,
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -55,7 +55,7 @@ test_that("get_data_sets fails as expected", {
   )
 
   expect_error(
-    dataset = get_data_sets(
+    dataset = all_datasets(
       username = "admin",
       password = c("district", "district1"),
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -65,7 +65,7 @@ test_that("get_data_sets fails as expected", {
   )
 
   expect_error(
-    dataset = get_data_sets(
+    dataset = all_datasets(
       username = "admin",
       password = "district",
       base_url = NULL
@@ -74,7 +74,7 @@ test_that("get_data_sets fails as expected", {
   )
 
   expect_error(
-    dataset = get_data_sets(
+    dataset = all_datasets(
       username = "admin",
       password = "district",
       base_url = NA
@@ -83,7 +83,7 @@ test_that("get_data_sets fails as expected", {
   )
 
   expect_error(
-    dataset = get_data_sets(
+    dataset = all_datasets(
       username = "admin",
       password = c("district", "district1"),
       base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
@@ -94,8 +94,8 @@ test_that("get_data_sets fails as expected", {
   )
 })
 
-test_that("get_relevant_dataset works as expected", {
-  result <- get_relevant_dataset(
+test_that("get_datasets works as expected", {
+  result <- get_datasets(
     dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
     base_url = "https://play.dhis2.org/dev/",
     username = "admin",
@@ -105,8 +105,8 @@ test_that("get_relevant_dataset works as expected", {
   expect_length(result, 2)
 })
 
-test_that("get_relevant_organisation_unit works as expected", {
-  result <- get_relevant_organisation_unit(
+test_that("get_organisation_units works as expected", {
+  result <- get_organisation_units(
     organisation_unit = "DiszpKrYNg8",
     base_url = "https://play.dhis2.org/dev/",
     username = "admin",
@@ -116,8 +116,8 @@ test_that("get_relevant_organisation_unit works as expected", {
   expect_length(result, 2)
 })
 
-test_that("get_data_elements works as expected", {
-  data_element <- get_data_elements(
+test_that("all_data_elements works as expected", {
+  data_element <- all_data_elements(
     username = "admin",
     password = "district",
     base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -125,9 +125,9 @@ test_that("get_data_elements works as expected", {
   expect_s3_class(data_element, class = "data.frame")
 })
 
-test_that("get_data_elements fails as expected", {
+test_that("all_data_elements fails as expected", {
   expect_error(
-    data_element = get_data_elements(
+    data_element = all_data_elements(
       username = NULL,
       password = "district",
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -136,7 +136,7 @@ test_that("get_data_elements fails as expected", {
   )
 
   expect_error(
-    data_element = get_data_elements(
+    data_element = all_data_elements(
       username = NA,
       password = "district",
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -145,7 +145,7 @@ test_that("get_data_elements fails as expected", {
   )
 
   expect_error(
-    data_element = get_data_elements(
+    data_element = all_data_elements(
       username = c("admin", "admin1"),
       password = "district",
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -155,7 +155,7 @@ test_that("get_data_elements fails as expected", {
   )
 
   expect_error(
-    data_element = get_data_elements(
+    data_element = all_data_elements(
       username = "admin",
       password = NULL,
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -164,7 +164,7 @@ test_that("get_data_elements fails as expected", {
   )
 
   expect_error(
-    data_element = get_data_elements(
+    data_element = all_data_elements(
       username = "admin",
       password = NA,
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -173,7 +173,7 @@ test_that("get_data_elements fails as expected", {
   )
 
   expect_error(
-    data_element = get_data_elements(
+    data_element = all_data_elements(
       username = "admin",
       password = c("district", "district1"),
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -183,7 +183,7 @@ test_that("get_data_elements fails as expected", {
   )
 
   expect_error(
-    data_element = get_data_elements(
+    data_element = all_data_elements(
       username = "admin",
       password = "district",
       base_url = NULL
@@ -192,7 +192,7 @@ test_that("get_data_elements fails as expected", {
   )
 
   expect_error(
-    data_element = get_data_elements(
+    data_element = all_data_elements(
       username = "admin",
       password = "district",
       base_url = NA
@@ -201,7 +201,7 @@ test_that("get_data_elements fails as expected", {
   )
 
   expect_error(
-    data_element = get_data_elements(
+    data_element = all_data_elements(
       username = "admin",
       password = "district",
       base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
@@ -212,8 +212,8 @@ test_that("get_data_elements fails as expected", {
   )
 })
 
-test_that("get_organisation_units works as expected", {
-  organisation_units <- get_organisation_units(
+test_that("all_organisation_units works as expected", {
+  organisation_units <- all_organisation_units(
     base_url = file.path("https:/", "play.dhis2.org", "dev", ""),
     username = "admin",
     password = "district"
@@ -221,9 +221,9 @@ test_that("get_organisation_units works as expected", {
   expect_s3_class(organisation_units, class = "data.frame")
 })
 
-test_that("get_organisation_units fails as expected", {
+test_that("all_organisation_units fails as expected", {
   expect_error(
-    organisation_units = get_organisation_units(
+    organisation_units = all_organisation_units(
       base_url = file.path("https:/", "play.dhis2.org", "dev", ""),
       username = NULL,
       password = "district"
@@ -232,7 +232,7 @@ test_that("get_organisation_units fails as expected", {
   )
 
   expect_error(
-    organisation_units = get_organisation_units(
+    organisation_units = all_organisation_units(
       username = NA,
       password = "district",
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -241,7 +241,7 @@ test_that("get_organisation_units fails as expected", {
   )
 
   expect_error(
-    organisation_units = get_organisation_units(
+    organisation_units = all_organisation_units(
       username = c("admin", "admin1"),
       password = "district",
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -251,7 +251,7 @@ test_that("get_organisation_units fails as expected", {
   )
 
   expect_error(
-    organisation_units = get_organisation_units(
+    organisation_units = all_organisation_units(
       username = "admin",
       password = NULL,
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -260,7 +260,7 @@ test_that("get_organisation_units fails as expected", {
   )
 
   expect_error(
-    organisation_units = get_organisation_units(
+    organisation_units = all_organisation_units(
       username = "admin",
       password = NA,
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -269,7 +269,7 @@ test_that("get_organisation_units fails as expected", {
   )
 
   expect_error(
-    organisation_units = get_organisation_units(
+    organisation_units = all_organisation_units(
       username = "admin",
       password = c("district", "district1"),
       base_url = file.path("https:/", "play.dhis2.org", "dev", "")
@@ -279,7 +279,7 @@ test_that("get_organisation_units fails as expected", {
   )
 
   expect_error(
-    organisation_units = get_organisation_units(
+    organisation_units = all_organisation_units(
       username = "admin",
       password = "district",
       base_url = NULL
@@ -288,7 +288,7 @@ test_that("get_organisation_units fails as expected", {
   )
 
   expect_error(
-    organisation_units = get_organisation_units(
+    organisation_units = all_organisation_units(
       username = "admin",
       password = "district",
       base_url = NA
@@ -297,7 +297,7 @@ test_that("get_organisation_units fails as expected", {
   )
 
   expect_error(
-    organisation_units = get_organisation_units(
+    organisation_units = all_organisation_units(
       username = "admin",
       password = "district",
       base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
