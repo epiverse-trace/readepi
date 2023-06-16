@@ -39,6 +39,7 @@ a data frame with the entire dataset that is contained in the table
 Fetch entire dataset in a table
 }
 \examples{
+\dontrun{
 result <- sql_select_entire_dataset(
  table = "author",
  dbms = "MySQL",
@@ -49,5 +50,6 @@ result <- sql_select_entire_dataset(
  password = "",
  port = 4497
 )
+}
 
 }

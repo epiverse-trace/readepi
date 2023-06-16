@@ -33,6 +33,7 @@ the indicator ID
 Get indicator ID from profile ID and/or profile name
 }
 \examples{
+\dontrun{
 res <- get_ind_id_from_profile(
 metadata = list(
   indicator_profile_domain = fingertipsR::indicators(),
@@ -41,5 +42,6 @@ metadata = list(
 ),
 profile_id = 19
 )
+}
 
 }

@@ -20,6 +20,7 @@ a list with the profile name and their correspondent indexes
 Get profile name from Fingertips
 }
 \examples{
+\dontrun{
 res <- get_profile_name(
 profile_id = 19,
 profile_name = "Public Health Outcomes Framework",
@@ -29,5 +30,6 @@ metadata = list(
   area_type = fingertipsR::area_types()
   )
 )
+}
 
 }

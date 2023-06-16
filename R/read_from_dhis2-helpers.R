@@ -5,13 +5,6 @@
 #' @param base_url the base URL of the DHIS2 server
 #'
 login <- function(username, password, base_url) {
-  checkmate::assertCharacter(base_url, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-  checkmate::assertCharacter(username, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-  checkmate::assertCharacter(password, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-
   url <- file.path(base_url, "api", "me")
   resp <- httr::GET(url, httr::authenticate(username, password))
   httr::stop_for_status(resp)
@@ -25,6 +18,7 @@ login <- function(username, password, base_url) {
 #'
 #' @return the data frame with the fields of interest
 #' @examples
+#' \dontrun{
 #' results <- dhis2_subset_fields(
 #'  fields = c("dataElement","period","value"),
 #'  data = readepi(
@@ -37,14 +31,10 @@ login <- function(username, password, base_url) {
 #'    end_date = "2023",
 #'    fields = c("dataElement","period","value")
 #'  )$data
-#')
-#' @export
+#' )
+#' }
+#'
 dhis2_subset_fields <- function(fields, data) {
-  checkmate::assert_vector(fields,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_data_frame(data, null.ok = FALSE)
   if (!is.null(fields)) {
     if (is.character(fields)) fields <- unlist(strsplit(fields, ",",
                                                         fixed = TRUE))
@@ -70,6 +60,7 @@ dhis2_subset_fields <- function(fields, data) {
 #'
 #' @return a data frame with the records of interest
 #' @examples
+#' \dontrun{
 #' result <- dhis2_subset_records(
 #'  records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
 #'  id_col_name = "dataElement",
@@ -83,16 +74,9 @@ dhis2_subset_fields <- function(fields, data) {
 #'   end_date = "2023"
 #'   )$data
 #' )
+#' }
 #'
-#' @export
 dhis2_subset_records <- function(records, id_col_name, data) {
-  checkmate::assert_data_frame(data, null.ok = FALSE)
-  checkmate::assert_vector(records,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assertCharacter(id_col_name, len = 1, null.ok = TRUE,
-                             any.missing = FALSE)
   if (!is.null(records)) {
     if (is.character(records)) records <- unlist(strsplit(records, ",",
                                                           fixed = TRUE))

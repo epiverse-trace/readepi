@@ -22,10 +22,13 @@ a list with the relevant organisation units
 Get the relevant organisation units
 }
 \examples{
+\dontrun{
 result <- get_relevant_organisation_unit(
  organisation_unit = "DiszpKrYNg8",
  base_url = "https://play.dhis2.org/dev/",
  username = "admin",
  password = "district"
 )
+}
+
 }

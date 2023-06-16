@@ -18,6 +18,7 @@ the data frame with the fields of interest
 Subset fields when reading from DHIS2
 }
 \examples{
+\dontrun{
 results <- dhis2_subset_fields(
  fields = c("dataElement","period","value"),
  data = readepi(
@@ -31,4 +32,6 @@ results <- dhis2_subset_fields(
    fields = c("dataElement","period","value")
  )$data
 )
+}
+
 }

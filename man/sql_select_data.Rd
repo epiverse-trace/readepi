@@ -54,6 +54,7 @@ a subset of the data in the specified tables
 Subset data read from servers
 }
 \examples{
+\dontrun{
 result = sql_select_data(
  table_names = "author",
  dbms = "MySQL",
@@ -68,5 +69,6 @@ result = sql_select_data(
  password = "",
  port = 4497
 )
+}
 
 }

@@ -16,10 +16,13 @@ a list of the parameters to be used for reading from Fingertips
 Get arguments for reading from Fingertips
 }
 \examples{
+\dontrun{
 args_list <- get_read_fingertips_args(
  list(
    indicator_id = 90362,
    area_type_id = 202
  )
 )
+}
+
 }

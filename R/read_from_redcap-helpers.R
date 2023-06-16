@@ -16,6 +16,7 @@
 #'
 #' @return a list with the data of interest and its associated metadata
 #' @examples
+#' \dontrun{
 #' result = import_redcap_data(
 #'  uri = "https://bbmc.ouhsc.edu/redcap/api/",
 #'  token = "9A81268476645C4E5F03428B8AC3AA7B",
@@ -24,7 +25,8 @@
 #'  id_col_name = NULL,
 #'  id_position = 1
 #' )
-#' @export
+#' }
+#'
 import_redcap_data <- function(records, fields, uri, token,
                                id_position, id_col_name) {
   checkmate::assert_number(id_position, null.ok = TRUE,
@@ -85,7 +87,7 @@ import_redcap_data <- function(records, fields, uri, token,
 #' the subjects
 #'
 #' @return a list with the project data and its associated metadata
-#' @export
+#'
 redcap_read <- function(uri, token, id_position) {
   checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
                            na.ok = FALSE)
@@ -121,7 +123,7 @@ redcap_read <- function(uri, token, id_position) {
 #'
 #' @return a list with the project data and its associated metadata with the
 #' fields and records of interest
-#' @export
+#'
 redcap_read_rows_columns <- function(fields, uri, token, id_position,
                                      id_col_name, records) {
   checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
@@ -188,7 +190,7 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
 #'
 #' @return a list with the project data and its associated metadata with the
 #' fields of interest
-#' @export
+#'
 redcap_read_fields <- function(fields, uri, token, id_position) {
   checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
                            na.ok = FALSE)
@@ -231,7 +233,7 @@ redcap_read_fields <- function(fields, uri, token, id_position) {
 #'
 #' @return a list with the project data and its associated metadata with the
 #' records of interest
-#' @export
+#'
 redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
   checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
                            na.ok = FALSE)
@@ -286,6 +288,7 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
 #' data frames
 #'
 #' @examples
+#' \dontrun{
 #' result <- redcap_get_results(
 #' redcap_data = REDCapR::redcap_read(
 #'   redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
@@ -302,7 +305,8 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
 #'   verbose = FALSE
 #'   )
 #' )
-#' @export
+#' }
+#'
 redcap_get_results <- function(redcap_data, metadata) {
   checkmate::assert_list(redcap_data, null.ok = FALSE, min.len = 2,
                          any.missing = FALSE)

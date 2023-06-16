@@ -42,6 +42,7 @@ a list with the data fetched from the tables of interest
 Fetch data from server using an SQL query
 }
 \examples{
+\dontrun{
 result <- fetch_data_from_query(
  source = "select author_id, name, last_name from author",
  dbms = "MySQL",
@@ -53,5 +54,6 @@ result <- fetch_data_from_query(
  password = "",
  port = 4497
 )
+}
 
 }

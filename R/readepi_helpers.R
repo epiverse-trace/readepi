@@ -13,7 +13,6 @@
 #'   project_id = "Rfam"
 #' )
 #' }
-#' @export
 read_credentials <- function(file_path = system.file("extdata", "test.ini",
                                                      package = "readepi"),
                              project_id = NULL) {
@@ -64,6 +63,7 @@ read_credentials <- function(file_path = system.file("extdata", "test.ini",
 #'
 #' @return a list of the parameters to be used for reading from file
 #' @examples
+#' \dontrun{
 #' args_list <- get_read_file_args(
 #'  list(
 #'    sep = "\t",
@@ -71,8 +71,8 @@ read_credentials <- function(file_path = system.file("extdata", "test.ini",
 #'    which = NULL
 #'  )
 #' )
+#' }
 #'
-#' @export
 get_read_file_args <- function(args_list) {
   checkmate::assert_list(args_list)
   if ("sep" %in% names(args_list)) {
@@ -110,13 +110,15 @@ get_read_file_args <- function(args_list) {
 #'
 #' @return a list of the parameters to be used for reading from Fingertips
 #' @examples
+#' \dontrun{
 #' args_list <- get_read_fingertips_args(
 #'  list(
 #'    indicator_id = 90362,
 #'    area_type_id = 202
 #'  )
 #' )
-#' @export
+#' }
+#'
 get_read_fingertips_args <- function(args_list) {
   checkmate::assert_list(args_list)
   if ("indicator_id" %in% names(args_list)) {

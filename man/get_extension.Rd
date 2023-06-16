@@ -16,7 +16,10 @@ a string that corresponds to the file extension
 Get file extension
 }
 \examples{
+\dontrun{
 ext <- get_extension(
  file_path = system.file("extdata", "test.txt", package = "readepi")
 )
+}
+
 }

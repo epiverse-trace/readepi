@@ -1,17 +1,18 @@
 #' Import data from REDCap into R
 #' @param uri the URI of the server
 #' @param token the user-specific string that serves as the password for a
-#' project
+#'    project
 #' @param id_position the column position of the variable that unique identifies
-#' the subjects. When the column name with the subject IDs is known, use
-#' the `id_col_name` argument instead. default is 1
+#'    the subjects. When the column name with the subject IDs is known, use
+#'    the `id_col_name` argument instead. default is 1
 #' @param id_col_name the column name with the subject IDs
 #' @param records a vector or a comma-separated string of subset of subject IDs.
-#' When specified, only the records that correspond to these subjects will
-#' be imported.
+#'    When specified, only the records that correspond to these subjects will
+#'    be imported.
 #' @param fields a vector or a comma-separated string of column names.
-#' If provided, only those columns will be imported.
+#'    If provided, only those columns will be imported.
 #' @examples
+#' \dontrun{
 #' redcap_data <- read_from_redcap(
 #'   uri = "https://bbmc.ouhsc.edu/redcap/api/",
 #'   token = "9A81268476645C4E5F03428B8AC3AA7B",
@@ -20,9 +21,10 @@
 #'   records = NULL,
 #'   fields = NULL
 #' )
+#' }
 #' @returns a list with 2 data frames: the data of interest and the metadata
-#' associated to the data.
-#' @export
+#'     associated to the data.
+#'
 read_from_redcap <- function(uri, token, id_position = NULL, id_col_name = NULL,
                              records = NULL, fields = NULL) {
   # check input variables

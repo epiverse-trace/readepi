@@ -22,10 +22,13 @@ a list with the relevant datasets
 Get the relevant dataset
 }
 \examples{
+\dontrun{
 result <- get_relevant_dataset(
  dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
  base_url = "https://play.dhis2.org/dev/",
  username = "admin",
  password = "district"
 )
+}
+
 }

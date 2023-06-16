@@ -20,6 +20,7 @@ a data frame with the records of interest
 Subset records when reading from Fingertips
 }
 \examples{
+\dontrun{
 res <- fingertips_subset_rows(
   records = c("E92000001", "E12000002", "E12000009"),
   id_col_name = "AreaCode",
@@ -28,5 +29,6 @@ res <- fingertips_subset_rows(
     area_type_id = 202
   )$data
 )
+}
 
 }

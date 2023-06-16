@@ -14,7 +14,6 @@
 #' )
 #' }
 #' @returns the list of tables in the specified database
-#' @export
 #'
 show_tables <- function(credentials_file, project_id, driver_name) {
   # checking input parameters

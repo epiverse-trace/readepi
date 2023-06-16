@@ -33,6 +33,7 @@ a list
 Check the DHIS2 attributes for data import
 }
 \examples{
+\dontrun{
 attributes <- check_dhis2_attributes(
  username = "admin",
  password = "district",
@@ -41,4 +42,6 @@ attributes <- check_dhis2_attributes(
  organisation_unit = "DiszpKrYNg8",
  data_element_group = NULL
 )
+}
+
 }

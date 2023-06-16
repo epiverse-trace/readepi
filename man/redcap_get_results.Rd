@@ -19,6 +19,7 @@ data frames
 Check and return data fetch from redcap
 }
 \examples{
+\dontrun{
 result <- redcap_get_results(
 redcap_data = REDCapR::redcap_read(
   redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
@@ -35,4 +36,6 @@ metadata = REDCapR::redcap_metadata_read(
   verbose = FALSE
   )
 )
+}
+
 }

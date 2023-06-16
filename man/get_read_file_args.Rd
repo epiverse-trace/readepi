@@ -16,6 +16,7 @@ a list of the parameters to be used for reading from file
 Get arguments for reading from files
 }
 \examples{
+\dontrun{
 args_list <- get_read_file_args(
  list(
    sep = "\t",
@@ -23,5 +24,6 @@ args_list <- get_read_file_args(
    which = NULL
  )
 )
+}
 
 }

@@ -20,6 +20,7 @@ a data frame with the records of interest
 Title
 }
 \examples{
+\dontrun{
 result <- dhis2_subset_records(
  records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
  id_col_name = "dataElement",
@@ -33,5 +34,6 @@ result <- dhis2_subset_records(
   end_date = "2023"
   )$data
 )
+}
 
 }

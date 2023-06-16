@@ -42,6 +42,7 @@ a data frame with the specified fields
 Select specified fields from a table
 }
 \examples{
+\dontrun{
 result <- sql_select_fields_only(
  table = "author",
  field = c("author_id", "name", "last_name"),
@@ -53,5 +54,6 @@ result <- sql_select_fields_only(
  password = "",
  port = 4497
 )
+}
 
 }

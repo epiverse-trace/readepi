@@ -18,6 +18,7 @@ a data frame with the columns of interest
 Subset columns when reading from Fingertips
 }
 \examples{
+\dontrun{
 res <- fingertips_subset_columns(
   fields = c("IndicatorID", "AreaCode", "Age", "Value"),
   data = readepi(
@@ -25,5 +26,6 @@ res <- fingertips_subset_columns(
     area_type_id = 202
   )$data
 )
+}
 
 }

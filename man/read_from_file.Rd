@@ -36,6 +36,7 @@ directory or reading several excel sheets) data frames
 Read data from file or directory
 }
 \examples{
+\dontrun{
 data <- read_from_file(
  file_path = system.file("extdata", "test.txt", package = "readepi"),
  sep = NULL,
@@ -43,4 +44,6 @@ data <- read_from_file(
  which = NULL,
  pattern = NULL
 )
+}
+
 }

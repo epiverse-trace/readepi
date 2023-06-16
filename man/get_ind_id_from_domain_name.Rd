@@ -20,6 +20,7 @@ the indicator ID
 Get indicator ID from domain name
 }
 \examples{
+\dontrun{
 indicator_id <- get_ind_id_from_domain_name(
 metadata = list(
   indicator_profile_domain = fingertipsR::indicators(),
@@ -28,5 +29,6 @@ metadata = list(
   ),
 domain_name = "B. Wider determinants of health",
 )
+}
 
 }

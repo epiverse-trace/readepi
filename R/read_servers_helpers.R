@@ -9,9 +9,9 @@
 #' @param port the server port ID
 #'
 #' @return the connection object
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' con <- connect_to_server(
 #'  dbms = "MySQL",
 #'  driver_name = "",
@@ -21,6 +21,8 @@
 #'  password = "",
 #'  port = 4497
 #' )
+#' }
+#'
 connect_to_server <- function(dbms, driver_name, host, database_name,
                               user, password, port) {
   checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
@@ -69,13 +71,14 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
 #' @param tables the list of all tables from the database
 #'
 #' @return the table name of interest
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' table_name = identify_table_name(
 #'  query = "select * from author",
 #'  tables = c("family_author", "author", "test")
 #' )
+#' }
 #'
 identify_table_name <- function(query, tables) {
   checkmate::assert_character(query, any.missing = FALSE, len = 1,
@@ -103,9 +106,9 @@ identify_table_name <- function(query, tables) {
 #' @param port the server port ID
 #'
 #' @return a list with the data fetched from the tables of interest
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' result <- fetch_data_from_query(
 #'  source = "select author_id, name, last_name from author",
 #'  dbms = "MySQL",
@@ -117,6 +120,7 @@ identify_table_name <- function(query, tables) {
 #'  password = "",
 #'  port = 4497
 #' )
+#' }
 #'
 fetch_data_from_query <- function(source, dbms, tables,
                                  driver_name, host, database_name,
@@ -175,8 +179,8 @@ fetch_data_from_query <- function(source, dbms, tables,
 #' @param port the server port ID
 #'
 #' @return a subset of the data in the specified tables
-#' @export
 #' @examples
+#' \dontrun{
 #' result = sql_select_data(
 #'  table_names = "author",
 #'  dbms = "MySQL",
@@ -191,6 +195,7 @@ fetch_data_from_query <- function(source, dbms, tables,
 #'  password = "",
 #'  port = 4497
 #' )
+#' }
 #'
 sql_select_data <- function(table_names, dbms, id_col_name,
                             fields, records, id_position,
@@ -328,9 +333,9 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 #' @param port the server port ID
 #'
 #' @return a data frame with the entire dataset that is contained in the table
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' result <- sql_select_entire_dataset(
 #'  table = "author",
 #'  dbms = "MySQL",
@@ -341,6 +346,7 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 #'  password = "",
 #'  port = 4497
 #' )
+#' }
 #'
 sql_select_entire_dataset <- function(table, dbms, driver_name, host,
                                       database_name, user, password, port) {
@@ -388,9 +394,9 @@ sql_select_entire_dataset <- function(table, dbms, driver_name, host,
 #' unique identifies the subjects in each table
 #'
 #' @return a data frame with the specified columns and records
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' result <- sql_select_records_and_fields(
 #'  table = "author",
 #'  record = c("1", "20", "50"),
@@ -405,6 +411,7 @@ sql_select_entire_dataset <- function(table, dbms, driver_name, host,
 #'  password = "",
 #'  port = 4497
 #' )
+#' }
 #'
 sql_select_records_and_fields <- function(table, record, id_column_name, field,
                                           id_pos, dbms, driver_name, host,
@@ -467,15 +474,16 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #' @param driver_name the name of the MS driver
 #'
 #' @return return the first 5 rows of the table if display=TRUE
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' visualise_table(
 #'  credentials_file <- system.file("extdata", "test.ini", package = "readepi"),
 #'   source = "author",
 #'   project_id = "Rfam",
 #'   driver_name = ""
 #' )
+#' }
 #'
 visualise_table <- function(credentials_file, source, project_id,
                             driver_name) {
@@ -516,9 +524,9 @@ visualise_table <- function(credentials_file, source, project_id,
 #' @param port the server port ID
 #'
 #' @return a data frame with the records of interest
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' result <- sql_select_records_only(
 #'  table = "author",
 #'  record = c("1", "20", "50"),
@@ -532,6 +540,8 @@ visualise_table <- function(credentials_file, source, project_id,
 #'  password = "",
 #'  port = 4497
 #' )
+#' }
+#'
 sql_select_records_only <- function(table, record, id_column_name, id_pos,
                                     dbms, driver_name, host, database_name,
                                     user, password, port) {
@@ -604,9 +614,9 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
 #' @param port the server port ID
 #'
 #' @return a data frame with the specified fields
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' result <- sql_select_fields_only(
 #'  table = "author",
 #'  field = c("author_id", "name", "last_name"),
@@ -618,6 +628,7 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
 #'  password = "",
 #'  port = 4497
 #')
+#' }
 #'
 sql_select_fields_only <- function(table, field, dbms, driver_name, host,
                                    database_name, user, password, port) {

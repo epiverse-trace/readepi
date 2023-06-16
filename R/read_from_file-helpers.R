@@ -3,12 +3,14 @@
 #' @param file_path the target file path
 #'
 #' @return a string that corresponds to the file extension
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' ext <- get_extension(
 #'  file_path = system.file("extdata", "test.txt", package = "readepi")
 #' )
+#' }
+#'
 get_extension <- function(file_path) {
   checkmate::assert_character(file_path, any.missing = FALSE, null.ok = FALSE,
                               len = 1)
@@ -25,10 +27,12 @@ get_extension <- function(file_path) {
 #' @return the file base name
 #'
 #' @examples
+#' \dontrun{
 #' base_name <- get_base_name(
 #'  x = system.file("extdata", "test.txt", package = "readepi")
 #' )
-#' @export
+#' }
+#'
 get_base_name <- function(x) {
   checkmate::assert_character(x, any.missing = FALSE, null.ok = FALSE,
                               len = 1)
@@ -42,12 +46,14 @@ get_base_name <- function(x) {
 #' @param x a string
 #'
 #' @return a vector of identified separators
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' sep <- detect_separator(
 #'  x = "My name is Karim"
 #' )
+#' }
+#'
 detect_separator <- function(x) {
   checkmate::assert_character(x, any.missing = FALSE, null.ok = FALSE)
   special_characters <- c("\t", "|", ",", ";", " ")
@@ -117,7 +123,6 @@ read_rio_formats <- function(files_extensions, rio_extensions,
 #' @param which a string used to specify the name of the excel sheet to import
 #'
 #' @return a list of data frames where each data frame contains data from a file
-#' @export
 #'
 read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
   checkmate::assert_vector(files, any.missing = FALSE,

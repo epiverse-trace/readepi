@@ -54,6 +54,7 @@ a data frame with the specified columns and records
 Select specified records and fields from a table
 }
 \examples{
+\dontrun{
 result <- sql_select_records_and_fields(
  table = "author",
  record = c("1", "20", "50"),
@@ -68,5 +69,6 @@ result <- sql_select_records_and_fields(
  password = "",
  port = 4497
 )
+}
 
 }

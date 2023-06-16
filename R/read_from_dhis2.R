@@ -16,7 +16,7 @@
 #' If provided, only those columns will be imported.
 #' @param id_col_name the column name with the records of interest.
 #' @returns a list of data frames
-#' @export
+#'
 read_from_dhis2 <- function(base_url,
                             user_name,
                             password,
@@ -93,7 +93,7 @@ read_from_dhis2 <- function(base_url,
     query = list(
       dataSet = attributes$dataset,
       orgUnit = attributes$organisation_unit,
-      startDate = start_date, # "2014"
+      startDate = start_date,
       endDate = end_date
     )
   ) %>%

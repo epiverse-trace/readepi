@@ -16,7 +16,10 @@ the file base name
 Get file base name
 }
 \examples{
+\dontrun{
 base_name <- get_base_name(
  x = system.file("extdata", "test.txt", package = "readepi")
 )
+}
+
 }

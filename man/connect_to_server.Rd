@@ -28,6 +28,7 @@ the connection object
 Establish connection to the server
 }
 \examples{
+\dontrun{
 con <- connect_to_server(
  dbms = "MySQL",
  driver_name = "",
@@ -37,4 +38,6 @@ con <- connect_to_server(
  password = "",
  port = 4497
 )
+}
+
 }

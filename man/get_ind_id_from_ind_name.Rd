@@ -18,6 +18,7 @@ the indicator ID
 Get indicator ID from indicator name
 }
 \examples{
+\dontrun{
 indicator_id <- get_ind_id_from_ind_name(
 metadata = list(
   indicator_profile_domain = fingertipsR::indicators(),
@@ -26,5 +27,7 @@ metadata = list(
   ),
 indicator_name = "Pupil absence"
 )
+}
+
 
 }

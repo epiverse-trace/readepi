@@ -4,17 +4,9 @@
 #' @param password the user's password
 #' @param base_url the base URL of the DHIS2 server
 #'
-#' @export
-#'
 get_data_sets <- function(base_url, username, password) {
-  checkmate::assertCharacter(base_url, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-  checkmate::assertCharacter(username, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-  checkmate::assertCharacter(password, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-
-  url <- paste0(base_url, "/api/dataSets?fields=id,name,shortName&paging=false")
+  url <- file.path(base_url, "api",
+                   "dataSets?fields=id,name,shortName&paging=false")
   r <- httr::content(httr::GET(url, httr::authenticate(username, password)),
                      as = "parsed")
   do.call(rbind.data.frame, r$dataSets)
@@ -29,30 +21,16 @@ get_data_sets <- function(base_url, username, password) {
 #'
 #' @return a list with the relevant datasets
 #' @examples
+#' \dontrun{
 #' result <- get_relevant_dataset(
 #'  dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
 #'  base_url = "https://play.dhis2.org/dev/",
 #'  username = "admin",
 #'  password = "district"
 #' )
-#' @export
+#' }
+#'
 get_relevant_dataset <- function(dataset, base_url, username, password) {
-  checkmate::assertCharacter(base_url,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assertCharacter(username,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assertCharacter(password,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assert_vector(dataset,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = FALSE, unique = TRUE
-  )
   if (!is.null(dataset)) {
     if (is.character(dataset)) dataset <- unlist(strsplit(dataset, ",",
                                                           fixed = TRUE))
@@ -85,31 +63,17 @@ get_relevant_dataset <- function(dataset, base_url, username, password) {
 #'
 #' @return a list with the relevant organisation units
 #' @examples
+#' \dontrun{
 #' result <- get_relevant_organisation_unit(
 #'  organisation_unit = "DiszpKrYNg8",
 #'  base_url = "https://play.dhis2.org/dev/",
 #'  username = "admin",
 #'  password = "district"
 #' )
-#' @export
+#' }
+#'
 get_relevant_organisation_unit <- function(organisation_unit, base_url,
                                            username, password) {
-  checkmate::assertCharacter(base_url,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assertCharacter(username,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assertCharacter(password,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assert_vector(organisation_unit,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = FALSE, unique = TRUE
-  )
   if (!is.null(organisation_unit)) {
     if (is.character(organisation_unit)) organisation_unit <-
         unlist(strsplit(organisation_unit, ",", fixed = TRUE))
@@ -142,41 +106,9 @@ get_relevant_organisation_unit <- function(organisation_unit, base_url,
 #' @param password the user's password
 #'
 #' @return a list with the data elements of interest
-#' @export
+#'
 get_relevant_data_elt_group <- function(data_element_group, base_url,
                                         username, password) {
-  checkmate::assertCharacter(base_url,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assertCharacter(username,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assertCharacter(password,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assert_vector(data_element_group,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assertCharacter(base_url,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assertCharacter(username,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assertCharacter(password,
-                             len = 1L, null.ok = FALSE,
-                             any.missing = FALSE
-  )
-  checkmate::assert_vector(data_element_group,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
   data_elt_groups <- NULL
   if (!is.null(data_element_group)) {
     if (is.character(data_element_group)) data_element_group <-
@@ -207,18 +139,9 @@ get_relevant_data_elt_group <- function(data_element_group, base_url,
 #' @param password the user's password
 #' @param base_url the base URL of the DHIS2 server
 #'
-#' @export
-#'
 get_data_elements <- function(base_url, username, password) {
-  checkmate::assertCharacter(base_url, len = 1L, null.ok = TRUE,
-                             any.missing = FALSE)
-  checkmate::assertCharacter(username, len = 1L, null.ok = TRUE,
-                             any.missing = FALSE)
-  checkmate::assertCharacter(password, len = 1L, null.ok = TRUE,
-                             any.missing = FALSE)
-
-  url <- paste0(base_url,
-                "/api/dataElements?fields=id,name,shortName&paging=false")
+  url <- file.path(base_url, "api",
+                   "dataElements?fields=id,name,shortName&paging=false")
   r <- httr::content(httr::GET(url, httr::authenticate(username, password)),
                      as = "parsed")
   do.call(rbind.data.frame, r$dataElements)
@@ -230,18 +153,9 @@ get_data_elements <- function(base_url, username, password) {
 #' @param password the user's password
 #' @param base_url the base URL of the DHIS2 server
 #'
-#' @export
-#'
 get_organisation_units <- function(base_url, username, password) {
-  checkmate::assertCharacter(base_url, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-  checkmate::assertCharacter(username, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-  checkmate::assertCharacter(password, len = 1L, null.ok = FALSE,
-                             any.missing = FALSE)
-
-  url <- paste0(base_url,
-                "/api/organisationUnits?fields=id,name,shortName&paging=false")
+  url <- file.path(base_url, "api",
+                   "organisationUnits?fields=id,name,shortName&paging=false")
   r <- httr::content(httr::GET(url, httr::authenticate(username, password)),
                      as = "parsed")
   do.call(rbind.data.frame, r$organisationUnits)

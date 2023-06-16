@@ -8,9 +8,9 @@
 #' @param data_element_group the dataElementGroups identifiers
 #'
 #' @return a list
-#' @export
 #'
 #' @examples
+#' \dontrun{
 #' attributes <- check_dhis2_attributes(
 #'  username = "admin",
 #'  password = "district",
@@ -19,38 +19,14 @@
 #'  organisation_unit = "DiszpKrYNg8",
 #'  data_element_group = NULL
 #' )
+#' }
+#'
 check_dhis2_attributes <- function(username,
                                    password,
                                    base_url,
                                    dataset,
                                    organisation_unit = NULL,
                                    data_element_group = NULL) {
-  checkmate::assertCharacter(base_url,
-    len = 1L, null.ok = FALSE,
-    any.missing = FALSE
-  )
-  checkmate::assertCharacter(username,
-    len = 1L, null.ok = FALSE,
-    any.missing = FALSE
-  )
-  checkmate::assertCharacter(password,
-    len = 1L, null.ok = FALSE,
-    any.missing = FALSE
-  )
-  checkmate::assert_vector(dataset,
-    any.missing = FALSE, min.len = 1,
-    null.ok = FALSE, unique = TRUE
-  )
-  checkmate::assert_vector(organisation_unit,
-    any.missing = FALSE, min.len = 1,
-    null.ok = FALSE, unique = TRUE
-  )
-  checkmate::assert_vector(data_element_group,
-    any.missing = FALSE, min.len = 1,
-    null.ok = TRUE, unique = TRUE
-  )
-  data_elt_groups <- data_sets <- org_units <- data_elements <- NULL
-
   # get the relevant dataset
   tmp_res <- get_relevant_dataset(dataset, base_url, username, password)
   dataset <- tmp_res[[1]]

@@ -16,7 +16,10 @@ a vector of identified separators
 Detect separator from a string
 }
 \examples{
+\dontrun{
 sep <- detect_separator(
  x = "My name is Karim"
 )
+}
+
 }

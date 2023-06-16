@@ -23,11 +23,13 @@ return the first 5 rows of the table if display=TRUE
 Visualize the first 5 rows of the data from a table
 }
 \examples{
+\dontrun{
 visualise_table(
  credentials_file <- system.file("extdata", "test.ini", package = "readepi"),
   source = "author",
   project_id = "Rfam",
   driver_name = ""
 )
+}
 
 }

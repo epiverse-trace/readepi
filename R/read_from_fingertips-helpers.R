@@ -1,7 +1,6 @@
 #' get fingertips metadata
 #'
 #' @return a list of data frames
-#' @export
 #' @examples
 #' metadata <- get_fingertips_metadata()
 #'
@@ -23,8 +22,8 @@ get_fingertips_metadata <- function() {
 #' @param indicator_name the indicator name
 #'
 #' @return the indicator ID
-#' @export
 #' @examples
+#' \dontrun{
 #' indicator_id <- get_ind_id_from_ind_name(
 #' metadata = list(
 #'   indicator_profile_domain = fingertipsR::indicators(),
@@ -33,6 +32,8 @@ get_fingertips_metadata <- function() {
 #'   ),
 #' indicator_name = "Pupil absence"
 #' )
+#' }
+#'
 #'
 get_ind_id_from_ind_name <- function(metadata, indicator_name) {
   checkmate::assert_list(metadata, any.missing = FALSE, len = 3,
@@ -71,8 +72,8 @@ get_ind_id_from_ind_name <- function(metadata, indicator_name) {
 #' @param indicator_name the indicator name
 #'
 #' @return the indicator ID
-#' @export
 #' @examples
+#' \dontrun{
 #' indicator_id <- get_ind_id_from_domain_id(
 #' metadata = list(
 #'   indicator_profile_domain = fingertipsR::indicators(),
@@ -82,6 +83,7 @@ get_ind_id_from_ind_name <- function(metadata, indicator_name) {
 #' domain_id = 1000041,
 #' indicator_name = NULL
 #' )
+#' }
 #'
 get_ind_id_from_domain_id <- function(metadata, domain_id,
                                       indicator_name = NULL) {
@@ -129,8 +131,8 @@ get_ind_id_from_domain_id <- function(metadata, domain_id,
 #' @param indicator_name the indicator name
 #'
 #' @return the indicator ID
-#' @export
 #' @examples
+#' \dontrun{
 #' indicator_id <- get_ind_id_from_domain_name(
 #' metadata = list(
 #'   indicator_profile_domain = fingertipsR::indicators(),
@@ -139,6 +141,7 @@ get_ind_id_from_domain_id <- function(metadata, domain_id,
 #'   ),
 #' domain_name = "B. Wider determinants of health",
 #' )
+#' }
 #'
 get_ind_id_from_domain_name <- function(metadata, domain_name,
                                         indicator_name = NULL) {
@@ -187,8 +190,8 @@ get_ind_id_from_domain_name <- function(metadata, domain_name,
 #' @param metadata the Fingertips metadata
 #'
 #' @return a list with the profile name and their correspondent indexes
-#' @export
 #' @examples
+#' \dontrun{
 #' res <- get_profile_name(
 #' profile_id = 19,
 #' profile_name = "Public Health Outcomes Framework",
@@ -198,6 +201,7 @@ get_ind_id_from_domain_name <- function(metadata, domain_name,
 #'   area_type = fingertipsR::area_types()
 #'   )
 #' )
+#' }
 #'
 get_profile_name <- function(profile_id, profile_name, metadata) {
   checkmate::assert_vector(profile_id, any.missing = FALSE, min.len = 0,
@@ -235,8 +239,8 @@ get_profile_name <- function(profile_id, profile_name, metadata) {
 #' @param profile_id the profile ID
 #'
 #' @return the indicator ID
-#' @export
 #' @examples
+#' \dontrun{
 #' res <- get_ind_id_from_profile(
 #' metadata = list(
 #'   indicator_profile_domain = fingertipsR::indicators(),
@@ -245,6 +249,7 @@ get_profile_name <- function(profile_id, profile_name, metadata) {
 #' ),
 #' profile_id = 19
 #' )
+#' }
 #'
 get_ind_id_from_profile <- function(metadata, domain_id = NULL,
                                     domain_name = NULL,
@@ -320,8 +325,8 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #' @param data the data read from Fingertips
 #'
 #' @return a data frame with the records of interest
-#' @export
 #' @examples
+#' \dontrun{
 #' res <- fingertips_subset_rows(
 #'   records = c("E92000001", "E12000002", "E12000009"),
 #'   id_col_name = "AreaCode",
@@ -330,6 +335,7 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #'     area_type_id = 202
 #'   )$data
 #' )
+#' }
 #'
 fingertips_subset_rows <- function(records, id_col_name, data) {
   checkmate::assert_data_frame(data, null.ok = FALSE)
@@ -360,8 +366,8 @@ fingertips_subset_rows <- function(records, id_col_name, data) {
 #' @param data the data read from Fingertips
 #'
 #' @return a data frame with the columns of interest
-#' @export
 #' @examples
+#' \dontrun{
 #' res <- fingertips_subset_columns(
 #'   fields = c("IndicatorID", "AreaCode", "Age", "Value"),
 #'   data = readepi(
@@ -369,6 +375,7 @@ fingertips_subset_rows <- function(records, id_col_name, data) {
 #'     area_type_id = 202
 #'   )$data
 #' )
+#' }
 #'
 fingertips_subset_columns <- function(fields, data) {
   checkmate::assert_data_frame(data, null.ok = FALSE)

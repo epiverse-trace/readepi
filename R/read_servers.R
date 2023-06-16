@@ -42,7 +42,6 @@
 #'   dbms = "MySQL"
 #' )
 #' }
-#' @export
 #' @importFrom magrittr %>%
 sql_server_read_data <- function(user, password, host, port = 1433,
                                  database_name, driver_name,
