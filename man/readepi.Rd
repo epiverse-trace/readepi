@@ -54,7 +54,7 @@ this can be provided using the \code{id_col_name} argument}
 These are enumarated in the vignette.}
 }
 \value{
-a list of data frames.
+a \code{list} of 1 or several object of type \verb{data frame}.
 }
 \description{
 the function allows import of data from files, folders, or

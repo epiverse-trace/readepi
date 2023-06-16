@@ -9,20 +9,22 @@
 #' @param domain_id a vector of domain IDs
 #' @param domain_name a vector or a comma-separated list of domain names
 #' @param fields a vector or a comma-separated string of column names.
-#' If provided, only those columns will be imported.
+#'    If provided, only those columns will be imported.
 #' @param records a vector or a comma-separated string of records.
-#' When specified, only these records will be imported.
+#'    When specified, only these records will be imported.
 #' @param id_position the column position of the variable that unique identifies
-#' the subjects. When the name of the column with the subject IDs is known,
-#' this can be provided using the `id_col_name` argument
+#'    the subjects. When the name of the column with the subject IDs is known,
+#'    this can be provided using the `id_col_name` argument
 #' @param id_col_name the column name with the subject IDs.
 #'
-#' @return a data frame
+#' @return a `list` of 1 element of type `data.frame`. This contains the
+#'    imported dataset of interest
 #'
 #' @examples
 #' \dontrun{
-#' data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
+#'   data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
 #' }
+#' @keywords internal
 #'
 read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
                                  area_type_id, parent_area_type_id = NULL,
@@ -62,18 +64,6 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
     any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
-  checkmate::assert_vector(records,
-    any.missing = FALSE, min.len = 0,
-    null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(fields,
-    any.missing = FALSE, min.len = 0,
-    null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_number(id_position, null.ok = TRUE, na.ok = FALSE,
-                           lower = 1)
-  checkmate::assert_character(id_col_name, any.missing = FALSE, len = 1,
-                              null.ok = TRUE)
 
   # check if one of these is not provided
   if (all(is.null(profile_id) & is.null(indicator_id) & is.null(domain_id) &
@@ -134,5 +124,7 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
   # subset rows
   data <- fingertips_subset_rows(records, id_col_name, data)
 
-  list(data = data)
+  list(
+    data = data
+  )
 }

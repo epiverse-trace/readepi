@@ -29,23 +29,6 @@
 #'
 import_redcap_data <- function(records, fields, uri, token,
                                id_position, id_col_name) {
-  checkmate::assert_number(id_position, null.ok = TRUE,
-                           na.ok = FALSE)
-  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(uri, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_vector(records,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(fields,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assertCharacter(id_col_name, len = 1, null.ok = TRUE,
-                             any.missing = FALSE)
-
   if (all(is.null(records) & is.null(fields))) {
     res <- redcap_read(uri, token, id_position)
     redcap_data <- res[[1]]
@@ -89,12 +72,6 @@ import_redcap_data <- function(records, fields, uri, token,
 #' @return a list with the project data and its associated metadata
 #'
 redcap_read <- function(uri, token, id_position) {
-  checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
-                           na.ok = FALSE)
-  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(uri, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
   redcap_data <- REDCapR::redcap_read(
     redcap_uri = uri, token = token, records = NULL,
     fields = NULL, verbose = FALSE,
@@ -126,22 +103,6 @@ redcap_read <- function(uri, token, id_position) {
 #'
 redcap_read_rows_columns <- function(fields, uri, token, id_position,
                                      id_col_name, records) {
-  checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
-                           na.ok = FALSE)
-  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(uri, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_vector(records,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(fields,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assertCharacter(id_col_name, len = 1L, null.ok = TRUE,
-                             any.missing = FALSE)
   if (is.vector(fields)) {
     fields <- glue::glue_collapse(fields, sep = ", ")
   }
@@ -192,16 +153,6 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
 #' fields of interest
 #'
 redcap_read_fields <- function(fields, uri, token, id_position) {
-  checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
-                           na.ok = FALSE)
-  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(uri, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_vector(fields,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
   if (is.vector(fields)) {
     fields <- glue::glue_collapse(fields, sep = ", ")
   }
@@ -235,18 +186,6 @@ redcap_read_fields <- function(fields, uri, token, id_position) {
 #' records of interest
 #'
 redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
-  checkmate::assert_number(id_position, lower = 1, null.ok = TRUE,
-                           na.ok = FALSE)
-  checkmate::assert_character(token, n.chars = 32, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(uri, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_vector(records,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assertCharacter(id_col_name, len = 1L, null.ok = TRUE,
-                             any.missing = FALSE)
   if (is.vector(records)) {
     records <- glue::glue_collapse(records, sep = ", ")
   }

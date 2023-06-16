@@ -16,9 +16,7 @@
 read_credentials <- function(file_path = system.file("extdata", "test.ini",
                                                      package = "readepi"),
                              project_id = NULL) {
-  checkmate::assertCharacter(file_path, len = 1L, null.ok = FALSE)
-  checkmate::assert_file_exists(file_path)
-  checkmate::assertCharacter(project_id, len = 1L, null.ok = FALSE)
+  checkmate::assert_character(project_id, len = 1L, null.ok = FALSE)
   if (!file.exists(file_path) || is.null(file_path)) {
     stop("Could not find ", file_path)
   }

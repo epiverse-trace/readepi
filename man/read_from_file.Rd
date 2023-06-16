@@ -29,8 +29,9 @@ match its actual type}
 from the specified directory}
 }
 \value{
-a list of 1 (when reading from file) or several (when reading from
-directory or reading several excel sheets) data frames
+a \code{list} of 1 (when reading from file) or several (when reading
+files from a directory or reading several excel sheets) objects of
+type \code{data.frame}.
 }
 \description{
 Read data from file or directory
@@ -45,5 +46,5 @@ data <- read_from_file(
  pattern = NULL
 )
 }
-
 }
+\keyword{internal}

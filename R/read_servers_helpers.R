@@ -125,26 +125,12 @@ identify_table_name <- function(query, tables) {
 fetch_data_from_query <- function(source, dbms, tables,
                                  driver_name, host, database_name,
                                  user, password, port) {
-  checkmate::assert_vector(source,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = FALSE, unique = TRUE
-  )
+  checkmate::assert_vector(source, any.missing = FALSE, min.len = 1,
+                           null.ok = FALSE, unique = TRUE)
   checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
                               null.ok = FALSE)
-  checkmate::assert_vector(tables,
-                           any.missing = FALSE, min.len = 1,
+  checkmate::assert_vector(tables, any.missing = FALSE, min.len = 1,
                            null.ok = FALSE, unique = TRUE)
-  checkmate::assert_character(driver_name, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(host, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(database_name, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(user, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_number(port, lower = 1)
 
   pool <- connect_to_server(dbms, driver_name, host, database_name,
                            user, password, port)
@@ -201,42 +187,11 @@ sql_select_data <- function(table_names, dbms, id_col_name,
                             fields, records, id_position,
                             driver_name, host, database_name,
                             user, password, port) {
-  checkmate::assert_number(port, lower = 1)
-  checkmate::assert_character(password, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(user, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(host, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(driver_name, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
   checkmate::assert_vector(table_names,
                            any.missing = FALSE, min.len = 1,
                            null.ok = FALSE, unique = FALSE
   )
-  checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_vector(id_col_name,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = FALSE
-  )
-  checkmate::assert_vector(records,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(fields,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(id_position,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = FALSE
-  )
-  checkmate::assert_character(database_name, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
 
-  # con <- connect_to_server(dbms, driver_name, host, database_name,
-  #                          user, password, port)
   result <- list()
   j <- 1
   for (table in table_names) {
@@ -292,16 +247,8 @@ sql_select_data <- function(table_names, dbms, id_col_name,
 #' @param id_position the id position
 #'
 get_id_column_name <- function(id_col_name, j, id_position) {
-  checkmate::assert_vector(id_col_name,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = FALSE
-  )
   checkmate::assert_numeric(j, lower = 1, any.missing = FALSE,
                             len = 1, null.ok = FALSE)
-  checkmate::assert_vector(id_position,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = FALSE
-  )
   id_column_name <- id_pos <- NULL
   if (!is.null(id_col_name)) {
     id_col_name <- gsub(" ", "", id_col_name, fixed = TRUE)
@@ -352,19 +299,6 @@ sql_select_entire_dataset <- function(table, dbms, driver_name, host,
                                       database_name, user, password, port) {
   checkmate::assert_character(table, any.missing = FALSE, len = 1,
                               null.ok = FALSE)
-  checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(driver_name, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(host, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(database_name, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(user, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_number(port, lower = 1)
 
   con <- connect_to_server(dbms, driver_name, host, database_name,
                            user, password, port)
@@ -416,19 +350,6 @@ sql_select_entire_dataset <- function(table, dbms, driver_name, host,
 sql_select_records_and_fields <- function(table, record, id_column_name, field,
                                           id_pos, dbms, driver_name, host,
                                           database_name, user, password, port) {
-  checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(driver_name, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(host, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(database_name, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(user, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_number(port, lower = 1)
   checkmate::assert_character(id_column_name,
                            any.missing = FALSE,
                            null.ok = TRUE, unique = TRUE
@@ -484,6 +405,7 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #'   driver_name = ""
 #' )
 #' }
+#' @export
 #'
 visualise_table <- function(credentials_file, source, project_id,
                             driver_name) {
@@ -492,7 +414,6 @@ visualise_table <- function(credentials_file, source, project_id,
   checkmate::assert_character(credentials_file, null.ok = FALSE, len = 1)
   checkmate::assert_file_exists(credentials_file)
   checkmate::assert_character(project_id, null.ok = FALSE, len = 1)
-  checkmate::assert_character(driver_name, null.ok = FALSE, len = 1)
 
   credentials <- read_credentials(credentials_file, project_id)
   con <- connect_to_server(credentials$dbms, driver_name, credentials$host,
@@ -638,19 +559,6 @@ sql_select_fields_only <- function(table, field, dbms, driver_name, host,
                            any.missing = FALSE, min.len = 1,
                            null.ok = TRUE, unique = TRUE
   )
-  checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(driver_name, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(host, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(database_name, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(user, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_number(port, lower = 1)
 
   stopifnot("Missing or NULL value found in record argument" = (anyNA(field) ||
                                                           !any(is.null(field)))

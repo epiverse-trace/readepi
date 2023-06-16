@@ -31,5 +31,4 @@ visualise_table(
   driver_name = ""
 )
 }
-
 }

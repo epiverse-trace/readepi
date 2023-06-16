@@ -1,34 +1,36 @@
-#' Read data from relational databases hosted by a MS SQL server.
-#' @description For a user with read access to a Microsoft SQL server,
-#' this function allows data import from the database into R. It required the
-#' installation
-#' of the appropriate MS driver that is compatible with the SQL server version
-#' hosting the
-#' database.
+#' Read data from database management systems (DBMS).
+#'
+#' @description The function assumes the user has read access to the database.
+#'    Importing data stored in DBMS into R requires the installation
+#'    of the appropriate `driver` that is compatible with the server version
+#'    hosting the database. See the `vignette` for how to install the driver
 #' @param user the user name
 #' @param password the user password
 #' @param host the name of the host server
 #' @param port the port ID
 #' @param database_name the name of the database that contains the table from
-#' which the data should be pulled
-#' @param source and SQL query or a vector of table names from
-#' the project or database. When this is not specified, the function will
-#' extract data from all tables in the database.
+#'    which the data should be pulled
+#' @param source an SQL query or a vector of table names from
+#'    the project or database. When this is not specified, the function will
+#'    extract data from all tables in the database.
 #' @param driver_name the name of the MS driver. use `odbc::odbcListDrivers()`
-#' to display the list of installed drivers
+#'    to display the list of installed drivers
 #' @param records a vector or a comma-separated string of subset of subject IDs.
-#' When specified, only the records that correspond to these subjects will be
-#' imported.
+#'    When specified, only the records that correspond to these subjects will
+#'    be imported.
 #' @param fields a vector of strings where each string is a comma-separated list
-#' of column names. The element of this vector should be a list of column names
-#' from the first table specified in the `table_names` argument and so on...
+#'    of column names. The element of this vector should be a list of column
+#'    names from the first table specified in the `table_names` argument
+#'    and so on...
 #' @param id_position a vector of the column positions of the variable that
-#' unique identifies the subjects in each table. When the column name with the
-#' subject IDs is known, use the `id_col_name` argument instead. default is.
-#' default is 1.
+#'    unique identifies the subjects in each table. When the column name with
+#'    the subject IDs is known, use the `id_col_name` argument instead. default
+#'    is 1.
 #' @param id_col_name the column name with the subject IDs
 #' @param dbms the SQL server type
-#' @returns a list of data frames
+#' @returns a `list` of 1 or several objects of type `data.frame`. The number of
+#'    elements in the list depends on the number of tables from which the
+#'    data is fetched.
 #' @examples
 #' \dontrun{
 #' data <- sql_server_read_data(
@@ -43,20 +45,13 @@
 #' )
 #' }
 #' @importFrom magrittr %>%
+#' @keywords internal
 sql_server_read_data <- function(user, password, host, port = 1433,
                                  database_name, driver_name,
                                  source = NULL, records = NULL,
                                  fields = NULL, id_position = NULL,
                                  id_col_name = NULL, dbms) {
   # check the input arguments
-  checkmate::assert_vector(id_position,
-                           any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = FALSE
-  )
-  checkmate::assert_vector(id_col_name,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = FALSE
-  )
   checkmate::assert_number(port, lower = 1)
   checkmate::assert_character(user, any.missing = FALSE, len = 1,
                               null.ok = FALSE)
@@ -71,14 +66,6 @@ sql_server_read_data <- function(user, password, host, port = 1433,
   checkmate::assert_character(driver_name, len = 1, null.ok = FALSE,
                               any.missing = FALSE)
   checkmate::assert_vector(source,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(records,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(fields,
                            any.missing = FALSE, min.len = 1,
                            null.ok = TRUE, unique = TRUE
   )

@@ -44,7 +44,7 @@
 #'   driver_name = "",
 #'   source = "author"
 #' )
-#' @returns a list of data frames.
+#' @returns a `list` of 1 or several object of type `data frame`.
 #' @export
 readepi <- function(credentials_file = NULL,
                     file_path = NULL,
@@ -54,22 +54,22 @@ readepi <- function(credentials_file = NULL,
                     id_col_name = NULL,
                     ...) {
   # check the input arguments
-  checkmate::assertCharacter(credentials_file, len = 1L, null.ok = TRUE)
-  checkmate::assertCharacter(file_path, len = 1L, null.ok = TRUE)
+  checkmate::assert_character(credentials_file, len = 1L, null.ok = TRUE)
+  checkmate::assert_character(file_path, len = 1L, null.ok = TRUE)
   checkmate::assert_vector(records,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(fields,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(id_position,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = FALSE
   )
   checkmate::assert_vector(id_col_name,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
 

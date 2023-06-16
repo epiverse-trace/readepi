@@ -13,6 +13,8 @@ a list of data frames
 get fingertips metadata
 }
 \examples{
-metadata <- get_fingertips_metadata()
+\dontrun{
+  metadata <- get_fingertips_metadata()
+}
 
 }

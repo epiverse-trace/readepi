@@ -11,8 +11,9 @@
 #' @param pattern when specified, only files with this suffix will be imported
 #'    from the specified directory
 #'
-#' @returns  a list of 1 (when reading from file) or several (when reading from
-#'    directory or reading several excel sheets) data frames
+#' @returns  a `list` of 1 (when reading from file) or several (when reading
+#'    files from a directory or reading several excel sheets) objects of
+#'    type `data.frame`.
 #'
 #' @examples
 #' \dontrun{
@@ -24,10 +25,10 @@
 #'  pattern = NULL
 #' )
 #' }
+#' @keywords internal
 #'
 read_from_file <- function(file_path, sep = NULL, format = NULL, which = NULL,
                            pattern = NULL) {
-
   # check the input arguments
   checkmate::assert_character(sep, null.ok = TRUE, len = 1, any.missing = FALSE)
   checkmate::assert_character(format, null.ok = TRUE, any.missing = FALSE)

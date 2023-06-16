@@ -13,5 +13,4 @@ Display the structure of the credentials file
 \dontrun{
 show_example_file()
 }
-
 }

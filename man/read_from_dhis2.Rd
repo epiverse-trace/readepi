@@ -47,8 +47,9 @@ If provided, only those columns will be imported.}
 \item{id_col_name}{the column name with the records of interest.}
 }
 \value{
-a list of data frames
+a \code{list} of 1 element of type \verb{data frame}.
 }
 \description{
 Import data form DHIS2 into R
 }
+\keyword{internal}

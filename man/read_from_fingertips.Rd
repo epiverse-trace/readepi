@@ -49,14 +49,15 @@ this can be provided using the \code{id_col_name} argument}
 \item{id_col_name}{the column name with the subject IDs.}
 }
 \value{
-a data frame
+a \code{list} of 1 element of type \code{data.frame}. This contains the
+imported dataset of interest
 }
 \description{
 Read from Fingertips
 }
 \examples{
 \dontrun{
-data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
+  data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
 }
-
 }
+\keyword{internal}

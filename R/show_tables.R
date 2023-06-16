@@ -14,13 +14,13 @@
 #' )
 #' }
 #' @returns the list of tables in the specified database
+#' @export
 #'
 show_tables <- function(credentials_file, project_id, driver_name) {
   # checking input parameters
   checkmate::assert_character(credentials_file, null.ok = TRUE, len = 1)
   checkmate::assert_file_exists(credentials_file)
   checkmate::assert_character(project_id, null.ok = FALSE, len = 1)
-  checkmate::assert_character(driver_name, null.ok = FALSE, len = 1)
 
   # reading the credentials from the credential file
   stopifnot(file.exists(credentials_file))

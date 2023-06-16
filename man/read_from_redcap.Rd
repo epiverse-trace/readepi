@@ -33,8 +33,8 @@ be imported.}
 If provided, only those columns will be imported.}
 }
 \value{
-a list with 2 data frames: the data of interest and the metadata
-associated to the data.
+a \code{list} of 2 elements of type \code{data.frame}. They include a data
+frame of the dataset of interest and its associated metadata.
 }
 \description{
 Import data from REDCap into R
@@ -51,3 +51,4 @@ redcap_data <- read_from_redcap(
 )
 }
 }
+\keyword{internal}

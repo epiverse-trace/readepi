@@ -4,18 +4,19 @@
 #' @param password the user password
 #' @param dataset a vector or a list of comma-separated data set identifiers
 #' @param organisation_unit a vector or a list of comma-separated organisation
-#' unit identifiers
+#'    unit identifiers
 #' @param data_element_group a vector or a list of comma-separated data element
-#' group identifiers
+#'    group identifiers
 #' @param start_date the start date for the time span of the values to export
 #' @param end_date the end date for the time span of the values to export
 #' @param records a vector or a comma-separated string of subset of subject IDs.
-#' When specified, only the records that correspond to these subjects will be
-#' imported.
+#'    When specified, only the records that correspond to these subjects will be
+#'    imported.
 #' @param fields a vector or a comma-separated string of column names.
-#' If provided, only those columns will be imported.
+#'    If provided, only those columns will be imported.
 #' @param id_col_name the column name with the records of interest.
-#' @returns a list of data frames
+#' @returns a `list` of 1 element of type `data frame`.
+#' @keywords internal
 #'
 read_from_dhis2 <- function(base_url,
                             user_name,
@@ -28,10 +29,6 @@ read_from_dhis2 <- function(base_url,
                             records,
                             fields,
                             id_col_name = "dataElement") {
-  checkmate::assertCharacter(id_col_name,
-    len = 1L, null.ok = TRUE,
-    any.missing = FALSE
-  )
   checkmate::assertCharacter(base_url,
     len = 1L, null.ok = FALSE,
     any.missing = FALSE
@@ -61,14 +58,6 @@ read_from_dhis2 <- function(base_url,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(end_date,
-    any.missing = FALSE, min.len = 0,
-    null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(records,
-    any.missing = FALSE, min.len = 0,
-    null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(fields,
     any.missing = FALSE, min.len = 0,
     null.ok = TRUE, unique = TRUE
   )
@@ -117,5 +106,7 @@ read_from_dhis2 <- function(base_url,
   # subsetting records
  data <- dhis2_subset_records(records, id_col_name, data)
 
-  list(data = data)
+  list(
+    data = data
+  )
 }

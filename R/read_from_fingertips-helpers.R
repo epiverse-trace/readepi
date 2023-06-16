@@ -2,7 +2,9 @@
 #'
 #' @return a list of data frames
 #' @examples
-#' metadata <- get_fingertips_metadata()
+#' \dontrun{
+#'   metadata <- get_fingertips_metadata()
+#' }
 #'
 get_fingertips_metadata <- function() {
   list(
@@ -36,12 +38,6 @@ get_fingertips_metadata <- function() {
 #'
 #'
 get_ind_id_from_ind_name <- function(metadata, indicator_name) {
-  checkmate::assert_list(metadata, any.missing = FALSE, len = 3,
-                         null.ok = FALSE)
-  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
-
   indicator_name <- unlist(strsplit(indicator_name, ",", fixed = TRUE))
   idx <- which(metadata$indicator_ids_names$IndicatorName == indicator_name)
   if (length(idx) == 0) {
@@ -87,14 +83,6 @@ get_ind_id_from_ind_name <- function(metadata, indicator_name) {
 #'
 get_ind_id_from_domain_id <- function(metadata, domain_id,
                                       indicator_name = NULL) {
-  checkmate::assert_list(metadata, any.missing = FALSE, len = 3,
-                         null.ok = FALSE)
-  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE
-  )
-  checkmate::assert_vector(domain_id, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-
   idx <- which(metadata$indicator_profile_domain$DomainID == domain_id)
   if (length(idx) == 0) {
     subs <- metadata$indicator_profile_domain[grepl(
@@ -145,13 +133,6 @@ get_ind_id_from_domain_id <- function(metadata, domain_id,
 #'
 get_ind_id_from_domain_name <- function(metadata, domain_name,
                                         indicator_name = NULL) {
-  checkmate::assert_list(metadata, any.missing = FALSE, len = 3,
-                         null.ok = FALSE)
-  checkmate::assert_vector(domain_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-
   domain_name <- unlist(strsplit(domain_name, ",", fixed = TRUE))
   idx <- which(metadata$indicator_profile_domain$DomainName == domain_name)
   if (length(idx) == 0) {
@@ -204,12 +185,6 @@ get_ind_id_from_domain_name <- function(metadata, domain_name,
 #' }
 #'
 get_profile_name <- function(profile_id, profile_name, metadata) {
-  checkmate::assert_vector(profile_id, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(profile_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(metadata, any.missing = FALSE, null.ok = FALSE)
-
   if (all(!is.null(profile_id) & !is.null(profile_name))) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(metadata$indicator_profile_domain$ProfileID == profile_id &
@@ -256,19 +231,6 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
                                     indicator_name = NULL,
                                     profile_name = NULL,
                                     profile_id = NULL) {
-  checkmate::assert_list(metadata, any.missing = FALSE, len = 3,
-                         null.ok = FALSE)
-  checkmate::assert_vector(domain_id, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(domain_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(profile_id, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(profile_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(indicator_name, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-
   tmp_res <- get_profile_name(profile_id, profile_name, metadata)
   profile_name <- tmp_res[[1]]
   idx <- tmp_res[[2]]
@@ -338,12 +300,6 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #' }
 #'
 fingertips_subset_rows <- function(records, id_col_name, data) {
-  checkmate::assert_data_frame(data, null.ok = FALSE)
-  checkmate::assert_character(id_col_name, any.missing = FALSE, len = 1,
-                              null.ok = TRUE)
-  checkmate::assert_vector(records, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-
   if (!is.null(records)) {
     records <- unlist(strsplit(records, ",", fixed = TRUE))
     records <- gsub(" ", "", records, fixed = TRUE)
@@ -378,10 +334,6 @@ fingertips_subset_rows <- function(records, id_col_name, data) {
 #' }
 #'
 fingertips_subset_columns <- function(fields, data) {
-  checkmate::assert_data_frame(data, null.ok = FALSE)
-  checkmate::assert_vector(fields, any.missing = FALSE, min.len = 0,
-                           null.ok = TRUE, unique = TRUE)
-
   if (!is.null(fields)) {
     fields <- unlist(strsplit(fields, ",", fixed = TRUE))
     fields <- gsub(" ", "", fields, fixed = TRUE)
