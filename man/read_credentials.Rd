@@ -6,7 +6,7 @@
 \usage{
 read_credentials(
   file_path = system.file("extdata", "test.ini", package = "readepi"),
-  project_id = NULL
+  project_id = "Rfam"
 )
 }
 \arguments{
@@ -18,16 +18,18 @@ that contains the table from which the data should be pulled. Otherwise,
 it is the project ID you were given access to.}
 }
 \value{
-a list with the user credential details.
+a \code{list} of 5 elements of type \code{character} or \code{numeric}. These
+correspond to the user's credential details.
 }
 \description{
 Read credentials from a configuration file
 }
 \examples{
 \dontrun{
-credentials <- read_credentials(
-  file_path = system.file("extdata", "test.ini", package = "readepi"),
-  project_id = "Rfam"
-)
+  credentials <- read_credentials(
+    file_path = system.file("extdata", "test.ini", package = "readepi"),
+    project_id = "Rfam"
+  )
 }
+
 }

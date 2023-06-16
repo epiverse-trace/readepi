@@ -1,27 +1,27 @@
 #' Read credentials from a configuration file
 #'
 #' @param file_path the path to the file with the user-specific credential
-#' details for the projects of interest.
+#'    details for the projects of interest.
 #' @param project_id for relational DB, this is the name of the database
-#' that contains the table from which the data should be pulled. Otherwise,
-#' it is the project ID you were given access to.
-#' @returns  a list with the user credential details.
+#'    that contains the table from which the data should be pulled. Otherwise,
+#'    it is the project ID you were given access to.
+#' @returns  a `list` of 5 elements of type `character` or `numeric`. These
+#'    correspond to the user's credential details.
 #' @examples
 #' \dontrun{
-#' credentials <- read_credentials(
-#'   file_path = system.file("extdata", "test.ini", package = "readepi"),
-#'   project_id = "Rfam"
-#' )
+#'   credentials <- read_credentials(
+#'     file_path = system.file("extdata", "test.ini", package = "readepi"),
+#'     project_id = "Rfam"
+#'   )
 #' }
-read_credentials <- function(file_path = system.file("extdata", "test.ini",
-                                                     package = "readepi"),
-                             project_id = NULL) {
+#'
+read_credentials <- function(
+    file_path = system.file("extdata", "test.ini", package = "readepi"),
+    project_id = "Rfam"
+    ) {
   checkmate::assert_character(project_id, len = 1L, null.ok = FALSE)
-  if (!file.exists(file_path) || is.null(file_path)) {
+  if (!file.exists(file_path) || !file.exists(file_path)) {
     stop("Could not find ", file_path)
-  }
-  if (is.null(project_id)) {
-    stop("Database name or project ID not specified!")
   }
 
   credentials <- data.table::fread(file_path, sep = "\t")
