@@ -66,7 +66,7 @@ read_from_dhis2 <- function(base_url,
   login(user_name, password, base_url)
 
   # checking the attribute details
-  attributes <- check_dhis2_attributes(
+  attributes <- dhis2_check_attributes(
     user_name,
     password,
     base_url,

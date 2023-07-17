@@ -11,42 +11,68 @@
 #'
 #' @examples
 #' \dontrun{
-#'   attributes <- check_dhis2_attributes(
-#'     username = "admin",
-#'     password = "district",
-#'     base_url = "https://play.dhis2.org/dev/",
-#'     dataset = "pBOMPrpg1QX",
-#'     organisation_unit = "DiszpKrYNg8",
-#'     data_element_group = NULL
+#'   attributes <- dhis2_check_attributes(
+#'   username = "admin",
+#'   password = "district",
+#'   base_url = "https://play.dhis2.org/dev/",
+#'   dataset = "pBOMPrpg1QX",
+#'   organisation_unit = "DiszpKrYNg8",
+#'   data_element_group = NULL
 #'   )
 #' }
 #'
-check_dhis2_attributes <- function(username,
+dhis2_check_attributes <- function(username,
                                    password,
                                    base_url,
                                    dataset,
                                    organisation_unit = NULL,
                                    data_element_group = NULL) {
   # get the relevant dataset
-  tmp_res <- get_relevant_dataset(dataset, base_url, username, password)
+  tmp_res <- dhis2_get_relevant_attributes(
+    attribute_id = dataset,
+    base_url = base_url,
+    username = username,
+    password = password,
+    which = "dataSets"
+    )
   dataset <- tmp_res$dataset
   data_sets <- tmp_res$data_sets
 
   # get the relevant organisation units
-  tmp_res <- get_relevant_organisation_unit(organisation_unit,
-                                                     base_url, username,
-                                                     password)
+  tmp_res <- dhis2_get_relevant_attributes(
+    attribute_id = organisation_unit,
+    base_url = base_url,
+    username = username,
+    password = password,
+    which = "organisationUnits"
+  )
   organisation_unit <- tmp_res$organisation_unit
   org_units <- tmp_res$org_units
 
   # get the relevant data element groups
-  tmp_res <- get_relevant_data_elt_group(data_element_group, base_url,
-                                            username, password)
-  data_element_group <- tmp_res$data_element_group
-  data_elt_groups <- tmp_res$data_elt_groups
+  if (!is.null(data_element_group)) {
+    tmp_res <- dhis2_get_relevant_attributes(
+      attribute_id = data_element_group,
+      base_url = base_url,
+      username = username,
+      password = password,
+      which = "dataElementGroups"
+    )
+    data_element_group <- tmp_res$data_element_group
+    data_elt_groups <- tmp_res$data_elt_groups
+  } else {
+    data_element_group <- NULL
+    data_elt_groups <- NULL
+  }
 
   # get the data element
-  data_elements <- get_data_elements(base_url, username, password)
+  data_elements <- dhis2_get_relevant_attributes(
+    attribute_id = NULL,
+    base_url = base_url,
+    username = username,
+    password = password,
+    which = "dataElements"
+  )
 
   list(
     dataset = dataset,
