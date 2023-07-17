@@ -50,6 +50,8 @@ You can install the development version of **readepi** from
 ``` r
 # install.packages("devtools")
 # devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
+if(!require("pak")) install.packages("pak")
+pak::pak("epiverse-trace/readepi")
 library(readepi)
 ```
 
@@ -175,7 +177,7 @@ browseVignettes("readepi")
 ## Help
 
 To report a bug please open an
-[issue](https://github.com/%7B%7B%20gh_repo%20%7D%7D/issues/new/choose).
+[issue](https://github.com/epiverse-trace/readepi/issues/new/choose).
 
 ## Contributions
 
