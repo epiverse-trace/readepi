@@ -2,13 +2,13 @@
 #'
 #' @param file_path the target file path
 #'
-#' @return a string that corresponds to the file extension
+#' @return a `character` that contains the file extension
 #'
 #' @examples
 #' \dontrun{
-#' ext <- get_extension(
-#'  file_path = system.file("extdata", "test.txt", package = "readepi")
-#' )
+#'   ext <- get_extension(
+#'     file_path = system.file("extdata", "test.txt", package = "readepi")
+#'   )
 #' }
 #'
 get_extension <- function(file_path) {
@@ -21,13 +21,13 @@ get_extension <- function(file_path) {
 #'
 #' @param x the file path
 #'
-#' @return the file base name
+#' @return a `character` with the file base name(s)
 #'
 #' @examples
 #' \dontrun{
-#' base_name <- get_base_name(
-#'  x = system.file("extdata", "test.txt", package = "readepi")
-#' )
+#'   base_name <- get_base_name(
+#'     x = system.file("extdata", "test.txt", package = "readepi")
+#'   )
 #' }
 #'
 get_base_name <- function(x) {
@@ -40,37 +40,37 @@ get_base_name <- function(x) {
 #'
 #' @param x a string
 #'
-#' @return a vector of identified separators
+#' @return a `character vector` of identified separators
 #'
 #' @examples
 #' \dontrun{
-#' sep <- detect_separator(
-#'  x = "My name is Karim"
-#' )
+#'   sep <- detect_separator(
+#'     x = "My name is Karim"
+#'   )
 #' }
 #'
 detect_separator <- function(x) {
-  special_characters <- c("\t", "|", ",", ";", " ")
-  sep <- NULL
-  for (spec.char in special_characters) {
-    if (stringr::str_detect(x, spec.char)) {
-      sep <- c(sep, spec.char)
+  special_characters <- c("\t", "|", ",", ";", " ", ":")
+  sep <- vector(mode = "character", length = 0)
+  for (spec_char in special_characters) {
+    if (grepl(spec_char, x)) {
+      sep <- c(sep, spec_char)
     }
   }
   unique(sep)
 }
 
 
-#' Title
+#' Read files using the `rio` package
 #'
 #' @param files_extensions a vector a file extensions made from your files of
-#' interest
+#'    interest
 #' @param rio_extensions a vector of files extensions supported by the rio
-#' package
+#'    package
 #' @param files a vector a files of interest
 #' @param files_base_names a vector of file base
 #'
-#' @return a list a the parameters needed to import data using rio
+#' @return a `list` of 4 elements of type `character` and `list`.
 #'
 read_rio_formats <- function(files_extensions, rio_extensions,
                              files, files_base_names) {
@@ -108,10 +108,10 @@ read_rio_formats <- function(files_extensions, rio_extensions,
 #' its actual type
 #' @param which a string used to specify the name of the excel sheet to import
 #'
-#' @return a list of data frames where each data frame contains data from a file
+#' @return a `list` of 1 or several objects of type `data.frame` where each data
+#'    frame contains data from a specific file.
 #'
 read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
-  result <- NULL
   # filter out directories from files
   idx <- which(files %in% dirs)
   if (length(idx) > 0) {
@@ -144,6 +144,9 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
     for (file in files) {
       if (files_extensions[i] %in% c("xlsx", "xls")) {
         data <- readxl::read_xlsx(file)
+        if (!exists("result")) {
+          result <- list()
+        }
         result[[files_base_names[i]]] <- data
         i <- i + 1
       } else {
@@ -156,7 +159,7 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
           if (length(sep) == 2 && " " %in% sep) {
             sep <- sep[-(which(sep == " "))]
             if (length(sep) > 1) {
-              R.utils::cat("\nCan't resolve separator in", file, "\n")
+              warning("\nCan't resolve separator in", file, "\n", call. = FALSE)
               i <- i + 1
               next
             }
@@ -178,16 +181,17 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
 #' @param file_path the path to the file to be read
 #' @param pattern when specified, only files with this suffix will be imported
 #'
-#' @return a list of data frames where each contains data read from a file
+#' @return a `list` of 1 or several objects of type `data.frame` where each
+#'    element contains data read from a file.
 #'
 read_files_in_directory <- function(file_path, pattern) {
-  result <- NULL
   if (length(list.files(file_path, full.names = TRUE,
                         recursive = FALSE)) == 0) {
     stop("Could not find any file in ", file_path)
   }
 
   if (!is.null(pattern)) {
+    result <- list()
     for (pat in pattern) {
       files <- list.files(file_path,
                           full.names = TRUE, pattern = pat,
@@ -216,7 +220,8 @@ read_files_in_directory <- function(file_path, pattern) {
 #' @param which a string used to specify the name of the excel sheet to import
 #' @param format a string used to specify the file format
 #'
-#' @return a list of data frames where each contains data from a file
+#' @return a `list` of 1 or several elements of type `data.frame` where each
+#'    contains data from a file
 #'
 read_files <- function(sep, file_path, which, format) {
   result <- NULL

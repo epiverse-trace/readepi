@@ -16,7 +16,8 @@ read_files(sep, file_path, which, format)
 \item{format}{a string used to specify the file format}
 }
 \value{
-a list of data frames where each contains data from a file
+a \code{list} of 1 or several elements of type \code{data.frame} where each
+contains data from a file
 }
 \description{
 Sub-function for reading files using rio package

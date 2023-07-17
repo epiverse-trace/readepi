@@ -7,18 +7,18 @@
 #' @param organisation_unit the organisationUnits identifiers
 #' @param data_element_group the dataElementGroups identifiers
 #'
-#' @return a list
+#' @return a list of 7 elements of type `character`.
 #'
 #' @examples
 #' \dontrun{
-#' attributes <- check_dhis2_attributes(
-#'  username = "admin",
-#'  password = "district",
-#'  base_url = "https://play.dhis2.org/dev/",
-#'  dataset = "pBOMPrpg1QX",
-#'  organisation_unit = "DiszpKrYNg8",
-#'  data_element_group = NULL
-#' )
+#'   attributes <- check_dhis2_attributes(
+#'     username = "admin",
+#'     password = "district",
+#'     base_url = "https://play.dhis2.org/dev/",
+#'     dataset = "pBOMPrpg1QX",
+#'     organisation_unit = "DiszpKrYNg8",
+#'     data_element_group = NULL
+#'   )
 #' }
 #'
 check_dhis2_attributes <- function(username,
@@ -29,21 +29,21 @@ check_dhis2_attributes <- function(username,
                                    data_element_group = NULL) {
   # get the relevant dataset
   tmp_res <- get_relevant_dataset(dataset, base_url, username, password)
-  dataset <- tmp_res[[1]]
-  data_sets <- tmp_res[[2]]
+  dataset <- tmp_res$dataset
+  data_sets <- tmp_res$data_sets
 
   # get the relevant organisation units
   tmp_res <- get_relevant_organisation_unit(organisation_unit,
                                                      base_url, username,
                                                      password)
-  organisation_unit <- tmp_res[[1]]
-  org_units <- tmp_res[[2]]
+  organisation_unit <- tmp_res$organisation_unit
+  org_units <- tmp_res$org_units
 
   # get the relevant data element groups
   tmp_res <- get_relevant_data_elt_group(data_element_group, base_url,
                                             username, password)
-  data_element_group <- tmp_res[[1]]
-  data_elt_groups <- tmp_res[[2]]
+  data_element_group <- tmp_res$data_element_group
+  data_elt_groups <- tmp_res$data_elt_groups
 
   # get the data element
   data_elements <- get_data_elements(base_url, username, password)

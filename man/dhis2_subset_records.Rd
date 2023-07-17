@@ -14,26 +14,28 @@ dhis2_subset_records(records, id_col_name, data)
 \item{data}{the input data frame}
 }
 \value{
-a data frame with the records of interest
+an object of type \code{data.frame} with the data that contains only the
+records of interest
 }
 \description{
 Title
 }
 \examples{
 \dontrun{
-result <- dhis2_subset_records(
- records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
- id_col_name = "dataElement",
- data = readepi(
-  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-  project_id = "DHIS2_DEMO",
-  dataset = "pBOMPrpg1QX",
-  organisation_unit = "DiszpKrYNg8",
-  data_element_group = NULL,
-  start_date = "2014",
-  end_date = "2023"
-  )$data
-)
+  result <- dhis2_subset_records(
+    records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+    id_col_name = "dataElement",
+    data = readepi(
+      credentials_file = system.file("extdata", "test.ini",
+      package = "readepi"),
+      project_id = "DHIS2_DEMO",
+      dataset = "pBOMPrpg1QX",
+      organisation_unit = "DiszpKrYNg8",
+      data_element_group = NULL,
+      start_date = "2014",
+      end_date = "2023"
+    )$data
+  )
 }
 
 }

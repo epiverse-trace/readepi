@@ -16,19 +16,21 @@ get_relevant_dataset(dataset, base_url, username, password)
 \item{password}{the user's password}
 }
 \value{
-a list with the relevant datasets
+a \code{list} of 2 elements: a \code{character} string with the target dataset
+ID(s) and a \code{data.frame} of the details about all datasets in the target
+DHIS2 server.
 }
 \description{
 Get the relevant dataset
 }
 \examples{
 \dontrun{
-result <- get_relevant_dataset(
- dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
- base_url = "https://play.dhis2.org/dev/",
- username = "admin",
- password = "district"
-)
+  result <- get_relevant_dataset(
+    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+    base_url = "https://play.dhis2.org/dev/",
+    username = "admin",
+    password = "district"
+  )
 }
 
 }

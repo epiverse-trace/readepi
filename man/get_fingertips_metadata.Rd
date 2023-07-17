@@ -7,7 +7,8 @@
 get_fingertips_metadata()
 }
 \value{
-a list of data frames
+a \code{list} of 3 objects of type \code{data.frame}. They contain information
+about the indicators in the Fingertips repository.
 }
 \description{
 get fingertips metadata

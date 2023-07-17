@@ -29,15 +29,15 @@ read_from_dhis2 <- function(base_url,
                             records,
                             fields,
                             id_col_name = "dataElement") {
-  checkmate::assertCharacter(base_url,
+  checkmate::assert_character(base_url,
     len = 1L, null.ok = FALSE,
     any.missing = FALSE
   )
-  checkmate::assertCharacter(user_name,
+  checkmate::assert_character(user_name,
     len = 1L, null.ok = FALSE,
     any.missing = FALSE
   )
-  checkmate::assertCharacter(password,
+  checkmate::assert_character(password,
     len = 1L, null.ok = FALSE,
     any.missing = FALSE
   )
@@ -87,7 +87,7 @@ read_from_dhis2 <- function(base_url,
     )
   ) %>%
     httr::content() %>%
-    purrr::flatten_dfr()
+    dplyr::bind_rows()
 
   # add the variable names
   tmp_data_elt <- attributes$data_elements[, c("shortName", "id")] %>%

@@ -22,24 +22,25 @@ the subjects}
 \item{id_col_name}{the column name with the subject IDs}
 }
 \value{
-a list with the data of interest and its associated metadata
+a \code{list} of 2 elements of type \code{data.frame}. These are the dataset of
+interest and its associated metadata.
 }
 \description{
 This is a wrapper across all the use case of reading data from
-REDCap i.e. around the function that all records and fields from the project,
-around the function that read specific records/fields or both at the same
-time
+REDCap i.e. around the function that all records and fields from the
+project, around the function that read specific records/fields or both at
+the same time
 }
 \examples{
 \dontrun{
-result = import_redcap_data(
- uri = "https://bbmc.ouhsc.edu/redcap/api/",
- token = "9A81268476645C4E5F03428B8AC3AA7B",
- records = c("1", "3", "5"),
- fields = c("record_id", "name_first", "age", "bmi"),
- id_col_name = NULL,
- id_position = 1
-)
+  result = import_redcap_data(
+    uri = "https://bbmc.ouhsc.edu/redcap/api/",
+    token = "9A81268476645C4E5F03428B8AC3AA7B",
+    records = c("1", "3", "5"),
+    fields = c("record_id", "name_first", "age", "bmi"),
+    id_col_name = NULL,
+    id_position = 1
+  )
 }
 
 }

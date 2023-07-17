@@ -19,7 +19,8 @@ its actual type}
 \item{which}{a string used to specify the name of the excel sheet to import}
 }
 \value{
-a list of data frames where each data frame contains data from a file
+a \code{list} of 1 or several objects of type \code{data.frame} where each data
+frame contains data from a specific file.
 }
 \description{
 Read multiple files, including multiple files in a directory

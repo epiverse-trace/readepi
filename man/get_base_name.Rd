@@ -10,16 +10,16 @@ get_base_name(x)
 \item{x}{the file path}
 }
 \value{
-the file base name
+a \code{character} with the file base name(s)
 }
 \description{
 Get file base name
 }
 \examples{
 \dontrun{
-base_name <- get_base_name(
- x = system.file("extdata", "test.txt", package = "readepi")
-)
+  base_name <- get_base_name(
+    x = system.file("extdata", "test.txt", package = "readepi")
+  )
 }
 
 }

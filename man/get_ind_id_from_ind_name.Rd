@@ -12,22 +12,21 @@ get_ind_id_from_ind_name(metadata, indicator_name)
 \item{indicator_name}{the indicator name}
 }
 \value{
-the indicator ID
+an object of type \code{numeric} that contains the indicator ID
 }
 \description{
 Get indicator ID from indicator name
 }
 \examples{
 \dontrun{
-indicator_id <- get_ind_id_from_ind_name(
-metadata = list(
-  indicator_profile_domain = fingertipsR::indicators(),
-  indicator_ids_names = fingertipsR::indicators_unique(),
-  area_type = fingertipsR::area_types()
-  ),
-indicator_name = "Pupil absence"
-)
+  indicator_id <- get_ind_id_from_ind_name(
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
+    ),
+    indicator_name = "Pupil absence"
+  )
 }
-
 
 }

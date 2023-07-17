@@ -36,24 +36,25 @@ sql_select_fields_only(
 \item{port}{the server port ID}
 }
 \value{
-a data frame with the specified fields
+an object of type \code{data.frame} that contains the data fetched from
+the specific table with only the fields of interest.
 }
 \description{
 Select specified fields from a table
 }
 \examples{
 \dontrun{
-result <- sql_select_fields_only(
- table = "author",
- field = c("author_id", "name", "last_name"),
- dbms = "MySQL",
- driver_name = "",
- host = "mysql-rfam-public.ebi.ac.uk",
- database_name = "Rfam",
- user = "rfamro",
- password = "",
- port = 4497
-)
+  result <- sql_select_fields_only(
+    table = "author",
+    field = c("author_id", "name", "last_name"),
+    dbms = "MySQL",
+    driver_name = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    database_name = "Rfam",
+    user = "rfamro",
+    password = "",
+    port = 4497
+  )
 }
 
 }

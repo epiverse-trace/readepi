@@ -18,8 +18,8 @@ project}
 the subjects}
 }
 \value{
-a list with the project data and its associated metadata with the
-fields of interest
+a \code{list} of 2 elements of type \code{data.frame} that contain the project
+data with the fields of interest and its associated metadata.
 }
 \description{
 Subset fields from a REDCap project

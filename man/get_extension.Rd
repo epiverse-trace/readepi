@@ -10,16 +10,16 @@ get_extension(file_path)
 \item{file_path}{the target file path}
 }
 \value{
-a string that corresponds to the file extension
+a \code{character} that contains the file extension
 }
 \description{
 Get file extension
 }
 \examples{
 \dontrun{
-ext <- get_extension(
- file_path = system.file("extdata", "test.txt", package = "readepi")
-)
+  ext <- get_extension(
+    file_path = system.file("extdata", "test.txt", package = "readepi")
+  )
 }
 
 }

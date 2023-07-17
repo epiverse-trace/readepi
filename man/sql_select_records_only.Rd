@@ -44,26 +44,27 @@ unique identifies the subjects in each table}
 \item{port}{the server port ID}
 }
 \value{
-a data frame with the records of interest
+an object of type \code{data.frame} that contains the data fetched from
+the specific table with only the records of interest.
 }
 \description{
 Select specified records from a table
 }
 \examples{
 \dontrun{
-result <- sql_select_records_only(
- table = "author",
- record = c("1", "20", "50"),
- id_column_name = NULL,
- id_pos = 1,
- dbms = "MySQL",
- driver_name = "",
- host = "mysql-rfam-public.ebi.ac.uk",
- database_name = "Rfam",
- user = "rfamro",
- password = "",
- port = 4497
-)
+  result <- sql_select_records_only(
+    table = "author",
+    record = c("1", "20", "50"),
+    id_column_name = NULL,
+    id_pos = 1,
+    dbms = "MySQL",
+    driver_name = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    database_name = "Rfam",
+    user = "rfamro",
+    password = "",
+    port = 4497
+  )
 }
 
 }

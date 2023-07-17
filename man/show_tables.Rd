@@ -17,17 +17,19 @@ the \code{readepi} function for more details.}
 to display the list of installed drivers}
 }
 \value{
-the list of tables in the specified database
+a \code{character} that contains the list of all tables found
+in the specified database
 }
 \description{
 Display the list of tables in a database
 }
 \examples{
 \dontrun{
-show_tables(
-  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-  project_id = "Rfam",
-  driver_name = ""
-)
+  show_tables(
+    credentials_file = system.file("extdata", "test.ini",
+    package = "readepi"),
+    project_id = "Rfam",
+    driver_name = ""
+  )
 }
 }

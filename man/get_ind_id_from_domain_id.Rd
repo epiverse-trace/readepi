@@ -14,22 +14,22 @@ get_ind_id_from_domain_id(metadata, domain_id, indicator_name = NULL)
 \item{indicator_name}{the indicator name}
 }
 \value{
-the indicator ID
+an object of type \code{numeric} that contains the indicator ID
 }
 \description{
 Get indicator ID from domain ID
 }
 \examples{
 \dontrun{
-indicator_id <- get_ind_id_from_domain_id(
-metadata = list(
-  indicator_profile_domain = fingertipsR::indicators(),
-  indicator_ids_names = fingertipsR::indicators_unique(),
-  area_type = fingertipsR::area_types()
-  ),
-domain_id = 1000041,
-indicator_name = NULL
-)
+  indicator_id <- get_ind_id_from_domain_id(
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
+    ),
+    domain_id = 1000041,
+    indicator_name = NULL
+  )
 }
 
 }

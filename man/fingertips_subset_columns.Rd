@@ -12,20 +12,21 @@ fingertips_subset_columns(fields, data)
 \item{data}{the data read from Fingertips}
 }
 \value{
-a data frame with the columns of interest
+an object of type \code{data.frame} with the Fingertips dataset that
+contains only the fields of interest
 }
 \description{
 Subset columns when reading from Fingertips
 }
 \examples{
 \dontrun{
-res <- fingertips_subset_columns(
-  fields = c("IndicatorID", "AreaCode", "Age", "Value"),
-  data = readepi(
-    profile_id = 19,
-    area_type_id = 202
-  )$data
-)
+  res <- fingertips_subset_columns(
+    fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+    data = readepi(
+      profile_id = 19,
+      area_type_id = 202
+    )$data
+  )
 }
 
 }

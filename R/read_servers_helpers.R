@@ -8,50 +8,37 @@
 #' @param password the user's password
 #' @param port the server port ID
 #'
-#' @return the connection object
+#' @return the `connection` object
 #'
 #' @examples
 #' \dontrun{
-#' con <- connect_to_server(
-#'  dbms = "MySQL",
-#'  driver_name = "",
-#'  host = "mysql-rfam-public.ebi.ac.uk",
-#'  database_name = "Rfam",
-#'  user = "rfamro",
-#'  password = "",
-#'  port = 4497
-#' )
+#'   con <- connect_to_server(
+#'     dbms = "MySQL",
+#'     driver_name = "",
+#'     host = "mysql-rfam-public.ebi.ac.uk",
+#'     database_name = "Rfam",
+#'     user = "rfamro",
+#'     password = "",
+#'     port = 4497
+#'   )
 #' }
 #'
 connect_to_server <- function(dbms, driver_name, host, database_name,
                               user, password, port) {
-  checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(driver_name, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(host, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(database_name, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(user, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_number(port, lower = 1)
   con <- switch(dbms,
                 "SQLServer" = pool::dbPool(odbc::odbc(),
-                                             driver = driver_name,
-                                             server = host,
-                                             database = database_name,
-                                             uid = user, pwd = password,
-                                             port = as.numeric(port)
+                                           driver = driver_name,
+                                           server = host,
+                                           database = database_name,
+                                           uid = user, pwd = password,
+                                           port = as.numeric(port)
                 ),
                 "PostgreSQL" = pool::dbPool(odbc::odbc(),
-                                              driver = driver_name,
-                                              host = host,
-                                              database = database_name,
-                                              uid = user, pwd = password,
-                                              port = as.numeric(port)
+                                           driver = driver_name,
+                                           host = host,
+                                           database = database_name,
+                                           uid = user, pwd = password,
+                                           port = as.numeric(port)
                 ),
                 "MySQL" = pool::dbPool(drv = RMySQL::MySQL(),
                                        dbname = database_name,
@@ -70,14 +57,14 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
 #' @param query the SQL query
 #' @param tables the list of all tables from the database
 #'
-#' @return the table name of interest
+#' @return a `character` with the extracted table name(s) from the SQL query
 #'
 #' @examples
 #' \dontrun{
-#' table_name = identify_table_name(
-#'  query = "select * from author",
-#'  tables = c("family_author", "author", "test")
-#' )
+#'   table_name = identify_table_name(
+#'     query = "select * from author",
+#'     tables = c("family_author", "author", "test")
+#'   )
 #' }
 #'
 identify_table_name <- function(query, tables) {
@@ -105,30 +92,27 @@ identify_table_name <- function(query, tables) {
 #' @param password the user's password
 #' @param port the server port ID
 #'
-#' @return a list with the data fetched from the tables of interest
+#' @return a `list` of 1 or more objects of type `data.frame` containing each
+#'    data fetched from one table.
 #'
 #' @examples
 #' \dontrun{
-#' result <- fetch_data_from_query(
-#'  source = "select author_id, name, last_name from author",
-#'  dbms = "MySQL",
-#'  tables = c("family_author", "author"),
-#'  driver_name = "",
-#'  host = "mysql-rfam-public.ebi.ac.uk",
-#'  database_name = "Rfam",
-#'  user = "rfamro",
-#'  password = "",
-#'  port = 4497
-#' )
+#'   result <- fetch_data_from_query(
+#'     source = "select author_id, name, last_name from author",
+#'     dbms = "MySQL",
+#'     tables = c("family_author", "author"),
+#'     driver_name = "",
+#'     host = "mysql-rfam-public.ebi.ac.uk",
+#'     database_name = "Rfam",
+#'     user = "rfamro",
+#'     password = "",
+#'     port = 4497
+#'   )
 #' }
 #'
 fetch_data_from_query <- function(source, dbms, tables,
                                  driver_name, host, database_name,
                                  user, password, port) {
-  checkmate::assert_vector(source, any.missing = FALSE, min.len = 1,
-                           null.ok = FALSE, unique = TRUE)
-  checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
   checkmate::assert_vector(tables, any.missing = FALSE, min.len = 1,
                            null.ok = FALSE, unique = TRUE)
 
@@ -140,8 +124,8 @@ fetch_data_from_query <- function(source, dbms, tables,
     stopifnot("Could not detect table name from the query" = !is.null(table))
     result[[table]] <- DBI::dbGetQuery(pool, source)
   }
-
   pool::poolClose(pool)
+
   result
 }
 
@@ -151,12 +135,12 @@ fetch_data_from_query <- function(source, dbms, tables,
 #' @param table_names the name of the tables where the data was fetched from
 #' @param dbms the database management system type
 #' @param id_col_name the column names that unique identify the records in the
-#' tables
+#'    tables
 #' @param fields a vector of strings where each string is a comma-separated list
-#' of column names.
+#'    of column names.
 #' @param records a vector or a comma-separated string of subset of subject IDs.
 #' @param id_position a vector of the column positions of the variable that
-#' unique identifies the subjects in each table
+#'    unique identifies the subjects in each table
 #' @param driver_name the driver name
 #' @param host host server name
 #' @param database_name the database name
@@ -164,23 +148,24 @@ fetch_data_from_query <- function(source, dbms, tables,
 #' @param password the user's password
 #' @param port the server port ID
 #'
-#' @return a subset of the data in the specified tables
+#' @return a `list` of 1 or more elements of type `data.frame` where every
+#'    element contains the subset of the data from the corresponding table
 #' @examples
 #' \dontrun{
-#' result = sql_select_data(
-#'  table_names = "author",
-#'  dbms = "MySQL",
-#'  id_col_name = "author_id",
-#'  fields = c("author_id", "name"),
-#'  records = NULL,
-#'  id_position = NULL,
-#'  driver_name = "",
-#'  host = "mysql-rfam-public.ebi.ac.uk",
-#'  database_name = "Rfam",
-#'  user = "rfamro",
-#'  password = "",
-#'  port = 4497
-#' )
+#'   result = sql_select_data(
+#'     table_names = "author",
+#'     dbms = "MySQL",
+#'     id_col_name = "author_id",
+#'     fields = c("author_id", "name"),
+#'     records = NULL,
+#'     id_position = NULL,
+#'     driver_name = "",
+#'     host = "mysql-rfam-public.ebi.ac.uk",
+#'     database_name = "Rfam",
+#'     user = "rfamro",
+#'     password = "",
+#'     port = 4497
+#'   )
 #' }
 #'
 sql_select_data <- function(table_names, dbms, id_col_name,
@@ -195,7 +180,7 @@ sql_select_data <- function(table_names, dbms, id_col_name,
   result <- list()
   j <- 1
   for (table in table_names) {
-    R.utils::cat("\nFetching data from", table)
+    message("\nFetching data from", table)
 
     # select records from table
     if (all(is.null(records) & is.null(fields))) {
@@ -225,8 +210,9 @@ sql_select_data <- function(table_names, dbms, id_col_name,
       field <- ifelse(all(grepl(",", fields, fixed = TRUE) == TRUE &
                             length(fields) > 1),
                       fields[j], fields)
-      id_column_name <- get_id_column_name(id_col_name, j, id_position)[[1]]
-      id_pos <- get_id_column_name(id_col_name, j, id_position)[[2]]
+      id_column_name <- get_id_column_name(id_col_name,
+                                           j, id_position)$id_column_name
+      id_pos <- get_id_column_name(id_col_name, j, id_position)$id_pos
       result[[table]] <- sql_select_records_and_fields(table, record,
                                                        id_column_name, field,
                                                        id_pos, dbms,
@@ -234,9 +220,9 @@ sql_select_data <- function(table_names, dbms, id_col_name,
                                                        database_name, user,
                                                        password, port)
     }
-
     j <- j + 1
   }
+
   result
 }
 
@@ -245,6 +231,9 @@ sql_select_data <- function(table_names, dbms, id_col_name,
 #' @param id_col_name the id column name
 #' @param j the index
 #' @param id_position the id position
+#'
+#' @returns a `list` of 2 elements of type `character` and `numeric`
+#'    corresponding to the ID column name and position
 #'
 get_id_column_name <- function(id_col_name, j, id_position) {
   checkmate::assert_numeric(j, lower = 1, any.missing = FALSE,
@@ -263,8 +252,8 @@ get_id_column_name <- function(id_col_name, j, id_position) {
   }
 
   list(
-    id_column_name,
-    id_pos
+    id_column_name = id_column_name,
+    id_pos = id_pos
   )
 }
 
@@ -279,20 +268,21 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 #' @param password the user's password
 #' @param port the server port ID
 #'
-#' @return a data frame with the entire dataset that is contained in the table
+#' @return an object of type `data.frame` with the entire dataset fetched from
+#'    the specified table
 #'
 #' @examples
 #' \dontrun{
-#' result <- sql_select_entire_dataset(
-#'  table = "author",
-#'  dbms = "MySQL",
-#'  driver_name = "",
-#'  host = "mysql-rfam-public.ebi.ac.uk",
-#'  database_name = "Rfam",
-#'  user = "rfamro",
-#'  password = "",
-#'  port = 4497
-#' )
+#'   result <- sql_select_entire_dataset(
+#'     table = "author",
+#'     dbms = "MySQL",
+#'     driver_name = "",
+#'     host = "mysql-rfam-public.ebi.ac.uk",
+#'     database_name = "Rfam",
+#'     user = "rfamro",
+#'     password = "",
+#'     port = 4497
+#'   )
 #' }
 #'
 sql_select_entire_dataset <- function(table, dbms, driver_name, host,
@@ -320,31 +310,32 @@ sql_select_entire_dataset <- function(table, dbms, driver_name, host,
 #' @param password the user's password
 #' @param port the server port ID
 #' @param id_column_name the column names that unique identify the records in
-#' the tables
+#'    the tables
 #' @param field a vector of strings where each string is a comma-separated list
-#' of column names.
+#'    of column names.
 #' @param dbms the database management system type
 #' @param id_pos a vector of the column positions of the variable that
-#' unique identifies the subjects in each table
+#'    unique identifies the subjects in each table
 #'
-#' @return a data frame with the specified columns and records
+#' @return an object of type `data.frame` that contains the dataset with the
+#'    specified fields and records.
 #'
 #' @examples
 #' \dontrun{
-#' result <- sql_select_records_and_fields(
-#'  table = "author",
-#'  record = c("1", "20", "50"),
-#'  id_column_name = "author_id",
-#'  field = c("author_id", "last_name"),
-#'  id_pos = NULL,
-#'  dbms = "MySQL",
-#'  driver_name = "",
-#'  host = "mysql-rfam-public.ebi.ac.uk",
-#'  database_name = "Rfam",
-#'  user = "rfamro",
-#'  password = "",
-#'  port = 4497
-#' )
+#'   result <- sql_select_records_and_fields(
+#'     table = "author",
+#'     record = c("1", "20", "50"),
+#'     id_column_name = "author_id",
+#'     field = c("author_id", "last_name"),
+#'     id_pos = NULL,
+#'     dbms = "MySQL",
+#'     driver_name = "",
+#'     host = "mysql-rfam-public.ebi.ac.uk",
+#'     database_name = "Rfam",
+#'     user = "rfamro",
+#'     password = "",
+#'     port = 4497
+#'   )
 #' }
 #'
 sql_select_records_and_fields <- function(table, record, id_column_name, field,
@@ -394,16 +385,17 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #' @param project_id the name of the target database
 #' @param driver_name the name of the MS driver
 #'
-#' @return return the first 5 rows of the table if display=TRUE
+#' @return prints the first 5 rows of the specified table
 #'
 #' @examples
 #' \dontrun{
-#' visualise_table(
-#'  credentials_file <- system.file("extdata", "test.ini", package = "readepi"),
-#'   source = "author",
-#'   project_id = "Rfam",
-#'   driver_name = ""
-#' )
+#'   visualise_table(
+#'     credentials_file <- system.file("extdata", "test.ini",
+#'     package = "readepi"),
+#'     source = "author",
+#'     project_id = "Rfam",
+#'     driver_name = ""
+#'   )
 #' }
 #' @export
 #'
@@ -433,9 +425,9 @@ visualise_table <- function(credentials_file, source, project_id,
 #' @param table the table name
 #' @param record a vector or a comma-separated string of subset of subject IDs.
 #' @param id_column_name the column names that unique identify the records in
-#' the tables
+#'    the tables
 #' @param id_pos a vector of the column positions of the variable that
-#' unique identifies the subjects in each table
+#'    unique identifies the subjects in each table
 #' @param dbms the database management system type
 #' @param driver_name the driver name
 #' @param host host server name
@@ -444,23 +436,24 @@ visualise_table <- function(credentials_file, source, project_id,
 #' @param password the user's password
 #' @param port the server port ID
 #'
-#' @return a data frame with the records of interest
+#' @return an object of type `data.frame` that contains the data fetched from
+#'    the specific table with only the records of interest.
 #'
 #' @examples
 #' \dontrun{
-#' result <- sql_select_records_only(
-#'  table = "author",
-#'  record = c("1", "20", "50"),
-#'  id_column_name = NULL,
-#'  id_pos = 1,
-#'  dbms = "MySQL",
-#'  driver_name = "",
-#'  host = "mysql-rfam-public.ebi.ac.uk",
-#'  database_name = "Rfam",
-#'  user = "rfamro",
-#'  password = "",
-#'  port = 4497
-#' )
+#'   result <- sql_select_records_only(
+#'     table = "author",
+#'     record = c("1", "20", "50"),
+#'     id_column_name = NULL,
+#'     id_pos = 1,
+#'     dbms = "MySQL",
+#'     driver_name = "",
+#'     host = "mysql-rfam-public.ebi.ac.uk",
+#'     database_name = "Rfam",
+#'     user = "rfamro",
+#'     password = "",
+#'     port = 4497
+#'   )
 #' }
 #'
 sql_select_records_only <- function(table, record, id_column_name, id_pos,
@@ -480,19 +473,6 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
                            any.missing = FALSE, min.len = 1,
                            null.ok = TRUE, unique = TRUE
   )
-  checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(driver_name, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
-  checkmate::assert_character(host, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(database_name, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(user, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_number(port, lower = 1)
 
   con <- connect_to_server(dbms, driver_name, host, database_name,
                            user, password, port)
@@ -534,21 +514,22 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
 #' @param password the user's password
 #' @param port the server port ID
 #'
-#' @return a data frame with the specified fields
+#' @return an object of type `data.frame` that contains the data fetched from
+#'    the specific table with only the fields of interest.
 #'
 #' @examples
 #' \dontrun{
-#' result <- sql_select_fields_only(
-#'  table = "author",
-#'  field = c("author_id", "name", "last_name"),
-#'  dbms = "MySQL",
-#'  driver_name = "",
-#'  host = "mysql-rfam-public.ebi.ac.uk",
-#'  database_name = "Rfam",
-#'  user = "rfamro",
-#'  password = "",
-#'  port = 4497
-#')
+#'   result <- sql_select_fields_only(
+#'     table = "author",
+#'     field = c("author_id", "name", "last_name"),
+#'     dbms = "MySQL",
+#'     driver_name = "",
+#'     host = "mysql-rfam-public.ebi.ac.uk",
+#'     database_name = "Rfam",
+#'     user = "rfamro",
+#'     password = "",
+#'     port = 4497
+#'   )
 #' }
 #'
 sql_select_fields_only <- function(table, field, dbms, driver_name, host,

@@ -27,21 +27,21 @@ check_dhis2_attributes(
 \item{data_element_group}{the dataElementGroups identifiers}
 }
 \value{
-a list
+a list of 7 elements of type \code{character}.
 }
 \description{
 Check the DHIS2 attributes for data import
 }
 \examples{
 \dontrun{
-attributes <- check_dhis2_attributes(
- username = "admin",
- password = "district",
- base_url = "https://play.dhis2.org/dev/",
- dataset = "pBOMPrpg1QX",
- organisation_unit = "DiszpKrYNg8",
- data_element_group = NULL
-)
+  attributes <- check_dhis2_attributes(
+    username = "admin",
+    password = "district",
+    base_url = "https://play.dhis2.org/dev/",
+    dataset = "pBOMPrpg1QX",
+    organisation_unit = "DiszpKrYNg8",
+    data_element_group = NULL
+  )
 }
 
 }

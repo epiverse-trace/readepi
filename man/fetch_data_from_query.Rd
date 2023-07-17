@@ -36,24 +36,25 @@ fetch_data_from_query(
 \item{port}{the server port ID}
 }
 \value{
-a list with the data fetched from the tables of interest
+a \code{list} of 1 or more objects of type \code{data.frame} containing each
+data fetched from one table.
 }
 \description{
 Fetch data from server using an SQL query
 }
 \examples{
 \dontrun{
-result <- fetch_data_from_query(
- source = "select author_id, name, last_name from author",
- dbms = "MySQL",
- tables = c("family_author", "author"),
- driver_name = "",
- host = "mysql-rfam-public.ebi.ac.uk",
- database_name = "Rfam",
- user = "rfamro",
- password = "",
- port = 4497
-)
+  result <- fetch_data_from_query(
+    source = "select author_id, name, last_name from author",
+    dbms = "MySQL",
+    tables = c("family_author", "author"),
+    driver_name = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    database_name = "Rfam",
+    user = "rfamro",
+    password = "",
+    port = 4497
+  )
 }
 
 }

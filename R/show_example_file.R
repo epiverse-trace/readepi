@@ -1,7 +1,7 @@
 #' Display the structure of the credentials file
 #' @examples
 #' \dontrun{
-#' show_example_file()
+#'   show_example_file()
 #' }
 #' @export
 #'

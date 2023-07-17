@@ -10,16 +10,16 @@ detect_separator(x)
 \item{x}{a string}
 }
 \value{
-a vector of identified separators
+a \verb{character vector} of identified separators
 }
 \description{
 Detect separator from a string
 }
 \examples{
 \dontrun{
-sep <- detect_separator(
- x = "My name is Karim"
-)
+  sep <- detect_separator(
+    x = "My name is Karim"
+  )
 }
 
 }

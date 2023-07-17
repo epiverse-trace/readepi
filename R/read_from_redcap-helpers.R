@@ -1,30 +1,31 @@
 #' Import data from REDCap under all scenari
 #'
 #' @description This is a wrapper across all the use case of reading data from
-#' REDCap i.e. around the function that all records and fields from the project,
-#' around the function that read specific records/fields or both at the same
-#' time
+#'    REDCap i.e. around the function that all records and fields from the
+#'    project, around the function that read specific records/fields or both at
+#'    the same time
 #'
 #' @param records a vector or a comma-separated string of subset of subject IDs
 #' @param fields a vector or a comma-separated string of column names
 #' @param uri the URI of the server
 #' @param token the user-specific string that serves as the password for a
-#' project
+#'    project
 #' @param id_position the column position of the variable that unique identifies
-#' the subjects
+#'    the subjects
 #' @param id_col_name the column name with the subject IDs
 #'
-#' @return a list with the data of interest and its associated metadata
+#' @return a `list` of 2 elements of type `data.frame`. These are the dataset of
+#'    interest and its associated metadata.
 #' @examples
 #' \dontrun{
-#' result = import_redcap_data(
-#'  uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'  token = "9A81268476645C4E5F03428B8AC3AA7B",
-#'  records = c("1", "3", "5"),
-#'  fields = c("record_id", "name_first", "age", "bmi"),
-#'  id_col_name = NULL,
-#'  id_position = 1
-#' )
+#'   result = import_redcap_data(
+#'     uri = "https://bbmc.ouhsc.edu/redcap/api/",
+#'     token = "9A81268476645C4E5F03428B8AC3AA7B",
+#'     records = c("1", "3", "5"),
+#'     fields = c("record_id", "name_first", "age", "bmi"),
+#'     id_col_name = NULL,
+#'     id_position = 1
+#'   )
 #' }
 #'
 import_redcap_data <- function(records, fields, uri, token,
@@ -56,8 +57,8 @@ import_redcap_data <- function(records, fields, uri, token,
   }
 
   list(
-    redcap_data,
-    metadata
+    redcap_data = redcap_data,
+    metadata = metadata
   )
 }
 
@@ -65,11 +66,12 @@ import_redcap_data <- function(records, fields, uri, token,
 #'
 #' @param uri the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
-#' project
+#'    project
 #' @param id_position the column position of the variable that unique identifies
-#' the subjects
+#'    the subjects
 #'
-#' @return a list with the project data and its associated metadata
+#' @return a `list` of 2 elements of type `data.frame` that contain the project
+#'    data and its associated metadata.
 #'
 redcap_read <- function(uri, token, id_position) {
   redcap_data <- REDCapR::redcap_read(
@@ -92,14 +94,15 @@ redcap_read <- function(uri, token, id_position) {
 #' @param fields a vector or a comma-separated string of column names
 #' @param uri the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
-#' project
+#'    project
 #' @param id_position the column position of the variable that unique identifies
-#' the subjects
+#'    the subjects
 #' @param id_col_name the column name with the subject IDs
 #' @param records a vector or a comma-separated string of subset of subject IDs
 #'
-#' @return a list with the project data and its associated metadata with the
-#' fields and records of interest
+#' @return a `list` of 2 elements of type `data.frame` that contain the project
+#'    data with only the records and fields of interest and
+#'    its associated metadata.
 #'
 redcap_read_rows_columns <- function(fields, uri, token, id_position,
                                      id_col_name, records) {
@@ -145,12 +148,12 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
 #' @param fields a vector or a comma-separated string of column names
 #' @param uri the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
-#' project
+#'    project
 #' @param id_position the column position of the variable that unique identifies
-#' the subjects
+#'    the subjects
 #'
-#' @return a list with the project data and its associated metadata with the
-#' fields of interest
+#' @return a `list` of 2 elements of type `data.frame` that contain the project
+#'    data with the fields of interest and its associated metadata.
 #'
 redcap_read_fields <- function(fields, uri, token, id_position) {
   if (is.vector(fields)) {
@@ -177,13 +180,13 @@ redcap_read_fields <- function(fields, uri, token, id_position) {
 #' @param records a vector or a comma-separated string of subset of subject IDs
 #' @param uri the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
-#' project
+#'    project
 #' @param id_position the column position of the variable that unique identifies
-#' the subjects
+#'    the subjects
 #' @param id_col_name the column name with the subject IDs
 #'
-#' @return a list with the project data and its associated metadata with the
-#' records of interest
+#' @return a `list` of 2 elements of type `data.frame` that contain the project
+#'    data with the records of interest and its associated metadata.
 #'
 redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
   if (is.vector(records)) {
@@ -223,27 +226,27 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
 #' @param redcap_data the object with redcap data
 #' @param metadata the object with redcap metadata
 #'
-#' @return a list with the redcap dataset and its associated metadata as
-#' data frames
+#' @return a `list` of 2 elements of type `data.frame`. These are the dataset of
+#'    interest and its associated metadata.
 #'
 #' @examples
 #' \dontrun{
-#' result <- redcap_get_results(
-#' redcap_data = REDCapR::redcap_read(
-#'   redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'   token = "9A81268476645C4E5F03428B8AC3AA7B",
-#'   records = c("1", "3", "5"),
-#'   fields = c("record_id", "name_first", "age", "bmi"),
-#'   verbose = FALSE,
-#'   id_position = 1L
-#'   ),
-#' metadata = REDCapR::redcap_metadata_read(
-#'   redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'   token = "9A81268476645C4E5F03428B8AC3AA7B",
-#'   fields = NULL,
-#'   verbose = FALSE
+#'   result <- redcap_get_results(
+#'     redcap_data = REDCapR::redcap_read(
+#'       redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
+#'       token = "9A81268476645C4E5F03428B8AC3AA7B",
+#'       records = c("1", "3", "5"),
+#'       fields = c("record_id", "name_first", "age", "bmi"),
+#'       verbose = FALSE,
+#'       id_position = 1L
+#'     ),
+#'     metadata = REDCapR::redcap_metadata_read(
+#'       redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
+#'       token = "9A81268476645C4E5F03428B8AC3AA7B",
+#'       fields = NULL,
+#'       verbose = FALSE
+#'     )
 #'   )
-#' )
 #' }
 #'
 redcap_get_results <- function(redcap_data, metadata) {
@@ -264,7 +267,7 @@ redcap_get_results <- function(redcap_data, metadata) {
   }
 
   list(
-    data,
-    meta
+    data = data,
+    meta = meta
   )
 }

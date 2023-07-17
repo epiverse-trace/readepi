@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_from_file-helpers.R
 \name{read_rio_formats}
 \alias{read_rio_formats}
-\title{Title}
+\title{Read files using the \code{rio} package}
 \usage{
 read_rio_formats(files_extensions, rio_extensions, files, files_base_names)
 }
@@ -18,8 +18,8 @@ package}
 \item{files_base_names}{a vector of file base}
 }
 \value{
-a list a the parameters needed to import data using rio
+a \code{list} of 4 elements of type \code{character} and \code{list}.
 }
 \description{
-Title
+Read files using the \code{rio} package
 }

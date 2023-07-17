@@ -8,7 +8,7 @@ login <- function(username, password, base_url) {
   url <- file.path(base_url, "api", "me")
   resp <- httr::GET(url, httr::authenticate(username, password))
   httr::stop_for_status(resp)
-  R.utils::cat("\nLogged in successfully!")
+  message("\nLogged in successfully!")
 }
 
 #' Subset fields when reading from DHIS2
@@ -16,22 +16,24 @@ login <- function(username, password, base_url) {
 #' @param fields vector of fields to select from the data frame
 #' @param data the input data frame
 #'
-#' @return the data frame with the fields of interest
+#' @return an object of type `data.frame` with the data that contains only the
+#'    fields of interest
 #' @examples
 #' \dontrun{
-#' results <- dhis2_subset_fields(
-#'  fields = c("dataElement","period","value"),
-#'  data = readepi(
-#'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-#'    project_id = "DHIS2_DEMO",
-#'    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
-#'    organisation_unit = "DiszpKrYNg8",
-#'    data_element_group = NULL,
-#'    start_date = "2014",
-#'    end_date = "2023",
-#'    fields = c("dataElement","period","value")
-#'  )$data
-#' )
+#'   results <- dhis2_subset_fields(
+#'     fields = c("dataElement","period","value"),
+#'     data = readepi(
+#'       credentials_file = system.file("extdata", "test.ini",
+#'       package = "readepi"),
+#'       project_id = "DHIS2_DEMO",
+#'       dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+#'       organisation_unit = "DiszpKrYNg8",
+#'       data_element_group = NULL,
+#'       start_date = "2014",
+#'       end_date = "2023",
+#'       fields = c("dataElement","period","value")
+#'     )$data
+#'   )
 #' }
 #'
 dhis2_subset_fields <- function(fields, data) {
@@ -58,22 +60,24 @@ dhis2_subset_fields <- function(fields, data) {
 #' @param id_col_name the column name where the records belong to
 #' @param data the input data frame
 #'
-#' @return a data frame with the records of interest
+#' @return an object of type `data.frame` with the data that contains only the
+#'    records of interest
 #' @examples
 #' \dontrun{
-#' result <- dhis2_subset_records(
-#'  records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-#'  id_col_name = "dataElement",
-#'  data = readepi(
-#'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-#'   project_id = "DHIS2_DEMO",
-#'   dataset = "pBOMPrpg1QX",
-#'   organisation_unit = "DiszpKrYNg8",
-#'   data_element_group = NULL,
-#'   start_date = "2014",
-#'   end_date = "2023"
-#'   )$data
-#' )
+#'   result <- dhis2_subset_records(
+#'     records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+#'     id_col_name = "dataElement",
+#'     data = readepi(
+#'       credentials_file = system.file("extdata", "test.ini",
+#'       package = "readepi"),
+#'       project_id = "DHIS2_DEMO",
+#'       dataset = "pBOMPrpg1QX",
+#'       organisation_unit = "DiszpKrYNg8",
+#'       data_element_group = NULL,
+#'       start_date = "2014",
+#'       end_date = "2023"
+#'     )$data
+#'   )
 #' }
 #'
 dhis2_subset_records <- function(records, id_col_name, data) {

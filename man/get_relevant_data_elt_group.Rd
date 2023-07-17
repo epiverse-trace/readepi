@@ -16,7 +16,9 @@ get_relevant_data_elt_group(data_element_group, base_url, username, password)
 \item{password}{the user's password}
 }
 \value{
-a list with the data elements of interest
+a \code{list} of 2 elements: a \code{character} string with the target
+data element group ID(s) and a \code{data.frame} of the details about all
+data element group in the target DHIS2 server.
 }
 \description{
 Get the relevant data element groups

@@ -7,10 +7,11 @@
 get_read_file_args(args_list)
 }
 \arguments{
-\item{args_list}{a list of user specified arguments}
+\item{args_list}{a \code{list} of user specified arguments}
 }
 \value{
-a list of the parameters to be used for reading from file
+a \code{list} of 4 elements of types \code{characters}. They define how the
+file will be read.
 }
 \description{
 Get arguments for reading from files

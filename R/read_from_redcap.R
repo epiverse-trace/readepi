@@ -13,14 +13,14 @@
 #'    If provided, only those columns will be imported.
 #' @examples
 #' \dontrun{
-#' redcap_data <- read_from_redcap(
-#'   uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'   token = "9A81268476645C4E5F03428B8AC3AA7B",
-#'   id_position = 1,
-#'   id_col_name = NULL,
-#'   records = NULL,
-#'   fields = NULL
-#' )
+#'   redcap_data <- read_from_redcap(
+#'     uri = "https://bbmc.ouhsc.edu/redcap/api/",
+#'     token = "9A81268476645C4E5F03428B8AC3AA7B",
+#'     id_position = 1,
+#'     id_col_name = NULL,
+#'     records = NULL,
+#'     fields = NULL
+#'   )
 #' }
 #' @returns a `list` of 2 elements of type `data.frame`. They include a data
 #'     frame of the dataset of interest and its associated metadata.
@@ -42,8 +42,8 @@ read_from_redcap <- function(uri, token, id_position = NULL, id_col_name = NULL,
   # importing data and the metadata into R
   tmp_res <- import_redcap_data(records, fields, uri, token,
                                  id_position, id_col_name)
-  redcap_data <- tmp_res[[1]]
-  metadata <- tmp_res[[2]]
+  redcap_data <- tmp_res$redcap_data
+  metadata <- tmp_res$metadata
 
   # checking whether the importing was successful and extract the desired
   # records and columns
@@ -51,7 +51,7 @@ read_from_redcap <- function(uri, token, id_position = NULL, id_col_name = NULL,
 
   # return the imported data
   list(
-    data = tmp_res[[1]],
-    metadata = tmp_res[[2]]
+    data = tmp_res$data,
+    metadata = tmp_res$meta
   )
 }

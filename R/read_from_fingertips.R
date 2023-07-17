@@ -86,21 +86,20 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
 
   # get the indicator ID from the indicator name
   if (!is.null(indicator_name) && is.null(indicator_id)) {
-    indicator_id <- get_ind_id_from_ind_name(metadata,
-                                             indicator_name)
+    indicator_id <- get_ind_id_from_ind_name(metadata, indicator_name)
   }
 
   # get the indicator ID from the domain ID
   if (!is.null(domain_id) && is.null(indicator_id)) {
     indicator_id <- get_ind_id_from_domain_id(metadata, domain_id,
-                                                  indicator_name)
+                                              indicator_name)
   }
 
   # get the indicator ID from the domain name
   if (!is.null(domain_name) &&
       all(is.null(indicator_id) & is.null(domain_id))) {
     indicator_id <- get_ind_id_from_domain_name(metadata, domain_name,
-                                                    indicator_name)
+                                                indicator_name)
   }
   # get the indicator ID from the profile ID or profile name
   if (any(!is.null(profile_id) | !is.null(profile_name)) &&

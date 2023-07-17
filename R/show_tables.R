@@ -1,19 +1,22 @@
 #' Display the list of tables in a database
+#'
 #' @param credentials_file the path to the file with the user-specific
-#' credential details for the projects of interest. See the help of
-#' the `readepi` function for more details.
+#'    credential details for the projects of interest. See the help of
+#'    the `readepi` function for more details.
 #' @param project_id the name of the target database
 #' @param driver_name the name of the MS driver. use `odbc::odbcListDrivers()`
-#' to display the list of installed drivers
+#'    to display the list of installed drivers
 #' @examples
 #' \dontrun{
-#' show_tables(
-#'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-#'   project_id = "Rfam",
-#'   driver_name = ""
-#' )
+#'   show_tables(
+#'     credentials_file = system.file("extdata", "test.ini",
+#'     package = "readepi"),
+#'     project_id = "Rfam",
+#'     driver_name = ""
+#'   )
 #' }
-#' @returns the list of tables in the specified database
+#' @returns a `character` that contains the list of all tables found
+#'     in the specified database
 #' @export
 #'
 show_tables <- function(credentials_file, project_id, driver_name) {
@@ -50,5 +53,5 @@ show_tables <- function(credentials_file, project_id, driver_name) {
 
   # listing the names of the tables present in the database
   tables <- DBI::dbListTables(conn = con)
-  R.utils::cat(paste(tables, collapse = "\n"))
+  tables
 }

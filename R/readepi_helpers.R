@@ -57,9 +57,10 @@ read_credentials <- function(
 
 #' Get arguments for reading from files
 #'
-#' @param args_list a list of user specified arguments
+#' @param args_list a `list` of user specified arguments
 #'
-#' @return a list of the parameters to be used for reading from file
+#' @return a `list` of 4 elements of types `characters`. They define how the
+#'    file will be read.
 #' @examples
 #' \dontrun{
 #' args_list <- get_read_file_args(
@@ -104,17 +105,18 @@ get_read_file_args <- function(args_list) {
 
 #' Get arguments for reading from Fingertips
 #'
-#' @param args_list a list of user specified arguments
+#' @param args_list a `list` of user specified arguments
 #'
-#' @return a list of the parameters to be used for reading from Fingertips
+#' @return a `list` of 8 elements of type `character` or `numeric` that will be
+#'    used for importing data from Fingertips
 #' @examples
 #' \dontrun{
-#' args_list <- get_read_fingertips_args(
-#'  list(
-#'    indicator_id = 90362,
-#'    area_type_id = 202
-#'  )
-#' )
+#'   args_list <- get_read_fingertips_args(
+#'     list(
+#'       indicator_id = 90362,
+#'       area_type_id = 202
+#'     )
+#'   )
 #' }
 #'
 get_read_fingertips_args <- function(args_list) {

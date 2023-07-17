@@ -12,7 +12,8 @@ read_files_in_directory(file_path, pattern)
 \item{pattern}{when specified, only files with this suffix will be imported}
 }
 \value{
-a list of data frames where each contains data read from a file
+a \code{list} of 1 or several objects of type \code{data.frame} where each
+element contains data read from a file.
 }
 \description{
 Sub-function for reading file in a directory

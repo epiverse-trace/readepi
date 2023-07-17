@@ -71,7 +71,6 @@ sql_server_read_data <- function(user, password, host, port = 1433,
   )
 
   final_result <- list()
-  from_query <- from_table_names <- NULL
 
   # check the id_position and id_column name
   if (all(!is.null(id_position) & !is.null(id_col_name))) {
@@ -88,7 +87,6 @@ sql_server_read_data <- function(user, password, host, port = 1433,
   table_names <- NULL
   # closing the connection
   pool::poolClose(con)
-
 
   # separate the sources
   idx <- which(source %in% tables)

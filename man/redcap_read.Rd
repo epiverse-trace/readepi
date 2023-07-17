@@ -16,7 +16,8 @@ project}
 the subjects}
 }
 \value{
-a list with the project data and its associated metadata
+a \code{list} of 2 elements of type \code{data.frame} that contain the project
+data and its associated metadata.
 }
 \description{
 Read all rows and columns from redcap
