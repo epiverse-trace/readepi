@@ -45,7 +45,6 @@ read_from_file <- function(file_path, sep = NULL, format = NULL, which = NULL,
   }
 
   # reading several files from a directory
-  result <- list()
   if (checkmate::test_directory_exists(file_path)) {
     result <- read_files_in_directory(file_path, pattern)
   } else if (checkmate::test_file_exists(file_path)) {

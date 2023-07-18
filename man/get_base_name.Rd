@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_from_file-helpers.R
 \name{get_base_name}
 \alias{get_base_name}
-\title{Get file base name}
+\title{Get file base name without its extension}
 \usage{
 get_base_name(x)
 }
@@ -10,10 +10,10 @@ get_base_name(x)
 \item{x}{the file path}
 }
 \value{
-a \code{character} with the file base name(s)
+a \code{character} with the file base name(s) without it extension
 }
 \description{
-Get file base name
+Get file base name without its extension
 }
 \examples{
 \dontrun{

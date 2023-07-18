@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_from_dhis2-helpers.R
 \name{dhis2_subset_records}
 \alias{dhis2_subset_records}
-\title{Title}
+\title{Subset a specified set of records from a dataset imported from DHIS2}
 \usage{
 dhis2_subset_records(records, id_col_name, data)
 }
@@ -18,7 +18,7 @@ an object of type \code{data.frame} with the data that contains only the
 records of interest
 }
 \description{
-Title
+Subset a specified set of records from a dataset imported from DHIS2
 }
 \examples{
 \dontrun{

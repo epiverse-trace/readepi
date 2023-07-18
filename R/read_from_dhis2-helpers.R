@@ -54,7 +54,7 @@ dhis2_subset_fields <- function(fields, data) {
 }
 
 
-#' Title
+#' Subset a specified set of records from a dataset imported from DHIS2
 #'
 #' @param records a vector of records to select from the data
 #' @param id_col_name the column name where the records belong to

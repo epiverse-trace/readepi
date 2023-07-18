@@ -1,27 +1,8 @@
-#' Get file extension
-#'
-#' @param file_path the target file path
-#'
-#' @return a `character` that contains the file extension
-#'
-#' @examples
-#' \dontrun{
-#'   ext <- get_extension(
-#'     file_path = system.file("extdata", "test.txt", package = "readepi")
-#'   )
-#' }
-#'
-get_extension <- function(file_path) {
-  splits <- unlist(strsplit(basename(file_path), ".", fixed = TRUE))
-  extension <- splits[length(splits)]
-  extension
-}
-
-#' Get file base name
+#' Get file base name without its extension
 #'
 #' @param x the file path
 #'
-#' @return a `character` with the file base name(s)
+#' @return a `character` with the file base name(s) without it extension
 #'
 #' @examples
 #' \dontrun{
@@ -31,7 +12,7 @@ get_extension <- function(file_path) {
 #' }
 #'
 get_base_name <- function(x) {
-  ext <- get_extension(x)
+  ext <- rio::get_ext(x)
   bn <- gsub(paste0(".", ext), "", basename(x))
   bn
 }
@@ -60,6 +41,23 @@ detect_separator <- function(x) {
   unique(sep)
 }
 
+#' Split a character by "_" and extract its element
+#'
+#' @param x a character string
+#'
+#' @return a character string
+#'
+#' @keywords internal
+f <- function(x) {
+  y <- unlist(strsplit(x, "_", fixed = TRUE))[2]
+  y <- suppressWarnings(as.numeric(y))
+  # if (is.character(y)) {
+  #   y <- NA
+  # }
+  y
+}
+
+
 
 #' Read files using the `rio` package
 #'
@@ -74,16 +72,24 @@ detect_separator <- function(x) {
 #'
 read_rio_formats <- function(files_extensions, rio_extensions,
                              files, files_base_names) {
+  # get indexes of {rio} file's extensions
   idx <- which(files_extensions %in% rio_extensions)
   result <- list()
   if (length(idx) > 0) {
     tmp_files <- files[idx]
     tmp_bn <- files_base_names[idx]
-    i <- 1
-    for (file in tmp_files) {
-      data <- rio::import(file) # , format = format, which = which
-      result[[tmp_bn[i]]] <- data
-      i <- i + 1
+    # check whether the file names are unique and add a suffix if not
+    for (i in seq_along(tmp_files)) {
+      name <- tmp_bn[i]
+      if (!is.null(names(result)) && grepl(name, names(result))) {
+        tmp <- names(result)[which(grepl(name, names(result)) == TRUE)]
+        x = max(as.numeric(lapply(tmp, f)))
+        x <- ifelse(is.na(x), 1, (x + 1))
+        name <- paste0(name, "_", x)
+      }
+      # import the file and add a comment
+      result[[name]] <- rio::import(tmp_files[i])
+      comment(result[[name]]) <- c(comment(result[[name]]), tmp_files[i])
     }
     files <- files[-idx]
     files_base_names <- files_base_names[-idx]
@@ -127,17 +133,17 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
   )
 
   # getting files extensions and basenames
-  files_extensions <- as.character(lapply(files, get_extension))
+  files_extensions <- as.character(lapply(files, rio::get_ext))
   files_base_names <- as.character(lapply(files, get_base_name))
 
   # reading files with extensions that are taken care by rio
   if (length(files_extensions) > 0) {
-    tmp.res <- read_rio_formats(files_extensions, rio_extensions,
+    tmp_res <- read_rio_formats(files_extensions, rio_extensions,
                                 files, files_base_names)
-    files <- tmp.res$files
-    files_base_names <- tmp.res$files_base_names
-    files_extensions <- tmp.res$files_extensions
-    result <- tmp.res$result
+    files <- tmp_res$files
+    files_base_names <- tmp_res$files_base_names
+    files_extensions <- tmp_res$files_extensions
+    result <- tmp_res$result
 
     # reading files which extensions are not taken care by rio
     i <- 1
@@ -146,6 +152,15 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
         data <- readxl::read_xlsx(file)
         if (!exists("result")) {
           result <- list()
+        }
+        idx <- which(grepl(files_base_names[i], names(result)))
+        if (!is.null(names(result)) && length(idx) > 0) {
+          tmp <- names(result)[which(grepl(files_base_names[i],
+                                           names(result)) == TRUE)]
+          x <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
+          x <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
+          x <- ifelse(is.na(x), 1, (x + 1))
+          files_base_names[i] <- paste0(files_base_names[i], "_", x)
         }
         result[[files_base_names[i]]] <- data
         i <- i + 1
@@ -166,6 +181,15 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
           }
         }
         data <- data.table::fread(file, sep = sep, nThread = 4)
+        idx <- which(grepl(files_base_names[i], names(result)))
+        if (!is.null(names(result)) && length(idx) > 0) {
+          tmp <- names(result)[which(grepl(files_base_names[i],
+                                           names(result)) == TRUE)]
+          x <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
+          x <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
+          x <- ifelse(is.na(x), 1, (x + 1))
+          files_base_names[i] <- paste0(files_base_names[i], "_", x)
+        }
         result[[files_base_names[i]]] <- data
         i <- i + 1
       }
@@ -215,16 +239,16 @@ read_files_in_directory <- function(file_path, pattern) {
 
 #' Sub-function for reading files using rio package
 #'
-#' @param sep the separator between the columns in the file
 #' @param file_path the path to the file to be read
+#' @param sep the separator between the columns in the file
 #' @param which a string used to specify the name of the excel sheet to import
 #' @param format a string used to specify the file format
 #'
 #' @return a `list` of 1 or several elements of type `data.frame` where each
 #'    contains data from a file
 #'
-read_files <- function(sep, file_path, which, format) {
-  result <- NULL
+read_files <- function(file_path, sep, which, format) {
+  result <- list()
   if (!is.null(sep)) {
     result[[1]] <- data.table::fread(file_path, sep = sep)
   } else if (is.null(sep)) {

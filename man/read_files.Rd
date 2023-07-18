@@ -4,12 +4,12 @@
 \alias{read_files}
 \title{Sub-function for reading files using rio package}
 \usage{
-read_files(sep, file_path, which, format)
+read_files(file_path, sep, which, format)
 }
 \arguments{
-\item{sep}{the separator between the columns in the file}
-
 \item{file_path}{the path to the file to be read}
+
+\item{sep}{the separator between the columns in the file}
 
 \item{which}{a string used to specify the name of the excel sheet to import}
 
