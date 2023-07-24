@@ -55,7 +55,7 @@ data <- readepi(file_path = file)
 
 The `readepi()` function can also read data from a sheet(s) in an MS Excel file. If the file contains multiple sheets, the user must supply the names of the sheets of interest, as shown in the examples below.     
 ```{r eval=FALSE}
-#READ DATA FROM SHEET2 IN THE TEST.XLSX FILE
+# READ DATA FROM SHEET2 IN THE TEST.XLSX FILE
 file <- system.file("extdata", "test.xlsx", package = "readepi")
 data <- readepi(file_path = file, which = "Sheet2")
 
@@ -314,7 +314,7 @@ data <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  source = "select author.author_id, author.name, family_author.author_id from 
+  source = "select author.author_id, author.name, family_author.author_id from
   author left join family_author on author.author_id = family_author.author_id"
 )
 
@@ -347,7 +347,7 @@ data <- readepi(
   credentials_file,
   project_id = "Rfam",
   driver_name = "",
-  source = "select author_id, name, last_name from author where 
+  source = "select author_id, name, last_name from author where
   author_id in ('1','20','50')"
 )
 ```

@@ -2,8 +2,10 @@ test_that("get_fingertips_metadata works as expected", {
   metadata <- get_fingertips_metadata()
   expect_type(metadata, "list")
   expect_length(metadata, 3)
-  expect_named(metadata, c("indicator_profile_domain", "indicator_ids_names",
-                           "area_type"))
+  expect_named(metadata, c(
+    "indicator_profile_domain", "indicator_ids_names",
+    "area_type"
+  ))
   expect_s3_class(metadata$indicator_profile_domain, "data.frame")
   expect_s3_class(metadata$indicator_ids_names, "data.frame")
   expect_s3_class(metadata$area_type, "data.frame")
@@ -115,13 +117,15 @@ test_that("get_ind_id_from_profile works as expected", {
 })
 
 test_that("get_profile_name works as expected", {
-  res <- get_profile_name(profile_id = 19,
-                          profile_name = "Public Health Outcomes Framework",
-                          metadata = list(
-                          indicator_profile_domain = fingertipsR::indicators(),
-                        indicator_ids_names = fingertipsR::indicators_unique(),
-                            area_type = fingertipsR::area_types()
-                          ))
+  res <- get_profile_name(
+    profile_id = 19,
+    profile_name = "Public Health Outcomes Framework",
+    metadata = list(
+      indicator_profile_domain = fingertipsR::indicators(),
+      indicator_ids_names = fingertipsR::indicators_unique(),
+      area_type = fingertipsR::area_types()
+    )
+  )
   expect_type(res, "list")
   expect_length(res, 2)
   expect_type(res[[1]], "character")

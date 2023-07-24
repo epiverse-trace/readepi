@@ -11,14 +11,14 @@
 #'
 #' @examples
 #' \dontrun{
-#'   attributes <- dhis2_check_attributes(
+#' attributes <- dhis2_check_attributes(
 #'   username = "admin",
 #'   password = "district",
 #'   base_url = "https://play.dhis2.org/dev/",
 #'   dataset = "pBOMPrpg1QX",
 #'   organisation_unit = "DiszpKrYNg8",
 #'   data_element_group = NULL
-#'   )
+#' )
 #' }
 #'
 dhis2_check_attributes <- function(username,
@@ -34,7 +34,7 @@ dhis2_check_attributes <- function(username,
     username = username,
     password = password,
     which = "dataSets"
-    )
+  )
   dataset <- tmp_res$dataset
   data_sets <- tmp_res$data_sets
 

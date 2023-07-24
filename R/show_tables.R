@@ -8,12 +8,13 @@
 #'    to display the list of installed drivers
 #' @examples
 #' \dontrun{
-#'   show_tables(
-#'     credentials_file = system.file("extdata", "test.ini",
-#'     package = "readepi"),
-#'     project_id = "Rfam",
-#'     driver_name = ""
-#'   )
+#' show_tables(
+#'   credentials_file = system.file("extdata", "test.ini",
+#'     package = "readepi"
+#'   ),
+#'   project_id = "Rfam",
+#'   driver_name = ""
+#' )
 #' }
 #' @returns a `character` that contains the list of all tables found
 #'     in the specified database

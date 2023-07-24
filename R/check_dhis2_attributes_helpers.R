@@ -1,4 +1,3 @@
-
 #' Get the target DHIS2 attribute identifiers and names
 #'
 #' @param base_url the base URL of the DHIS2 server
@@ -18,13 +17,15 @@
 #' @keywords internal
 dhis2_get_attributes <- function(base_url, username, password,
                                  which = "dataElements") {
-  url <- file.path(base_url,
-                   "api",
-                   which,
-                   "?fields=id,name,shortName&paging=false"
-                   )
+  url <- file.path(
+    base_url,
+    "api",
+    which,
+    "?fields=id,name,shortName&paging=false"
+  )
   r <- httr::content(httr::GET(url, httr::authenticate(username, password)),
-                     as = "parsed")
+    as = "parsed"
+  )
   do.call(rbind.data.frame, r[[which]])
 }
 
@@ -43,21 +44,24 @@ dhis2_get_attributes <- function(base_url, username, password,
 #'
 #' @examples
 #' \dontrun{
-#'   result <- dhis2_get_relevant_attributes(
-#'     attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
-#'     base_url = "https://play.dhis2.org/dev/",
-#'     username = "admin",
-#'     password = "district",
-#'     which = "dataSets"
-#'   )
+#' result <- dhis2_get_relevant_attributes(
+#'   attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
+#'   base_url = "https://play.dhis2.org/dev/",
+#'   username = "admin",
+#'   password = "district",
+#'   which = "dataSets"
+#' )
 #' }
 #' @keywords internal
 #'
 dhis2_get_relevant_attributes <- function(attribute_id = NULL, base_url,
                                           username, password, which) {
-  if (is.character(attribute_id)) attribute_id <- unlist(strsplit(attribute_id,
-                                                                  ",",
-                                                                  fixed = TRUE))
+  if (is.character(attribute_id)) {
+    attribute_id <- unlist(strsplit(attribute_id,
+      ",",
+      fixed = TRUE
+    ))
+  }
   attributes <- dhis2_get_attributes(base_url, username, password, which)
   if (which != "dataElements") {
     idx <- which(attribute_id %in% attributes$id)
@@ -67,21 +71,28 @@ dhis2_get_relevant_attributes <- function(attribute_id = NULL, base_url,
       available attributes")
     }
     if (length(idx) < length(attribute_id)) {
-      warning("\nThe following attribute ids were not found: ",
-              glue::glue_collapse(attribute_id[-idx], sep = ", "))
+      warning(
+        "\nThe following attribute ids were not found: ",
+        glue::glue_collapse(attribute_id[-idx], sep = ", ")
+      )
     }
     attribute_id <- paste(attribute_id[idx], collapse = ",")
   }
 
   res <- switch(which,
-                "dataSets" = list(dataset = attribute_id,
-                                  data_sets = attributes),
-                "organisationUnits" = list(organisation_unit = attribute_id
-                                           ,org_units = attributes),
-                "dataElementGroups" = list(
-                  data_element_group = attribute_id,
-                  data_elt_groups = attributes),
-                "dataElements" = attributes
-              )
+    "dataSets" = list(
+      dataset = attribute_id,
+      data_sets = attributes
+    ),
+    "organisationUnits" = list(
+      organisation_unit = attribute_id,
+      org_units = attributes
+    ),
+    "dataElementGroups" = list(
+      data_element_group = attribute_id,
+      data_elt_groups = attributes
+    ),
+    "dataElements" = attributes
+  )
   res
 }

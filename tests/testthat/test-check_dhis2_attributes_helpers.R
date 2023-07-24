@@ -86,8 +86,10 @@ test_that("get_data_sets fails as expected", {
     dataset = get_data_sets(
       username = "admin",
       password = c("district", "district1"),
-      base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
-                   "https://play.dhis2.org/dev/test/")
+      base_url = c(
+        file.path("https:/", "play.dhis2.org", "dev", ""),
+        "https://play.dhis2.org/dev/test/"
+      )
     ),
     regexp = cat("Assertion on',base_url,'failed: Must be of type character
                  with length 1.")
@@ -204,8 +206,10 @@ test_that("get_data_elements fails as expected", {
     data_element = get_data_elements(
       username = "admin",
       password = "district",
-      base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
-                   "https://play.dhis2.org/dev/test/")
+      base_url = c(
+        file.path("https:/", "play.dhis2.org", "dev", ""),
+        "https://play.dhis2.org/dev/test/"
+      )
     ),
     regexp = cat("Assertion on',base_url,'failed: Must be of type character
                  with length 1.")
@@ -300,8 +304,10 @@ test_that("get_organisation_units fails as expected", {
     organisation_units = get_organisation_units(
       username = "admin",
       password = "district",
-      base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
-                   "https://play.dhis2.org/dev/test/")
+      base_url = c(
+        file.path("https:/", "play.dhis2.org", "dev", ""),
+        "https://play.dhis2.org/dev/test/"
+      )
     ),
     regexp = cat("Assertion on',base_url,'failed: Must be of type character
                  with length 1.")

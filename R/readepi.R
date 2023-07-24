@@ -113,9 +113,10 @@ readepi <- function(credentials_file = NULL,
   # reading from DBMS
   if (!is.null(credentials_file)) {
     project_id <- ifelse("project_id" %in% names(args_list),
-                        args_list$project_id,
-                        stop("The project ID/database name must be provided
-                        to read data from DBMS."))
+      args_list$project_id,
+      stop("The project ID/database name must be provided
+                        to read data from DBMS.")
+    )
     credentials <- read_credentials(credentials_file, project_id)
     if (credentials$dbms == "REDCap") {
       res <- read_from_redcap(
@@ -137,7 +138,7 @@ readepi <- function(credentials_file = NULL,
       res <- sql_server_read_data(
         user = credentials$user, password = credentials$pwd,
         host = credentials$host, port = credentials$port,
-        database_name = credentials$project, source =  source,
+        database_name = credentials$project, source = source,
         driver_name = driver_name, records = records, fields = fields,
         id_position = id_position, id_col_name = id_col_name,
         dbms = credentials$dbms

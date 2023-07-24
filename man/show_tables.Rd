@@ -25,11 +25,12 @@ Display the list of tables in a database
 }
 \examples{
 \dontrun{
-  show_tables(
-    credentials_file = system.file("extdata", "test.ini",
-    package = "readepi"),
-    project_id = "Rfam",
-    driver_name = ""
-  )
+show_tables(
+  credentials_file = system.file("extdata", "test.ini",
+    package = "readepi"
+  ),
+  project_id = "Rfam",
+  driver_name = ""
+)
 }
 }

@@ -18,43 +18,35 @@
 #'    interest and its associated metadata.
 #' @examples
 #' \dontrun{
-#'   result = import_redcap_data(
-#'     uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'     token = "9A81268476645C4E5F03428B8AC3AA7B",
-#'     records = c("1", "3", "5"),
-#'     fields = c("record_id", "name_first", "age", "bmi"),
-#'     id_col_name = NULL,
-#'     id_position = 1
-#'   )
+#' result <- import_redcap_data(
+#'   uri = "https://bbmc.ouhsc.edu/redcap/api/",
+#'   token = "9A81268476645C4E5F03428B8AC3AA7B",
+#'   records = c("1", "3", "5"),
+#'   fields = c("record_id", "name_first", "age", "bmi"),
+#'   id_col_name = NULL,
+#'   id_position = 1
+#' )
 #' }
 #'
 import_redcap_data <- function(records, fields, uri, token,
                                id_position, id_col_name) {
   if (all(is.null(records) & is.null(fields))) {
-    res <- redcap_read(uri, token, id_position)
-    redcap_data <- res[[1]]
-    metadata <- res[[2]]
-  }
-
-  if (all(!is.null(records) & !is.null(fields))) {
-    res <- redcap_read_rows_columns(fields, uri, token, id_position,
-                                    id_col_name, records)
-    redcap_data <- res[[1]]
-    metadata <- res[[2]]
-  }
-
-  if (!is.null(fields) && is.null(records)) {
+    res <- redcap_read_data(uri, token, id_position)
+  } else if (all(!is.null(records) & !is.null(fields))) {
+    res <- redcap_read_rows_columns(
+      fields, uri, token, id_position,
+      id_col_name, records
+    )
+  } else if (!is.null(fields) && is.null(records)) {
     res <- redcap_read_fields(fields, uri, token, id_position)
-    redcap_data <- res[[1]]
-    metadata <- res[[2]]
+  } else if (!is.null(records) && is.null(fields)) {
+    res <- redcap_read_records(
+      records, uri, token,
+      id_position, id_col_name
+    )
   }
-
-  if (!is.null(records) && is.null(fields)) {
-    res <- redcap_read_records(records, uri, token,
-                               id_position, id_col_name)
-    redcap_data <- res[[1]]
-    metadata <- res[[2]]
-  }
+  redcap_data <- res[[1]]
+  metadata <- res[[2]]
 
   list(
     redcap_data = redcap_data,
@@ -73,7 +65,7 @@ import_redcap_data <- function(records, fields, uri, token,
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data and its associated metadata.
 #'
-redcap_read <- function(uri, token, id_position) {
+redcap_read_data <- function(uri, token, id_position) {
   redcap_data <- REDCapR::redcap_read(
     redcap_uri = uri, token = token, records = NULL,
     fields = NULL, verbose = FALSE,
@@ -106,9 +98,7 @@ redcap_read <- function(uri, token, id_position) {
 #'
 redcap_read_rows_columns <- function(fields, uri, token, id_position,
                                      id_col_name, records) {
-  if (is.vector(fields)) {
-    fields <- glue::glue_collapse(fields, sep = ", ")
-  }
+  fields <- glue::glue_collapse(fields, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
     redcap_uri = uri, token = token,
     id_position = as.integer(id_position),
@@ -156,9 +146,7 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
 #'    data with the fields of interest and its associated metadata.
 #'
 redcap_read_fields <- function(fields, uri, token, id_position) {
-  if (is.vector(fields)) {
-    fields <- glue::glue_collapse(fields, sep = ", ")
-  }
+  fields <- glue::glue_collapse(fields, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
     redcap_uri = uri, token = token,
     id_position = as.integer(id_position),
@@ -189,9 +177,7 @@ redcap_read_fields <- function(fields, uri, token, id_position) {
 #'    data with the records of interest and its associated metadata.
 #'
 redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
-  if (is.vector(records)) {
-    records <- glue::glue_collapse(records, sep = ", ")
-  }
+  records <- glue::glue_collapse(records, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
     redcap_uri = uri, token = token, records = NULL,
     fields = NULL, verbose = FALSE,
@@ -231,29 +217,33 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
 #'
 #' @examples
 #' \dontrun{
-#'   result <- redcap_get_results(
-#'     redcap_data = REDCapR::redcap_read(
-#'       redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'       token = "9A81268476645C4E5F03428B8AC3AA7B",
-#'       records = c("1", "3", "5"),
-#'       fields = c("record_id", "name_first", "age", "bmi"),
-#'       verbose = FALSE,
-#'       id_position = 1L
-#'     ),
-#'     metadata = REDCapR::redcap_metadata_read(
-#'       redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'       token = "9A81268476645C4E5F03428B8AC3AA7B",
-#'       fields = NULL,
-#'       verbose = FALSE
-#'     )
+#' result <- redcap_get_results(
+#'   redcap_data = REDCapR::redcap_read(
+#'     redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
+#'     token = "9A81268476645C4E5F03428B8AC3AA7B",
+#'     records = c("1", "3", "5"),
+#'     fields = c("record_id", "name_first", "age", "bmi"),
+#'     verbose = FALSE,
+#'     id_position = 1L
+#'   ),
+#'   metadata = REDCapR::redcap_metadata_read(
+#'     redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
+#'     token = "9A81268476645C4E5F03428B8AC3AA7B",
+#'     fields = NULL,
+#'     verbose = FALSE
 #'   )
+#' )
 #' }
 #'
 redcap_get_results <- function(redcap_data, metadata) {
-  checkmate::assert_list(redcap_data, null.ok = FALSE, min.len = 2,
-                         any.missing = FALSE)
-  checkmate::assert_list(metadata, null.ok = FALSE, min.len = 2,
-                         any.missing = FALSE)
+  checkmate::assert_list(redcap_data,
+    null.ok = FALSE, min.len = 2,
+    any.missing = FALSE
+  )
+  checkmate::assert_list(metadata,
+    null.ok = FALSE, min.len = 2,
+    any.missing = FALSE
+  )
   if (all(redcap_data$success & metadata$success)) {
     data <- redcap_data$data
     meta <- metadata$data

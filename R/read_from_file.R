@@ -18,11 +18,11 @@
 #' @examples
 #' \dontrun{
 #' data <- read_from_file(
-#'  file_path = system.file("extdata", "test.txt", package = "readepi"),
-#'  sep = NULL,
-#'  format = NULL,
-#'  which = NULL,
-#'  pattern = NULL
+#'   file_path = system.file("extdata", "test.txt", package = "readepi"),
+#'   sep = NULL,
+#'   format = NULL,
+#'   which = NULL,
+#'   pattern = NULL
 #' )
 #' }
 #' @keywords internal
@@ -32,15 +32,21 @@ read_from_file <- function(file_path, sep = NULL, format = NULL, which = NULL,
   # check the input arguments
   checkmate::assert_character(sep, null.ok = TRUE, len = 1, any.missing = FALSE)
   checkmate::assert_character(format, null.ok = TRUE, any.missing = FALSE)
-  checkmate::assert_vector(which, any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_character(pattern, null.ok = TRUE, min.len = 1,
-                              any.missing = FALSE)
-  checkmate::assert_character(file_path, null.ok = FALSE, len = 1,
-                              any.missing = FALSE)
+  checkmate::assert_vector(which,
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_character(pattern,
+    null.ok = TRUE, min.len = 1,
+    any.missing = FALSE
+  )
+  checkmate::assert_character(file_path,
+    null.ok = FALSE, len = 1,
+    any.missing = FALSE
+  )
 
   if (all(!checkmate::test_file_exists(file_path) &
-          !checkmate::test_directory_exists(file_path))) {
+    !checkmate::test_directory_exists(file_path))) {
     stop("Must provide a file path or directory")
   }
 

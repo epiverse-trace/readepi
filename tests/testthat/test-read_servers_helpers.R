@@ -382,7 +382,7 @@ test_that("sql_select_data works as expected", {
     user = "rfamro",
     password = "",
     port = 4497
-    )
+  )
   expect_type(result, "list")
 })
 
@@ -411,18 +411,18 @@ test_that("sql_select_entire_dataset works as expected", {
 
 test_that("sql_select_records_and_fields works as expected", {
   result <- sql_select_records_and_fields(
-      table = "author",
-      record = c("1", "20", "50"),
-      id_column_name = "author_id",
-      field = c("author_id", "last_name"),
-      id_pos = NULL,
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
+    table = "author",
+    record = c("1", "20", "50"),
+    id_column_name = "author_id",
+    field = c("author_id", "last_name"),
+    id_pos = NULL,
+    dbms = "MySQL",
+    driver_name = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    database_name = "Rfam",
+    user = "rfamro",
+    password = "",
+    port = 4497
   )
   expect_s3_class(result, "data.frame")
 })
@@ -439,32 +439,32 @@ test_that("visualise_table works as expected", {
 
 test_that("sql_select_records_only works as expected", {
   result <- sql_select_records_only(
-      table = "author",
-      record = c("1", "20", "50"),
-      id_column_name = NULL,
-      id_pos = 1,
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
+    table = "author",
+    record = c("1", "20", "50"),
+    id_column_name = NULL,
+    id_pos = 1,
+    dbms = "MySQL",
+    driver_name = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    database_name = "Rfam",
+    user = "rfamro",
+    password = "",
+    port = 4497
   )
   expect_s3_class(result, "data.frame")
 })
 
 test_that("sql_select_fields_only works as expected", {
   result <- sql_select_fields_only(
-      table = "author",
-      field = c("author_id", "name", "last_name"),
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
+    table = "author",
+    field = c("author_id", "name", "last_name"),
+    dbms = "MySQL",
+    driver_name = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    database_name = "Rfam",
+    user = "rfamro",
+    password = "",
+    port = 4497
   )
   expect_s3_class(result, "data.frame")
 })

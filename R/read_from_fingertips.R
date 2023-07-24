@@ -22,12 +22,12 @@
 #'
 #' @examples
 #' \dontrun{
-#'   data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
+#' data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
 #' }
 #' @keywords internal
 #'
 read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
-                                 area_type_id, parent_area_type_id = NULL,
+                                area_type_id = NULL, parent_area_type_id = NULL,
                                  profile_id = NULL, profile_name = NULL,
                                  domain_id = NULL, domain_name = NULL,
                                  fields = NULL, records = NULL,
@@ -67,10 +67,10 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
 
   # check if one of these is not provided
   if (all(is.null(profile_id) & is.null(indicator_id) & is.null(domain_id) &
-          is.null(profile_name) & is.null(indicator_name) &
-          is.null(domain_name))) {
-    stop("\nPlease use the get_fingertips_metadata() function to see the
-         Fingertips metadata.")
+    is.null(profile_name) & is.null(indicator_name) &
+    is.null(domain_name) & is.null(area_type_id))) {
+    stop("\nPlease use the readepi:::get_fingertips_metadata() function to see
+         the Fingertips metadata.")
   }
 
   # extract the metadata
@@ -91,19 +91,23 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
 
   # get the indicator ID from the domain ID
   if (!is.null(domain_id) && is.null(indicator_id)) {
-    indicator_id <- get_ind_id_from_domain_id(metadata, domain_id,
-                                              indicator_name)
+    indicator_id <- get_ind_id_from_domain_id(
+      metadata, domain_id,
+      indicator_name
+    )
   }
 
   # get the indicator ID from the domain name
   if (!is.null(domain_name) &&
-      all(is.null(indicator_id) & is.null(domain_id))) {
-    indicator_id <- get_ind_id_from_domain_name(metadata, domain_name,
-                                                indicator_name)
+    all(is.null(indicator_id) & is.null(domain_id))) {
+    indicator_id <- get_ind_id_from_domain_name(
+      metadata, domain_name,
+      indicator_name
+    )
   }
   # get the indicator ID from the profile ID or profile name
   if (any(!is.null(profile_id) | !is.null(profile_name)) &&
-      is.null(indicator_id)) {
+    is.null(indicator_id)) {
     indicator_id <- get_ind_id_from_profile(
       metadata, domain_id, domain_name,
       indicator_name, profile_name, profile_id

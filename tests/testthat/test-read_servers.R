@@ -8,7 +8,7 @@ test_that("sql_server_read_data works as expected", {
     source = "author",
     driver_name = "",
     dbms = "MySQL"
-    )
+  )
   expect_type(result, "list")
 
   result <- sql_server_read_data(

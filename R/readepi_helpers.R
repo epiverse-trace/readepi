@@ -9,16 +9,15 @@
 #'    correspond to the user's credential details.
 #' @examples
 #' \dontrun{
-#'   credentials <- read_credentials(
-#'     file_path = system.file("extdata", "test.ini", package = "readepi"),
-#'     project_id = "Rfam"
-#'   )
+#' credentials <- read_credentials(
+#'   file_path = system.file("extdata", "test.ini", package = "readepi"),
+#'   project_id = "Rfam"
+#' )
 #' }
 #'
 read_credentials <- function(
     file_path = system.file("extdata", "test.ini", package = "readepi"),
-    project_id = "Rfam"
-    ) {
+    project_id = "Rfam") {
   checkmate::assert_character(project_id, len = 1L, null.ok = FALSE)
   if (!file.exists(file_path) || !file.exists(file_path)) {
     stop("Could not find ", file_path)
@@ -29,8 +28,10 @@ read_credentials <- function(
     stop("credential file should be tab-separated file with 7 columns.")
   }
   if (!all((names(credentials) %in%
-            c("user_name", "password", "host_name", "project_id", "comment",
-              "dbms", "port")))) {
+    c(
+      "user_name", "password", "host_name", "project_id", "comment",
+      "dbms", "port"
+    )))) {
     stop("Incorrect column names found in provided credentials file.\nThe column
          names should be 'user_name', 'password', 'host_name', 'project_id',
          'comment', 'dbms', 'port'")
@@ -64,11 +65,11 @@ read_credentials <- function(
 #' @examples
 #' \dontrun{
 #' args_list <- get_read_file_args(
-#'  list(
-#'    sep = "\t",
-#'    format = ".txt",
-#'    which = NULL
-#'  )
+#'   list(
+#'     sep = "\t",
+#'     format = ".txt",
+#'     which = NULL
+#'   )
 #' )
 #' }
 #'
@@ -111,12 +112,12 @@ get_read_file_args <- function(args_list) {
 #'    used for importing data from Fingertips
 #' @examples
 #' \dontrun{
-#'   args_list <- get_read_fingertips_args(
-#'     list(
-#'       indicator_id = 90362,
-#'       area_type_id = 202
-#'     )
+#' args_list <- get_read_fingertips_args(
+#'   list(
+#'     indicator_id = 90362,
+#'     area_type_id = 202
 #'   )
+#' )
 #' }
 #'
 get_read_fingertips_args <- function(args_list) {

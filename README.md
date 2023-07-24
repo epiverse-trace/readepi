@@ -50,7 +50,7 @@ You can install the development version of **readepi** from
 ``` r
 # install.packages("devtools")
 # devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
-if(!require("pak")) install.packages("pak")
+if (!require("pak")) install.packages("pak")
 pak::pak("epiverse-trace/readepi")
 library(readepi)
 ```
@@ -73,7 +73,7 @@ data <- readepi(file_path = file)
 # IMPORTING DATA FROM SHEET IN EXCEL FILE
 file <- system.file("extdata", "test.xlsx", package = "readepi")
 data <- readepi(file_path = file, which = "Sheet2")
-# READING FROM MULTIPLE SHEETS 
+# READING FROM MULTIPLE SHEETS
 data <- readepi(file_path = file, which = c("Sheet1", "Sheet2"))
 
 # READING DATA FROM FILES IN A DIRECTORY
@@ -110,7 +110,7 @@ show_example_file()
 # SETTING UP THE CREDENTIAL FILE
 credentials_file <- system.file("extdata", "test.ini", package = "readepi")
 
-# READING FILE FROM A PROJECT IN A DATABASE
+# READING FILE FROM A PROJECT IN A REDCap DATABASE
 data <- readepi(
   credentials_file = credentials_file,
   project_id = "SD_DATA"
@@ -170,14 +170,14 @@ below:
 # OPEN THE VIGNETTE WITHIN RSTUDIO
 vignette("readepi")
 
-# OPEN THE VIGNETTE IN YOUR WEB BROWSER. 
+# OPEN THE VIGNETTE IN YOUR WEB BROWSER.
 browseVignettes("readepi")
 ```
 
 ## Help
 
 To report a bug please open an
-[issue](https://github.com/epiverse-trace/readepi/issues/new/choose).
+[issue](https://github.com/%7B%7B%20gh_repo%20%7D%7D/issues/new/choose).
 
 ## Contributions
 

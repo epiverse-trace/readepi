@@ -53,21 +53,33 @@ sql_server_read_data <- function(user, password, host, port = 1433,
                                  id_col_name = NULL, dbms) {
   # check the input arguments
   checkmate::assert_number(port, lower = 1)
-  checkmate::assert_character(user, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(dbms, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(host, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(database_name, any.missing = FALSE, len = 1,
-                              null.ok = FALSE)
-  checkmate::assert_character(driver_name, len = 1, null.ok = FALSE,
-                              any.missing = FALSE)
+  checkmate::assert_character(user,
+    any.missing = FALSE, len = 1,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(dbms,
+    any.missing = FALSE, len = 1,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(password,
+    any.missing = FALSE, len = 1,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(host,
+    any.missing = FALSE, len = 1,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(database_name,
+    any.missing = FALSE, len = 1,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(driver_name,
+    len = 1, null.ok = FALSE,
+    any.missing = FALSE
+  )
   checkmate::assert_vector(source,
-                           any.missing = FALSE, min.len = 1,
-                           null.ok = TRUE, unique = TRUE
+    any.missing = FALSE, min.len = 1,
+    null.ok = TRUE, unique = TRUE
   )
 
   final_result <- list()
@@ -79,8 +91,10 @@ sql_server_read_data <- function(user, password, host, port = 1433,
   }
 
   # establishing the connection to the server
-  con <- connect_to_server(dbms, driver_name, host, database_name,
-                           user, password, port)
+  con <- connect_to_server(
+    dbms, driver_name, host, database_name,
+    user, password, port
+  )
 
   # listing the names of the tables present in the database
   tables <- DBI::dbListTables(conn = con)
@@ -97,18 +111,22 @@ sql_server_read_data <- function(user, password, host, port = 1433,
 
   # fetch data using SQL query
   if (length(source) > 0) {
-    from_query <- fetch_data_from_query(source, dbms, tables,
-                                        driver_name, host, database_name,
-                                        user, password, port)
+    from_query <- fetch_data_from_query(
+      source, dbms, tables,
+      driver_name, host, database_name,
+      user, password, port
+    )
     final_result <- c(final_result, from_query)
   }
 
   # fetch data from tables
   if (length(table_names) > 0) {
-    from_table_names <- sql_select_data(table_names, dbms, id_col_name,
-                                       fields, records, id_position,
-                                       driver_name, host, database_name,
-                                       user, password, port)
+    from_table_names <- sql_select_data(
+      table_names, dbms, id_col_name,
+      fields, records, id_position,
+      driver_name, host, database_name,
+      user, password, port
+    )
     final_result <- c(final_result, from_table_names)
   }
 

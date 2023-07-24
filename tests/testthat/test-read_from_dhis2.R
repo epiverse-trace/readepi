@@ -88,8 +88,10 @@ test_that("login fails as expected", {
     login(
       username = "admin",
       password = "district",
-      base_url = c(file.path("https:/", "play.dhis2.org", "dev", ""),
-                   "https://play.dhis2.org/dev/test/")
+      base_url = c(
+        file.path("https:/", "play.dhis2.org", "dev", ""),
+        "https://play.dhis2.org/dev/test/"
+      )
     ),
     regexp = cat("Assertion on',base_url,'failed: Must be of type character
                  with length 1.")
@@ -100,8 +102,8 @@ test_that("dhis2_subset_fields works as expected", {
   result <- dhis2_subset_fields(
     fields = c("dataElement", "period", "value"),
     data = readepi(
-      credentials_file = system.file("extdata", "test.ini", package = "readepi")
-      , project_id = "DHIS2_DEMO",
+      credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+      project_id = "DHIS2_DEMO",
       dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
       organisation_unit = "DiszpKrYNg8",
       data_element_group = NULL,
@@ -118,7 +120,8 @@ test_that("dhis2_subset_records works as expected", {
     id_col_name = "dataElement",
     data = readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "DHIS2_DEMO",
       dataset = "pBOMPrpg1QX",
       organisation_unit = "DiszpKrYNg8",

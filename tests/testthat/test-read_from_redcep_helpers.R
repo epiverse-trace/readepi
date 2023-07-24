@@ -18,12 +18,14 @@ test_that("redcap_get_results works as expected", {
       token = "9A81268476645C4E5F03428B8AC3AA7B",
       records = c("1", "3", "5"),
       fields = c("record_id", "name_first", "age", "bmi"), verbose = FALSE,
-      id_position = 1L),
+      id_position = 1L
+    ),
     metadata = REDCapR::redcap_metadata_read(
       redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
       fields = NULL,
-      verbose = FALSE)
+      verbose = FALSE
+    )
   )
   expect_type(result, "list")
   expect_length(result, 2)
@@ -37,7 +39,8 @@ test_that("redcap_get_results fails with bad redcap_data", {
         redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
         token = "9A81268476645C4E5F03428B8AC3AA7B",
         fields = NULL,
-        verbose = FALSE)
+        verbose = FALSE
+      )
     ),
     regexp = cat("Assertion on',redcap_data,'failed: Must be provided")
   )
@@ -49,7 +52,8 @@ test_that("redcap_get_results fails with bad redcap_data", {
         redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
         token = "9A81268476645C4E5F03428B8AC3AA7B",
         fields = NULL,
-        verbose = FALSE)
+        verbose = FALSE
+      )
     ),
     regexp = cat("Assertion on',redcap_data,'failed: Missing value not allowed
                  for redcap_data")
@@ -64,7 +68,8 @@ test_that("redcap_get_results fails with bad redcap_data", {
         token = "9A81268476645C4E5F03428B8AC3AA7B",
         records = c("1", "3", "5"),
         fields = c("record_id", "name_first", "age", "bmi"), verbose = FALSE,
-        id_position = 1L),
+        id_position = 1L
+      ),
       metadata = NULL
     ),
     regexp = cat("Assertion on',metadata,'failed: Must be provided")
@@ -77,7 +82,8 @@ test_that("redcap_get_results fails with bad redcap_data", {
         token = "9A81268476645C4E5F03428B8AC3AA7B",
         records = c("1", "3", "5"),
         fields = c("record_id", "name_first", "age", "bmi"), verbose = FALSE,
-        id_position = 1L),
+        id_position = 1L
+      ),
       metadata = NA
     ),
     regexp = cat("Assertion on',metadata,'failed: Missing value not allowed

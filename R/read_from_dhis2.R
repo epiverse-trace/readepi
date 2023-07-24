@@ -104,7 +104,7 @@ read_from_dhis2 <- function(base_url,
   data <- dhis2_subset_fields(fields, data)
 
   # subsetting records
- data <- dhis2_subset_records(records, id_col_name, data)
+  data <- dhis2_subset_records(records, id_col_name, data)
 
   list(
     data = data

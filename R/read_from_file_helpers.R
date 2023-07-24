@@ -6,9 +6,9 @@
 #'
 #' @examples
 #' \dontrun{
-#'   base_name <- get_base_name(
-#'     x = system.file("extdata", "test.txt", package = "readepi")
-#'   )
+#' base_name <- get_base_name(
+#'   x = system.file("extdata", "test.txt", package = "readepi")
+#' )
 #' }
 #'
 get_base_name <- function(x) {
@@ -25,9 +25,9 @@ get_base_name <- function(x) {
 #'
 #' @examples
 #' \dontrun{
-#'   sep <- detect_separator(
-#'     x = "My name is Karim"
-#'   )
+#' sep <- detect_separator(
+#'   x = "My name is Karim"
+#' )
 #' }
 #'
 detect_separator <- function(x) {
@@ -83,7 +83,7 @@ read_rio_formats <- function(files_extensions, rio_extensions,
       name <- tmp_bn[i]
       if (!is.null(names(result)) && grepl(name, names(result))) {
         tmp <- names(result)[which(grepl(name, names(result)) == TRUE)]
-        x = max(as.numeric(lapply(tmp, f)))
+        x <- max(as.numeric(lapply(tmp, f)))
         x <- ifelse(is.na(x), 1, (x + 1))
         name <- paste0(name, "_", x)
       }
@@ -138,8 +138,10 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
 
   # reading files with extensions that are taken care by rio
   if (length(files_extensions) > 0) {
-    tmp_res <- read_rio_formats(files_extensions, rio_extensions,
-                                files, files_base_names)
+    tmp_res <- read_rio_formats(
+      files_extensions, rio_extensions,
+      files, files_base_names
+    )
     files <- tmp_res$files
     files_base_names <- tmp_res$files_base_names
     files_extensions <- tmp_res$files_extensions
@@ -155,8 +157,10 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
         }
         idx <- which(grepl(files_base_names[i], names(result)))
         if (!is.null(names(result)) && length(idx) > 0) {
-          tmp <- names(result)[which(grepl(files_base_names[i],
-                                           names(result)) == TRUE)]
+          tmp <- names(result)[which(grepl(
+            files_base_names[i],
+            names(result)
+          ) == TRUE)]
           x <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
           x <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
           x <- ifelse(is.na(x), 1, (x + 1))
@@ -183,8 +187,10 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
         data <- data.table::fread(file, sep = sep, nThread = 4)
         idx <- which(grepl(files_base_names[i], names(result)))
         if (!is.null(names(result)) && length(idx) > 0) {
-          tmp <- names(result)[which(grepl(files_base_names[i],
-                                           names(result)) == TRUE)]
+          tmp <- names(result)[which(grepl(
+            files_base_names[i],
+            names(result)
+          ) == TRUE)]
           x <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
           x <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
           x <- ifelse(is.na(x), 1, (x + 1))
@@ -209,8 +215,10 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
 #'    element contains data read from a file.
 #'
 read_files_in_directory <- function(file_path, pattern) {
-  if (length(list.files(file_path, full.names = TRUE,
-                        recursive = FALSE)) == 0) {
+  if (length(list.files(file_path,
+    full.names = TRUE,
+    recursive = FALSE
+  )) == 0) {
     stop("Could not find any file in ", file_path)
   }
 
@@ -218,8 +226,8 @@ read_files_in_directory <- function(file_path, pattern) {
     result <- list()
     for (pat in pattern) {
       files <- list.files(file_path,
-                          full.names = TRUE, pattern = pat,
-                          recursive = FALSE
+        full.names = TRUE, pattern = pat,
+        recursive = FALSE
       )
       if (length(files) == 0) {
         next

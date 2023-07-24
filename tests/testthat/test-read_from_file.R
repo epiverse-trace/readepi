@@ -74,7 +74,8 @@ test_that("read_from_file works as expected when reading from directory given
 
 test_that("read_from_file works as expected when reading from directory", {
   data <- read_from_file(file_path = system.file("extdata",
-                                                 package = "readepi"))
+    package = "readepi"
+  ))
   expect_type(data, "list")
 })
 
@@ -152,8 +153,10 @@ test_that("read_from_file fails as expected", {
 
   expect_error(
     read_from_file(
-      file_path = c(system.file("extdata", "test.txt", package = "readepi"),
-              system.file("extdata", "fake_test.txt", package = "readepi")),
+      file_path = c(
+        system.file("extdata", "test.txt", package = "readepi"),
+        system.file("extdata", "fake_test.txt", package = "readepi")
+      ),
       sep = " ",
       format = "txt",
       which = "Sheet2",

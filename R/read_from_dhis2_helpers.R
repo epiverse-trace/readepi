@@ -20,26 +20,30 @@ login <- function(username, password, base_url) {
 #'    fields of interest
 #' @examples
 #' \dontrun{
-#'   results <- dhis2_subset_fields(
-#'     fields = c("dataElement","period","value"),
-#'     data = readepi(
-#'       credentials_file = system.file("extdata", "test.ini",
-#'       package = "readepi"),
-#'       project_id = "DHIS2_DEMO",
-#'       dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
-#'       organisation_unit = "DiszpKrYNg8",
-#'       data_element_group = NULL,
-#'       start_date = "2014",
-#'       end_date = "2023",
-#'       fields = c("dataElement","period","value")
-#'     )$data
-#'   )
+#' results <- dhis2_subset_fields(
+#'   fields = c("dataElement", "period", "value"),
+#'   data = readepi(
+#'     credentials_file = system.file("extdata", "test.ini",
+#'       package = "readepi"
+#'     ),
+#'     project_id = "DHIS2_DEMO",
+#'     dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+#'     organisation_unit = "DiszpKrYNg8",
+#'     data_element_group = NULL,
+#'     start_date = "2014",
+#'     end_date = "2023",
+#'     fields = c("dataElement", "period", "value")
+#'   )$data
+#' )
 #' }
 #'
 dhis2_subset_fields <- function(fields, data) {
   if (!is.null(fields)) {
-    if (is.character(fields)) fields <- unlist(strsplit(fields, ",",
-                                                        fixed = TRUE))
+    if (is.character(fields)) {
+      fields <- unlist(strsplit(fields, ",",
+        fixed = TRUE
+      ))
+    }
     idx <- which(fields %in% names(data))
     if (length(idx) == 0) stop("Specified column not not!\nThe data contains the
                                following column:\n", names(data))
@@ -64,26 +68,30 @@ dhis2_subset_fields <- function(fields, data) {
 #'    records of interest
 #' @examples
 #' \dontrun{
-#'   result <- dhis2_subset_records(
-#'     records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-#'     id_col_name = "dataElement",
-#'     data = readepi(
-#'       credentials_file = system.file("extdata", "test.ini",
-#'       package = "readepi"),
-#'       project_id = "DHIS2_DEMO",
-#'       dataset = "pBOMPrpg1QX",
-#'       organisation_unit = "DiszpKrYNg8",
-#'       data_element_group = NULL,
-#'       start_date = "2014",
-#'       end_date = "2023"
-#'     )$data
-#'   )
+#' result <- dhis2_subset_records(
+#'   records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+#'   id_col_name = "dataElement",
+#'   data = readepi(
+#'     credentials_file = system.file("extdata", "test.ini",
+#'       package = "readepi"
+#'     ),
+#'     project_id = "DHIS2_DEMO",
+#'     dataset = "pBOMPrpg1QX",
+#'     organisation_unit = "DiszpKrYNg8",
+#'     data_element_group = NULL,
+#'     start_date = "2014",
+#'     end_date = "2023"
+#'   )$data
+#' )
 #' }
 #'
 dhis2_subset_records <- function(records, id_col_name, data) {
   if (!is.null(records)) {
-    if (is.character(records)) records <- unlist(strsplit(records, ",",
-                                                          fixed = TRUE))
+    if (is.character(records)) {
+      records <- unlist(strsplit(records, ",",
+        fixed = TRUE
+      ))
+    }
     id_column_name <- id_col_name
     idx <- which(records %in% data[[id_column_name]])
     if (length(idx) == 0) {

@@ -206,7 +206,8 @@ test_that("readepi fails as expected when reading from DHIS2", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "DHIS2_DEMO",
       dataset = NA,
       organisation_unit = "DiszpKrYNg8",
@@ -220,7 +221,8 @@ test_that("readepi fails as expected when reading from DHIS2", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "DHIS2_DEMO",
       dataset = NULL,
       organisation_unit = "DiszpKrYNg8",
@@ -234,7 +236,8 @@ test_that("readepi fails as expected when reading from DHIS2", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "DHIS2_DEMO",
       dataset = "pBOMPrpg1QX",
       organisation_unit = NA,
@@ -249,7 +252,8 @@ test_that("readepi fails as expected when reading from DHIS2", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "DHIS2_DEMO",
       dataset = "pBOMPrpg1QX",
       organisation_unit = NULL,
@@ -263,7 +267,8 @@ test_that("readepi fails as expected when reading from DHIS2", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "DHIS2_DEMO",
       dataset = "pBOMPrpg1QX",
       organisation_unit = "DiszpKrYNg8",
@@ -278,7 +283,8 @@ test_that("readepi fails as expected when reading from DHIS2", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "DHIS2_DEMO",
       dataset = "pBOMPrpg1QX",
       organisation_unit = "DiszpKrYNg8",
@@ -292,7 +298,8 @@ test_that("readepi fails as expected when reading from DHIS2", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "DHIS2_DEMO",
       dataset = "pBOMPrpg1QX",
       organisation_unit = "DiszpKrYNg8",
@@ -400,7 +407,8 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "SD_DATA",
       records = NA,
       fields = "record_id, name_first, age, bmi",
@@ -412,7 +420,8 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "SD_DATA",
       records = "1, 3, 5",
       fields = NA,
@@ -424,7 +433,8 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "SD_DATA",
       records = "1, 3, 5",
       fields = "record_id, name_first, age, bmi",
@@ -437,7 +447,8 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "SD_DATA",
       records = "1, 3, 5",
       fields = "record_id, name_first, age, bmi",
@@ -454,7 +465,8 @@ test_that("readepi fails as expected when reading from DBMS,
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "Rfam",
       file_path = system.file("extdata", "test.json", package = "readepi"),
       sep = NULL,
@@ -475,7 +487,8 @@ test_that("readepi fails as expected when reading from DBMS,
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
+        package = "readepi"
+      ),
       project_id = "Rfam",
       file_path = NULL,
       sep = NULL,

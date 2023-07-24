@@ -337,8 +337,10 @@ test_that("read_from_redcap fails with wrong token", {
   expect_error(
     read_from_redcap(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
-      token = c("9A81268476645C4E5F03428B8AC3AA7B",
-                "9A81268476645C4E5F03428B8AC3AA7B"),
+      token = c(
+        "9A81268476645C4E5F03428B8AC3AA7B",
+        "9A81268476645C4E5F03428B8AC3AA7B"
+      ),
       id_position = 1,
       id_col_name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
@@ -400,8 +402,10 @@ test_that("read_from_redcap fails with incorrect URI", {
 
   expect_error(
     read_from_redcap(
-      uri = c("https://bbmc.ouhsc.edu/redcap/api/",
-              "https://bbmc.ouhsc.edu/redcap/api/"),
+      uri = c(
+        "https://bbmc.ouhsc.edu/redcap/api/",
+        "https://bbmc.ouhsc.edu/redcap/api/"
+      ),
       token = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = 1,
       id_col_name = NULL,

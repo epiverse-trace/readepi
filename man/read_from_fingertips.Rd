@@ -7,7 +7,7 @@
 read_from_fingertips(
   indicator_id = NULL,
   indicator_name = NULL,
-  area_type_id,
+  area_type_id = NULL,
   parent_area_type_id = NULL,
   profile_id = NULL,
   profile_name = NULL,
@@ -57,7 +57,7 @@ Read from Fingertips
 }
 \examples{
 \dontrun{
-  data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
+data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
 }
 }
 \keyword{internal}

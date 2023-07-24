@@ -127,8 +127,10 @@ test_that("check_dhis2_attributes fails as expected", {
     attributes = check_dhis2_attributes(
       username = "admin",
       password = "district",
-      base_url = c("https://play.dhis2.org/dev/",
-                   "https://play.dhis2.org/dep/"),
+      base_url = c(
+        "https://play.dhis2.org/dev/",
+        "https://play.dhis2.org/dep/"
+      ),
       dataset = "pBOMPrpg1QX",
       organisation_unit = "DiszpKrYNg8",
       data_element_group = NULL
