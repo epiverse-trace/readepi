@@ -89,6 +89,7 @@ To read data from Unix-based systems, it requires to install an MS ODBC driver t
 Mac users can follow the instructions below to install the MS SQL ODBC driver. Choose the appropriate driver, open the terminal, and run these instructions.    
  
 1. installation of MS SQL driver 17  on Mac
+
 ```{bash eval=FALSE}
 driver=17
 brew install unixodbc
@@ -100,6 +101,7 @@ ODBCSYSINI=/
 ```
 
 2. installation of MS SQL driver 13.1 on Mac
+
 ```{bash eval=FALSE}
 brew install unixodbc
 brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
@@ -130,6 +132,7 @@ sudo apt-get install -y unixodbc-dev
 ```
 
 2. installation of MS SQL driver version 13.1 on `Ubuntu`
+
 ```{bash eval=FALSE}
 sudo su
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
@@ -143,7 +146,8 @@ source ~/.bashrc
 sudo apt-get install unixodbc-dev
 ```
 
-3. installation of MS SQL driver on other Linux distributions \
+3. installation of MS SQL driver on other Linux distributions 
+
 To install driver MS SQL for other Linux distributions, such as Debian and Fedora, click [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline) and follow the instructions. After the  installation, check the installed drivers  using:       
 ```{r eval=FALSE}
 odbc::odbcListDrivers()
@@ -186,6 +190,7 @@ In addition to credentials file, the `readepi()` function expects the following 
 
 
 ## Examples
+
 This section contains various examples demonstrating how `readepi` imports data from databases. We assumed that the credentials are stored in  file as explained above. Furthermore, these examples are based on a MySQL server that does not need the user to supply the `driver name`.
   
 
@@ -208,7 +213,8 @@ show_tables(
 
 
 
-2.  **Fetching data using table names**\
+2.  **Fetching data using table names**
+
 ```{r eval=FALSE}
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`)
 data <- readepi(credentials_file,
@@ -308,6 +314,7 @@ data <- readepi(
 ```
 
 3. **Fetching data using an SQL query**
+
 ```{r eval=FALSE}
 # SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
 data <- readepi(
@@ -353,6 +360,7 @@ data <- readepi(
 ```
 
 ## Reading data from HIS
+
 The current version of `readepi` package supports reading data from three common HIS: REDCap, DHIS2, and Fingertips. 
 
 ### Importing data from REDCap
@@ -499,6 +507,7 @@ test_data <- data$data
 ```
 
 ## Importing data from Fingertips
+
 [Fingertips](https://fingertips.phe.org.uk/) is a repository for public health data indicators in England, in which data is organised into themed profiles. The `readepi()` function  allows you to import data from Fingertips-based APIs using the following arguments:
 
 * `indicator_id`: the indicator ID
