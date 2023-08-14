@@ -1,0 +1,100 @@
+[
+    {
+        "Id": 2000005,
+        "Name": "Practice Summary",
+        "Sequence": 1,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132829,
+        "Name": "Cancer",
+        "Sequence": 2,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133086,
+        "Name": "Cancer - Two Week Wait Referrals",
+        "Sequence": 3,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 3000008,
+        "Name": "CVD - Coronary Heart Disease",
+        "Sequence": 4,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 3000007,
+        "Name": "CVD - Stroke and TIA",
+        "Sequence": 5,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 3000009,
+        "Name": "CVD - Heart Failure and Atrial Fibrillation",
+        "Sequence": 6,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 3000010,
+        "Name": "CVD - Risk Factors for CVD",
+        "Sequence": 7,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 2000002,
+        "Name": "Diabetes",
+        "Sequence": 8,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133380,
+        "Name": "Maternal and Child Health",
+        "Sequence": 9,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 2000003,
+        "Name": "Mental Health",
+        "Sequence": 10,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 2000009,
+        "Name": "Musculoskeletal Conditions",
+        "Sequence": 11,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 2000006,
+        "Name": "Respiratory Disease",
+        "Sequence": 12,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132970,
+        "Name": "AMR Local Indicators",
+        "Sequence": 13,
+        "ProfileId": 20,
+        "DataAvailable": null
+    },
+    {
+        "Id": 2000004,
+        "Name": "Other Conditions",
+        "Sequence": 14,
+        "ProfileId": 20,
+        "DataAvailable": null
+    }
+]

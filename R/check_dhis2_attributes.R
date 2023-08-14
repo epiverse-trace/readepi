@@ -21,6 +21,7 @@
 #' )
 #' }
 #'
+#' @keywords internal
 dhis2_check_attributes <- function(username,
                                    password,
                                    base_url,
@@ -28,26 +29,34 @@ dhis2_check_attributes <- function(username,
                                    organisation_unit = NULL,
                                    data_element_group = NULL) {
   # get the relevant dataset
-  tmp_res <- dhis2_get_relevant_attributes(
-    attribute_id = dataset,
-    base_url = base_url,
-    username = username,
-    password = password,
-    which = "dataSets"
-  )
-  dataset <- tmp_res$dataset
-  data_sets <- tmp_res$data_sets
+  if (!is.null(dataset)) {
+    tmp_res <- dhis2_get_relevant_attributes(
+      attribute_id = dataset,
+      base_url = base_url,
+      username = username,
+      password = password,
+      which = "dataSets"
+    )
+    dataset <- tmp_res$dataset
+    data_sets <- tmp_res$data_sets
+  } else {
+    dataset <- data_sets <- NULL
+  }
 
   # get the relevant organisation units
-  tmp_res <- dhis2_get_relevant_attributes(
-    attribute_id = organisation_unit,
-    base_url = base_url,
-    username = username,
-    password = password,
-    which = "organisationUnits"
-  )
-  organisation_unit <- tmp_res$organisation_unit
-  org_units <- tmp_res$org_units
+  if (!is.null(organisation_unit)) {
+    tmp_res <- dhis2_get_relevant_attributes(
+      attribute_id = organisation_unit,
+      base_url = base_url,
+      username = username,
+      password = password,
+      which = "organisationUnits"
+    )
+    organisation_unit <- tmp_res$organisation_unit
+    org_units <- tmp_res$org_units
+  } else {
+    organisation_unit <- org_units <- NULL
+  }
 
   # get the relevant data element groups
   if (!is.null(data_element_group)) {
@@ -61,8 +70,8 @@ dhis2_check_attributes <- function(username,
     data_element_group <- tmp_res$data_element_group
     data_elt_groups <- tmp_res$data_elt_groups
   } else {
-    data_element_group <- NULL
-    data_elt_groups <- NULL
+    data_element_group <- data_elt_groups <- NULL
+
   }
 
   # get the data element

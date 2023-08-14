@@ -115,17 +115,17 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
   }
 
   # extract the data
-  data <- data <- fingertipsR::fingertips_data(
+  data <- fingertipsR::fingertips_data(
     IndicatorID = indicator_id,
     AreaTypeID = area_type_id,
     ParentAreaTypeID = parent_area_type_id
   )
 
   # subset columns
-  data <- fingertips_subset_columns(fields, data)
+  data <- fingertips_subset_columns(data, fields)
 
   # subset rows
-  data <- fingertips_subset_rows(records, id_col_name, data)
+  data <- fingertips_subset_rows(data, records, id_col_name)
 
   list(
     data = data

@@ -1,0 +1,37 @@
+[
+    {
+        "Id": 1938133009,
+        "Name": "Premature mortality",
+        "Sequence": 1,
+        "ProfileId": 125,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133413,
+        "Name": "Leading causes of death - all ages",
+        "Sequence": 2,
+        "ProfileId": 125,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133056,
+        "Name": "Preventable mortality",
+        "Sequence": 3,
+        "ProfileId": 125,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133385,
+        "Name": "COVID-19 mortality",
+        "Sequence": 4,
+        "ProfileId": 125,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133058,
+        "Name": "Other mortality",
+        "Sequence": 5,
+        "ProfileId": 125,
+        "DataAvailable": null
+    }
+]

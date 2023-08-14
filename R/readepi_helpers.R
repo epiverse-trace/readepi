@@ -19,11 +19,9 @@ read_credentials <- function(
     file_path = system.file("extdata", "test.ini", package = "readepi"),
     project_id = "Rfam") {
   checkmate::assert_character(project_id, len = 1L, null.ok = FALSE)
-  if (!file.exists(file_path) || !file.exists(file_path)) {
-    stop("Could not find ", file_path)
-  }
+  checkmate::assert_file(file_path)
 
-  credentials <- data.table::fread(file_path, sep = "\t")
+  credentials <- read.table(file_path, sep = "\t", header = TRUE)
   if (ncol(credentials) != 7) {
     stop("credential file should be tab-separated file with 7 columns.")
   }

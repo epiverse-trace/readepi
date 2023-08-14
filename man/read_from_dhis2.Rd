@@ -13,8 +13,8 @@ read_from_dhis2(
   data_element_group,
   start_date,
   end_date,
-  records,
-  fields,
+  records = NULL,
+  fields = NULL,
   id_col_name = "dataElement"
 )
 }
@@ -52,4 +52,36 @@ a \code{list} of 1 element of type \verb{data frame}.
 \description{
 Import data form DHIS2 into R
 }
+\keyword{"2014",}
+\keyword{"2023",}
+\keyword{"DiszpKrYNg8",}
+\keyword{"admin",}
+\keyword{"dataElement"}
+\keyword{"dev"),}
+\keyword{"district",}
+\keyword{"oDkJh5Ddh7d",}
+\keyword{"pBOMPrpg1QX",}
+\keyword{"play.dhis2.org",}
+\keyword{#'}
+\keyword{)}
+\keyword{<-}
+\keyword{=}
+\keyword{@examples}
+\keyword{NULL,}
+\keyword{\dontrun{}
+\keyword{base_url}
+\keyword{data}
+\keyword{data_element_group}
+\keyword{dataset}
+\keyword{end_date}
+\keyword{fields}
+\keyword{file.path("https:/",}
+\keyword{id_col_name}
 \keyword{internal}
+\keyword{organisation_unit}
+\keyword{password}
+\keyword{read_from_dhis2(}
+\keyword{records}
+\keyword{start_date}
+\keyword{user_name}
+\keyword{}}

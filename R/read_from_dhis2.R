@@ -17,7 +17,22 @@
 #' @param id_col_name the column name with the records of interest.
 #' @returns a `list` of 1 element of type `data frame`.
 #' @keywords internal
-#'
+#' #' @examples
+#' \dontrun{
+#' data <- read_from_dhis2(
+#'  base_url = file.path("https:/", "play.dhis2.org", "dev"),
+#'  user_name = "admin",
+#'  password = "district",
+#'  dataset = "pBOMPrpg1QX",
+#'  organisation_unit = "DiszpKrYNg8",
+#'  data_element_group = "oDkJh5Ddh7d",
+#'  start_date = "2014",
+#'  end_date = "2023",
+#'  records = NULL,
+#'  fields = NULL,
+#'  id_col_name = "dataElement"
+#' )
+#' }
 read_from_dhis2 <- function(base_url,
                             user_name,
                             password,
@@ -26,8 +41,8 @@ read_from_dhis2 <- function(base_url,
                             data_element_group,
                             start_date,
                             end_date,
-                            records,
-                            fields,
+                            records = NULL,
+                            fields = NULL,
                             id_col_name = "dataElement") {
   checkmate::assert_character(base_url,
     len = 1L, null.ok = FALSE,
@@ -101,10 +116,10 @@ read_from_dhis2 <- function(base_url,
     dplyr::rename("OrgUnitName" = "shortName")
 
   # subsetting fields
-  data <- dhis2_subset_fields(fields, data)
+  data <- dhis2_subset_fields(data, fields)
 
   # subsetting records
-  data <- dhis2_subset_records(records, id_col_name, data)
+  data <- dhis2_subset_records(data, records, id_col_name)
 
   list(
     data = data

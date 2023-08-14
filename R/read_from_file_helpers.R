@@ -34,11 +34,11 @@ detect_separator <- function(x) {
   special_characters <- c("\t", "|", ",", ";", " ", ":")
   sep <- vector(mode = "character", length = 0)
   for (spec_char in special_characters) {
-    if (grepl(spec_char, x)) {
+    if (grepl(spec_char, x, fixed = TRUE)) {
       sep <- c(sep, spec_char)
     }
   }
-  unique(sep)
+  sep
 }
 
 #' Split a character by "_" and extract its element
@@ -51,13 +51,8 @@ detect_separator <- function(x) {
 f <- function(x) {
   y <- unlist(strsplit(x, "_", fixed = TRUE))[2]
   y <- suppressWarnings(as.numeric(y))
-  # if (is.character(y)) {
-  #   y <- NA
-  # }
   y
 }
-
-
 
 #' Read files using the `rio` package
 #'
@@ -124,7 +119,7 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
     files <- files[-idx]
   }
 
-  # defining rio package file extensions
+  # defining {rio} package file extensions
   rio_extensions <- c(
     "csv", "psv", "tsv", "csvy", "sas7bdat", "sav", "zsav", "dta", "xpt",
     "por", "xls", "R", "RData", "rda", "rds", "rec", "mtp", "syd", "dbf",
@@ -132,11 +127,11 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
     "wf1", "feather", "fst", "json", "mat", "ods", "html", "xml", "yml"
   )
 
-  # getting files extensions and basenames
+  # getting files extensions and base names
   files_extensions <- as.character(lapply(files, rio::get_ext))
   files_base_names <- as.character(lapply(files, get_base_name))
 
-  # reading files with extensions that are taken care by rio
+  # reading files with extensions that are taken care by {rio}
   if (length(files_extensions) > 0) {
     tmp_res <- read_rio_formats(
       files_extensions, rio_extensions,
@@ -146,60 +141,8 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
     files_base_names <- tmp_res$files_base_names
     files_extensions <- tmp_res$files_extensions
     result <- tmp_res$result
-
-    # reading files which extensions are not taken care by rio
-    i <- 1
-    for (file in files) {
-      if (files_extensions[i] %in% c("xlsx", "xls")) {
-        data <- readxl::read_xlsx(file)
-        if (!exists("result")) {
-          result <- list()
-        }
-        idx <- which(grepl(files_base_names[i], names(result)))
-        if (!is.null(names(result)) && length(idx) > 0) {
-          tmp <- names(result)[which(grepl(
-            files_base_names[i],
-            names(result)
-          ) == TRUE)]
-          x <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
-          x <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
-          x <- ifelse(is.na(x), 1, (x + 1))
-          files_base_names[i] <- paste0(files_base_names[i], "_", x)
-        }
-        result[[files_base_names[i]]] <- data
-        i <- i + 1
-      } else {
-        tmp_string <- readLines(con = file, n = 1)
-        sep <- detect_separator(tmp_string)
-        if (length(sep) == 1 && sep == "|") {
-          sep <- "|"
-        } else {
-          sep <- sep[-(which(sep == "|"))]
-          if (length(sep) == 2 && " " %in% sep) {
-            sep <- sep[-(which(sep == " "))]
-            if (length(sep) > 1) {
-              warning("\nCan't resolve separator in", file, "\n", call. = FALSE)
-              i <- i + 1
-              next
-            }
-          }
-        }
-        data <- data.table::fread(file, sep = sep, nThread = 4)
-        idx <- which(grepl(files_base_names[i], names(result)))
-        if (!is.null(names(result)) && length(idx) > 0) {
-          tmp <- names(result)[which(grepl(
-            files_base_names[i],
-            names(result)
-          ) == TRUE)]
-          x <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
-          x <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
-          x <- ifelse(is.na(x), 1, (x + 1))
-          files_base_names[i] <- paste0(files_base_names[i], "_", x)
-        }
-        result[[files_base_names[i]]] <- data
-        i <- i + 1
-      }
-    }
+    result <- import_non_rio_files(files, files_base_names,
+                                   files_extensions, result = list())
   }
 
   result
@@ -215,10 +158,8 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
 #'    element contains data read from a file.
 #'
 read_files_in_directory <- function(file_path, pattern) {
-  if (length(list.files(file_path,
-    full.names = TRUE,
-    recursive = FALSE
-  )) == 0) {
+  if (length(list.files(file_path, full.names = TRUE,
+                        recursive = FALSE)) == 0) {
     stop("Could not find any file in ", file_path)
   }
 
@@ -258,7 +199,7 @@ read_files_in_directory <- function(file_path, pattern) {
 read_files <- function(file_path, sep, which, format) {
   result <- list()
   if (!is.null(sep)) {
-    result[[1]] <- data.table::fread(file_path, sep = sep)
+    result[[1]] <- rio::import(file_path, sep = sep)
   } else if (is.null(sep)) {
     if (all(!is.null(which) & !is.null(format))) {
       for (wh in which) {
@@ -277,5 +218,76 @@ read_files <- function(file_path, sep, which, format) {
     }
   }
 
+  result
+}
+
+
+#' Import files with extensions that are not handled by the {rio} package
+#'
+#' @param files a vector of the file paths
+#' @param files_base_names a `vector` of the file base names
+#' @param files_extensions a `vector` of the file extension
+#' @param result a `list` object where the data read from each file will be
+#'    stored as a `data.frame`
+#'
+#' @return an object of type `list` with 1 or several object of type
+#'    `data.frame`. Each elements of the list is named after the file from
+#'    which the corresponding data is coming.
+#'
+#' @keywords internal
+#'
+import_non_rio_files <- function(files, files_base_names,
+                                 files_extensions, result = list()) {
+  i <- 1
+  for (file in files) {
+    if (files_extensions[i] %in% c("xlsx", "xls")) {
+      # process MS excel files
+      data <- readxl::read_xlsx(file)
+      idx <- which(grepl(files_base_names[i], names(result)))
+      if (!is.null(names(result)) && length(idx) > 0) {
+        tmp <- names(result)[which(grepl(
+          files_base_names[i],
+          names(result)
+        ) == TRUE)]
+        x <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
+        x <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
+        x <- ifelse(is.na(x), 1, (x + 1))
+        files_base_names[i] <- paste0(files_base_names[i], "_", x)
+      }
+      result[[files_base_names[i]]] <- data
+      i <- i + 1
+    } else {
+      # process non MS excel files: detect the separator and import the file
+      tmp_string <- readLines(con = file, n = 1)
+      sep <- detect_separator(tmp_string)
+      if (all(length(sep) == 1 && sep == "|")) {
+        sep <- "|"
+      } else {
+        sep <- sep[-(which(sep == "|"))]
+        if (length(sep) == 2 && " " %in% sep) {
+          sep <- sep[-(which(sep == " "))]
+          if (length(sep) > 1) {
+            warning("\nCan't resolve separator in", file, "\n", call. = FALSE)
+            i <- i + 1
+            next
+          }
+        }
+      }
+      data <- read.table(file, sep = sep)
+      idx <- which(grepl(files_base_names[i], names(result)))
+      if (!is.null(names(result)) && length(idx) > 0) {
+        tmp <- names(result)[which(grepl(
+          files_base_names[i],
+          names(result)
+        ) == TRUE)]
+        x <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
+        x <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
+        x <- ifelse(is.na(x), 1, (x + 1))
+        files_base_names[i] <- paste0(files_base_names[i], "_", x)
+      }
+      result[[files_base_names[i]]] <- data
+      i <- i + 1
+    }
+  }
   result
 }

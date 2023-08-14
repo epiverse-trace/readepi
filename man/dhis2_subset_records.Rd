@@ -4,14 +4,14 @@
 \alias{dhis2_subset_records}
 \title{Subset a specified set of records from a dataset imported from DHIS2}
 \usage{
-dhis2_subset_records(records, id_col_name, data)
+dhis2_subset_records(data, records, id_col_name)
 }
 \arguments{
+\item{data}{the input data frame}
+
 \item{records}{a vector of records to select from the data}
 
 \item{id_col_name}{the column name where the records belong to}
-
-\item{data}{the input data frame}
 }
 \value{
 an object of type \code{data.frame} with the data that contains only the
@@ -23,8 +23,6 @@ Subset a specified set of records from a dataset imported from DHIS2
 \examples{
 \dontrun{
 result <- dhis2_subset_records(
-  records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-  id_col_name = "dataElement",
   data = readepi(
     credentials_file = system.file("extdata", "test.ini",
       package = "readepi"
@@ -35,7 +33,9 @@ result <- dhis2_subset_records(
     data_element_group = NULL,
     start_date = "2014",
     end_date = "2023"
-  )$data
+  )$data,
+  records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+  id_col_name = "dataElement"
 )
 }
 

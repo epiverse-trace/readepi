@@ -1,10 +1,22 @@
 #' Check DHIS2 authentication details
 #'
+#' If the user were granted with access to the API, this will return a message
+#' specifying that the user was successfully connected. Otherwise, it will throw
+#' an error message.
+#'
 #' @param username the user name
 #' @param password the user's password
 #' @param base_url the base URL of the DHIS2 server
 #'
+#' @keywords internal
+#'
 login <- function(username, password, base_url) {
+  checkmate::assert_character(username, len = 1, any.missing = FALSE,
+                              null.ok = FALSE)
+  checkmate::assert_character(password, len = 1, any.missing = FALSE,
+                              null.ok = FALSE)
+  checkmate::assert_character(base_url, len = 1, any.missing = FALSE,
+                              null.ok = FALSE)
   url <- file.path(base_url, "api", "me")
   resp <- httr::GET(url, httr::authenticate(username, password))
   httr::stop_for_status(resp)
@@ -21,11 +33,9 @@ login <- function(username, password, base_url) {
 #' @examples
 #' \dontrun{
 #' results <- dhis2_subset_fields(
-#'   fields = c("dataElement", "period", "value"),
 #'   data = readepi(
 #'     credentials_file = system.file("extdata", "test.ini",
-#'       package = "readepi"
-#'     ),
+#'     package = "readepi"),
 #'     project_id = "DHIS2_DEMO",
 #'     dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
 #'     organisation_unit = "DiszpKrYNg8",
@@ -33,11 +43,16 @@ login <- function(username, password, base_url) {
 #'     start_date = "2014",
 #'     end_date = "2023",
 #'     fields = c("dataElement", "period", "value")
-#'   )$data
+#'   )$data,
+#'   fields = c("dataElement", "period", "value")
 #' )
 #' }
-#'
-dhis2_subset_fields <- function(fields, data) {
+#' @keywords internal
+dhis2_subset_fields <- function(data, fields) {
+  checkmate::assert_data_frame(data, min.rows = 1, null.ok = FALSE,
+                               min.cols = 1)
+  checkmate::assert_vector(fields, min.len = 1, null.ok = TRUE,
+                           any.missing = FALSE)
   if (!is.null(fields)) {
     if (is.character(fields)) {
       fields <- unlist(strsplit(fields, ",",
@@ -45,8 +60,9 @@ dhis2_subset_fields <- function(fields, data) {
       ))
     }
     idx <- which(fields %in% names(data))
-    if (length(idx) == 0) stop("Specified column not not!\nThe data contains the
-                               following column:\n", names(data))
+    if (length(idx) == 0) stop(sprintf("Specified column not found!
+    The data contains the following columns:
+    %s",names(data)))
     if (length(idx) != length(fields)) {
       warning("The following fields were not found in the data: ", fields[-idx])
       fields <- fields[idx]
@@ -69,8 +85,6 @@ dhis2_subset_fields <- function(fields, data) {
 #' @examples
 #' \dontrun{
 #' result <- dhis2_subset_records(
-#'   records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-#'   id_col_name = "dataElement",
 #'   data = readepi(
 #'     credentials_file = system.file("extdata", "test.ini",
 #'       package = "readepi"
@@ -81,11 +95,19 @@ dhis2_subset_fields <- function(fields, data) {
 #'     data_element_group = NULL,
 #'     start_date = "2014",
 #'     end_date = "2023"
-#'   )$data
+#'   )$data,
+#'   records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+#'   id_col_name = "dataElement"
 #' )
 #' }
 #'
-dhis2_subset_records <- function(records, id_col_name, data) {
+dhis2_subset_records <- function(data, records, id_col_name) {
+  checkmate::assert_data_frame(data, min.rows = 1, null.ok = FALSE,
+                               min.cols = 1)
+  checkmate::assert_vector(records, min.len = 1, null.ok = TRUE,
+                           any.missing = FALSE)
+  checkmate::assert_character(id_col_name, len = 1, null.ok = TRUE,
+                              any.missing = FALSE)
   if (!is.null(records)) {
     if (is.character(records)) {
       records <- unlist(strsplit(records, ",",
@@ -102,6 +124,5 @@ dhis2_subset_records <- function(records, id_col_name, data) {
     }
     data <- data[which(data[[id_column_name]] %in% records), ]
   }
-
   data
 }

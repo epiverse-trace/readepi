@@ -1,0 +1,30 @@
+[
+    {
+        "Id": 1938132960,
+        "Name": "Demographics",
+        "Sequence": 1,
+        "ProfileId": 102,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132915,
+        "Name": "Risk & related factors",
+        "Sequence": 2,
+        "ProfileId": 102,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132957,
+        "Name": "Prevalence",
+        "Sequence": 3,
+        "ProfileId": 102,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132975,
+        "Name": "Identification & Access",
+        "Sequence": 4,
+        "ProfileId": 102,
+        "DataAvailable": null
+    }
+]

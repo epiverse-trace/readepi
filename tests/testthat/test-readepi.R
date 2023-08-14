@@ -62,6 +62,9 @@ test_that("readepi works as expected when reading from Fingertips", {
     id_col_name = NULL
   )
   expect_type(data, "list")
+  expect_length(data, 1)
+  expect_named(data, "data")
+  expect_s3_class(data$data, "data.frame")
 
   data <- readepi(
     area_type_id = 202,

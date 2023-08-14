@@ -1,14 +1,11 @@
 test_that("Function 'show_tables' correctly displays the table names", {
-  expect_output(
-    show_tables(
+    tables <- show_tables(
       credentials_file = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
+                                     package = "readepi"),
       project_id = "Rfam",
       driver_name = ""
-    ),
-    ""
-  )
+    )
+    expect_type(tables, "character")
 })
 
 test_that("show_tables fails as expected", {

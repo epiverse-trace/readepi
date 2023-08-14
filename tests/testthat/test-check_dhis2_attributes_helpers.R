@@ -1,315 +1,65 @@
-test_that("get_data_sets works as expected", {
-  dataset <- get_data_sets(
-    username = "admin",
-    password = "district",
-    base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-  )
-  expect_s3_class(dataset, class = "data.frame")
-})
-
-test_that("get_data_sets fails as expected", {
-  expect_error(
-    dataset = get_data_sets(
-      username = NULL,
-      password = "district",
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',username,'failed: Must be specified.")
-  )
-
-  expect_error(
-    dataset = get_data_sets(
-      username = NA,
-      password = "district",
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',username,'failed: Must be specified.")
-  )
-
-  expect_error(
-    dataset = get_data_sets(
-      username = c("admin", "admin1"),
-      password = "district",
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',username,'failed: Must be of type character
-                 with length 1.")
-  )
-
-  expect_error(
-    dataset = get_data_sets(
-      username = "admin",
-      password = NULL,
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be specified.")
-  )
-
-  expect_error(
-    dataset = get_data_sets(
-      username = "admin",
-      password = NA,
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be specified.")
-  )
-
-  expect_error(
-    dataset = get_data_sets(
-      username = "admin",
-      password = c("district", "district1"),
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be of type character
-                 with length 1.")
-  )
-
-  expect_error(
-    dataset = get_data_sets(
+httptest::with_mock_api({
+  test_that("the API request is working fine", {
+    response <- make_api_request(
+      base_url = file.path("https:/", "play.dhis2.org", "dev"),
       username = "admin",
       password = "district",
-      base_url = NULL
-    ),
-    regexp = cat("Assertion on',base_url,'failed: Must be specified.")
-  )
+      which = "dataElements"
+    )
+    expect_type(response, "list")
+  })
 
-  expect_error(
-    dataset = get_data_sets(
+  test_that("dhis2_get_relevant_attributes works as expected with valid
+            dataSets", {
+    result <- dhis2_get_relevant_attributes(
+      attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
+      base_url = file.path("https:/", "play.dhis2.org", "dev"),
       username = "admin",
       password = "district",
-      base_url = NA
-    ),
-    regexp = cat("Assertion on',base_url,'failed: Must be specified.")
-  )
+      which = "dataSets"
+    )
+    expect_type(result, "list")
+    expect_identical(result$dataset, "pBOMPrpg1QX,BfMAe6Itzgt")
+    expect_s3_class(result$data_sets, "data.frame")
+  })
 
-  expect_error(
-    dataset = get_data_sets(
-      username = "admin",
-      password = c("district", "district1"),
-      base_url = c(
-        file.path("https:/", "play.dhis2.org", "dev", ""),
-        "https://play.dhis2.org/dev/test/"
-      )
-    ),
-    regexp = cat("Assertion on',base_url,'failed: Must be of type character
-                 with length 1.")
-  )
-})
+  test_that("dhis2_get_relevant_attributes works as expected with valid
+            dataElements", {
+              result <- dhis2_get_relevant_attributes(
+                attribute_id = "FTRrcoaog83",
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
+                username = "admin",
+                password = "district",
+                which = "dataElements"
+              )
+              expect_s3_class(result, "data.frame")
+            })
 
-test_that("get_relevant_dataset works as expected", {
-  result <- get_relevant_dataset(
-    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
-    base_url = "https://play.dhis2.org/dev/",
-    username = "admin",
-    password = "district"
-  )
-  expect_type(result, "list")
-  expect_length(result, 2)
-})
+  test_that("dhis2_get_relevant_attributes works as expected with valid
+            organisationUnits", {
+              result <- dhis2_get_relevant_attributes(
+                attribute_id = "Rp268JB6Ne4",
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
+                username = "admin",
+                password = "district",
+                which = "organisationUnits"
+              )
+              expect_type(result, "list")
+              expect_identical(result$organisation_unit, "Rp268JB6Ne4")
+              expect_s3_class(result$org_units, "data.frame")
+            })
 
-test_that("get_relevant_organisation_unit works as expected", {
-  result <- get_relevant_organisation_unit(
-    organisation_unit = "DiszpKrYNg8",
-    base_url = "https://play.dhis2.org/dev/",
-    username = "admin",
-    password = "district"
-  )
-  expect_type(result, "list")
-  expect_length(result, 2)
-})
-
-test_that("get_data_elements works as expected", {
-  data_element <- get_data_elements(
-    username = "admin",
-    password = "district",
-    base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-  )
-  expect_s3_class(data_element, class = "data.frame")
-})
-
-test_that("get_data_elements fails as expected", {
-  expect_error(
-    data_element = get_data_elements(
-      username = NULL,
-      password = "district",
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',username,'failed: Must be specified.")
-  )
-
-  expect_error(
-    data_element = get_data_elements(
-      username = NA,
-      password = "district",
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',username,'failed: Must be specified.")
-  )
-
-  expect_error(
-    data_element = get_data_elements(
-      username = c("admin", "admin1"),
-      password = "district",
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',username,'failed: Must be of type character
-                 with length 1.")
-  )
-
-  expect_error(
-    data_element = get_data_elements(
-      username = "admin",
-      password = NULL,
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be specified.")
-  )
-
-  expect_error(
-    data_element = get_data_elements(
-      username = "admin",
-      password = NA,
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be specified.")
-  )
-
-  expect_error(
-    data_element = get_data_elements(
-      username = "admin",
-      password = c("district", "district1"),
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be of type character
-                 with length 1.")
-  )
-
-  expect_error(
-    data_element = get_data_elements(
-      username = "admin",
-      password = "district",
-      base_url = NULL
-    ),
-    regexp = cat("Assertion on',base_url,'failed: Must be specified.")
-  )
-
-  expect_error(
-    data_element = get_data_elements(
-      username = "admin",
-      password = "district",
-      base_url = NA
-    ),
-    regexp = cat("Assertion on',base_url,'failed: Must be specified.")
-  )
-
-  expect_error(
-    data_element = get_data_elements(
-      username = "admin",
-      password = "district",
-      base_url = c(
-        file.path("https:/", "play.dhis2.org", "dev", ""),
-        "https://play.dhis2.org/dev/test/"
-      )
-    ),
-    regexp = cat("Assertion on',base_url,'failed: Must be of type character
-                 with length 1.")
-  )
-})
-
-test_that("get_organisation_units works as expected", {
-  organisation_units <- get_organisation_units(
-    base_url = file.path("https:/", "play.dhis2.org", "dev", ""),
-    username = "admin",
-    password = "district"
-  )
-  expect_s3_class(organisation_units, class = "data.frame")
-})
-
-test_that("get_organisation_units fails as expected", {
-  expect_error(
-    organisation_units = get_organisation_units(
-      base_url = file.path("https:/", "play.dhis2.org", "dev", ""),
-      username = NULL,
-      password = "district"
-    ),
-    regexp = cat("Assertion on',username,'failed: Must be specified.")
-  )
-
-  expect_error(
-    organisation_units = get_organisation_units(
-      username = NA,
-      password = "district",
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',username,'failed: Must be specified.")
-  )
-
-  expect_error(
-    organisation_units = get_organisation_units(
-      username = c("admin", "admin1"),
-      password = "district",
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',username,'failed: Must be of type character
-                 with length 1.")
-  )
-
-  expect_error(
-    organisation_units = get_organisation_units(
-      username = "admin",
-      password = NULL,
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be specified.")
-  )
-
-  expect_error(
-    organisation_units = get_organisation_units(
-      username = "admin",
-      password = NA,
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be specified.")
-  )
-
-  expect_error(
-    organisation_units = get_organisation_units(
-      username = "admin",
-      password = c("district", "district1"),
-      base_url = file.path("https:/", "play.dhis2.org", "dev", "")
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be of type character
-                 with length 1.")
-  )
-
-  expect_error(
-    organisation_units = get_organisation_units(
-      username = "admin",
-      password = "district",
-      base_url = NULL
-    ),
-    regexp = cat("Assertion on',base_url,'failed: Must be specified.")
-  )
-
-  expect_error(
-    organisation_units = get_organisation_units(
-      username = "admin",
-      password = "district",
-      base_url = NA
-    ),
-    regexp = cat("Assertion on',base_url,'failed: Must be specified.")
-  )
-
-  expect_error(
-    organisation_units = get_organisation_units(
-      username = "admin",
-      password = "district",
-      base_url = c(
-        file.path("https:/", "play.dhis2.org", "dev", ""),
-        "https://play.dhis2.org/dev/test/"
-      )
-    ),
-    regexp = cat("Assertion on',base_url,'failed: Must be of type character
-                 with length 1.")
-  )
+  test_that("dhis2_get_relevant_attributes works as expected with valid
+            dataElementGroups", {
+              result <- dhis2_get_relevant_attributes(
+                attribute_id = "oDkJh5Ddh7d",
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
+                username = "admin",
+                password = "district",
+                which = "dataElementGroups"
+              )
+              expect_type(result, "list")
+              expect_identical(result$data_element_group, "oDkJh5Ddh7d")
+              expect_s3_class(result$data_elt_groups, "data.frame")
+            })
 })

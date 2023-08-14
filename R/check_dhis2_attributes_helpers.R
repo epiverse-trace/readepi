@@ -15,7 +15,7 @@
 #' @return an object of class `data.frame` that contains the information of
 #'    interest.
 #' @keywords internal
-dhis2_get_attributes <- function(base_url, username, password,
+make_api_request <- function(base_url, username, password,
                                  which = "dataElements") {
   url <- file.path(
     base_url,
@@ -23,10 +23,8 @@ dhis2_get_attributes <- function(base_url, username, password,
     which,
     "?fields=id,name,shortName&paging=false"
   )
-  r <- httr::content(httr::GET(url, httr::authenticate(username, password)),
-    as = "parsed"
-  )
-  do.call(rbind.data.frame, r[[which]])
+  response <- httr::GET(url, httr::authenticate(username, password))
+  response
 }
 
 #' Get the relevant dataset
@@ -62,12 +60,14 @@ dhis2_get_relevant_attributes <- function(attribute_id = NULL, base_url,
       fixed = TRUE
     ))
   }
-  attributes <- dhis2_get_attributes(base_url, username, password, which)
+  response <- make_api_request(base_url, username, password, which)
+  content <- httr::content(response, as = "parsed")
+  attributes <- do.call(rbind.data.frame, content[[which]])
   if (which != "dataElements") {
     idx <- which(attribute_id %in% attributes$id)
     if (length(idx) == 0) {
       stop("Provided attribute ids not found!\n
-      Use readepi:::dhis2_get_attributes() function to view the list of
+      Use readepi:::make_api_request() function to view the list of
       available attributes")
     }
     if (length(idx) < length(attribute_id)) {

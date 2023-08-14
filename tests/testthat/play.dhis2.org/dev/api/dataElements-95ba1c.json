@@ -1,0 +1,5194 @@
+{
+    "dataElements": [
+        {
+            "name": "Accute Flaccid Paralysis (Deaths < 5 yrs)",
+            "shortName": "Accute Flaccid Paral (Deaths < 5 yrs)",
+            "id": "FTRrcoaog83"
+        },
+        {
+            "name": "Acute Flaccid Paralysis (AFP) follow-up",
+            "shortName": "AFP follow-up",
+            "id": "P3jJH5Tu5VC"
+        },
+        {
+            "name": "Acute Flaccid Paralysis (AFP) new",
+            "shortName": "AFP new",
+            "id": "FQ2o8UBlcrS"
+        },
+        {
+            "name": "Acute Flaccid Paralysis (AFP) referrals",
+            "shortName": "AFP referrals",
+            "id": "M62VHgYT2n0"
+        },
+        {
+            "name": "Additional medication",
+            "shortName": "Additional medication",
+            "id": "WO8yRIZb7nb"
+        },
+        {
+            "name": "Additional notes related to facility",
+            "shortName": "Additional notes related to facility",
+            "id": "uF1DLnZNlWe"
+        },
+        {
+            "name": "Admission Date",
+            "shortName": "Admission Date",
+            "id": "eMyVanycQSC"
+        },
+        {
+            "name": "áéíóúäëïöüàèìòù",
+            "shortName": "áéíóúäëïöüàèìòù",
+            "id": "ZQckq0fXWfj"
+        },
+        {
+            "name": "Age in years",
+            "shortName": "Age in years",
+            "id": "qrur9Dvnyt5"
+        },
+        {
+            "name": "Age of LLINs",
+            "shortName": "Age of LLINs",
+            "id": "JuTpJ2Ywq5b"
+        },
+        {
+            "name": "Albendazole given at ANC (2nd trimester)",
+            "shortName": "Albendazole at ANC",
+            "id": "hCVSHjcml9g"
+        },
+        {
+            "name": "All access routes are clearly marked and safe",
+            "shortName": "All access routes are clearly marked",
+            "id": "rxt7nvPyRUi"
+        },
+        {
+            "name": "Allergies (multi-select)",
+            "shortName": "Allergies (multi-select)",
+            "id": "ZxH5QHtTTtX"
+        },
+        {
+            "name": "All other follow-ups",
+            "shortName": "All other follow-ups",
+            "id": "RUv0hqER0zV"
+        },
+        {
+            "name": "All other new",
+            "shortName": "Others new",
+            "id": "A2VfEfPflHV"
+        },
+        {
+            "name": "All other referrals",
+            "shortName": "All other referrals",
+            "id": "laZLQdnucV1"
+        },
+        {
+            "name": "All sterilisation equipment is validated / licensed",
+            "shortName": "All sterilisation equipment is validated",
+            "id": "U7v0q0amJqi"
+        },
+        {
+            "name": "Anaemia follow-up",
+            "shortName": "Anaemia follow-up",
+            "id": "jmWyJFtE7Af"
+        },
+        {
+            "name": "Anaemia new",
+            "shortName": "Anaemia new",
+            "id": "HLPuaFB7Frw"
+        },
+        {
+            "name": "Anaemia referrals",
+            "shortName": "Anaemia referrals",
+            "id": "yqBkn9CWKih"
+        },
+        {
+            "name": "An alternative to communicate if telephone line is off is always available",
+            "shortName": "An alternative to communicate available",
+            "id": "sPQgYGhXnXI"
+        },
+        {
+            "name": "ANC 1st visit",
+            "shortName": "ANC 1st visit",
+            "id": "fbfJHSPpUQD"
+        },
+        {
+            "name": "ANC 2nd visit",
+            "shortName": "ANC 2nd visit",
+            "id": "cYeuwXTCPkU"
+        },
+        {
+            "name": "ANC 3rd visit",
+            "shortName": "ANC 3rd visit",
+            "id": "Jtf34kNZhzP"
+        },
+        {
+            "name": "ANC 4th or more visits",
+            "shortName": "ANC 4th or more",
+            "id": "hfdmMSPBgLG"
+        },
+        {
+            "name": "Animal Bites - Rabid (Deaths < 5 yrs)",
+            "shortName": "Animal Bites - Rabid (Deaths < 5 yrs)",
+            "id": "LjNlMTl9Nq9"
+        },
+        {
+            "name": "Appropriate hand washing facilities are available",
+            "shortName": "Appropriate hand washing facilities",
+            "id": "a57FmdPj3Zl"
+        },
+        {
+            "name": "ARI treated with antibiotics (pneumonia) follow-up",
+            "shortName": "ARI/Pneumonia f-u",
+            "id": "FHD3wiSM7Sn"
+        },
+        {
+            "name": "ARI treated with antibiotics (pneumonia) new",
+            "shortName": "ARI/Pneumonia new",
+            "id": "iKGjnOOaPlE"
+        },
+        {
+            "name": "ARI treated with antibiotics (pneumonia) referrals",
+            "shortName": "ARI/Pneumonia ref.",
+            "id": "XTqOHygxDj5"
+        },
+        {
+            "name": "ARI treated without antibiotics (cough) follow-up",
+            "shortName": "ARI wo antibio. f-u",
+            "id": "RF4VFVGdFRO"
+        },
+        {
+            "name": "ARI treated without antibiotics (cough) new",
+            "shortName": "ARI/Cough new",
+            "id": "Cm4XUw6VAxv"
+        },
+        {
+            "name": "ARI treated without antibiotics (cough) referrals",
+            "shortName": "ARI/Cough referrals",
+            "id": "oLfWYAJhZb2"
+        },
+        {
+            "name": "ART clients with new adverse clinical event",
+            "shortName": "ART.CnewAdv.Clin.Ev.",
+            "id": "NJnhOzjaLYk"
+        },
+        {
+            "name": "ART defaulters",
+            "shortName": "ART defaulters",
+            "id": "aIJZ2d2QgVV"
+        },
+        {
+            "name": "ART enrollment stage 1",
+            "shortName": "ART No stage 1",
+            "id": "BOSZApCrBni"
+        },
+        {
+            "name": "ART enrollment stage 2",
+            "shortName": "ART No stage 2",
+            "id": "dGdeotKpRed"
+        },
+        {
+            "name": "ART enrollment stage 3",
+            "shortName": "ART No stage 3",
+            "id": "eRwOwCpMzyP"
+        },
+        {
+            "name": "ART enrollment stage 4",
+            "shortName": "ART No stage 4",
+            "id": "zYkwbCBALhn"
+        },
+        {
+            "name": "ART entry point: No diagnostic testing",
+            "shortName": "ARTdiag.testing",
+            "id": "I5MLuG16arn"
+        },
+        {
+            "name": "ART entry point: No old patients",
+            "shortName": "ART.E.P:oldPatient",
+            "id": "LVaUdM3CERi"
+        },
+        {
+            "name": "ART entry point: No other",
+            "shortName": "ART.E.P:other",
+            "id": "vJSPn2R6gVe"
+        },
+        {
+            "name": "ART entry point: No PMTCT",
+            "shortName": "ART.E.P:PMTCT",
+            "id": "kVOiLDV4OC6"
+        },
+        {
+            "name": "ART entry point: No transfer in",
+            "shortName": "ART.E.P:transferIn",
+            "id": "HDZOFvdXsqE"
+        },
+        {
+            "name": "ART entry point: No transfer out",
+            "shortName": "ART.E.P:transferOut",
+            "id": "soACnRV9gOI"
+        },
+        {
+            "name": "ART entry point: No walk in",
+            "shortName": "ART No walk in",
+            "id": "FTy5pcJZ3yX"
+        },
+        {
+            "name": "ART entry point: TB",
+            "shortName": "ART entry point: TB",
+            "id": "Yf4u4QOIdsi"
+        },
+        {
+            "name": "ART new clients started on ARV",
+            "shortName": "ARTnewC.startedARV",
+            "id": "QrhlrvV6Xs8"
+        },
+        {
+            "name": "ART No clients who stopped TRT due to adverse clinical status/event",
+            "shortName": "ARTstop.TRT.Adv.Clin",
+            "id": "wfKKFhBn0Q0"
+        },
+        {
+            "name": "ART No clients who stopped TRT due to TRT failure",
+            "shortName": "ARTStop.TRTdueFailur",
+            "id": "GMd99K8gVut"
+        },
+        {
+            "name": "ART No clients with change of regimen due to drug toxicity",
+            "shortName": "ARTChangeRegDrugToxi",
+            "id": "F53rTVTmSuF"
+        },
+        {
+            "name": "ART No clients with new adverse drug reaction",
+            "shortName": "ARTnewAdv.DrugReact.",
+            "id": "rNEpbBxSyu7"
+        },
+        {
+            "name": "ART No started Opportunist Infection prophylaxis",
+            "shortName": "ART.OI.prophylaxis",
+            "id": "CxlYcbqio4v"
+        },
+        {
+            "name": "ART treatment stopped due to death",
+            "shortName": "ARTStop.TRTdueDeath",
+            "id": "ibL7BD2vn2C"
+        },
+        {
+            "name": "ART treatment stopped due to loss to follow-up",
+            "shortName": "ARTstop.LossFollowup",
+            "id": "TyQ1vOHM6JO"
+        },
+        {
+            "name": "BCG doses given",
+            "shortName": "BCG doses given",
+            "id": "s46m5MS0hxu"
+        },
+        {
+            "name": "Birth certificate",
+            "shortName": "Birth certificate",
+            "id": "uf3svrmp8Oj"
+        },
+        {
+            "name": "Blood pressure monitor, electronic or manual available",
+            "shortName": "Blood pressure monitor, electronic avail",
+            "id": "nzl75uHiWQO"
+        },
+        {
+            "name": "Blood transfusion within 3 months before onset of symptoms",
+            "shortName": "Blood Transfusion < 3 months",
+            "id": "yO0ZIegEsDk"
+        },
+        {
+            "name": "Burns follow-up",
+            "shortName": "Burns follow-up",
+            "id": "QYBJk7sqc1I"
+        },
+        {
+            "name": "Burns new",
+            "shortName": "Burns new",
+            "id": "zMGEd921xd3"
+        },
+        {
+            "name": "Burns referrals",
+            "shortName": "Burns referrals",
+            "id": "BHvVPwWrrLC"
+        },
+        {
+            "name": "Cabin fever",
+            "shortName": "Cabin fever",
+            "id": "A21lT9x7pmc"
+        },
+        {
+            "name": "Case detection",
+            "shortName": "Case detection",
+            "id": "fazCI2ygYkq"
+        },
+        {
+            "name": "Case Investigation Conducted By",
+            "shortName": "CA Investigation Conducted By",
+            "id": "eYApmORDKgx"
+        },
+        {
+            "name": "Case species classification",
+            "shortName": "Case species classification",
+            "id": "lvx6qda7SN0"
+        },
+        {
+            "name": "Children from Gen.Paed. ward tested for HIV",
+            "shortName": "Child GPW HIV test",
+            "id": "hhevl49MXyA"
+        },
+        {
+            "name": "Children from Gen.Paed. ward with positive HIV result",
+            "shortName": "Child GPW HIV-test +",
+            "id": "HL77Pems4Cv"
+        },
+        {
+            "name": "Children from TB ward tested for HIV",
+            "shortName": "Child TBw HIV test",
+            "id": "ydvyXLhIbTn"
+        },
+        {
+            "name": "Children from TB ward with positive HIV result",
+            "shortName": "Child TBw HIV-test +",
+            "id": "AKJvJehDSb6"
+        },
+        {
+            "name": "Children from TFC tested for HIV",
+            "shortName": "Child TFC HIV test",
+            "id": "xFpppWvT43s"
+        },
+        {
+            "name": "Children from TFC with positive HIV result",
+            "shortName": "Child TFC HIV-test +",
+            "id": "KWzP8OWYQL7"
+        },
+        {
+            "name": "Children getting therapeutic feeding",
+            "shortName": "Child thera. feeding",
+            "id": "qw2sIef52Fu"
+        },
+        {
+            "name": "Children HIV 1&2 positive test",
+            "shortName": "Child HIV1&2 + test",
+            "id": "e73QxJpd88B"
+        },
+        {
+            "name": "Children HIV 1 positive test",
+            "shortName": "Child HIV1 + test",
+            "id": "EnsFXKU7LEW"
+        },
+        {
+            "name": "Children HIV 2 positive test",
+            "shortName": "Child HIV2 + test",
+            "id": "GhsYeB89HaL"
+        },
+        {
+            "name": "Children initiated ARV treatment",
+            "shortName": "Child init. ARV TRT",
+            "id": "MWEGBw0pmgU"
+        },
+        {
+            "name": "Children on exclusive breastfeeding (HIV Paed.)",
+            "shortName": "Child excl. breastf.",
+            "id": "SMrE2ByiyZp"
+        },
+        {
+            "name": "Children on replacement feeding (HIV Paed.)",
+            "shortName": "Child repl. feeding",
+            "id": "UMexg4VGfaY"
+        },
+        {
+            "name": "Children supplied with food supplemements",
+            "shortName": "Child food suppl.",
+            "id": "Y53Jcc9LBYh"
+        },
+        {
+            "name": "CHO",
+            "shortName": "CHO",
+            "id": "LSJ5mKpyEv1"
+        },
+        {
+            "name": "Cholera (Deaths < 5 yrs)",
+            "shortName": "Cholera (Deaths < 5 yrs)",
+            "id": "eY5ehpbEsB7"
+        },
+        {
+            "name": "Cholera (Deaths < 5 yrs) Narrative",
+            "shortName": "Cholera (Deaths < 5 yrs) Narrative",
+            "id": "mxc1T932aWM"
+        },
+        {
+            "name": "Clinical Malnutrition follow-up",
+            "shortName": "Clinic. Malnutr. f-u",
+            "id": "HJulLfnIAE3"
+        },
+        {
+            "name": "Clinical Malnutrition new",
+            "shortName": "Malnutriti new",
+            "id": "TBbCcJfZ91x"
+        },
+        {
+            "name": "Clinical Malnutrition referrals",
+            "shortName": "Clinic. Malnutr. ref",
+            "id": "oNyB0VOXIM8"
+        },
+        {
+            "name": "Clinical status",
+            "shortName": "Clinical status",
+            "id": "SzVk2KvkSSd"
+        },
+        {
+            "name": "CMC Clients offered information on range of methods exist",
+            "shortName": "CMC Clients offered information on range of met",
+            "id": "LHXqz53TmPe"
+        },
+        {
+            "name": "CMC COPE has been introduced at the facility and staff conducted a COPE exercise during the past quarter",
+            "shortName": "CMC COPE has been introduced at the facility and",
+            "id": "OJSkJXzhdU1"
+        },
+        {
+            "name": "CMC Counseling rooms in FP and CAC service units ensure client privacy and confidentiality",
+            "shortName": "CMC Counseling rooms in FP and CAC service units",
+            "id": "DF0B07U2lPZ"
+        },
+        {
+            "name": "CMC Date of clinical monitoring visit",
+            "shortName": "CMC Date of clinical monitoring visit",
+            "id": "rkAZZFGFEQ7"
+        },
+        {
+            "name": "CMC Facility part of health care finance (HCF) board scheme",
+            "shortName": "CMC Facility part of health care finance (HCF) bo",
+            "id": "wokFPoIO3NK"
+        },
+        {
+            "name": "CMC Facility receives FP referrals from community health workers",
+            "shortName": "CMC Facility receives FP referrals from CHW",
+            "id": "rTYZHPHVULr"
+        },
+        {
+            "name": "CMC FP and CAC commodity requests correctly based on previous consumption / stock at hand",
+            "shortName": "CMC FP and CAC commodity requests correctly",
+            "id": "rZiGA1lv7Ah"
+        },
+        {
+            "name": "CMC FP and CAC procedure rooms have adequate lighting for the performance of all procedures",
+            "shortName": "CMC FP and CAC procedure rooms have adequate lig",
+            "id": "EonDTYTVXxM"
+        },
+        {
+            "name": "CMC FP and CAC service units have dedicated hours or space for youth clients",
+            "shortName": "CMC FP and CAC service units have dedicated hours",
+            "id": "LadMythncw2"
+        },
+        {
+            "name": "CMC FP services available - Contraceptive pills",
+            "shortName": "CMC FP services - Contraceptive pills",
+            "id": "UysSLXGhwrC"
+        },
+        {
+            "name": "CMC FP services available - Female condoms",
+            "shortName": "CMC FP services - Female condoms",
+            "id": "ZVqZ600pgzC"
+        },
+        {
+            "name": "CMC FP services available - Female Sterilization",
+            "shortName": "CMC FP services - Female Sterilization",
+            "id": "X4SRfUAnrHD"
+        },
+        {
+            "name": "CMC FP services available - Implanon",
+            "shortName": "CMC FP services - Implanon",
+            "id": "xqlapchAEVR"
+        },
+        {
+            "name": "CMC FP services available - Injectables (DMPA)",
+            "shortName": "CMC FP services - Injectables (DMPA)",
+            "id": "NKoGfjnFWcE"
+        },
+        {
+            "name": "CMC FP services available - IUD",
+            "shortName": "CMC FP services available - IUD",
+            "id": "XPyixxRoRFF"
+        },
+        {
+            "name": "CMC FP services available - Jadelle or Sino-Implant",
+            "shortName": "CMC FP services - Jadelle or Sino-Implant",
+            "id": "k7vxGJER2SH"
+        },
+        {
+            "name": "CMC FP services available - Male condoms",
+            "shortName": "CMC FP services - Male condoms",
+            "id": "FNa6RHwtpuV"
+        },
+        {
+            "name": "CMC FP services available - Male Sterilization",
+            "shortName": "CMC FP services - Male Sterilization",
+            "id": "dupnnRrJB9g"
+        },
+        {
+            "name": "CMC Functioning set-up for decontamination in both FP and CAC service units exist",
+            "shortName": "CMC Functioning set-up for decontamination in bo",
+            "id": "tY33H1Xmbiq"
+        },
+        {
+            "name": "CMC IMPLANT INSERTION KITS (functional and in good condition) available",
+            "shortName": "CMC IMPLANT INSERTION KITS (functional and in good",
+            "id": "VEsHW11Ee9u"
+        },
+        {
+            "name": "CMC IMPLANT REMOVAL KITS (functional and in good condition) available",
+            "shortName": "CMC IMPLANT REMOVAL KITS (functional and in good c",
+            "id": "x7UR3a7PnFC"
+        },
+        {
+            "name": "CMC Incentives for staff in the FP or CAC service units to provide FP exist",
+            "shortName": "CMC Incentives for staff in the FP or CAC service",
+            "id": "eDO63WfftUO"
+        },
+        {
+            "name": "CMC Infection prevention protocol charts are posted in both FP and CAC service units",
+            "shortName": "CMC Infection prevention protocol charts are post",
+            "id": "e4r6eLK76M9"
+        },
+        {
+            "name": "CMC IUD KITS (functional and in good condition) available",
+            "shortName": "CMC IUD KITS (functional and in good condition) av",
+            "id": "jhz73zxjuuy"
+        },
+        {
+            "name": "CMC IUD REMOVAL KITS (functional and in good condition) available",
+            "shortName": "CMC IUD REMOVAL KITS (functional and in good condi",
+            "id": "ozL7F7k4l0S"
+        },
+        {
+            "name": "CMC Leak-proof and puncture-proof containers in FP and CAC exist",
+            "shortName": "CMC Leak-proof and puncture-proof containers in",
+            "id": "ShRC4KSdfcw"
+        },
+        {
+            "name": "CMC MINILAPAROTOMY KITS (functional and in good condition) available",
+            "shortName": "CMC MINILAPAROTOMY KITS (functional and in good co",
+            "id": "W87PJK0RlJa"
+        },
+        {
+            "name": "CMC Most recent delivery of FP and CAC commodities match the request made through the RRF",
+            "shortName": "CMC Most recent delivery of FP and CAC",
+            "id": "sjir9Ki2vuA"
+        },
+        {
+            "name": "CMC MVA KITS (functional and in good condition) available",
+            "shortName": "CMC MVA KITS (functional and in good condition) av",
+            "id": "Els0dBuHtWJ"
+        },
+        {
+            "name": "CMC National guidelines and standards for FP and CAC service provision available",
+            "shortName": "CMC National guidelines and standards for FP and",
+            "id": "AX2JjzrU0oU"
+        },
+        {
+            "name": "CMC NSV KITS (functional and in good condition) available",
+            "shortName": "CMC NSV KITS (functional and in good condition) av",
+            "id": "KKEYwCcGvfl"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided in CAC unit - Contraceptive pills",
+            "shortName": "CMC Post-abortion FP in CAC unit - Contraceptive p",
+            "id": "A4R8Ns0wtJk"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided in CAC unit - Female condoms",
+            "shortName": "CMC Post-abortion FP in CAC unit - Female condoms",
+            "id": "H5q0J5EeytP"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided in CAC unit - Implanon",
+            "shortName": "CMC Post-abortion FP in CAC unit - Implanon",
+            "id": "lLl7dD5jRhg"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided in CAC unit - Injectables (DMPA)",
+            "shortName": "CMC Post-abortion FP in CAC unit - Injectables (DM",
+            "id": "R8X9WHD6Ta9"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided in CAC unit - IUD",
+            "shortName": "CMC Post-abortion FP in CAC unit - IUD",
+            "id": "J6KG9poh1WL"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided in CAC unit - Jadelle or Sino-Implant",
+            "shortName": "CMC Post-abortion FP in CAC unit - Jadelle or Sino",
+            "id": "HcQqfCPHC79"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided in CAC unit - Male condoms",
+            "shortName": "CMC Post-abortion FP in CAC unit - Male condoms",
+            "id": "MqeQ222wxN8"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided in CAC unit - Other (specify)",
+            "shortName": "CMC Post-abortion FP in CAC unit - Other (specify)",
+            "id": "otxWZ2s0Iyg"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided through referrals - Contraceptive pills",
+            "shortName": "CMC Post-abortion FP through referrals - Contracep",
+            "id": "aEgcSZrUD1j"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided through referrals - Female condoms",
+            "shortName": "CMC Post-abortion FP through referrals - Female co",
+            "id": "wpEO1pvc4oS"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided through referrals - Implanon",
+            "shortName": "CMC Post-abortion FP through referrals - Implanon",
+            "id": "yEPjrf4pvLF"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided through referrals - Injectables (DMPA)",
+            "shortName": "CMC Post-abortion FP through referrals - Injectabl",
+            "id": "weKxnsPrnTB"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided through referrals - IUD",
+            "shortName": "CMC Post-abortion FP through referrals - IUD",
+            "id": "sIZsJrOtJ8S"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided through referrals - Jadelle or Sino-Implant",
+            "shortName": "CMC Post-abortion FP through referrals - Jadelle o",
+            "id": "aponpM6fnJe"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided through referrals - Male condoms",
+            "shortName": "CMC Post-abortion FP through referrals - Male cond",
+            "id": "VX6qaS9JEGv"
+        },
+        {
+            "name": "CMC Post-abortion FP methods provided through referrals - Other (specify)",
+            "shortName": "CMC Post-abortion FP through referrals - Other (sp",
+            "id": "XktwbHEcOZ5"
+        },
+        {
+            "name": "CMC Post-abortion FP referred other facility - Contraceptive pills",
+            "shortName": "CMC Post-abortion FP referred - Contraceptive pill",
+            "id": "TD9EmYHnJcZ"
+        },
+        {
+            "name": "CMC Post-abortion FP referred other facility - Female condoms",
+            "shortName": "CMC Post-abortion FP referred - Female condoms",
+            "id": "nECT8BcbdF6"
+        },
+        {
+            "name": "CMC Post-abortion FP referred other facility - Implanon",
+            "shortName": "CMC Post-abortion FP referred - Implanon",
+            "id": "A1wdvOOktNI"
+        },
+        {
+            "name": "CMC Post-abortion FP referred other facility - Injectables (DMPA)",
+            "shortName": "CMC Post-abortion FP referred - Injectables (DMPA)",
+            "id": "OutJUTjR21E"
+        },
+        {
+            "name": "CMC Post-abortion FP referred other facility - IUD",
+            "shortName": "CMC Post-abortion FP referred - IUD",
+            "id": "PNAudHvnC29"
+        },
+        {
+            "name": "CMC Post-abortion FP referred other facility - Jadelle or Sino-Implant",
+            "shortName": "CMC Post-abortion FP referred - Jadelle or Sino-Im",
+            "id": "GvSDEPwzn1l"
+        },
+        {
+            "name": "CMC Post-abortion FP referred other facility - Male condoms",
+            "shortName": "CMC Post-abortion FP referred - Male condoms",
+            "id": "aPRMs8ZWoQe"
+        },
+        {
+            "name": "CMC Post-abortion FP referred other facility - Other (specify)",
+            "shortName": "CMC Post-abortion FP referred - Other (specify)",
+            "id": "x6Cc96XcRjT"
+        },
+        {
+            "name": "CMC Post abortion related services available - E&C/D&C Abortion",
+            "shortName": "CMC Post abortion services - E&C/D&C Abortion",
+            "id": "XcP6HTlP7Nt"
+        },
+        {
+            "name": "CMC Post abortion related services available - E&C/D&C Post-abortion",
+            "shortName": "CMC Post abortion services - E&C/D&C Post-abortion",
+            "id": "x3cG1nQrV0d"
+        },
+        {
+            "name": "CMC Post abortion related services available - MA Abortion",
+            "shortName": "CMC Post abortion services - MA Abortion",
+            "id": "FAZsjrqfaYk"
+        },
+        {
+            "name": "CMC Post abortion related services available - MA Post-abortion",
+            "shortName": "CMC Post abortion services - MA Post-abortion",
+            "id": "GaDscQKVYrw"
+        },
+        {
+            "name": "CMC Post abortion related services available - MVA Abortion",
+            "shortName": "CMC Post abortion services - MVA Abortion",
+            "id": "lFEc4Weo8Uw"
+        },
+        {
+            "name": "CMC Post abortion related services available - MVA Post-abortion",
+            "shortName": "CMC Post abortion services - MVA Post-abortion",
+            "id": "Fo8lG6JORup"
+        },
+        {
+            "name": "CMC Procedure rooms in FP and CAC service units ensure client privacy and confidentiality",
+            "shortName": "CMC Procedure rooms in FP and CAC service units",
+            "id": "ylTxB8pDdW6"
+        },
+        {
+            "name": "CMC Providers trained and certified both CAC and CC",
+            "shortName": "CMC Providers trained and certified both CAC and C",
+            "id": "mrCQ760kGUu"
+        },
+        {
+            "name": "CMC Providers trained and certified comprehensive abortion care (CAC)",
+            "shortName": "CMC Providers trained and certified CAC",
+            "id": "mU3ywrD2d24"
+        },
+        {
+            "name": "CMC Providers trained and certified comprehensive contraception (CC)",
+            "shortName": "CMC Providers trained and certified CC",
+            "id": "c30icyuh08j"
+        },
+        {
+            "name": "CMC Providers trained and certified postpartum IUD insertion",
+            "shortName": "CMC Providers trained and certified postpartum IUD",
+            "id": "J6hufb5lO0k"
+        },
+        {
+            "name": "CMC Providers trained in youth-friendly services in addition to CC or CAC services",
+            "shortName": "CMC Providers trained in youth-friendly services i",
+            "id": "ILtncREADfd"
+        },
+        {
+            "name": "CMC Provider teams trained and certified PMs",
+            "shortName": "CMC Provider teams trained and certified PMs",
+            "id": "OZGgl38Z7tC"
+        },
+        {
+            "name": "CMC Safe abortion related services available - E&C/D&C Abortion",
+            "shortName": "CMC Safe abortion services - E&C/D&C Abortion",
+            "id": "xN2F50KrWOs"
+        },
+        {
+            "name": "CMC Safe abortion related services available - E&C/D&C Post-abortion",
+            "shortName": "CMC Safe abortion services - E&C/D&C Post-abortion",
+            "id": "edTAupzSt8B"
+        },
+        {
+            "name": "CMC Safe abortion related services available - MA Abortion",
+            "shortName": "CMC Safe abortion services - MA Abortion",
+            "id": "MYVHFFkdTYi"
+        },
+        {
+            "name": "CMC Safe abortion related services available - MA Post-abortion",
+            "shortName": "CMC Safe abortion services - MA Post-abortion",
+            "id": "fmQ8ORZ0eaz"
+        },
+        {
+            "name": "CMC Safe abortion related services available - MVA Abortion",
+            "shortName": "CMC Safe abortion services - MVA Abortion",
+            "id": "EQbayB0ysYj"
+        },
+        {
+            "name": "CMC Safe abortion related services available - MVA Post-abortion",
+            "shortName": "CMC Safe abortion services - MVA Post-abortion",
+            "id": "QxYJoKrJTZx"
+        },
+        {
+            "name": "CMC Signed consent forms for all PM and CAC procedures conducted during the past two months",
+            "shortName": "CMC Signed consent forms for all PM and CAC proce",
+            "id": "nC6ZrPp6F7B"
+        },
+        {
+            "name": "CMC Staff in FP/CAC units received a facilitative supervision visit from supervisor past six months",
+            "shortName": "CMC Staff in FP/CAC units received a facilitative",
+            "id": "s5gk8w06vif"
+        },
+        {
+            "name": "CMC Staff in the FP, CAC and pharmacy units have been oriented on use of the IPLS for FP and CAC",
+            "shortName": "CMC Staff in the FP, CAC and pharmacy units have",
+            "id": "P7jdTXzh4ut"
+        },
+        {
+            "name": "CMC Sterilization/HLD mechanism in place, such as sterilizer, boiler, autoclave available in FP and CAC",
+            "shortName": "CMC Sterilization/HLD mechanism in place, such as ",
+            "id": "iyLG1s9EAQ8"
+        },
+        {
+            "name": "CMC Stock-out - Contraceptive pills",
+            "shortName": "CMC Stock-out - Contraceptive pills",
+            "id": "bZgd4FWFsQI"
+        },
+        {
+            "name": "CMC Stock-out - Female condoms",
+            "shortName": "CMC Stock-out - Female condoms",
+            "id": "SDQMvEIFZJH"
+        },
+        {
+            "name": "CMC Stock-out - Implanon",
+            "shortName": "CMC Stock-out - Implanon",
+            "id": "CsORyrmcScJ"
+        },
+        {
+            "name": "CMC Stock-out - Injectables (DMPA)",
+            "shortName": "CMC Stock-out - Injectables (DMPA)",
+            "id": "lZEg2kLmHnz"
+        },
+        {
+            "name": "CMC Stock-out - IUD",
+            "shortName": "CMC Stock-out - IUD",
+            "id": "wwh5ng6o81Z"
+        },
+        {
+            "name": "CMC Stock-out - Jadelle or Sino-Implant",
+            "shortName": "CMC Stock-out - Jadelle or Sino-Implant",
+            "id": "fuhMFSpMGzx"
+        },
+        {
+            "name": "CMC Stock-out - Male condoms",
+            "shortName": "CMC Stock-out - Male condoms",
+            "id": "h0RS9WyBGPh"
+        },
+        {
+            "name": "CMC Stock-out - Other (specify)",
+            "shortName": "CMC Stock-out - Other (specify)",
+            "id": "es9P4K9xRCF"
+        },
+        {
+            "name": "CMC Support provided ABRI III - CC and CAC support",
+            "shortName": "CMC Support provided ABRI - CC and CAC support",
+            "id": "xV8nAovXuOF"
+        },
+        {
+            "name": "CMC Support provided ABRI III - Community referral linkages",
+            "shortName": "CMC Support provided ABRI - Community referral lin",
+            "id": "KPxUIT1OtGW"
+        },
+        {
+            "name": "CMC Support provided ABRI III - Others, specify",
+            "shortName": "CMC Support provided ABRI - Others, specify",
+            "id": "heGCGPwVxfU"
+        },
+        {
+            "name": "CMC Support provided ABRI III - PM (FS & NSV)",
+            "shortName": "CMC Support provided ABRI - PM (FS & NSV)",
+            "id": "xxgP9Pbe70o"
+        },
+        {
+            "name": "CMC Support provided ABRI III - PPIUD",
+            "shortName": "CMC Support provided ABRI - PPIUD",
+            "id": "uCSDy69GLVl"
+        },
+        {
+            "name": "CMC Support provided ABRI III - Service integration",
+            "shortName": "CMC Support provided ABRI - Service integration",
+            "id": "sgcewfdjRRq"
+        },
+        {
+            "name": "CMC Support provided ABRI III - Youth-friendly services",
+            "shortName": "CMC Support provided ABRI - Youth-friendly service",
+            "id": "drDdShUJJzi"
+        },
+        {
+            "name": "CMC Targets or quotas for service providers in the FP or CAC exist",
+            "shortName": "CMC Targets or quotas for service providers in th",
+            "id": "k5YaukDVwcu"
+        },
+        {
+            "name": "CMC Visiting team members (name and organization)",
+            "shortName": "CMC Visiting team members (name and organization)",
+            "id": "o5USc1zH5mA"
+        },
+        {
+            "name": "Commodities - Amoxicillin",
+            "shortName": "Commodities - Amoxicillin",
+            "id": "Boy3QwztgeZ"
+        },
+        {
+            "name": "Commodities - Antenatal Corticosteroids",
+            "shortName": "Commodities - Antenatal Corticosteroids",
+            "id": "d9vZ3HOlzAd"
+        },
+        {
+            "name": "Commodities - Chlorhexidine",
+            "shortName": "Commodities - Chlorhexidine",
+            "id": "WjDoIR27f31"
+        },
+        {
+            "name": "Commodities - Emergency Contraception",
+            "shortName": "Commodities - Emergency Contraception",
+            "id": "BXgDHhPdFVU"
+        },
+        {
+            "name": "Commodities - Female Condoms",
+            "shortName": "Commodities - Female Condoms",
+            "id": "dY4OCwl0Y7Y"
+        },
+        {
+            "name": "Commodities - Implants",
+            "shortName": "Commodities - Implants",
+            "id": "Dkapzovo8Ll"
+        },
+        {
+            "name": "Commodities - Injectable Antibiotics",
+            "shortName": "Commodities - Injectable Antibiotics",
+            "id": "JIazHXNSnFJ"
+        },
+        {
+            "name": "Commodities - Magnesium Sulfate",
+            "shortName": "Commodities - Magnesium Sulfate",
+            "id": "o15CyZiTvxa"
+        },
+        {
+            "name": "Commodities - Misoprostol",
+            "shortName": "Commodities - Misoprostol",
+            "id": "f27B1G7B3m3"
+        },
+        {
+            "name": "Commodities - Oral Rehydration Salts",
+            "shortName": "Commodities - Oral Rehydration Salts",
+            "id": "Lz8MM2Y9DNh"
+        },
+        {
+            "name": "Commodities - Oxytocin",
+            "shortName": "Commodities - Oxytocin",
+            "id": "hJNC4Bu2Mkv"
+        },
+        {
+            "name": "Commodities - Resuscitation Equipment",
+            "shortName": "Commodities - Resuscitation Equipment",
+            "id": "W1XtQhP6BGd"
+        },
+        {
+            "name": "Commodities - Zinc",
+            "shortName": "Commodities - Zinc",
+            "id": "TCfIC3NDgQK"
+        },
+        {
+            "name": "Community Health Assistant (CHA)",
+            "shortName": "CHA",
+            "id": "vBu1MTGwcZh"
+        },
+        {
+            "name": "Complicated deliveries in community live birth",
+            "shortName": "Compl. del comm live",
+            "id": "tn3p7vIxoKY"
+        },
+        {
+            "name": "Complicated deliveries in community still births",
+            "shortName": "Compl. del com still",
+            "id": "FE82N2sA0YI"
+        },
+        {
+            "name": "Complicated deliveries in PHU live birth",
+            "shortName": "Compl. del PHU live",
+            "id": "R1WAv9bVXff"
+        },
+        {
+            "name": "Complicated deliveries in PHU still births",
+            "shortName": "Compl. del PHU still",
+            "id": "ncEnqRPHFvk"
+        },
+        {
+            "name": "Country traveled to",
+            "shortName": "Country name",
+            "id": "f9xYwUwrHq9"
+        },
+        {
+            "name": "Coverage (Response to clear/interrupt transmission and prevent onward infection)",
+            "shortName": "Coverage ",
+            "id": "gomyQh3Z4Uy"
+        },
+        {
+            "name": "Date carried out",
+            "shortName": "Date carried out",
+            "id": "A2iV932tYAo"
+        },
+        {
+            "name": "Date of assessment",
+            "shortName": "Date of assessment",
+            "id": "zDDHyXrJkCi"
+        },
+        {
+            "name": "Date of previous classification",
+            "shortName": "Date of previous classification",
+            "id": "Ah29MGrnVjJ"
+        },
+        {
+            "name": "Date of previous malaria episode",
+            "shortName": "Date of previous malaria episode",
+            "id": "Urz28endlF6"
+        },
+        {
+            "name": "Date onset of Symptoms",
+            "shortName": "Date onset of Symptoms",
+            "id": "AZLp9Shoab9"
+        },
+        {
+            "name": "Deaths due to tuberculosis among HIV-negative people (per 100 000 population)",
+            "shortName": "Deaths due to tuberculosis among HIV-negative peop",
+            "id": "V9bT6YUTrMZ"
+        },
+        {
+            "name": "Debriefing sessions are part of each resuscitation protocol",
+            "shortName": "Debriefing sessions are part of session",
+            "id": "DgnwZliJuh5"
+        },
+        {
+            "name": "Development activity present",
+            "shortName": "Development activity present",
+            "id": "Tj642rK34Qf"
+        },
+        {
+            "name": "Development activity type",
+            "shortName": "Development activity type",
+            "id": "jzksn7lA2ac"
+        },
+        {
+            "name": "Diagnosis (ICD-10)",
+            "shortName": "Diagnosis (ICD-10)",
+            "id": "K6uUAvq500H"
+        },
+        {
+            "name": "Diarrhoea with blood (Dysentery) follow-up",
+            "shortName": "Diarrh. w blood f-u",
+            "id": "vLA3KVFcZIw"
+        },
+        {
+            "name": "Diarrhoea with blood (Dysentery) new",
+            "shortName": "Dysentry new",
+            "id": "nymNRxmnj4z"
+        },
+        {
+            "name": "Diarrhoea with blood (Dysentery) referrals",
+            "shortName": "Diarrhoea w blood r.",
+            "id": "HQv1p570ldT"
+        },
+        {
+            "name": "Diarrhoea without severe dehydration follow-up",
+            "shortName": "Diarrh. wo s deh f-u",
+            "id": "nvkbuPrYmDd"
+        },
+        {
+            "name": "Diarrhoea without severe dehydration new",
+            "shortName": "Diarrhoea wo s deh n",
+            "id": "U3jd8zVFKxY"
+        },
+        {
+            "name": "Diarrhoea with severe dehydration follow-up",
+            "shortName": "Diarrh. sev deh f-u",
+            "id": "ndb4fIRrQbM"
+        },
+        {
+            "name": "Diarrhoea with severe dehydration new",
+            "shortName": "Diarrhoea s deh new ",
+            "id": "UfZcabJUVcZ"
+        },
+        {
+            "name": "Diarrhoea with severe dehydration referrals",
+            "shortName": "Diarrh. sev deh ref",
+            "id": "HpM1I5qc3Pb"
+        },
+        {
+            "name": "Discharge Date",
+            "shortName": "Discharge Date",
+            "id": "msodh3rEMJa"
+        },
+        {
+            "name": "Dispenser",
+            "shortName": "Dispenser",
+            "id": "EzR5Y2V0JF9"
+        },
+        {
+            "name": "Distance of inhabitants (with malaria) from breeding site",
+            "shortName": "Distance of inhabitants from breeding site",
+            "id": "okV7juK4t4M"
+        },
+        {
+            "name": "District/block/sub-block",
+            "shortName": "District, block",
+            "id": "xPs1qQeCRmq"
+        },
+        {
+            "name": "Doctor",
+            "shortName": "Doctor",
+            "id": "nlQztbooKAj"
+        },
+        {
+            "name": "Documentation",
+            "shortName": "Documentation",
+            "id": "ulD2zW0TIy2"
+        },
+        {
+            "name": "DOT 3 days",
+            "shortName": "DOT 3 days",
+            "id": "iI24WVP95js"
+        },
+        {
+            "name": "Dysentery (Deaths < 5 yrs)",
+            "shortName": "Dysentery (Deaths < 5 yrs)",
+            "id": "Ix2HsbDMLea"
+        },
+        {
+            "name": "EDC Unit Assitant",
+            "shortName": "EDC Unit Assitant",
+            "id": "zSl1hUZBDHY"
+        },
+        {
+            "name": "Effectiveness of response",
+            "shortName": "Effectiveness of response",
+            "id": "NiF6K3MXHsi"
+        },
+        {
+            "name": "EHO",
+            "shortName": "EHO",
+            "id": "kFmyXB7IYrK"
+        },
+        {
+            "name": "Equipment is placed in appropriate reachable areas",
+            "shortName": "Equipment is placed appropriate",
+            "id": "uZJkd96hYCm"
+        },
+        {
+            "name": "ER Census reports produced",
+            "shortName": "Census reports produced",
+            "id": "w1G4l0cSxOi"
+        },
+        {
+            "name": "ER Children trained on key survival skills",
+            "shortName": "Children trained on key survival skills",
+            "id": "KFnFpbqDqji"
+        },
+        {
+            "name": "ER Teacher accommodation constructed",
+            "shortName": "Teacher accommodation constructed",
+            "id": "AcXiLSABIOe"
+        },
+        {
+            "name": "ER Teachers trained",
+            "shortName": "Teachers trained",
+            "id": "EX2jDbKe4Yq"
+        },
+        {
+            "name": "ER Teacher training programs designed",
+            "shortName": "Teacher training programs designed",
+            "id": "zFFb3bar4Ct"
+        },
+        {
+            "name": "ER Teaching materials improved",
+            "shortName": "Teaching materials improved",
+            "id": "l8gZXKhwawK"
+        },
+        {
+            "name": "ER Technical support visits",
+            "shortName": "Technical support visits",
+            "id": "DCSDJH4IFUG"
+        },
+        {
+            "name": "ER Visits in schools",
+            "shortName": "Visits in schools",
+            "id": "oI6YtDaVFcw"
+        },
+        {
+            "name": "ER Vulnerable families receiving follow-up visits",
+            "shortName": "Vulnerable families receiving follow-up visits",
+            "id": "LCmAJHuXaoG"
+        },
+        {
+            "name": "ER Workshops conducted",
+            "shortName": "Workshops conducted",
+            "id": "qiaHMoI3bjA"
+        },
+        {
+            "name": "Evidence",
+            "shortName": "Evidence",
+            "id": "PILB3GtIwiJ"
+        },
+        {
+            "name": "Examination table with pad",
+            "shortName": "Examination table with pad",
+            "id": "cG4A76jrZmp"
+        },
+        {
+            "name": "EXP Cars Expense",
+            "shortName": "Cars Expense",
+            "id": "BDuY694ZAFa"
+        },
+        {
+            "name": "EXP Drugs Expense",
+            "shortName": "Drugs Expense",
+            "id": "ixDKJGrGtFg"
+        },
+        {
+            "name": "Expected pregnancies",
+            "shortName": "Expected pregnancies",
+            "id": "h0xKKjijTdI"
+        },
+        {
+            "name": "EXP Salary Expense",
+            "shortName": "Salary Expense",
+            "id": "M3anTdbJ7iJ"
+        },
+        {
+            "name": "EXP Security Expense",
+            "shortName": "Security Expense",
+            "id": "dHrtL2a4EcD"
+        },
+        {
+            "name": "EXP Sheets Expense",
+            "shortName": "Sheets Expense",
+            "id": "RR538iV9G1X"
+        },
+        {
+            "name": "Eye infection follow-up",
+            "shortName": "Eye infection f-u",
+            "id": "QV7HsRncdCz"
+        },
+        {
+            "name": "Eye infection new",
+            "shortName": "Eye infection new",
+            "id": "BQI18TPLR7W"
+        },
+        {
+            "name": "Eye infection referrals",
+            "shortName": "Eye infection ref.",
+            "id": "XfsVSt4zciP"
+        },
+        {
+            "name": "Facility has access to running water",
+            "shortName": "Facility has access to running water",
+            "id": "TLSChlBcw7L"
+        },
+        {
+            "name": "Facility has access to stable electrical power",
+            "shortName": "Facility has access to stable electrical power",
+            "id": "UMJym1vYPSu"
+        },
+        {
+            "name": "Facility has access to stable Internet connectivity",
+            "shortName": "Facility has access to stable Internet connectivit",
+            "id": "MJYalhqFsHK"
+        },
+        {
+            "name": "Fever",
+            "shortName": "Fever",
+            "id": "rzhHSqK3lQq"
+        },
+        {
+            "name": "Foci malaria positive",
+            "shortName": "Foci malaria positive",
+            "id": "JmZ0m8Q3gwh"
+        },
+        {
+            "name": "Foci malaria test",
+            "shortName": "Foci malaria test",
+            "id": "rFQNCGMYud2"
+        },
+        {
+            "name": "Focus date of classification",
+            "shortName": "Focus date of classification",
+            "id": "bl7EMKxJIIT"
+        },
+        {
+            "name": "Focus final classification",
+            "shortName": "Focus final classification",
+            "id": "fjdU9F6EngS"
+        },
+        {
+            "name": "Foetal heart recorded hourly",
+            "shortName": "Foetal heart recorded hourly",
+            "id": "BbE5wGi3gZl"
+        },
+        {
+            "name": "Follow-up diagnosis actions",
+            "shortName": "Follow-up diagnosis actions",
+            "id": "UfCjMVB4gFT"
+        },
+        {
+            "name": "Follow-up treatment actions",
+            "shortName": "Follow-up treatment actions",
+            "id": "ErApFcbWNtV"
+        },
+        {
+            "name": "Follow-up vector control action details",
+            "shortName": "Vector control action details",
+            "id": "zgnTlAH4ZOk"
+        },
+        {
+            "name": "Follow-up vector control action details 2",
+            "shortName": "Vector control action details 2",
+            "id": "Y14cBKFUsg4"
+        },
+        {
+            "name": "Follow-up vector control action details 3",
+            "shortName": "Vector control action details 3",
+            "id": "pKj8YrNKVda"
+        },
+        {
+            "name": "Follow-up vector control action details 4",
+            "shortName": "Vector control action details 4",
+            "id": "E09G4giWspB"
+        },
+        {
+            "name": "Follow-up vector control action details 5",
+            "shortName": "Vector control action details 5",
+            "id": "nrVAe60NnBJ"
+        },
+        {
+            "name": "Follow-up vector control actions",
+            "shortName": "Follow-up vector control actions",
+            "id": "TOxArSXVv3E"
+        },
+        {
+            "name": "Follow-up vector control actions 2",
+            "shortName": "Follow-up vector control actions 2",
+            "id": "wNvEmaLLGE2"
+        },
+        {
+            "name": "Follow-up vector control actions 3",
+            "shortName": "Follow-up vector control actions 3",
+            "id": "h0w2rWQVRsQ"
+        },
+        {
+            "name": "Follow-up vector control actions 4",
+            "shortName": "Follow-up vector control actions 4",
+            "id": "fHRsTEml7pq"
+        },
+        {
+            "name": "Follow-up vector control actions 5",
+            "shortName": "Follow-up vector control actions 5",
+            "id": "Qvb7NExMqjZ"
+        },
+        {
+            "name": "Fully Immunized child",
+            "shortName": "Fully Immunized Child",
+            "id": "UOlfIjgN8X6"
+        },
+        {
+            "name": "Gender",
+            "shortName": "Gender",
+            "id": "oZg33kd9taw"
+        },
+        {
+            "name": "General state of facility",
+            "shortName": "General state of facility",
+            "id": "sJWqKsx0ghX"
+        },
+        {
+            "name": "Geographical features",
+            "shortName": "Geographical features",
+            "id": "SaHE38QFFwZ"
+        },
+        {
+            "name": "Glucometer is present",
+            "shortName": "Glucometer is present",
+            "id": "y3S3a9e4ugi"
+        },
+        {
+            "name": "GPS DataElement",
+            "shortName": "GPS DataElement",
+            "id": "GyJHQUWZ9Rl"
+        },
+        {
+            "name": "Grounds are maintained and are safe and clean",
+            "shortName": "Grounds are maintained and are safe and ",
+            "id": "Kjvr9TNOmC1"
+        },
+        {
+            "name": "Height in cm",
+            "shortName": "Height in cm",
+            "id": "GieVkTxp4HH"
+        },
+        {
+            "name": "HIV: counseling",
+            "shortName": "HIV counseling",
+            "id": "o0fOD1HLuv8"
+        },
+        {
+            "name": "HIV: currently on care",
+            "shortName": "HIV currently on care",
+            "id": "ZwrIPRUiHEB"
+        },
+        {
+            "name": "HIV exposed children tested at 12 months",
+            "shortName": "Child test HIV 12m",
+            "id": "ESGq1GV8YEE"
+        },
+        {
+            "name": "HIV exposed children tested at 18 months",
+            "shortName": "Child test HIV 18m",
+            "id": "ECYnLIh3IdU"
+        },
+        {
+            "name": "HIV exposed children with positive result at 12 months",
+            "shortName": "HIV test+ 12m child",
+            "id": "ifTgszmp25q"
+        },
+        {
+            "name": "HIV exposed children with positive result at 18 months",
+            "shortName": "HIV test+ 18m child",
+            "id": "cxkB6Csdae7"
+        },
+        {
+            "name": "HIV exposed infants initiated cotrim from age 6 wks",
+            "shortName": "Inf. on cotrim 6w",
+            "id": "dL7MKVOSCUf"
+        },
+        {
+            "name": "HIV infected children given cotrim prophylaxis (18m-18y)",
+            "shortName": "HIV ch cotrim prof.",
+            "id": "ofqavN7bUXQ"
+        },
+        {
+            "name": "HIV: new on care",
+            "shortName": "HIV new on care",
+            "id": "veW7w0xDDOQ"
+        },
+        {
+            "name": "HIV positive children lost to follow-up",
+            "shortName": "HIV+ child lost f-up",
+            "id": "PwAOGo407Kq"
+        },
+        {
+            "name": "HIV positive women assessed for ART eligibility by CD4 counting",
+            "shortName": "HIV+ w ART CD4",
+            "id": "u6yhzgWPIsj"
+        },
+        {
+            "name": "HIV positive women assessed for ART eligibility by clinical staging",
+            "shortName": "HIV+ w. ART staging",
+            "id": "CwnEqKR0ebt"
+        },
+        {
+            "name": "HIV related deaths (children)",
+            "shortName": "HIV rel. deaths ch.",
+            "id": "pN3V4jZeCmU"
+        },
+        {
+            "name": "HIV: testing",
+            "shortName": "HIV testing",
+            "id": "R4KStuS8qt7"
+        },
+        {
+            "name": "Household Investigation Conducted By",
+            "shortName": "HH Investigation Conducted By",
+            "id": "VGASkvkD2Vf"
+        },
+        {
+            "name": "Household location",
+            "shortName": "Household location",
+            "id": "F3ogKBuviRA"
+        },
+        {
+            "name": "Household members fever past month",
+            "shortName": "HH members fever past month",
+            "id": "rIjZnxmjGpg"
+        },
+        {
+            "name": "Household members malaria positive",
+            "shortName": "HH members malaria positive",
+            "id": "qxWAgIAfZAh"
+        },
+        {
+            "name": "Household members tested for malaria",
+            "shortName": "HH members Malaria tested ",
+            "id": "y57kkdyw35d"
+        },
+        {
+            "name": "Households",
+            "shortName": "Households",
+            "id": "VNM6zoPECqd"
+        },
+        {
+            "name": "Households included",
+            "shortName": "Households included",
+            "id": "k0rev4WSffi"
+        },
+        {
+            "name": "Households in neighbourhood",
+            "shortName": "Households in neighbourhood",
+            "id": "fPPOb4St6ea"
+        },
+        {
+            "name": "Households in neighbourhood where a case was detected",
+            "shortName": "Households in neighbourhood case detected",
+            "id": "VOIXEuqBTBI"
+        },
+        {
+            "name": "Household sprayed in the past 6 months",
+            "shortName": "HH sprayed in past 6m",
+            "id": "AeVEKN0zwJJ"
+        },
+        {
+            "name": "Households screened",
+            "shortName": "Households screened",
+            "id": "p2NvDm7mWM3"
+        },
+        {
+            "name": "Hypertension follow-up",
+            "shortName": "Hypertension f-u",
+            "id": "h0BwBQO9XUf"
+        },
+        {
+            "name": "Hypertension new",
+            "shortName": "Hypertension new",
+            "id": "UXW5hWW8dE1"
+        },
+        {
+            "name": "Hypertension referrals",
+            "shortName": "Hypertension ref.",
+            "id": "X5GbcxQCasr"
+        },
+        {
+            "name": "IC Activity",
+            "shortName": "IC Activity",
+            "id": "f3Rn9XPEQuv"
+        },
+        {
+            "name": "IC Age",
+            "shortName": "IC Age",
+            "id": "Dv7iIitX44Y"
+        },
+        {
+            "name": "IC Group Type",
+            "shortName": "IC Group Type",
+            "id": "UuL3eX8KJHY"
+        },
+        {
+            "name": "IC People reached",
+            "shortName": "IC People reached",
+            "id": "lsJCUffec9h"
+        },
+        {
+            "name": "IC Topic",
+            "shortName": "IC Topic",
+            "id": "deQEw93Vr4j"
+        },
+        {
+            "name": "IC Venue",
+            "shortName": "IC Venue",
+            "id": "DvrjjquRrvF"
+        },
+        {
+            "name": "IDSR Cholera",
+            "shortName": "Cholera",
+            "id": "UsSUX0cpKsH"
+        },
+        {
+            "name": "IDSR Malaria",
+            "shortName": "Malaria",
+            "id": "vq2qO3eTrNi"
+        },
+        {
+            "name": "IDSR Measles",
+            "shortName": "Measles",
+            "id": "YazgqXbizv1"
+        },
+        {
+            "name": "IDSR Plague",
+            "shortName": "Plague",
+            "id": "HS9zqaBdOQ4"
+        },
+        {
+            "name": "IDSR Yellow fever",
+            "shortName": "Yellow fever",
+            "id": "noIzB569hTM"
+        },
+        {
+            "name": "Index case",
+            "shortName": "Index case",
+            "id": "QBrhoanBAV5"
+        },
+        {
+            "name": "Infants born to HIV Positive mothers (exposed)",
+            "shortName": "HIV exposed infants",
+            "id": "XB4uzhs4Is4"
+        },
+        {
+            "name": "Infants delivered in the health facility female",
+            "shortName": "Inf delivered PHU F",
+            "id": "avs8Dhz3OoG"
+        },
+        {
+            "name": "Infants delivered in the health facility male",
+            "shortName": "Inf delivered PHU M",
+            "id": "N9vniUuCcqY"
+        },
+        {
+            "name": "Inpatient cases",
+            "shortName": "Inpatient cases",
+            "id": "WHBtsCMZVAE"
+        },
+        {
+            "name": "Inpatient deaths",
+            "shortName": "Inpatient deaths",
+            "id": "ZRVfMoPKK05"
+        },
+        {
+            "name": "Inpatient malaria cases",
+            "shortName": "Inpatient malaria cases",
+            "id": "p4K11MFEWtw"
+        },
+        {
+            "name": "Inpatient malaria deaths",
+            "shortName": "Inpatient malaria deaths",
+            "id": "wWy5TE9cQ0V"
+        },
+        {
+            "name": "Inpatient Place of Infection",
+            "shortName": "Inpatient Place of Infection",
+            "id": "S33cRBsnXPo"
+        },
+        {
+            "name": "Insured patient",
+            "shortName": "Insured patient",
+            "id": "IyAKwL6Zjkl"
+        },
+        {
+            "name": "IPT 1st dose given at PHU",
+            "shortName": "IPT 1st at PHU",
+            "id": "bqK6eSIwo3h"
+        },
+        {
+            "name": "IPT 1st dose given by TBA",
+            "shortName": "IPT 1st by TBA",
+            "id": "yTHydhurQQU"
+        },
+        {
+            "name": "IPT 2nd dose given at PHU",
+            "shortName": "IPT 2nd at PHU",
+            "id": "V37YqbqpEhV"
+        },
+        {
+            "name": "IPT 2nd dose given by TBA",
+            "shortName": "IPT 2nd by TBA",
+            "id": "SA7WeFZnUci"
+        },
+        {
+            "name": "Iron Folate given at ANC 3rd",
+            "shortName": "Iron Folate at ANC 3",
+            "id": "rbkr8PL0rwM"
+        },
+        {
+            "name": "IRS coverage (%)",
+            "shortName": "IRS coverage (%)",
+            "id": "Pm5sXfeRbzp"
+        },
+        {
+            "name": "Laboratory Assistant",
+            "shortName": "Lab Assistant",
+            "id": "eizakNwF2ep"
+        },
+        {
+            "name": "Laboratory Technician",
+            "shortName": "Lab Tech",
+            "id": "v0Shu9zrSh0"
+        },
+        {
+            "name": "Lassa fever follow-up",
+            "shortName": "Lassa fever f-u",
+            "id": "dVdxnTNL2jZ"
+        },
+        {
+            "name": "Lassa fever new",
+            "shortName": "Lassa feve new",
+            "id": "NCteyX2xpMf"
+        },
+        {
+            "name": "Lassa fever referrals",
+            "shortName": "Lassa fever ref.",
+            "id": "uz8dqEzuxyc"
+        },
+        {
+            "name": "Leprosy follow-up",
+            "shortName": "Leprosy follow-up",
+            "id": "kqqgh0EOlcA"
+        },
+        {
+            "name": "Leprosy new",
+            "shortName": "Leprosy new",
+            "id": "zAW6b5Owalk"
+        },
+        {
+            "name": "Leprosy referrals",
+            "shortName": "Leprosy referrals",
+            "id": "KAXjpSLFlhB"
+        },
+        {
+            "name": "Lighting and ventilation is observed to be adequate",
+            "shortName": "Lighting and ventilation is adequate",
+            "id": "X0rTbbFpRTO"
+        },
+        {
+            "name": "Live births",
+            "shortName": "Live births",
+            "id": "gQNFkFkObU8"
+        },
+        {
+            "name": "LLIN coverage (%)",
+            "shortName": "LLIN coverage (%)",
+            "id": "fADIatyOu2g"
+        },
+        {
+            "name": "LLINs displayed",
+            "shortName": "LLINs displayed",
+            "id": "JhpYDsTUfi2"
+        },
+        {
+            "name": "LLIN usage (%)",
+            "shortName": "LLIN usage (%)",
+            "id": "g6tH05ItHEm"
+        },
+        {
+            "name": "LLITN given after delivery",
+            "shortName": "LLITN after delivery",
+            "id": "ntzmpYRSKGg"
+        },
+        {
+            "name": "LLITN given at ANC 1st",
+            "shortName": "LITTN at ANC 1st",
+            "id": "ybzlGLjWwnK"
+        },
+        {
+            "name": "LLITN given at Penta3",
+            "shortName": "LLITN at Penta3",
+            "id": "z7duEFcpApd"
+        },
+        {
+            "name": "Local Case Classification",
+            "shortName": "Local Case Classification",
+            "id": "doBYriW7P5a"
+        },
+        {
+            "name": "Louse Borne Typhus - Relapsing fever (Deaths < 5 yrs)",
+            "shortName": "Louse Borne Typhus (Deaths < 5 yrs)",
+            "id": "NpJtsQkMTm3"
+        },
+        {
+            "name": "Low birth weight in community",
+            "shortName": "NoLowBirthWeig<2.5.O",
+            "id": "Ce6kAvaHsxR"
+        },
+        {
+            "name": "Low birth weight in PHU",
+            "shortName": "NoLowBirthWeig<2.5.F",
+            "id": "DvEF1SdMORa"
+        },
+        {
+            "name": "Main breeding site",
+            "shortName": "Main breeding site",
+            "id": "bW5ZTqkCTHy"
+        },
+        {
+            "name": "Main breeding sites",
+            "shortName": "Main breeding sites",
+            "id": "Vbv4EDAeXJl"
+        },
+        {
+            "name": "Malaria case classification",
+            "shortName": "Malaria case classification",
+            "id": "ElxhP9pTTP6"
+        },
+        {
+            "name": "Malaria confirmed mixed (CI)",
+            "shortName": "Malaria confirmed mixed (CI)",
+            "id": "HUPFagklWaN"
+        },
+        {
+            "name": "Malaria confirmed mixed (foci)",
+            "shortName": "Malaria confirmed mixed (foci)",
+            "id": "vYH71AeWNQK"
+        },
+        {
+            "name": "Malaria confirmed Pf (CI)",
+            "shortName": "Malaria Pf (CI)",
+            "id": "jt8mzqlDEjd"
+        },
+        {
+            "name": "Malaria confirmed Pf (foci)",
+            "shortName": "Malaria confirmed Pf (foci)",
+            "id": "Xh63x0mfF5o"
+        },
+        {
+            "name": "Malaria confirmed Pk (CI)",
+            "shortName": "Malaria confirmed Pk (CI)",
+            "id": "ZB8ZUUsxqsd"
+        },
+        {
+            "name": "Malaria confirmed Pk (foci)",
+            "shortName": "Malaria confirmed Pk (foci)",
+            "id": "NMtyvCDiGxh"
+        },
+        {
+            "name": "Malaria confirmed Pm (CI)",
+            "shortName": "Malaria confirmed Pm (CI)",
+            "id": "sJ23PICb6Fy"
+        },
+        {
+            "name": "Malaria confirmed Pm (foci)",
+            "shortName": "Malaria confirmed Pm (foci)",
+            "id": "qYaI3TszPET"
+        },
+        {
+            "name": "Malaria confirmed Po (CI)",
+            "shortName": "Malaria confirmed Po (CI)",
+            "id": "E2K6KluoF7L"
+        },
+        {
+            "name": "Malaria confirmed Po (foci)",
+            "shortName": "Malaria confirmed Po (foci)",
+            "id": "PaliV83bIb9"
+        },
+        {
+            "name": "Malaria confirmed Pv (CI)",
+            "shortName": "Malaria confirmed Pv (CI)",
+            "id": "ImgnHPhcNYE"
+        },
+        {
+            "name": "Malaria confirmed Pv (foci)",
+            "shortName": "Malaria confirmed Pv (foci)",
+            "id": "XjcDg2kOmqf"
+        },
+        {
+            "name": "Malaria (Deaths < 5 yrs)",
+            "shortName": "Malaria (Deaths < 5 yrs)",
+            "id": "r6nrJANOqMw"
+        },
+        {
+            "name": "Malaria (Deaths < 5 yrs) Narrative",
+            "shortName": "Malaria (Deaths < 5 yrs) Narrative",
+            "id": "a0WhmKHnZ6J"
+        },
+        {
+            "name": "Malaria history",
+            "shortName": "Malaria history",
+            "id": "cpXwLgQTLeO"
+        },
+        {
+            "name": "Malaria inpatient/outpatient",
+            "shortName": "Services",
+            "id": "E0W0ZTTosXK"
+        },
+        {
+            "name": "Malaria Medication",
+            "shortName": "Malaria Medication",
+            "id": "nTMP8Aj1rYA"
+        },
+        {
+            "name": "Malaria medication completed",
+            "shortName": "Malaria medication completed",
+            "id": "uYreHlUd6RL"
+        },
+        {
+            "name": "Malaria Outbreak Threshold",
+            "shortName": "Malaria Outbreak Threshold",
+            "id": "nXJJZNVAy0Y"
+        },
+        {
+            "name": "Malaria positive (people in neighbourhood)",
+            "shortName": "Malaria positive (neighbourhood)",
+            "id": "LvJ1d1ytjfb"
+        },
+        {
+            "name": "Malaria positive species",
+            "shortName": "Malaria +ve species",
+            "id": "vGxpKVMkmaW"
+        },
+        {
+            "name": "Malaria referrals",
+            "shortName": "Malaria referrals",
+            "id": "hnwWyM4gDSg"
+        },
+        {
+            "name": "Malaria test",
+            "shortName": "Malaria test",
+            "id": "qdjVZojEK8S"
+        },
+        {
+            "name": "Malaria tested (people in neighbourhood)",
+            "shortName": "Malaria tested (neighbourhood)",
+            "id": "r9O7yJrA41g"
+        },
+        {
+            "name": "Malaria test result",
+            "shortName": "Malaria result",
+            "id": "aY4kB8kS521"
+        },
+        {
+            "name": "Malaria treated at PHU with ACT < 24 hrs f-up",
+            "shortName": "Malaria PHU wACT<24f",
+            "id": "CecywZWejT3"
+        },
+        {
+            "name": "Malaria treated at PHU with ACT > 24 hrs f-up",
+            "shortName": "Malaria PHU wACT>24f",
+            "id": "bVkFujnp3F2"
+        },
+        {
+            "name": "Malaria treated at PHU with ACT < 24 hrs new",
+            "shortName": "Malaria PHU wACT<24n",
+            "id": "AFM5H0wNq3t"
+        },
+        {
+            "name": "Malaria treated at PHU with ACT > 24 hrs new",
+            "shortName": "Malaria PHU wACT>24n",
+            "id": "d92E7cpMvdl"
+        },
+        {
+            "name": "Malaria treated at PHU without ACT < 24 hrs f-up",
+            "shortName": "MalariaPHU woACT<24f",
+            "id": "iIBbZPAqnMt"
+        },
+        {
+            "name": "Malaria treated at PHU without ACT > 24 hrs f-up",
+            "shortName": "MalariaPHU woACT>24f",
+            "id": "pgi981WXhas"
+        },
+        {
+            "name": "Malaria treated at PHU without ACT < 24 hrs new",
+            "shortName": "MalariaPHU woACT<24n",
+            "id": "nmh0BSu3vaV"
+        },
+        {
+            "name": "Malaria treated at PHU without ACT > 24 hrs new",
+            "shortName": "MalariaPHU woACT>24n",
+            "id": "EGUJY3jQdJ6"
+        },
+        {
+            "name": "Malaria treated in community with ACT <24 hrs f-up",
+            "shortName": "Malaria com wAC<24f",
+            "id": "TQnDEASFsVH"
+        },
+        {
+            "name": "Malaria treated in community with ACT >24 hrs f-up",
+            "shortName": "Malaria com wACT>24f",
+            "id": "vzcahelbU5s"
+        },
+        {
+            "name": "Malaria treated in community with ACT <24 hrs new",
+            "shortName": "Malaria com wAC<24n",
+            "id": "x8gsvCKjGdZ"
+        },
+        {
+            "name": "Malaria treated in community with ACT >24 hrs new",
+            "shortName": "Malaria com wACT>24n",
+            "id": "kcbTUfABUck"
+        },
+        {
+            "name": "Maternal death",
+            "shortName": "Maternal death",
+            "id": "FUrCpcvMAmC"
+        },
+        {
+            "name": "MCH Aide",
+            "shortName": "Aide",
+            "id": "q7QXzNnSstn"
+        },
+        {
+            "name": "MCH ANC Visit",
+            "shortName": "ANC Visit",
+            "id": "g9eOBujte1U"
+        },
+        {
+            "name": "MCH Apgar comment",
+            "shortName": "Apgar comment",
+            "id": "H6uSAMO5WLD"
+        },
+        {
+            "name": "MCH Apgar Score",
+            "shortName": "Apgar Score",
+            "id": "a3kGcGDCuk6"
+        },
+        {
+            "name": "MCH ARV at birth",
+            "shortName": "ARV at birth",
+            "id": "wQLfBvPrXqq"
+        },
+        {
+            "name": "MCH ARVs",
+            "shortName": "ARVs",
+            "id": "NALlPhMmMTQ"
+        },
+        {
+            "name": "MCH BCG dose",
+            "shortName": "BCG dose",
+            "id": "bx6fsa0t90x"
+        },
+        {
+            "name": "MCH Blood Pressure",
+            "shortName": "BP",
+            "id": "KVQpGEjHluk"
+        },
+        {
+            "name": "MCH Breast Status",
+            "shortName": "Status of the brest",
+            "id": "thO0LN2i2OJ"
+        },
+        {
+            "name": "MCH CD4 count",
+            "shortName": "CD4 Count",
+            "id": "XorIxxprsOp"
+        },
+        {
+            "name": "MCH Cervix Status",
+            "shortName": "Status of the cervix",
+            "id": "DWcWXE0xO2b"
+        },
+        {
+            "name": "MCH Child ARVs",
+            "shortName": "Child ARVs",
+            "id": "sj3j9Hwc7so"
+        },
+        {
+            "name": "MCH Condition of baby on discharge",
+            "shortName": "Condition of baby on discharge",
+            "id": "PuakB9BOtIV"
+        },
+        {
+            "name": "MCH Condition of mother on discharge",
+            "shortName": "Condition of mother on discharge",
+            "id": "Rbv6wcblbxe"
+        },
+        {
+            "name": "MCH CTX",
+            "shortName": "CTX",
+            "id": "ihOp58eRcG3"
+        },
+        {
+            "name": "MCH Date of Delivery",
+            "shortName": "Date of Delivery",
+            "id": "uxRgo9bGWhX"
+        },
+        {
+            "name": "MCH Delivery Comment",
+            "shortName": "Delivery Comment",
+            "id": "tLn2UVJJ9kO"
+        },
+        {
+            "name": "MCH DPT dose",
+            "shortName": "DPT dose",
+            "id": "pOe0ogW4OWd"
+        },
+        {
+            "name": "MCH Family Planning",
+            "shortName": "Family Planning",
+            "id": "DBFcMGod0Wy"
+        },
+        {
+            "name": "MCH HB",
+            "shortName": "HB",
+            "id": "xjTklbpY6oG"
+        },
+        {
+            "name": "MCH HIV Test Type",
+            "shortName": "HIV Test Type",
+            "id": "hDZbpskhqDd"
+        },
+        {
+            "name": "MCH Infant Feeding",
+            "shortName": "Infant Feeding",
+            "id": "X8zyunlgUfM"
+        },
+        {
+            "name": "MCH Infant HIV Test Result",
+            "shortName": "Infant HIV Test Result",
+            "id": "cYGaxwK615G"
+        },
+        {
+            "name": "MCH Infant Weight  (g)",
+            "shortName": "Infant Weight (g)",
+            "id": "GQY2lXrypjO"
+        },
+        {
+            "name": "MCH IPT dose",
+            "shortName": "IPT dose",
+            "id": "lNNb3truQoi"
+        },
+        {
+            "name": "MCH Iron/Folic",
+            "shortName": "Iron/Folic",
+            "id": "EzMxXuVww2z"
+        },
+        {
+            "name": "MCH ITN",
+            "shortName": "ITN",
+            "id": "sMspMpbvDYI"
+        },
+        {
+            "name": "MCH Mabendazole",
+            "shortName": "Mabendazole",
+            "id": "pB5sL7Ts4fb"
+        },
+        {
+            "name": "MCH Management of 3rd stage",
+            "shortName": "3rd stage mgt",
+            "id": "gvrK6CxWTcp"
+        },
+        {
+            "name": "MCH Measles dose",
+            "shortName": "Measles dose",
+            "id": "FqlgKAG8HOu"
+        },
+        {
+            "name": "MCH Mode of Delivery",
+            "shortName": "Mode of Delivery",
+            "id": "fIy3fOtkbdS"
+        },
+        {
+            "name": "MCH MUAC",
+            "shortName": "MUAC",
+            "id": "utliJZmDeeC"
+        },
+        {
+            "name": "MCH OPV dose",
+            "shortName": "OPV dose",
+            "id": "ebaJjqltK5N"
+        },
+        {
+            "name": "MCH Penta dose",
+            "shortName": "Penta dose",
+            "id": "vTUhAUZFoys"
+        },
+        {
+            "name": "MCH PMTCT P",
+            "shortName": "PMTCT P",
+            "id": "SMo8UtuSF5p"
+        },
+        {
+            "name": "MCH PMTCT W",
+            "shortName": "PMTCT W",
+            "id": "jkKCVlLRsFD"
+        },
+        {
+            "name": "MCH Polio dose",
+            "shortName": "Polio dose",
+            "id": "uRYRt4fs52Q"
+        },
+        {
+            "name": "MCH Results given to caretaker",
+            "shortName": "Results given to caretake",
+            "id": "BeynU4L6VCQ"
+        },
+        {
+            "name": "MCH Septrin Given",
+            "shortName": "Septrin Given",
+            "id": "aei1xRjSU2l"
+        },
+        {
+            "name": "MCH Status of the Baby (PNC)",
+            "shortName": "baby status PNC",
+            "id": "L9G6ZtxbfjG"
+        },
+        {
+            "name": "MCH Syphilis Test",
+            "shortName": "Syphilis Test",
+            "id": "r0VOslrt2RP"
+        },
+        {
+            "name": "MCH TB Status",
+            "shortName": "TB Status",
+            "id": "wpKRnvM14KO"
+        },
+        {
+            "name": "MCH Tetatus",
+            "shortName": "Tetanus",
+            "id": "gAbD3uDVHHh"
+        },
+        {
+            "name": "MCH Visit Comment",
+            "shortName": "Visit Comment",
+            "id": "OuJ6sgPyAbC"
+        },
+        {
+            "name": "MCH Vit A",
+            "shortName": "Vit A",
+            "id": "HLmTEmupdX0"
+        },
+        {
+            "name": "MCH Weight (g)",
+            "shortName": "Weight (g)",
+            "id": "UXz7xuGCEhU"
+        },
+        {
+            "name": "MCH WHO Stage",
+            "shortName": "WHO Stage",
+            "id": "DRGELgdyWk9"
+        },
+        {
+            "name": "MCH Yellow fever dose",
+            "shortName": "Yellow fever dose",
+            "id": "rxBfISxXS2U"
+        },
+        {
+            "name": "Measles (Deaths < 5 yrs)",
+            "shortName": "Measles (Deaths < 5 yrs)",
+            "id": "f7n9E0hX8qk"
+        },
+        {
+            "name": "Measles (Deaths < 5 yrs) Narrative",
+            "shortName": "Measles (Deaths < 5 yrs) Narrative",
+            "id": "FaVPxpiCab5"
+        },
+        {
+            "name": "Measles doses given",
+            "shortName": "Measles doses given",
+            "id": "YtbsuPPo010"
+        },
+        {
+            "name": "Measles follow-up",
+            "shortName": "Measles follow-up",
+            "id": "uCVKV6PGGNB"
+        },
+        {
+            "name": "Measles new",
+            "shortName": "Measles new",
+            "id": "GCvqIM3IzN0"
+        },
+        {
+            "name": "Measles referrals",
+            "shortName": "Measles referrals",
+            "id": "eomLLbWJfcx"
+        },
+        {
+            "name": "Mebendazole/Albendazole (for children 12-59 months)",
+            "shortName": "De-worming 12-59m",
+            "id": "d5xTg3WR3DP"
+        },
+        {
+            "name": "Meningitis (Deaths < 5 yrs)",
+            "shortName": "Meningitis (Deaths < 5 yrs)",
+            "id": "MSZuQ1mTsia"
+        },
+        {
+            "name": "Meningitis/severe bacterial infection follow-up",
+            "shortName": "Meningitis follow-up",
+            "id": "bBiAGF9UhUy"
+        },
+        {
+            "name": "Meningitis/severe bacterial infection new",
+            "shortName": "Meningitis new",
+            "id": "JFFUt8yR2iW"
+        },
+        {
+            "name": "Meningitis/severe bacterial infection referrals",
+            "shortName": "Meningitis referrals",
+            "id": "hfuTiKOkuKs"
+        },
+        {
+            "name": "Microscopy Result",
+            "shortName": "Microscopy Result",
+            "id": "UheAxQgiyyE"
+        },
+        {
+            "name": "Micro +ve species",
+            "shortName": "Micro +ve species",
+            "id": "BRqksRYCj8a"
+        },
+        {
+            "name": "Midwife",
+            "shortName": "Midwife",
+            "id": "OKj6vV8hmTP"
+        },
+        {
+            "name": "MNCH ANC Attendance",
+            "shortName": "MNCH ANC Attendance",
+            "id": "WQSdEl9xUMA"
+        },
+        {
+            "name": "MNCH ANC registrants",
+            "shortName": "MNCH ANC registrants",
+            "id": "iYCGteGcr6Q"
+        },
+        {
+            "name": "MNCH Breech/shoulder delivery",
+            "shortName": "MNCH Breech/shoulder delivery",
+            "id": "ijIsjbvXFJL"
+        },
+        {
+            "name": "MNCH Caesarean section deliveries",
+            "shortName": "MNCH Caesarean section deliveries",
+            "id": "DosHq4vnsYv"
+        },
+        {
+            "name": "MNCH Cases of anaemia during ANC",
+            "shortName": "MNCH Cases of anaemia during ANC",
+            "id": "QhKQD2wHowC"
+        },
+        {
+            "name": "MNCH Destructive operations delivery",
+            "shortName": "MNCH Destructive operations delivery",
+            "id": "Q8lOv2CAUjf"
+        },
+        {
+            "name": "MNCH Heamoglobin checks performed during ANC",
+            "shortName": "MNCH Heamoglobin checks performed",
+            "id": "aLF5wmCZrKF"
+        },
+        {
+            "name": "MNCH Normal deliveries",
+            "shortName": "MNCH Normal deliveries",
+            "id": "SqvCDfGBFzM"
+        },
+        {
+            "name": "MNCH vacuum/forceps delivery",
+            "shortName": "MNCH vacuum/forceps delivery",
+            "id": "g9Tso8plX88"
+        },
+        {
+            "name": "Mode of Discharge",
+            "shortName": "Mode of Discharge",
+            "id": "fWIAEtYVEGk"
+        },
+        {
+            "name": "Months pregnant",
+            "shortName": "Pregnancy months",
+            "id": "Y4EkaFzzGLY"
+        },
+        {
+            "name": "Neonatal Tetanus follow-up",
+            "shortName": "NNT follow-up",
+            "id": "sFMVaj1mHBk"
+        },
+        {
+            "name": "Neonatal Tetanus new",
+            "shortName": "NNT new",
+            "id": "wcwbN1jR0ar"
+        },
+        {
+            "name": "Neonatal Tetanus referrals",
+            "shortName": "NNT referrals",
+            "id": "HFw6q0jUFKI"
+        },
+        {
+            "name": "Newborn protected at birth against tetanus (TT2+)",
+            "shortName": "Newborn protected",
+            "id": "DUSpd8Jq3M7"
+        },
+        {
+            "name": "New on ABC 300mg + ddI 200mg + IDV 400mg + r 100mg",
+            "shortName": "New ABC300ddI200IDV400",
+            "id": "PxT44IblPCq"
+        },
+        {
+            "name": "New on ABC 300mg + ddI 200mg + LPV/r 133.3/33.3mg",
+            "shortName": "New ABC300_ddI200_LPV",
+            "id": "la1f7sqY9sb"
+        },
+        {
+            "name": "New on ART other regimen",
+            "shortName": "New ART other regimen",
+            "id": "lmj0xtl5P6C"
+        },
+        {
+            "name": "New on AZT 10mg/ml + 3TC 10mg/ml + NVP 10mg/ml",
+            "shortName": "New AZT10_3TC10_NVP10",
+            "id": "xrbIG3L9DdO"
+        },
+        {
+            "name": "New on AZT 300mg + 3TC 150mg + ABC 300mg ",
+            "shortName": "New AZT300_3TC150_ABC300",
+            "id": "xETRo03ZfOM"
+        },
+        {
+            "name": "New on AZT 300mg /  3TC 150mg + EFV 600mg",
+            "shortName": "New AZT300_3TC150_EFV600",
+            "id": "tZLjsE0VXrL"
+        },
+        {
+            "name": "New on AZT 300mg / 3TC 150mg + NVP 200mg",
+            "shortName": "New AZT300_3TC150_NVP200",
+            "id": "YX1MQLgAD92"
+        },
+        {
+            "name": "New on AZT 300mg + 3TC 150mg + TDF 300mg ",
+            "shortName": "New AZT300_3TC150_TDF300",
+            "id": "wIQ5ugpWYUH"
+        },
+        {
+            "name": "New on AZT 300mg at 28 wks",
+            "shortName": "New AZT 300mg at 28w",
+            "id": "GgsWqA0YETj"
+        },
+        {
+            "name": "New on AZT + 3TC 300mg + 150mg for 7 days",
+            "shortName": "New AZT+3TC_300+150for7d",
+            "id": "GNY9KvEmRjy"
+        },
+        {
+            "name": "New on AZT + 3TC 300mg + 150mg for 7 days after 36 weeks",
+            "shortName": "NewAZT3TC3001507d36w",
+            "id": "nvsNqhfSSxd"
+        },
+        {
+            "name": "New on AZT + 3TC 300mg + 150mg on labour",
+            "shortName": "New AZT_3TC_300_150 lab",
+            "id": "ozmEltb5V8d"
+        },
+        {
+            "name": "New on AZT + 3TC + NVP 300mg + 150mg + 200mg",
+            "shortName": "New AZT3TCNVP300+150+200",
+            "id": "pVImQlMAla4"
+        },
+        {
+            "name": "New on d4T 30mg + 3TC 100mg + ABC 300mg",
+            "shortName": "New d4T30_3TC100_ABC 300",
+            "id": "hoj1wTJT6ZW"
+        },
+        {
+            "name": "New on d4T 30mg + 3TC 100mg + TDF 300mg ",
+            "shortName": "New d4T30_3TC100_TDF300",
+            "id": "SLcj0Swq8rD"
+        },
+        {
+            "name": "New on d4T 30mg + 3TC 150mg + EFV 600mg",
+            "shortName": "New d4T30_3TC150_EFV600",
+            "id": "x98jMXibptT"
+        },
+        {
+            "name": "New on d4T 30mg / 3TC 150mg / NVP 200mg",
+            "shortName": "New d4T30_3TC150_NVP200",
+            "id": "o44j6gPqFlA"
+        },
+        {
+            "name": "New on d4T / 3TC / NVP 12mg/60mg/100mg",
+            "shortName": "New d4T3TCNVP_12_60_100",
+            "id": "YIDKw3om85t"
+        },
+        {
+            "name": "New on d4T / 3TC / NVP 6mg/30mg/50mg",
+            "shortName": "New d4T_3TC_NVP_6_30_50",
+            "id": "pq4msirdtpr"
+        },
+        {
+            "name": "New on d4T 40mg + 3TC 150mg + EFV 600mg",
+            "shortName": "New d4T40_3TC150_EFV600",
+            "id": "fDkcJaO15aQ"
+        },
+        {
+            "name": "New on d4T 40mg / 3TC 150mg / NVP 200mg",
+            "shortName": "New d4T40_3TC150_NVP200",
+            "id": "xUNvvqqhNwz"
+        },
+        {
+            "name": "New on Infant NVP 10mg/ml (2mg/kg)",
+            "shortName": "New Inf NVP10 (2mg/kg)",
+            "id": "uN64b5MivTO"
+        },
+        {
+            "name": "New on NVP + AZT + 3TC 10mg/ml (2mg/kg) + 10mg/ml + 10mg/ml for 7 days",
+            "shortName": "New NVPAZT3TC10+10+10 7d",
+            "id": "D4PywWuIwy0"
+        },
+        {
+            "name": "New on TDF 300mg + ddI 200mg + IDV 400mg + r 100mg",
+            "shortName": "New TDF300_ddI200_IDV400",
+            "id": "tnDQ80ycQus"
+        },
+        {
+            "name": "New on TDF 300mg + ddI 200mg + LPV/r 133.3mg/33.3mg",
+            "shortName": "New TDF300_ddI200_LPV",
+            "id": "w1554hhXNcq"
+        },
+        {
+            "name": "Non-active malaria foci classification",
+            "shortName": "Non-active malaria foci classification",
+            "id": "ai8q3uo44rl"
+        },
+        {
+            "name": "Non-resident district and country",
+            "shortName": "Non-resident district and country",
+            "id": "OAVNZb2venY"
+        },
+        {
+            "name": "Number of deaths due to tuberculosis excluding HIV",
+            "shortName": "Number of deaths due to tuberculosis excluding HIV",
+            "id": "oUlFoAVdLgB"
+        },
+        {
+            "name": "Number of prevalent tuberculosis cases",
+            "shortName": "Number of prevalent tuberculosis cases",
+            "id": "LseeuddA4Fp"
+        },
+        {
+            "name": "Nursing Aide",
+            "shortName": "Nursing Aide",
+            "id": "DUtltDE5ma1"
+        },
+        {
+            "name": "Onchocerciasis follow-up",
+            "shortName": "Onchocerciasis f-u",
+            "id": "BvuQnfq1C4J"
+        },
+        {
+            "name": "Onchocerciasis new",
+            "shortName": "Onchocerci new",
+            "id": "DrEOxW8mbbh"
+        },
+        {
+            "name": "Onchocerciasis referrals",
+            "shortName": "Onchocerciasis ref.",
+            "id": "q9AIeFQD7zj"
+        },
+        {
+            "name": "OPV0 doses given",
+            "shortName": "OPV0 doses given ",
+            "id": "x3Do5e7g4Qo"
+        },
+        {
+            "name": "OPV1 doses given",
+            "shortName": "OPV1 doses given",
+            "id": "pikOziyCXbM"
+        },
+        {
+            "name": "OPV2 doses given",
+            "shortName": "OPV2 doses given",
+            "id": "O05mAByOgAv"
+        },
+        {
+            "name": "OPV3 doses given",
+            "shortName": "OPV3 doses given",
+            "id": "vI2csg55S9C"
+        },
+        {
+            "name": "Other additional medication (please specify)",
+            "shortName": "Other medication",
+            "id": "QjBlbVQ8QR8"
+        },
+        {
+            "name": "Other breeding site",
+            "shortName": "Other breeding site",
+            "id": "efvdFsY1dme"
+        },
+        {
+            "name": "Other diagnosis method (please specify)",
+            "shortName": "Other diagnosis method",
+            "id": "FxYWTORW4mT"
+        },
+        {
+            "name": "Other staff",
+            "shortName": "Other staff",
+            "id": "viFyEk7JmVd"
+        },
+        {
+            "name": "Other Symptoms",
+            "shortName": "Other Symptoms",
+            "id": "VUUio5uEiyZ"
+        },
+        {
+            "name": "Otitis media follow-up",
+            "shortName": "Otitis media f-u",
+            "id": "ArS7VyuL95f"
+        },
+        {
+            "name": "Otitis media new",
+            "shortName": "Otitis media new",
+            "id": "DWLCM68Q7Zl"
+        },
+        {
+            "name": "Otitis media referrals",
+            "shortName": "Otitis media ref.",
+            "id": "j73ScVBTyP0"
+        },
+        {
+            "name": "Outcome of illness",
+            "shortName": "Outcome ",
+            "id": "zXNfOKXRBA9"
+        },
+        {
+            "name": "PCV1 doses given",
+            "shortName": "PCV1 doses given",
+            "id": "xc8gmAKfO95"
+        },
+        {
+            "name": "PCV2 doses given",
+            "shortName": "PCV2 doses given",
+            "id": "mGN1az8Xub6"
+        },
+        {
+            "name": "PCV3 doses given",
+            "shortName": "PCV3 doses given",
+            "id": "L2kxa2IA2cs"
+        },
+        {
+            "name": "Penta1 doses given",
+            "shortName": "Penta1 doses given",
+            "id": "fClA2Erf6IO"
+        },
+        {
+            "name": "Penta2 doses given",
+            "shortName": "Penta2 doses given",
+            "id": "I78gJm4KBo7"
+        },
+        {
+            "name": "Penta3 doses given",
+            "shortName": "Penta3 doses given",
+            "id": "n6aMJNLdvep"
+        },
+        {
+            "name": "People included",
+            "shortName": "People included",
+            "id": "DX4LVYeP7bw"
+        },
+        {
+            "name": "PFS Date of training (end of training)",
+            "shortName": "PFS Date of training",
+            "id": "qpQinIDQ6Uy"
+        },
+        {
+            "name": "PFS End-of-training assessment - CAC counseling",
+            "shortName": "PFS End-of-training - CAC counseling",
+            "id": "zNXca47AaTh"
+        },
+        {
+            "name": "PFS End-of-training assessment - CAC MVA",
+            "shortName": "PFS End-of-training - CAC MVA",
+            "id": "fQMBEt42CSl"
+        },
+        {
+            "name": "PFS End-of-training assessment - CC FP counseling",
+            "shortName": "PFS End-of-training - CC FP counseling",
+            "id": "PfSefJQpg5g"
+        },
+        {
+            "name": "PFS End-of-training assessment - CC Implanon insertion",
+            "shortName": "PFS End-of-training - CC Implanon insertion",
+            "id": "f2MduVqwPXO"
+        },
+        {
+            "name": "PFS End-of-training assessment - CC IUCD insertion",
+            "shortName": "PFS End-of-training - CC IUCD insertion",
+            "id": "GXNUsigphqK"
+        },
+        {
+            "name": "PFS End-of-training assessment - CC Jadelle insertion",
+            "shortName": "PFS End-of-training - CC Jadelle insertion",
+            "id": "ROEGWNaasDP"
+        },
+        {
+            "name": "PFS End-of-training assessment - PM FP counseling",
+            "shortName": "PFS End-of-training - PM FP counseling",
+            "id": "Lh9x3J6EF0g"
+        },
+        {
+            "name": "PFS End-of-training assessment - PM NSV",
+            "shortName": "PFS End-of-training - PM NSV",
+            "id": "BLNHqFdGFRv"
+        },
+        {
+            "name": "PFS End-of-training assessment - PM Suprapubic minilap",
+            "shortName": "PFS End-of-training - PM Suprapubic minilap",
+            "id": "Y35b9mKPwgz"
+        },
+        {
+            "name": "PFS End-of-training assessment - PPIUD FP counseling",
+            "shortName": "PFS End-of-training - PPIUD FP counseling",
+            "id": "CtpjtJOlix1"
+        },
+        {
+            "name": "PFS End-of-training assessment - PPUID Postplacental IUCD",
+            "shortName": "PFS End-of-training - PPUID Postplacental IUCD",
+            "id": "Kdj9bEhmtER"
+        },
+        {
+            "name": "PFS Inadequate client recovery area",
+            "shortName": "PFS Inadequate recovery area",
+            "id": "bTWjEduOv4P"
+        },
+        {
+            "name": "PFS Inadequate client recovery area - Discussion off-site management",
+            "shortName": "PFS Inadequate recovery area - Discuss off-site mg",
+            "id": "uYrt6Rjh0q2"
+        },
+        {
+            "name": "PFS Inadequate client recovery area - Discussion on-site management",
+            "shortName": "PFS Inadequate recovery area - Discuss on-site mgm",
+            "id": "lsPerCow7QG"
+        },
+        {
+            "name": "PFS Inadequate client recovery area - Discussion with provider",
+            "shortName": "PFS Inadequate recovery area - Discussion provider",
+            "id": "qlzHqClWAsG"
+        },
+        {
+            "name": "PFS Inadequate counseling room",
+            "shortName": "PFS Inadequate couns room",
+            "id": "D795f7Ftl5Z"
+        },
+        {
+            "name": "PFS Inadequate counseling room - Discussion with off-site management",
+            "shortName": "PFS Inadequate couns room - Discuss off-site mgmnt",
+            "id": "msiehvzdkh0"
+        },
+        {
+            "name": "PFS Inadequate counseling room - Discussion with on-site management",
+            "shortName": "PFS Inadequate couns room - Discuss on-site mgmnt",
+            "id": "qv3Ivgr7qA8"
+        },
+        {
+            "name": "PFS Inadequate counseling room - Discussion with provider",
+            "shortName": "PFS Inadequate couns room - Discuss provider",
+            "id": "OjGY9phCVkF"
+        },
+        {
+            "name": "PFS Inadequate procedure room",
+            "shortName": "PFS Inadequate procedure room",
+            "id": "hFbuuBkjut3"
+        },
+        {
+            "name": "PFS Inadequate procedure room - Discussion with off-site management",
+            "shortName": "PFS Inadequate procedure room - Discuss off-site m",
+            "id": "kSDiqFhUP8P"
+        },
+        {
+            "name": "PFS Inadequate procedure room - Discussion with on-site management",
+            "shortName": "PFS Inadequate procedure room - Discuss on-site mg",
+            "id": "zJer0XIW5fV"
+        },
+        {
+            "name": "PFS Lack of clinical knowledge",
+            "shortName": "PFS Lack of clinical knowledge",
+            "id": "zF6StgsGthD"
+        },
+        {
+            "name": "PFS Lack of clinical knowledge - Clinical coaching",
+            "shortName": "PFS Lack of clinical knowledge - Clinical coaching",
+            "id": "DgluqT5CbIp"
+        },
+        {
+            "name": "PFS Lack of clinical knowledge - Knowledge update/orientation",
+            "shortName": "PFS Lack of clinical knowledge - Knowledge update",
+            "id": "OKN6ZG1z7pq"
+        },
+        {
+            "name": "PFS Lack of clinical knowledge - Provision of reference materials",
+            "shortName": "PFS Lack of clinical knowledge - Reference mater",
+            "id": "ZpvFqxRhFuP"
+        },
+        {
+            "name": "PFS Lack of clinical skill",
+            "shortName": "PFS Lack of clinical skill",
+            "id": "Q6vysZzUoPl"
+        },
+        {
+            "name": "PFS Lack of clinical skill - Arrangement exchange visit high caseload site",
+            "shortName": "PFS Lack of clinical skill - Exchange visit",
+            "id": "ogBU5CfbAUZ"
+        },
+        {
+            "name": "PFS Lack of clinical skill - Arrangement for peer mentoring on-site",
+            "shortName": "PFS Lack of clinical skill - Peer ment",
+            "id": "z8Ay2GaaqpC"
+        },
+        {
+            "name": "PFS Lack of clinical skill - Clinical coaching",
+            "shortName": "PFS Lack of clinical skill - Clinical coaching",
+            "id": "lJSMLN5WRDF"
+        },
+        {
+            "name": "PFS Lack of clinical standards",
+            "shortName": "PFS Lack of clinical standards",
+            "id": "LDEqL9GokCM"
+        },
+        {
+            "name": "PFS Lack of clinical standards - Discussion with off-site management",
+            "shortName": "PFS Lack of clinical standards - Discuss off-site",
+            "id": "dGdEEpNb7GW"
+        },
+        {
+            "name": "PFS Lack of clinical standards - Discussion with on-site management",
+            "shortName": "PFS Lack of clinical standards - Discuss on-site",
+            "id": "uHkibfGqtXg"
+        },
+        {
+            "name": "PFS Lack of clinical standards - Provision of job aids/guidelines",
+            "shortName": "PFS Lack of clinical standards - Job aids",
+            "id": "HpC2iqyoMR8"
+        },
+        {
+            "name": "PFS Lack of confidence",
+            "shortName": "PFS Lack of confidence",
+            "id": "fgPOFbi37BM"
+        },
+        {
+            "name": "PFS Lack of confidence - Arrangement for peer mentoring on-site",
+            "shortName": "PFS Lack of confidence - Peer mentoring",
+            "id": "VDxTE7l7sc7"
+        },
+        {
+            "name": "PFS Lack of confidence - Clinical coaching",
+            "shortName": "PFS Lack of confidence - Clinical coaching",
+            "id": "Ws36Dp6gHA1"
+        },
+        {
+            "name": "PFS Lack of confidence - Encouragement",
+            "shortName": "PFS Lack of confidence - Encouragement",
+            "id": "KRJeVOPBy6t"
+        },
+        {
+            "name": "PFS Method of contact",
+            "shortName": "PFS Method of contact",
+            "id": "GFDKf2idXLV"
+        },
+        {
+            "name": "PFS Name of person conducting follow-up",
+            "shortName": "PFS Name of person conducting follow-up",
+            "id": "e4EMaGSEyV9"
+        },
+        {
+            "name": "PFS Provider provision challenges - CAC",
+            "shortName": "PFS Provider provision challenges - CAC",
+            "id": "IgkWhfPryqt"
+        },
+        {
+            "name": "PFS Provider provision challenges - FS",
+            "shortName": "PFS Provider provision challenges - FS",
+            "id": "Q5725FPinzH"
+        },
+        {
+            "name": "PFS Provider provision challenges - Implant",
+            "shortName": "PFS Provider provision challenges - Implant",
+            "id": "ihgI4dDwUQT"
+        },
+        {
+            "name": "PFS Provider provision challenges - IUD",
+            "shortName": "PFS Provider provision challenges - IUD",
+            "id": "AVC7oJYrZrk"
+        },
+        {
+            "name": "PFS Provider provision challenges - NSV",
+            "shortName": "PFS Provider provision challenges - NSV",
+            "id": "WMhpzP6czRF"
+        },
+        {
+            "name": "PFS Provider provision challenges - PAFP",
+            "shortName": "PFS Provider provision challenges - PAFP",
+            "id": "ZhGKg3ssbmX"
+        },
+        {
+            "name": "PFS Provider provision challenges - PPIUD",
+            "shortName": "PFS Provider provision challenges - PPIUD",
+            "id": "UoRMWhj2YIy"
+        },
+        {
+            "name": "PFS Service provision 0 - CAC",
+            "shortName": "PFS Service provision 0 - CAC",
+            "id": "pharIEKZNo0"
+        },
+        {
+            "name": "PFS Service provision 0 - FS",
+            "shortName": "PFS Service provision 0 - FS",
+            "id": "IZSvH4lOb1h"
+        },
+        {
+            "name": "PFS Service provision 0 - Implant",
+            "shortName": "PFS Service provision 0 - Implant",
+            "id": "DcsUXIcK8IJ"
+        },
+        {
+            "name": "PFS Service provision 0 - IUD",
+            "shortName": "PFS Service provision 0 - IUD",
+            "id": "rxTX7yNs8Ph"
+        },
+        {
+            "name": "PFS Service provision 0 - NSV",
+            "shortName": "PFS Service provision 0 - NSV",
+            "id": "ypvDEOvkjTx"
+        },
+        {
+            "name": "PFS Service provision 0 - PA FP",
+            "shortName": "PFS Service provision 0 - PA FP",
+            "id": "SayYGlKyPCa"
+        },
+        {
+            "name": "PFS Service provision 0 - PPIUD",
+            "shortName": "PFS Service provision 0 - PPIUD",
+            "id": "ASvofuem7Oa"
+        },
+        {
+            "name": "PFS Service provision 1 - CAC",
+            "shortName": "PFS Service provision 1 - CAC",
+            "id": "M3H9NEMuBix"
+        },
+        {
+            "name": "PFS Service provision 1 - FS",
+            "shortName": "PFS Service provision 1 - FS",
+            "id": "hca8vQ6jEST"
+        },
+        {
+            "name": "PFS Service provision 1 - Implant",
+            "shortName": "PFS Service provision 1 - Implant",
+            "id": "SKh80FGIVKI"
+        },
+        {
+            "name": "PFS Service provision 1 - IUD",
+            "shortName": "PFS Service provision 1 - IUD",
+            "id": "MUOpAoXRVX9"
+        },
+        {
+            "name": "PFS Service provision 1 - NSV",
+            "shortName": "PFS Service provision 1 - NSV",
+            "id": "bCBiRLqLjQl"
+        },
+        {
+            "name": "PFS Service provision 1 - PA FP",
+            "shortName": "PFS Service provision 1 - PA FP",
+            "id": "vsKP6aojcqL"
+        },
+        {
+            "name": "PFS Service provision 1 - PPIUD",
+            "shortName": "PFS Service provision 1 - PPIUD",
+            "id": "njV5usO9oNl"
+        },
+        {
+            "name": "PFS Service provision 2 - CAC",
+            "shortName": "PFS Service provision 2 - CAC",
+            "id": "t9NU3SqPvcN"
+        },
+        {
+            "name": "PFS Service provision 2 - FS",
+            "shortName": "PFS Service provision 2- FS",
+            "id": "zff1i2Iwk8S"
+        },
+        {
+            "name": "PFS Service provision 2 - Implant",
+            "shortName": "PFS Service provision 2 - Implant",
+            "id": "PKBFrGgUy26"
+        },
+        {
+            "name": "PFS Service provision 2 - IUD",
+            "shortName": "PFS Service provision 2 - IUD",
+            "id": "pWpQ69deqiv"
+        },
+        {
+            "name": "PFS Service provision 2 - NSV",
+            "shortName": "PFS Service provision 2 - NSV",
+            "id": "QKujt9JlJfn"
+        },
+        {
+            "name": "PFS Service provision 2 - PA FP",
+            "shortName": "PFS Service provision 2 - PA FP",
+            "id": "JSovKG6FZNW"
+        },
+        {
+            "name": "PFS Service provision 2 - PPIUD",
+            "shortName": "PFS Service provision 2 - PPIUD",
+            "id": "cOXBak6pilm"
+        },
+        {
+            "name": "PFS Type of training - CAC",
+            "shortName": "PFS Type of training - CAC",
+            "id": "yqiAt2vL2Oe"
+        },
+        {
+            "name": "PFS Type of training - CC",
+            "shortName": "PFS Type of training - CC",
+            "id": "wqH05wytdJH"
+        },
+        {
+            "name": "PFS Type of training - CC (OJT)",
+            "shortName": "PFS Type of training - CC (OJT)",
+            "id": "Ef3ueStqxJj"
+        },
+        {
+            "name": "PFS Type of training - PM",
+            "shortName": "PFS Type of training - PM",
+            "id": "gtYt3KpQpW8"
+        },
+        {
+            "name": "PFS Type of training - PPIUD",
+            "shortName": "PFS Type of training - PPIUD",
+            "id": "suMqFd2seuA"
+        },
+        {
+            "name": "PFS Visit number",
+            "shortName": "PFS Visit number",
+            "id": "Mnkodq2wzlV"
+        },
+        {
+            "name": "PH Aide",
+            "shortName": "PH Aide",
+            "id": "dIqx7rdnVc9"
+        },
+        {
+            "name": "Place where transmission occurs",
+            "shortName": "Place where transmission occurs",
+            "id": "Kx7SANA8K1z"
+        },
+        {
+            "name": "Plague (Deaths < 5 yrs)",
+            "shortName": "Plague (Deaths < 5 yrs)",
+            "id": "lXolhoWewYH"
+        },
+        {
+            "name": "Plague (Deaths < 5 yrs) Narrative",
+            "shortName": "Plague (Deaths < 5 yrs) Narrative",
+            "id": "iT8n0tI3nRW"
+        },
+        {
+            "name": "PLHIVs referred for TB screening",
+            "shortName": "PLHIVs ref TB screen",
+            "id": "srXmZTeJxxT"
+        },
+        {
+            "name": "PLHIVs referred for TB test (Sputum/CXRay)",
+            "shortName": "PLHIVs ref TB test",
+            "id": "ZydlV51mGuj"
+        },
+        {
+            "name": "PLHIVs with a positive TB result",
+            "shortName": "PLHIVs TB result pos",
+            "id": "oxht1VLqF6x"
+        },
+        {
+            "name": "PMTCT discordant partners or couples",
+            "shortName": "PMTCTdiscordantPartn",
+            "id": "yMtFhLsbZaL"
+        },
+        {
+            "name": "PMTCT expected delivery among HIV+ women",
+            "shortName": "PMTCTexpectHIVwDeliv",
+            "id": "ZFC9MdnFHFJ"
+        },
+        {
+            "name": "PMTCT HIV exposed children registered during the course of the month",
+            "shortName": "PMTCThivExpoInfReg",
+            "id": "x0PshcPLSk1"
+        },
+        {
+            "name": "PMTCT HIV positive Women received ZDV and 3TC during labor",
+            "shortName": "PMTCTHIV_ZDV&3TCLab",
+            "id": "hxh8X16Gvip"
+        },
+        {
+            "name": "PMTCT HIV positive women received ZDV at ANC",
+            "shortName": "PMTCTw.receivZDV_ANC",
+            "id": "dWqQVwKJTSu"
+        },
+        {
+            "name": "PMTCT HIV positive w. received ART for own health",
+            "shortName": "PMTCTwARTownHealth",
+            "id": "gnKnwQbY3UK"
+        },
+        {
+            "name": "PMTCT infant who received NVP within 72hrs",
+            "shortName": "PMTCTinf.Rec.NVP72Hr",
+            "id": "wZqi8EXN5x4"
+        },
+        {
+            "name": "PMTCT infant who received ZDV & Lamivudine",
+            "shortName": "PMTCTinf.R.ZDV&Lam",
+            "id": "HdQ2QsgMtCc"
+        },
+        {
+            "name": "PMTCT male partners tested for HIV",
+            "shortName": "PMTCTmalePartn.Test",
+            "id": "WqbXHjN95Xw"
+        },
+        {
+            "name": "PMTCT male partners tested HIV positive",
+            "shortName": "PMTCTmPartn.HIVposiv",
+            "id": "MIKpDxt5ZvE"
+        },
+        {
+            "name": "PMTCT No HIV women who delivered in the health facility (CS)",
+            "shortName": "PMTCTHIVDeliFac(CS)",
+            "id": "RoCtZpDLVS7"
+        },
+        {
+            "name": "PMTCT No HIV women who delivered in the health facility (Normal)",
+            "shortName": "PMTCTHIVDeliFacNorma",
+            "id": "tAQe5dZ6wRv"
+        },
+        {
+            "name": "PMTCT No of expected HIV exposed children",
+            "shortName": "PMTCThivEposedChild",
+            "id": "rFTnRXMFgxC"
+        },
+        {
+            "name": "PMTCT positive w. offered FP during ANC/Post natal",
+            "shortName": "PMTCTwFPduringANC/PN",
+            "id": "L4G4X567SeK"
+        },
+        {
+            "name": "PMTCT positive w. referred for FP from ANC",
+            "shortName": "PMTCTwRef.FPfromANC",
+            "id": "zCPMzMGWyHU"
+        },
+        {
+            "name": "PMTCT reported mother death",
+            "shortName": "PMTCTrep.motherDeath",
+            "id": "FGdTDgQrsBy"
+        },
+        {
+            "name": "PMTCT total expected preg. women for the month",
+            "shortName": "PMTCTtotalExpec.Wmth",
+            "id": "aO5TCNZ4OOr"
+        },
+        {
+            "name": "PMTCT women counselled for infant feeding",
+            "shortName": "PMTCTwCouns.Ifeeding",
+            "id": "kfSFuD4Q8rF"
+        },
+        {
+            "name": "PMTCT women HIV1",
+            "shortName": "PMTCT women HIV1",
+            "id": "fQ46YRJj7Yq"
+        },
+        {
+            "name": "PMTCT women HIV1 and HIV2",
+            "shortName": "PMTCTwHIV1&HIV2",
+            "id": "yhrP2vizKlf"
+        },
+        {
+            "name": "PMTCT women HIV2",
+            "shortName": "PMTCT women HIV2",
+            "id": "hQkv3NaAjqv"
+        },
+        {
+            "name": "PMTCT women HIV positve",
+            "shortName": "PMTCTwomenHIVpositiv",
+            "id": "TvQ1myd6oTE"
+        },
+        {
+            "name": "PMTCT women lost to contact",
+            "shortName": "PMTCTwLostContact",
+            "id": "f3vP3dSjUrS"
+        },
+        {
+            "name": "PMTCT women received complete ARV for PMTCT",
+            "shortName": "PMTCTwRcompleteARV",
+            "id": "WQqSx9H0RDf"
+        },
+        {
+            "name": "PMTCT women received NVP during labour",
+            "shortName": "PMTCTwReceivNVPlabor",
+            "id": "e87Gl0315MV"
+        },
+        {
+            "name": "PMTCT women received post test counselling and result",
+            "shortName": "PMTCTwR.PostTest&res",
+            "id": "OCU92ttHmic"
+        },
+        {
+            "name": "PMTCT women received pre- test counselling",
+            "shortName": "PMTCTwPreTestCounsel",
+            "id": "CJKrsPzuY8R"
+        },
+        {
+            "name": "PMTCT women received ZDV & 3CT after delivery",
+            "shortName": "PMTCTwR.ZDV&3CTDeliv",
+            "id": "HPZd1WtTArI"
+        },
+        {
+            "name": "PMTCT women seen for 1st ANC",
+            "shortName": "PMTCw1stANC",
+            "id": "ONgKakbp7wR"
+        },
+        {
+            "name": "PMTCT women tested for HIV",
+            "shortName": "PMTCTwTestedHIV",
+            "id": "fxOM6VBQhBy"
+        },
+        {
+            "name": "Population",
+            "shortName": "Population",
+            "id": "HDRons6AfbL"
+        },
+        {
+            "name": "Population of women of child bearing age (WRA)",
+            "shortName": "WRA",
+            "id": "vg6pdjObxsm"
+        },
+        {
+            "name": "Porter",
+            "shortName": "Porter",
+            "id": "zgeAdnpSY5K"
+        },
+        {
+            "name": "Postnatal 1st contact (within 1 week)",
+            "shortName": "Postnatal 1st",
+            "id": "LhoRsqtRn4r"
+        },
+        {
+            "name": "Postnatal 2nd contact (at 6 weeks)",
+            "shortName": "Postnatal 2nd",
+            "id": "k1vnEuKnRYE"
+        },
+        {
+            "name": "Pregnancy-related complications",
+            "shortName": "Pregn complications",
+            "id": "h8vtacmZL5j"
+        },
+        {
+            "name": "Pregnancy-related deaths (6 weeks of birth) 10-19y at PHU",
+            "shortName": "Mat death 10-19 PHU ",
+            "id": "d6GUgNWCDfl"
+        },
+        {
+            "name": "Pregnancy-related deaths (6 weeks of birth) 10-19y in comm.",
+            "shortName": "Mat death 10-19 com.",
+            "id": "z1q4VpzJvEh"
+        },
+        {
+            "name": "Pregnancy-related deaths (6 weeks of birth) 20-35y at PHU",
+            "shortName": "Mat death 20-35 PHU",
+            "id": "pnMGI9pJTxH"
+        },
+        {
+            "name": "Pregnancy-related deaths (6 weeks of birth) 20-35y in comm.",
+            "shortName": "Mat death 20-35 comm",
+            "id": "ZuAqHa7ekka"
+        },
+        {
+            "name": "Pregnancy-related deaths (6 weeks of birth) 35+ y at PHU",
+            "shortName": "Mat death 35+ PHU",
+            "id": "ZjLFpnq46QF"
+        },
+        {
+            "name": "Pregnancy-related deaths (6 weeks of birth) 35+ y in comm.",
+            "shortName": "Mat death 35+ comm.",
+            "id": "GHvwvsJzV4x"
+        },
+        {
+            "name": "Pregnancy status",
+            "shortName": "Pregnancy status",
+            "id": "DweoXDLChlg"
+        },
+        {
+            "name": "Pregnant",
+            "shortName": "Pregnant",
+            "id": "SWfdB5lX0fk"
+        },
+        {
+            "name": "Prevalence of tuberculosis (per 100 000 population)",
+            "shortName": "Prevalence of tuberculosis (per 100 000 population",
+            "id": "sTzxtq72Moq"
+        },
+        {
+            "name": "Previous classification",
+            "shortName": "Previous classification",
+            "id": "V1OnhZYfSa2"
+        },
+        {
+            "name": "Previous vector control intervention",
+            "shortName": "Previous vector control intervention",
+            "id": "iSxGIwA3ZrV"
+        },
+        {
+            "name": "Prev. month on ABC 300mg + ddI 200mg + IDV 400mg + r 100mg",
+            "shortName": "Prev ABC300ddI200IDV400",
+            "id": "D33rH8UHKlZ"
+        },
+        {
+            "name": "Prev. month on ABC 300mg + ddI 200mg + LPV/r 133.3/33.3mg",
+            "shortName": "Prev ABC300_ddI200_LPV",
+            "id": "obbSEvaKTyW"
+        },
+        {
+            "name": "Prev. month on ART other regimen",
+            "shortName": "Prev ART other regimen",
+            "id": "VZPWjoT6Iyb"
+        },
+        {
+            "name": "Prev. month on AZT 10mg/ml + 3TC 10mg/ml + NVP 10mg/ml",
+            "shortName": "Prev AZT10_3TC10_NVP10",
+            "id": "yXZd6HTew4q"
+        },
+        {
+            "name": "Prev. month on AZT 300mg + 3TC 150mg + ABC 300mg ",
+            "shortName": "Prev AZT300_3TC150_ABC300",
+            "id": "BVU4XA3aL0Y"
+        },
+        {
+            "name": "Prev. month on AZT 300mg /  3TC 150mg + EFV 600mg",
+            "shortName": "Prev AZT300_3TC150_EFV600",
+            "id": "rFkRvm5Ns4a"
+        },
+        {
+            "name": "Prev. month on AZT 300mg / 3TC 150mg + NVP 200mg",
+            "shortName": "Prev AZT300_3TC150_NVP200",
+            "id": "pgzNTiQwMES"
+        },
+        {
+            "name": "Prev. month on AZT 300mg + 3TC 150mg + TDF 300mg ",
+            "shortName": "Prev AZT300_3TC150_TDF300",
+            "id": "FOWABOOZtPg"
+        },
+        {
+            "name": "Prev. month on AZT 300mg at 28 wks",
+            "shortName": "Prev AZT 300mg at 28w",
+            "id": "ReljOufQV11"
+        },
+        {
+            "name": "Prev. month on AZT + 3TC 300mg + 150mg for 7 days",
+            "shortName": "PrevAZT3TC300150f7d",
+            "id": "FDpeT1lFQMM"
+        },
+        {
+            "name": "Prev. month on AZT + 3TC 300mg + 150mg for 7 days after 36w",
+            "shortName": "PrevAZT3TC30015036w",
+            "id": "deGkTqbpTlS"
+        },
+        {
+            "name": "Prev. month on AZT + 3TC 300mg + 150mg on labour",
+            "shortName": "Prev AZT_3TC_300_150 lab",
+            "id": "BI5CBuRJVSV"
+        },
+        {
+            "name": "Prev. month on AZT + 3TC + NVP 300mg + 150mg + 200mg",
+            "shortName": "Prev AZT3TCNVP300+150+200",
+            "id": "e1eDe6JsE9j"
+        },
+        {
+            "name": "Prev. month on d4T 30mg + 3TC 100mg + ABC 300mg",
+            "shortName": "Prev d4T30_3TC100_ABC 300",
+            "id": "oYZug9IEm3Q"
+        },
+        {
+            "name": "Prev. month on d4T 30mg + 3TC 100mg + TDF 300mg ",
+            "shortName": "Prev d4T30_3TC100_TDF300",
+            "id": "KD5UjA5V16r"
+        },
+        {
+            "name": "Prev. month on d4T 30mg + 3TC 150mg + EFV 600mg",
+            "shortName": "Prev d4T30_3TC150_EFV600",
+            "id": "FQhY9n5Ft7t"
+        },
+        {
+            "name": "Prev. month on d4T 30mg / 3TC 150mg / NVP 200mg",
+            "shortName": "Prev d4T30_3TC150_NVP200",
+            "id": "ZecQS9lx4j9"
+        },
+        {
+            "name": "Prev. month on d4T / 3TC / NVP 12mg/60mg/100mg",
+            "shortName": "Prev d4T3TCNVP_12_60_100",
+            "id": "gyudBBtgGCv"
+        },
+        {
+            "name": "Prev. month on d4T / 3TC / NVP 6mg/30mg/50mg",
+            "shortName": "Prev d4T_3TC_NVP_6_30_50",
+            "id": "YknvQAH4LnL"
+        },
+        {
+            "name": "Prev. month on d4T 40mg + 3TC 150mg + EFV 600mg",
+            "shortName": "Prev d4T40_3TC150_EFV600",
+            "id": "XVzfK55tu7h"
+        },
+        {
+            "name": "Prev. month on d4T 40mg / 3TC 150mg / NVP 200mg",
+            "shortName": "Prev d4T40_3TC150_NVP200",
+            "id": "Sdfo0RBu1W3"
+        },
+        {
+            "name": "Prev. month on Infant NVP 10mg/ml (2mg/kg)",
+            "shortName": "Prev Inf NVP10 (2mg/kg)",
+            "id": "iri7NSiuRc3"
+        },
+        {
+            "name": "Prev. month on NVP + AZT + 3TC 10mg/ml (2mg/kg) + 10mg/ml + 10mg/ml for 7 days",
+            "shortName": "Prev NVPAZT3TC10+10+10 7d",
+            "id": "CUVDjGzRmmU"
+        },
+        {
+            "name": "Prev. month on TDF 300mg + ddI 200mg + IDV 400mg + r 100mg",
+            "shortName": "Prev TDF300_ddI200_IDV400",
+            "id": "n91IylSb1JQ"
+        },
+        {
+            "name": "Prev. month on TDF 300mg + ddI 200mg + LPV/r 133.3mg/33.3mg",
+            "shortName": "Prev TDF300_ddI200_LPV",
+            "id": "cQxY2T8GenX"
+        },
+        {
+            "name": "Project: Activity Report",
+            "shortName": "Project: Activity Report",
+            "id": "xPTAT98T2Jd"
+        },
+        {
+            "name": "Project: Comments",
+            "shortName": "Project: Comments",
+            "id": "yiAhmn4q7wJ"
+        },
+        {
+            "name": "Project: Communications plan",
+            "shortName": "Project: Communications plan",
+            "id": "xk0krAO2KfJ"
+        },
+        {
+            "name": "Project: Feasibility study",
+            "shortName": "Project: Feasibility study",
+            "id": "okVqga4sADb"
+        },
+        {
+            "name": "Project: Goals and achievables",
+            "shortName": "Project: Goals and achievables",
+            "id": "JXwI2RLVRwa"
+        },
+        {
+            "name": "Project: Narrative",
+            "shortName": "Project: Narrative",
+            "id": "qF555AXehEn"
+        },
+        {
+            "name": "Project: Plan",
+            "shortName": "Project: Plan",
+            "id": "b65EIDnbjXf"
+        },
+        {
+            "name": "Project: Procurement plans",
+            "shortName": "Project: Procurement plans",
+            "id": "seNDI6rguib"
+        },
+        {
+            "name": "Project: Review",
+            "shortName": "Project: Review",
+            "id": "hA2cfVJL4fp"
+        },
+        {
+            "name": "Proven insecticide resistance",
+            "shortName": "Proven insecticide resistance",
+            "id": "fyjPqlHE7Dn"
+        },
+        {
+            "name": "Q_Early breastfeeding (within 1 hr after delivery) at BCG",
+            "shortName": "EarlyBreastfeed.BCG",
+            "id": "dU0GquGkGQr"
+        },
+        {
+            "name": "Q_Exclusive breastfeeding at time of Penta 3",
+            "shortName": "QexclusivBreast.DPT3",
+            "id": "pEOVd4Z3TAS"
+        },
+        {
+            "name": "Q_LLITN given at time of 2nd Vit A dose",
+            "shortName": "Q_LLITN at VitA2",
+            "id": "Rmixc9wJl0G"
+        },
+        {
+            "name": "Q_Slept under LLIN last night Measles",
+            "shortName": "SleptLlinLastNighMea",
+            "id": "GCGfEY82Wz6"
+        },
+        {
+            "name": "Q_Vitamin A received 4-6 months ago at 12-59 dose",
+            "shortName": "Q_VitA_4-6m_VitA2",
+            "id": "ca8lfO062zg"
+        },
+        {
+            "name": "Rabies (Deaths < 5 yrs)",
+            "shortName": "Rabies (Deaths < 5 yrs)",
+            "id": "jVDAvs6kIAP"
+        },
+        {
+            "name": "Rapid diagnostic test for Malaria negative",
+            "shortName": "RDT Malaria negative",
+            "id": "Qk9nnX0i7lZ"
+        },
+        {
+            "name": "Rapid diagnostic test for Malaria positive",
+            "shortName": "RDT Malaria positive",
+            "id": "wZwzzRnr9N4"
+        },
+        {
+            "name": "RDT test result",
+            "shortName": "RDT test result",
+            "id": "hKZh1et5n7v"
+        },
+        {
+            "name": "Reason for conducting case investigation",
+            "shortName": "Reason for conducting CI",
+            "id": "zFiMMpGyBgr"
+        },
+        {
+            "name": "Reason for conducting household investigation",
+            "shortName": "Reason for conducting HI",
+            "id": "M2EsgTm4JHu"
+        },
+        {
+            "name": "Reason for referral",
+            "shortName": "Reason for referral",
+            "id": "Zlro25GTcNK"
+        },
+        {
+            "name": "Received treatment for both TB and HIV",
+            "shortName": "Treatment TB and HIV",
+            "id": "gVfwyHBGWec"
+        },
+        {
+            "name": "Receiving ART",
+            "shortName": "Receiving ART",
+            "id": "A3FR1rkz9D8"
+        },
+        {
+            "name": "Referral protocol is described",
+            "shortName": "Referral protocol is described",
+            "id": "qgwWv33YaBj"
+        },
+        {
+            "name": "Referred",
+            "shortName": "Referred",
+            "id": "MKMyvXshCdB"
+        },
+        {
+            "name": "Relationship of cases to residence and breeding site",
+            "shortName": "Relationship of cases and breeding site",
+            "id": "Ue0g4Ii4oM8"
+        },
+        {
+            "name": "Remark",
+            "shortName": "Remark",
+            "id": "RYXVmlXoFb6"
+        },
+        {
+            "name": "Residence of the malaria case/s  that prompted the current case investigation",
+            "shortName": "Residence of cases prompted current investigation",
+            "id": "DanTR5x0WDK"
+        },
+        {
+            "name": "Residents had malaria past month",
+            "shortName": "Residents had malaria past month",
+            "id": "ECjafwJrxL5"
+        },
+        {
+            "name": "Residents in household",
+            "shortName": "Residents in HH",
+            "id": "lezQpdvvGjY"
+        },
+        {
+            "name": "Residents in household who slept under a net the previous night",
+            "shortName": "Slept under net",
+            "id": "KA6RY4BB41F"
+        },
+        {
+            "name": "Results of case investigation (parasite prevalence among tested)",
+            "shortName": "Results of case investigation",
+            "id": "AscpjfkjEks"
+        },
+        {
+            "name": "Results post-response",
+            "shortName": "Results post-response",
+            "id": "xb5oJFjopGD"
+        },
+        {
+            "name": "Schistosomiasis follow-up",
+            "shortName": "Schistosomias. f-u",
+            "id": "GYm08KsVDOz"
+        },
+        {
+            "name": "Schistosomiasis new",
+            "shortName": "Schistosom new",
+            "id": "Y7Oq71I3ASg"
+        },
+        {
+            "name": "Schistosomiasis referrals",
+            "shortName": "Schistosomiasis ref.",
+            "id": "l76gpVSWoSE"
+        },
+        {
+            "name": "SECHN",
+            "shortName": "SECHN",
+            "id": "hkfMucdRMQG"
+        },
+        {
+            "name": "Security worker",
+            "shortName": "Security worker",
+            "id": "iVla5mEZiZo"
+        },
+        {
+            "name": "Shift from ABC 300mg + ddI 200mg + IDV 400mg + r 100mg",
+            "shortName": "SF ABC300ddI200IDV400",
+            "id": "hI7NM78r3Rg"
+        },
+        {
+            "name": "Shift from ABC 300mg + ddI 200mg + LPV/r 133.3/33.3mg",
+            "shortName": "SF ABC300_ddI200_LPV",
+            "id": "lznF009R6XI"
+        },
+        {
+            "name": "Shift from ART other regimen",
+            "shortName": "SF ART other regimen",
+            "id": "Jw8BIUYVMGE"
+        },
+        {
+            "name": "Shift from AZT 10mg/ml + 3TC 10mg/ml + NVP 10mg/ml",
+            "shortName": "SF AZT10_3TC10_NVP10",
+            "id": "t6YgakIbFif"
+        },
+        {
+            "name": "Shift from AZT 300mg + 3TC 150mg + ABC 300mg ",
+            "shortName": "SF AZT300_3TC150_ABC300",
+            "id": "gSD3Znye1hY"
+        },
+        {
+            "name": "Shift from AZT 300mg /  3TC 150mg + EFV 600mg",
+            "shortName": "SF AZT300_3TC150_EFV600",
+            "id": "jHxFwWMbXT2"
+        },
+        {
+            "name": "Shift from AZT 300mg / 3TC 150mg + NVP 200mg",
+            "shortName": "SF AZT300_3TC150_NVP200",
+            "id": "pSHgU0Wf4ir"
+        },
+        {
+            "name": "Shift from AZT 300mg + 3TC 150mg + TDF 300mg ",
+            "shortName": "SF AZT300_3TC150_TDF300",
+            "id": "MeAvt39JtqN"
+        },
+        {
+            "name": "Shift from AZT 300mg at 28 wks",
+            "shortName": "SF AZT 300mg at 28w",
+            "id": "LJBV91hapop"
+        },
+        {
+            "name": "Shift from AZT + 3TC 300mg + 150mg for 7 days",
+            "shortName": "SFAZT3TC300150for7d",
+            "id": "Mow8dnhE6FJ"
+        },
+        {
+            "name": "Shift from AZT + 3TC 300mg + 150mg for 7 days after 36w",
+            "shortName": "SFAZT3TC3001507d36w",
+            "id": "supsI55QU7E"
+        },
+        {
+            "name": "Shift from AZT + 3TC 300mg + 150mg on labour",
+            "shortName": "SF AZT_3TC_300_150 lab",
+            "id": "q9CskFaFGE6"
+        },
+        {
+            "name": "Shift from AZT + 3TC + NVP 300mg + 150mg + 200mg",
+            "shortName": "SF AZT3TCNVP300+150+200",
+            "id": "AzwEuYfWAtN"
+        },
+        {
+            "name": "Shift from d4T 30mg + 3TC 100mg + ABC 300mg",
+            "shortName": "SF d4T30_3TC100_ABC 300",
+            "id": "ZGKUt190yEn"
+        },
+        {
+            "name": "Shift from d4T 30mg + 3TC 100mg + TDF 300mg ",
+            "shortName": "SF d4T30_3TC100_TDF300",
+            "id": "a7Pue4ht1n1"
+        },
+        {
+            "name": "Shift from d4T 30mg + 3TC 150mg + EFV 600mg",
+            "shortName": "SF d4T30_3TC150_EFV600",
+            "id": "ksGURIlASZB"
+        },
+        {
+            "name": "Shift from d4T 30mg / 3TC 150mg / NVP 200mg",
+            "shortName": "SF d4T30_3TC150_NVP200",
+            "id": "mmHNj6THZNH"
+        },
+        {
+            "name": "Shift from d4T / 3TC / NVP 12mg/60mg/100mg",
+            "shortName": "SF d4T3TCNVP_12_60_100",
+            "id": "iCGDtgPA28k"
+        },
+        {
+            "name": "Shift from d4T / 3TC / NVP 6mg/30mg/50mg",
+            "shortName": "SF d4T_3TC_NVP_6_30_50",
+            "id": "tlSucW8wn23"
+        },
+        {
+            "name": "Shift from d4T 40mg + 3TC 150mg + EFV 600mg",
+            "shortName": "SF d4T40_3TC150_EFV600",
+            "id": "BtXmKYNBc3k"
+        },
+        {
+            "name": "Shift from d4T 40mg / 3TC 150mg / NVP 200mg",
+            "shortName": "SF d4T40_3TC150_NVP200",
+            "id": "dAnZOL5kxlK"
+        },
+        {
+            "name": "Shift from Infant NVP 10mg/ml (2mg/kg)",
+            "shortName": "SF Inf NVP10 (2mg/kg)",
+            "id": "Z5uEjG9zJNK"
+        },
+        {
+            "name": "Shift from NVP + AZT + 3TC 10mg/ml (2mg/kg) + 10mg/ml + 10mg/ml for 7 days",
+            "shortName": "SF NVPAZT3TC10+10+10 7d",
+            "id": "HmBwa7GWGRG"
+        },
+        {
+            "name": "Shift from TDF 300mg + ddI 200mg + IDV 400mg + r 100mg",
+            "shortName": "SF TDF300_ddI200_IDV400",
+            "id": "y6noHe7ltxY"
+        },
+        {
+            "name": "Shift from TDF 300mg + ddI 200mg + LPV/r 133.3mg/33.3mg",
+            "shortName": "SF TDF300_ddI200_LPV",
+            "id": "oJLoUSMs3Ud"
+        },
+        {
+            "name": "Shift to ABC 300mg + ddI 200mg + IDV 400mg + r 100mg",
+            "shortName": "ST ABC300ddI200IDV400",
+            "id": "hUSSNufoUQz"
+        },
+        {
+            "name": "Shift to ABC 300mg + ddI 200mg + LPV/r 133.3/33.3mg",
+            "shortName": "ST ABC300_ddI200_LPV",
+            "id": "PBXQFnb2AOk"
+        },
+        {
+            "name": "Shift to ART other regimen",
+            "shortName": "ST ART other regimen",
+            "id": "DlZORv7kWSl"
+        },
+        {
+            "name": "Shift to AZT 10mg/ml + 3TC 10mg/ml + NVP 10mg/ml",
+            "shortName": "ST AZT10_3TC10_NVP10",
+            "id": "vhT3YzTev3B"
+        },
+        {
+            "name": "Shift to AZT 300mg + 3TC 150mg + ABC 300mg ",
+            "shortName": "ST AZT300_3TC150_ABC300",
+            "id": "PNlOOplRNOp"
+        },
+        {
+            "name": "Shift to AZT 300mg /  3TC 150mg + EFV 600mg",
+            "shortName": "ST AZT300_3TC150_EFV600",
+            "id": "XMsORYe4ZcA"
+        },
+        {
+            "name": "Shift to AZT 300mg / 3TC 150mg + NVP 200mg",
+            "shortName": "ST AZT300_3TC150_NVP200",
+            "id": "kxcIr99QcAO"
+        },
+        {
+            "name": "Shift to AZT 300mg + 3TC 150mg + TDF 300mg ",
+            "shortName": "ST AZT300_3TC150_TDF300",
+            "id": "NV0OXpHu6x4"
+        },
+        {
+            "name": "Shift to AZT 300mg at 28 wks",
+            "shortName": "ST AZT 300mg at 28w",
+            "id": "AyLbN9fhY4W"
+        },
+        {
+            "name": "Shift to AZT + 3TC 300mg + 150mg for 7 days",
+            "shortName": "STAZT3TC300150for7d",
+            "id": "zTWitarSrae"
+        },
+        {
+            "name": "Shift to AZT + 3TC 300mg + 150mg for 7 days after 36w",
+            "shortName": "STAZT3TC3001507d36w",
+            "id": "jYYxzqd1dqM"
+        },
+        {
+            "name": "Shift to AZT + 3TC 300mg + 150mg on labour",
+            "shortName": "ST AZT_3TC_300_150 lab",
+            "id": "IJ4yZ027EmK"
+        },
+        {
+            "name": "Shift to AZT + 3TC + NVP 300mg + 150mg + 200mg",
+            "shortName": "ST AZT3TCNVP300+150+200",
+            "id": "YgsAnqU3I7B"
+        },
+        {
+            "name": "Shift to d4T 30mg + 3TC 100mg + ABC 300mg",
+            "shortName": "ST d4T30_3TC100_ABC 300",
+            "id": "YTmhoGBxE2m"
+        },
+        {
+            "name": "Shift to d4T 30mg + 3TC 100mg + TDF 300mg ",
+            "shortName": "ST d4T30_3TC100_TDF300",
+            "id": "yB3qDR4Mlqk"
+        },
+        {
+            "name": "Shift to d4T 30mg + 3TC 150mg + EFV 600mg",
+            "shortName": "ST d4T30_3TC150_EFV600",
+            "id": "qUY0i7PnaLS"
+        },
+        {
+            "name": "Shift to d4T 30mg / 3TC 150mg / NVP 200mg",
+            "shortName": "ST d4T30_3TC150_NVP200",
+            "id": "V651s5yIbnR"
+        },
+        {
+            "name": "Shift to d4T / 3TC / NVP 12mg/60mg/100mg",
+            "shortName": "ST d4T3TCNVP_12_60_100",
+            "id": "EEEu3r8z1Rg"
+        },
+        {
+            "name": "Shift to d4T / 3TC / NVP 6mg/30mg/50mg",
+            "shortName": "ST d4T_3TC_NVP_6_30_50",
+            "id": "eCIPNNYj9ZM"
+        },
+        {
+            "name": "Shift to d4T 40mg + 3TC 150mg + EFV 600mg",
+            "shortName": "ST d4T40_3TC150_EFV600",
+            "id": "a5MxE5H7d3q"
+        },
+        {
+            "name": "Shift to d4T 40mg / 3TC 150mg / NVP 200mg",
+            "shortName": "ST d4T40_3TC150_NVP200",
+            "id": "C6yhZddXLCX"
+        },
+        {
+            "name": "Shift to Infant NVP 10mg/ml (2mg/kg)",
+            "shortName": "ST Inf NVP10 (2mg/kg)",
+            "id": "E7QJ0voitk7"
+        },
+        {
+            "name": "Shift to NVP + AZT + 3TC 10mg/ml (2mg/kg) + 10mg/ml + 10mg/ml for 7 days",
+            "shortName": "ST NVPAZT3TC10+10+10 7d",
+            "id": "un5mkYkVKqV"
+        },
+        {
+            "name": "Shift to TDF 300mg + ddI 200mg + IDV 400mg + r 100mg",
+            "shortName": "ST TDF300_ddI200_IDV400",
+            "id": "ZgIaamZjBjz"
+        },
+        {
+            "name": "Shift to TDF 300mg + ddI 200mg + LPV/r 133.3mg/33.3mg",
+            "shortName": "ST TDF300_ddI200_LPV",
+            "id": "aJ9oon0aJ87"
+        },
+        {
+            "name": "Skin infection follow-up",
+            "shortName": "Skin infection f-u",
+            "id": "i0vXh1P92m3"
+        },
+        {
+            "name": "Skin infection new",
+            "shortName": "Skin infection new",
+            "id": "Y4cFzB4A9ZQ"
+        },
+        {
+            "name": "Skin infection referrals",
+            "shortName": "Skin infection ref.",
+            "id": "AoVvYq5mtLL"
+        },
+        {
+            "name": "Sleeping places",
+            "shortName": "Sleeping places",
+            "id": "QtZBHQORAvK"
+        },
+        {
+            "name": "Slept away from usual residence before first symptoms",
+            "shortName": "Slept Away PR",
+            "id": "dHwY9LwU21J"
+        },
+        {
+            "name": "SRN",
+            "shortName": "SRN",
+            "id": "nu3vYkWgl2x"
+        },
+        {
+            "name": "STI - Genital Discharge follow-up",
+            "shortName": "STI Gen. Disch. f-u",
+            "id": "tl03DMc49UT"
+        },
+        {
+            "name": "STI - Genital Discharge new",
+            "shortName": "STI - Genital D. new",
+            "id": "CN9Oxawn7bD"
+        },
+        {
+            "name": "STI - Genital Discharge referrals",
+            "shortName": "STI Gen. Disch. ref.",
+            "id": "bcxWMsa1ZwU"
+        },
+        {
+            "name": "STI - Genital Ulcer follow-up",
+            "shortName": "STI Gen. Ulcer f-u",
+            "id": "RZNJFsg7fQp"
+        },
+        {
+            "name": "STI - Genital Ulcer new",
+            "shortName": "STI Gen. Disch. new",
+            "id": "IeO1sWXVyp6"
+        },
+        {
+            "name": "STI - Genital Ulcer referrals",
+            "shortName": "STI Genital Ulcer r.",
+            "id": "saMXNnGMaBw"
+        },
+        {
+            "name": "Still births",
+            "shortName": "Still births",
+            "id": "HZSdnO5fCUc"
+        },
+        {
+            "name": "Stock PHU discarded BCG",
+            "shortName": "SP_disc BCG (doses)",
+            "id": "cZnQDuF3IDz"
+        },
+        {
+            "name": "Stock PHU discarded Measles",
+            "shortName": "SP_disc Measles (doses)",
+            "id": "FvKdfA2SuWI"
+        },
+        {
+            "name": "Stock PHU discarded OPV",
+            "shortName": "SP_disc OPV (doses)",
+            "id": "WVrH6j3Wfye"
+        },
+        {
+            "name": "Stock PHU dispensed  BCG",
+            "shortName": "SP_disp BCG (doses)",
+            "id": "p1MDHOT6ENy"
+        },
+        {
+            "name": "Stock PHU dispensed Measles",
+            "shortName": "SP_disp Measles (doses)",
+            "id": "lVknokmR4Ip"
+        },
+        {
+            "name": "Stock PHU dispensed OPV",
+            "shortName": "SP_disp OPV (doses)",
+            "id": "FTINmL2lehN"
+        },
+        {
+            "name": "Stock PHU received  BCG",
+            "shortName": "SP_rec BCG (doses)",
+            "id": "axVhq1itoQD"
+        },
+        {
+            "name": "Stock PHU received Measles",
+            "shortName": "SP_rec Measles (doses)",
+            "id": "XNrjXqZrHD8"
+        },
+        {
+            "name": "Stock PHU received OPV",
+            "shortName": "SP_rec OPV (doses)",
+            "id": "nGCLjZDn0Q4"
+        },
+        {
+            "name": "Stock PHU start balance BCG",
+            "shortName": "SP_s_bal BCG (doses)",
+            "id": "t99PL3gUxIl"
+        },
+        {
+            "name": "Stock PHU start balance Measles",
+            "shortName": "SP_s_bal Measles (doses)",
+            "id": "vEAo4KwsAzl"
+        },
+        {
+            "name": "Stock PHU start balance OPV",
+            "shortName": "SP_s_bal OPV (doses)",
+            "id": "iuSIObmKutb"
+        },
+        {
+            "name": "Symptoms",
+            "shortName": " Symptoms",
+            "id": "XCMLePzaZiL"
+        },
+        {
+            "name": "TB Case Definition",
+            "shortName": "TB Case Definition",
+            "id": "HmkXnHJxcD1"
+        },
+        {
+            "name": "TB Cohort new SS+ completed",
+            "shortName": "TBnewSSpo.Completed",
+            "id": "JFJfrQRwKUH"
+        },
+        {
+            "name": "TB Cohort new SS+ cured",
+            "shortName": "TBnewSSpositiv.cured",
+            "id": "LwqtuNuXzMO"
+        },
+        {
+            "name": "TB Cohort new SS+ defaulted",
+            "shortName": "TBnewSSpo.Defaulted",
+            "id": "iGWmygJhJ0W"
+        },
+        {
+            "name": "TB Cohort new SS+ died",
+            "shortName": "TBnewSSpo.Died",
+            "id": "iwKQb6AzcyA"
+        },
+        {
+            "name": "TB Cohort new SS+ failed",
+            "shortName": "TBnewSSpo.Failed",
+            "id": "iM7agdDyMAv"
+        },
+        {
+            "name": "TB Cohort new SS+ registered",
+            "shortName": "TBnewSSpo.Registered",
+            "id": "ax9QMVVaWzT"
+        },
+        {
+            "name": "TB Cohort new SS+ trans. in",
+            "shortName": "TB_newSSpo.Trans_In",
+            "id": "LvVagpDFHVd"
+        },
+        {
+            "name": "TB Cohort new SS+ trans out",
+            "shortName": "TBnewSSpo.TransOut",
+            "id": "zg2HS37R0S0"
+        },
+        {
+            "name": "TB Disease Classification",
+            "shortName": "TB Disease Class.",
+            "id": "D7m8vpzxHDJ"
+        },
+        {
+            "name": "TB Extra pulmonary TB",
+            "shortName": "ExtraPulmonaryTB",
+            "id": "tHFKyPb1db7"
+        },
+        {
+            "name": "TB HIV testing done",
+            "shortName": "TB HIV testing done",
+            "id": "U5ubm6PPYrM"
+        },
+        {
+            "name": "TB Known MDR-TB contact",
+            "shortName": "Known MDR-TB contact",
+            "id": "cVs0TJQDBwT"
+        },
+        {
+            "name": "TB lab CD4",
+            "shortName": "TB lab CD4",
+            "id": "Vk1tzSQxvOR"
+        },
+        {
+            "name": "TB lab Creatinine",
+            "shortName": "TB lab Creatinine",
+            "id": "fCXKBdc27Bt"
+        },
+        {
+            "name": "Tb lab Glucose",
+            "shortName": "Tb lab Glucose",
+            "id": "lJTx9EZ1dk1"
+        },
+        {
+            "name": "TB lab Hemoglobin",
+            "shortName": "TB lab Hemoglobin",
+            "id": "fTZFU8cWvb3"
+        },
+        {
+            "name": "TB New SS+ cases",
+            "shortName": "TB New SS+ cases",
+            "id": "PcdVnX3EthS"
+        },
+        {
+            "name": "TB No. of suspects screened",
+            "shortName": "TB_NoSUspectScreened",
+            "id": "sVDDqpaKwBH"
+        },
+        {
+            "name": "TB Previous use of second-line drugs",
+            "shortName": "TB Previous use of second- line drugs",
+            "id": "vAzDOljIN1o"
+        },
+        {
+            "name": "TB Referred by community member",
+            "shortName": "TBrefByCom.Member",
+            "id": "Vacgoqzb0a9"
+        },
+        {
+            "name": "TB Referred by other",
+            "shortName": "TB Referred by other",
+            "id": "x4KonEdVrf4"
+        },
+        {
+            "name": "TB Referred by private provider",
+            "shortName": "TB_RefByPrivateProv.",
+            "id": "BexcJLSBmoI"
+        },
+        {
+            "name": "TB Referred by public facility",
+            "shortName": "TBrefByPublicFac.",
+            "id": "HihtAAbmIKd"
+        },
+        {
+            "name": "TB registration group",
+            "shortName": "TB registration group",
+            "id": "V7IfAfgOH9c"
+        },
+        {
+            "name": "TB Self referral",
+            "shortName": "TB Self referral",
+            "id": "DfxIW8gECPb"
+        },
+        {
+            "name": "TB smear microscopy number of specimen",
+            "shortName": "TB smear microscopy number of specimen",
+            "id": "yLIPuJHRgey"
+        },
+        {
+            "name": "TB smear microscopy test outcome",
+            "shortName": "TB smear microscopy test outcome",
+            "id": "zocHNQIQBIN"
+        },
+        {
+            "name": "TB Smear Negative",
+            "shortName": "TB Smear Negative",
+            "id": "NzUztyjtUm2"
+        },
+        {
+            "name": "TB Smear not done",
+            "shortName": "TB Smear not done",
+            "id": "QmqSvR8y1VP"
+        },
+        {
+            "name": "TB Smear Positive T.A.I",
+            "shortName": "TB_SP_TAI",
+            "id": "NRmkLQkTbHw"
+        },
+        {
+            "name": "TB Smear Positve Failure",
+            "shortName": "TB_SP_Failure",
+            "id": "auVPuAdFCmY"
+        },
+        {
+            "name": "TB Smear Positve Relapse",
+            "shortName": "TB_SP_Relapse",
+            "id": "uwbLjPhducc"
+        },
+        {
+            "name": "TB Started on ART",
+            "shortName": "TB Started on ART",
+            "id": "zJbnrm3kUAk"
+        },
+        {
+            "name": "TB Started on CPT",
+            "shortName": "TB Started on CPT",
+            "id": "P6hgV2tSIvi"
+        },
+        {
+            "name": "TB treatment card",
+            "shortName": "TB treatment card",
+            "id": "lpHeSOA8GUV"
+        },
+        {
+            "name": "Temperature",
+            "shortName": "Temperature",
+            "id": "J7hdx5FCJvG"
+        },
+        {
+            "name": "Tetanus Neonatal (Deaths < 5 yrs)",
+            "shortName": "Tetanus Neonatal (Deaths < 5 yrs)",
+            "id": "Vp12ncSU1Av"
+        },
+        {
+            "name": "Tetanus (not incl. 0-28 days) follow-up",
+            "shortName": "Tetatnus follow-up",
+            "id": "nG0tBc37z0q"
+        },
+        {
+            "name": "Tetanus (not incl. 0-28 days) new",
+            "shortName": "Tetatnus new",
+            "id": "Uoj2wmnr5Dw"
+        },
+        {
+            "name": "Tetanus (not incl. 0-28 days) referrals",
+            "shortName": "Tetatnus referrals",
+            "id": "Bc7pt6MgY0j"
+        },
+        {
+            "name": "Tetanus Other (Deaths < 5 yrs)",
+            "shortName": "Tetanus Other (Deaths < 5 yrs)",
+            "id": "hM4ya5T2AqX"
+        },
+        {
+            "name": "Time of assessment",
+            "shortName": "Time of assessment",
+            "id": "bOTcPezfyYk"
+        },
+        {
+            "name": "Timing of case/s with and local transmission ",
+            "shortName": "Timing of case/s with and local transmission ",
+            "id": "IFgKaK8mSpD"
+        },
+        {
+            "name": "Total Population",
+            "shortName": "Total Population",
+            "id": "WUg3MYWQ7pt"
+        },
+        {
+            "name": "Total population < 1 year",
+            "shortName": "Total population <1y",
+            "id": "DTVRnCGamkV"
+        },
+        {
+            "name": "Total population < 5 years",
+            "shortName": "Total population < 5",
+            "id": "DTtCy7Nx5jH"
+        },
+        {
+            "name": "Travel comment",
+            "shortName": "Travel comment",
+            "id": "i7JwJXVEl2C"
+        },
+        {
+            "name": "Travel in last 12 months",
+            "shortName": "Travel within 12 months",
+            "id": "hiymQVgVG2v"
+        },
+        {
+            "name": "Travel outside province",
+            "shortName": "Travel outside province",
+            "id": "OhU3RfPlQGR"
+        },
+        {
+            "name": "Travel to (last 12 months)",
+            "shortName": "Travel last 12 months",
+            "id": "ISRUNdE4K1Q"
+        },
+        {
+            "name": "Travel to (last 2 weeks)",
+            "shortName": "Travel last 2 weeks",
+            "id": "xoDfSuukvZ9"
+        },
+        {
+            "name": "Travel to (last 6 weeks)",
+            "shortName": "Travel last 6 weeks",
+            "id": "B1zbtdPXMRk"
+        },
+        {
+            "name": "Treatment Malaria",
+            "shortName": "Treatment Malaria",
+            "id": "O7OiONht8T3"
+        },
+        {
+            "name": "TrueOnly",
+            "shortName": "TrueOnlyTrueOnly",
+            "id": "ROz7HjmtxIg"
+        },
+        {
+            "name": "TT1 doses given",
+            "shortName": "ANC_TT1",
+            "id": "zzHwXqxKYy1"
+        },
+        {
+            "name": "TT2 doses given",
+            "shortName": "ANC_TT2",
+            "id": "DUTSJE8MGCw"
+        },
+        {
+            "name": "TT3 doses given",
+            "shortName": "ANC_TT3",
+            "id": "jWaNoH0X0Am"
+        },
+        {
+            "name": "TT4 doses given",
+            "shortName": "ANC_TT4",
+            "id": "tbudfYMNFS5"
+        },
+        {
+            "name": "TT5 doses given",
+            "shortName": "ANC_TT5",
+            "id": "B2ocYtYkPBD"
+        },
+        {
+            "name": "Tuberculosis follow-up",
+            "shortName": "Tuberculosis f-u",
+            "id": "madOetOj4Ye"
+        },
+        {
+            "name": "Tuberculosis new",
+            "shortName": "Tuberculos new",
+            "id": "z9dYcQ2DlBG"
+        },
+        {
+            "name": "Tuberculosis referrals",
+            "shortName": "Tuberculosis ref.",
+            "id": "hdHLjKFmxB4"
+        },
+        {
+            "name": "Type of population",
+            "shortName": "Type of population",
+            "id": "mtzLOpBltII"
+        },
+        {
+            "name": "Typhoid (Deaths < 5 yrs)",
+            "shortName": "Typhoid (Deaths < 5 yrs)",
+            "id": "Yy9NtNfwYZJ"
+        },
+        {
+            "name": "Typhoid fever follow-up",
+            "shortName": "Typhoid fever f-u",
+            "id": "rNi710XHPXY"
+        },
+        {
+            "name": "Typhoid fever new",
+            "shortName": "Typhoid fe new",
+            "id": "Cj5rTc9nEvl"
+        },
+        {
+            "name": "Typhoid fever referrals",
+            "shortName": "Typhoid fever ref.",
+            "id": "LaTxwutQILW"
+        },
+        {
+            "name": "Vaccinator",
+            "shortName": "Vaccinator",
+            "id": "Nz5YtOpDyuV"
+        },
+        {
+            "name": "VCCT No positive test HIV1 and HIV2",
+            "shortName": "VCCTnoHIV1+HIV2",
+            "id": "ZjILYaYGEBM"
+        },
+        {
+            "name": "VCCT No positive test HIV1 only",
+            "shortName": "VCCTnoPositveHIV1",
+            "id": "LicY0q8cagk"
+        },
+        {
+            "name": "VCCT No positive test HIV2 only",
+            "shortName": "VCCTnoPositveHIV2",
+            "id": "LgYtBqVkADK"
+        },
+        {
+            "name": "VCCT No receiving positive test results",
+            "shortName": "VCCTnoPositvTestResu",
+            "id": "EASG4IZChNr"
+        },
+        {
+            "name": "VCCT No receiving Pre-test counselling",
+            "shortName": "VCCTnoPreTestCounsel",
+            "id": "IpwsH1GUjCs"
+        },
+        {
+            "name": "VCCT No reiciving result & post-test counselling",
+            "shortName": "VCCTnoResult&PoTestC",
+            "id": "CjLP7zAhlP4"
+        },
+        {
+            "name": "VCCT No Test",
+            "shortName": "VCCT No Test",
+            "id": "bmW8ktueArb"
+        },
+        {
+            "name": "Vector behavior (based on study)",
+            "shortName": "Vector behavior (based on study)",
+            "id": "RKJ08MlK5kr"
+        },
+        {
+            "name": "Vitamin A given at postnatal",
+            "shortName": "Vitamin A postnatal",
+            "id": "btSSE4w61kd"
+        },
+        {
+            "name": "Vitamin A given to < 5y",
+            "shortName": "Vitamin A <5",
+            "id": "tU7GixyHhsv"
+        },
+        {
+            "name": "Voucher HTC",
+            "shortName": "Voucher HTC",
+            "id": "b6dOUjAarHD"
+        },
+        {
+            "name": "Voucher IMCI",
+            "shortName": "Voucher IMCI",
+            "id": "W7aC8jLASW8"
+        },
+        {
+            "name": "Voucher Implants",
+            "shortName": "Voucher Implants",
+            "id": "fqnXmRYo5Cz"
+        },
+        {
+            "name": "Voucher Injections",
+            "shortName": "Voucher Injections",
+            "id": "HrJmqlBqTFG"
+        },
+        {
+            "name": "Voucher IUCD",
+            "shortName": "Voucher IUCD",
+            "id": "Qz3kfeKgLgL"
+        },
+        {
+            "name": "Voucher Pills",
+            "shortName": "Voucher Pills",
+            "id": "UwCXONyUtGs"
+        },
+        {
+            "name": "Voucher VMMC",
+            "shortName": "Voucher VMMC",
+            "id": "HyJL2Lt37jN"
+        },
+        {
+            "name": "Vulnerability",
+            "shortName": "Vulnerability",
+            "id": "yugu3uQNOg7"
+        },
+        {
+            "name": "Weight",
+            "shortName": "Weight",
+            "id": "JINgGHgqzSN"
+        },
+        {
+            "name": "Weight for age below lower line (red)",
+            "shortName": "Weight/age red",
+            "id": "bTcRDVjC66S"
+        },
+        {
+            "name": "Weight for age between middle and lower line (yellow)",
+            "shortName": "Weight/age yellow",
+            "id": "ldGXl6SEdqf"
+        },
+        {
+            "name": "Weight for age on or above middle line (green)",
+            "shortName": "Weight/age green",
+            "id": "NLnXLV5YpZF"
+        },
+        {
+            "name": "Weight for height 70-79 percent",
+            "shortName": "Weight/height 70-79",
+            "id": "pnL2VG8Bn7N"
+        },
+        {
+            "name": "Weight for height 80 percent and above",
+            "shortName": "Weight/height 80+",
+            "id": "qPVDd87kS9Z"
+        },
+        {
+            "name": "Weight for height below 70 percent",
+            "shortName": "Weight/height <70",
+            "id": "lVsbKXoF0zX"
+        },
+        {
+            "name": "Weight in kg",
+            "shortName": "Weight in kg",
+            "id": "vV9UWAZohSf"
+        },
+        {
+            "name": "WHOMCH Allergies (drugs and/or severe food allergies)",
+            "shortName": "Allergies",
+            "id": "QFX1FLWBwtq"
+        },
+        {
+            "name": "WHOMCH Antihypertensive drug given",
+            "shortName": "Antihypertensive drug given",
+            "id": "cKBSkBB3Mt4"
+        },
+        {
+            "name": "WHOMCH Autoimmune disease",
+            "shortName": "Autoimmune disease",
+            "id": "zzGNbeMnTd6"
+        },
+        {
+            "name": "WHOMCH Blood transfusion",
+            "shortName": "Blood transfusion",
+            "id": "ez86AhQ5cqp"
+        },
+        {
+            "name": "WHOMCH Body temperature",
+            "shortName": "Body temperature",
+            "id": "L6Toy2TrHHq"
+        },
+        {
+            "name": "WHOMCH Calcium supplements given ",
+            "shortName": "Calcium supplements given ",
+            "id": "PKZPVfAJfHD"
+        },
+        {
+            "name": "WHOMCH CD4 count",
+            "shortName": "CD4 count",
+            "id": "B3bDhNpCcEM"
+        },
+        {
+            "name": "WHOMCH Chronic conditions",
+            "shortName": "Chronic conditions",
+            "id": "de0FEHSIoxh"
+        },
+        {
+            "name": "WHOMCH Chronic hypertension",
+            "shortName": "Chronic hypertension",
+            "id": "UQ2Zo8CruPB"
+        },
+        {
+            "name": "WHOMCH Clinical estimate of due date",
+            "shortName": "Clinical estimate of due date",
+            "id": "YKXci7Sm0Zq"
+        },
+        {
+            "name": "WHOMCH Clinical impression of eclampsia",
+            "shortName": "Clinical impression of eclampsia",
+            "id": "ALfOm7aaH6b"
+        },
+        {
+            "name": "WHOMCH Clinical impression of pre-eclampsia",
+            "shortName": "Clinical impression of pre-eclampsia",
+            "id": "Mfq2Y9N21KZ"
+        },
+        {
+            "name": "WHOMCH Commencement of labour",
+            "shortName": "Commencement of labour",
+            "id": "mGHBXrtqSut"
+        },
+        {
+            "name": "WHOMCH Conditions in previous pregnancy",
+            "shortName": "Conditions in previous pregnancy",
+            "id": "suhLG4CrzUw"
+        },
+        {
+            "name": "WHOMCH Confirmed or suspected infection",
+            "shortName": "Confirmed or suspected infection",
+            "id": "klEz81wXFoU"
+        },
+        {
+            "name": "WHOMCH Continuous supportive presence during labour and birth ",
+            "shortName": "Continuous supportive presence",
+            "id": "z8m3llJYuh9"
+        },
+        {
+            "name": "WHOMCH Contraceptive counselling provided",
+            "shortName": "Contraceptive counselling provided",
+            "id": "QWVRukwa83h"
+        },
+        {
+            "name": "WHOMCH Corticostereoid exposure",
+            "shortName": "Corticostereoid exposure",
+            "id": "awGGBWPT5yv"
+        },
+        {
+            "name": "WHOMCH Date of birth/End of pregnancy",
+            "shortName": "Date of birth",
+            "id": "u3TE34T4KH0"
+        },
+        {
+            "name": "WHOMCH Date of birth of most recent newborn",
+            "shortName": "Date of birth of most recent newborn",
+            "id": "cwgQnkamM2j"
+        },
+        {
+            "name": "WHOMCH Date of induction of labor",
+            "shortName": "Date of induction of labor",
+            "id": "MH33VLmOOqm"
+        },
+        {
+            "name": "WHOMCH Date of last TT dose",
+            "shortName": "Date of last TT dose",
+            "id": "r3BqzOPxAjp"
+        },
+        {
+            "name": "WHOMCH Delivery method",
+            "shortName": "Delivery method",
+            "id": "spkG704sTh6"
+        },
+        {
+            "name": "WHOMCH Diabetes",
+            "shortName": "Diabetes",
+            "id": "Q1x1HIhuwFN"
+        },
+        {
+            "name": "WHOMCH Diastolic blood pressure",
+            "shortName": "Diastolic blood pressure",
+            "id": "dyYdfamSY2Z"
+        },
+        {
+            "name": "WHOMCH Eclamptic convulsions",
+            "shortName": "Eclamptic convulsions",
+            "id": "w7enwqzx90I"
+        },
+        {
+            "name": "WHOMCH ECV conversion remaining",
+            "shortName": "ECV conversion remaining",
+            "id": "yTDoF5b1OhI"
+        },
+        {
+            "name": "WHOMCH ECV offered",
+            "shortName": "ECV offered",
+            "id": "QM5d0hfSbKk"
+        },
+        {
+            "name": "WHOMCH ECV performed",
+            "shortName": "ECV performed",
+            "id": "DCUDZxqOxUo"
+        },
+        {
+            "name": "WHOMCH Erythromycin given for PPROM",
+            "shortName": "Erythromycin given for PPROM",
+            "id": "rHgrmXfa57b"
+        },
+        {
+            "name": "WHOMCH Erythromycin given for syphillis",
+            "shortName": "Erythromycin given for syphillis",
+            "id": "Js57E09s9fh"
+        },
+        {
+            "name": "WHOMCH Estimated blood loss (ml)",
+            "shortName": "Estimated blood loss (ml)",
+            "id": "hib4oz2sOLw"
+        },
+        {
+            "name": "WHOMCH Extreme pallor",
+            "shortName": "Extreme pallor",
+            "id": "EyfTU3ibMmJ"
+        },
+        {
+            "name": "WHOMCH Fetal heart rate on admission",
+            "shortName": "Fetal heart rate on admission",
+            "id": "u7aAPS8OgLw"
+        },
+        {
+            "name": "WHOMCH Fetal presentation",
+            "shortName": "Fetal presentation",
+            "id": "vPdXnmGWzfy"
+        },
+        {
+            "name": "WHOMCH Gestational age at visit",
+            "shortName": "WHOMCH Gestational age at visit",
+            "id": "roKuXYfw1BW"
+        },
+        {
+            "name": "WHOMCH Gravidity(previous pregnancies)",
+            "shortName": "Gravidity(previous pregnancies)",
+            "id": "PuiTfPfSf86"
+        },
+        {
+            "name": "WHOMCH Haematocrit value",
+            "shortName": "Haematocrit value",
+            "id": "X8HbdaoS9LN"
+        },
+        {
+            "name": "WHOMCH Heart rate",
+            "shortName": "Heart rate",
+            "id": "pwfdgeE21Os"
+        },
+        {
+            "name": "WHOMCH Hemoglobin value",
+            "shortName": "Hemoglobin value",
+            "id": "vANAXwtLwcT"
+        },
+        {
+            "name": "WHOMCH HIV counselling provided - negative",
+            "shortName": "HIV counselling provided - negative",
+            "id": "jRo4KlnCKeX"
+        },
+        {
+            "name": "WHOMCH HIV counselling provided - positive",
+            "shortName": "HIV counselling provided - positive",
+            "id": "yEmfXF9HJ1M"
+        },
+        {
+            "name": "WHOMCH HIV rapid test",
+            "shortName": "HIV rapid test",
+            "id": "Itl05OEupgQ"
+        },
+        {
+            "name": "WHOMCH HIV test results provided to patient",
+            "shortName": "HIV test results provided to patient",
+            "id": "yq1qT0NdjYQ"
+        },
+        {
+            "name": "WHOMCH Hospital / Birth clinic",
+            "shortName": "Hospital / Birth clinic",
+            "id": "n1rtSHYf6O6"
+        },
+        {
+            "name": "WHOMCH Indication for induction of labour",
+            "shortName": "Indication for induction of labour",
+            "id": "D1EHM01p454"
+        },
+        {
+            "name": "WHOMCH Induction of labor",
+            "shortName": "Induction of labor",
+            "id": "MVIV2RGWhUq"
+        },
+        {
+            "name": "WHOMCH Induction of labour with vaginal prostaglandin performed at term",
+            "shortName": "Induction of labour with vaginal prostaglandin",
+            "id": "oQgcj7kV1c3"
+        },
+        {
+            "name": "WHOMCH Insecticide treated bednet promoted",
+            "shortName": "Insecticide treated bednet promoted",
+            "id": "NPZPVg2rVh4"
+        },
+        {
+            "name": "WHOMCH Iron and folic acid supplements given",
+            "shortName": "Iron and folic acid supplements given",
+            "id": "Kb6kZzUCJi1"
+        },
+        {
+            "name": "WHOMCH LMP date",
+            "shortName": "LMP date",
+            "id": "w4ky6EkVahL"
+        },
+        {
+            "name": "WHOMCH Low-dose acetylsalicylic acid given",
+            "shortName": "Low-dose acetylsalicylic acid given",
+            "id": "OSuxnldV4Ug"
+        },
+        {
+            "name": "WHOMCH Malaria prophylaxis given in second trimester",
+            "shortName": "Malaria prophylaxis given in second trimester",
+            "id": "MHW5v2Iljtw"
+        },
+        {
+            "name": "WHOMCH Malaria prophylaxis given in third trimester",
+            "shortName": "Malaria prophylaxis given in third trimester",
+            "id": "zsWyjzmBLGz"
+        },
+        {
+            "name": "WHOMCH Maternal near-miss",
+            "shortName": "Maternal near-miss",
+            "id": "FIHEeJwfhZH"
+        },
+        {
+            "name": "WHOMCH Maternal near-miss by coagulation/haematological dysfunction",
+            "shortName": "MNM by coagulation/haematological dysfunction",
+            "id": "i9mEM7ZW7yV"
+        },
+        {
+            "name": "WHOMCH Maternal near-miss by other reason",
+            "shortName": "Maternal near-miss by other reason",
+            "id": "SojR4V7A8u2"
+        },
+        {
+            "name": "WHOMCH Maternal near-miss by uterine dysfunction",
+            "shortName": "MNM by uterine dysfunction",
+            "id": "PQlndpI05Bb"
+        },
+        {
+            "name": "WHOMCH Meconium stained liquor",
+            "shortName": "Meconium stained liquor",
+            "id": "YsVHgzQCwmr"
+        },
+        {
+            "name": "WHOMCH Medication",
+            "shortName": "Medication",
+            "id": "fNnOPQj83jz"
+        },
+        {
+            "name": "WHOMCH MgSO4 injection given",
+            "shortName": "MgSO4 injection given",
+            "id": "lcaG1Pnh27I"
+        },
+        {
+            "name": "WHOMCH Moderate aneamia",
+            "shortName": "Moderate aneamia",
+            "id": "FYLMjPQ0wmo"
+        },
+        {
+            "name": "WHOMCH Mohammads point",
+            "shortName": "Mohammads point",
+            "id": "EnalHZFesIv"
+        },
+        {
+            "name": "WHOMCH Offered a choice of induction of labour or expectant management",
+            "shortName": "off. induction of labour or exp. management",
+            "id": "SeXllT5ypsh"
+        },
+        {
+            "name": "WHOMCH Ongoing or initiated ARV regimen",
+            "shortName": "Ongoing or initiated ARV regimen",
+            "id": "nhW3SZX9JaN"
+        },
+        {
+            "name": "WHOMCH Onset of symptoms in current pregnancy",
+            "shortName": "Onset of symptoms in current pregnancy",
+            "id": "WY9LjaUQI1q"
+        },
+        {
+            "name": "WHOMCH Other chronic condition",
+            "shortName": "Other chronic condition",
+            "id": "xPTngRLQTnu"
+        },
+        {
+            "name": "WHOMCH Other chronic condition specified",
+            "shortName": "Other chronic condition specified",
+            "id": "Mh7nK8UKoZP"
+        },
+        {
+            "name": "WHOMCH Other medicine allergy",
+            "shortName": "Other medicine allergy",
+            "id": "dpOtt7HUQXa"
+        },
+        {
+            "name": "WHOMCH Other medicine allergy specified",
+            "shortName": "Other medicine allergy specified",
+            "id": "VSmOcdK3v7y"
+        },
+        {
+            "name": "WHOMCH Other severe allergy",
+            "shortName": "Other severe allergy",
+            "id": "ZbDPeYzWsh2"
+        },
+        {
+            "name": "WHOMCH Other severe allergy specified",
+            "shortName": "Other severe allergy specified",
+            "id": "zk4Eui7Jhtr"
+        },
+        {
+            "name": "WHOMCH Oxytocin given",
+            "shortName": "Oxytocin given",
+            "id": "BmaBjPQX8ME"
+        },
+        {
+            "name": "WHOMCH Pain medication given",
+            "shortName": "Pain medication given",
+            "id": "HUfKCOou7de"
+        },
+        {
+            "name": "WHOMCH Parity (previous deliveries)",
+            "shortName": "Parity (previous deliveries)",
+            "id": "hisxuZstYJM"
+        },
+        {
+            "name": "WHOMCH Partograph used",
+            "shortName": "Partograph used",
+            "id": "VXdfPQRXKiA"
+        },
+        {
+            "name": "WHOMCH Penicillin allergy",
+            "shortName": "Penicillin allergy",
+            "id": "E6QaDtrQP5e"
+        },
+        {
+            "name": "WHOMCH Penicillin given",
+            "shortName": "Penicillin given",
+            "id": "OhcR0fpFcWa"
+        },
+        {
+            "name": "WHOMCH Plurality assessed",
+            "shortName": "Plurality assessed",
+            "id": "PN6HcGjTraL"
+        },
+        {
+            "name": "WHOMCH Pregnancy outcome",
+            "shortName": "Pregnancy outcome",
+            "id": "V5PR8Kw8ZnC"
+        },
+        {
+            "name": "WHOMCH Previously known HIV-positive",
+            "shortName": "Previously known HIV-positive",
+            "id": "VFffa31SKjH"
+        },
+        {
+            "name": "WHOMCH Previous modes of delivery",
+            "shortName": "Previous modes of delivery",
+            "id": "W4zW3aPyS0G"
+        },
+        {
+            "name": "WHOMCH Previous pregnacy birthweight",
+            "shortName": "Previous pregnacy birthweight",
+            "id": "iwNXUX6KYX0"
+        },
+        {
+            "name": "WHOMCH Previous pregnancy gest.age at birth",
+            "shortName": "Previous pregnancy gest.age at birth",
+            "id": "wqpUVEeJR3D"
+        },
+        {
+            "name": "WHOMCH Previous pregnancy outcomes",
+            "shortName": "Previous pregnancy outcomes",
+            "id": "mrVkW9h2Rdp"
+        },
+        {
+            "name": "WHOMCH Proteinuria (concentration mg/dL)",
+            "shortName": "Proteinuria (concentration mg/dL)",
+            "id": "dpiyZz8bkVE"
+        },
+        {
+            "name": "WHOMCH Proteinuria (urinstix)",
+            "shortName": "Proteinuria (urinstix)",
+            "id": "a7XjFEuZuKE"
+        },
+        {
+            "name": "WHOMCH Recurrent eclamptic seizures",
+            "shortName": "Recurrent eclamptic seizures",
+            "id": "vTEkiy8F3yj"
+        },
+        {
+            "name": "WHOMCH Renal disease",
+            "shortName": "Renal disease",
+            "id": "sdchiIXIcCf"
+        },
+        {
+            "name": "WHOMCH Respiratory rate",
+            "shortName": "Respiratory rate",
+            "id": "Spl22QJsWeu"
+        },
+        {
+            "name": "WHOMCH Retained placenta",
+            "shortName": "Retained placenta",
+            "id": "PCiOYWXZq2E"
+        },
+        {
+            "name": "WHOMCH RPR test",
+            "shortName": "RPR test",
+            "id": "AAaJGnWR5js"
+        },
+        {
+            "name": "WHOMCH Screening for autoimmune disease performed",
+            "shortName": "Screening for autoimmune disease performed",
+            "id": "xoji9tjIrIj"
+        },
+        {
+            "name": "WHOMCH Screening for chronic hypertension performed",
+            "shortName": "Screening for chronic hypertension performed",
+            "id": "kRVjK1hrUCe"
+        },
+        {
+            "name": "WHOMCH Screening for diabetes performed",
+            "shortName": "Screening for diabetes performed",
+            "id": "jTtAqN1pMTY"
+        },
+        {
+            "name": "WHOMCH Screening for pre-eclampsia risk factors performed",
+            "shortName": "Screening for pre-eclampsia risk factors performed",
+            "id": "YrtUVQtPngs"
+        },
+        {
+            "name": "WHOMCH Screening for previous pre-eclampsia performed",
+            "shortName": "Screening for previous pre-eclampsia performed",
+            "id": "rIwYLa8kox3"
+        },
+        {
+            "name": "WHOMCH Screening for renal disease performed ",
+            "shortName": "Screening for renal disease performed ",
+            "id": "hH1izHeUNrQ"
+        },
+        {
+            "name": "WHOMCH Severe anaemia",
+            "shortName": "Severe anaemia",
+            "id": "AXuzjgLsBy3"
+        },
+        {
+            "name": "WHOMCH Slept under ITN (insecticide treated bednet)",
+            "shortName": "Slept under ITN (insecticide treated bednet)",
+            "id": "ytV9rX4ADnn"
+        },
+        {
+            "name": "WHOMCH Smoking",
+            "shortName": "Smoking",
+            "id": "sWoqcoByYmD"
+        },
+        {
+            "name": "WHOMCH Smoking cessation counselling provided ",
+            "shortName": "Smoking cessation counselling provided ",
+            "id": "Ok9OQpitjQr"
+        },
+        {
+            "name": "WHOMCH Speculum examination test result for suspected pPROM",
+            "shortName": "Speculum test result pPROM",
+            "id": "z9auvNRRWQJ"
+        },
+        {
+            "name": "WHOMCH Speculum examination test result for suspected PROM",
+            "shortName": "Speculum test result PROM",
+            "id": "yV91JsUXuju"
+        },
+        {
+            "name": "WHOMCH Suspected pPROM",
+            "shortName": "Suspected pPROM",
+            "id": "cF0XbuZkUcC"
+        },
+        {
+            "name": "WHOMCH Suspected PROM",
+            "shortName": "Suspected PROM",
+            "id": "DwWIh6D3fSr"
+        },
+        {
+            "name": "WHOMCH Systolic blood pressure",
+            "shortName": "Systolic blood pressure",
+            "id": "M4HEOoEFTAT"
+        },
+        {
+            "name": "WHOMCH Tetanus vaccination status",
+            "shortName": "Tetanus vaccination status",
+            "id": "sUX4i7QqbXF"
+        },
+        {
+            "name": "WHOMCH Third or fourth degree perineal tear",
+            "shortName": "Third or fourth degree perineal tear",
+            "id": "cz5DN6BVVeW"
+        },
+        {
+            "name": "WHOMCH Treatment for moderate anemia",
+            "shortName": "Treatment for moderate anemia",
+            "id": "RxVNLSeTjto"
+        },
+        {
+            "name": "WHOMCH Treatment for severe anemia",
+            "shortName": "Treatment for severe anemia",
+            "id": "nB4Ui3ckmUi"
+        },
+        {
+            "name": "WHOMCH Ultrasound estimate of due date",
+            "shortName": "Ultrasound estimate of due date",
+            "id": "DecmCMPDPdS"
+        },
+        {
+            "name": "WHOMCH Uterotonics given",
+            "shortName": "Uterotonics given",
+            "id": "m3XQrgadVK9"
+        },
+        {
+            "name": "WHOMCH White blood cell count",
+            "shortName": "White blood cell count",
+            "id": "csl3yq5UC46"
+        },
+        {
+            "name": "Worm infestation follow-up",
+            "shortName": "Worm infestation f-u",
+            "id": "E62UwxnYf26"
+        },
+        {
+            "name": "Worm infestation new",
+            "shortName": "Worm infest. new",
+            "id": "Usk9Asj5DED"
+        },
+        {
+            "name": "Worm infestation referrals",
+            "shortName": "Worm infestation ref",
+            "id": "VmoPqzwBgkx"
+        },
+        {
+            "name": "Wounds/Trauma follow-up",
+            "shortName": "Wounds/Trauma f-u",
+            "id": "yJwdE6XJbrF"
+        },
+        {
+            "name": "Wounds/Trauma new",
+            "shortName": "Wounds/Trauma new",
+            "id": "FJs8ZjlQE6f"
+        },
+        {
+            "name": "Wounds/Trauma referrals",
+            "shortName": "Wounds/Trauma ref.",
+            "id": "JMKtVQ5HasH"
+        },
+        {
+            "name": "WP1",
+            "shortName": "WP1",
+            "id": "zHaIxBfQMZk"
+        },
+        {
+            "name": "WP2",
+            "shortName": "WP2",
+            "id": "HUYDWrGgTdI"
+        },
+        {
+            "name": "XX MAL RDT TRK - Age",
+            "shortName": "XX MAL RDT - Age",
+            "id": "vcSXdYGa5St"
+        },
+        {
+            "name": "XX MAL RDT TRK - Diagnosis Method",
+            "shortName": "XX MAL RDT - Diagnosis Method",
+            "id": "lWLkpWMHqEq"
+        },
+        {
+            "name": "XX MAL RDT TRK - Diagnosis Type",
+            "shortName": "XX MAL RDT - Diagnosis Type",
+            "id": "QMLLmxjsFqk"
+        },
+        {
+            "name": "XX MAL RDT TRK - Microscopy Result",
+            "shortName": "XX MAL RDT - Microscopy Result",
+            "id": "XEuy83qbOvM"
+        },
+        {
+            "name": "XX MAL RDT TRK - No tested reason",
+            "shortName": "XX MAL RDT - No tested",
+            "id": "iV67wNwjQuG"
+        },
+        {
+            "name": "XX MAL RDT TRK - RDT Result",
+            "shortName": "XX MAL RDT - RDT Result",
+            "id": "diH9IbKTpHj"
+        },
+        {
+            "name": "XX MAL RDT TRK - Reason for not testing",
+            "shortName": "XX MAL RDT - Reason for not testing",
+            "id": "DKj79JKpli0"
+        },
+        {
+            "name": "XX MAL RDT TRK - Referral",
+            "shortName": "XX MAL RDT - Referral",
+            "id": "DY1xJukD6nc"
+        },
+        {
+            "name": "XX MAL RDT TRK - Sex",
+            "shortName": "XX MAL RDT - Sex",
+            "id": "YdwvOAN77SV"
+        },
+        {
+            "name": "XX MAL RDT TRK - Treatment Mixed",
+            "shortName": "XX MAL RDT - Treatment Mixed",
+            "id": "zFaeo9trjWb"
+        },
+        {
+            "name": "XX MAL RDT TRK - Treatment Pf",
+            "shortName": "XX MAL RDT - Treatment Pf",
+            "id": "CLC5VYdZBay"
+        },
+        {
+            "name": "XX MAL RDT TRK - Treatment Pv",
+            "shortName": "XX MAL RDT - Treatment Pv",
+            "id": "TnCSyYfCaNE"
+        },
+        {
+            "name": "XX MAL RDT TRK - Village of Residence",
+            "shortName": "XX MAL RDT - Village of Residence",
+            "id": "rypjN8CV02V"
+        },
+        {
+            "name": "Yaws follow-up",
+            "shortName": "Yaws follow-up",
+            "id": "plfo9ai1jtW"
+        },
+        {
+            "name": "Yaws new",
+            "shortName": "Yaws new",
+            "id": "FF3Ev33BuCh"
+        },
+        {
+            "name": "Yaws referrals",
+            "shortName": "Yaws referrals",
+            "id": "gQAAvbLx8MM"
+        },
+        {
+            "name": "Yebo",
+            "shortName": "Yebo",
+            "id": "cNkTt6mJQyO"
+        },
+        {
+            "name": "Yellow Fever (Deaths < 5 yrs)",
+            "shortName": "Yellow Fever (Deaths < 5 yrs)",
+            "id": "USBq0VHSkZq"
+        },
+        {
+            "name": "Yellow Fever (Deaths < 5 yrs) Narrative",
+            "shortName": "Yellow Fever (Deaths < 5 yrs) Narrative",
+            "id": "rj9mw1J6sBg"
+        },
+        {
+            "name": "Yellow Fever doses given",
+            "shortName": "Yellow Fever doses given",
+            "id": "l6byfWFUGaP"
+        },
+        {
+            "name": "Yellow fever follow-up",
+            "shortName": "Yellow fever f-u",
+            "id": "hvdCBRWUk80"
+        },
+        {
+            "name": "Yellow fever new",
+            "shortName": "Yellow fev new",
+            "id": "XWU1Huh0Luy"
+        },
+        {
+            "name": "Yellow fever referrals",
+            "shortName": "Yellow fever ref.",
+            "id": "zSJF2b48kOg"
+        },
+        {
+            "name": "YesOnly",
+            "shortName": "YesOnly",
+            "id": "QN8WyI8KgpU"
+        }
+    ]
+}

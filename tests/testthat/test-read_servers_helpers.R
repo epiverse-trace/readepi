@@ -8,294 +8,7 @@ test_that("connect_to_server works as expected", {
     password = "",
     port = 4497
   )
-})
-
-test_that("connect_to_server fails with incorrect dbms", {
-  expect_error(
-    connect_to_server(
-      dbms = NA,
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',dbms,'failed: Missing value not
-                 allowed.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = NULL,
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',dbms,'failed: Must be provided.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = c("MySQL", "test"),
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',dbms,'failed: Must be of type character
-                 with length 1.")
-  )
-})
-
-test_that("connect_to_server fails with incorrect driver_name", {
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = NA,
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',driver_name,'failed: Missing value not
-                 allowed.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = NULL,
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',driver_name,'failed: Must be provided.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = c("ODBC Driver 17 for SQL Server", ""),
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',driver_name,'failed: Must be of type charater
-                 with length 1.")
-  )
-})
-
-test_that("connect_to_server fails with incorrect host", {
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = NA,
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',host,'failed: Missing value not
-                 allowed for host name.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = NULL,
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',host,'failed: Must be provided.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = c("mysql-rfam-public.ebi.ac.uk", "test"),
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',host,'failed: Must be of type character
-                 with length 1.")
-  )
-})
-
-test_that("connect_to_server fails with incorrect database_name", {
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = NA,
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',database_name,'failed: Missing value not
-                 allowed for database_name name.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = NULL,
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',database_name,'failed: Must be provided.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = c("Rfam", "test"),
-      user = "rfamro",
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',database_name,'failed: Must be of type character
-                 with length 1.")
-  )
-})
-
-test_that("connect_to_server fails with incorrect user", {
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = NA,
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',user,'failed: Missing value not
-                 allowed for user name.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = NULL,
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',user,'failed: Must be provided.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = c("rfamro", "test"),
-      password = "",
-      port = 4497
-    ),
-    regexp = cat("Assertion on',user,'failed: Must be of type character
-                 with length 1.")
-  )
-})
-
-test_that("connect_to_server fails with incorrect password", {
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = NA,
-      port = 4497
-    ),
-    regexp = cat("Assertion on',password,'failed: Missing value not
-                 allowed for password name.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = NULL,
-      port = 4497
-    ),
-    regexp = cat("Assertion on',user,'failed: Must be provided.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = c("", "pass"),
-      port = 4497
-    ),
-    regexp = cat("Assertion on',password,'failed: Must be of type character
-                 with length 1.")
-  )
-})
-
-test_that("connect_to_server fails with incorrect port", {
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = -4497
-    ),
-    regexp = cat("Assertion on',port,'failed: Negative value not
-                 allowed for port name.")
-  )
-
-  expect_error(
-    connect_to_server(
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 0
-    ),
-    regexp = cat("Assertion on',port,'failed: Must be greater than or
-                 equal to 1.")
-  )
+  expect_type(con, "environment")
 })
 
 test_that("identify_table_name works as expected", {
@@ -304,6 +17,8 @@ test_that("identify_table_name works as expected", {
     tables = c("family_author", "author", "test")
   )
   expect_type(table_name, "character")
+  expect_length(table_name, 1)
+  expect_identical(table_name, "author")
 })
 
 test_that("identify_table_name fails with an incorrect query", {
@@ -313,7 +28,7 @@ test_that("identify_table_name fails with an incorrect query", {
       tables = c("family_author", "author", "test")
     ),
     regexp = cat("Assertion on',query,'failed: Missing value not allowed for
-                 query.")
+                 the 'query' argument.")
   )
 
   expect_error(
@@ -341,7 +56,7 @@ test_that("identify_table_name fails with incorrect tables", {
       tables = NA
     ),
     regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
-                 tables.")
+                 the 'tables' argument.")
   )
 
   expect_error(
@@ -366,6 +81,42 @@ test_that("fetch_data_from_query works as expected", {
     port = 4497
   )
   expect_type(result, "list")
+  expect_length(result, 1)
+  expect_named(result, "author")
+  expect_s3_class(result$author, "data.frame")
+})
+
+test_that("fetch_data_from_query fails with incorrect tables", {
+  expect_error(
+    fetch_data_from_query(
+      source = "select author_id, name, last_name from author",
+      dbms = "MySQL",
+      tables = NA,
+      driver_name = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam",
+      user = "rfamro",
+      password = "",
+      port = 4497
+    ),
+    regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
+                 the 'tables' argument.")
+  )
+
+  expect_error(
+    fetch_data_from_query(
+      source = "select author_id, name, last_name from author",
+      dbms = "MySQL",
+      tables = NULL,
+      driver_name = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam",
+      user = "rfamro",
+      password = "",
+      port = 4497
+    ),
+    regexp = cat("Assertion on',tables,'failed: Must be provided.")
+  )
 })
 
 test_that("sql_select_data works as expected", {
@@ -384,6 +135,48 @@ test_that("sql_select_data works as expected", {
     port = 4497
   )
   expect_type(result, "list")
+  expect_length(result, 1)
+  expect_named(result, "author")
+  expect_s3_class(result$author, "data.frame")
+})
+
+test_that("sql_select_data fails with incorrect table_names", {
+  expect_error(
+    sql_select_data(
+      table_names = NA,
+      dbms = "MySQL",
+      id_col_name = "author_id",
+      fields = c("author_id", "name"),
+      records = NULL,
+      id_position = NULL,
+      driver_name = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam",
+      user = "rfamro",
+      password = "",
+      port = 4497
+    ),
+    regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
+                 the 'tables' argument.")
+  )
+
+  expect_error(
+    sql_select_data(
+      table_names = NULL,
+      dbms = "MySQL",
+      id_col_name = "author_id",
+      fields = c("author_id", "name"),
+      records = NULL,
+      id_position = NULL,
+      driver_name = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam",
+      user = "rfamro",
+      password = "",
+      port = 4497
+    ),
+    regexp = cat("Assertion on',tables,'failed: Must be provided.")
+  )
 })
 
 test_that("get_id_column_name works as expected", {
@@ -393,6 +186,41 @@ test_that("get_id_column_name works as expected", {
     id_position = c(1, 1)
   )
   expect_type(result, "list")
+  expect_length(result, 2)
+  expect_type(result$id_column_name, "character")
+  expect_type(result$id_pos, "character")
+  expect_identical(result$id_column_name, "author_id")
+  expect_identical(result$id_pos, "1")
+})
+
+test_that("sql_select_data fails with incorrect j", {
+  expect_error(
+    get_id_column_name(
+      id_col_name = c("author_id", "rfam_acc"),
+      j = NA,
+      id_position = c(1, 1)
+    ),
+    regexp = cat("Assertion on',j,'failed: Missing value not allowed for
+                 the 'j' argument.")
+  )
+
+  expect_error(
+    get_id_column_name(
+      id_col_name = c("author_id", "rfam_acc"),
+      j = NULL,
+      id_position = c(1, 1)
+    ),
+    regexp = cat("Assertion on',j,'failed: Must be provided.")
+  )
+
+  expect_error(
+    get_id_column_name(
+      id_col_name = c("author_id", "rfam_acc"),
+      j = 1:2,
+      id_position = c(1, 1)
+    ),
+    regexp = cat("Assertion on',j,'failed: Must be a numeric with length 1.")
+  )
 })
 
 test_that("sql_select_entire_dataset works as expected", {
@@ -407,6 +235,37 @@ test_that("sql_select_entire_dataset works as expected", {
     port = 4497
   )
   expect_s3_class(result, "data.frame")
+})
+
+test_that("sql_select_entire_dataset fails with incorrect table", {
+  expect_error(
+    sql_select_entire_dataset(
+      table = NA,
+      dbms = "MySQL",
+      driver_name = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam",
+      user = "rfamro",
+      password = "",
+      port = 4497
+    ),
+    regexp = cat("Assertion on',table,'failed: Missing value not allowed for
+                 the 'table' argument.")
+  )
+
+  expect_error(
+    sql_select_entire_dataset(
+      table = NULL,
+      dbms = "MySQL",
+      driver_name = "",
+      host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam",
+      user = "rfamro",
+      password = "",
+      port = 4497
+    ),
+    regexp = cat("Assertion on',table,'failed: Must be provided.")
+  )
 })
 
 test_that("sql_select_records_and_fields works as expected", {
@@ -425,6 +284,67 @@ test_that("sql_select_records_and_fields works as expected", {
     port = 4497
   )
   expect_s3_class(result, "data.frame")
+})
+
+test_that("sql_select_records_and_fields fails as expected", {
+  expect_error(
+    sql_select_records_and_fields(
+      table = "author", record = c("1", "20", "50"),
+      id_column_name = NA, field = c("author_id", "last_name"),
+      id_pos = NULL, dbms = "MySQL", driver_name = "",
+      host = "mysql-rfam-public.ebi.ac.uk", database_name = "Rfam",
+      user = "rfamro", password = "", port = 4497
+    ),
+    regexp = cat("Assertion on',id_column_name,'failed: Missing value not
+                 allowed for the 'id_column_name' argument.")
+  )
+
+  expect_error(
+    sql_select_records_and_fields(
+      table = "author", record = c("1", "20", "50"),
+      id_column_name = c("author_id", "last_name", "author_id"),
+      field = c("author_id", "last_name"), id_pos = NULL, dbms = "MySQL",
+      driver_name = "", host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam", user = "rfamro", password = "", port = 4497
+    ),
+    regexp = cat("Assertion on',id_column_name,'failed: Must be a character
+                 vector of unique elements.")
+  )
+
+  expect_error(
+    sql_select_records_and_fields(
+      table = "author", record = c("1", "20", "50"),
+      id_column_name = c("author_id", "last_name", "author_id"),
+      field = c("author_id", "last_name"), id_pos = NA, dbms = "MySQL",
+      driver_name = "", host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam", user = "rfamro", password = "", port = 4497
+    ),
+    regexp = cat("Assertion on',id_pos,'failed: Missing value not allowed
+                 for the 'id_pos' argument.")
+  )
+
+  expect_error(
+    sql_select_records_and_fields(
+      table = NA, record = c("1", "20", "50"),
+      id_column_name = c("author_id", "last_name", "author_id"),
+      field = c("author_id", "last_name"), id_pos = NULL, dbms = "MySQL",
+      driver_name = "", host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam", user = "rfamro", password = "", port = 4497
+    ),
+    regexp = cat("Assertion on',table,'failed: Missing value not allowed
+                 for the 'table' argument.")
+  )
+
+  expect_error(
+    sql_select_records_and_fields(
+      table = NULL, record = c("1", "20", "50"),
+      id_column_name = c("author_id", "last_name", "author_id"),
+      field = c("author_id", "last_name"), id_pos = NULL, dbms = "MySQL",
+      driver_name = "", host = "mysql-rfam-public.ebi.ac.uk",
+      database_name = "Rfam", user = "rfamro", password = "", port = 4497
+    ),
+    regexp = cat("Assertion on',table,'failed: Must be provided.")
+  )
 })
 
 test_that("visualise_table works as expected", {

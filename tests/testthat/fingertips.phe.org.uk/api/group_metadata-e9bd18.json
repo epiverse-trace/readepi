@@ -1,0 +1,51 @@
+[
+    {
+        "Id": 1938132885,
+        "Name": "Key indicators",
+        "Sequence": 1,
+        "ProfileId": 18,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132886,
+        "Name": "Smoking prevalence in adults",
+        "Sequence": 2,
+        "ProfileId": 18,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132900,
+        "Name": "Smoking prevalence in priority populations",
+        "Sequence": 3,
+        "ProfileId": 18,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132887,
+        "Name": "Smoking related mortality",
+        "Sequence": 4,
+        "ProfileId": 18,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132888,
+        "Name": "Smoking related ill health",
+        "Sequence": 5,
+        "ProfileId": 18,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132889,
+        "Name": "Impact of smoking",
+        "Sequence": 6,
+        "ProfileId": 18,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132890,
+        "Name": "Smoking quitters",
+        "Sequence": 7,
+        "ProfileId": 18,
+        "DataAvailable": null
+    }
+]

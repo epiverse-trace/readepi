@@ -1,0 +1,44 @@
+[
+    {
+        "Id": 8000003,
+        "Name": "Key indicators",
+        "Sequence": 1,
+        "ProfileId": 29,
+        "DataAvailable": null
+    },
+    {
+        "Id": 8000005,
+        "Name": "Risk Factors",
+        "Sequence": 2,
+        "ProfileId": 29,
+        "DataAvailable": null
+    },
+    {
+        "Id": 8000008,
+        "Name": "COPD",
+        "Sequence": 3,
+        "ProfileId": 29,
+        "DataAvailable": null
+    },
+    {
+        "Id": 8000009,
+        "Name": "Asthma",
+        "Sequence": 4,
+        "ProfileId": 29,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133345,
+        "Name": "Pneumonia",
+        "Sequence": 5,
+        "ProfileId": 29,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133300,
+        "Name": "Other",
+        "Sequence": 6,
+        "ProfileId": 29,
+        "DataAvailable": null
+    }
+]

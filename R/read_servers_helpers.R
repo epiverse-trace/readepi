@@ -189,7 +189,7 @@ sql_select_data <- function(table_names, dbms, id_col_name,
   result <- list()
   j <- 1
   for (table in table_names) {
-    message("\nFetching data from", table)
+    message("\nFetching data from: ", table)
 
     # select records from table
     if (all(is.null(records) & is.null(fields))) {
@@ -521,8 +521,8 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
     user, password, port
   )
   query <- ifelse(dbms == "MySQL",
-                  sprintf("select * from %s limit 5", source),
-                  sprintf("select top 5 * from %s", source)
+                  sprintf("select * from %s limit 5", table),
+                  sprintf("select top 5 * from %s", table)
                 )
   first_5_rows <- DBI::dbGetQuery(con, query)
   id_col_name <- ifelse(!is.null(id_column_name),
@@ -539,7 +539,7 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
     gsub(" ", "", x, fixed = TRUE)
   }))
   record <- gsub(",", "','", record, fixed = TRUE)
-  sprintf("select * from %s where (%s in ('%d'))", table, id_col_name, record)
+  sprintf("select * from %s where (%s in ('%s'))", table, id_col_name, record)
   res <- DBI::dbGetQuery(con, query)
   pool::poolClose(con)
   res

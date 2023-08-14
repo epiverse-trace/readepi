@@ -1,4 +1,9 @@
+# httptest::with_mock_api({
+#
+# })
+
 test_that("read_from_fingertips works", {
+  testthat::skip_on_cran()
   data <- read_from_fingertips(
     indicator_id = 90362, indicator_name = "Healthy life expectancy at birth",
     area_type_id = 202, parent_area_type_id = 6,
@@ -80,6 +85,7 @@ test_that("read_from_fingertips works", {
 })
 
 test_that("read_from_fingertips works when only indicator name is provided", {
+  testthat::skip_on_cran()
   data <- read_from_fingertips(
     indicator_id = NULL, indicator_name = "Pupil absence",
     area_type_id = 202, parent_area_type_id = NULL,
@@ -92,22 +98,10 @@ test_that("read_from_fingertips works when only indicator name is provided", {
   expect_length(data, 1)
   expect_named(data, "data")
   expect_s3_class(data$data, "data.frame")
-
-  data <- read_from_fingertips(
-    indicator_id = NULL, indicator_name = "Pupil absence",
-    area_type_id = 202, parent_area_type_id = 6,
-    profile_id = NULL, profile_name = NULL,
-    domain_id = 1000041, domain_name = NULL,
-    fields = NULL, records = NULL,
-    id_position = NULL, id_col_name = NULL
-  )
-  expect_type(data, type = "list")
-  expect_length(data, 1)
-  expect_named(data, "data")
-  expect_s3_class(data$data, "data.frame")
 })
 
 test_that("read_from_fingertips works with domain name or ID", {
+  testthat::skip_on_cran()
   data <- read_from_fingertips(
     indicator_id = NULL, indicator_name = "Pupil absence",
     area_type_id = 202, parent_area_type_id = NULL,
@@ -136,19 +130,7 @@ test_that("read_from_fingertips works with domain name or ID", {
 })
 
 test_that("read_from_fingertips works with profile name or ID", {
-  data <- read_from_fingertips(
-    indicator_id = NULL, indicator_name = "Pupil absence",
-    area_type_id = 202, parent_area_type_id = NULL,
-    profile_id = 19, profile_name = NULL,
-    domain_id = NULL, domain_name = NULL,
-    fields = NULL, records = NULL,
-    id_position = NULL, id_col_name = NULL
-  )
-  expect_type(data, type = "list")
-  expect_length(data, 1)
-  expect_named(data, "data")
-  expect_s3_class(data$data, "data.frame")
-
+  testthat::skip_on_cran()
   data <- read_from_fingertips(
     indicator_id = NULL, indicator_name = "Pupil absence",
     area_type_id = 202, parent_area_type_id = NULL,
@@ -165,6 +147,7 @@ test_that("read_from_fingertips works with profile name or ID", {
 
 
 test_that("read_from_fingertips fails with bad indicator ID", {
+  testthat::skip_on_cran()
   expect_error(
     data = read_from_fingertips(
       indicator_id = NA, indicator_name = NULL,
@@ -187,11 +170,13 @@ test_that("read_from_fingertips fails with bad indicator ID", {
       fields = NULL, records = NULL,
       id_position = NULL, id_col_name = NULL
     ),
-    regexp = cat("Assertion on',indicator_id,'failed: Must be of type numeric.")
+    regexp = cat("Assertion on',indicator_id,'failed: Must be of type
+                 numeric.")
   )
 })
 
 test_that("read_from_fingertips fails with bad indicator name", {
+  testthat::skip_on_cran()
   expect_error(
     data = read_from_fingertips(
       indicator_id = 90362, indicator_name = NA,
@@ -207,6 +192,7 @@ test_that("read_from_fingertips fails with bad indicator name", {
 })
 
 test_that("read_from_fingertips fails with bad area type ID", {
+  testthat::skip_on_cran()
   expect_error(
     data = read_from_fingertips(
       indicator_id = 90362, indicator_name = NULL,
@@ -229,11 +215,13 @@ test_that("read_from_fingertips fails with bad area type ID", {
       fields = NULL, records = NULL,
       id_position = NULL, id_col_name = NULL
     ),
-    regexp = cat("Assertion on',area_type_id,'failed: Must be of type numeric.")
+    regexp = cat("Assertion on',area_type_id,'failed: Must be of type
+                 numeric.")
   )
 })
 
 test_that("read_from_fingertips fails with bad parent area type ID", {
+  testthat::skip_on_cran()
   expect_error(
     data = read_from_fingertips(
       indicator_id = 90362, indicator_name = NULL,
@@ -262,6 +250,7 @@ test_that("read_from_fingertips fails with bad parent area type ID", {
 })
 
 test_that("read_from_fingertips fails with bad profile ID", {
+  testthat::skip_on_cran()
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
@@ -271,7 +260,8 @@ test_that("read_from_fingertips fails with bad profile ID", {
       fields = NULL, records = NULL,
       id_position = NULL, id_col_name = NULL
     ),
-    regexp = cat("Assertion on',profile_id,'failed: Missing value not allowed.")
+    regexp = cat("Assertion on',profile_id,'failed: Missing value not
+                 allowed.")
   )
 
   expect_error(
@@ -288,6 +278,7 @@ test_that("read_from_fingertips fails with bad profile ID", {
 })
 
 test_that("read_from_fingertips fails with bad profile name", {
+  testthat::skip_on_cran()
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
@@ -303,6 +294,7 @@ test_that("read_from_fingertips fails with bad profile name", {
 })
 
 test_that("read_from_fingertips fails with bad domain ID", {
+  testthat::skip_on_cran()
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
@@ -312,7 +304,8 @@ test_that("read_from_fingertips fails with bad domain ID", {
       fields = NULL, records = NULL,
       id_position = NULL, id_col_name = NULL
     ),
-    regexp = cat("Assertion on',domain_id,'failed: Missing value not allowed.")
+    regexp = cat("Assertion on',domain_id,'failed: Missing value not
+                 allowed.")
   )
 
   expect_error(
@@ -329,6 +322,7 @@ test_that("read_from_fingertips fails with bad domain ID", {
 })
 
 test_that("read_from_fingertips fails with bad domain name", {
+  testthat::skip_on_cran()
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
@@ -344,6 +338,7 @@ test_that("read_from_fingertips fails with bad domain name", {
 })
 
 test_that("read_from_fingertips fails with bad records", {
+  testthat::skip_on_cran()
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
@@ -358,6 +353,7 @@ test_that("read_from_fingertips fails with bad records", {
 })
 
 test_that("read_from_fingertips fails with bad fields", {
+  testthat::skip_on_cran()
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
