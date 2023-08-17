@@ -39,6 +39,7 @@ Imports:
     RMySQL,
     stringr
 Suggests: 
+    bookdown,
     httptest,
     knitr,
     rmarkdown,

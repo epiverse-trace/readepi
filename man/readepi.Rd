@@ -16,9 +16,9 @@ readepi(
 }
 \arguments{
 \item{credentials_file}{the path to the file with the user-specific
-credential details
-for the projects of interest. It is required when importing data from DBMS.
-This is a tab-delimited file with the following columns:
+credential details for the projects of interest. It is required when
+importing data from DBMS. This is a tab-delimited file with the following
+columns:
 \enumerate{
 \item user_name: the user name
 \item password: the user password (for REDCap, this corresponds to the
@@ -50,15 +50,15 @@ this can be provided using the \code{id_col_name} argument}
 
 \item{id_col_name}{the column name with the subject IDs.}
 
-\item{...}{additional arguments passed to the readepi function.
-These are enumarated in the vignette.}
+\item{...}{additional arguments passed to the \code{readepi()} function. These are
+enumarated in the vignette.}
 }
 \value{
 a \code{list} of 1 or several object of type \verb{data frame}.
 }
 \description{
 the function allows import of data from files, folders, or
-health information systems (HIS)
+health information systems (HIS).
 The HIS consist of database management systems (DBMS) and website of public
 data collection.
 }
