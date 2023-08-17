@@ -38,5 +38,5 @@ result <- dhis2_subset_records(
   id_col_name = "dataElement"
 )
 }
-
 }
+\keyword{internal}

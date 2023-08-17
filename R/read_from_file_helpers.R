@@ -12,6 +12,7 @@
 #' }
 #'
 get_base_name <- function(x) {
+  checkmate::assert_file(x)
   ext <- rio::get_ext(x)
   bn <- gsub(paste0(".", ext), "", basename(x))
   bn
@@ -31,6 +32,7 @@ get_base_name <- function(x) {
 #' }
 #'
 detect_separator <- function(x) {
+  checkmate::assert_character(x, null.ok = FALSE, any.missing = FALSE)
   special_characters <- c("\t", "|", ",", ";", " ", ":")
   sep <- vector(mode = "character", length = 0)
   for (spec_char in special_characters) {
@@ -49,6 +51,7 @@ detect_separator <- function(x) {
 #'
 #' @keywords internal
 f <- function(x) {
+  checkmate::assert_character(x, null.ok = FALSE, any.missing = FALSE)
   y <- unlist(strsplit(x, "_", fixed = TRUE))[2]
   y <- suppressWarnings(as.numeric(y))
   y
@@ -67,6 +70,14 @@ f <- function(x) {
 #'
 read_rio_formats <- function(files_extensions, rio_extensions,
                              files, files_base_names) {
+  checkmate::assert_vector(files_extensions, min.len = 1, any.missing = FALSE,
+                           null.ok = FALSE)
+  checkmate::assert_vector(rio_extensions, min.len = 1, any.missing = FALSE,
+                           null.ok = FALSE)
+  checkmate::assert_vector(files, min.len = 1, any.missing = FALSE,
+                           null.ok = FALSE)
+  checkmate::assert_vector(files_base_names, min.len = 1, any.missing = FALSE,
+                           null.ok = FALSE)
   # get indexes of {rio} file's extensions
   idx <- which(files_extensions %in% rio_extensions)
   result <- list()
@@ -113,6 +124,14 @@ read_rio_formats <- function(files_extensions, rio_extensions,
 #'    frame contains data from a specific file.
 #'
 read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
+  checkmate::assert_vector(files, any.missing = FALSE, null.ok = FALSE,
+                           min.len = 1)
+  checkmate::assert_vector(dirs, any.missing = FALSE, null.ok = FALSE,
+                           min.len = 1)
+  checkmate::assert_vector(format, any.missing = FALSE, null.ok = TRUE,
+                           min.len = 0)
+  checkmate::assert_vector(which, any.missing = FALSE, null.ok = TRUE,
+                           min.len = 0)
   # filter out directories from files
   idx <- which(files %in% dirs)
   if (length(idx) > 0) {
@@ -158,6 +177,9 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
 #'    element contains data read from a file.
 #'
 read_files_in_directory <- function(file_path, pattern) {
+  checkmate::assert_directory(file_path)
+  checkmate::assert_vector(pattern, min.len = 0, null.ok = TRUE,
+                           any.missing = FALSE)
   if (length(list.files(file_path, full.names = TRUE,
                         recursive = FALSE)) == 0) {
     stop("Could not find any file in ", file_path)
@@ -197,6 +219,13 @@ read_files_in_directory <- function(file_path, pattern) {
 #'    contains data from a file
 #'
 read_files <- function(file_path, sep, which, format) {
+  checkmate::assert_file(file_path)
+  checkmate::assert_vector(sep, min.len = 0, null.ok = TRUE,
+                           any.missing = FALSE)
+  checkmate::assert_vector(which, min.len = 0, null.ok = TRUE,
+                           any.missing = FALSE)
+  checkmate::assert_vector(format, min.len = 0, null.ok = TRUE,
+                           any.missing = FALSE)
   result <- list()
   if (!is.null(sep)) {
     result[[1]] <- rio::import(file_path, sep = sep)

@@ -28,5 +28,5 @@ res <- fingertips_subset_columns(
   fields = c("IndicatorID", "AreaCode", "Age", "Value")
 )
 }
-
 }
+\keyword{internal}

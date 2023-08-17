@@ -15,9 +15,11 @@
 #' @param fields a vector or a comma-separated string of column names.
 #'    If provided, only those columns will be imported.
 #' @param id_col_name the column name with the records of interest.
+#'
 #' @returns a `list` of 1 element of type `data frame`.
 #' @keywords internal
-#' #' @examples
+#'
+#' @examples
 #' \dontrun{
 #' data <- read_from_dhis2(
 #'  base_url = file.path("https:/", "play.dhis2.org", "dev"),

@@ -17,7 +17,7 @@ login <- function(username, password, base_url) {
                               null.ok = FALSE)
   checkmate::assert_character(base_url, len = 1, any.missing = FALSE,
                               null.ok = FALSE)
-  url <- file.path(base_url, "api", "me")
+  url  <- file.path(base_url, "api", "me")
   resp <- httr::GET(url, httr::authenticate(username, password))
   httr::stop_for_status(resp)
   message("\nLogged in successfully!")
@@ -100,7 +100,7 @@ dhis2_subset_fields <- function(data, fields) {
 #'   id_col_name = "dataElement"
 #' )
 #' }
-#'
+#' @keywords internal
 dhis2_subset_records <- function(data, records, id_col_name) {
   checkmate::assert_data_frame(data, min.rows = 1, null.ok = FALSE,
                                min.cols = 1)

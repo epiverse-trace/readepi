@@ -7,6 +7,8 @@ httptest::with_mock_api({
       which = "dataElements"
     )
     expect_type(response, "list")
+    expect_equal(length(response), 8)
+    expect_equal(response$status_code, 200)
   })
 
   test_that("dhis2_get_relevant_attributes works as expected with valid
@@ -62,4 +64,54 @@ httptest::with_mock_api({
               expect_identical(result$data_element_group, "oDkJh5Ddh7d")
               expect_s3_class(result$data_elt_groups, "data.frame")
             })
+})
+
+test_that("the API request fails as expected", {
+  expect_error(
+    make_api_request(
+      base_url = file.path("test", "play.dhis2.org", "dev"),
+      username = "admin",
+      password = "district",
+      which    = "dataElements"
+    ),
+    regexp = cat("The 'base_url' should start with 'https://'")
+  )
+})
+
+test_that("the API request fails with an incorrect attribute", {
+  expect_error(
+    make_api_request(
+      base_url = file.path("test", "play.dhis2.org", "dev"),
+      username = "admin",
+      password = "district",
+      which    = "test"
+    ),
+    regexp = cat("The expected values for the 'which' argument are:
+          'dataSets, 'organisationUnits', 'dataElementGroups', 'dataElements'")
+  )
+})
+
+test_that("dhis2_get_relevant_attributes fails as expected", {
+  expect_error(
+    dhis2_get_relevant_attributes(
+      attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
+      base_url = file.path("test", "play.dhis2.org", "dev"),
+      username = "admin",
+      password = "district",
+      which = "dataSets"
+    ),
+    regexp = cat("The 'base_url' should start with 'https://'")
+  )
+
+  expect_error(
+    dhis2_get_relevant_attributes(
+      attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
+      base_url = file.path("https:/", "play.dhis2.org", "dev"),
+      username = "admin",
+      password = "district",
+      which = "test"
+    ),
+    regexp = cat("The expected values for the 'which' argument are:
+          'dataSets, 'organisationUnits', 'dataElementGroups', 'dataElements'")
+  )
 })

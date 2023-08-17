@@ -31,5 +31,5 @@ res <- fingertips_subset_rows(
   id_col_name = "AreaCode"
 )
 }
-
 }
+\keyword{internal}

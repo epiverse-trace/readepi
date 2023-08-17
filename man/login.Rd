@@ -18,3 +18,4 @@ If the user were granted with access to the API, this will return a message
 specifying that the user was successfully connected. Otherwise, it will throw
 an error message.
 }
+\keyword{internal}

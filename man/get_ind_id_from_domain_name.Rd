@@ -30,5 +30,5 @@ indicator_id <- get_ind_id_from_domain_name(
   domain_name = "B. Wider determinants of health",
 )
 }
-
 }
+\keyword{internal}

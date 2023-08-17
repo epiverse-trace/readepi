@@ -38,7 +38,7 @@ get_fingertips_metadata <- function() {
 #'   indicator_name = "Pupil absence"
 #' )
 #' }
-#'
+#' @keywords internal
 get_ind_id_from_ind_name <- function(metadata, indicator_name) {
   checkmate::assert_list(metadata, len = 3, null.ok = FALSE,
                          any.missing = FALSE)
@@ -85,6 +85,7 @@ get_ind_id_from_ind_name <- function(metadata, indicator_name) {
 #'   indicator_name = NULL
 #' )
 #' }
+#' @keywords internal
 #'
 get_ind_id_from_domain_id <- function(metadata, domain_id,
                                       indicator_name = NULL) {
@@ -145,7 +146,7 @@ get_ind_id_from_domain_id <- function(metadata, domain_id,
 #'   domain_name = "B. Wider determinants of health",
 #' )
 #' }
-#'
+#' @keywords internal
 get_ind_id_from_domain_name <- function(metadata, domain_name,
                                         indicator_name = NULL) {
   checkmate::assert_list(metadata, len = 3, null.ok = FALSE,
@@ -207,7 +208,7 @@ get_ind_id_from_domain_name <- function(metadata, domain_name,
 #'   )
 #' )
 #' }
-#'
+#' @keywords internal
 get_profile_name <- function(profile_id, profile_name, metadata) {
   checkmate::assert_list(metadata, len = 3, null.ok = FALSE,
                          any.missing = FALSE)
@@ -253,7 +254,7 @@ get_profile_name <- function(profile_id, profile_name, metadata) {
 #'   profile_id = 19
 #' )
 #' }
-#'
+#' @keywords internal
 get_ind_id_from_profile <- function(metadata, domain_id = NULL,
                                     domain_name = NULL,
                                     indicator_name = NULL,
@@ -304,6 +305,7 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #'
 #' @return an object of type `data.frame` with the Fingertips dataset that
 #'    contains only the records of interest
+#'
 #' @examples
 #' \dontrun{
 #' res <- fingertips_subset_rows(
@@ -315,6 +317,7 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #'   id_col_name = "AreaCode"
 #' )
 #' }
+#' @keywords internal
 #'
 fingertips_subset_rows <- function(data, records, id_col_name) {
   checkmate::assert_data_frame(data, null.ok = FALSE, min.rows = 1,
@@ -356,6 +359,7 @@ fingertips_subset_rows <- function(data, records, id_col_name) {
 #'   fields = c("IndicatorID", "AreaCode", "Age", "Value")
 #' )
 #' }
+#' @keywords internal
 #'
 fingertips_subset_columns <- function(data, fields) {
   checkmate::assert_data_frame(data, min.cols = 1, min.rows = 1,

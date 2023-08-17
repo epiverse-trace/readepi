@@ -1,3 +1,32 @@
+
+data <- readepi(profile_id = 19, area_type_id = 202)$data
+
+test_that("fingertips_subset_rows works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+  res <- fingertips_subset_rows(
+    data    = data,
+    records = c("E92000001", "E12000002", "E12000009"),
+    id_col_name = "AreaCode"
+  )
+  expect_s3_class(res, "data.frame")
+  expect_equal(length(unique(res$AreaCode)), 3)
+  expect_identical(unique(res$AreaCode),
+                   c("E92000001", "E12000002", "E12000009"))
+})
+
+test_that("fingertips_subset_columns works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+  res <- fingertips_subset_columns(
+    data   = data,
+    fields = c("IndicatorID", "AreaCode", "Age", "Value")
+  )
+  expect_s3_class(res, "data.frame")
+  expect_identical(names(res), c("IndicatorID", "AreaCode", "Age", "Value"))
+  expect_equal(ncol(res), 4)
+})
+
 httptest::with_mock_api({
   test_that("get_fingertips_metadata works as expected", {
     metadata <- get_fingertips_metadata()
@@ -15,13 +44,27 @@ httptest::with_mock_api({
     indicator_id <- get_ind_id_from_ind_name(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
-        indicator_ids_names = fingertipsR::indicators_unique(),
-        area_type = fingertipsR::area_types()),
+        indicator_ids_names      = fingertipsR::indicators_unique(),
+        area_type                = fingertipsR::area_types()),
       indicator_name = "Pupil absence"
     )
     expect_vector(indicator_id)
     expect_type(indicator_id, "integer")
     expect_length(indicator_id, 1)
+    expect_equal(indicator_id, 10301)
+  })
+
+  test_that("get_ind_id_from_ind_name fails with numeric indicator_name", {
+    expect_error(
+      get_ind_id_from_ind_name(
+        metadata = list(
+          indicator_profile_domain = fingertipsR::indicators(),
+          indicator_ids_names      = fingertipsR::indicators_unique(),
+          area_type                = fingertipsR::area_types()),
+        indicator_name = 10
+      ),
+      regexp = cat("Indicator_name should be of type character.")
+    )
   })
 
   test_that("get_ind_id_from_domain_id works as expected", {
@@ -48,6 +91,20 @@ httptest::with_mock_api({
     expect_vector(indicator_id)
     expect_type(indicator_id, "integer")
     expect_length(indicator_id, 42)
+  })
+
+  test_that("get_ind_id_from_domain_id works as expected", {
+    expect_error(
+      get_ind_id_from_domain_id(
+        metadata = list(
+          indicator_profile_domain = fingertipsR::indicators(),
+          indicator_ids_names = fingertipsR::indicators_unique(),
+          area_type = fingertipsR::area_types()),
+        domain_id = 1000041,
+        indicator_name = 10
+      ),
+      regexp = cat("Indicator_name should be of type character.")
+    )
   })
 
   test_that("get_ind_id_from_domain_name works as expected", {
@@ -221,19 +278,4 @@ httptest::with_mock_api({
   })
 })
 
-test_that("fingertips_subset_rows works as expected", {
-  res <- fingertips_subset_rows(
-    data = readepi(profile_id = 19, area_type_id = 202)$data,
-    records = c("E92000001", "E12000002", "E12000009"),
-    id_col_name = "AreaCode"
-  )
-  expect_s3_class(res, "data.frame")
-})
 
-test_that("fingertips_subset_columns works as expected", {
-  res <- fingertips_subset_columns(
-    data = readepi(profile_id = 19, area_type_id = 202)$data,
-    fields = c("IndicatorID", "AreaCode", "Age", "Value")
-  )
-  expect_s3_class(res, "data.frame")
-})

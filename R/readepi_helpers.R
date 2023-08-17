@@ -5,20 +5,23 @@
 #' @param project_id for relational DB, this is the name of the database
 #'    that contains the table from which the data should be pulled. Otherwise,
 #'    it is the project ID you were given access to.
-#' @returns  a `list` of 5 elements of type `character` or `numeric`. These
+#'
+#' @returns a `list` of 5 elements of type `character` or `numeric`. These
 #'    correspond to the user's credential details.
 #' @examples
 #' \dontrun{
 #' credentials <- read_credentials(
-#'   file_path = system.file("extdata", "test.ini", package = "readepi"),
+#'   file_path  = system.file("extdata", "test.ini", package = "readepi"),
 #'   project_id = "Rfam"
 #' )
 #' }
+#' @keywords internal
 #'
 read_credentials <- function(
     file_path = system.file("extdata", "test.ini", package = "readepi"),
     project_id = "Rfam") {
-  checkmate::assert_character(project_id, len = 1L, null.ok = FALSE)
+  checkmate::assert_character(project_id, len = 1L, null.ok = FALSE,
+                              any.missing = FALSE)
   checkmate::assert_file(file_path)
 
   credentials <- read.table(file_path, sep = "\t", header = TRUE)
@@ -70,6 +73,7 @@ read_credentials <- function(
 #'   )
 #' )
 #' }
+#' @keywords internal
 #'
 get_read_file_args <- function(args_list) {
   checkmate::assert_list(args_list)
@@ -117,6 +121,7 @@ get_read_file_args <- function(args_list) {
 #'   )
 #' )
 #' }
+#' @keywords internal
 #'
 get_read_fingertips_args <- function(args_list) {
   checkmate::assert_list(args_list)
@@ -161,6 +166,12 @@ get_read_fingertips_args <- function(args_list) {
     parent_area_type_id <- NULL
   }
 
+  if (all(is.null(indicator_id) && is.null(indicator_name) &&
+          is.null(area_type_id) && is.null(profile_id) &&
+          is.null(profile_name) && is.null(domain_id) &&
+          is.null(domain_name) && is.null(parent_area_type_id))) {
+    stop("Please provide at least 1 Fingertips parameter.")
+  }
   list(
     indicator_id = indicator_id,
     indicator_name = indicator_name,

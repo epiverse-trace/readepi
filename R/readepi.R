@@ -1,14 +1,14 @@
 #' Import data from different sources into R
 #'
 #' @description the function allows import of data from files, folders, or
-#' health information systems (HIS)
+#' health information systems (HIS).
 #' The HIS consist of database management systems (DBMS) and website of public
 #' data collection.
 #'
 #' @param credentials_file the path to the file with the user-specific
-#' credential details
-#' for the projects of interest. It is required when importing data from DBMS.
-#' This is a tab-delimited file with the following columns:
+#'    credential details for the projects of interest. It is required when
+#'    importing data from DBMS. This is a tab-delimited file with the following
+#'    columns:
 #' \enumerate{
 #'   \item user_name: the user name
 #'   \item password: the user password (for REDCap, this corresponds to the
@@ -22,20 +22,20 @@
 #'   'SQLServer', 'MySQL', 'PostgreSQL', etc...
 #'   \item port: the port ID
 #'   }
-#' Use the `show_example_file()` function to display the structure of
-#' the template credentials file
+#'    Use the `show_example_file()` function to display the structure of
+#'    the template credentials file
 #' @param file_path the path to the file to be read. When several files need to
-#' be imported from a directory, this should be the path to that directory
+#'    be imported from a directory, this should be the path to that directory
 #' @param records a vector or a comma-separated string of subject IDs.
-#' When specified, only these records will be imported.
+#'    When specified, only these records will be imported.
 #' @param fields a vector or a comma-separated string of column names.
-#' If provided, only those columns will be imported.
+#'    If provided, only those columns will be imported.
 #' @param id_position the column position of the variable that unique identifies
-#' the subjects. When the name of the column with the subject IDs is known,
-#' this can be provided using the `id_col_name` argument
+#'    the subjects. When the name of the column with the subject IDs is known,
+#'    this can be provided using the `id_col_name` argument
 #' @param id_col_name the column name with the subject IDs.
-#' @param ... additional arguments passed to the readepi function.
-#' These are enumarated in the vignette.
+#' @param ... additional arguments passed to the `readepi()` function. These are
+#'    enumarated in the vignette.
 #' @examples
 #' # reading from a MS SQL server
 #' data <- readepi(
