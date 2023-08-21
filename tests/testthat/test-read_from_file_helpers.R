@@ -5,7 +5,7 @@ test_that("get_base_name works as expected", {
 
 test_that("detect_separator works as expected", {
   x <- "My name is Karim"
-  expect_identical(detect_separator(x), c(" "))
+  expect_identical(detect_separator(x), " ")
 })
 
 test_that("read_rio_formats works as expected", {

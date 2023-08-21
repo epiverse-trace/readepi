@@ -4,11 +4,11 @@ httptest::with_mock_api({
       base_url = file.path("https:/", "play.dhis2.org", "dev"),
       username = "admin",
       password = "district",
-      which = "dataElements"
+      which    = "dataElements"
     )
     expect_type(response, "list")
-    expect_equal(length(response), 8)
-    expect_equal(response$status_code, 200)
+    expect_length(response, 8)
+    expect_identical(response$status_code, 200L)
   })
 
   test_that("dhis2_get_relevant_attributes works as expected with valid

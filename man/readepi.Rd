@@ -5,8 +5,7 @@
 \title{Import data from different sources into R}
 \usage{
 readepi(
-  credentials_file = NULL,
-  file_path = NULL,
+  from = NULL,
   records = NULL,
   fields = NULL,
   id_position = NULL,
@@ -15,28 +14,8 @@ readepi(
 )
 }
 \arguments{
-\item{credentials_file}{the path to the file with the user-specific
-credential details for the projects of interest. It is required when
-importing data from DBMS. This is a tab-delimited file with the following
-columns:
-\enumerate{
-\item user_name: the user name
-\item password: the user password (for REDCap, this corresponds to the
-\strong{token} that serves as password to the project)
-\item host_name: the host name (for MS SQL servers) or the URI (for REDCap)
-\item project_id: the project ID or the name of the database
-you are access to.
-\item comment: a summary description about the project or database
-of interest
-\item dbms: the name of the DBMS: Possible values are: 'REDCap',
-'SQLServer', 'MySQL', 'PostgreSQL', etc...
-\item port: the port ID
-}
-Use the \code{show_example_file()} function to display the structure of
-the template credentials file}
-
-\item{file_path}{the path to the file to be read. When several files need to
-be imported from a directory, this should be the path to that directory}
+\item{from}{either the the URL of the HIS or the path to the file or
+directory of interest otherwise.}
 
 \item{records}{a vector or a comma-separated string of subject IDs.
 When specified, only these records will be imported.}
@@ -51,23 +30,22 @@ this can be provided using the \code{id_col_name} argument}
 \item{id_col_name}{the column name with the subject IDs.}
 
 \item{...}{additional arguments passed to the \code{readepi()} function. These are
-enumarated in the vignette.}
+enumerated and described in the vignette.}
 }
 \value{
 a \code{list} of 1 or several object of type \verb{data frame}.
 }
 \description{
-the function allows import of data from files, folders, or
-health information systems (HIS).
-The HIS consist of database management systems (DBMS) and website of public
-data collection.
+the function allows import of data from Health Information
+Systems (HIS), files, and folders.The HIS consist of database management
+systems (DBMS) and website of public data collection.
 }
 \examples{
-# reading from a MS SQL server
+# reading from a MySQL server
 data <- readepi(
+  from             = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-  project_id = "Rfam",
-  driver_name = "",
-  source = "author"
+  driver_name      = "",
+  source           = "author"
 )
 }

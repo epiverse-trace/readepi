@@ -267,56 +267,75 @@ read_files <- function(file_path, sep, which, format) {
 #'
 import_non_rio_files <- function(files, files_base_names,
                                  files_extensions, result = list()) {
+  checkmate::assert_vector(files, any.missing = FALSE, null.ok = FALSE,
+                          min.len = 1)
+  checkmate::assert_vector(files_base_names, any.missing = FALSE,
+                           null.ok = FALSE, min.len = 1)
+  checkmate::assert_vector(files_extensions, any.missing = FALSE,
+                           null.ok = FALSE, min.len = 1)
+  checkmate::assert_list(result, any.missing = FALSE, null.ok = FALSE)
   i <- 1
   for (file in files) {
     if (files_extensions[i] %in% c("xlsx", "xls")) {
       # process MS excel files
-      data <- readxl::read_xlsx(file)
-      idx <- which(grepl(files_base_names[i], names(result)))
-      if (!is.null(names(result)) && length(idx) > 0) {
-        tmp <- names(result)[which(grepl(
-          files_base_names[i],
-          names(result)
-        ) == TRUE)]
-        x <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
-        x <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
-        x <- ifelse(is.na(x), 1, (x + 1))
-        files_base_names[i] <- paste0(files_base_names[i], "_", x)
-      }
-      result[[files_base_names[i]]] <- data
-      i <- i + 1
+      data                <- readxl::read_xlsx(file)
+      idx                 <- which(grepl(files_base_names[i], names(result)))
+      base_name           <- get_file_name(result, idx, files_base_names[i])
+      result[[base_name]] <- data
+      i                   <- i + 1
     } else {
       # process non MS excel files: detect the separator and import the file
       tmp_string <- readLines(con = file, n = 1)
-      sep <- detect_separator(tmp_string)
+      sep        <- detect_separator(tmp_string)
       if (all(length(sep) == 1 && sep == "|")) {
-        sep <- "|"
+        sep      <- "|"
       } else {
-        sep <- sep[-(which(sep == "|"))]
+        sep      <- sep[-(which(sep == "|"))]
         if (length(sep) == 2 && " " %in% sep) {
-          sep <- sep[-(which(sep == " "))]
+          sep    <- sep[-(which(sep == " "))]
           if (length(sep) > 1) {
             warning("\nCan't resolve separator in", file, "\n", call. = FALSE)
-            i <- i + 1
+            i    <- i + 1
             next
           }
         }
       }
-      data <- read.table(file, sep = sep)
-      idx <- which(grepl(files_base_names[i], names(result)))
-      if (!is.null(names(result)) && length(idx) > 0) {
-        tmp <- names(result)[which(grepl(
-          files_base_names[i],
-          names(result)
-        ) == TRUE)]
-        x <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
-        x <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
-        x <- ifelse(is.na(x), 1, (x + 1))
-        files_base_names[i] <- paste0(files_base_names[i], "_", x)
-      }
-      result[[files_base_names[i]]] <- data
-      i <- i + 1
+      data                <- read.table(file, sep = sep)
+      idx                 <- which(grepl(files_base_names[i], names(result)))
+      base_name           <- get_file_name(result, idx, files_base_names[i])
+      result[[base_name]] <- data
+      i                   <- i + 1
     }
   }
   result
+}
+
+#' Get the file base name
+#'
+#' Every data frame in the output list is named after its correspondent file
+#' base name. This function will extract that base name appropriately and add
+#' an index to it when several files have the same name.
+#'
+#' @param result a `list` of `data.frame`
+#' @param idx an integer
+#' @param base_name a `character` with the file base name
+#'
+#' @return a `character` that will be used to name the file.
+#' @keywords internal
+#'
+get_file_name <- function(result, idx, base_name) {
+  checkmate::assert_list(result, null.ok = FALSE, any.missing = FALSE)
+  checkmate::assert_character(base_name, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  checkmate::assert_numeric(idx)
+
+  if (!is.null(names(result)) && length(idx) > 0) {
+    tmp       <- names(result)[
+      which(grepl(base_name, names(result)) == TRUE)]
+    x         <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
+    x         <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
+    x         <- ifelse(is.na(x), 1, (x + 1))
+    base_name <- paste0(base_name, "_", x)
+  }
+  base_name
 }

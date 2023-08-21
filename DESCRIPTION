@@ -36,8 +36,7 @@ Imports:
     readxl,
     REDCapR,
     rio,
-    RMySQL,
-    stringr
+    RMySQL
 Suggests: 
     bookdown,
     httptest,

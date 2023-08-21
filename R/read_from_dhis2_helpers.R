@@ -62,7 +62,7 @@ dhis2_subset_fields <- function(data, fields) {
     idx <- which(fields %in% names(data))
     if (length(idx) == 0) stop(sprintf("Specified column not found!
     The data contains the following columns:
-    %s",names(data)))
+    %s", names(data)))
     if (length(idx) != length(fields)) {
       warning("The following fields were not found in the data: ", fields[-idx])
       fields <- fields[idx]
@@ -125,4 +125,38 @@ dhis2_subset_records <- function(data, records, id_col_name) {
     data <- data[which(data[[id_column_name]] %in% records), ]
   }
   data
+}
+
+#' Get the DHIS2 attributes from the user
+#'
+#' @param args_list a `list` of parameters provided by the user
+#'
+#' @return an object of type `list` with the values for the DHIS2 attributes
+#' @keywords internal
+#'
+get_attributes_from_user <- function(args_list) {
+  dataset  <- organisation_unit <- data_element_group <- start_date <-
+  end_date <- NULL
+  if ("dataset" %in% names(args_list)) {
+    dataset <- args_list$dataset
+  }
+  if ("organisation_unit" %in% names(args_list)) {
+    organisation_unit <- args_list$organisation_unit
+  }
+  if ("data_element_group" %in% names(args_list)) {
+    data_element_group <- args_list$data_element_group
+  }
+  if ("start_date" %in% names(args_list)) {
+    start_date <- args_list$start_date
+  }
+  if ("end_date" %in% names(args_list)) {
+    end_date <- args_list$end_date
+  }
+  list(
+    dataset            = dataset,
+    organisation_unit  = organisation_unit,
+    data_element_group = data_element_group,
+    start_date         = start_date,
+    end_date           = end_date
+  )
 }

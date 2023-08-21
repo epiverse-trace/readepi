@@ -416,7 +416,7 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #' @param credentials_file the path to the file with the user-specific
 #' credential details for the projects of interest
 #' @param source the table name
-#' @param project_id the name of the target database
+#' @param from the the URL of the HIS
 #' @param driver_name the name of the MS driver
 #'
 #' @return prints the first 5 rows of the specified table
@@ -424,30 +424,27 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #' @examples
 #' \dontrun{
 #' visualise_table(
-#'   credentials_file <- system.file("extdata", "test.ini",
-#'     package = "readepi"
-#'   ),
-#'   source = "author",
-#'   project_id = "Rfam",
-#'   driver_name = ""
+#'   from             = "mysql-rfam-public.ebi.ac.uk",
+#'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+#'   source           = "author",
+#'   driver_name      = ""
 #' )
 #' }
 #' @export
 #'
-visualise_table <- function(credentials_file, source, project_id,
-                            driver_name) {
+visualise_table <- function(from, credentials_file, source, driver_name) {
   checkmate::assert_character(source,
     any.missing = FALSE, len = 1,
     null.ok = FALSE
   )
   checkmate::assert_character(credentials_file, null.ok = FALSE, len = 1)
   checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(project_id, null.ok = FALSE, len = 1)
+  checkmate::assert_character(from, null.ok = FALSE, len = 1)
 
-  credentials <- read_credentials(credentials_file, project_id)
+  credentials <- read_credentials(credentials_file, from)
   con <- connect_to_server(
     credentials$dbms, driver_name, credentials$host,
-    project_id, credentials$user, credentials$pwd,
+    credentials$project, credentials$user, credentials$pwd,
     credentials$port
   )
   query <- ifelse(credentials$dbms == "MySQL",

@@ -4,14 +4,14 @@
 \alias{show_tables}
 \title{Display the list of tables in a database}
 \usage{
-show_tables(credentials_file, project_id, driver_name)
+show_tables(credentials_file, url, driver_name)
 }
 \arguments{
 \item{credentials_file}{the path to the file with the user-specific
 credential details for the projects of interest. See the help of
 the \code{readepi} function for more details.}
 
-\item{project_id}{the name of the target database}
+\item{url}{the URL of the HIS of interest}
 
 \item{driver_name}{the name of the MS driver. use \code{odbc::odbcListDrivers()}
 to display the list of installed drivers}
@@ -29,7 +29,7 @@ show_tables(
   credentials_file = system.file("extdata", "test.ini",
     package = "readepi"
   ),
-  project_id = "Rfam",
+  url = "mysql-rfam-public.ebi.ac.uk",
   driver_name = ""
 )
 }

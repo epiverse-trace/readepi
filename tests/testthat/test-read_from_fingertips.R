@@ -104,7 +104,7 @@ test_that("read_from_fingertips works with domain name or ID", {
   testthat::skip_on_cran()
   data <- read_from_fingertips(
     indicator_id = NULL, indicator_name = "Pupil absence",
-    area_type_id = 202, parent_area_type_id = NULL,
+    area_type_id = 101, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = "B. Wider determinants of health",
     fields = NULL, records = NULL,
@@ -117,7 +117,7 @@ test_that("read_from_fingertips works with domain name or ID", {
 
   data <- read_from_fingertips(
     indicator_id = NULL, indicator_name = "Pupil absence",
-    area_type_id = 202, parent_area_type_id = NULL,
+    area_type_id = 101, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = 1000049, domain_name = NULL,
     fields = NULL, records = NULL,
@@ -133,7 +133,7 @@ test_that("read_from_fingertips works with profile name or ID", {
   testthat::skip_on_cran()
   data <- read_from_fingertips(
     indicator_id = NULL, indicator_name = "Pupil absence",
-    area_type_id = 202, parent_area_type_id = NULL,
+    area_type_id = 101, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = "Public Health Outcomes Framework",
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = NULL,

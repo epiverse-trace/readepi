@@ -1,7 +1,7 @@
 test_that("read_credentials works as expected", {
   res <- read_credentials(
     file_path  = system.file("extdata", "test.ini", package = "readepi"),
-    project_id = "Rfam"
+    url        = "mysql-rfam-public.ebi.ac.uk"
   )
   expect_type(res, "list")
   expect_length(res, 6)
@@ -17,7 +17,7 @@ test_that("read_credentials works as expected", {
   expect_type(res$dbms, "character")
   expect_identical(res$dbms, "MySQL")
   expect_type(res$port, "integer")
-  expect_equal(res$port, 4497)
+  expect_identical(res$port, 4497L)
 })
 
 test_that("get_read_file_args works as expected", {
@@ -51,8 +51,8 @@ test_that("get_read_fingertips_args works as expected", {
     "profile_id", "profile_name", "domain_id", "domain_name",
     "parent_area_type_id"
   ))
-  expect_equal(res$indicator_id, 90362)
-  expect_equal(res$area_type_id, 202)
+  expect_identical(res$indicator_id, 90362)
+  expect_identical(res$area_type_id, 202)
   expect_null(res$indicator_name)
   expect_null(res$profile_id)
   expect_null(res$profile_name)
@@ -80,12 +80,12 @@ test_that("get_read_fingertips_args works as expected with all arguments", {
     "profile_id", "profile_name", "domain_id", "domain_name",
     "parent_area_type_id"
   ))
-  expect_equal(res$indicator_id, 90362)
-  expect_equal(res$area_type_id, 202)
+  expect_identical(res$indicator_id, 90362)
+  expect_identical(res$area_type_id, 202)
   expect_identical(res$indicator_name, "Healthy life expectancy at birth")
-  expect_equal(res$profile_id, 19)
+  expect_identical(res$profile_id, 19)
   expect_identical(res$profile_name, "Public Health Outcomes Framework")
-  expect_equal(res$domain_id, 1000049)
+  expect_identical(res$domain_id, 1000049)
   expect_identical(res$domain_name, "A. Overarching indicators")
   expect_null(res$parent_area_type_id)
 })
@@ -105,8 +105,8 @@ test_that("get_read_fingertips_args works as expected", {
     "profile_id", "profile_name", "domain_id", "domain_name",
     "parent_area_type_id"
   ))
-  expect_equal(res$indicator_id, 90362)
-  expect_equal(res$area_type_id, 202)
+  expect_identical(res$indicator_id, 90362)
+  expect_identical(res$area_type_id, 202)
   expect_identical(res$indicator_name, "Healthy life expectancy at birth")
   expect_null(res$profile_id)
   expect_null(res$profile_name)
@@ -131,10 +131,10 @@ test_that("get_read_fingertips_args works as expected", {
     "profile_id", "profile_name", "domain_id", "domain_name",
     "parent_area_type_id"
   ))
-  expect_equal(res$indicator_id, 90362)
-  expect_equal(res$area_type_id, 202)
+  expect_identical(res$indicator_id, 90362)
+  expect_identical(res$area_type_id, 202)
   expect_identical(res$indicator_name, "Healthy life expectancy at birth")
-  expect_equal(res$profile_id, 19)
+  expect_identical(res$profile_id, 19)
   expect_null(res$profile_name)
   expect_null(res$domain_id)
   expect_null(res$domain_name)

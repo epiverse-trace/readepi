@@ -26,6 +26,8 @@
 #' )
 #' }
 #' @keywords internal
+#' @importFrom utils read.table
+#'
 #'
 read_from_file <- function(file_path, sep = NULL, format = NULL, which = NULL,
                            pattern = NULL) {

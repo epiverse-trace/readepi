@@ -2,9 +2,7 @@
 #'
 #' @param file_path the path to the file with the user-specific credential
 #'    details for the projects of interest.
-#' @param project_id for relational DB, this is the name of the database
-#'    that contains the table from which the data should be pulled. Otherwise,
-#'    it is the project ID you were given access to.
+#' @param url the URL of the HIS of interest
 #'
 #' @returns a `list` of 5 elements of type `character` or `numeric`. These
 #'    correspond to the user's credential details.
@@ -12,21 +10,21 @@
 #' \dontrun{
 #' credentials <- read_credentials(
 #'   file_path  = system.file("extdata", "test.ini", package = "readepi"),
-#'   project_id = "Rfam"
+#'   url = "mysql-rfam-public.ebi.ac.uk"
 #' )
 #' }
 #' @keywords internal
 #'
 read_credentials <- function(
-    file_path = system.file("extdata", "test.ini", package = "readepi"),
-    project_id = "Rfam") {
-  checkmate::assert_character(project_id, len = 1L, null.ok = FALSE,
+  file_path = system.file("extdata", "test.ini", package = "readepi"),
+  url       = "mysql-rfam-public.ebi.ac.uk") {
+  checkmate::assert_character(url, len = 1L, null.ok = FALSE,
                               any.missing = FALSE)
   checkmate::assert_file(file_path)
 
   credentials <- read.table(file_path, sep = "\t", header = TRUE)
   if (ncol(credentials) != 7) {
-    stop("credential file should be tab-separated file with 7 columns.")
+    stop("credential file should be a tab-separated file with 7 columns.")
   }
   if (!all((names(credentials) %in%
     c(
@@ -37,21 +35,21 @@ read_credentials <- function(
          names should be 'user_name', 'password', 'host_name', 'project_id',
          'comment', 'dbms', 'port'")
   }
-  idx <- which(credentials$project_id == project_id)
+  idx <- which(credentials$host_name == url)
   if (length(idx) == 0) {
-    stop("Credential details for ", project_id, " not found in
+    stop("Credential details for ", url, " not found in
          credential file.")
   } else if (length(idx) > 1) {
-    stop("Multiple credential lines found for the specified project ID.\n
+    stop("Multiple credential lines found for the specified URL.\n
          Credentials file should contain one line per project.")
   } else {
     project_credentials <- list(
-      user = credentials$user_name[idx],
-      pwd = credentials$password[idx],
-      host = credentials$host_name[idx],
+      user    = credentials$user_name[idx],
+      pwd     = credentials$password[idx],
+      host    = credentials$host_name[idx],
       project = credentials$project_id[idx],
-      dbms = credentials$dbms[idx],
-      port = credentials$port[idx]
+      dbms    = credentials$dbms[idx],
+      port    = credentials$port[idx]
     )
   }
   project_credentials
@@ -166,12 +164,6 @@ get_read_fingertips_args <- function(args_list) {
     parent_area_type_id <- NULL
   }
 
-  if (all(is.null(indicator_id) && is.null(indicator_name) &&
-          is.null(area_type_id) && is.null(profile_id) &&
-          is.null(profile_name) && is.null(domain_id) &&
-          is.null(domain_name) && is.null(parent_area_type_id))) {
-    stop("Please provide at least 1 Fingertips parameter.")
-  }
   list(
     indicator_id = indicator_id,
     indicator_name = indicator_name,

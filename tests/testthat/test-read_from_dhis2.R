@@ -1,16 +1,16 @@
 test_that("read_from_dhis2 works as expected", {
   data <- read_from_dhis2(
-    base_url = file.path("https:/", "play.dhis2.org", "dev"),
-    user_name = "admin",
-    password = "district",
-    dataset = "pBOMPrpg1QX",
-    organisation_unit = "DiszpKrYNg8",
+    base_url           = file.path("https:/", "play.dhis2.org", "dev"),
+    user_name          = "admin",
+    password           = "district",
+    dataset            = "pBOMPrpg1QX",
+    organisation_unit  = "DiszpKrYNg8",
     data_element_group = "oDkJh5Ddh7d",
-    start_date = "2014",
-    end_date = "2023",
-    records = NULL,
-    fields = NULL,
-    id_col_name = "dataElement"
+    start_date         = "2014",
+    end_date           = "2023",
+    records            = NULL,
+    fields             = NULL,
+    id_col_name        = "dataElement"
   )
   expect_type(data, "list")
   expect_length(data, 1)

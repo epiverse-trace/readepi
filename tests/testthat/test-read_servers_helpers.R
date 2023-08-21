@@ -313,11 +313,18 @@ test_that("sql_select_records_and_fields fails as expected", {
 
   expect_error(
     sql_select_records_and_fields(
-      table = "author", record = c("1", "20", "50"),
+      table          = "author",
+      record         = c("1", "20", "50"),
       id_column_name = c("author_id", "last_name", "author_id"),
-      field = c("author_id", "last_name"), id_pos = NA, dbms = "MySQL",
-      driver_name = "", host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam", user = "rfamro", password = "", port = 4497
+      field          = c("author_id", "last_name"),
+      id_pos         = NA,
+      dbms           = "MySQL",
+      driver_name    = "",
+      host           = "mysql-rfam-public.ebi.ac.uk",
+      database_name  = "Rfam",
+      user           = "rfamro",
+      password       = "",
+      port           = 4497
     ),
     regexp = cat("Assertion on',id_pos,'failed: Missing value not allowed
                  for the 'id_pos' argument.")
@@ -325,11 +332,18 @@ test_that("sql_select_records_and_fields fails as expected", {
 
   expect_error(
     sql_select_records_and_fields(
-      table = NA, record = c("1", "20", "50"),
+      table          = NA,
+      record         = c("1", "20", "50"),
       id_column_name = c("author_id", "last_name", "author_id"),
-      field = c("author_id", "last_name"), id_pos = NULL, dbms = "MySQL",
-      driver_name = "", host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam", user = "rfamro", password = "", port = 4497
+      field          = c("author_id", "last_name"),
+      id_pos         = NULL,
+      dbms           = "MySQL",
+      driver_name    = "",
+      host           = "mysql-rfam-public.ebi.ac.uk",
+      database_name  = "Rfam",
+      user           = "rfamro",
+      password       = "",
+      port           = 4497
     ),
     regexp = cat("Assertion on',table,'failed: Missing value not allowed
                  for the 'table' argument.")
@@ -337,11 +351,18 @@ test_that("sql_select_records_and_fields fails as expected", {
 
   expect_error(
     sql_select_records_and_fields(
-      table = NULL, record = c("1", "20", "50"),
+      table          = NULL,
+      record         = c("1", "20", "50"),
       id_column_name = c("author_id", "last_name", "author_id"),
-      field = c("author_id", "last_name"), id_pos = NULL, dbms = "MySQL",
-      driver_name = "", host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam", user = "rfamro", password = "", port = 4497
+      field          = c("author_id", "last_name"),
+      id_pos         = NULL,
+      dbms           = "MySQL",
+      driver_name    = "",
+      host           = "mysql-rfam-public.ebi.ac.uk",
+      database_name  = "Rfam",
+      user           = "rfamro",
+      password       = "",
+      port           = 4497
     ),
     regexp = cat("Assertion on',table,'failed: Must be provided.")
   )
@@ -349,42 +370,42 @@ test_that("sql_select_records_and_fields fails as expected", {
 
 test_that("visualise_table works as expected", {
   result <- visualise_table(
-    credentials_file <- system.file("extdata", "test.ini", package = "readepi"),
-    source = "author",
-    project_id = "Rfam",
-    driver_name = ""
+    from             = "mysql-rfam-public.ebi.ac.uk",
+    credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+    source           = "author",
+    driver_name      = ""
   )
   expect_s3_class(result, "data.frame")
 })
 
 test_that("sql_select_records_only works as expected", {
   result <- sql_select_records_only(
-    table = "author",
-    record = c("1", "20", "50"),
+    table          = "author",
+    record         = c("1", "20", "50"),
     id_column_name = NULL,
-    id_pos = 1,
-    dbms = "MySQL",
-    driver_name = "",
-    host = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
-    user = "rfamro",
-    password = "",
-    port = 4497
+    id_pos         = 1,
+    dbms           = "MySQL",
+    driver_name    = "",
+    host           = "mysql-rfam-public.ebi.ac.uk",
+    database_name  = "Rfam",
+    user           = "rfamro",
+    password       = "",
+    port           = 4497
   )
   expect_s3_class(result, "data.frame")
 })
 
 test_that("sql_select_fields_only works as expected", {
   result <- sql_select_fields_only(
-    table = "author",
-    field = c("author_id", "name", "last_name"),
-    dbms = "MySQL",
-    driver_name = "",
-    host = "mysql-rfam-public.ebi.ac.uk",
+    table         = "author",
+    field         = c("author_id", "name", "last_name"),
+    dbms          = "MySQL",
+    driver_name   = "",
+    host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user = "rfamro",
-    password = "",
-    port = 4497
+    user          = "rfamro",
+    password      = "",
+    port          = 4497
   )
   expect_s3_class(result, "data.frame")
 })
