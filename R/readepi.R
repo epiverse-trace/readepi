@@ -4,7 +4,7 @@
 #' Systems (HIS), files, and folders.The HIS consist of database management
 #' systems (DBMS) and website of public data collection.
 #'
-#' @param from either the the URL of the HIS or the path to the file or
+#' @param source either the the URL of the HIS or the path to the file or
 #' directory of interest otherwise.
 #' @param records a vector or a comma-separated string of subject IDs.
 #'    When specified, only these records will be imported.
@@ -19,21 +19,21 @@
 #' @examples
 #' # reading from a MySQL server
 #' data <- readepi(
-#'   from             = "mysql-rfam-public.ebi.ac.uk",
+#'   source           = "mysql-rfam-public.ebi.ac.uk",
 #'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
 #'   driver_name      = "",
-#'   source           = "author"
+#'   from             = "author"
 #' )
 #' @returns a `list` of 1 or several object of type `data frame`.
 #' @export
-readepi <- function(from = NULL,
+readepi <- function(source = NULL,
                     records = NULL,
                     fields = NULL,
                     id_position = NULL,
                     id_col_name = NULL,
                     ...) {
   # check the input arguments
-  checkmate::assert_character(from, null.ok = TRUE, any.missing = FALSE,
+  checkmate::assert_character(source, null.ok = TRUE, any.missing = FALSE,
                               min.len = 0)
   checkmate::assert_vector(records,
     any.missing = FALSE, min.len = 0,
@@ -56,10 +56,10 @@ readepi <- function(from = NULL,
   args_list <- list(...)
 
   # reading from file
-  if (all(!is.null(from) && any(file.exists(from) || dir.exists(from)))) {
+  if (all(!is.null(source) && any(file.exists(source) || dir.exists(source)))) {
     args <- get_read_file_args(args_list)
     res  <- read_from_file(
-      file_path    = from,
+      file_path    = source,
       sep          = args$sep,
       format       = args$format,
       which        = args$which,
@@ -94,7 +94,7 @@ readepi <- function(from = NULL,
 
   # reading from DBMS
   if ("credentials_file" %in% names(args_list)) {
-    credentials <- read_credentials(args_list$credentials_file, from)
+    credentials <- read_credentials(args_list$credentials_file, source)
     if (credentials$dbms == "REDCap") {
       res <- read_from_redcap(
         uri         = credentials$host,
@@ -105,21 +105,21 @@ readepi <- function(from = NULL,
         fields      = fields
       )
     } else if (credentials$dbms %in% c("MySQL", "SQLServer", "PostgreSQL")) {
-      source      <- NULL
-      driver_name <- ""
-      if ("source" %in% names(args_list)) {
-        source <- args_list$source
+      from          <- NULL
+      driver_name   <- ""
+      if ("from" %in% names(args_list)) {
+        from        <- args_list$from
       }
       if ("driver_name" %in% names(args_list)) {
         driver_name <- args_list$driver_name
       }
-      res <- sql_server_read_data(
+      res           <- sql_server_read_data(
         user          = credentials$user,
         password      = credentials$pwd,
         host          = credentials$host,
         port          = credentials$port,
         database_name = credentials$project,
-        source        = source,
+        source        = from,
         driver_name   = driver_name,
         records       = records,
         fields        = fields,

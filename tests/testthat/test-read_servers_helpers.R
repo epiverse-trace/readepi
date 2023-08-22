@@ -370,9 +370,9 @@ test_that("sql_select_records_and_fields fails as expected", {
 
 test_that("visualise_table works as expected", {
   result <- visualise_table(
-    from             = "mysql-rfam-public.ebi.ac.uk",
+    source           = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    source           = "author",
+    from             = "author",
     driver_name      = ""
   )
   expect_s3_class(result, "data.frame")

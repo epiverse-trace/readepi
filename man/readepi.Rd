@@ -5,7 +5,7 @@
 \title{Import data from different sources into R}
 \usage{
 readepi(
-  from = NULL,
+  source = NULL,
   records = NULL,
   fields = NULL,
   id_position = NULL,
@@ -14,7 +14,7 @@ readepi(
 )
 }
 \arguments{
-\item{from}{either the the URL of the HIS or the path to the file or
+\item{source}{either the the URL of the HIS or the path to the file or
 directory of interest otherwise.}
 
 \item{records}{a vector or a comma-separated string of subject IDs.
@@ -43,9 +43,9 @@ systems (DBMS) and website of public data collection.
 \examples{
 # reading from a MySQL server
 data <- readepi(
-  from             = "mysql-rfam-public.ebi.ac.uk",
+  source           = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
   driver_name      = "",
-  source           = "author"
+  from             = "author"
 )
 }

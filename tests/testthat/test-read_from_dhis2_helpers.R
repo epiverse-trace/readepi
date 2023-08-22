@@ -20,7 +20,7 @@ test_that("login fails as expected", {
 
 data <- readepi(
   credentials_file   = system.file("extdata", "test.ini", package = "readepi"),
-  from               = "https://play.dhis2.org/dev",
+  source             = "https://play.dhis2.org/dev",
   dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
   organisation_unit  = "DiszpKrYNg8",
   data_element_group = NULL,

@@ -1,7 +1,7 @@
 test_that("readepi works as expected when reading from DBMS", {
   data <- readepi(
+    source           = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    from             = "mysql-rfam-public.ebi.ac.uk",
     sep              = NULL,
     format           = NULL,
     which            = NULL,
@@ -109,7 +109,7 @@ test_that("readepi works as expected when reading from Fingertips", {
 
 test_that("readepi works as expected when reading from file", {
   data <- readepi(
-    from             = system.file("extdata", "test.json", package = "readepi"),
+    source           = system.file("extdata", "test.json", package = "readepi"),
     sep              = NULL,
     format           = NULL,
     which            = NULL,
@@ -125,8 +125,8 @@ test_that("readepi works as expected when reading from file", {
 
 test_that("readepi works as expected when reading from DBMS", {
   data <- readepi(
+    source           = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    from             = "mysql-rfam-public.ebi.ac.uk",
     sep              = NULL,
     format           = NULL,
     which            = NULL,
@@ -142,7 +142,7 @@ test_that("readepi works as expected when reading from DBMS", {
 
 test_that("readepi works as expected when reading from a directory", {
   data <- readepi(
-    from             = system.file("extdata", package = "readepi"),
+    source           = system.file("extdata", package = "readepi"),
     sep              = NULL,
     format           = NULL,
     which            = NULL,
@@ -158,9 +158,9 @@ test_that("readepi works as expected when reading from a directory", {
 
 test_that("readepi works as expected when reading from DHIS2", {
   data <- readepi(
+    source             = "https://play.dhis2.org/dev",
     credentials_file   = system.file("extdata", "test.ini",
                                      package = "readepi"),
-    from               = "https://play.dhis2.org/dev",
     dataset            = "pBOMPrpg1QX",
     organisation_unit  = "DiszpKrYNg8",
     data_element_group = NULL,
@@ -173,8 +173,8 @@ test_that("readepi works as expected when reading from DHIS2", {
 test_that("readepi fails as expected when reading from DHIS2", {
   expect_error(
     data <- readepi(
+      source             = "https://play.dhis2.org/dev",
       credentials_file   = NULL,
-      from               = "https://play.dhis2.org/dev",
       dataset            = "pBOMPrpg1QX",
       organisation_unit  = "DiszpKrYNg8",
       data_element_group = NULL,
@@ -186,11 +186,10 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     data <- readepi(
+      source             = "https://play.dhis2.org/dev",
       credentials_file   = c(
         system.file("extdata", "test.ini", package = "readepi"),
-        system.file("extdata", "fake_test.ini", package = "readepi")
-      ),
-      from               = "https://play.dhis2.org/dev",
+        system.file("extdata", "fake_test.ini", package = "readepi")),
       dataset            = "pBOMPrpg1QX",
       organisation_unit  = "DiszpKrYNg8",
       data_element_group = NULL,
@@ -203,10 +202,9 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     data <- readepi(
+      source             = "https://play.dhis2.org/dev",
       credentials_file   = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from               = "https://play.dhis2.org/dev",
+        package = "readepi"),
       dataset            = NA,
       organisation_unit  = "DiszpKrYNg8",
       data_element_group = NULL,
@@ -218,10 +216,9 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     data <- readepi(
+      source             = "https://play.dhis2.org/dev",
       credentials_file   = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from               = "https://play.dhis2.org/dev",
+        package = "readepi"),
       dataset            = NULL,
       organisation_unit  = "DiszpKrYNg8",
       data_element_group = NULL,
@@ -233,10 +230,9 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     data <- readepi(
+      source             = "https://play.dhis2.org/dev",
       credentials_file   = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from               = "https://play.dhis2.org/dev",
+        package = "readepi"),
       dataset            = "pBOMPrpg1QX",
       organisation_unit  = NA,
       data_element_group = NULL,
@@ -249,10 +245,9 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     data <- readepi(
+      source             = "https://play.dhis2.org/dev",
       credentials_file   = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from               = "https://play.dhis2.org/dev",
+                                       package = "readepi"),
       dataset            = "pBOMPrpg1QX",
       organisation_unit  = NULL,
       data_element_group = NULL,
@@ -264,10 +259,9 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     data <- readepi(
+      source             = "https://play.dhis2.org/dev",
       credentials_file   = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from               = "https://play.dhis2.org/dev",
+                                       package = "readepi"),
       dataset            = "pBOMPrpg1QX",
       organisation_unit  = "DiszpKrYNg8",
       data_element_group = NA,
@@ -280,10 +274,9 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     data <- readepi(
+      source             = "https://play.dhis2.org/dev",
       credentials_file   = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from               = "https://play.dhis2.org/dev",
+                                       package = "readepi"),
       dataset            = "pBOMPrpg1QX",
       organisation_unit  = "DiszpKrYNg8",
       data_element_group = NULL,
@@ -295,10 +288,9 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     data <- readepi(
+      source             = "https://play.dhis2.org/dev",
       credentials_file   = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from               = "https://play.dhis2.org/dev",
+                                       package = "readepi"),
       dataset            = "pBOMPrpg1QX",
       organisation_unit  = "DiszpKrYNg8",
       data_element_group = NULL,
@@ -311,8 +303,8 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
 test_that("readepi works as expected when reading from REDCap", {
   data <- readepi(
+    source           = "https://bbmc.ouhsc.edu/redcap/api/",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    from             = "https://bbmc.ouhsc.edu/redcap/api/",
     records          = c("1", "3", "5"),
     fields           = c("record_id", "name_first", "age", "bmi"),
     id_col_name      = "record_id"
@@ -324,8 +316,8 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$metadata, class = "data.frame")
 
   data <- readepi(
+    source           = "https://bbmc.ouhsc.edu/redcap/api/",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    from             = "https://bbmc.ouhsc.edu/redcap/api/",
     records          = c("1", "3", "5"),
     fields           = c("record_id", "name_first", "age", "bmi"),
     id_position      = 1
@@ -337,8 +329,8 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$metadata, class = "data.frame")
 
   data <- readepi(
+    source           = "https://bbmc.ouhsc.edu/redcap/api/",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    from             = "https://bbmc.ouhsc.edu/redcap/api/",
     records          = "1, 3, 5",
     fields           = "record_id, name_first, age, bmi",
     id_position      = 1
@@ -350,8 +342,8 @@ test_that("readepi works as expected when reading from REDCap", {
   expect_s3_class(data$metadata, class = "data.frame")
 
   data <- readepi(
+    source           = "https://bbmc.ouhsc.edu/redcap/api/",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    from             = "https://bbmc.ouhsc.edu/redcap/api/",
     records          = "1, 3, 5",
     fields           = "record_id, name_first, age, bmi",
     id_col_name      = "record_id"
@@ -364,7 +356,7 @@ test_that("readepi works as expected when reading from REDCap", {
 
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    from             = "https://bbmc.ouhsc.edu/redcap/api/",
+    source           = "https://bbmc.ouhsc.edu/redcap/api/",
     records          = NULL,
     fields           = NULL
   )
@@ -380,9 +372,8 @@ test_that("readepi fails as expected when reading from REDCap", {
     data <- readepi(
       credentials_file = c(
         system.file("extdata", "test.ini", package = "readepi"),
-        system.file("extdata", "fake_test.ini", package = "readepi")
-      ),
-      from             = "https://bbmc.ouhsc.edu/redcap/api/",
+        system.file("extdata", "fake_test.ini", package = "readepi")),
+      source           = "https://bbmc.ouhsc.edu/redcap/api/",
       records          = "1, 3, 5",
       fields           = "record_id, name_first, age, bmi",
       id_col_name      = "id"
@@ -394,7 +385,7 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(
       credentials_file = NULL,
-      from             = "https://bbmc.ouhsc.edu/redcap/api/",
+      source           = "https://bbmc.ouhsc.edu/redcap/api/",
       records          = "1, 3, 5",
       fields           = "record_id, name_first, age, bmi",
       id_col_name      = "id"
@@ -405,9 +396,8 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from             = "https://bbmc.ouhsc.edu/redcap/api/",
+                                     package = "readepi"),
+      source           = "https://bbmc.ouhsc.edu/redcap/api/",
       records          = NA,
       fields           = "record_id, name_first, age, bmi",
       id_col_name      = "id"
@@ -418,9 +408,8 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from             = "https://bbmc.ouhsc.edu/redcap/api/",
+                                     package = "readepi"),
+      source           = "https://bbmc.ouhsc.edu/redcap/api/",
       records          = "1, 3, 5",
       fields           = NA,
       id_col_name      = "id"
@@ -431,9 +420,8 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from             = "https://bbmc.ouhsc.edu/redcap/api/",
+                                     package = "readepi"),
+      source           = "https://bbmc.ouhsc.edu/redcap/api/",
       records          = "1, 3, 5",
       fields           = "record_id, name_first, age, bmi",
       id_col_name      = NA
@@ -445,9 +433,8 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from             = "https://bbmc.ouhsc.edu/redcap/api/",
+                                     package = "readepi"),
+      source           = "https://bbmc.ouhsc.edu/redcap/api/",
       records          = "1, 3, 5",
       fields           = "record_id, name_first, age, bmi",
       id_col_name      = NULL,
@@ -463,9 +450,8 @@ test_that("readepi fails as expected when reading from DBMS,
   expect_error(
     data <- readepi(
       credentials_file = system.file("extdata", "test.ini",
-        package = "readepi"
-      ),
-      from             = "mysql-rfam-public.ebi.ac.uk",
+                                     package = "readepi"),
+      source           = "mysql-rfam-public.ebi.ac.uk",
       sep              = NULL,
       format           = NULL,
       which            = NULL,
@@ -483,7 +469,7 @@ test_that("readepi fails as expected when reading from DBMS,
   expect_error(
     data <- readepi(
       credentials_file = NULL,
-      from             = "mysql-rfam-public.ebi.ac.uk",
+      source           = "mysql-rfam-public.ebi.ac.uk",
       sep              = NULL,
       format           = NULL,
       which            = NULL,
@@ -502,7 +488,7 @@ test_that("readepi fails as expected when reading from DBMS,
   expect_error(
     data <- readepi(
       credentials_file = NULL,
-      from             = "mysql-rfam-public.ebi.ac.uk",
+      source           = "mysql-rfam-public.ebi.ac.uk",
       sep              = c(",", "\t"),
       format           = NULL,
       which            = NULL,

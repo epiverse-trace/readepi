@@ -413,10 +413,10 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 
 #' Visualize the first 5 rows of the data from a table
 #'
+#' @param source the the URL of the HIS
 #' @param credentials_file the path to the file with the user-specific
 #' credential details for the projects of interest
-#' @param source the table name
-#' @param from the the URL of the HIS
+#' @param from the table name
 #' @param driver_name the name of the MS driver
 #'
 #' @return prints the first 5 rows of the specified table
@@ -424,32 +424,30 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #' @examples
 #' \dontrun{
 #' visualise_table(
-#'   from             = "mysql-rfam-public.ebi.ac.uk",
+#'   source             = "mysql-rfam-public.ebi.ac.uk",
 #'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-#'   source           = "author",
+#'   from           = "author",
 #'   driver_name      = ""
 #' )
 #' }
 #' @export
 #'
-visualise_table <- function(from, credentials_file, source, driver_name) {
-  checkmate::assert_character(source,
-    any.missing = FALSE, len = 1,
-    null.ok = FALSE
-  )
+visualise_table <- function(source, credentials_file, from, driver_name) {
+  checkmate::assert_character(from, any.missing = FALSE, len = 1,
+                              null.ok = FALSE)
   checkmate::assert_character(credentials_file, null.ok = FALSE, len = 1)
   checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(from, null.ok = FALSE, len = 1)
+  checkmate::assert_character(source, null.ok = FALSE, len = 1)
 
-  credentials <- read_credentials(credentials_file, from)
+  credentials <- read_credentials(credentials_file, source)
   con <- connect_to_server(
     credentials$dbms, driver_name, credentials$host,
     credentials$project, credentials$user, credentials$pwd,
     credentials$port
   )
   query <- ifelse(credentials$dbms == "MySQL",
-    sprintf("select * from %s limit 5", source),
-    sprintf("select top 5 * from %s", source)
+    sprintf("select * from %s limit 5", from),
+    sprintf("select top 5 * from %s", from)
   )
   res <- DBI::dbGetQuery(con, query)
   pool::poolClose(con)

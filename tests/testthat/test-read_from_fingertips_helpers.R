@@ -1,3 +1,30 @@
+data <- readepi(source = NULL, profile_id = 19, area_type_id = 202)$data
+
+test_that("fingertips_subset_rows works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+  res <- fingertips_subset_rows(
+    data    = data,
+    records = c("E92000001", "E12000002", "E12000009"),
+    id_col_name = "AreaCode"
+  )
+  expect_s3_class(res, "data.frame")
+  expect_length(unique(res$AreaCode), 3)
+  expect_identical(unique(res$AreaCode),
+                   c("E92000001", "E12000002", "E12000009"))
+})
+
+test_that("fingertips_subset_columns works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+  res <- fingertips_subset_columns(
+    data   = data,
+    fields = c("IndicatorID", "AreaCode", "Age", "Value")
+  )
+  expect_s3_class(res, "data.frame")
+  expect_named(res, c("IndicatorID", "AreaCode", "Age", "Value"))
+  expect_identical(ncol(res), 4L)
+})
 
 httptest::with_mock_api({
   test_that("get_fingertips_metadata works as expected", {
@@ -248,32 +275,4 @@ httptest::with_mock_api({
     expect_type(res$profile_index, "integer")
     expect_length(res$profile_index, 179)
   })
-})
-
-data <- readepi(from = NULL, profile_id = 19, area_type_id = 202)$data
-
-test_that("fingertips_subset_rows works as expected", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
-  res <- fingertips_subset_rows(
-    data    = data,
-    records = c("E92000001", "E12000002", "E12000009"),
-    id_col_name = "AreaCode"
-  )
-  expect_s3_class(res, "data.frame")
-  expect_length(unique(res$AreaCode), 3)
-  expect_identical(unique(res$AreaCode),
-                   c("E92000001", "E12000002", "E12000009"))
-})
-
-test_that("fingertips_subset_columns works as expected", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
-  res <- fingertips_subset_columns(
-    data   = data,
-    fields = c("IndicatorID", "AreaCode", "Age", "Value")
-  )
-  expect_s3_class(res, "data.frame")
-  expect_named(res, c("IndicatorID", "AreaCode", "Age", "Value"))
-  expect_identical(ncol(res), 4L)
 })
