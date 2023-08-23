@@ -1,8 +1,9 @@
-data <- readepi(source = NULL, profile_id = 19L, area_type_id = 202L)[["data"]]
 
 test_that("fingertips_subset_rows works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
+  data <- readepi(source = NULL, profile_id = 19L,
+                  area_type_id = 202L)[["data"]]
   res <- fingertips_subset_rows(
     data    = data,
     records = c("E92000001", "E12000002", "E12000009"),
@@ -17,6 +18,8 @@ test_that("fingertips_subset_rows works as expected", {
 test_that("fingertips_subset_columns works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
+  data <- readepi(source = NULL, profile_id = 19L,
+                  area_type_id = 202L)[["data"]]
   res <- fingertips_subset_columns(
     data   = data,
     fields = c("IndicatorID", "AreaCode", "Age", "Value")
