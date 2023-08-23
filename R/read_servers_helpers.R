@@ -69,17 +69,17 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
 #'
 identify_table_name <- function(query, tables) {
   checkmate::assert_character(query,
-    any.missing = FALSE, len = 1,
+    any.missing = FALSE, len = 1L,
     null.ok = FALSE
   )
   checkmate::assert_vector(tables,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 1L,
     null.ok = FALSE, unique = TRUE
   )
   table_name <- NULL
   query <- unlist(strsplit(query, " ", fixed = TRUE))
   table_name <- query[which(query %in% tables)]
-  table_name <- ifelse(length(table_name) == 1, table_name,
+  table_name <- ifelse(length(table_name) == 1, table_name, # nolint
     glue::glue_collapse(table_name, sep = "_")
   )
   table_name
@@ -119,7 +119,7 @@ fetch_data_from_query <- function(source, dbms, tables,
                                   driver_name, host, database_name,
                                   user, password, port) {
   checkmate::assert_vector(tables,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 1L,
     null.ok = FALSE, unique = TRUE
   )
 
@@ -128,10 +128,10 @@ fetch_data_from_query <- function(source, dbms, tables,
     user, password, port
   )
   result <- list()
-  for (query in source) {
+  for (query in source) { # nolint
     table <- identify_table_name(query, tables)
     stopifnot("Could not detect table name from the query" = !is.null(table))
-    result[[table]] <- DBI::dbGetQuery(pool, source)
+    result[[table]] <- DBI::dbGetQuery(pool, source) # nolint
   }
   pool::poolClose(pool)
 
@@ -182,12 +182,12 @@ sql_select_data <- function(table_names, dbms, id_col_name,
                             driver_name, host, database_name,
                             user, password, port) {
   checkmate::assert_vector(table_names,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 1L,
     null.ok = FALSE, unique = FALSE
   )
 
   result <- list()
-  j <- 1
+  j <- 1 # nolint
   for (table in table_names) {
     message("\nFetching data from: ", table)
 
@@ -199,9 +199,9 @@ sql_select_data <- function(table_names, dbms, id_col_name,
         password, port
       )
     } else if (!is.null(records) && is.null(fields)) {
-      record <- ifelse(all(grepl(",", records, fixed = TRUE) == TRUE &
-        length(records) > 1),
-      records[j], records
+      record <- ifelse(all(grepl(",", records, fixed = TRUE) &
+                             length(records) > 1L),
+        records[j], records
       )
       result[[table]] <- sql_select_records_only(
         table, record, id_col_name,
@@ -210,9 +210,9 @@ sql_select_data <- function(table_names, dbms, id_col_name,
         password, port
       )
     } else if (!is.null(fields) && is.null(records)) {
-      field <- ifelse(all(grepl(",", fields, fixed = TRUE) == TRUE &
-        length(fields) > 1),
-      fields[j], fields
+      field <- ifelse(all(grepl(",", fields, fixed = TRUE) &
+                            length(fields) > 1L),
+        fields[j], fields
       )
       result[[table]] <- sql_select_fields_only(
         table, field, dbms, driver_name,
@@ -220,19 +220,19 @@ sql_select_data <- function(table_names, dbms, id_col_name,
         password, port
       )
     } else {
-      record <- ifelse(all(grepl(",", records, fixed = TRUE) == TRUE &
-        length(records) > 1),
-      records[j], records
+      record <- ifelse(all(grepl(",", records, fixed = TRUE) &
+                             length(records) > 1L),
+        records[j], records
       )
-      field <- ifelse(all(grepl(",", fields, fixed = TRUE) == TRUE &
-        length(fields) > 1),
-      fields[j], fields
+      field <- ifelse(all(grepl(",", fields, fixed = TRUE) &
+                            length(fields) > 1), # nolint
+        fields[j], fields
       )
       id_column_name <- get_id_column_name(
         id_col_name,
         j, id_position
-      )$id_column_name
-      id_pos <- get_id_column_name(id_col_name, j, id_position)$id_pos
+      )[["id_column_name"]]
+      id_pos <- get_id_column_name(id_col_name, j, id_position)[["id_pos"]]
       result[[table]] <- sql_select_records_and_fields(
         table, record,
         id_column_name, field,
@@ -242,7 +242,7 @@ sql_select_data <- function(table_names, dbms, id_col_name,
         password, port
       )
     }
-    j <- j + 1
+    j <- j + 1 # nolint
   }
 
   result
@@ -259,8 +259,8 @@ sql_select_data <- function(table_names, dbms, id_col_name,
 #'
 get_id_column_name <- function(id_col_name, j, id_position) {
   checkmate::assert_numeric(j,
-    lower = 1, any.missing = FALSE,
-    len = 1, null.ok = FALSE
+    lower = 1L, any.missing = FALSE,
+    len = 1L, null.ok = FALSE
   )
   id_column_name <- id_pos <- NULL
   if (!is.null(id_col_name)) {
@@ -312,7 +312,7 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 sql_select_entire_dataset <- function(table, dbms, driver_name, host,
                                       database_name, user, password, port) {
   checkmate::assert_character(table,
-    any.missing = FALSE, len = 1,
+    any.missing = FALSE, len = 1L,
     null.ok = FALSE
   )
 
@@ -378,15 +378,15 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_character(table,
-    any.missing = FALSE, len = 1,
+    any.missing = FALSE, len = 1L,
     null.ok = FALSE
   )
   checkmate::assert_vector(record,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 1L,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(field,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 1L,
     null.ok = TRUE, unique = TRUE
   )
 
@@ -433,19 +433,19 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #' @export
 #'
 visualise_table <- function(source, credentials_file, from, driver_name) {
-  checkmate::assert_character(from, any.missing = FALSE, len = 1,
+  checkmate::assert_character(from, any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
-  checkmate::assert_character(credentials_file, null.ok = FALSE, len = 1)
+  checkmate::assert_character(credentials_file, null.ok = FALSE, len = 1L)
   checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(source, null.ok = FALSE, len = 1)
+  checkmate::assert_character(source, null.ok = FALSE, len = 1L) # nolint
 
-  credentials <- read_credentials(credentials_file, source)
+  credentials <- read_credentials(credentials_file, source) # nolint
   con <- connect_to_server(
-    credentials$dbms, driver_name, credentials$host,
-    credentials$project, credentials$user, credentials$pwd,
-    credentials$port
+    credentials[["dbms"]], driver_name, credentials[["host"]],
+    credentials[["project"]], credentials[["user"]], credentials[["pwd"]],
+    credentials[["port"]]
   )
-  query <- ifelse(credentials$dbms == "MySQL",
+  query <- ifelse(credentials[["dbms"]] == "MySQL",
     sprintf("select * from %s limit 5", from),
     sprintf("select top 5 * from %s", from)
   )
@@ -495,19 +495,19 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
                                     dbms, driver_name, host, database_name,
                                     user, password, port) {
   checkmate::assert_vector(id_pos,
-    any.missing = FALSE, min.len = 0,
+    any.missing = FALSE, min.len = 0L,
     null.ok = TRUE, unique = FALSE
   )
   checkmate::assert_vector(id_column_name,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 1L,
     null.ok = TRUE, unique = FALSE
   )
   checkmate::assert_character(table,
-    any.missing = FALSE, len = 1,
+    any.missing = FALSE, len = 1L,
     null.ok = FALSE
   )
   checkmate::assert_vector(record,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 1L,
     null.ok = TRUE, unique = TRUE
   )
 
@@ -516,16 +516,16 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
     user, password, port
   )
   query <- ifelse(dbms == "MySQL",
-                  sprintf("select * from %s limit 5", table),
-                  sprintf("select top 5 * from %s", table)
-                )
+    sprintf("select * from %s limit 5", table),
+    sprintf("select top 5 * from %s", table)
+  )
   first_5_rows <- DBI::dbGetQuery(con, query)
   id_col_name <- ifelse(!is.null(id_column_name),
     id_column_name,
     names(first_5_rows)[id_pos]
   )
-  stopifnot("Missing or NULL value found in record argument" = (anyNA(record) ||
-    !any(is.null(record))))
+  stopifnot("Missing or NULL value found in record argument" =
+              (anyNA(record) || !any(is.null(record))))
 
   if (is.vector(record)) {
     record <- glue::glue_collapse(record, sep = ", ")
@@ -574,16 +574,17 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
 sql_select_fields_only <- function(table, field, dbms, driver_name, host,
                                    database_name, user, password, port) {
   checkmate::assert_character(table,
-    any.missing = FALSE, len = 1,
+    any.missing = FALSE, len = 1L,
     null.ok = FALSE
   )
   checkmate::assert_vector(field,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 1L,
     null.ok = TRUE, unique = TRUE
   )
 
-  stopifnot("Missing or NULL value found in record argument" = (anyNA(field) ||
-    !any(is.null(field))))
+  stopifnot(
+    "Missing or NULL value found in record argument" = (anyNA(field) || !any(is.null(field))) # nolint
+  )
   con <- connect_to_server(
     dbms, driver_name, host, database_name,
     user, password, port

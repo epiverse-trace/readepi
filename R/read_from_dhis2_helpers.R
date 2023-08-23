@@ -11,11 +11,11 @@
 #' @keywords internal
 #'
 login <- function(username, password, base_url) {
-  checkmate::assert_character(username, len = 1, any.missing = FALSE,
+  checkmate::assert_character(username, len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
-  checkmate::assert_character(password, len = 1, any.missing = FALSE,
+  checkmate::assert_character(password, len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
-  checkmate::assert_character(base_url, len = 1, any.missing = FALSE,
+  checkmate::assert_character(base_url, len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
   url  <- file.path(base_url, "api", "me")
   resp <- httr::GET(url, httr::authenticate(username, password))
@@ -49,9 +49,9 @@ login <- function(username, password, base_url) {
 #' }
 #' @keywords internal
 dhis2_subset_fields <- function(data, fields) {
-  checkmate::assert_data_frame(data, min.rows = 1, null.ok = FALSE,
-                               min.cols = 1)
-  checkmate::assert_vector(fields, min.len = 1, null.ok = TRUE,
+  checkmate::assert_data_frame(data, min.rows = 1L, null.ok = FALSE,
+                               min.cols = 1L)
+  checkmate::assert_vector(fields, min.len = 1L, null.ok = TRUE,
                            any.missing = FALSE)
   if (!is.null(fields)) {
     if (is.character(fields)) {
@@ -60,7 +60,7 @@ dhis2_subset_fields <- function(data, fields) {
       ))
     }
     idx <- which(fields %in% names(data))
-    if (length(idx) == 0) stop(sprintf("Specified column not found!
+    if (length(idx) == 0L) stop(sprintf("Specified column not found!
     The data contains the following columns:
     %s", names(data)))
     if (length(idx) != length(fields)) {
@@ -102,11 +102,11 @@ dhis2_subset_fields <- function(data, fields) {
 #' }
 #' @keywords internal
 dhis2_subset_records <- function(data, records, id_col_name) {
-  checkmate::assert_data_frame(data, min.rows = 1, null.ok = FALSE,
-                               min.cols = 1)
-  checkmate::assert_vector(records, min.len = 1, null.ok = TRUE,
+  checkmate::assert_data_frame(data, min.rows = 1L, null.ok = FALSE,
+                               min.cols = 1L)
+  checkmate::assert_vector(records, min.len = 1L, null.ok = TRUE,
                            any.missing = FALSE)
-  checkmate::assert_character(id_col_name, len = 1, null.ok = TRUE,
+  checkmate::assert_character(id_col_name, len = 1L, null.ok = TRUE,
                               any.missing = FALSE)
   if (!is.null(records)) {
     if (is.character(records)) {
@@ -116,7 +116,7 @@ dhis2_subset_records <- function(data, records, id_col_name) {
     }
     id_column_name <- id_col_name
     idx <- which(records %in% data[[id_column_name]])
-    if (length(idx) == 0) {
+    if (length(idx) == 0L) {
       stop("Speficied records not found in column: ", id_column_name)
     } else if (length(idx) < length(records)) {
       warning("The following records were not found: ", records[-idx])
@@ -136,21 +136,21 @@ dhis2_subset_records <- function(data, records, id_col_name) {
 #'
 get_attributes_from_user <- function(args_list) {
   dataset  <- organisation_unit <- data_element_group <- start_date <-
-  end_date <- NULL
+    end_date <- NULL
   if ("dataset" %in% names(args_list)) {
-    dataset <- args_list$dataset
+    dataset <- args_list[["dataset"]]
   }
   if ("organisation_unit" %in% names(args_list)) {
-    organisation_unit <- args_list$organisation_unit
+    organisation_unit <- args_list[["organisation_unit"]]
   }
   if ("data_element_group" %in% names(args_list)) {
-    data_element_group <- args_list$data_element_group
+    data_element_group <- args_list[["data_element_group"]]
   }
   if ("start_date" %in% names(args_list)) {
-    start_date <- args_list$start_date
+    start_date <- args_list[["start_date"]]
   }
   if ("end_date" %in% names(args_list)) {
-    end_date <- args_list$end_date
+    end_date <- args_list[["end_date"]]
   }
   list(
     dataset            = dataset,

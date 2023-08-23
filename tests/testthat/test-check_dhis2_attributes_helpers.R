@@ -7,23 +7,23 @@ httptest::with_mock_api({
       which    = "dataElements"
     )
     expect_type(response, "list")
-    expect_length(response, 8)
-    expect_identical(response$status_code, 200L)
+    expect_length(response, 8L)
+    expect_identical(response[["status_code"]], 200L)
   })
 
   test_that("dhis2_get_relevant_attributes works as expected with valid
             dataSets", {
-    result <- dhis2_get_relevant_attributes(
-      attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
-      base_url = file.path("https:/", "play.dhis2.org", "dev"),
-      username = "admin",
-      password = "district",
-      which = "dataSets"
-    )
-    expect_type(result, "list")
-    expect_identical(result$dataset, "pBOMPrpg1QX,BfMAe6Itzgt")
-    expect_s3_class(result$data_sets, "data.frame")
-  })
+              result <- dhis2_get_relevant_attributes(
+                attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
+                base_url     = file.path("https:/", "play.dhis2.org", "dev"),
+                username     = "admin",
+                password     = "district",
+                which        = "dataSets"
+              )
+              expect_type(result, "list")
+              expect_identical(result[["dataset"]], "pBOMPrpg1QX,BfMAe6Itzgt")
+              expect_s3_class(result[["data_sets"]], "data.frame")
+            })
 
   test_that("dhis2_get_relevant_attributes works as expected with valid
             dataElements", {
@@ -47,8 +47,8 @@ httptest::with_mock_api({
                 which = "organisationUnits"
               )
               expect_type(result, "list")
-              expect_identical(result$organisation_unit, "Rp268JB6Ne4")
-              expect_s3_class(result$org_units, "data.frame")
+              expect_identical(result[["organisation_unit"]], "Rp268JB6Ne4")
+              expect_s3_class(result[["org_units"]], "data.frame")
             })
 
   test_that("dhis2_get_relevant_attributes works as expected with valid
@@ -61,8 +61,8 @@ httptest::with_mock_api({
                 which = "dataElementGroups"
               )
               expect_type(result, "list")
-              expect_identical(result$data_element_group, "oDkJh5Ddh7d")
-              expect_s3_class(result$data_elt_groups, "data.frame")
+              expect_identical(result[["data_element_group"]], "oDkJh5Ddh7d")
+              expect_s3_class(result[["data_elt_groups"]], "data.frame")
             })
 })
 

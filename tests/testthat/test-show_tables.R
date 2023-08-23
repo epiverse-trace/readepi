@@ -1,11 +1,10 @@
 test_that("Function 'show_tables' correctly displays the table names", {
-    tables <- show_tables(
-      credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-      url = "mysql-rfam-public.ebi.ac.uk",
-      driver_name = ""
-    )
-    expect_type(tables, "character")
+  tables <- show_tables(
+    credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+    url              = "mysql-rfam-public.ebi.ac.uk",
+    driver_name      = ""
+  )
+  expect_type(tables, "character")
 })
 
 test_that("show_tables fails as expected", {

@@ -27,6 +27,7 @@ get_fingertips_metadata <- function() {
 #' @param indicator_name the indicator name
 #'
 #' @return an object of type `numeric` that contains the indicator ID
+#'
 #' @examples
 #' \dontrun{
 #' indicator_id <- get_ind_id_from_ind_name(
@@ -40,28 +41,29 @@ get_fingertips_metadata <- function() {
 #' }
 #' @keywords internal
 get_ind_id_from_ind_name <- function(metadata, indicator_name) {
-  checkmate::assert_list(metadata, len = 3, null.ok = FALSE,
+  checkmate::assert_list(metadata, len = 3L, null.ok = FALSE,
                          any.missing = FALSE)
-  checkmate::assert_vector(indicator_name, min.len = 1, null.ok = FALSE,
+  checkmate::assert_vector(indicator_name, min.len = 1L, null.ok = FALSE,
                            any.missing = FALSE)
   indicator_name <- unlist(strsplit(indicator_name, ",", fixed = TRUE))
   idx <- suppressWarnings(
     as.numeric(lapply(indicator_name, grep,
-                      metadata$indicator_ids_names$IndicatorName,
+                      metadata[["indicator_ids_names"]][["IndicatorName"]],
                       ignore.case = TRUE, fixed = TRUE))
   )
   if (all(is.na(idx))) {
     message("\nCould not find specified indicator name.\n
              Below is the list of all indicator names in Fingertips.\n")
-    print(metadata$indicator_ids_names)
+    print(metadata[["indicator_ids_names"]])
     stop()
   } else {
-    if (length(which(is.na(idx))) > 0) {
+    if (anyNA(idx)) {
       message("\nThe following indicator names were not found: ",
               glue::glue_collapse(indicator_name[which(is.na(idx))],
                                   sep = ", "))
     }
-    indicator_id <- metadata$indicator_ids_names$IndicatorID[idx[!is.na(idx)]]
+    indicator_id <-
+      metadata[["indicator_ids_names"]][["IndicatorID"]][idx[!is.na(idx)]]
   }
   indicator_id
 }
@@ -89,40 +91,41 @@ get_ind_id_from_ind_name <- function(metadata, indicator_name) {
 #'
 get_ind_id_from_domain_id <- function(metadata, domain_id,
                                       indicator_name = NULL) {
-  checkmate::assert_list(metadata, len = 3, null.ok = FALSE,
+  checkmate::assert_list(metadata, len = 3L, null.ok = FALSE,
                          any.missing = FALSE)
-  checkmate::assert_vector(domain_id, min.len = 1, null.ok = FALSE,
+  checkmate::assert_vector(domain_id, min.len = 1L, null.ok = FALSE,
                            any.missing = FALSE)
-  checkmate::assert_vector(indicator_name, min.len = 1, null.ok = TRUE,
+  checkmate::assert_vector(indicator_name, min.len = 1L, null.ok = TRUE,
                            any.missing = FALSE)
   # check if the provided domain_id is part of the Fingertips
-  idx <- domain_id %in% metadata$indicator_profile_domain$DomainID
+  idx <- domain_id %in% metadata[["indicator_profile_domain"]][["DomainID"]]
 
   # return an error message if all domain ids provided by the user are not found
   if (!any(idx)) {
     message("\nCould not find specified domain ID.\n
              Below is the list of all domain IDs in Fingertips.\n")
-    print(metadata$indicator_profile_domain[, c("DomainID", "DomainName")])
+    print(metadata[["indicator_profile_domain"]][, c("DomainID", "DomainName")])
     stop()
   } else {
     # send a message to user if he provided some domain ids that were not found
     # in Fingertips
-    if (!all(idx) > 0) {
+    if (!all(idx) > 0L) {
       message("\nThe following indicator names were not found: ",
               glue::glue_collapse(domain_id[!idx], sep = ", "))
       domain_id <- domain_id[!idx]
     }
 
     # get the indicator ids
-    idx <- which(domain_id == metadata$indicator_profile_domain$DomainID)
+    idx <- which(domain_id ==
+                   metadata[["indicator_profile_domain"]][["DomainID"]])
     if (!is.null(indicator_name)) {
       indicator_name <- unlist(strsplit(indicator_name, ",", fixed = TRUE))
-      subs <- metadata$indicator_profile_domain[idx, ]
-      subs <- subs[which(subs$IndicatorName %in% indicator_name), ]
-      indicator_id <- subs$IndicatorID
+      subs <- metadata[["indicator_profile_domain"]][idx, ]
+      subs <- subs[which(subs[["IndicatorName"]] %in% indicator_name), ]
+      indicator_id <- subs[["IndicatorID"]]
     } else {
       indicator_id <-
-        unique(metadata$indicator_profile_domain$IndicatorID[idx])
+        unique(metadata[["indicator_profile_domain"]][["IndicatorID"]][idx])
     }
   }
   indicator_id
@@ -149,21 +152,24 @@ get_ind_id_from_domain_id <- function(metadata, domain_id,
 #' @keywords internal
 get_ind_id_from_domain_name <- function(metadata, domain_name,
                                         indicator_name = NULL) {
-  checkmate::assert_list(metadata, len = 3, null.ok = FALSE,
+  checkmate::assert_list(metadata, len = 3L, null.ok = FALSE,
                          any.missing = FALSE)
-  checkmate::assert_vector(domain_name, min.len = 1, null.ok = FALSE,
+  checkmate::assert_vector(domain_name, min.len = 1L, null.ok = FALSE,
                            any.missing = FALSE)
-  checkmate::assert_vector(indicator_name, min.len = 1, null.ok = TRUE,
+  checkmate::assert_vector(indicator_name, min.len = 1L, null.ok = TRUE,
                            any.missing = FALSE)
   domain_name <- unlist(strsplit(domain_name, ",", fixed = TRUE))
-  idx <- unique(unlist(lapply(metadata$indicator_profile_domain$DomainName,
-                              grep,
-                              domain_name,
-                              ignore.case = TRUE)))
-  if (all(is.na(idx)) || length(idx) == 0) {
+  idx <- unique(
+                unlist(
+                       lapply(
+                             metadata[["indicator_profile_domain"]][["DomainName"]], # nolint: line_length_linter
+                             grep,
+                             domain_name,
+                             ignore.case = TRUE)))
+  if (all(is.na(idx)) || length(idx) == 0L) {
     message("\nCould not find the specified domain name.\n
              Below is the list of all domain names in Fingertips.\n")
-    print(metadata$indicator_profile_domain[, c("DomainID", "DomainName")])
+    print(metadata[["indicator_profile_domain"]][, c("DomainID", "DomainName")])
     stop()
   } else {
     if (length(idx) < length(domain_name)) {
@@ -173,15 +179,16 @@ get_ind_id_from_domain_name <- function(metadata, domain_name,
     }
     domain_name <- domain_name[idx]
     # get the indicator ids
-    idx <- which(domain_name == metadata$indicator_profile_domain$DomainName)
+    idx <- which(domain_name ==
+                   metadata[["indicator_profile_domain"]][["DomainName"]])
     if (!is.null(indicator_name)) {
       indicator_name <- unlist(strsplit(indicator_name, ",", fixed = TRUE))
-      subs <- metadata$indicator_profile_domain[idx, ]
-      subs <- subs[which(subs$IndicatorName %in% indicator_name), ]
-      indicator_id <- subs$IndicatorID
+      subs <- metadata[["indicator_profile_domain"]][idx, ]
+      subs <- subs[which(subs[["IndicatorName"]] %in% indicator_name), ]
+      indicator_id <- subs[["IndicatorID"]]
     } else {
       indicator_id <-
-        unique(metadata$indicator_profile_domain$IndicatorID[idx])
+        unique(metadata[["indicator_profile_domain"]][["IndicatorID"]][idx])
     }
   }
   indicator_id
@@ -210,21 +217,28 @@ get_ind_id_from_domain_name <- function(metadata, domain_name,
 #' }
 #' @keywords internal
 get_profile_name <- function(profile_id, profile_name, metadata) {
-  checkmate::assert_list(metadata, len = 3, null.ok = FALSE,
+  checkmate::assert_list(metadata, len = 3L, null.ok = FALSE,
                          any.missing = FALSE)
-  checkmate::assert_vector(profile_name, min.len = 1, null.ok = TRUE,
+  checkmate::assert_vector(profile_name, min.len = 1L, null.ok = TRUE,
                            any.missing = FALSE)
-  checkmate::assert_vector(profile_id, min.len = 1, null.ok = TRUE,
+  checkmate::assert_vector(profile_id, min.len = 1L, null.ok = TRUE,
                            any.missing = FALSE)
   if (all(!is.null(profile_id) & !is.null(profile_name))) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
-    idx <- which(metadata$indicator_profile_domain$ProfileID == profile_id &
-      metadata$indicator_profile_domain$ProfileName == profile_name)
+    idx <- which(
+                 metadata[["indicator_profile_domain"]][["ProfileID"]] ==
+                   profile_id &
+                   metadata[["indicator_profile_domain"]][["ProfileName"]] ==
+                     profile_name)
   } else if (!is.null(profile_id) && is.null(profile_name)) {
-    idx <- which(metadata$indicator_profile_domain$ProfileID == profile_id)
+    idx <- which(
+                 metadata[["indicator_profile_domain"]][["ProfileID"]] ==
+                   profile_id)
   } else if (!is.null(profile_name) && is.null(profile_id)) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
-    idx <- which(metadata$indicator_profile_domain$ProfileName == profile_name)
+    idx <- which(
+                 metadata[["indicator_profile_domain"]][["ProfileName"]] ==
+                   profile_name)
   }
 
   list(
@@ -260,39 +274,41 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
                                     indicator_name = NULL,
                                     profile_name = NULL,
                                     profile_id = NULL) {
-  checkmate::assert_list(metadata, len = 3, null.ok = FALSE,
+  checkmate::assert_list(metadata, len = 3L, null.ok = FALSE,
                          any.missing = FALSE)
-  checkmate::assert_vector(domain_id, min.len = 0, null.ok = TRUE,
+  checkmate::assert_vector(domain_id, min.len = 0L, null.ok = TRUE,
                            any.missing = FALSE)
-  checkmate::assert_vector(domain_name, min.len = 0, null.ok = TRUE,
+  checkmate::assert_vector(domain_name, min.len = 0L, null.ok = TRUE,
                            any.missing = FALSE)
-  checkmate::assert_vector(indicator_name, min.len = 0, null.ok = TRUE,
+  checkmate::assert_vector(indicator_name, min.len = 0L, null.ok = TRUE,
                            any.missing = FALSE)
-  checkmate::assert_vector(profile_id, min.len = 0, null.ok = TRUE,
+  checkmate::assert_vector(profile_id, min.len = 0L, null.ok = TRUE,
                            any.missing = FALSE)
-  tmp_res <- get_profile_name(profile_id, profile_name, metadata)
-  profile_name <- tmp_res$profile_name
-  idx <- tmp_res$profile_index
+  tmp_res      <- get_profile_name(profile_id, profile_name, metadata)
+  profile_name <- tmp_res[["profile_name"]]
+  idx          <- tmp_res[["profile_index"]]
 
-  if (length(idx) == 0) {
+  if (length(idx) == 0L) {
     message("\nCould not find the specified profile ID or name.\n
              Below is the list of all profile IDs and names in Fingertips.\n")
-    print(metadata$indicator_profile_domain[, c("ProfileID", "ProfileName")])
+    print(
+      metadata[["indicator_profile_domain"]][, c("ProfileID", "ProfileName")]
+    )
     stop()
   } else {
-    subs <- metadata$indicator_profile_domain[idx, ]
+    subs <- metadata[["indicator_profile_domain"]][idx, ]
     if (!is.null(domain_id)) {
-      subs <- subs %>% dplyr::filter(subs$DomainID == domain_id)
+      subs <- subs %>% dplyr::filter(subs[["DomainID"]] == domain_id)
     }
     if (!is.null(domain_name)) {
       domain_name <- unlist(strsplit(domain_name, ",", fixed = TRUE))
-      subs <- subs %>% dplyr::filter(subs$DomainName == domain_name)
+      subs <- subs %>% dplyr::filter(subs[["DomainName"]] == domain_name)
     }
     if (!is.null(indicator_name)) {
       indicator_name <- unlist(strsplit(indicator_name, ",", fixed = TRUE))
-      subs <- subs %>% dplyr::filter(subs$IndicatorName == indicator_name)
+      subs <- subs %>% dplyr::filter(subs[["IndicatorName"]] == indicator_name)
     }
-    indicator_id <- subs$IndicatorID
+    indicator_id <- subs[["IndicatorID"]]
   }
   indicator_id
 }
@@ -320,11 +336,11 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #' @keywords internal
 #'
 fingertips_subset_rows <- function(data, records, id_col_name) {
-  checkmate::assert_data_frame(data, null.ok = FALSE, min.rows = 1,
-                               min.cols = 1)
-  checkmate::assert_vector(records, min.len = 0, null.ok = TRUE,
+  checkmate::assert_data_frame(data, null.ok = FALSE, min.rows = 1L,
+                               min.cols = 1L)
+  checkmate::assert_vector(records, min.len = 0L, null.ok = TRUE,
                            any.missing = FALSE)
-  checkmate::assert_character(id_col_name, null.ok = TRUE, len = 1,
+  checkmate::assert_character(id_col_name, null.ok = TRUE, len = 1L,
                               any.missing = FALSE)
   if (!is.null(records)) {
     records <- unlist(strsplit(records, ",", fixed = TRUE))
@@ -362,15 +378,15 @@ fingertips_subset_rows <- function(data, records, id_col_name) {
 #' @keywords internal
 #'
 fingertips_subset_columns <- function(data, fields) {
-  checkmate::assert_data_frame(data, min.cols = 1, min.rows = 1,
+  checkmate::assert_data_frame(data, min.cols = 1L, min.rows = 1L,
                                null.ok = FALSE)
-  checkmate::assert_vector(fields, min.len = 0, null.ok = TRUE,
+  checkmate::assert_vector(fields, min.len = 0L, null.ok = TRUE,
                            any.missing = FALSE)
   if (!is.null(fields)) {
     fields <- unlist(strsplit(fields, ",", fixed = TRUE))
     fields <- gsub(" ", "", fields, fixed = TRUE)
     idx <- which(fields %in% names(data))
-    if (length(idx) == 0) {
+    if (length(idx) == 0L) {
       stop("\nCould not find specified fields. The field names in the dataset
            are:\n", print(names(data)))
     } else if (length(idx) != length(fields)) {

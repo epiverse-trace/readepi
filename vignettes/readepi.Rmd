@@ -21,18 +21,18 @@ The main objective of **readepi** package is to simplify the process of reading 
 
 
 ```{r, include = FALSE}
-knitr::opts_chunk$set(
+knitr::opts_chunk[["set"]](
   collapse = TRUE,
   comment = "#>",
   message = FALSE,
   warning = FALSE,
-  dpi = 300
+  dpi = 300L
 )
 ```
 
 ```{r setup}
 # LOAD readepi
-library(readepi)
+library("readepi") # nolint
 ```
 
 # Reading data from file or directory
@@ -247,7 +247,7 @@ data <- readepi(credentials_file,
   driver_name = "",
   source = "author",
   records = records,
-  id_position = 1
+  id_position = 1L
 )
 
 # READING SPECIFIED FIELDS AND RECORDS ONE THE TABLE
@@ -297,7 +297,7 @@ data <- readepi(credentials_file,
   driver_name = "",
   source = table_names,
   records = records,
-  id_position = c(1, 1)
+  id_position = c(1, 1) # nolint
 )
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS
@@ -381,8 +381,8 @@ data <- readepi(
   credentials_file = credentials_file,
   project_id = "SD_DATA"
 )
-project_data <- data$data
-project_metadeta <- data$metadata
+project_data <- data[["data"]]
+project_metadeta <- data[["metadata"]]
 
 # READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT
 fields <- c("record_id", "name_first", "age", "bmi")
@@ -406,8 +406,8 @@ data <- readepi(credentials_file,
   fields = fields,
   id_col_name = "record_id"
 )
-project_data <- data$data
-project_metadeta <- data$metadata
+project_data <- data[["data"]]
+project_metadeta <- data[["metadata"]]
 ```
 
 
@@ -503,7 +503,7 @@ data <- readepi(
   end_date = "2023",
   fields = c("dataElement", "period", "value")
 )
-test_data <- data$data
+test_data <- data[["data"]]
 ```
 
 ## Importing data from Fingertips
@@ -534,67 +534,64 @@ This section provides various examples demonstrating how **readepi** imports dat
 ```{r eval=FALSE}
 # GET THE INFORMATION ABOUT THE INDICATOR PROFILES, DOMAIN, AREA TYPE, ...
 metadata <- get_fingertips_metadata()
-head(metadata$indicator_profile_domain)
+head(metadata[["indicator_profile_domain"]])
 # indicator_profile_domain contains the indicator, profile,
 # and domain information.
-head(metadata$indicator_ids_names)
+head(metadata[["indicator_ids_names"]])
 # indicator_ids_names contains the list of indicators IDs together
 # with their names.
-head(metadata$area_type)
+head(metadata[["area_type"]])
 # area_type contains the list of all area types with their associated
 # parent area types.
 
 # IMPORTING DATA USING THE INDICATOR ID
 data <- readepi(
-  indicator_id = 90362,
-  area_type_id = 202
+  indicator_id = 90362L,
+  area_type_id = 202L
 )
 
 # IMPORTING DATA USING THE INDICATOR NAME
 data <- readepi(
   indicator_name = "Healthy life expectancy at birth",
-  area_type_id = 202
+  area_type_id = 202L
 )
 
 # IMPORTING DATA USING THE DOMAIN NAME
 data <- readepi(
   domain_name = "A. Overarching indicators",
-  area_type_id = 202
+  area_type_id = 202L
 )
 
 data <- readepi(
   indicator_name = "Healthy life expectancy at birth",
-  area_type_id = 202,
+  area_type_id = 202L,
   domain_name = "A. Overarching indicators"
 )
 
 # IMPORTING DATA USING THE PROFILE ID
 data <- readepi(
-  profile_id = 19,
-  area_type_id = 202
+  profile_id = 19L,
+  area_type_id = 202L
 )
 
 # IMPORTING DATA FROM SPECIFIC INDICATOR, DOMAIN, PROFILE, AREA TYPE
 data <- readepi(
-  indicator_id = 90362,
+  indicator_id = 90362L,
   indicator_name = "Healthy life expectancy at birth",
-  area_type_id = 202, parent_area_type_id = 6,
-  profile_id = 19,
+  area_type_id = 202L, parent_area_type_id = 6L,
+  profile_id = 19L,
   profile_name = "Public Health Outcomes Framework",
-  domain_id = 1000049, domain_name = "A. Overarching indicators",
+  domain_id = 1000049L, domain_name = "A. Overarching indicators",
   fields = NULL, records = NULL,
   id_position = NULL, id_col_name = NULL
 )
 
 # IMPORTING DATA AND SUBSETTING SPECIFIC RECORDS AND FIELDS
 data <- readepi(
-  indicator_id = 90362,
-  area_type_id = 202,
+  indicator_id = 90362L,
+  area_type_id = 202L,
   fields = c("IndicatorID", "AreaCode", "Age", "Value"),
   records = c("E92000001", "E12000002", "E12000009"),
   id_col_name = "AreaCode"
 )
 ```
-
-
-

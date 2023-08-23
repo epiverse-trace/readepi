@@ -45,8 +45,8 @@ import_redcap_data <- function(records, fields, uri, token,
       id_position, id_col_name
     )
   }
-  redcap_data <- res[[1]]
-  metadata <- res[[2]]
+  redcap_data <- res[[1]] # nolint
+  metadata <- res[[2]] # nolint
 
   list(
     redcap_data = redcap_data,
@@ -109,23 +109,24 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
     verbose = FALSE
   )
   if (!is.null(id_col_name)) {
-    if (!(id_col_name %in% names(redcap_data$data))) {
+    if (!(id_col_name %in% names(redcap_data[["data"]]))) {
       stop("Specified ID column name not found!")
     }
     id_column_name <- id_col_name
-    id_position <- which(names(redcap_data$data) == id_column_name)
+    id_position <- which(names(redcap_data[["data"]]) == id_column_name)
   } else {
-    id_column_name <- names(redcap_data$data)[id_position]
+    id_column_name <- names(redcap_data[["data"]])[id_position]
   }
   if (is.character(records)) {
     records <- gsub(" ", "", records, fixed = TRUE)
     records <- as.character(unlist(strsplit(records, ",", fixed = TRUE)))
   }
-  if (is.numeric(redcap_data$data[[id_column_name]])) {
+  if (is.numeric(redcap_data[["data"]][[id_column_name]])) {
     records <- as.numeric(records)
   }
-  redcap_data$data <-
-    redcap_data$data[which(redcap_data$data[[id_column_name]] %in% records), ]
+  redcap_data[["data"]] <-
+    redcap_data[["data"]][which(redcap_data[["data"]][[id_column_name]] %in%
+                                  records), ]
   list(
     redcap_data = redcap_data,
     metadata = metadata
@@ -184,13 +185,13 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
     id_position = as.integer(id_position)
   )
   if (!is.null(id_col_name)) {
-    if (!(id_col_name %in% names(redcap_data$data))) {
+    if (!(id_col_name %in% names(redcap_data[["data"]]))) {
       stop("Specified ID column name not found!")
     }
     id_column_name <- id_col_name
-    id_position <- which(names(redcap_data$data) == id_column_name)
+    id_position <- which(names(redcap_data[["data"]]) == id_column_name)
   } else {
-    id_column_name <- names(redcap_data$data)[id_position]
+    id_column_name <- names(redcap_data[["data"]])[id_position]
   }
   redcap_data <- REDCapR::redcap_read(
     redcap_uri = uri, token = token,
@@ -237,19 +238,19 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
 #'
 redcap_get_results <- function(redcap_data, metadata) {
   checkmate::assert_list(redcap_data,
-    null.ok = FALSE, min.len = 2,
+    null.ok = FALSE, min.len = 2L,
     any.missing = FALSE
   )
   checkmate::assert_list(metadata,
-    null.ok = FALSE, min.len = 2,
+    null.ok = FALSE, min.len = 2L,
     any.missing = FALSE
   )
-  if (all(redcap_data$success & metadata$success)) {
-    data <- redcap_data$data
-    meta <- metadata$data
-  } else if (redcap_data$success && !metadata$success) {
+  if (all(redcap_data[["success"]] & metadata[["success"]])) {
+    data <- redcap_data[["data"]]
+    meta <- metadata[["data"]]
+  } else if (redcap_data[["success"]] && !metadata[["success"]]) {
     warning("\nNote that the metadata was not imported.")
-    data <- redcap_data$data
+    data <- redcap_data[["data"]]
     meta <- NULL
   } else {
     stop("Error in reading from REDCap. Please check your credentials or

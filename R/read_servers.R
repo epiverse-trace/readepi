@@ -46,39 +46,41 @@
 #' }
 #' @importFrom magrittr %>%
 #' @keywords internal
-sql_server_read_data <- function(user, password, host, port = 1433,
-                                 database_name, driver_name,
-                                 source = NULL, records = NULL,
+sql_server_read_data <- function(user = "rfamro", password = "",
+                                 host = "mysql-rfam-public.ebi.ac.uk",
+                                 port = 1433L,
+                                 database_name = "Rfam", driver_name = "",
+                                 source = NULL, records = NULL, # no lint
                                  fields = NULL, id_position = NULL,
-                                 id_col_name = NULL, dbms) {
+                                 id_col_name = NULL, dbms = "MySQL") {
   # check the input arguments
-  checkmate::assert_number(port, lower = 1)
+  checkmate::assert_number(port, lower = 1L)
   checkmate::assert_character(user,
-    any.missing = FALSE, len = 1,
+    any.missing = FALSE, len = 1L,
     null.ok = FALSE
   )
   checkmate::assert_character(dbms,
-    any.missing = FALSE, len = 1,
+    any.missing = FALSE, len = 1L,
     null.ok = FALSE
   )
   checkmate::assert_character(password,
-    any.missing = FALSE, len = 1,
+    any.missing = FALSE, len = 1L,
     null.ok = FALSE
   )
   checkmate::assert_character(host,
-    any.missing = FALSE, len = 1,
+    any.missing = FALSE, len = 1L,
     null.ok = FALSE
   )
   checkmate::assert_character(database_name,
-    any.missing = FALSE, len = 1,
+    any.missing = FALSE, len = 1L,
     null.ok = FALSE
   )
   checkmate::assert_character(driver_name,
-    len = 1, null.ok = FALSE,
+    len = 1L, null.ok = FALSE,
     any.missing = FALSE
   )
-  checkmate::assert_vector(source,
-    any.missing = FALSE, min.len = 1,
+  checkmate::assert_vector(source, # nolint
+    any.missing = FALSE, min.len = 1L,
     null.ok = TRUE, unique = TRUE
   )
 
@@ -103,16 +105,16 @@ sql_server_read_data <- function(user, password, host, port = 1433,
   pool::poolClose(con)
 
   # separate the sources
-  idx <- which(source %in% tables)
-  if (length(idx) > 0) {
-    table_names <- source[idx]
-    source <- source[-idx]
+  idx <- which(source %in% tables) # nolint
+  if (length(idx) > 0L) {
+    table_names <- source[idx] # nolint
+    source <- source[-idx] # nolint
   }
 
   # fetch data using SQL query
-  if (length(source) > 0) {
+  if (length(source) > 0L) { # nolint
     from_query <- fetch_data_from_query(
-      source, dbms, tables,
+      source, dbms, tables, # nolint
       driver_name, host, database_name,
       user, password, port
     )
@@ -120,7 +122,7 @@ sql_server_read_data <- function(user, password, host, port = 1433,
   }
 
   # fetch data from tables
-  if (length(table_names) > 0) {
+  if (length(table_names) > 0L) {
     from_table_names <- sql_select_data(
       table_names, dbms, id_col_name,
       fields, records, id_position,

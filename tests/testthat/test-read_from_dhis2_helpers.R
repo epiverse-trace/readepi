@@ -1,9 +1,12 @@
 httptest::with_mock_api({
   test_that("login works as expected", {
     expect_message(
-      login(username = "admin", password = "district",
-            base_url = file.path("https:/", "play.dhis2.org", "dev")),
-      "Logged in successfully!")
+                   login(
+                     username = "admin",
+                     password = "district",
+                     base_url = file.path("https:/", "play.dhis2.org", "dev")
+                   ),
+                   "Logged in successfully!")
   })
 })
 
@@ -26,7 +29,7 @@ data <- readepi(
   data_element_group = NULL,
   start_date         = "2014",
   end_date           = "2023"
-)$data
+)[["data"]]
 
 test_that("dhis2_subset_fields works as expected", {
   results <- dhis2_subset_fields(
@@ -34,15 +37,15 @@ test_that("dhis2_subset_fields works as expected", {
     fields = c("dataElement", "period", "value")
   )
   expect_s3_class(results, "data.frame")
-  expect_length(results, 3)
+  expect_length(results, 3L)
   expect_named(results, c("dataElement", "period", "value"))
 })
 
 test_that("dhis2_subset_fields fails as expected", {
   expect_error(
-    results <- dhis2_subset_fields(
+    dhis2_subset_fields(
       data   = data,
-      fields = c(1, 2, 3)
+      fields = c(1, 2, 3) # nolint
     ),
     regexp = cat("The value for the 'fields' argument should be a vector of
                  character.")
@@ -60,9 +63,9 @@ test_that("dhis2_subset_records works as expected", {
 
 test_that("dhis2_subset_records fails as expected", {
   expect_error(
-    result <- dhis2_subset_records(
+    dhis2_subset_records(
       data        = data,
-      records     = c(1, 2, 3),
+      records     = c(1, 2, 3), # nolint
       id_col_name = "dataElement"
     ),
     regexp = cat("The value for the 'records' argument should be a vector of

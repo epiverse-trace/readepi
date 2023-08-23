@@ -59,23 +59,23 @@ read_from_dhis2 <- function(base_url,
     any.missing = FALSE
   )
   checkmate::assert_vector(dataset,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 1L,
     null.ok = FALSE, unique = TRUE
   )
   checkmate::assert_vector(organisation_unit,
-    any.missing = FALSE, min.len = 1,
+    any.missing = FALSE, min.len = 1L,
     null.ok = FALSE, unique = TRUE
   )
   checkmate::assert_vector(data_element_group,
-    any.missing = FALSE, min.len = 0,
+    any.missing = FALSE, min.len = 0L,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(start_date,
-    any.missing = FALSE, min.len = 0,
+    any.missing = FALSE, min.len = 0L,
     null.ok = TRUE, unique = TRUE
   )
   checkmate::assert_vector(end_date,
-    any.missing = FALSE, min.len = 0,
+    any.missing = FALSE, min.len = 0L,
     null.ok = TRUE, unique = TRUE
   )
 
@@ -97,8 +97,8 @@ read_from_dhis2 <- function(base_url,
     file.path(base_url, "api", "dataValueSets"),
     httr::authenticate(user_name, password),
     query = list(
-      dataSet = attributes$dataset,
-      orgUnit = attributes$organisation_unit,
+      dataSet = attributes[["dataset"]],
+      orgUnit = attributes[["organisation_unit"]],
       startDate = start_date,
       endDate = end_date
     )
@@ -107,9 +107,9 @@ read_from_dhis2 <- function(base_url,
     dplyr::bind_rows()
 
   # add the variable names
-  tmp_data_elt <- attributes$data_elements[, c("shortName", "id")] %>%
+  tmp_data_elt <- attributes[["data_elements"]][, c("shortName", "id")] %>%
     dplyr::rename("dataElement" = "id")
-  tmp_org_units <- attributes$org_units_details[, c("shortName", "id")] %>%
+  tmp_org_units <- attributes[["org_units_details"]][, c("shortName", "id")] %>%
     dplyr::rename("orgUnit" = "id")
   data <- data %>%
     dplyr::left_join(tmp_data_elt, by = "dataElement") %>%

@@ -3,16 +3,16 @@ httptest::with_mock_api({
     res <- read_from_redcap(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       id_col_name = NULL,
       records = NULL,
       fields = NULL
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
 
     test_that("read_from_redcap works with valid input", {
       res <- read_from_redcap(
@@ -24,10 +24,10 @@ httptest::with_mock_api({
         fields = NULL
       )
       expect_type(res, "list")
-      expect_length(res, 2)
+      expect_length(res, 2L)
       expect_named(res, c("data", "metadata"))
-      expect_s3_class(res$data, class = "data.frame")
-      expect_s3_class(res$metadata, class = "data.frame")
+      expect_s3_class(res[["data"]], class = "data.frame")
+      expect_s3_class(res[["metadata"]], class = "data.frame")
     })
 
   })
@@ -36,16 +36,16 @@ httptest::with_mock_api({
     res <- read_from_redcap(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       id_col_name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
       records = c("1", "3", "5")
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
@@ -58,26 +58,26 @@ httptest::with_mock_api({
       records = c("1", "3", "5")
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       id_col_name = NULL,
       fields = "record_id,name_first,age,bmi",
       records = "1,3,5"
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
@@ -90,26 +90,26 @@ httptest::with_mock_api({
       records = "1,3,5"
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       id_col_name = NULL,
       fields = NULL,
       records = "1,3,5"
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
@@ -122,26 +122,26 @@ httptest::with_mock_api({
       records = "1,3,5"
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       id_col_name = NULL,
       fields = "record_id, name_first, age, bmi",
       records = NULL
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
@@ -154,10 +154,10 @@ httptest::with_mock_api({
       records = NULL
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
@@ -170,42 +170,42 @@ httptest::with_mock_api({
       records = "1, 3, 5"
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       id_col_name = NULL,
       fields = "record_id, name_first, age, bmi",
       records = "1, 3, 5"
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       id_col_name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
       records = c("1", "3", "5")
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
@@ -218,26 +218,26 @@ httptest::with_mock_api({
       records = c("1", "3", "5")
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       id_col_name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
       records = NULL
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap works with valid input", {
@@ -250,10 +250,10 @@ httptest::with_mock_api({
       records = NULL
     )
     expect_type(res, "list")
-    expect_length(res, 2)
+    expect_length(res, 2L)
     expect_named(res, c("data", "metadata"))
-    expect_s3_class(res$data, class = "data.frame")
-    expect_s3_class(res$metadata, class = "data.frame")
+    expect_s3_class(res[["data"]], class = "data.frame")
+    expect_s3_class(res[["metadata"]], class = "data.frame")
   })
 
   test_that("read_from_redcap fails with incorrect id_position", {
@@ -261,7 +261,7 @@ httptest::with_mock_api({
       read_from_redcap(
         uri = "https://bbmc.ouhsc.edu/redcap/api/",
         token = "9A81268476645C4E5F03428B8AC3AA7B",
-        id_position = -1,
+        id_position = -1L,
         id_col_name = NULL,
         fields = c("record_id", "name_first", "age", "bmi"),
         records = c("1", "3", "5")
@@ -274,7 +274,7 @@ httptest::with_mock_api({
       read_from_redcap(
         uri = "https://bbmc.ouhsc.edu/redcap/api/",
         token = "9A81268476645C4E5F03428B8AC3AA7B",
-        id_position = 0,
+        id_position = 0L,
         id_col_name = NULL,
         fields = c("record_id", "name_first", "age", "bmi"),
         records = c("1", "3", "5")
@@ -301,8 +301,8 @@ httptest::with_mock_api({
     expect_error(
       read_from_redcap(
         uri = "https://bbmc.ouhsc.edu/redcap/api/",
-        token = 1234,
-        id_position = 1,
+        token = 1234L,
+        id_position = 1L,
         id_col_name = NULL,
         fields = c("record_id", "name_first", "age", "bmi"),
         records = c("1", "3", "5")
@@ -315,7 +315,7 @@ httptest::with_mock_api({
       read_from_redcap(
         uri = "https://bbmc.ouhsc.edu/redcap/api/",
         token = "1234",
-        id_position = 1,
+        id_position = 1L,
         id_col_name = NULL,
         fields = c("record_id", "name_first", "age", "bmi"),
         records = c("1", "3", "5")
@@ -330,7 +330,7 @@ httptest::with_mock_api({
           "9A81268476645C4E5F03428B8AC3AA7B",
           "9A81268476645C4E5F03428B8AC3AA7B"
         ),
-        id_position = 1,
+        id_position = 1L,
         id_col_name = NULL,
         fields = c("record_id", "name_first", "age", "bmi"),
         records = c("1", "3", "5")
@@ -343,7 +343,7 @@ httptest::with_mock_api({
       read_from_redcap(
         uri = "https://bbmc.ouhsc.edu/redcap/api/",
         token = NULL,
-        id_position = 1,
+        id_position = 1L,
         id_col_name = NULL,
         fields = c("record_id", "name_first", "age", "bmi"),
         records = c("1", "3", "5")
@@ -355,7 +355,7 @@ httptest::with_mock_api({
       read_from_redcap(
         uri = "https://bbmc.ouhsc.edu/redcap/api/",
         token = NA,
-        id_position = 1,
+        id_position = 1L,
         id_col_name = NULL,
         fields = c("record_id", "name_first", "age", "bmi"),
         records = c("1", "3", "5")
@@ -369,7 +369,7 @@ httptest::with_mock_api({
       read_from_redcap(
         uri = NULL,
         token = "9A81268476645C4E5F03428B8AC3AA7B",
-        id_position = 1,
+        id_position = 1L,
         id_col_name = NULL,
         fields = c("record_id", "name_first", "age", "bmi"),
         records = c("1", "3", "5")
@@ -381,7 +381,7 @@ httptest::with_mock_api({
       read_from_redcap(
         uri = NA,
         token = "9A81268476645C4E5F03428B8AC3AA7B",
-        id_position = 1,
+        id_position = 1L,
         id_col_name = NULL,
         fields = c("record_id", "name_first", "age", "bmi"),
         records = c("1", "3", "5")
@@ -396,7 +396,7 @@ httptest::with_mock_api({
           "https://bbmc.ouhsc.edu/redcap/api/"
         ),
         token = "9A81268476645C4E5F03428B8AC3AA7B",
-        id_position = 1,
+        id_position = 1L,
         id_col_name = NULL,
         fields = c("record_id", "name_first", "age", "bmi"),
         records = c("1", "3", "5")
@@ -411,7 +411,7 @@ httptest::with_mock_api({
       read_from_redcap(
         uri = "https://bbmc.ouhsc.edu/redcap/api/",
         token = "9A81268476645C4E5F03428B8AC3AA7B",
-        id_position = 1,
+        id_position = 1L,
         id_col_name = NULL,
         fields = NA,
         records = c("1", "2", "3")

@@ -22,33 +22,33 @@
 #'
 show_tables <- function(credentials_file, url, driver_name) {
   # checking input parameters
-  checkmate::assert_character(credentials_file, null.ok = TRUE, len = 1)
+  checkmate::assert_character(credentials_file, null.ok = TRUE, len = 1L)
   checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(url, null.ok = FALSE, len = 1)
+  checkmate::assert_character(url, null.ok = FALSE, len = 1L)
 
   # reading the credentials from the credential file
   stopifnot(file.exists(credentials_file))
   credentials <- read_credentials(credentials_file, url)
 
   # establishing the connection to the server
-  con <- switch(credentials$dbms,
+  con <- switch(credentials[["dbms"]],
     "SQLServer" = DBI::dbConnect(odbc::odbc(),
       driver = driver_name,
-      server = credentials$host, database = credentials$project,
-      uid = credentials$user, pwd = credentials$pwd,
-      port = as.numeric(credentials$port)
+      server = credentials[["host"]], database = credentials[["project"]],
+      uid = credentials[["user"]], pwd = credentials[["pwd"]],
+      port = as.numeric(credentials[["port"]])
     ),
     "MySQL" = DBI::dbConnect(RMySQL::MySQL(),
       driver = driver_name,
-      host = credentials$host, dbname = credentials$project,
-      user = credentials$user, password = credentials$pwd,
-      port = as.numeric(credentials$port)
+      host = credentials[["host"]], dbname = credentials[["project"]],
+      user = credentials[["user"]], password = credentials[["pwd"]],
+      port = as.numeric(credentials[["port"]])
     ),
     "PostgreSQL" = DBI::dbConnect(odbc::odbc(),
       driver = driver_name,
-      host = credentials$host, database = credentials$project,
-      uid = credentials$user, pwd = credentials$pwd,
-      port = as.numeric(credentials$port)
+      host = credentials[["host"]], database = credentials[["project"]],
+      uid = credentials[["user"]], pwd = credentials[["pwd"]],
+      port = as.numeric(credentials[["port"]])
     )
   )
 

@@ -5,18 +5,18 @@
 \title{Read data from database management systems (DBMS).}
 \usage{
 sql_server_read_data(
-  user,
-  password,
-  host,
-  port = 1433,
-  database_name,
-  driver_name,
+  user = "rfamro",
+  password = "",
+  host = "mysql-rfam-public.ebi.ac.uk",
+  port = 1433L,
+  database_name = "Rfam",
+  driver_name = "",
   source = NULL,
   records = NULL,
   fields = NULL,
   id_position = NULL,
   id_col_name = NULL,
-  dbms
+  dbms = "MySQL"
 )
 }
 \arguments{

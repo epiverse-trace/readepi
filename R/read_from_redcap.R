@@ -30,26 +30,26 @@ read_from_redcap <- function(uri, token, id_position = NULL, id_col_name = NULL,
                              records = NULL, fields = NULL) {
   # check input variables
   checkmate::assert_character(token,
-    n.chars = 32, len = 1, null.ok = FALSE,
+    n.chars = 32L, len = 1L, null.ok = FALSE,
     any.missing = FALSE
   )
   checkmate::assert_character(uri,
-    len = 1, null.ok = FALSE,
+    len = 1L, null.ok = FALSE,
     any.missing = FALSE
   )
 
   stopifnot("Cannot specify both 'id_position' and 'id_col_name' at
             the same time." = !all(!is.null(id_position) &
-    !is.null(id_col_name)))
-  id_position <- ifelse(!is.null(id_position), id_position, 1)
+                                     !is.null(id_col_name)))
+  id_position <- ifelse(!is.null(id_position), id_position, 1) # nolint
 
   # importing data and the metadata into R
   tmp_res <- import_redcap_data(
     records, fields, uri, token,
     id_position, id_col_name
   )
-  redcap_data <- tmp_res$redcap_data
-  metadata <- tmp_res$metadata
+  redcap_data <- tmp_res[["redcap_data"]]
+  metadata <- tmp_res[["metadata"]]
 
   # checking whether the importing was successful and extract the desired
   # records and columns
@@ -57,7 +57,7 @@ read_from_redcap <- function(uri, token, id_position = NULL, id_col_name = NULL,
 
   # return the imported data
   list(
-    data = tmp_res$data,
-    metadata = tmp_res$meta
+    data = tmp_res[["data"]],
+    metadata = tmp_res[["meta"]]
   )
 }

@@ -1,22 +1,24 @@
 test_that("read_from_file works properly when reading from an excel file
           with 1 sheet", {
-  data <- read_from_file(
-    file_path = system.file("extdata", "test.xlsx", package = "readepi"),
-    sep = NULL, format = NULL,
-    which = NULL, pattern = NULL
-  )
-  expect_type(data, "list")
-})
+            data <- read_from_file(
+              file_path = system.file("extdata", "test.xlsx",
+                                      package = "readepi"),
+              sep = NULL, format = NULL,
+              which = NULL, pattern = NULL
+            )
+            expect_type(data, "list")
+          })
 
 test_that("read_from_file works properly when reading from an excel file with
           several sheets", {
-  data <- read_from_file(
-    file_path = system.file("extdata", "test.xlsx", package = "readepi"),
-    sep = NULL, format = NULL,
-    which = c("Sheet1", "Sheet2"), pattern = NULL
-  )
-  expect_type(data, "list")
-})
+            data <- read_from_file(
+              file_path = system.file("extdata", "test.xlsx",
+                                      package = "readepi"),
+              sep = NULL, format = NULL,
+              which = c("Sheet1", "Sheet2"), pattern = NULL
+            )
+            expect_type(data, "list")
+          })
 
 test_that("read_from_file works as expected when reading from file", {
   data <- read_from_file(
@@ -47,30 +49,30 @@ test_that("read_from_file works as expected when reading from file", {
 
 test_that("read_from_file works as expected when reading from directory
           given 1 pattern", {
-  data <- read_from_file(
-    file_path = system.file("extdata", package = "readepi"),
-    pattern = "txt"
-  )
-  expect_type(data, "list")
-})
+            data <- read_from_file(
+              file_path = system.file("extdata", package = "readepi"),
+              pattern = "txt"
+            )
+            expect_type(data, "list")
+          })
 
 test_that("read_from_file works as expected when reading from directory given
           several pattern", {
-  data <- read_from_file(
-    file_path = system.file("extdata", package = "readepi"),
-    pattern = ".txt"
-  )
-  expect_type(data, "list")
-})
+            data <- read_from_file(
+              file_path = system.file("extdata", package = "readepi"),
+              pattern = ".txt"
+            )
+            expect_type(data, "list")
+          })
 
 test_that("read_from_file works as expected when reading from directory given
           several pattern", {
-  data <- read_from_file(
-    file_path = system.file("extdata", package = "readepi"),
-    pattern = c(".txt", ".csv")
-  )
-  expect_type(data, "list")
-})
+            data <- read_from_file(
+              file_path = system.file("extdata", package = "readepi"),
+              pattern = c(".txt", ".csv")
+            )
+            expect_type(data, "list")
+          })
 
 test_that("read_from_file works as expected when reading from directory", {
   data <- read_from_file(
@@ -108,7 +110,7 @@ test_that("read_from_file fails as expected", {
     read_from_file(
       file_path = system.file("extdata", "test.txt", package = "readepi"),
       sep = " ",
-      format = 1,
+      format = 1L,
       which = "Sheet2",
       pattern = ".txt"
     ),

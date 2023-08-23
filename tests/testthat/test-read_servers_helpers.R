@@ -6,7 +6,7 @@ test_that("connect_to_server works as expected", {
     database_name = "Rfam",
     user = "rfamro",
     password = "",
-    port = 4497
+    port = 4497L
   )
   expect_type(con, "environment")
 })
@@ -17,7 +17,7 @@ test_that("identify_table_name works as expected", {
     tables = c("family_author", "author", "test")
   )
   expect_type(table_name, "character")
-  expect_length(table_name, 1)
+  expect_length(table_name, 1L)
   expect_identical(table_name, "author")
 })
 
@@ -78,12 +78,12 @@ test_that("fetch_data_from_query works as expected", {
     database_name = "Rfam",
     user = "rfamro",
     password = "",
-    port = 4497
+    port = 4497L
   )
   expect_type(result, "list")
-  expect_length(result, 1)
+  expect_length(result, 1L)
   expect_named(result, "author")
-  expect_s3_class(result$author, "data.frame")
+  expect_s3_class(result[["author"]], "data.frame")
 })
 
 test_that("fetch_data_from_query fails with incorrect tables", {
@@ -97,7 +97,7 @@ test_that("fetch_data_from_query fails with incorrect tables", {
       database_name = "Rfam",
       user = "rfamro",
       password = "",
-      port = 4497
+      port = 4497L
     ),
     regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
                  the 'tables' argument.")
@@ -113,7 +113,7 @@ test_that("fetch_data_from_query fails with incorrect tables", {
       database_name = "Rfam",
       user = "rfamro",
       password = "",
-      port = 4497
+      port = 4497L
     ),
     regexp = cat("Assertion on',tables,'failed: Must be provided.")
   )
@@ -132,12 +132,12 @@ test_that("sql_select_data works as expected", {
     database_name = "Rfam",
     user = "rfamro",
     password = "",
-    port = 4497
+    port = 4497L
   )
   expect_type(result, "list")
-  expect_length(result, 1)
+  expect_length(result, 1L)
   expect_named(result, "author")
-  expect_s3_class(result$author, "data.frame")
+  expect_s3_class(result[["author"]], "data.frame")
 })
 
 test_that("sql_select_data fails with incorrect table_names", {
@@ -154,7 +154,7 @@ test_that("sql_select_data fails with incorrect table_names", {
       database_name = "Rfam",
       user = "rfamro",
       password = "",
-      port = 4497
+      port = 4497L
     ),
     regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
                  the 'tables' argument.")
@@ -173,7 +173,7 @@ test_that("sql_select_data fails with incorrect table_names", {
       database_name = "Rfam",
       user = "rfamro",
       password = "",
-      port = 4497
+      port = 4497L
     ),
     regexp = cat("Assertion on',tables,'failed: Must be provided.")
   )
@@ -182,15 +182,15 @@ test_that("sql_select_data fails with incorrect table_names", {
 test_that("get_id_column_name works as expected", {
   result <- get_id_column_name(
     id_col_name = c("author_id", "rfam_acc"),
-    j = 1,
-    id_position = c(1, 1)
+    j = 1L,
+    id_position = c(1, 1) # nolint
   )
   expect_type(result, "list")
-  expect_length(result, 2)
-  expect_type(result$id_column_name, "character")
-  expect_type(result$id_pos, "character")
-  expect_identical(result$id_column_name, "author_id")
-  expect_identical(result$id_pos, "1")
+  expect_length(result, 2L)
+  expect_type(result[["id_column_name"]], "character")
+  expect_type(result[["id_pos"]], "character")
+  expect_identical(result[["id_column_name"]], "author_id")
+  expect_identical(result[["id_pos"]], "1")
 })
 
 test_that("sql_select_data fails with incorrect j", {
@@ -198,7 +198,7 @@ test_that("sql_select_data fails with incorrect j", {
     get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
       j = NA,
-      id_position = c(1, 1)
+      id_position = c(1, 1) # nolint
     ),
     regexp = cat("Assertion on',j,'failed: Missing value not allowed for
                  the 'j' argument.")
@@ -208,7 +208,7 @@ test_that("sql_select_data fails with incorrect j", {
     get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
       j = NULL,
-      id_position = c(1, 1)
+      id_position = c(1, 1) # nolint
     ),
     regexp = cat("Assertion on',j,'failed: Must be provided.")
   )
@@ -216,8 +216,8 @@ test_that("sql_select_data fails with incorrect j", {
   expect_error(
     get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
-      j = 1:2,
-      id_position = c(1, 1)
+      j = 1:2, # nolint
+      id_position = c(1, 1) # nolint
     ),
     regexp = cat("Assertion on',j,'failed: Must be a numeric with length 1.")
   )
@@ -232,7 +232,7 @@ test_that("sql_select_entire_dataset works as expected", {
     database_name = "Rfam",
     user = "rfamro",
     password = "",
-    port = 4497
+    port = 4497L
   )
   expect_s3_class(result, "data.frame")
 })
@@ -247,7 +247,7 @@ test_that("sql_select_entire_dataset fails with incorrect table", {
       database_name = "Rfam",
       user = "rfamro",
       password = "",
-      port = 4497
+      port = 4497L
     ),
     regexp = cat("Assertion on',table,'failed: Missing value not allowed for
                  the 'table' argument.")
@@ -262,7 +262,7 @@ test_that("sql_select_entire_dataset fails with incorrect table", {
       database_name = "Rfam",
       user = "rfamro",
       password = "",
-      port = 4497
+      port = 4497L
     ),
     regexp = cat("Assertion on',table,'failed: Must be provided.")
   )
@@ -281,7 +281,7 @@ test_that("sql_select_records_and_fields works as expected", {
     database_name = "Rfam",
     user = "rfamro",
     password = "",
-    port = 4497
+    port = 4497L
   )
   expect_s3_class(result, "data.frame")
 })
@@ -293,7 +293,7 @@ test_that("sql_select_records_and_fields fails as expected", {
       id_column_name = NA, field = c("author_id", "last_name"),
       id_pos = NULL, dbms = "MySQL", driver_name = "",
       host = "mysql-rfam-public.ebi.ac.uk", database_name = "Rfam",
-      user = "rfamro", password = "", port = 4497
+      user = "rfamro", password = "", port = 4497L
     ),
     regexp = cat("Assertion on',id_column_name,'failed: Missing value not
                  allowed for the 'id_column_name' argument.")
@@ -305,7 +305,7 @@ test_that("sql_select_records_and_fields fails as expected", {
       id_column_name = c("author_id", "last_name", "author_id"),
       field = c("author_id", "last_name"), id_pos = NULL, dbms = "MySQL",
       driver_name = "", host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam", user = "rfamro", password = "", port = 4497
+      database_name = "Rfam", user = "rfamro", password = "", port = 4497L
     ),
     regexp = cat("Assertion on',id_column_name,'failed: Must be a character
                  vector of unique elements.")
@@ -324,7 +324,7 @@ test_that("sql_select_records_and_fields fails as expected", {
       database_name  = "Rfam",
       user           = "rfamro",
       password       = "",
-      port           = 4497
+      port           = 4497L
     ),
     regexp = cat("Assertion on',id_pos,'failed: Missing value not allowed
                  for the 'id_pos' argument.")
@@ -343,7 +343,7 @@ test_that("sql_select_records_and_fields fails as expected", {
       database_name  = "Rfam",
       user           = "rfamro",
       password       = "",
-      port           = 4497
+      port           = 4497L
     ),
     regexp = cat("Assertion on',table,'failed: Missing value not allowed
                  for the 'table' argument.")
@@ -362,7 +362,7 @@ test_that("sql_select_records_and_fields fails as expected", {
       database_name  = "Rfam",
       user           = "rfamro",
       password       = "",
-      port           = 4497
+      port           = 4497L
     ),
     regexp = cat("Assertion on',table,'failed: Must be provided.")
   )
@@ -383,14 +383,14 @@ test_that("sql_select_records_only works as expected", {
     table          = "author",
     record         = c("1", "20", "50"),
     id_column_name = NULL,
-    id_pos         = 1,
+    id_pos         = 1L,
     dbms           = "MySQL",
     driver_name    = "",
     host           = "mysql-rfam-public.ebi.ac.uk",
     database_name  = "Rfam",
     user           = "rfamro",
     password       = "",
-    port           = 4497
+    port           = 4497L
   )
   expect_s3_class(result, "data.frame")
 })
@@ -405,7 +405,7 @@ test_that("sql_select_fields_only works as expected", {
     database_name = "Rfam",
     user          = "rfamro",
     password      = "",
-    port          = 4497
+    port          = 4497L
   )
   expect_s3_class(result, "data.frame")
 })

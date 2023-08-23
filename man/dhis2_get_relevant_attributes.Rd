@@ -6,10 +6,10 @@
 \usage{
 dhis2_get_relevant_attributes(
   attribute_id = NULL,
-  base_url,
-  username,
-  password,
-  which
+  base_url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district",
+  which = "dataSets"
 )
 }
 \arguments{

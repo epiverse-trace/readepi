@@ -6,15 +6,15 @@ httptest::with_mock_api({
       records = c("1", "3", "5"),
       fields = c("record_id", "name_first", "age", "bmi"),
       id_col_name = NULL,
-      id_position = 1
+      id_position = 1L
     )
     expect_type(result, "list")
-    expect_length(result, 2)
+    expect_length(result, 2L)
     expect_named(result, c("redcap_data", "metadata"))
-    expect_type(result$redcap_data, "list")
-    expect_type(result$metadata, "list")
-    expect_length(result$redcap_data, 12)
-    expect_length(result$metadata, 8)
+    expect_type(result[["redcap_data"]], "list")
+    expect_type(result[["metadata"]], "list")
+    expect_length(result[["redcap_data"]], 12L)
+    expect_length(result[["metadata"]], 8L)
   })
 
   test_that("redcap_get_results works as expected", {
@@ -34,10 +34,10 @@ httptest::with_mock_api({
       )
     )
     expect_type(result, "list")
-    expect_length(result, 2)
+    expect_length(result, 2L)
     expect_named(result, c("data", "meta"))
-    expect_s3_class(result$data, "data.frame")
-    expect_s3_class(result$meta, "data.frame")
+    expect_s3_class(result[["data"]], "data.frame")
+    expect_s3_class(result[["meta"]], "data.frame")
   })
 
   test_that("redcap_get_results fails with bad redcap_data", {
@@ -104,65 +104,65 @@ httptest::with_mock_api({
     result <- redcap_read_data(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1
+      id_position = 1L
     )
     expect_type(result, "list")
-    expect_length(result, 2)
+    expect_length(result, 2L)
     expect_named(result, c("redcap_data", "metadata"))
-    expect_type(result$redcap_data, "list")
-    expect_type(result$metadata, "list")
-    expect_length(result$redcap_data, 12)
-    expect_length(result$metadata, 8)
+    expect_type(result[["redcap_data"]], "list")
+    expect_type(result[["metadata"]], "list")
+    expect_length(result[["redcap_data"]], 12L)
+    expect_length(result[["metadata"]], 8L)
   })
 
   test_that("redcap_read_rows_columns works as expected", {
     result <- redcap_read_rows_columns(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       id_col_name = NULL,
       fields = c("record_id", "name_first", "age", "bmi"),
       records = c("1", "3", "5")
     )
     expect_type(result, "list")
-    expect_length(result, 2)
+    expect_length(result, 2L)
     expect_named(result, c("redcap_data", "metadata"))
-    expect_type(result$redcap_data, "list")
-    expect_type(result$metadata, "list")
-    expect_length(result$redcap_data, 12)
-    expect_length(result$metadata, 8)
+    expect_type(result[["redcap_data"]], "list")
+    expect_type(result[["metadata"]], "list")
+    expect_length(result[["redcap_data"]], 12L)
+    expect_length(result[["metadata"]], 8L)
   })
 
   test_that("redcap_read_fields works as expected", {
     result <- redcap_read_fields(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       fields = c("record_id", "name_first", "age", "bmi")
     )
     expect_type(result, "list")
-    expect_length(result, 2)
+    expect_length(result, 2L)
     expect_named(result, c("redcap_data", "metadata"))
-    expect_type(result$redcap_data, "list")
-    expect_type(result$metadata, "list")
-    expect_length(result$redcap_data, 12)
-    expect_length(result$metadata, 8)
+    expect_type(result[["redcap_data"]], "list")
+    expect_type(result[["metadata"]], "list")
+    expect_length(result[["redcap_data"]], 12L)
+    expect_length(result[["metadata"]], 8L)
   })
 
   test_that("redcap_read_records works as expected", {
     result <- redcap_read_records(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",
       token = "9A81268476645C4E5F03428B8AC3AA7B",
-      id_position = 1,
+      id_position = 1L,
       records = c("1", "2", "3"),
       id_col_name = NULL
     )
     expect_type(result, "list")
-    expect_length(result, 2)
+    expect_length(result, 2L)
     expect_named(result, c("redcap_data", "metadata"))
-    expect_type(result$redcap_data, "list")
-    expect_type(result$metadata, "list")
-    expect_length(result$redcap_data, 12)
-    expect_length(result$metadata, 8)
+    expect_type(result[["redcap_data"]], "list")
+    expect_type(result[["metadata"]], "list")
+    expect_length(result[["redcap_data"]], 12L)
+    expect_length(result[["metadata"]], 8L)
   })
 })
