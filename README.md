@@ -134,8 +134,8 @@ project_metadeta <- data$metadata # accessing the metadata associated with proje
 
 # VIEWING THE LIST OF ALL TABLES IN A MySQL DATABASE
 show_tables(
+  data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
-  url              =         "mysql-rfam-public.ebi.ac.uk",
   driver_name      = "" # note that this example MySQL server does not require a driver
 )
 
@@ -200,11 +200,11 @@ interface may still undergo minor changes.
 ### Contributions
 
 Contributions are welcome via [pull
-requests](https://github.com/%7B%7B%20gh_repo%20%7D%7D/pulls).
+requests](https://github.com/epiverse-trace/readepi/pulls).
 
 ### Code of Conduct
 
-Please note that the {{ packagename }} project is released with a
-[Contributor Code of
+Please note that the readepi project is released with a [Contributor
+Code of
 Conduct](https://github.com/epiverse-trace/.github/blob/main/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
