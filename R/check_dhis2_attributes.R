@@ -32,28 +32,28 @@ dhis2_check_attributes <- function(username,
   if (!is.null(dataset)) {
     tmp_res <- dhis2_get_relevant_attributes(
       attribute_id = dataset,
-      base_url = base_url,
-      username = username,
-      password = password,
-      which = "dataSets"
+      base_url     = base_url,
+      username     = username,
+      password     = password,
+      which        = "dataSets"
     )
-    dataset <- tmp_res[["dataset"]]
+    dataset   <- tmp_res[["dataset"]]
     data_sets <- tmp_res[["data_sets"]]
   } else {
-    dataset <- data_sets <- NULL
+    dataset   <- data_sets <- NULL
   }
 
   # get the relevant organisation units
   if (!is.null(organisation_unit)) {
-    tmp_res <- dhis2_get_relevant_attributes(
+    tmp_res   <- dhis2_get_relevant_attributes(
       attribute_id = organisation_unit,
-      base_url = base_url,
-      username = username,
-      password = password,
-      which = "organisationUnits"
+      base_url     = base_url,
+      username     = username,
+      password     = password,
+      which        = "organisationUnits"
     )
     organisation_unit <- tmp_res[["organisation_unit"]]
-    org_units <- tmp_res[["org_units"]]
+    org_units         <- tmp_res[["org_units"]]
   } else {
     organisation_unit <- org_units <- NULL
   }
@@ -77,19 +77,19 @@ dhis2_check_attributes <- function(username,
   # get the data element
   data_elements <- dhis2_get_relevant_attributes(
     attribute_id = NULL,
-    base_url = base_url,
-    username = username,
-    password = password,
-    which = "dataElements"
+    base_url     = base_url,
+    username     = username,
+    password     = password,
+    which        = "dataElements"
   )
 
   list(
-    dataset = dataset,
-    dataset_details = data_sets,
-    organisation_unit = organisation_unit,
-    org_units_details = org_units,
-    data_element_group = data_element_group,
+    dataset                     = dataset,
+    dataset_details             = data_sets,
+    organisation_unit           = organisation_unit,
+    org_units_details           = org_units,
+    data_element_group          = data_element_group,
     data_element_groups_details = data_elt_groups,
-    data_elements = data_elements
+    data_elements               = data_elements
   )
 }

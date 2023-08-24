@@ -227,8 +227,10 @@ read_files <- function(file_path, sep, which, format) {
   checkmate::assert_vector(format, min.len = 0L, null.ok = TRUE,
                            any.missing = FALSE)
   result <- list()
+  # get the file base name
+  base_name <- get_base_name(x = file_path)
   if (!is.null(sep)) {
-    result[[1L]] <- rio::import(file_path, sep = sep)
+    result[[base_name]] <- rio::import(file_path, sep = sep)
   } else if (is.null(sep)) {
     if (all(!is.null(which) & !is.null(format))) {
       for (wh in which) {
@@ -241,9 +243,9 @@ read_files <- function(file_path, sep, which, format) {
         result[[wh]] <- data
       }
     } else if (!is.null(format) && is.null(which)) {
-      result[[1L]] <- rio::import(file_path, format = format)
+      result[[base_name]] <- rio::import(file_path, format = format)
     } else {
-      result[[1L]] <- rio::import(file_path)
+      result[[base_name]] <- rio::import(file_path)
     }
   }
 

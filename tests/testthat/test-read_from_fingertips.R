@@ -311,3 +311,35 @@ test_that("read_from_fingertips fails with bad fields", {
     regexp = cat("Assertion on',fields,'failed: Missing value not allowed.")
   )
 })
+
+test_that("read_from_fingertips fails when no argument is provided", {
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = NULL, indicator_name = NULL,
+      area_type_id = NULL, parent_area_type_id = NULL,
+      profile_id = NULL, profile_name = NULL,
+      domain_id = NULL, domain_name = NULL,
+      fields = NULL, records = NULL,
+      id_position = NULL, id_col_name = NULL
+    ),
+    regexp = cat("Assertion on',Fingertips arguments,'failed: Must provide a
+                 value for the area_type_id and one of the remaining
+                 arguments.")
+  )
+})
+
+test_that("read_from_fingertips fails when the area_type_id is not provided", {
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 10301L, indicator_name = NULL,
+      area_type_id = NULL, parent_area_type_id = NULL,
+      profile_id = NULL, profile_name = NULL,
+      domain_id = NULL, domain_name = NULL,
+      fields = NA, records = NULL,
+      id_position = NULL, id_col_name = NULL
+    ),
+    regexp = cat("Assertion on',area_type_id,'failed: Must be provided.")
+  )
+})

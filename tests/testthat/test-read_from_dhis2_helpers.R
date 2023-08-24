@@ -23,8 +23,9 @@ test_that("login fails as expected", {
 
 test_that("dhis2_subset_fields works as expected", {
   data <- readepi(
-    credentials_file   = system.file("extdata", "test.ini", package = "readepi"),
-    source             = "https://play.dhis2.org/dev",
+    credentials_file   = system.file("extdata", "test.ini",
+                                     package = "readepi"),
+    data_source        = "https://play.dhis2.org/dev",
     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
     organisation_unit  = "DiszpKrYNg8",
     data_element_group = NULL,
@@ -42,8 +43,9 @@ test_that("dhis2_subset_fields works as expected", {
 
 test_that("dhis2_subset_fields fails as expected", {
   data <- readepi(
-    credentials_file   = system.file("extdata", "test.ini", package = "readepi"),
-    source             = "https://play.dhis2.org/dev",
+    credentials_file   = system.file("extdata", "test.ini",
+                                     package = "readepi"),
+    data_source        = "https://play.dhis2.org/dev",
     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
     organisation_unit  = "DiszpKrYNg8",
     data_element_group = NULL,
@@ -62,8 +64,9 @@ test_that("dhis2_subset_fields fails as expected", {
 
 test_that("dhis2_subset_records works as expected", {
   data <- readepi(
-    credentials_file   = system.file("extdata", "test.ini", package = "readepi"),
-    source             = "https://play.dhis2.org/dev",
+    credentials_file   = system.file("extdata", "test.ini",
+                                     package = "readepi"),
+    data_source        = "https://play.dhis2.org/dev",
     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
     organisation_unit  = "DiszpKrYNg8",
     data_element_group = NULL,
@@ -80,8 +83,9 @@ test_that("dhis2_subset_records works as expected", {
 
 test_that("dhis2_subset_records fails as expected", {
   data <- readepi(
-    credentials_file   = system.file("extdata", "test.ini", package = "readepi"),
-    source             = "https://play.dhis2.org/dev",
+    credentials_file   = system.file("extdata", "test.ini",
+                                     package = "readepi"),
+    data_source        = "https://play.dhis2.org/dev",
     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
     organisation_unit  = "DiszpKrYNg8",
     data_element_group = NULL,

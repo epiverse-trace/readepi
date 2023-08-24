@@ -1,11 +1,11 @@
-#' Import data from different sources into R
+#' Import data from different data_sources into R
 #'
 #' @description the function allows import of data from Health Information
 #' Systems (HIS), files, and folders.The HIS consist of database management
 #' systems (DBMS) and website of public data collection.
 #'
-#' @param source either the the URL of the HIS or the path to the file or
-#' directory of interest otherwise.
+#' @param data_source either the the URL of the HIS or the path to the file or
+#'    directory of interest otherwise.
 #' @param records a vector or a comma-separated string of subject IDs.
 #'    When specified, only these records will be imported.
 #' @param fields a vector or a comma-separated string of column names.
@@ -20,21 +20,21 @@
 #' @examples
 #' # reading from a MySQL server
 #' data <- readepi(
-#'   source           = "mysql-rfam-public.ebi.ac.uk",
+#'   data_source           = "mysql-rfam-public.ebi.ac.uk",
 #'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
 #'   driver_name      = "",
 #'   from             = "author"
 #' )
 #' @returns a `list` of 1 or several object of type `data frame`.
 #' @export
-readepi <- function(source = NULL,
+readepi <- function(data_source = NULL,
                     records = NULL,
                     fields = NULL,
                     id_position = NULL,
                     id_col_name = NULL,
                     ...) {
   # check the input arguments
-  checkmate::assert_character(source, null.ok = TRUE, any.missing = FALSE, # nolint: line_length_linter
+  checkmate::assert_character(data_source, null.ok = TRUE, any.missing = FALSE,
                               min.len = 0L)
   checkmate::assert_vector(records,
     any.missing = FALSE, min.len = 0L,
@@ -57,11 +57,11 @@ readepi <- function(source = NULL,
   args_list <- list(...)
 
   # reading from file
-  if (all(!is.null(source) && any(file.exists(source) || # nolint
-                                  dir.exists(source)))) { # nolint
+  if (all(!is.null(data_source) && any(file.exists(data_source) ||
+                                         dir.exists(data_source)))) {
     args <- get_read_file_args(args_list)
     res  <- read_from_file(
-      file_path    = source, # nolint
+      file_path    = data_source,
       sep          = args[["sep"]],
       format       = args[["format"]],
       which        = args[["which"]],
@@ -96,7 +96,8 @@ readepi <- function(source = NULL,
 
   # reading from DBMS
   if ("credentials_file" %in% names(args_list)) {
-    credentials <- read_credentials(args_list[["credentials_file"]], source) # nolint
+    credentials <- read_credentials(args_list[["credentials_file"]],
+                                    data_source)
     if (credentials[["dbms"]] == "REDCap") {
       res <- read_from_redcap(
         uri         = credentials[["host"]],

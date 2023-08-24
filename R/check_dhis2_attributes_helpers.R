@@ -1,4 +1,4 @@
-#' Get the target DHIS2 attribute identifiers and names
+#' Make an API request to the target DHIS2 system
 #'
 #' @param base_url the base URL of the DHIS2 server
 #' @param username the user name
@@ -121,4 +121,44 @@ dhis2_get_relevant_attributes <- function(attribute_id = NULL,
     "dataElements" = attributes
   )
   res
+}
+
+#' Get the target DHIS2 attribute identifiers and names
+#'
+#' @param base_url the base URL of the DHIS2 server
+#' @param username the user name
+#' @param password the user's password
+#' @param which the target DHIS2 attribute name.
+#'
+#' @return an object of type `data.frame` with details about the DHIS2
+#'    attributes of interest.
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#'   datasets <- get_dhis2_attributes(
+#'     base_url ="https://play.dhis2.org/dev/",
+#'     username = "admin",
+#'     password = "district",
+#'     which    = "dataSets"
+#'   )
+#' }
+get_dhis2_attributes <- function(base_url = "https://play.dhis2.org/dev/",
+                                 username = "admin",
+                                 password = "district",
+                                 which    = "dataSets") {
+  checkmate::assert_character(base_url, len = 1L, any.missing = FALSE,
+                              null.ok = FALSE, pattern = "https://")
+  checkmate::assert_character(username, len = 1L, any.missing = FALSE,
+                              null.ok = FALSE)
+  checkmate::assert_character(password, len = 1L, any.missing = FALSE,
+                              null.ok = FALSE)
+  checkmate::assert_character(which, len = 1L, any.missing = FALSE,
+                              null.ok = FALSE)
+  checkmate::check_choice(which, c("dataSets", "organisationUnits",
+                                   "dataElementGroups", "dataElements"))
+  response <- make_api_request(base_url, username, password, which)
+  content <- httr::content(response, as = "parsed")
+  attributes <- do.call(rbind.data.frame, content[[which]])
+  attributes
 }

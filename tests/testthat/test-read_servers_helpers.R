@@ -370,7 +370,7 @@ test_that("sql_select_records_and_fields fails as expected", {
 
 test_that("visualise_table works as expected", {
   result <- visualise_table(
-    source           = "mysql-rfam-public.ebi.ac.uk",
+    data_source      = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
     from             = "author",
     driver_name      = ""

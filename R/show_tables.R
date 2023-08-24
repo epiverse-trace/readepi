@@ -1,9 +1,9 @@
 #' Display the list of tables in a database
 #'
+#' @param data_source the URL of the HIS of interest
 #' @param credentials_file the path to the file with the user-specific
 #'    credential details for the projects of interest. See the help of
 #'    the `readepi` function for more details.
-#' @param url the URL of the HIS of interest
 #' @param driver_name the name of the MS driver. use `odbc::odbcListDrivers()`
 #'    to display the list of installed drivers
 #' @examples
@@ -12,23 +12,23 @@
 #'   credentials_file = system.file("extdata", "test.ini",
 #'     package = "readepi"
 #'   ),
-#'   url = "mysql-rfam-public.ebi.ac.uk",
-#'   driver_name = ""
+#'   data_source      = "mysql-rfam-public.ebi.ac.uk",
+#'   driver_name      = ""
 #' )
 #' }
 #' @returns a `character` that contains the list of all tables found
 #'     in the specified database
 #' @export
 #'
-show_tables <- function(credentials_file, url, driver_name) {
+show_tables <- function(data_source, credentials_file, driver_name) {
   # checking input parameters
   checkmate::assert_character(credentials_file, null.ok = TRUE, len = 1L)
   checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(url, null.ok = FALSE, len = 1L)
+  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L)
 
   # reading the credentials from the credential file
   stopifnot(file.exists(credentials_file))
-  credentials <- read_credentials(credentials_file, url)
+  credentials <- read_credentials(credentials_file, data_source)
 
   # establishing the connection to the server
   con <- switch(credentials[["dbms"]],

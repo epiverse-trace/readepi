@@ -413,7 +413,7 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 
 #' Visualize the first 5 rows of the data from a table
 #'
-#' @param source the the URL of the HIS
+#' @param data_source the the URL of the HIS
 #' @param credentials_file the path to the file with the user-specific
 #' credential details for the projects of interest
 #' @param from the table name
@@ -424,22 +424,22 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #' @examples
 #' \dontrun{
 #' visualise_table(
-#'   source             = "mysql-rfam-public.ebi.ac.uk",
+#'   data_source      = "mysql-rfam-public.ebi.ac.uk",
 #'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-#'   from           = "author",
+#'   from             = "author",
 #'   driver_name      = ""
 #' )
 #' }
 #' @export
 #'
-visualise_table <- function(source, credentials_file, from, driver_name) {
+visualise_table <- function(data_source, credentials_file, from, driver_name) {
   checkmate::assert_character(from, any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
   checkmate::assert_character(credentials_file, null.ok = FALSE, len = 1L)
   checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(source, null.ok = FALSE, len = 1L) # nolint
+  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L)
 
-  credentials <- read_credentials(credentials_file, source) # nolint
+  credentials <- read_credentials(credentials_file, data_source)
   con <- connect_to_server(
     credentials[["dbms"]], driver_name, credentials[["host"]],
     credentials[["project"]], credentials[["user"]], credentials[["pwd"]],

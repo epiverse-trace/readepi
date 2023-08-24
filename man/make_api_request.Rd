@@ -2,7 +2,7 @@
 % Please edit documentation in R/check_dhis2_attributes_helpers.R
 \name{make_api_request}
 \alias{make_api_request}
-\title{Get the target DHIS2 attribute identifiers and names}
+\title{Make an API request to the target DHIS2 system}
 \usage{
 make_api_request(base_url, username, password, which = "dataElements")
 }
@@ -27,6 +27,6 @@ an object of class \code{data.frame} that contains the information of
 interest.
 }
 \description{
-Get the target DHIS2 attribute identifiers and names
+Make an API request to the target DHIS2 system
 }
 \keyword{internal}
