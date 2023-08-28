@@ -24,11 +24,11 @@ Subset records when reading from Fingertips
 \dontrun{
 res <- fingertips_subset_rows(
   data = readepi(
-    profile_id = 19,
+    profile_id   = 19,
     area_type_id = 202
   )$data,
-  records = c("E92000001", "E12000002", "E12000009"),
-  id_col_name = "AreaCode"
+  records        = c("E92000001", "E12000002", "E12000009"),
+  id_col_name    = "AreaCode"
 )
 }
 }

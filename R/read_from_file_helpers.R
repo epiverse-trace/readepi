@@ -70,14 +70,22 @@ f <- function(x) {
 #'
 read_rio_formats <- function(files_extensions, rio_extensions,
                              files, files_base_names) {
-  checkmate::assert_vector(files_extensions, min.len = 1L, any.missing = FALSE,
-                           null.ok = FALSE)
-  checkmate::assert_vector(rio_extensions, min.len = 1L, any.missing = FALSE,
-                           null.ok = FALSE)
-  checkmate::assert_vector(files, min.len = 1L, any.missing = FALSE,
-                           null.ok = FALSE)
-  checkmate::assert_vector(files_base_names, min.len = 1L, any.missing = FALSE,
-                           null.ok = FALSE)
+  checkmate::assert_vector(files_extensions,
+    min.len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_vector(rio_extensions,
+    min.len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_vector(files,
+    min.len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_vector(files_base_names,
+    min.len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
   # get indexes of {rio} file's extensions
   idx <- which(files_extensions %in% rio_extensions)
   result <- list()
@@ -124,14 +132,22 @@ read_rio_formats <- function(files_extensions, rio_extensions,
 #'    frame contains data from a specific file.
 #'
 read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
-  checkmate::assert_vector(files, any.missing = FALSE, null.ok = FALSE,
-                           min.len = 1L)
-  checkmate::assert_vector(dirs, any.missing = FALSE, null.ok = FALSE,
-                           min.len = 1L)
-  checkmate::assert_vector(format, any.missing = FALSE, null.ok = TRUE,
-                           min.len = 0L)
-  checkmate::assert_vector(which, any.missing = FALSE, null.ok = TRUE,
-                           min.len = 0L)
+  checkmate::assert_vector(files,
+    any.missing = FALSE, null.ok = FALSE,
+    min.len = 1L
+  )
+  checkmate::assert_vector(dirs,
+    any.missing = FALSE, null.ok = FALSE,
+    min.len = 0L
+  )
+  checkmate::assert_vector(format,
+    any.missing = FALSE, null.ok = TRUE,
+    min.len = 0L
+  )
+  checkmate::assert_vector(which,
+    any.missing = FALSE, null.ok = TRUE,
+    min.len = 0L
+  )
   # filter out directories from files
   idx <- which(files %in% dirs)
   if (length(idx) > 0L) {
@@ -161,7 +177,9 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
     files_extensions <- tmp_res[["files_extensions"]]
     result <- tmp_res[["result"]]
     result <- import_non_rio_files(files, files_base_names,
-                                   files_extensions, result = list())
+      files_extensions,
+      result = list()
+    )
   }
 
   result
@@ -178,9 +196,12 @@ read_multiple_files <- function(files, dirs, format = NULL, which = NULL) {
 #'
 read_files_in_directory <- function(file_path, pattern) {
   checkmate::assert_directory(file_path)
-  checkmate::assert_vector(pattern, min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
-  if (length(list.files(file_path, full.names = TRUE,
+  checkmate::assert_vector(pattern,
+    min.len = 0L, null.ok = TRUE,
+    any.missing = FALSE
+  )
+  if (length(list.files(file_path,
+                        full.names = TRUE,
                         recursive = FALSE)) == 0L) {
     stop("Could not find any file in ", file_path)
   }
@@ -220,12 +241,18 @@ read_files_in_directory <- function(file_path, pattern) {
 #'
 read_files <- function(file_path, sep, which, format) {
   checkmate::assert_file(file_path)
-  checkmate::assert_vector(sep, min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
-  checkmate::assert_vector(which, min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
-  checkmate::assert_vector(format, min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
+  checkmate::assert_vector(sep,
+    min.len = 0L, null.ok = TRUE,
+    any.missing = FALSE
+  )
+  checkmate::assert_vector(which,
+    min.len = 0L, null.ok = TRUE,
+    any.missing = FALSE
+  )
+  checkmate::assert_vector(format,
+    min.len = 0L, null.ok = TRUE,
+    any.missing = FALSE
+  )
   result <- list()
   # get the file base name
   base_name <- get_base_name(x = file_path)
@@ -269,44 +296,46 @@ read_files <- function(file_path, sep, which, format) {
 #'
 import_non_rio_files <- function(files, files_base_names,
                                  files_extensions, result = list()) {
-  checkmate::assert_vector(files, any.missing = FALSE, null.ok = FALSE,
-                           min.len = 1L)
-  checkmate::assert_vector(files_base_names, any.missing = FALSE,
-                           null.ok = FALSE, min.len = 1L)
-  checkmate::assert_vector(files_extensions, any.missing = FALSE,
-                           null.ok = FALSE, min.len = 1L)
+  checkmate::assert_vector(files,
+    any.missing = FALSE, null.ok = FALSE,
+    min.len = 1L
+  )
+  checkmate::assert_vector(files_base_names,
+    any.missing = FALSE,
+    null.ok = FALSE, min.len = 1L
+  )
+  checkmate::assert_vector(files_extensions,
+    any.missing = FALSE,
+    null.ok = FALSE, min.len = 1L
+  )
   checkmate::assert_list(result, any.missing = FALSE, null.ok = FALSE)
-  i <- 1 # nolint
+  i <- 1L
   for (file in files) {
     if (files_extensions[i] %in% c("xlsx", "xls")) {
       # process MS excel files
-      data                <- readxl::read_xlsx(file)
-      idx                 <- which(grepl(files_base_names[i], names(result)))
-      base_name           <- get_file_name(result, idx, files_base_names[i])
+      data <- readxl::read_xlsx(file)
+      comment(data) <- file
+      idx <- which(grepl(files_base_names[i], names(result)))
+      base_name <- get_file_name(result, idx, files_base_names[i])
       result[[base_name]] <- data
-      i                   <- i + 1 # nolint
+      i <- i + 1 # nolint
     } else {
       # process non MS excel files: detect the separator and import the file
       tmp_string <- readLines(con = file, n = 1L)
-      sep        <- detect_separator(tmp_string)
-      if (all(length(sep) == 1L && sep == "|")) {
-        sep      <- "|"
-      } else {
-        sep      <- sep[-(which(sep == "|"))]
-        if (length(sep) == 2L && " " %in% sep) {
-          sep    <- sep[-(which(sep == " "))]
-          if (length(sep) > 1L) {
-            warning("\nCan't resolve separator in", file, "\n", call. = FALSE)
-            i    <- i + 1 # nolint
-            next
-          }
-        }
+      sep <- detect_separator(tmp_string)
+      if (length(sep) == 2L && (" " %in% sep)) {
+        sep <- sep[-(which(sep == " "))]
+      } else if (length(sep) > 2L) {
+        warning("\nCan't resolve separator in", file, "\n", call. = FALSE)
+        i <- i + 1L
+        next
       }
-      data                <- read.table(file, sep = sep)
-      idx                 <- which(grepl(files_base_names[i], names(result)))
-      base_name           <- get_file_name(result, idx, files_base_names[i])
+      data <- read.table(file, sep = sep)
+      comment(data) <- file
+      idx <- which(grepl(files_base_names[i], names(result)))
+      base_name <- get_file_name(result, idx, files_base_names[i])
       result[[base_name]] <- data
-      i                   <- i + 1 # nolint
+      i <- i + 1 # nolint
     }
   }
   result
@@ -327,16 +356,27 @@ import_non_rio_files <- function(files, files_base_names,
 #'
 get_file_name <- function(result, idx, base_name) {
   checkmate::assert_list(result, null.ok = FALSE, any.missing = FALSE)
-  checkmate::assert_character(base_name, len = 1L, null.ok = FALSE,
-                              any.missing = FALSE)
+  checkmate::assert_character(base_name,
+    len = 1L, null.ok = FALSE,
+    any.missing = FALSE
+  )
   checkmate::assert_numeric(idx)
 
   if (!is.null(names(result)) && length(idx) > 0L) {
-    tmp       <- names(result)[which(grepl(base_name, names(result)))]
-    x         <- suppressWarnings(as.numeric(as.character(lapply(tmp, f))))
-    x         <- ifelse(all(is.na(x)), NA, max(x, na.rm = TRUE))
-    x         <- ifelse(is.na(x), 1, (x + 1)) # nolint
-    base_name <- paste0(base_name, "_", x)
+    tmp <- names(result)[which(grepl(base_name, names(result)))]
+    for (tmp_f in tmp) {
+      if (tmp_f == base_name) {
+        m <- which(grepl(paste0(base_name, "_"), tmp))
+        if (length(m) == 0L) {
+          base_name <- paste0(base_name, "_", 1L)
+        } else {
+          indexes <- max(as.numeric(as.character(
+            unlist(strsplit(tmp[m], "_", fixed = TRUE))[[2L]]
+          )), na.rm = TRUE)
+          base_name <- paste0(base_name, "_", (indexes + 1L))
+        }
+      }
+    }
   }
   base_name
 }

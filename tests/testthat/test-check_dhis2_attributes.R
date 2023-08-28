@@ -2,11 +2,11 @@ httptest::with_mock_api({
   test_that("dhis2_check_attributes works as expected when all attribute
             types are specified", {
               attributes <- dhis2_check_attributes(
-                username           = "admin",
-                password           = "district",
-                base_url        = file.path("https:/", "play.dhis2.org", "dev"),
-                dataset            = "pBOMPrpg1QX",
-                organisation_unit  = "DiszpKrYNg8",
+                username = "admin",
+                password = "district",
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
+                dataset = "pBOMPrpg1QX",
+                organisation_unit = "DiszpKrYNg8",
                 data_element_group = "oDkJh5Ddh7d"
               )
               expect_type(attributes, "list")
@@ -19,18 +19,24 @@ httptest::with_mock_api({
               expect_type(attributes[["dataset"]], "character")
               expect_identical(attributes[["dataset"]], "pBOMPrpg1QX")
               expect_s3_class(attributes[["dataset_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_type(attributes[["organisation_unit"]], "character")
               expect_identical(attributes[["organisation_unit"]], "DiszpKrYNg8")
               expect_s3_class(attributes[["org_units_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_s3_class(attributes[["data_elements"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_type(attributes[["data_element_group"]], "character")
-              expect_identical(attributes[["data_element_group"]],
-                               "oDkJh5Ddh7d")
+              expect_identical(
+                attributes[["data_element_group"]],
+                "oDkJh5Ddh7d"
+              )
               expect_s3_class(attributes[["data_element_groups_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
             })
 
   test_that("dhis2_check_attributes works as expected when only the
@@ -53,9 +59,11 @@ httptest::with_mock_api({
               expect_type(attributes[["dataset"]], "character")
               expect_identical(attributes[["dataset"]], "pBOMPrpg1QX")
               expect_s3_class(attributes[["dataset_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_s3_class(attributes[["data_elements"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_null(attributes[["organisation_unit"]])
               expect_null(attributes[["org_units_details"]])
               expect_null(attributes[["data_element_group"]])
@@ -82,9 +90,11 @@ httptest::with_mock_api({
               expect_type(attributes[["organisation_unit"]], "character")
               expect_identical(attributes[["organisation_unit"]], "DiszpKrYNg8")
               expect_s3_class(attributes[["org_units_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_s3_class(attributes[["data_elements"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_null(attributes[["dataset"]])
               expect_null(attributes[["dataset_details"]])
               expect_null(attributes[["data_element_group"]])
@@ -109,12 +119,16 @@ httptest::with_mock_api({
                 "data_element_groups_details", "data_elements"
               ))
               expect_type(attributes[["data_element_group"]], "character")
-              expect_identical(attributes[["data_element_group"]],
-                               "oDkJh5Ddh7d")
+              expect_identical(
+                attributes[["data_element_group"]],
+                "oDkJh5Ddh7d"
+              )
               expect_s3_class(attributes[["data_element_groups_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_s3_class(attributes[["data_elements"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_null(attributes[["organisation_unit"]])
               expect_null(attributes[["org_units_details"]])
               expect_null(attributes[["dataset"]])
@@ -139,7 +153,8 @@ httptest::with_mock_api({
                 "data_element_groups_details", "data_elements"
               ))
               expect_s3_class(attributes[["data_elements"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_null(attributes[["organisation_unit"]])
               expect_null(attributes[["org_units_details"]])
               expect_null(attributes[["dataset"]])
@@ -168,13 +183,16 @@ httptest::with_mock_api({
               expect_type(attributes[["dataset"]], "character")
               expect_identical(attributes[["dataset"]], "pBOMPrpg1QX")
               expect_s3_class(attributes[["dataset_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_type(attributes[["organisation_unit"]], "character")
               expect_identical(attributes[["organisation_unit"]], "DiszpKrYNg8")
               expect_s3_class(attributes[["org_units_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_s3_class(attributes[["data_elements"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_null(attributes[["data_element_group"]])
               expect_null(attributes[["data_element_groups_details"]])
             })
@@ -199,16 +217,21 @@ httptest::with_mock_api({
               expect_type(attributes[["dataset"]], "character")
               expect_identical(attributes[["dataset"]], "pBOMPrpg1QX")
               expect_s3_class(attributes[["dataset_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_null(attributes[["organisation_unit"]])
               expect_null(attributes[["org_units_details"]])
               expect_s3_class(attributes[["data_elements"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_type(attributes[["data_element_group"]], "character")
-              expect_identical(attributes[["data_element_group"]],
-                               "oDkJh5Ddh7d")
+              expect_identical(
+                attributes[["data_element_group"]],
+                "oDkJh5Ddh7d"
+              )
               expect_s3_class(attributes[["data_element_groups_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
             })
 
   test_that("dhis2_check_attributes works as expected when the organisation unit
@@ -233,13 +256,18 @@ httptest::with_mock_api({
               expect_type(attributes[["organisation_unit"]], "character")
               expect_identical(attributes[["organisation_unit"]], "DiszpKrYNg8")
               expect_s3_class(attributes[["org_units_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_s3_class(attributes[["data_elements"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
               expect_type(attributes[["data_element_group"]], "character")
-              expect_identical(attributes[["data_element_group"]],
-                               "oDkJh5Ddh7d")
+              expect_identical(
+                attributes[["data_element_group"]],
+                "oDkJh5Ddh7d"
+              )
               expect_s3_class(attributes[["data_element_groups_details"]],
-                              class = "data.frame")
+                class = "data.frame"
+              )
             })
 })

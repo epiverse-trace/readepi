@@ -11,13 +11,19 @@
 #' @keywords internal
 #'
 login <- function(username, password, base_url) {
-  checkmate::assert_character(username, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(base_url, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  url  <- file.path(base_url, "api", "me")
+  checkmate::assert_character(username,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(password,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(base_url,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  url <- file.path(base_url, "api", "me")
   resp <- httr::GET(url, httr::authenticate(username, password))
   httr::stop_for_status(resp)
   message("\nLogged in successfully!")
@@ -34,25 +40,29 @@ login <- function(username, password, base_url) {
 #' \dontrun{
 #' results <- dhis2_subset_fields(
 #'   data = readepi(
-#'     credentials_file = system.file("extdata", "test.ini",
+#'     credentials_file   = system.file("extdata", "test.ini",
 #'     package = "readepi"),
-#'     project_id = "DHIS2_DEMO",
-#'     dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
-#'     organisation_unit = "DiszpKrYNg8",
+#'     data_source        = "https://play.dhis2.org/dev",
+#'     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
+#'     organisation_unit  = "DiszpKrYNg8",
 #'     data_element_group = NULL,
-#'     start_date = "2014",
-#'     end_date = "2023",
-#'     fields = c("dataElement", "period", "value")
+#'     start_date         = "2014",
+#'     end_date           = "2023",
+#'     fields             = c("dataElement", "period", "value")
 #'   )$data,
-#'   fields = c("dataElement", "period", "value")
+#'   fields               = c("dataElement", "period", "value")
 #' )
 #' }
 #' @keywords internal
 dhis2_subset_fields <- function(data, fields) {
-  checkmate::assert_data_frame(data, min.rows = 1L, null.ok = FALSE,
-                               min.cols = 1L)
-  checkmate::assert_vector(fields, min.len = 1L, null.ok = TRUE,
-                           any.missing = FALSE)
+  checkmate::assert_data_frame(data,
+    min.rows = 1L, null.ok = FALSE,
+    min.cols = 1L
+  )
+  checkmate::assert_vector(fields,
+    min.len = 1L, null.ok = TRUE,
+    any.missing = FALSE
+  )
   if (!is.null(fields)) {
     if (is.character(fields)) {
       fields <- unlist(strsplit(fields, ",",
@@ -86,28 +96,34 @@ dhis2_subset_fields <- function(data, fields) {
 #' \dontrun{
 #' result <- dhis2_subset_records(
 #'   data = readepi(
-#'     credentials_file = system.file("extdata", "test.ini",
+#'     credentials_file   = system.file("extdata", "test.ini",
 #'       package = "readepi"
 #'     ),
-#'     project_id = "DHIS2_DEMO",
-#'     dataset = "pBOMPrpg1QX",
-#'     organisation_unit = "DiszpKrYNg8",
+#'     data_source        = "https://play.dhis2.org/dev",
+#'     dataset            = "pBOMPrpg1QX",
+#'     organisation_unit  = "DiszpKrYNg8",
 #'     data_element_group = NULL,
-#'     start_date = "2014",
-#'     end_date = "2023"
+#'     start_date         = "2014",
+#'     end_date           = "2023"
 #'   )$data,
-#'   records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-#'   id_col_name = "dataElement"
+#'   records              = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+#'   id_col_name          = "dataElement"
 #' )
 #' }
 #' @keywords internal
 dhis2_subset_records <- function(data, records, id_col_name) {
-  checkmate::assert_data_frame(data, min.rows = 1L, null.ok = FALSE,
-                               min.cols = 1L)
-  checkmate::assert_vector(records, min.len = 1L, null.ok = TRUE,
-                           any.missing = FALSE)
-  checkmate::assert_character(id_col_name, len = 1L, null.ok = TRUE,
-                              any.missing = FALSE)
+  checkmate::assert_data_frame(data,
+    min.rows = 1L, null.ok = FALSE,
+    min.cols = 1L
+  )
+  checkmate::assert_vector(records,
+    min.len = 1L, null.ok = TRUE,
+    any.missing = FALSE
+  )
+  checkmate::assert_character(id_col_name,
+    len = 1L, null.ok = TRUE,
+    any.missing = FALSE
+  )
   if (!is.null(records)) {
     if (is.character(records)) {
       records <- unlist(strsplit(records, ",",
@@ -135,7 +151,7 @@ dhis2_subset_records <- function(data, records, id_col_name) {
 #' @keywords internal
 #'
 get_attributes_from_user <- function(args_list) {
-  dataset  <- organisation_unit <- data_element_group <- start_date <-
+  dataset <- organisation_unit <- data_element_group <- start_date <-
     end_date <- NULL
   if ("dataset" %in% names(args_list)) {
     dataset <- args_list[["dataset"]]

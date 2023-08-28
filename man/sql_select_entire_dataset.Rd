@@ -42,14 +42,14 @@ Fetch entire dataset in a table
 \examples{
 \dontrun{
 result <- sql_select_entire_dataset(
-  table = "author",
-  dbms = "MySQL",
-  driver_name = "",
-  host = "mysql-rfam-public.ebi.ac.uk",
+  table         = "author",
+  dbms          = "MySQL",
+  driver_name   = "",
+  host          = "mysql-rfam-public.ebi.ac.uk",
   database_name = "Rfam",
-  user = "rfamro",
-  password = "",
-  port = 4497
+  user          = "rfamro",
+  password      = "",
+  port          = 4497
 )
 }
 

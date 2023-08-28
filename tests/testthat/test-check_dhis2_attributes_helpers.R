@@ -64,6 +64,18 @@ httptest::with_mock_api({
               expect_identical(result[["data_element_group"]], "oDkJh5Ddh7d")
               expect_s3_class(result[["data_elt_groups"]], "data.frame")
             })
+
+  test_that("get_dhis2_attributes works as expected", {
+    attributes <- get_dhis2_attributes(
+      base_url = file.path("https:/", "play.dhis2.org", "dev"),
+      username = "admin",
+      password = "district",
+      which    = "dataSets"
+    )
+    expect_s3_class(attributes, "data.frame")
+    expect_identical(ncol(attributes), 3L)
+    expect_named(attributes, c("name", "shortName", "id"))
+  })
 })
 
 test_that("the API request fails as expected", {
@@ -113,5 +125,28 @@ test_that("dhis2_get_relevant_attributes fails as expected", {
     ),
     regexp = cat("The expected values for the 'which' argument are:
           'dataSets, 'organisationUnits', 'dataElementGroups', 'dataElements'")
+  )
+
+  expect_error(
+    dhis2_get_relevant_attributes(
+      attribute_id = "test",
+      base_url     = file.path("https:/", "play.dhis2.org", "dev"),
+      username     = "admin",
+      password     = "district",
+      which        = "dataSets"
+    ),
+    regexp = cat("The provided attribute ID not found.")
+  )
+
+  expect_warning(
+    dhis2_get_relevant_attributes(
+      attribute_id = "pBOMPrpg1QX, test",
+      base_url     = file.path("https:/", "play.dhis2.org", "dev"),
+      username     = "admin",
+      password     = "district",
+      which        = "dataSets"
+    ),
+    regexp = cat("Assertion on',attribute_id,'failed: 'test' is not a valid
+                 dataSet ID.")
   )
 })

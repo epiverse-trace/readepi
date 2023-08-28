@@ -165,4 +165,17 @@ httptest::with_mock_api({
     expect_length(result[["redcap_data"]], 12L)
     expect_length(result[["metadata"]], 8L)
   })
+
+  test_that("redcap_read_records fails as expected", {
+    expect_error(
+      redcap_read_records(
+        uri = "https://bbmc.ouhsc.edu/redcap/api/",
+        token = "9A81268476645C4E5F03428B8AC3AA7B",
+        id_position = NULL,
+        records = c("1", "2", "3"),
+        id_col_name = "Karim"
+      ),
+      regexp = cat("'Karim' is an invalid column name.")
+    )
+  })
 })

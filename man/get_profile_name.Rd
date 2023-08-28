@@ -23,12 +23,12 @@ Get profile name from Fingertips
 \examples{
 \dontrun{
 res <- get_profile_name(
-  profile_id = 19,
+  profile_id   = 19,
   profile_name = "Public Health Outcomes Framework",
   metadata = list(
     indicator_profile_domain = fingertipsR::indicators(),
-    indicator_ids_names = fingertipsR::indicators_unique(),
-    area_type = fingertipsR::area_types()
+    indicator_ids_names      = fingertipsR::indicators_unique(),
+    area_type                = fingertipsR::area_types()
   )
 )
 }

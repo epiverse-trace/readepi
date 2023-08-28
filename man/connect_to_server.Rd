@@ -30,13 +30,13 @@ Establish connection to the server
 \examples{
 \dontrun{
 con <- connect_to_server(
-  dbms = "MySQL",
-  driver_name = "",
-  host = "mysql-rfam-public.ebi.ac.uk",
+  dbms          = "MySQL",
+  driver_name   = "",
+  host          = "mysql-rfam-public.ebi.ac.uk",
   database_name = "Rfam",
-  user = "rfamro",
-  password = "",
-  port = 4497
+  user          = "rfamro",
+  password      = "",
+  port          = 4497
 )
 }
 

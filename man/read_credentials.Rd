@@ -25,7 +25,7 @@ Read credentials from a configuration file
 \examples{
 \dontrun{
 credentials <- read_credentials(
-  file_path  = system.file("extdata", "test.ini", package = "readepi"),
+  file_path = system.file("extdata", "test.ini", package = "readepi"),
   url = "mysql-rfam-public.ebi.ac.uk"
 )
 }

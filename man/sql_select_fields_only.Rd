@@ -45,15 +45,15 @@ Select specified fields from a table
 \examples{
 \dontrun{
 result <- sql_select_fields_only(
-  table = "author",
-  field = c("author_id", "name", "last_name"),
-  dbms = "MySQL",
-  driver_name = "",
-  host = "mysql-rfam-public.ebi.ac.uk",
+  table         = "author",
+  field         = c("author_id", "name", "last_name"),
+  dbms          = "MySQL",
+  driver_name   = "",
+  host          = "mysql-rfam-public.ebi.ac.uk",
   database_name = "Rfam",
-  user = "rfamro",
-  password = "",
-  port = 4497
+  user          = "rfamro",
+  password      = "",
+  port          = 4497
 )
 }
 

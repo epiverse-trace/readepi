@@ -53,17 +53,17 @@ Select specified records from a table
 \examples{
 \dontrun{
 result <- sql_select_records_only(
-  table = "author",
-  record = c("1", "20", "50"),
+  table          = "author",
+  record         = c("1", "20", "50"),
   id_column_name = NULL,
-  id_pos = 1,
-  dbms = "MySQL",
-  driver_name = "",
-  host = "mysql-rfam-public.ebi.ac.uk",
-  database_name = "Rfam",
-  user = "rfamro",
-  password = "",
-  port = 4497
+  id_pos         = 1,
+  dbms           = "MySQL",
+  driver_name    = "",
+  host           = "mysql-rfam-public.ebi.ac.uk",
+  database_name  = "Rfam",
+  user           = "rfamro",
+  password       = "",
+  port           = 4497
 )
 }
 

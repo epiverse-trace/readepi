@@ -15,7 +15,7 @@ get fingertips metadata
 }
 \examples{
 \dontrun{
-metadata <- get_fingertips_metadata()
+  metadata <- get_fingertips_metadata()
 }
 }
 \keyword{internal}

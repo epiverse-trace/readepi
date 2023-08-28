@@ -29,7 +29,6 @@ httptest::with_mock_api({
       expect_s3_class(res[["data"]], class = "data.frame")
       expect_s3_class(res[["metadata"]], class = "data.frame")
     })
-
   })
 
   test_that("read_from_redcap works with valid input", {

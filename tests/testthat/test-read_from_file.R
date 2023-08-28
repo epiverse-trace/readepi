@@ -69,7 +69,7 @@ test_that("read_from_file works as expected when reading from directory given
           several pattern", {
             data <- read_from_file(
               file_path = system.file("extdata", package = "readepi"),
-              pattern = c(".txt", ".csv")
+              pattern   = c(".txt", ".csv")
             )
             expect_type(data, "list")
           })
@@ -92,6 +92,18 @@ test_that("read_from_file fails as expected", {
     ),
     regexp = cat("Assertion on',sep,'failed: Must be of type 'character'
                  of length 1.")
+  )
+
+  expect_error(
+    read_from_file(
+      file_path = "test",
+      sep = NULL,
+      format = ".txt",
+      which = NULL,
+      pattern = NULL
+    ),
+    regexp = cat("Assertion on',file_path,'failed: Must be a file path or a
+                 path to a directory.")
   )
 
   expect_error(

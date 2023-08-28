@@ -138,6 +138,66 @@ test_that("sql_select_data works as expected", {
   expect_length(result, 1L)
   expect_named(result, "author")
   expect_s3_class(result[["author"]], "data.frame")
+
+  result <- sql_select_data(
+    table_names   = c("author", "family_author"),
+    dbms          = "MySQL",
+    id_col_name   = "author_id",
+    fields        = NULL,
+    records       = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
+    id_position   = NULL,
+    driver_name   = "",
+    host          = "mysql-rfam-public.ebi.ac.uk",
+    database_name = "Rfam",
+    user          = "rfamro",
+    password      = "",
+    port          = 4497L
+  )
+  expect_type(result, "list")
+  expect_length(result, 2L)
+  expect_named(result, c("author", "family_author"))
+  expect_s3_class(result[["author"]], "data.frame")
+  expect_s3_class(result[["family_author"]], "data.frame")
+
+  result <- sql_select_data(
+    table_names = c("author", "family_author"),
+    dbms = "MySQL",
+    id_position = c(1, 1), # nolint
+    fields = c("author_id,name,last_name,initials", "rfam_acc,author_id"),
+    records = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
+    driver_name = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    database_name = "Rfam",
+    user = "rfamro",
+    password = "",
+    port = 4497L,
+    id_col_name = NULL
+  )
+  expect_type(result, "list")
+  expect_length(result, 2L)
+  expect_named(result, c("author", "family_author"))
+  expect_s3_class(result[["author"]], "data.frame")
+  expect_s3_class(result[["family_author"]], "data.frame")
+
+  result <- sql_select_data(
+    table_names = c("author", "family_author"),
+    dbms = "MySQL",
+    id_col_name = "author_id",
+    fields = c("author_id,name,last_name,initials", "rfam_acc,author_id"),
+    records = NULL,
+    id_position = NULL,
+    driver_name = "",
+    host = "mysql-rfam-public.ebi.ac.uk",
+    database_name = "Rfam",
+    user = "rfamro",
+    password = "",
+    port = 4497L
+  )
+  expect_type(result, "list")
+  expect_length(result, 2L)
+  expect_named(result, c("author", "family_author"))
+  expect_s3_class(result[["author"]], "data.frame")
+  expect_s3_class(result[["family_author"]], "data.frame")
 })
 
 test_that("sql_select_data fails with incorrect table_names", {

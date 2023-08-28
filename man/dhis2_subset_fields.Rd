@@ -22,17 +22,17 @@ Subset fields when reading from DHIS2
 \dontrun{
 results <- dhis2_subset_fields(
   data = readepi(
-    credentials_file = system.file("extdata", "test.ini",
+    credentials_file   = system.file("extdata", "test.ini",
     package = "readepi"),
-    project_id = "DHIS2_DEMO",
-    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit = "DiszpKrYNg8",
+    data_source        = "https://play.dhis2.org/dev",
+    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
+    organisation_unit  = "DiszpKrYNg8",
     data_element_group = NULL,
-    start_date = "2014",
-    end_date = "2023",
-    fields = c("dataElement", "period", "value")
+    start_date         = "2014",
+    end_date           = "2023",
+    fields             = c("dataElement", "period", "value")
   )$data,
-  fields = c("dataElement", "period", "value")
+  fields               = c("dataElement", "period", "value")
 )
 }
 }

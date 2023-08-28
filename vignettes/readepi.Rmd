@@ -82,16 +82,16 @@ data <- readepi(
 ```{r eval=FALSE}
 # READING ALL FILES IN A DIRECTORY
 dir_path <- system.file("extdata", package = "readepi")
-data     <- readepi(data_source = dir_path)
+data <- readepi(data_source = dir_path)
 
 # READING ONLY '.txt' FILES IN THE GIVEN DIRECTORY
-data     <- readepi(
+data <- readepi(
   data_source = dir_path,
   pattern     = ".txt"
 )
 
 # READING ALL THE '.txt' and '.xlsx' FILES IN THE GIVEN DIRECTORY i
-data     <- readepi(
+data <- readepi(
   data_source = dir_path,
   pattern     = c(".txt", ".xlsx")
 )
@@ -253,7 +253,7 @@ data <- readepi(
 
 # READING SPECIFIED FIELDS AND ALL RECORDS FROM ONE TABLE
 fields <- "author_id,name,last_name,initials"
-data   <- readepi(
+data <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   from             = "author", # this is the table name
@@ -263,7 +263,7 @@ data   <- readepi(
 
 # READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE
 records <- "1, 34, 15, 70, 118, 20"
-data    <- readepi(
+data <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   from             = "author", # this is the table name
@@ -285,7 +285,7 @@ data <- readepi(
 
 # READING DATA FROM SEVERAL TABLES
 table_names <- c("author", "family_author")
-data        <- readepi(
+data <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   from             = table_names, # this is the table name
@@ -370,7 +370,7 @@ data <- readepi(
 
 # SELECT FEW RECORDS FROM THE author TABLE
 data <- readepi(
-  data_source      = "mysql-rfam-public.ebi.ac.uk",
+  data_source = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   source = "select * from author where author_id in ('1','20','50')",
   driver_name = ""
@@ -413,7 +413,7 @@ project_metadeta <- data[["metadata"]]
 
 # READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT
 fields <- c("record_id", "name_first", "age", "bmi")
-data   <- readepi(
+data <- readepi(
   data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
   credentials_file = credentials_file,
   fields           = fields
@@ -513,7 +513,7 @@ data <- readepi(
 
 # READING SPECIFIC DATA ELEMENTS FROM THE DATASET ID `pBOMPrpg1QX`
 data_elts <- c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea")
-data      <- readepi(
+data <- readepi(
   data_source        = "https://play.dhis2.org/dev",
   credentials_file   = credentials_file,
   dataset            = "pBOMPrpg1QX",

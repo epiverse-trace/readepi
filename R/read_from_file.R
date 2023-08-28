@@ -18,11 +18,11 @@
 #' @examples
 #' \dontrun{
 #' data <- read_from_file(
-#'   file_path = system.file("extdata", "test.txt", package = "readepi"),
-#'   sep = NULL,
-#'   format = NULL,
-#'   which = NULL,
-#'   pattern = NULL
+#'   file_path   = system.file("extdata", "test.txt", package = "readepi"),
+#'   sep         = NULL,
+#'   format      = NULL,
+#'   which       = NULL,
+#'   pattern     = NULL
 #' )
 #' }
 #' @keywords internal
@@ -32,8 +32,10 @@
 read_from_file <- function(file_path, sep = NULL, format = NULL, which = NULL,
                            pattern = NULL) {
   # check the input arguments
-  checkmate::assert_character(sep, null.ok = TRUE, len = 1L,
-                              any.missing = FALSE)
+  checkmate::assert_character(sep,
+    null.ok = TRUE, len = 1L,
+    any.missing = FALSE
+  )
   checkmate::assert_character(format, null.ok = TRUE, any.missing = FALSE)
   checkmate::assert_vector(which,
     any.missing = FALSE, min.len = 1L,

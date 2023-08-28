@@ -172,17 +172,20 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = c(
-                             system.file("extdata", "test.ini",
-                                         package = "readepi"),
-                             system.file("extdata", "fake_test.ini",
-                                         package = "readepi")),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = "DiszpKrYNg8",
+      data_source = "https://play.dhis2.org/dev",
+      credentials_file = c(
+        system.file("extdata", "test.ini",
+          package = "readepi"
+        ),
+        system.file("extdata", "fake_test.ini",
+          package = "readepi"
+        )
+      ),
+      dataset = "pBOMPrpg1QX",
+      organisation_unit = "DiszpKrYNg8",
       data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
+      start_date = "2014",
+      end_date = "202L3"
     ),
     regexp = cat("Assertion on',credentials_file,'failed: Must be of type
                  character with length 1.")
@@ -190,42 +193,45 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = NA,
-      organisation_unit  = "DiszpKrYNg8",
+      data_source = "https://play.dhis2.org/dev",
+      credentials_file = system.file("extdata", "test.ini",
+        package = "readepi"
+      ),
+      dataset = NA,
+      organisation_unit = "DiszpKrYNg8",
       data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
+      start_date = "2014",
+      end_date = "202L3"
     ),
     regexp = cat("Assertion on',dataset,'failed: Missing value not allowed.")
   )
 
   expect_error(
     readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = NULL,
-      organisation_unit  = "DiszpKrYNg8",
+      data_source = "https://play.dhis2.org/dev",
+      credentials_file = system.file("extdata", "test.ini",
+        package = "readepi"
+      ),
+      dataset = NULL,
+      organisation_unit = "DiszpKrYNg8",
       data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
+      start_date = "2014",
+      end_date = "202L3"
     ),
     regexp = cat("Assertion on',dataset,'failed: Must be specified.")
   )
 
   expect_error(
     readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = NA,
+      data_source = "https://play.dhis2.org/dev",
+      credentials_file = system.file("extdata", "test.ini",
+        package = "readepi"
+      ),
+      dataset = "pBOMPrpg1QX",
+      organisation_unit = NA,
       data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
+      start_date = "2014",
+      end_date = "202L3"
     ),
     regexp = cat("Assertion on',organisation_unit,'failed: Missing value
                  not allowed.")
@@ -233,28 +239,30 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = NULL,
+      data_source = "https://play.dhis2.org/dev",
+      credentials_file = system.file("extdata", "test.ini",
+        package = "readepi"
+      ),
+      dataset = "pBOMPrpg1QX",
+      organisation_unit = NULL,
       data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
+      start_date = "2014",
+      end_date = "202L3"
     ),
     regexp = cat("Assertion on',organisation_unit,'failed: Must be specified.")
   )
 
   expect_error(
     readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = "DiszpKrYNg8",
+      data_source = "https://play.dhis2.org/dev",
+      credentials_file = system.file("extdata", "test.ini",
+        package = "readepi"
+      ),
+      dataset = "pBOMPrpg1QX",
+      organisation_unit = "DiszpKrYNg8",
       data_element_group = NA,
-      start_date         = "2014",
-      end_date           = "202L3"
+      start_date = "2014",
+      end_date = "202L3"
     ),
     regexp = cat("Assertion on',data_element_group,'failed: Missing value
                  not allowed.")
@@ -262,28 +270,30 @@ test_that("readepi fails as expected when reading from DHIS2", {
 
   expect_error(
     readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = "DiszpKrYNg8",
+      data_source = "https://play.dhis2.org/dev",
+      credentials_file = system.file("extdata", "test.ini",
+        package = "readepi"
+      ),
+      dataset = "pBOMPrpg1QX",
+      organisation_unit = "DiszpKrYNg8",
       data_element_group = NULL,
-      start_date         = NA,
-      end_date           = "202L3"
+      start_date = NA,
+      end_date = "202L3"
     ),
     regexp = cat("Assertion on',start_date,'failed: Missing value not allowed.")
   )
 
   expect_error(
     readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = "DiszpKrYNg8",
+      data_source = "https://play.dhis2.org/dev",
+      credentials_file = system.file("extdata", "test.ini",
+        package = "readepi"
+      ),
+      dataset = "pBOMPrpg1QX",
+      organisation_unit = "DiszpKrYNg8",
       data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = NA
+      start_date = "2014",
+      end_date = NA
     ),
     regexp = cat("Assertion on',end_date,'failed: Missing value not allowed.")
   )
@@ -359,14 +369,17 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     readepi(
       credentials_file = c(
-                           system.file("extdata", "test.ini",
-                                       package = "readepi"),
-                           system.file("extdata", "fake_test.ini",
-                                       package = "readepi")),
-      data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
-      records          = "1, 3, 5",
-      fields           = "record_id, name_first, age, bmi",
-      id_col_name      = "id"
+        system.file("extdata", "test.ini",
+          package = "readepi"
+        ),
+        system.file("extdata", "fake_test.ini",
+          package = "readepi"
+        )
+      ),
+      data_source = "https://bbmc.ouhsc.edu/redcap/api/",
+      records = "1, 3, 5",
+      fields = "record_id, name_first, age, bmi",
+      id_col_name = "id"
     ),
     regexp = cat("Assertion on',credentials_file,'failed: Must be of type
                  character of length 1.")
@@ -386,11 +399,12 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-      data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
-      records          = NA,
-      fields           = "record_id, name_first, age, bmi",
-      id_col_name      = "id"
+        package = "readepi"
+      ),
+      data_source = "https://bbmc.ouhsc.edu/redcap/api/",
+      records = NA,
+      fields = "record_id, name_first, age, bmi",
+      id_col_name = "id"
     ),
     regexp = cat("Assertion on',records,'failed: Missing value not allowed.")
   )
@@ -398,11 +412,12 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-      data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
-      records          = "1, 3, 5",
-      fields           = NA,
-      id_col_name      = "id"
+        package = "readepi"
+      ),
+      data_source = "https://bbmc.ouhsc.edu/redcap/api/",
+      records = "1, 3, 5",
+      fields = NA,
+      id_col_name = "id"
     ),
     regexp = cat("Assertion on',fields,'failed: Missing value not allowed.")
   )
@@ -410,11 +425,12 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-      data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
-      records          = "1, 3, 5",
-      fields           = "record_id, name_first, age, bmi",
-      id_col_name      = NA
+        package = "readepi"
+      ),
+      data_source = "https://bbmc.ouhsc.edu/redcap/api/",
+      records = "1, 3, 5",
+      fields = "record_id, name_first, age, bmi",
+      id_col_name = NA
     ),
     regexp = cat("Assertion on',id_col_name,'failed: Missing value
                  not allowed.")
@@ -423,12 +439,13 @@ test_that("readepi fails as expected when reading from REDCap", {
   expect_error(
     readepi(
       credentials_file = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-      data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
-      records          = "1, 3, 5",
-      fields           = "record_id, name_first, age, bmi",
-      id_col_name      = NULL,
-      id_position      = NA
+        package = "readepi"
+      ),
+      data_source = "https://bbmc.ouhsc.edu/redcap/api/",
+      records = "1, 3, 5",
+      fields = "record_id, name_first, age, bmi",
+      id_col_name = NULL,
+      id_position = NA
     ),
     regexp = cat("Assertion on',id_position,'failed: Missing value
                  not allowed.")
@@ -441,19 +458,19 @@ test_that("readepi fails as expected when reading from DBMS,
               readepi(
                 credentials_file = system.file("extdata", "test.ini",
                                                package = "readepi"),
-                data_source      = "mysql-rfam-public.ebi.ac.uk",
-                sep              = NULL,
-                format           = NULL,
-                which            = NULL,
-                pattern          = NULL,
-                driver_name      = NULL,
-                table_name       = "author",
-                records          = NULL,
-                fields           = NULL,
-                id_position      = 1L
+                data_source = "mysql-rfam-public.ebi.ac.uk",
+                sep = NULL,
+                format = NULL,
+                which = NULL,
+                pattern = NULL,
+                driver_name = NULL,
+                table_name = "author",
+                records = NULL,
+                fields = NULL,
+                id_position = 1L
               ),
               regexp = cat("Assertion on',driver_name,failed: MS driver name
-                 must be provided.")
+                           must be provided.")
             )
 
             expect_error(
@@ -470,9 +487,9 @@ test_that("readepi fails as expected when reading from DBMS,
                 fields           = NULL,
                 id_position      = 1L
               ),
-              regexp = cat("Assertion on',credentials_file,and,'file_path',failed: # nolint:line_length_linter
-                           Must provide either a file path, or a directory or a credential # nolint: line_length_linter
-                           file.")
+              regexp = cat("Assertion on',credentials_file,and,'file_path',
+              failed: Must provide either a file path, or a directory or a
+              credential file.")
             )
 
             expect_error(

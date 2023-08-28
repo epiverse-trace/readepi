@@ -27,8 +27,7 @@ Display the list of tables in a database
 \dontrun{
 show_tables(
   credentials_file = system.file("extdata", "test.ini",
-    package = "readepi"
-  ),
+    package = "readepi"),
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   driver_name      = ""
 )

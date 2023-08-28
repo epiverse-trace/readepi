@@ -20,7 +20,7 @@
 #' @examples
 #' # reading from a MySQL server
 #' data <- readepi(
-#'   data_source           = "mysql-rfam-public.ebi.ac.uk",
+#'   data_source      = "mysql-rfam-public.ebi.ac.uk",
 #'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
 #'   driver_name      = "",
 #'   from             = "author"
@@ -34,8 +34,10 @@ readepi <- function(data_source = NULL,
                     id_col_name = NULL,
                     ...) {
   # check the input arguments
-  checkmate::assert_character(data_source, null.ok = TRUE, any.missing = FALSE,
-                              min.len = 0L)
+  checkmate::assert_character(data_source,
+    null.ok = TRUE, any.missing = FALSE,
+    min.len = 0L
+  )
   checkmate::assert_vector(records,
     any.missing = FALSE, min.len = 0L,
     null.ok = TRUE, unique = TRUE
@@ -60,7 +62,7 @@ readepi <- function(data_source = NULL,
   if (all(!is.null(data_source) && any(file.exists(data_source) ||
                                          dir.exists(data_source)))) {
     args <- get_read_file_args(args_list)
-    res  <- read_from_file(
+    res <- read_from_file(
       file_path    = data_source,
       sep          = args[["sep"]],
       format       = args[["format"]],
@@ -78,7 +80,7 @@ readepi <- function(data_source = NULL,
             "domain_id" %in% names(args_list) |
             "domain_name" %in% names(args_list))) {
     args <- get_read_fingertips_args(args_list)
-    res  <- read_from_fingertips(
+    res <- read_from_fingertips(
       indicator_id        = args[["indicator_id"]],
       indicator_name      = args[["indicator_name"]],
       area_type_id        = args[["area_type_id"]],
@@ -96,8 +98,10 @@ readepi <- function(data_source = NULL,
 
   # reading from DBMS
   if ("credentials_file" %in% names(args_list)) {
-    credentials <- read_credentials(args_list[["credentials_file"]],
-                                    data_source)
+    credentials <- read_credentials(
+      args_list[["credentials_file"]],
+      data_source
+    )
     if (credentials[["dbms"]] == "REDCap") {
       res <- read_from_redcap(
         uri         = credentials[["host"]],
@@ -109,15 +113,15 @@ readepi <- function(data_source = NULL,
       )
     } else if (credentials[["dbms"]] %in%
                  c("MySQL", "SQLServer", "PostgreSQL")) {
-      from          <- NULL
-      driver_name   <- ""
+      from <- NULL
+      driver_name <- ""
       if ("from" %in% names(args_list)) {
-        from        <- args_list[["from"]]
+        from <- args_list[["from"]]
       }
       if ("driver_name" %in% names(args_list)) {
         driver_name <- args_list[["driver_name"]]
       }
-      res           <- sql_server_read_data(
+      res <- sql_server_read_data(
         user          = credentials[["user"]],
         password      = credentials[["pwd"]],
         host          = credentials[["host"]],
@@ -133,7 +137,7 @@ readepi <- function(data_source = NULL,
       )
     } else if (credentials[["dbms"]] %in% c("dhis2", "DHIS2")) {
       tmp_attributes <- get_attributes_from_user(args_list)
-      res            <- read_from_dhis2(
+      res <- read_from_dhis2(
         base_url           = credentials[["host"]],
         user_name          = credentials[["user"]],
         password           = credentials[["pwd"]],

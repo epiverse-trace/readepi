@@ -57,18 +57,18 @@ Subset data read from servers
 \examples{
 \dontrun{
 result <- sql_select_data(
-  table_names = "author",
-  dbms = "MySQL",
-  id_col_name = "author_id",
-  fields = c("author_id", "name"),
-  records = NULL,
-  id_position = NULL,
-  driver_name = "",
-  host = "mysql-rfam-public.ebi.ac.uk",
+  table_names   = "author",
+  dbms          = "MySQL",
+  id_col_name   = "author_id",
+  fields        = c("author_id", "name"),
+  records       = NULL,
+  id_position   = NULL,
+  driver_name   = "",
+  host          = "mysql-rfam-public.ebi.ac.uk",
   database_name = "Rfam",
-  user = "rfamro",
-  password = "",
-  port = 4497
+  user          = "rfamro",
+  password      = "",
+  port          = 4497
 )
 }
 

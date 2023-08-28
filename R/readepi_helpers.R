@@ -9,7 +9,7 @@
 #' @examples
 #' \dontrun{
 #' credentials <- read_credentials(
-#'   file_path  = system.file("extdata", "test.ini", package = "readepi"),
+#'   file_path = system.file("extdata", "test.ini", package = "readepi"),
 #'   url = "mysql-rfam-public.ebi.ac.uk"
 #' )
 #' }
@@ -17,9 +17,11 @@
 #'
 read_credentials <- function(
     file_path = system.file("extdata", "test.ini", package = "readepi"),
-    url       = "mysql-rfam-public.ebi.ac.uk") {
-  checkmate::assert_character(url, len = 1L, null.ok = FALSE,
-                              any.missing = FALSE)
+    url = "mysql-rfam-public.ebi.ac.uk") {
+  checkmate::assert_character(url,
+    len = 1L, null.ok = FALSE,
+    any.missing = FALSE
+  )
   checkmate::assert_file(file_path)
 
   credentials <- read.table(file_path, sep = "\t", header = TRUE)

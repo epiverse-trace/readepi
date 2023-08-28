@@ -77,8 +77,10 @@ test_that("read_from_dhis2 fails with a wrong URL", {
 
   expect_error(
     read_from_dhis2(
-      base_url = c(file.path("https:/", "play.dhis2.org", "dev"),
-                   file.path("https:/", "play.dhis2.org", "dev")),
+      base_url = c(
+        file.path("https:/", "play.dhis2.org", "dev"),
+        file.path("https:/", "play.dhis2.org", "dev")
+      ),
       user_name = "admin",
       password = "district",
       dataset = "pBOMPrpg1QX",

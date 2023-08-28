@@ -1,5 +1,5 @@
 test_that("get_base_name works as expected", {
-  x <- system.file("extdata", "test.txt", package = "readepi")
+  x <- system.file("extdata", "test.json", package = "readepi")
   expect_identical(get_base_name(x), "test")
 })
 
@@ -70,6 +70,17 @@ test_that("read_files_in_directory fails as expected", {
     regexp = cat("Assertion on',file_path,'failed: Missing value not allowed for
                  pattern.")
   )
+
+  expect_error(
+    read_files_in_directory(
+      file_path = system.file("extdata", file.path("genomic_data",
+                                                   "consensus_dir"),
+                              package = "readepi"),
+      pattern = ".txt"
+    ),
+    regexp = cat("Assertion on',file_path,'failed: Input directory must contain
+                 at least 1 file")
+  )
 })
 
 test_that("read_files works as expected", {
@@ -96,4 +107,36 @@ test_that("read_files works as expected", {
     which = NULL
   )
   expect_type(res, "list")
+
+  res <- read_files(
+    file_path = system.file("extdata", "test.xlsx", package = "readepi"),
+    sep = NULL,
+    format = "xlsx",
+    which = "Sheet1"
+  )
+  expect_type(res, "list")
+  expect_length(res, 1L)
+  expect_named(res, "Sheet1")
+})
+
+test_that("import_non_rio_files works as expected", {
+  res <- import_non_rio_files(
+    files = system.file("extdata", "pipe_sep_file.pst", package = "readepi"),
+    files_base_names = "pipe_sep_file",
+    files_extensions = ".pst",
+    result = list()
+  )
+  expect_type(res, "list")
+  expect_length(res, 1L)
+  expect_named(res, "pipe_sep_file")
+
+  res <- import_non_rio_files(
+    files = system.file("extdata", "psf_2.txt", package = "readepi"),
+    files_base_names = "psf_2",
+    files_extensions = ".txt",
+    result = list()
+  )
+  expect_type(res, "list")
+  expect_length(res, 1L)
+  expect_named(res, "psf_2")
 })

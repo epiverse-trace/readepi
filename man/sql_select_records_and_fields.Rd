@@ -57,18 +57,18 @@ Select specified records and fields from a table
 \examples{
 \dontrun{
 result <- sql_select_records_and_fields(
-  table = "author",
-  record = c("1", "20", "50"),
+  table          = "author",
+  record         = c("1", "20", "50"),
   id_column_name = "author_id",
-  field = c("author_id", "last_name"),
-  id_pos = NULL,
-  dbms = "MySQL",
-  driver_name = "",
-  host = "mysql-rfam-public.ebi.ac.uk",
-  database_name = "Rfam",
-  user = "rfamro",
-  password = "",
-  port = 4497
+  field          = c("author_id", "last_name"),
+  id_pos         = NULL,
+  dbms           = "MySQL",
+  driver_name    = "",
+  host           = "mysql-rfam-public.ebi.ac.uk",
+  database_name  = "Rfam",
+  user           = "rfamro",
+  password       = "",
+  port           = 4497
 )
 }
 

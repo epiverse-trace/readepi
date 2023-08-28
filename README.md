@@ -90,7 +90,7 @@ data <- readepi(
 
 # READING DATA FROM FILES IN A DIRECTORY
 dir_path <- system.file("extdata", package = "readepi")
-data     <- readepi(data_source = dir_path)
+data <- readepi(data_source = dir_path)
 
 # READING DATA FROM FILES WITH SPECIFIC EXTENSION(S) IN A DICECTORY
 data <- readepi(
@@ -141,7 +141,7 @@ show_tables(
 
 # VISUAIZE FIRST 5 ROWS OF THE TABLE 'AUTHOR'
 visualise_table(
-  data_source      = "mysql-rfam-public.ebi.ac.uk", 
+  data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   from             = "author", # this is the table name
   driver_name      = ""

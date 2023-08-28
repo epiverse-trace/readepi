@@ -12,11 +12,11 @@
 #' @examples
 #' \dontrun{
 #' attributes <- dhis2_check_attributes(
-#'   username = "admin",
-#'   password = "district",
-#'   base_url = "https://play.dhis2.org/dev/",
-#'   dataset = "pBOMPrpg1QX",
-#'   organisation_unit = "DiszpKrYNg8",
+#'   username           = "admin",
+#'   password           = "district",
+#'   base_url           = "https://play.dhis2.org/dev/",
+#'   dataset            = "pBOMPrpg1QX",
+#'   organisation_unit  = "DiszpKrYNg8",
 #'   data_element_group = NULL
 #' )
 #' }
@@ -37,15 +37,15 @@ dhis2_check_attributes <- function(username,
       password     = password,
       which        = "dataSets"
     )
-    dataset   <- tmp_res[["dataset"]]
+    dataset <- tmp_res[["dataset"]]
     data_sets <- tmp_res[["data_sets"]]
   } else {
-    dataset   <- data_sets <- NULL
+    dataset <- data_sets <- NULL
   }
 
   # get the relevant organisation units
   if (!is.null(organisation_unit)) {
-    tmp_res   <- dhis2_get_relevant_attributes(
+    tmp_res <- dhis2_get_relevant_attributes(
       attribute_id = organisation_unit,
       base_url     = base_url,
       username     = username,
@@ -53,7 +53,7 @@ dhis2_check_attributes <- function(username,
       which        = "organisationUnits"
     )
     organisation_unit <- tmp_res[["organisation_unit"]]
-    org_units         <- tmp_res[["org_units"]]
+    org_units <- tmp_res[["org_units"]]
   } else {
     organisation_unit <- org_units <- NULL
   }
@@ -68,10 +68,9 @@ dhis2_check_attributes <- function(username,
       which        = "dataElementGroups"
     )
     data_element_group <- tmp_res[["data_element_group"]]
-    data_elt_groups    <- tmp_res[["data_elt_groups"]]
+    data_elt_groups <- tmp_res[["data_elt_groups"]]
   } else {
     data_element_group <- data_elt_groups <- NULL
-
   }
 
   # get the data element

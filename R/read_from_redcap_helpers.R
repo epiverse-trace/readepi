@@ -19,10 +19,10 @@
 #' @examples
 #' \dontrun{
 #' result <- import_redcap_data(
-#'   uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'   token = "9A81268476645C4E5F03428B8AC3AA7B",
-#'   records = c("1", "3", "5"),
-#'   fields = c("record_id", "name_first", "age", "bmi"),
+#'   uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+#'   token       = "9A81268476645C4E5F03428B8AC3AA7B",
+#'   records     = c("1", "3", "5"),
+#'   fields      = c("record_id", "name_first", "age", "bmi"),
 #'   id_col_name = NULL,
 #'   id_position = 1
 #' )
@@ -220,18 +220,18 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
 #' \dontrun{
 #' result <- redcap_get_results(
 #'   redcap_data = REDCapR::redcap_read(
-#'     redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'     token = "9A81268476645C4E5F03428B8AC3AA7B",
-#'     records = c("1", "3", "5"),
-#'     fields = c("record_id", "name_first", "age", "bmi"),
-#'     verbose = FALSE,
+#'     redcap_uri  = "https://bbmc.ouhsc.edu/redcap/api/",
+#'     token       = "9A81268476645C4E5F03428B8AC3AA7B",
+#'     records     = c("1", "3", "5"),
+#'     fields      = c("record_id", "name_first", "age", "bmi"),
+#'     verbose     = FALSE,
 #'     id_position = 1L
 #'   ),
 #'   metadata = REDCapR::redcap_metadata_read(
 #'     redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'     token = "9A81268476645C4E5F03428B8AC3AA7B",
-#'     fields = NULL,
-#'     verbose = FALSE
+#'     token      = "9A81268476645C4E5F03428B8AC3AA7B",
+#'     fields     = NULL,
+#'     verbose    = FALSE
 #'   )
 #' )
 #' }
@@ -245,16 +245,9 @@ redcap_get_results <- function(redcap_data, metadata) {
     null.ok = FALSE, min.len = 2L,
     any.missing = FALSE
   )
-  if (all(redcap_data[["success"]] & metadata[["success"]])) {
+  if (all(redcap_data[["success"]] && metadata[["success"]])) {
     data <- redcap_data[["data"]]
     meta <- metadata[["data"]]
-  } else if (redcap_data[["success"]] && !metadata[["success"]]) {
-    warning("\nNote that the metadata was not imported.")
-    data <- redcap_data[["data"]]
-    meta <- NULL
-  } else {
-    stop("Error in reading from REDCap. Please check your credentials or
-         project ID.")
   }
 
   list(

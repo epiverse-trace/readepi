@@ -22,10 +22,10 @@ Subset columns when reading from Fingertips
 \dontrun{
 res <- fingertips_subset_columns(
   data = readepi(
-    profile_id = 19,
+    profile_id   = 19,
     area_type_id = 202
   )$data,
-  fields = c("IndicatorID", "AreaCode", "Age", "Value")
+  fields         = c("IndicatorID", "AreaCode", "Age", "Value")
 )
 }
 }

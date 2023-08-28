@@ -35,10 +35,10 @@ Get indicator ID from profile ID and/or profile name
 \examples{
 \dontrun{
 res <- get_ind_id_from_profile(
-  metadata = list(
+  metadata   = list(
     indicator_profile_domain = fingertipsR::indicators(),
-    indicator_ids_names = fingertipsR::indicators_unique(),
-    area_type = fingertipsR::area_types()
+    indicator_ids_names      = fingertipsR::indicators_unique(),
+    area_type                = fingertipsR::area_types()
   ),
   profile_id = 19
 )

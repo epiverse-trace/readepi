@@ -24,18 +24,18 @@ Subset a specified set of records from a dataset imported from DHIS2
 \dontrun{
 result <- dhis2_subset_records(
   data = readepi(
-    credentials_file = system.file("extdata", "test.ini",
+    credentials_file   = system.file("extdata", "test.ini",
       package = "readepi"
     ),
-    project_id = "DHIS2_DEMO",
-    dataset = "pBOMPrpg1QX",
-    organisation_unit = "DiszpKrYNg8",
+    data_source        = "https://play.dhis2.org/dev",
+    dataset            = "pBOMPrpg1QX",
+    organisation_unit  = "DiszpKrYNg8",
     data_element_group = NULL,
-    start_date = "2014",
-    end_date = "2023"
+    start_date         = "2014",
+    end_date           = "2023"
   )$data,
-  records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-  id_col_name = "dataElement"
+  records              = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+  id_col_name          = "dataElement"
 )
 }
 }

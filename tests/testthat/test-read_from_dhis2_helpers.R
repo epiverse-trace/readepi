@@ -1,12 +1,13 @@
 httptest::with_mock_api({
   test_that("login works as expected", {
     expect_message(
-                   login(
-                     username = "admin",
-                     password = "district",
-                     base_url = file.path("https:/", "play.dhis2.org", "dev")
-                   ),
-                   "Logged in successfully!")
+      login(
+        username = "admin",
+        password = "district",
+        base_url = file.path("https:/", "play.dhis2.org", "dev")
+      ),
+      "Logged in successfully!"
+    )
   })
 })
 
@@ -23,14 +24,15 @@ test_that("login fails as expected", {
 
 test_that("dhis2_subset_fields works as expected", {
   data <- readepi(
-    credentials_file   = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-    data_source        = "https://play.dhis2.org/dev",
-    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit  = "DiszpKrYNg8",
+    credentials_file = system.file("extdata", "test.ini",
+      package = "readepi"
+    ),
+    data_source = "https://play.dhis2.org/dev",
+    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+    organisation_unit = "DiszpKrYNg8",
     data_element_group = NULL,
-    start_date         = "2014",
-    end_date           = "2023"
+    start_date = "2014",
+    end_date = "2023"
   )[["data"]]
   results <- dhis2_subset_fields(
     data = data,
@@ -43,14 +45,15 @@ test_that("dhis2_subset_fields works as expected", {
 
 test_that("dhis2_subset_fields fails as expected", {
   data <- readepi(
-    credentials_file   = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-    data_source        = "https://play.dhis2.org/dev",
-    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit  = "DiszpKrYNg8",
+    credentials_file = system.file("extdata", "test.ini",
+      package = "readepi"
+    ),
+    data_source = "https://play.dhis2.org/dev",
+    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+    organisation_unit = "DiszpKrYNg8",
     data_element_group = NULL,
-    start_date         = "2014",
-    end_date           = "2023"
+    start_date = "2014",
+    end_date = "2023"
   )[["data"]]
   expect_error(
     dhis2_subset_fields(
@@ -64,14 +67,15 @@ test_that("dhis2_subset_fields fails as expected", {
 
 test_that("dhis2_subset_records works as expected", {
   data <- readepi(
-    credentials_file   = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-    data_source        = "https://play.dhis2.org/dev",
-    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit  = "DiszpKrYNg8",
+    credentials_file = system.file("extdata", "test.ini",
+      package = "readepi"
+    ),
+    data_source = "https://play.dhis2.org/dev",
+    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+    organisation_unit = "DiszpKrYNg8",
     data_element_group = NULL,
-    start_date         = "2014",
-    end_date           = "2023"
+    start_date = "2014",
+    end_date = "2023"
   )[["data"]]
   result <- dhis2_subset_records(
     data        = data,
@@ -83,15 +87,17 @@ test_that("dhis2_subset_records works as expected", {
 
 test_that("dhis2_subset_records fails as expected", {
   data <- readepi(
-    credentials_file   = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-    data_source        = "https://play.dhis2.org/dev",
-    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit  = "DiszpKrYNg8",
+    credentials_file = system.file("extdata", "test.ini",
+      package = "readepi"
+    ),
+    data_source = "https://play.dhis2.org/dev",
+    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+    organisation_unit = "DiszpKrYNg8",
     data_element_group = NULL,
-    start_date         = "2014",
-    end_date           = "2023"
+    start_date = "2014",
+    end_date = "2023"
   )[["data"]]
+
   expect_error(
     dhis2_subset_records(
       data        = data,
@@ -102,3 +108,52 @@ test_that("dhis2_subset_records fails as expected", {
                  character.")
   )
 })
+
+test_that("dhis2_subset_fields sends a warning when the provided field is not
+          found", {
+            data <- readepi(
+              credentials_file = system.file("extdata", "test.ini",
+                package = "readepi"
+              ),
+              data_source = "https://play.dhis2.org/dev",
+              dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+              organisation_unit = "DiszpKrYNg8",
+              data_element_group = NULL,
+              start_date = "2014",
+              end_date = "2023"
+            )[["data"]]
+
+            expect_warning(
+              dhis2_subset_fields(
+                data        = data,
+                fields      = c("dataElement", "period", "test")
+              ),
+              regexp = cat("Assertion on',fields,'failed: 'test' is not a valid
+                           field.")
+            )
+          })
+
+test_that("dhis2_subset_records sends a warning when the provided record is not
+          found", {
+            data <- readepi(
+              credentials_file = system.file("extdata", "test.ini",
+                package = "readepi"
+              ),
+              data_source = "https://play.dhis2.org/dev",
+              dataset = "pBOMPrpg1QX",
+              organisation_unit = "DiszpKrYNg8",
+              data_element_group = NULL,
+              start_date = "2014",
+              end_date = "2023"
+            )[["data"]]
+
+            expect_warning(
+              dhis2_subset_records(
+                data        = data,
+                records     = c("FTRrcoaog83", "eY5ehpbEsB7", "test"),
+                id_col_name = "dataElement"
+              ),
+              regexp = cat("Assertion on',records,'failed: 'test' is not a valid
+                                     record.")
+            )
+          })

@@ -20,7 +20,7 @@ Detect table names from an SQL query
 \examples{
 \dontrun{
 table_name <- identify_table_name(
-  query = "select * from author",
+  query  = "select * from author",
   tables = c("family_author", "author", "test")
 )
 }

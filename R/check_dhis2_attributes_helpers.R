@@ -17,16 +17,26 @@
 #' @keywords internal
 make_api_request <- function(base_url, username, password,
                              which = "dataElements") {
-  checkmate::assert_character(base_url, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE, pattern = "https://")
-  checkmate::assert_character(username, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(which, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::check_choice(which, c("dataSets", "organisationUnits",
-                                   "dataElementGroups", "dataElements"))
+  checkmate::assert_character(base_url,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE, pattern = "https://"
+  )
+  checkmate::assert_character(username,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(password,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(which,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::check_choice(which, c(
+    "dataSets", "organisationUnits",
+    "dataElementGroups", "dataElements"
+  ))
   url <- file.path(
     base_url,
     "api",
@@ -68,18 +78,30 @@ dhis2_get_relevant_attributes <- function(attribute_id = NULL,
                                           username = "admin",
                                           password = "district",
                                           which = "dataSets") {
-  checkmate::assert_character(base_url, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(username, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(which, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(attribute_id, len = 1L, any.missing = FALSE,
-                              null.ok = TRUE)
-  checkmate::check_choice(which, c("dataSets", "organisationUnits",
-                                   "dataElementGroups", "dataElements"))
+  checkmate::assert_character(base_url,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(username,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(password,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(which,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(attribute_id,
+    len = 1L, any.missing = FALSE,
+    null.ok = TRUE
+  )
+  checkmate::check_choice(which, c(
+    "dataSets", "organisationUnits",
+    "dataElementGroups", "dataElements"
+  ))
   if (is.character(attribute_id)) {
     attribute_id <- unlist(strsplit(attribute_id,
       ",",
@@ -136,27 +158,37 @@ dhis2_get_relevant_attributes <- function(attribute_id = NULL,
 #'
 #' @examples
 #' \dontrun{
-#'   datasets <- get_dhis2_attributes(
-#'     base_url ="https://play.dhis2.org/dev/",
-#'     username = "admin",
-#'     password = "district",
-#'     which    = "dataSets"
-#'   )
+#' datasets <- get_dhis2_attributes(
+#'   base_url = "https://play.dhis2.org/dev/",
+#'   username = "admin",
+#'   password = "district",
+#'   which = "dataSets"
+#' )
 #' }
 get_dhis2_attributes <- function(base_url = "https://play.dhis2.org/dev/",
                                  username = "admin",
                                  password = "district",
-                                 which    = "dataSets") {
-  checkmate::assert_character(base_url, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE, pattern = "https://")
-  checkmate::assert_character(username, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(password, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(which, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::check_choice(which, c("dataSets", "organisationUnits",
-                                   "dataElementGroups", "dataElements"))
+                                 which = "dataSets") {
+  checkmate::assert_character(base_url,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE, pattern = "https://"
+  )
+  checkmate::assert_character(username,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(password,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::assert_character(which,
+    len = 1L, any.missing = FALSE,
+    null.ok = FALSE
+  )
+  checkmate::check_choice(which, c(
+    "dataSets", "organisationUnits",
+    "dataElementGroups", "dataElements"
+  ))
   response <- make_api_request(base_url, username, password, which)
   content <- httr::content(response, as = "parsed")
   attributes <- do.call(rbind.data.frame, content[[which]])

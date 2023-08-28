@@ -29,11 +29,11 @@ Get the target DHIS2 attribute identifiers and names
 }
 \examples{
 \dontrun{
-  datasets <- get_dhis2_attributes(
-    base_url ="https://play.dhis2.org/dev/",
-    username = "admin",
-    password = "district",
-    which    = "dataSets"
-  )
+datasets <- get_dhis2_attributes(
+  base_url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district",
+  which = "dataSets"
+)
 }
 }

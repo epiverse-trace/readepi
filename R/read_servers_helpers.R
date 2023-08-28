@@ -13,13 +13,13 @@
 #' @examples
 #' \dontrun{
 #' con <- connect_to_server(
-#'   dbms = "MySQL",
-#'   driver_name = "",
-#'   host = "mysql-rfam-public.ebi.ac.uk",
+#'   dbms          = "MySQL",
+#'   driver_name   = "",
+#'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name = "Rfam",
-#'   user = "rfamro",
-#'   password = "",
-#'   port = 4497
+#'   user          = "rfamro",
+#'   password      = "",
+#'   port          = 4497
 #' )
 #' }
 #'
@@ -62,7 +62,7 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
 #' @examples
 #' \dontrun{
 #' table_name <- identify_table_name(
-#'   query = "select * from author",
+#'   query  = "select * from author",
 #'   tables = c("family_author", "author", "test")
 #' )
 #' }
@@ -103,15 +103,15 @@ identify_table_name <- function(query, tables) {
 #' @examples
 #' \dontrun{
 #' result <- fetch_data_from_query(
-#'   source = "select author_id, name, last_name from author",
-#'   dbms = "MySQL",
-#'   tables = c("family_author", "author"),
-#'   driver_name = "",
-#'   host = "mysql-rfam-public.ebi.ac.uk",
+#'   source        = "select author_id, name, last_name from author",
+#'   dbms          = "MySQL",
+#'   tables        = c("family_author", "author"),
+#'   driver_name   = "",
+#'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name = "Rfam",
-#'   user = "rfamro",
-#'   password = "",
-#'   port = 4497
+#'   user          = "rfamro",
+#'   password      = "",
+#'   port          = 4497
 #' )
 #' }
 #'
@@ -162,18 +162,18 @@ fetch_data_from_query <- function(source, dbms, tables,
 #' @examples
 #' \dontrun{
 #' result <- sql_select_data(
-#'   table_names = "author",
-#'   dbms = "MySQL",
-#'   id_col_name = "author_id",
-#'   fields = c("author_id", "name"),
-#'   records = NULL,
-#'   id_position = NULL,
-#'   driver_name = "",
-#'   host = "mysql-rfam-public.ebi.ac.uk",
+#'   table_names   = "author",
+#'   dbms          = "MySQL",
+#'   id_col_name   = "author_id",
+#'   fields        = c("author_id", "name"),
+#'   records       = NULL,
+#'   id_position   = NULL,
+#'   driver_name   = "",
+#'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name = "Rfam",
-#'   user = "rfamro",
-#'   password = "",
-#'   port = 4497
+#'   user          = "rfamro",
+#'   password      = "",
+#'   port          = 4497
 #' )
 #' }
 #'
@@ -225,7 +225,7 @@ sql_select_data <- function(table_names, dbms, id_col_name,
         records[j], records
       )
       field <- ifelse(all(grepl(",", fields, fixed = TRUE) &
-                            length(fields) > 1), # nolint
+        length(fields) > 1), # nolint
         fields[j], fields
       )
       id_column_name <- get_id_column_name(
@@ -298,14 +298,14 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 #' @examples
 #' \dontrun{
 #' result <- sql_select_entire_dataset(
-#'   table = "author",
-#'   dbms = "MySQL",
-#'   driver_name = "",
-#'   host = "mysql-rfam-public.ebi.ac.uk",
+#'   table         = "author",
+#'   dbms          = "MySQL",
+#'   driver_name   = "",
+#'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name = "Rfam",
-#'   user = "rfamro",
-#'   password = "",
-#'   port = 4497
+#'   user          = "rfamro",
+#'   password      = "",
+#'   port          = 4497
 #' )
 #' }
 #'
@@ -351,18 +351,18 @@ sql_select_entire_dataset <- function(table, dbms, driver_name, host,
 #' @examples
 #' \dontrun{
 #' result <- sql_select_records_and_fields(
-#'   table = "author",
-#'   record = c("1", "20", "50"),
+#'   table          = "author",
+#'   record         = c("1", "20", "50"),
 #'   id_column_name = "author_id",
-#'   field = c("author_id", "last_name"),
-#'   id_pos = NULL,
-#'   dbms = "MySQL",
-#'   driver_name = "",
-#'   host = "mysql-rfam-public.ebi.ac.uk",
-#'   database_name = "Rfam",
-#'   user = "rfamro",
-#'   password = "",
-#'   port = 4497
+#'   field          = c("author_id", "last_name"),
+#'   id_pos         = NULL,
+#'   dbms           = "MySQL",
+#'   driver_name    = "",
+#'   host           = "mysql-rfam-public.ebi.ac.uk",
+#'   database_name  = "Rfam",
+#'   user           = "rfamro",
+#'   password       = "",
+#'   port           = 4497
 #' )
 #' }
 #'
@@ -433,8 +433,10 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #' @export
 #'
 visualise_table <- function(data_source, credentials_file, from, driver_name) {
-  checkmate::assert_character(from, any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+  checkmate::assert_character(from,
+    any.missing = FALSE, len = 1L,
+    null.ok = FALSE
+  )
   checkmate::assert_character(credentials_file, null.ok = FALSE, len = 1L)
   checkmate::assert_file_exists(credentials_file)
   checkmate::assert_character(data_source, null.ok = FALSE, len = 1L)
@@ -477,17 +479,17 @@ visualise_table <- function(data_source, credentials_file, from, driver_name) {
 #' @examples
 #' \dontrun{
 #' result <- sql_select_records_only(
-#'   table = "author",
-#'   record = c("1", "20", "50"),
+#'   table          = "author",
+#'   record         = c("1", "20", "50"),
 #'   id_column_name = NULL,
-#'   id_pos = 1,
-#'   dbms = "MySQL",
-#'   driver_name = "",
-#'   host = "mysql-rfam-public.ebi.ac.uk",
-#'   database_name = "Rfam",
-#'   user = "rfamro",
-#'   password = "",
-#'   port = 4497
+#'   id_pos         = 1,
+#'   dbms           = "MySQL",
+#'   driver_name    = "",
+#'   host           = "mysql-rfam-public.ebi.ac.uk",
+#'   database_name  = "Rfam",
+#'   user           = "rfamro",
+#'   password       = "",
+#'   port           = 4497
 #' )
 #' }
 #'
@@ -524,8 +526,10 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
     id_column_name,
     names(first_5_rows)[id_pos]
   )
-  stopifnot("Missing or NULL value found in record argument" =
-              (anyNA(record) || !any(is.null(record))))
+  stopifnot(
+    "Missing or NULL value found in record argument" =
+      (anyNA(record) || !any(is.null(record)))
+  )
 
   if (is.vector(record)) {
     record <- glue::glue_collapse(record, sep = ", ")
@@ -559,15 +563,15 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
 #' @examples
 #' \dontrun{
 #' result <- sql_select_fields_only(
-#'   table = "author",
-#'   field = c("author_id", "name", "last_name"),
-#'   dbms = "MySQL",
-#'   driver_name = "",
-#'   host = "mysql-rfam-public.ebi.ac.uk",
+#'   table         = "author",
+#'   field         = c("author_id", "name", "last_name"),
+#'   dbms          = "MySQL",
+#'   driver_name   = "",
+#'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name = "Rfam",
-#'   user = "rfamro",
-#'   password = "",
-#'   port = 4497
+#'   user          = "rfamro",
+#'   password      = "",
+#'   port          = 4497
 #' )
 #' }
 #'

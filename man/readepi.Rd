@@ -43,7 +43,7 @@ systems (DBMS) and website of public data collection.
 \examples{
 # reading from a MySQL server
 data <- readepi(
-  data_source           = "mysql-rfam-public.ebi.ac.uk",
+  data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
   driver_name      = "",
   from             = "author"

@@ -34,14 +34,14 @@
 #' @examples
 #' \dontrun{
 #' data <- sql_server_read_data(
-#'   user = "rfamro",
-#'   password = "",
-#'   host = "mysql-rfam-public.ebi.ac.uk",
-#'   port = 4497,
+#'   user          = "rfamro",
+#'   password      = "",
+#'   host          = "mysql-rfam-public.ebi.ac.uk",
+#'   port          = 4497,
 #'   database_name = "Rfam",
-#'   source = "author",
-#'   driver_name = "",
-#'   dbms = "MySQL"
+#'   source        = "author",
+#'   driver_name   = "",
+#'   dbms          = "MySQL"
 #' )
 #' }
 #' @importFrom magrittr %>%

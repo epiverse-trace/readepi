@@ -20,6 +20,45 @@ test_that("read_credentials works as expected", {
   expect_identical(res[["port"]], 4497L)
 })
 
+test_that("read_credentials fails as expected", {
+  expect_error(
+    read_credentials(
+      file_path  = system.file("extdata", "fake_test.ini", package = "readepi"),
+      url        = "mysql-rfam-public.ebi.ac.uk"
+    ),
+    regexp = cat("The credential file is expected to have 7 columns.")
+  )
+
+  expect_error(
+    read_credentials(
+      file_path = system.file("extdata", "bad_column_name.ini",
+        package = "readepi"
+      ),
+      url = "mysql-rfam-public.ebi.ac.uk"
+    ),
+    regexp = cat("Unexpected column name(s) in the provided credential file.
+                 The expected column names are: 'user_name', 'password',
+                 'host_name', 'project_id', 'comment', 'dbms', 'port'")
+  )
+
+  expect_error(
+    read_credentials(
+      file_path  = system.file("extdata", "bad_url.ini", package = "readepi"),
+      url        = "mysql-rfam-public.ebi.ac.uk"
+    ),
+    regexp = cat("No user credential file found for the specified URL.")
+  )
+
+  expect_error(
+    read_credentials(
+      file_path  = system.file("extdata", "multiple_urls.ini",
+                               package = "readepi"),
+      url        = "mysql-rfam-public.ebi.ac.uk"
+    ),
+    regexp = cat("Found multiple credentials for the specified URL.")
+  )
+})
+
 test_that("get_read_file_args works as expected", {
   res <- get_read_file_args(
     list(
@@ -35,6 +74,32 @@ test_that("get_read_file_args works as expected", {
   expect_identical(res[["format"]], ".txt")
   expect_null(res[["which"]])
   expect_null(res[["pattern"]])
+})
+
+test_that("get_read_file_args fails as expected", {
+  args_list <- get_read_file_args(
+    list(
+      format = ".txt",
+      which = NULL
+    )
+  )
+  expect_null(args_list[["sep"]])
+
+  args_list <- get_read_file_args(
+    list(
+      sep = "\t",
+      which = NULL
+    )
+  )
+  expect_null(args_list[["format"]])
+
+  args_list <- get_read_file_args(
+    list(
+      sep = "\t",
+      format = ".txt"
+    )
+  )
+  expect_null(args_list[["which"]])
 })
 
 test_that("get_read_fingertips_args works as expected", {
@@ -139,4 +204,28 @@ test_that("get_read_fingertips_args works as expected", {
   expect_null(res[["domain_id"]])
   expect_null(res[["domain_name"]])
   expect_null(res[["parent_area_type_id"]])
+})
+
+test_that("get_read_fingertips_args fails as expected", {
+  res <- get_read_fingertips_args(
+    list(
+      indicator_id   = 90362L,
+      area_type_id   = NULL,
+      indicator_name = "Healthy life expectancy at birth",
+      domain_id      = 1000049L,
+      domain_name    = "A. Overarching indicators",
+      profile_id     = 19L,
+      profile_name   = "Public Health Outcomes Framework"
+    )
+  )
+  expect_null(res[["area_type_id"]])
+
+  res <- get_read_fingertips_args(
+    list(
+      indicator_id        = 90362L,
+      area_type_id        = NULL,
+      parent_area_type_id = 6L
+    )
+  )
+  expect_identical(res[["parent_area_type_id"]], 6L)
 })
