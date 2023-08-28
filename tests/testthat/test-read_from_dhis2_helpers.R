@@ -45,16 +45,13 @@ test_that("dhis2_subset_fields works as expected", {
 
 test_that("dhis2_subset_fields fails as expected", {
   data <- readepi(
-    credentials_file = system.file("extdata", "test.ini",
-      package = "readepi"
-    ),
-    data_source = "https://play.dhis2.org/dev",
-    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit = "DiszpKrYNg8",
+    credentials_file  = system.file("extdata", "test.ini", package = "readepi"),
+    data_source        = "https://play.dhis2.org/dev",
+    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
+    organisation_unit  = "DiszpKrYNg8",
     data_element_group = NULL,
-    start_date = "2014",
-    end_date = "2023"
-  )[["data"]]
+    start_date         = "2014",
+    end_date           = "2023")[["data"]]
   expect_error(
     dhis2_subset_fields(
       data   = data,
