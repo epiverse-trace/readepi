@@ -14,8 +14,7 @@
 #' )
 #' }
 #' @keywords internal
-#' @importFrom utils, read.table
-#'
+#' @importFrom utils read.table
 read_credentials <- function(
     file_path = system.file("extdata", "test.ini", package = "readepi"),
     url       = "mysql-rfam-public.ebi.ac.uk") {
