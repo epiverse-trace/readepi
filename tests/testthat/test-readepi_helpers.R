@@ -59,49 +59,6 @@ test_that("read_credentials fails as expected", {
   )
 })
 
-test_that("get_read_file_args works as expected", {
-  res <- get_read_file_args(
-    list(
-      sep = "\t",
-      format = ".txt",
-      which = NULL
-    )
-  )
-  expect_type(res, "list")
-  expect_length(res, 4L)
-  expect_named(res, c("sep", "format", "which", "pattern"))
-  expect_identical(res[["sep"]], "\t")
-  expect_identical(res[["format"]], ".txt")
-  expect_null(res[["which"]])
-  expect_null(res[["pattern"]])
-})
-
-test_that("get_read_file_args fails as expected", {
-  args_list <- get_read_file_args(
-    list(
-      format = ".txt",
-      which = NULL
-    )
-  )
-  expect_null(args_list[["sep"]])
-
-  args_list <- get_read_file_args(
-    list(
-      sep = "\t",
-      which = NULL
-    )
-  )
-  expect_null(args_list[["format"]])
-
-  args_list <- get_read_file_args(
-    list(
-      sep = "\t",
-      format = ".txt"
-    )
-  )
-  expect_null(args_list[["which"]])
-})
-
 test_that("get_read_fingertips_args works as expected", {
   res <- get_read_fingertips_args(
     list(

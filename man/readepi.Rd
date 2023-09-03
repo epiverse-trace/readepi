@@ -14,8 +14,7 @@ readepi(
 )
 }
 \arguments{
-\item{data_source}{either the the URL of the HIS or the path to the file or
-directory of interest otherwise.}
+\item{data_source}{the URL of the HIS}
 
 \item{records}{a vector or a comma-separated string of subject IDs.
 When specified, only these records will be imported.}

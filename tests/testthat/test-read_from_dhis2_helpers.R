@@ -51,7 +51,8 @@ test_that("dhis2_subset_fields fails as expected", {
     organisation_unit  = "DiszpKrYNg8",
     data_element_group = NULL,
     start_date         = "2014",
-    end_date           = "2023")[["data"]]
+    end_date           = "2023"
+  )[["data"]]
   expect_error(
     dhis2_subset_fields(
       data   = data,

@@ -14,10 +14,11 @@
 #' )
 #' }
 #' @keywords internal
+#' @importFrom utils, read.table
 #'
 read_credentials <- function(
     file_path = system.file("extdata", "test.ini", package = "readepi"),
-    url = "mysql-rfam-public.ebi.ac.uk") {
+    url       = "mysql-rfam-public.ebi.ac.uk") {
   checkmate::assert_character(url,
     len = 1L, null.ok = FALSE,
     any.missing = FALSE
@@ -55,55 +56,6 @@ read_credentials <- function(
     )
   }
   project_credentials
-}
-
-#' Get arguments for reading from files
-#'
-#' @param args_list a `list` of user specified arguments
-#'
-#' @return a `list` of 4 elements of types `characters`. They define how the
-#'    file will be read.
-#' @examples
-#' \dontrun{
-#' args_list <- get_read_file_args(
-#'   list(
-#'     sep = "\t",
-#'     format = ".txt",
-#'     which = NULL
-#'   )
-#' )
-#' }
-#' @keywords internal
-#'
-get_read_file_args <- function(args_list) {
-  checkmate::assert_list(args_list)
-  if ("sep" %in% names(args_list)) {
-    sep <- args_list[["sep"]]
-  } else {
-    sep <- NULL
-  }
-  if ("format" %in% names(args_list)) {
-    format <- args_list[["format"]]
-  } else {
-    format <- NULL
-  }
-  if ("which" %in% names(args_list)) {
-    which <- args_list[["which"]]
-  } else {
-    which <- NULL
-  }
-  if ("pattern" %in% names(args_list)) {
-    pattern <- args_list[["pattern"]]
-  } else {
-    pattern <- NULL
-  }
-
-  list(
-    sep = sep,
-    format = format,
-    which = which,
-    pattern = pattern
-  )
 }
 
 #' Get arguments for reading from Fingertips

@@ -4,8 +4,7 @@
 #' Systems (HIS), files, and folders.The HIS consist of database management
 #' systems (DBMS) and website of public data collection.
 #'
-#' @param data_source either the the URL of the HIS or the path to the file or
-#'    directory of interest otherwise.
+#' @param data_source the URL of the HIS
 #' @param records a vector or a comma-separated string of subject IDs.
 #'    When specified, only these records will be imported.
 #' @param fields a vector or a comma-separated string of column names.
@@ -57,19 +56,6 @@ readepi <- function(data_source = NULL,
 
   # get the additional arguments
   args_list <- list(...)
-
-  # reading from file
-  if (all(!is.null(data_source) && any(file.exists(data_source) ||
-                                         dir.exists(data_source)))) {
-    args <- get_read_file_args(args_list)
-    res <- read_from_file(
-      file_path    = data_source,
-      sep          = args[["sep"]],
-      format       = args[["format"]],
-      which        = args[["which"]],
-      pattern      = args[["pattern"]]
-    )
-  }
 
   # reading from Fingertips
   if (any("indicator_id" %in% names(args_list) |

@@ -2,10 +2,6 @@ test_that("readepi works as expected when reading from DBMS", {
   data <- readepi(
     data_source      = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    sep              = NULL,
-    format           = NULL,
-    which            = NULL,
-    pattern          = NULL,
     driver_name      = "",
     table_name       = "author",
     records          = NULL,
@@ -106,49 +102,12 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_type(data, "list")
 })
 
-
-test_that("readepi works as expected when reading from file", {
-  data <- readepi(
-    data_source      = system.file("extdata", "test.json", package = "readepi"),
-    sep              = NULL,
-    format           = NULL,
-    which            = NULL,
-    pattern          = NULL,
-    driver_name      = NULL,
-    table_name       = NULL,
-    records          = NULL,
-    fields           = NULL,
-    id_position      = 1L
-  )
-  expect_type(data, "list")
-})
-
 test_that("readepi works as expected when reading from DBMS", {
   data <- readepi(
     data_source      = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    sep              = NULL,
-    format           = NULL,
-    which            = NULL,
-    pattern          = NULL,
     driver_name      = "",
     table_name       = "author",
-    records          = NULL,
-    fields           = NULL,
-    id_position      = 1L
-  )
-  expect_type(data, "list")
-})
-
-test_that("readepi works as expected when reading from a directory", {
-  data <- readepi(
-    data_source      = system.file("extdata", package = "readepi"),
-    sep              = NULL,
-    format           = NULL,
-    which            = NULL,
-    pattern          = "txt",
-    driver_name      = NULL,
-    table_name       = NULL,
     records          = NULL,
     fields           = NULL,
     id_position      = 1L
@@ -452,64 +411,37 @@ test_that("readepi fails as expected when reading from REDCap", {
   )
 })
 
-test_that("readepi fails as expected when reading from DBMS,
-          files and folders", {
-            expect_error(
-              readepi(
-                credentials_file = system.file("extdata", "test.ini",
-                                               package = "readepi"),
-                data_source = "mysql-rfam-public.ebi.ac.uk",
-                sep = NULL,
-                format = NULL,
-                which = NULL,
-                pattern = NULL,
-                driver_name = NULL,
-                table_name = "author",
-                records = NULL,
-                fields = NULL,
-                id_position = 1L
-              ),
-              regexp = cat("Assertion on',driver_name,failed: MS driver name
-                           must be provided.")
-            )
+test_that("readepi fails as expected when reading from DBMS", {
+  expect_error(
+    readepi(
+      credentials_file = system.file("extdata", "test.ini",
+                                     package = "readepi"),
+      data_source = "mysql-rfam-public.ebi.ac.uk",
+      driver_name = NULL,
+      table_name = "author",
+      records = NULL,
+      fields = NULL,
+      id_position = 1L
+    ),
+    regexp = cat("Assertion on',driver_name,failed: MS driver name
+                 must be provided.")
+  )
 
-            expect_error(
-              readepi(
-                credentials_file = NULL,
-                data_source      = "mysql-rfam-public.ebi.ac.uk",
-                sep              = NULL,
-                format           = NULL,
-                which            = NULL,
-                pattern          = NULL,
-                driver_name      = NULL,
-                table_name       = "author",
-                records          = NULL,
-                fields           = NULL,
-                id_position      = 1L
-              ),
-              regexp = cat("Assertion on',credentials_file,and,'file_path',
-              failed: Must provide either a file path, or a directory or a
-              credential file.")
-            )
-
-            expect_error(
-              readepi(
-                credentials_file = NULL,
-                data_source      = "mysql-rfam-public.ebi.ac.uk",
-                sep              = c(",", "\t"),
-                format           = NULL,
-                which            = NULL,
-                pattern          = NULL,
-                driver_name      = NULL,
-                table_name       = NULL,
-                records          = NULL,
-                fields           = NULL,
-                id_position      = 1L
-              ),
-              regexp = cat("Assertion on',sep,'failed: Must be a character of
-                           length 1.")
-            )
-          })
+  expect_error(
+    readepi(
+      credentials_file = NULL,
+      data_source      = "mysql-rfam-public.ebi.ac.uk",
+      driver_name      = NULL,
+      table_name       = "author",
+      records          = NULL,
+      fields           = NULL,
+      id_position      = 1L
+    ),
+    regexp = cat("Assertion on',credentials_file,and,'file_path',
+    failed: Must provide either a file path, or a directory or a
+    credential file.")
+  )
+})
 
 
 test_that("readepi fails as expected when reading from Fingertips", {

@@ -90,7 +90,7 @@ data <- readepi(
 
 # READING DATA FROM FILES IN A DIRECTORY
 dir_path <- system.file("extdata", package = "readepi")
-data <- readepi(data_source = dir_path)
+data     <- readepi(data_source = dir_path)
 
 # READING DATA FROM FILES WITH SPECIFIC EXTENSION(S) IN A DICECTORY
 data <- readepi(
@@ -129,7 +129,7 @@ data <- readepi(
   data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
   credentials_file = credentials_file
 )
-project_data <- data$data # accessing the actual data
+project_data     <- data$data # accessing the actual data
 project_metadeta <- data$metadata # accessing the metadata associated with project
 
 # VIEWING THE LIST OF ALL TABLES IN A MySQL DATABASE
@@ -200,11 +200,11 @@ interface may still undergo minor changes.
 ### Contributions
 
 Contributions are welcome via [pull
-requests](https://github.com/epiverse-trace/readepi/pulls).
+requests](https://github.com/%7B%7B%20gh_repo%20%7D%7D/pulls).
 
 ### Code of Conduct
 
-Please note that the readepi project is released with a [Contributor
-Code of
+Please note that the {{ packagename }} project is released with a
+[Contributor Code of
 Conduct](https://github.com/epiverse-trace/.github/blob/main/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.

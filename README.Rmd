@@ -78,7 +78,7 @@ data <- readepi(
 
 # READING DATA FROM FILES IN A DIRECTORY
 dir_path <- system.file("extdata", package = "readepi")
-data <- readepi(data_source = dir_path)
+data     <- readepi(data_source = dir_path)
 
 # READING DATA FROM FILES WITH SPECIFIC EXTENSION(S) IN A DICECTORY
 data <- readepi(
@@ -108,7 +108,7 @@ data <- readepi(
   data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
   credentials_file = credentials_file
 )
-project_data <- data$data # accessing the actual data
+project_data     <- data$data # accessing the actual data
 project_metadeta <- data$metadata # accessing the metadata associated with project
 
 # VIEWING THE LIST OF ALL TABLES IN A MySQL DATABASE
