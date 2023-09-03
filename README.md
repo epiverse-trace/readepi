@@ -19,14 +19,10 @@ coverage](https://codecov.io/gh/epiverse-trace/readepi/branch/main/graph/badge.s
 
 **{readepi}** is an R package for reading data from several health
 information systems (HIS) including public repositories, relational
-database management systems (RDBMS), and files of almost any formats.
+database management systems (RDBMS).
 
 **{readepi}** currently supports reading data from the followings:
 
-- All file formats in the
-  [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html)
-  package  
-- Files of formats that are not covered by `rio` package  
 - RDBMS (Relational Database Management Systems) such as MS SQL, MySQL,
   and PostgreSQL 
 - [REDCap](https://projectredcap.org/software/): Research Electronic
@@ -64,40 +60,10 @@ library(readepi)
 
 The main function in **{readepi}** is `readepi()`. It reads data from a
 specified source. The `readepi()` function accepts a user-supplied
-string (the path to a file/folder or the API’s URL) as argument. Other
-specific arguments can be provided depending on the data source (see the
-**vignette** for more details). The examples below show how to use the
-`readepi()` function to import data from a variety of sources.
-
-### Reading data from files
-
-``` r
-# READING FROM JSON FILE
-file <- system.file("extdata", "test.json", package = "readepi")
-data <- readepi(data_source = file)
-
-# IMPORTING DATA FROM AN EXCEL SHEET FILE
-file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(
-  data_source = file,
-  which       = "Sheet2"
-)
-# READING FROM MULTIPLE SHEETS
-data <- readepi(
-  data_source = file,
-  which       = c("Sheet1", "Sheet2")
-)
-
-# READING DATA FROM FILES IN A DIRECTORY
-dir_path <- system.file("extdata", package = "readepi")
-data     <- readepi(data_source = dir_path)
-
-# READING DATA FROM FILES WITH SPECIFIC EXTENSION(S) IN A DICECTORY
-data <- readepi(
-  data_source = dir_path,
-  pattern     = c(".txt", ".xlsx")
-)
-```
+string (the API’s URL) as argument. Other specific arguments can be
+provided depending on the data source (see the **vignette** for more
+details). The examples below show how to use the `readepi()` function to
+import data from a variety of sources.
 
 ### Reading data from RDBMS and HIS
 

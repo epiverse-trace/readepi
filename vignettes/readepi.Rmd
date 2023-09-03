@@ -16,9 +16,9 @@ vignette: >
 
 Health-related data in general, and epidemiological data in particular, are stored in files, relation database management systems (RDBMS), or health information systems (HIS). Each category includes numerous options, such as various file formats, RDBMS types, and HIS APIs. Import data from such repositories involve the usage of different format-specific functions or API-specific packages, which is an exhausting task for end users. 
 
-The main objective of **{readepi}** package is to simplify the process of reading health-related data from diverse sources, allowing the user to focus more on downstream analysis tasks. **{readepi}**  also streamlines the way data is read into a single function ---it imports data from a specified repository (can be file, or  directory, or  SQL database, or HIS API) using the `readepi()` function, which returns a  `list` object containing one or more data frames.
+The main objective of **{readepi}** package is to simplify the process of reading health-related data from diverse sources, allowing the user to focus more on downstream analysis tasks. **{readepi}**  also streamlines the way data is read into a single function ---it imports data from a specified systems (can be SQL database, or HIS API) using the `readepi()` function, which returns a  `list` object containing one or more data frames.
 
-The current implementation of **{readepi}** provides a function for reading data from three common HIS: ([REDCap](https://www.project-redcap.org/), [DHIS2](https://dhis2.org/), and [Fingertips](https://fingertips.phe.org.uk/)), RDBMS servers (MS SQL, MySQL, and PostgreSQL), and from files of almost any format. Other utility functions for processing and manipulating the imported data, such as row or column/row sub-setting, are also included in this package.
+The current implementation of **{readepi}** provides a function for reading data from three common HIS: ([REDCap](https://www.project-redcap.org/), [DHIS2](https://dhis2.org/), and [Fingertips](https://fingertips.phe.org.uk/)), RDBMS servers (MS SQL, MySQL, and PostgreSQL). Other utility functions for processing and manipulating the imported data, such as row or column/row sub-setting, are also included in this package.
 
 
 ```{r, include = FALSE}
@@ -34,67 +34,6 @@ knitr::opts_chunk[["set"]](
 ```{r setup}
 # LOAD readepi
 library("readepi") # nolint
-```
-
-# Reading data from file or directory
-
-The `readepi()` function can read data from a single file or from multiple files stored in the same directory. This function expects the following arguments:  
-
-1. `data_source`: the path to the file or directory of interest.
-2. `format`:      a character or vector of characters used to specify the file format(s) of interest.
-3. `sep`:         (optional) a separator between the columns in the file.
-4. `which`:       (optional) a character specifying which objects to import, e.g., name(s) of sheet(s) in an Excel file.    
-5. `pattern`:     (optional) a character vector of characters used to determine the type of file to read from the specified directory.
-
-**Note** that the argument `sep` useful for reading files in formats not supported by the [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html#Data_Import) package. When not provided, the function will try to identify the separator between the columns in the provided file.    
-Several examples of how to use the `readepi()` function to import data from files of different formats are shown below.  
-
-## Importing data from file
-
-Many RDBMS can export data into `JSON` format that can be read into R using the `readepi()` function as in the below example.  
-
-```{r eval=FALSE}
-file <- system.file("extdata", "test.json", package = "readepi")
-data <- readepi(data_source = file)
-```
-
-The `readepi()` function can also read data from one or multiple sheet(s) in an MS Excel file. If the file contains multiple sheets, the user must supply the names of the sheets of interest, as shown in the examples below.     
-
-```{r eval=FALSE}
-# READ DATA FROM SHEET2 IN THE TEST.XLSX FILE
-file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(
-  data_source = file,
-  which       = "Sheet2"
-)
-
-# IMPORTING DATA FROM MULTIPLE SHEETS
-data <- readepi(
-  data_source = file,
-  which       = c("Sheet2", "Sheet1")
-)
-```
-
-## Importing data from files located in the same directory
-
-`readepi()` can read data from multiple files in the same directory. When the directory contains files of different formats, the `pattern` argument must be used to define the file type of interest. See the following examples.    
-
-```{r eval=FALSE}
-# READING ALL FILES IN A DIRECTORY
-dir_path <- system.file("extdata", package = "readepi")
-data <- readepi(data_source = dir_path)
-
-# READING ONLY '.txt' FILES IN THE GIVEN DIRECTORY
-data <- readepi(
-  data_source = dir_path,
-  pattern     = ".txt"
-)
-
-# READING ALL THE '.txt' and '.xlsx' FILES IN THE GIVEN DIRECTORY i
-data <- readepi(
-  data_source = dir_path,
-  pattern     = c(".txt", ".xlsx")
-)
 ```
 
 # Reading data from RDBMS 

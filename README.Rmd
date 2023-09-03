@@ -25,12 +25,10 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/epiverse-trace/readepi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/epiverse-trace/readepi/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/epiverse-trace/readepi/branch/main/graph/badge.svg)](https://app.codecov.io/gh/epiverse-trace/readepi?branch=main) [![lifecycle-concept](https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-maturing.svg)](https://www.reconverse.org/lifecycle.html#concept)
 <!-- badges: end -->
 
-**{readepi}** is an R package for reading data from several health information systems (HIS) including public repositories, relational database management systems (RDBMS), and  files of almost any formats.
+**{readepi}** is an R package for reading data from several health information systems (HIS) including public repositories, relational database management systems (RDBMS).
 
 **{readepi}** currently supports reading data from the followings:
 
--   All file formats in the [rio](https://cran.r-project.org/web/packages/rio/vignettes/rio.html) package\
--   Files of formats that are not covered  by `rio` package\
 -   RDBMS (Relational Database Management Systems) such as MS SQL,  MySQL, and PostgreSQL\ 
 - [REDCap](https://projectredcap.org/software/): Research Electronic Data Capture - a secure web application for building and managing online surveys and databases\
 -   [DHIS2](https://dhis2.org/about/): an open source and web-based platform for managing health information\
@@ -55,37 +53,7 @@ library(readepi)
 
 ## Quick start
 
-The main function in **{readepi}**  is `readepi()`. It reads data from a specified source. The `readepi()` function accepts a user-supplied string (the path to a file/folder or the API's URL) as argument. Other specific arguments can be provided depending on the data source (see the **vignette** for more details). The examples below show how to use the `readepi()` function to import data from a variety of sources.
-
-### Reading data from files
-
-```{r eval=FALSE}
-# READING FROM JSON FILE
-file <- system.file("extdata", "test.json", package = "readepi")
-data <- readepi(data_source = file)
-
-# IMPORTING DATA FROM AN EXCEL SHEET FILE
-file <- system.file("extdata", "test.xlsx", package = "readepi")
-data <- readepi(
-  data_source = file,
-  which       = "Sheet2"
-)
-# READING FROM MULTIPLE SHEETS
-data <- readepi(
-  data_source = file,
-  which       = c("Sheet1", "Sheet2")
-)
-
-# READING DATA FROM FILES IN A DIRECTORY
-dir_path <- system.file("extdata", package = "readepi")
-data     <- readepi(data_source = dir_path)
-
-# READING DATA FROM FILES WITH SPECIFIC EXTENSION(S) IN A DICECTORY
-data <- readepi(
-  data_source = dir_path,
-  pattern     = c(".txt", ".xlsx")
-)
-```
+The main function in **{readepi}**  is `readepi()`. It reads data from a specified source. The `readepi()` function accepts a user-supplied string (the API's URL) as argument. Other specific arguments can be provided depending on the data source (see the **vignette** for more details). The examples below show how to use the `readepi()` function to import data from a variety of sources.
 
 ### Reading data from RDBMS and HIS
 
