@@ -18,7 +18,7 @@ Health-related data in general, and epidemiological data in particular, are stor
 
 The main objective of **{readepi}** package is to simplify the process of reading health-related data from diverse sources, allowing the user to focus more on downstream analysis tasks. **{readepi}**  also streamlines the way data is read into a single function ---it imports data from a specified systems (can be SQL database, or HIS API) using the `readepi()` function, which returns a  `list` object containing one or more data frames.
 
-The current implementation of **{readepi}** provides a function for reading data from three common HIS: ([REDCap](https://www.project-redcap.org/), [DHIS2](https://dhis2.org/), and [Fingertips](https://fingertips.phe.org.uk/)), RDBMS servers (MS SQL, MySQL, and PostgreSQL). Other utility functions for processing and manipulating the imported data, such as row or column/row sub-setting, are also included in this package.
+The current implementation of **{readepi}** provides a function for reading data from three common HIS: ([REDCap](https://www.project-redcap.org/), [DHIS2](https://dhis2.org/), and [Fingertips](https://fingertips.phe.org.uk/)), and RDBMS such as MS SQL, MySQL, and PostgreSQL. Other utility functions for processing and manipulating the imported data, such as row or column/row sub-setting, are also included in this package.
 
 
 ```{r, include = FALSE}
