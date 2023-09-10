@@ -156,7 +156,12 @@ browseVignettes("readepi")
 
 ## Development
 
+<<<<<<< HEAD
 ### Lifecycle
+=======
+To report a bug please open an
+[issue](https://github.com/epiverse-trace/readepi/issues/new/choose).
+>>>>>>> db24446 (Automatic readme update)
 
 This package is currently a *maturing*, as defined by the [RECON
 software lifecycle](https://www.reconverse.org/lifecycle.html). This
