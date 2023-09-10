@@ -25,7 +25,7 @@ test_that("login fails as expected", {
 test_that("dhis2_subset_fields works as expected", {
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini",
-      package = "readepi"
+                                   package = "readepi"
     ),
     data_source = "https://play.dhis2.org/dev",
     dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
@@ -66,7 +66,7 @@ test_that("dhis2_subset_fields fails as expected", {
 test_that("dhis2_subset_records works as expected", {
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini",
-      package = "readepi"
+                                   package = "readepi"
     ),
     data_source = "https://play.dhis2.org/dev",
     dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
@@ -86,7 +86,7 @@ test_that("dhis2_subset_records works as expected", {
 test_that("dhis2_subset_records fails as expected", {
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini",
-      package = "readepi"
+                                   package = "readepi"
     ),
     data_source = "https://play.dhis2.org/dev",
     dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
@@ -111,7 +111,7 @@ test_that("dhis2_subset_fields sends a warning when the provided field is not
           found", {
             data <- readepi(
               credentials_file = system.file("extdata", "test.ini",
-                package = "readepi"
+                                             package = "readepi"
               ),
               data_source = "https://play.dhis2.org/dev",
               dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
@@ -135,7 +135,7 @@ test_that("dhis2_subset_records sends a warning when the provided record is not
           found", {
             data <- readepi(
               credentials_file = system.file("extdata", "test.ini",
-                package = "readepi"
+                                             package = "readepi"
               ),
               data_source = "https://play.dhis2.org/dev",
               dataset = "pBOMPrpg1QX",
