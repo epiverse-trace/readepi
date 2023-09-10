@@ -22,8 +22,9 @@ the subjects}
 \item{records}{a vector or a comma-separated string of subset of subject IDs}
 }
 \value{
-a list with the project data and its associated metadata with the
-fields and records of interest
+a \code{list} of 2 elements of type \code{data.frame} that contain the project
+data with only the records and fields of interest and
+its associated metadata.
 }
 \description{
 Subset records and columns from a REDCap project

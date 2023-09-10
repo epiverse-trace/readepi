@@ -1,0 +1,139 @@
+{
+    "dataSets": [
+        {
+            "name": "ART monthly summary",
+            "shortName": "ART 2010",
+            "id": "lyLU2wR22tC"
+        },
+        {
+            "name": "Child Health",
+            "shortName": "Child Health",
+            "id": "BfMAe6Itzgt"
+        },
+        {
+            "name": "Clinical Monitoring Checklist ",
+            "shortName": "Clinical Monitoring Checklist ",
+            "id": "VTdjfLXXmoi"
+        },
+        {
+            "name": "Emergency Response",
+            "shortName": "Emergency Response",
+            "id": "Lpw6GcnTrmS"
+        },
+        {
+            "name": "EPI Stock",
+            "shortName": "EPI Stock",
+            "id": "TuL8IOPzpHh"
+        },
+        {
+            "name": "Expenditures",
+            "shortName": "Expenditures",
+            "id": "rsyjyJmYD4J"
+        },
+        {
+            "name": "Facility Assessment",
+            "shortName": "Facility Assessment",
+            "id": "V8MHeZHIrcP"
+        },
+        {
+            "name": "HIV Care Monthly",
+            "shortName": "HIV Care Monthly",
+            "id": "vc6nF5yZsPR"
+        },
+        {
+            "name": "HIV Peadiatric monthly summary",
+            "shortName": "HIV Pead.",
+            "id": "EDzMBk0RRji"
+        },
+        {
+            "name": "IDSR Weekly",
+            "shortName": "IDSR Weekly",
+            "id": "Nyh6laLdBEJ"
+        },
+        {
+            "name": "IDSR Weekly (Start Wednesday)",
+            "shortName": "IDSR Weekly (Start Wednesday)",
+            "id": "j38YW1Am7he"
+        },
+        {
+            "name": "Inpatient Morbidity/Mortality Summary",
+            "shortName": "Inpatient Morbidity/Mortality Summary",
+            "id": "PLq9sJluXvc"
+        },
+        {
+            "name": "Life-Saving Commodities",
+            "shortName": "Life-Saving Commodities",
+            "id": "ULowA8V3ucd"
+        },
+        {
+            "name": "LZ_Test ابن خلدون",
+            "shortName": "LZ_Test ابن خلدون",
+            "id": "k3Mwf1IYcfV"
+        },
+        {
+            "name": "MNCH Quarterly Report",
+            "shortName": "MNCH Quarterly Report",
+            "id": "EKWVBc5C0ms"
+        },
+        {
+            "name": "Morbidity",
+            "shortName": "Morbidity",
+            "id": "eZDhcZi6FLP"
+        },
+        {
+            "name": "Mortality < 5 years",
+            "shortName": "Mortality < 5 years",
+            "id": "pBOMPrpg1QX"
+        },
+        {
+            "name": "Mortality < 5 years by age group",
+            "shortName": "Mortality < 5 years by age group",
+            "id": "ce7DSxx5H2I"
+        },
+        {
+            "name": "Mortality < 5 years by gender",
+            "shortName": "Mortality < 5 years by gender",
+            "id": "YFTk3VdO9av"
+        },
+        {
+            "name": "Mortality < 5 years Narratives",
+            "shortName": "Mortality < 5 years Narratives",
+            "id": "YZhd4nu3mzY"
+        },
+        {
+            "name": "PMTCT monthly summary",
+            "shortName": "PMTCT",
+            "id": "Rl58JxmKJo2"
+        },
+        {
+            "name": "Population",
+            "shortName": "Population",
+            "id": "aLpVgfXiz0f"
+        },
+        {
+            "name": "Project Management",
+            "shortName": "Project Management",
+            "id": "Y8gAn9DfAGU"
+        },
+        {
+            "name": "Reproductive Health",
+            "shortName": "Reproductive Health",
+            "id": "QX4ZTUbOt3a"
+        },
+        {
+            "name": "Staffing",
+            "shortName": "Staffing",
+            "id": "N4fIX1HL3TQ"
+        },
+        {
+            "name": "TB Facility Reporting Form",
+            "shortName": "TB Facility Reporting",
+            "id": "SF8FDSqw30D"
+        },
+        {
+            "name": "TB/HIV (VCCT) monthly summary",
+            "shortName": "TB/HIV (VCCT)",
+            "id": "OsPTWNqq26W"
+        }
+    ]
+}

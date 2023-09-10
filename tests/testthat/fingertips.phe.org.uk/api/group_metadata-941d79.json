@@ -1,0 +1,37 @@
+[
+    {
+        "Id": 8000011,
+        "Name": "NCMP prevalence data",
+        "Sequence": 1,
+        "ProfileId": 32,
+        "DataAvailable": null
+    },
+    {
+        "Id": 8000022,
+        "Name": "NCMP data quality",
+        "Sequence": 2,
+        "ProfileId": 32,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133288,
+        "Name": "NCMP small area data",
+        "Sequence": 3,
+        "ProfileId": 32,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133368,
+        "Name": "Adult prevalence data",
+        "Sequence": 4,
+        "ProfileId": 32,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133219,
+        "Name": "Contextual indicators",
+        "Sequence": 5,
+        "ProfileId": 32,
+        "DataAvailable": null
+    }
+]

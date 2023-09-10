@@ -1,0 +1,940 @@
+
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <script type="text/javascript">
+var ua = window.navigator.userAgent;
+var msie = ua.indexOf('MSIE '); // IE 10 or older
+var trident = ua.indexOf('Trident/'); //IE 11
+if (msie > 0 || trident > 0) window.location = "/browser-not-supported";
+</script>
+        <script type="text/javascript">
+        var href = window.location.href;
+        if (href.indexOf('http:') === 0) {
+            window.location.href = href.replace('http', 'https');
+        }
+    </script>
+
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="keywords" content="public,health,improvement,disparities,england,fingertips,population,data,alcohol,substance,misuse,drug,child,indicator,obesity,mortality,immunisation,england,hospital,breastfeeding,children,school,care,outcome,inequality" />
+    <meta name="author" content="Office for Health Improvement and Disparities (OHID)" />
+    <meta name="description" content="Fingertips is a rich source of indicators across a range of health and wellbeing themes designed to support JSNA and commissioning to improve health and wellbeing, and reduce inequalities." />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>
+        Public health profiles - OHID
+    </title>
+    <link rel="icon" href="/favicon.png" type="image/png">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+    <link href="/css-fingertips?v=sMBNBdE7RVrhUp4ckEHfdKjgpJNgPtzpmcb8CeC3CxA1" rel="stylesheet"/>
+
+    <link href="/css-angular?v=BUs3P9TQ62sFjTLyjdGpF8X6EfI5yaZYN4tw5PgVJxc1" rel="stylesheet"/>
+
+    <script src="/js-fingertips1?v=qA-1BEAzZ63elBt4B3qjYgiYgb2L7gcs-lXgQpUkwes1"></script>
+
+    <script src="/0-bbcc2318/js/vendor/popper.js/popper.min.js"></script>
+    <script src="/0-bbcc2318/js/vendor/bootstrap/bootstrap.min.js"></script>
+    <script src="/js-fingertips2?v=Qemugyt6LHadQloaugl5mNG-4wUqf44iFxiDewnuYqg1"></script>
+
+    
+
+
+    <script src="/js-fingertips-js-file?v=gDlAWqdrmpyIo6WgaqT2FE8Mlr5MmvsQq2Q6dxjw5Nk1"></script>
+
+    
+    <script type="text/javascript">
+    //<![CDATA[
+    FT.url = {
+        img: '/0-bbcc2318/images/',
+        bridge: '//fingertips.phe.org.uk/',
+        corews: 'https://fingertipsws.phe.org.uk/',
+        search: '/search/',
+        signIn: '/user-account/login'
+    };
+
+    window.APP_DATA = { urls: FT.url };
+//]]</script>
+
+        <script type="text/javascript">
+        (function (i, s, o, g, r, a, m) { i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        // Read _ga cookie
+        var gaCookie = getCookie('_ga');
+
+        if (gaCookie !== '') {
+            ga('send', 'pageview');
+        }
+    </script>
+
+    
+    <link href="/css-core-content-pages?v=dzRciLzf-Ycg2lUU1xiujdzDQtTqnNroacKZAWiVvOc1" rel="stylesheet"/>
+
+    <script type="text/javascript">
+    //<![CDATA[
+    appData = window.APP_DATA;
+    appData.version = '/0-bbcc2318/';
+//]]</script>
+
+</head>
+<body>
+<div id="global-cookie-message" class="gem-c-cookie-banner govuk-clearfix" data-module="cookie-banner" role="region" aria-label="cookie banner" data-nosnippet="" style="display: none;">
+    <div class="gem-c-cookie-banner__wrapper govuk-width-container">
+        <div class="govuk-grid-row">
+            <div id="cookies-message-container" class="govuk-grid-column-two-thirds">
+                <div class="gem-c-cookie-banner__message">
+                    <span class="govuk-heading-m">Tell us whether you accept cookies</span>
+                    <p class="govuk-body">
+                        We use <a href="/information/site-cookies" class="govuk-link">cookies to collect information</a> about how you use this site.
+                        We use this information to make the website work as well as possible.
+                    </p>
+                </div>
+                <div class="gem-c-cookie-banner__buttons gem-c-cookie-banner__buttons--flex">
+                    <button class="gem-c-button govuk-button gem-c-button--inline" type="submit" data-module="track-click" data-accept-cookies="true"
+                            data-track-category="cookieBanner" onclick="handleAcceptAllCookies()">
+                        Accept all cookies
+                    </button>
+                    <button class="gem-c-button govuk-button gem-c-button--inline" type="submit" data-module="track-click" data-set-cookie-preferences="true"
+                            data-track-category="cookieBanner" onclick="handleSetCookiePreferences()">
+                        Set cookie preferences
+                    </button>
+                </div>
+            </div>
+            <div id="cookies-accepted-message-container" class="gem-c-cookie-banner__confirmation govuk-width-container" tabindex="-1">
+                <p class="gem-c-cookie-banner__confirmation-message govuk-body">
+                    You’ve accepted all cookies. You can <a href="/information/site-cookies" class="govuk-link">change your cookie settings</a> at any time.
+
+                    <button class="gem-c-cookie-banner__hide-button govuk-link" data-hide-cookie-banner="true" data-module="track-click"
+                            data-track-category="cookieBanner" data-track-action="Hide cookie banner" onclick="hideCookieContainer()">
+                        Hide
+                    </button>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<header role="banner" class="gov-font gem-c-layout-super-navigation-header">
+    <div class="container py-1">
+        <div class="row">
+            <!-- Organisation icon and name -->
+            <div class="gem-c-layout-super-navigation-header__header-logo col-8 col-md-4 col-lg-3">
+                <a title="Go to the Office for Health Improvement & Disparities homepage" href="https://www.gov.uk/government/organisations/office-for-health-improvement-and-disparities" class="govuk-header__link govuk-header__link--homepage" target="_blank" rel="noreferrer noopener">
+                    <img class="crown-logo" src="/images/logos/crown-logo.svg" />
+                    <span class="govuk-header__logotype-text">
+                        Office for Health<br>Improvement<br>&amp; Disparities
+                    </span>
+                </a>
+            </div>
+
+            <!-- Fingertips header -->
+            <div class="col-12 col-md-6 col-lg-5 order-2 order-md-1">
+                <div class="fingertips-header">
+                    <a href="/" title="Go to the Fingertips homepage"><b>Fingertips</b>&nbsp;|&nbsp;Public health data</a>
+                </div>
+
+                <!-- Menu - lg to xl  -->
+                <div class="d-none d-lg-inline-block">
+                    
+
+<ul>
+    
+    <li class="site-link">
+        <a href="/profile/guidance"
+           title="Supporting materials to assist with interpretation of the Fingertips profiles and further use of the indicator data">
+            Guidance
+        </a>
+    </li>   
+    
+    
+    <li class="site-link">
+        <a href="/profile/guidance/supporting-information/api"
+           title="Accessing data with the Fingertips API">
+            API
+        </a>
+    </li>
+
+    
+    <li class="site-link"><a href="mailto:profilefeedback@dhsc.gov.uk?subject=Profile%20Feedback%20[General enquiry]" title="If you would like to ask a question or submit feedback then please send us an email">Contact us</a></li>
+
+    
+    <li id="your-account" class="d-none d-lg-block dropdown site-link">
+        <a id="your-account-button" href="#" class="dropdown-toggle" role="button"
+           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Your data</a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="your-account-button">
+            <a class="dropdown-item" href="/user-account/login" id="lnk-sign-in">Sign in</a>
+        </div>
+    </li>
+
+    
+    <li class="d-lg-none site-link">
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/user-account/login" id="lnk-sign-in">Sign in</a>
+    </li>
+</ul>
+
+                </div>
+
+                <!-- Search box - xs to md -->
+                <div class="search-box-container d-inline-block d-lg-none my-1 w-100">
+                    <input type="text" class="search-box" aria-label="Search for public health indicators" placeholder="Search for indicators"
+       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search for indicators'" onkeypress="searchKeyPress(event)" />
+                </div>
+            </div>
+
+            <!-- Search box - lg to xl -->
+            <div class="search-box-container d-none d-lg-inline-block col-lg-4 my-1 text-end order-lg-2">
+                <input type="text" class="search-box" aria-label="Search for public health indicators" placeholder="Search for indicators"
+       onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search for indicators'" onkeypress="searchKeyPress(event)" />
+            </div>
+
+            <!-- Menu - xs to md  -->
+            <div class="d-inline-block d-lg-none col-4 col-md-2 pt-1 text-end order-1 order-md-2">
+                <a id="menu-button" href="#" class="dropdown-toggle" role="button"
+                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Menu</a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="menu-button">
+                    
+
+<ul>
+    
+    <li class="site-link">
+        <a href="/profile/guidance"
+           title="Supporting materials to assist with interpretation of the Fingertips profiles and further use of the indicator data">
+            Guidance
+        </a>
+    </li>   
+    
+    
+    <li class="site-link">
+        <a href="/profile/guidance/supporting-information/api"
+           title="Accessing data with the Fingertips API">
+            API
+        </a>
+    </li>
+
+    
+    <li class="site-link"><a href="mailto:profilefeedback@dhsc.gov.uk?subject=Profile%20Feedback%20[General enquiry]" title="If you would like to ask a question or submit feedback then please send us an email">Contact us</a></li>
+
+    
+    <li id="your-account" class="d-none d-lg-block dropdown site-link">
+        <a id="your-account-button" href="#" class="dropdown-toggle" role="button"
+           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Your data</a>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="your-account-button">
+            <a class="dropdown-item" href="/user-account/login" id="lnk-sign-in">Sign in</a>
+        </div>
+    </li>
+
+    
+    <li class="d-lg-none site-link">
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="/user-account/login" id="lnk-sign-in">Sign in</a>
+    </li>
+</ul>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</header>
+
+<div class="container gov-font">
+
+    
+    <div class="row">
+        <div id="title-site-link" class="col-12">
+
+
+            <h1 class="d-none d-lg-block mt-3" id="h1title-site-link">
+                Public health profiles               
+            </h1>
+            <!-- small device title -->
+            <h1 class="d-lg-none mt-3" id="h1title-site-link">
+                Public health profiles                
+            </h1>
+        </div>
+
+            <!-- About Fingertips -->
+            <div class="col-12 mt-3">
+                <p>Fingertips is a large public health data collection. Data is organised into themed profiles. Start by choosing a profile from the list.</p>
+            </div>
+            <!-- Test data warning -->
+    </div>
+</div>
+
+
+
+
+<div class="container gov-font">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <!-- Highlighted profiles -->
+            
+<h2>Highlighted profiles                                                                                                                                                                                                                                           </h2>
+
+<div class="row profile-collection-link-container">
+    <div class="d-block d-md-none">
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/cardiovascular-disease-diabetes-kidney-disease">Cardiovascular Disease, Diabetes and Kidney Disease</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/child-health-profiles">Child and Maternal Health</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/general-practice-patients">GP profiles for patients</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/mental-health">Mental Health, Dementia and Neurology</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/general-practice">National General Practice Profiles</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/healthy-ageing">Productive Healthy Ageing Profile</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/public-health-outcomes-framework">Public Health Outcomes Framework</a>
+</div>
+    </div>
+    <div class="d-none d-md-block">
+
+        <ul class="col-12 data-column nav-col-2">
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/cardiovascular-disease-diabetes-kidney-disease">Cardiovascular Disease, Diabetes and Kidney Disease</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/child-health-profiles">Child and Maternal Health</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/general-practice-patients">GP profiles for patients</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/mental-health">Mental Health, Dementia and Neurology</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/general-practice">National General Practice Profiles</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/healthy-ageing">Productive Healthy Ageing Profile</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/public-health-outcomes-framework">Public Health Outcomes Framework</a>
+</li>
+        </ul>
+    </div>
+</div>
+
+            <!-- All profiles -->
+            
+<h2>National public health profiles                                                                                                                                                                                                                                </h2>
+
+<div class="row profile-collection-link-container">
+    <div class="d-block d-md-none">
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/amr-local-indicators">AMR local indicators - produced by the UKHSA</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/atlas-of-variation">Atlas of Variation</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/cancerservices">Cancer Services</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/cardiovascular-disease-diabetes-kidney-disease">Cardiovascular Disease, Diabetes and Kidney Disease</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/child-health-profiles">Child and Maternal Health</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/general-practice-patients">GP profiles for patients</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/health-protection">Health Protection</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/inequality-tools">Inequality Tools</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/inhale">Inhale - INteractive Health Atlas of Lung conditions in England</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/learning-disabilities">Learning Disability Profiles</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/liver-disease">Liver Disease Profiles</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/local-alcohol-profiles">Local Alcohol Profiles for England</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/health-profiles">Local Authority Health Profiles</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/local-health">Local Health - Small Area Public Health Data</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/tobacco-control">Local Tobacco Control Profiles</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/marmot">Marmot Indicators</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/mental-health">Mental Health, Dementia and Neurology</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/mortality-profile">Mortality Profile</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/msk">Musculoskeletal health: local profiles</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/general-practice">National General Practice Profiles</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/nhs-health-check-detailed">NHS Health Check</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/national-child-measurement-programme">Obesity Profile</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/end-of-life">Palliative and End of Life Care Profiles</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/physical-activity">Physical Activity</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/healthy-ageing">Productive Healthy Ageing Profile</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="//healthierlives.phe.org.uk">Public Health Dashboard </a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/public-health-outcomes-framework">Public Health Outcomes Framework</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/sexualhealth">Sexual and Reproductive Health Profiles</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/tb-monitoring">TB Strategy Monitoring Indicators</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/wider-determinants">Wider Determinants of Health</a>
+</div>
+            <div class="col-12 col-md-6 profile-collection-link">
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/covid19">Wider Impacts of COVID-19 on Health</a>
+</div>
+    </div>
+    <div class="d-none d-md-block">
+
+        <ul class="col-12 data-column nav-col-2">
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/amr-local-indicators">AMR local indicators - produced by the UKHSA</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/atlas-of-variation">Atlas of Variation</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/cancerservices">Cancer Services</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/cardiovascular-disease-diabetes-kidney-disease">Cardiovascular Disease, Diabetes and Kidney Disease</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/child-health-profiles">Child and Maternal Health</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/general-practice-patients">GP profiles for patients</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/health-protection">Health Protection</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/inequality-tools">Inequality Tools</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/inhale">Inhale - INteractive Health Atlas of Lung conditions in England</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/learning-disabilities">Learning Disability Profiles</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/liver-disease">Liver Disease Profiles</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/local-alcohol-profiles">Local Alcohol Profiles for England</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/health-profiles">Local Authority Health Profiles</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/local-health">Local Health - Small Area Public Health Data</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/tobacco-control">Local Tobacco Control Profiles</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/marmot">Marmot Indicators</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/mental-health">Mental Health, Dementia and Neurology</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/mortality-profile">Mortality Profile</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/msk">Musculoskeletal health: local profiles</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/general-practice">National General Practice Profiles</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/nhs-health-check-detailed">NHS Health Check</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/national-child-measurement-programme">Obesity Profile</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/end-of-life">Palliative and End of Life Care Profiles</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/physical-activity">Physical Activity</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/healthy-ageing">Productive Healthy Ageing Profile</a>
+</li>
+                    <li>
+
+    <a class="title" href="//healthierlives.phe.org.uk">Public Health Dashboard </a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/public-health-outcomes-framework">Public Health Outcomes Framework</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/sexualhealth">Sexual and Reproductive Health Profiles</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/tb-monitoring">TB Strategy Monitoring Indicators</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/wider-determinants">Wider Determinants of Health</a>
+</li>
+                    <li>
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/covid19">Wider Impacts of COVID-19 on Health</a>
+</li>
+        </ul>
+    </div>
+</div>
+
+            <!-- Further analytical tools -->
+            <h2>Further analytical tools</h2>
+            <div class="other-tools">
+                <ul>
+<li>Excess Mortality Reports (<a href="https://app.powerbi.com/view?r=eyJrIjoiYmUwNmFhMjYtNGZhYS00NDk2LWFlMTAtOTg0OGNhNmFiNGM0IiwidCI6ImVlNGUxNDk5LTRhMzUtNGIyZS1hZDQ3LTVmM2NmOWRlODY2NiIsImMiOjh9">for England</a>&nbsp;and&nbsp;<a href="https://app.powerbi.com/view?r=eyJrIjoiOGNkMmY3NWMtMWM0MS00YTI1LWIyZTEtZjVhYTM0OTI3NmZiIiwidCI6ImVlNGUxNDk5LTRhMzUtNGIyZS1hZDQ3LTVmM2NmOWRlODY2NiIsImMiOjh9">by Region</a>)</li>
+</ul>
+<h3>! Due to <a href="https://analytics.phe.org.uk">server</a> issues, these tools are currently only intermittently available. We are working on a solution !</h3>
+<ul>
+<li><a title="CHIME" href="https://analytics.phe.gov.uk/apps/chime/" target="_blank" rel="noopener">CHIME - COVID-19 Health Inequalities Monitoring for England Tool</a></li>
+<li><a href="https://analytics.phe.gov.uk/apps/health-inequalities-dashboard" target="_blank" rel="noopener">Health Inequalities Dashboard</a></li>
+<li><a href="https://analytics.phe.gov.uk/apps/segment-tool" target="_blank" rel="noopener">Segment tool</a></li>
+<li><a title="SPOT - Spend and Outcomes Tool" href="https://analytics.phe.gov.uk/apps/spend-and-outcomes-tool/#!/" target="_blank" rel="noopener">SPOT - Spend and Outcomes Tool</a></li>
+<li><a title="spotlight" href="https://analytics.phe.gov.uk/apps/spotlight" target="_blank" rel="noopener">SPOTLIGHT: Improving Inclusion Health Outcomes&nbsp;</a></li>
+<li><a title="WICH" href="https://analytics.phe.gov.uk/apps/covid-19-indirect-effects" target="_blank" rel="noopener">WICH - Wider Impact of Covid-19 on Health Monitoring Tool</a></li>
+</ul>
+            </div>
+
+        </div>
+
+        <div class="col-12 col-lg-4">
+            <!-- Latest news -->
+            <div class="row">
+    <div id="latest-news" class="col-md-12">
+        <h2>Latest news</h2>
+<p><strong>July 2023</strong></p>
+<p>The August update of Fingertips has been postponed until September due to capacity issues.</p>
+<p><strong>June 2023</strong></p>
+<p>All STI indicators updated in the <a href="https://fingertips.phe.org.uk/profile/sexualhealth">Sexual and Reproductive Health Profiles</a> including a new Shigella indicator.</p>
+<p><strong>March 2023</strong></p>
+<p><a href="https://fingertips.phe.org.uk/profile/general-practice-patients">GP profile for patients</a><br />launched</p>
+<p>Child Health Profiles -<br /><a href="https://fingertips.phe.org.uk/profile/child-health-profiles/data#page/13">summary snapshot reports</a> updated</p>
+<p><strong>February 2023</strong></p>
+<p><a href="https://fingertips.phe.org.uk/profile/sexualhealth">Sexual health Profile</a> update and<br /><a href="https://fingertips.phe.org.uk/profile/sexualhealth/data#page/13/gid/8000057/pat/6/par/E12000001/ati/402/are/E06000047/iid/90742/age/1/sex/4/cat/-1/ctp/-1/yrr/1/cid/4/tbm/1">SPLASH - 2023 reports released</a></p>
+<p><strong>December 2022</strong></p>
+<p>Major updates released. E.g. for:</p>
+<ul>
+<li><a href="https://fingertips.phe.org.uk/profile/general-practice">National GP profiles</a>,</li>
+<li><a href="https://fingertips.phe.org.uk/profile/national-child-measurement-programme">Obesity profiles and</a></li>
+<li><a href="https://fingertips.phe.org.uk/profile/cancerservices">Cancer services</a>.</li>
+</ul>
+<p><strong>September 2022</strong></p>
+<p>ONS 2021 population estimates are delayed to enable their alignment with Census results. This delay will have an impact on the publication of indicators which use populations either directly or in their denominators (compare <a href="/documents/ImpactOfCensus2021dataOnIndicatorProduction_external_v2.docx">Impact of Census 2021</a>)</p>
+<p><strong>June 2022</strong></p>
+<p>Integrated Care Boards (ICBs): new geography type added to <a href="/profile/general-practice/data#page/0/gid/3000008/pat/223/par/E40000012/ati/221/are/nE54000055/yrr/1/cid/4/tbm/1">GP profiles</a></p>
+<p><strong>March 2022</strong></p>
+<p><a href="https://fingertips.phe.org.uk/profile/child-health-profiles">Child and Maternal Health</a> updated</p>
+<p><strong>February 2022</strong></p>
+<p><a href="https://fingertips.phe.org.uk/profile/public-health-outcomes-framework">PHOF</a>: quarterly update published</p>
+<p>For older items see <a href="/profile/guidance/supporting-information/archived-news">Archived news</a></p>
+    </div>
+</div>
+        </div>
+    </div>
+</div>
+<div id="footer-feedback-form" class="container">
+    <div id="footer-feedback-form-divider"></div>
+    <div><a href="#" onclick="return closeFeedback()">Close</a></div>
+    <div id="footer-feedback-error-summary"></div>
+    <h2>Help us improve these profiles</h2>
+    <form id="user-feedback-form">
+        <div class="form-group">
+            <label for="what-were-you-doing">What were you doing?</label>
+            <input type="text" class="form-control" id="what-were-you-doing">
+        </div>
+
+        <div class="form-group">
+            <label for="what-went-wrong">What went wrong?</label>
+            <input type="text" class="form-control" id="what-went-wrong">
+        </div>
+
+        <div class="form-group">
+            <label for="which-device-or-browser">Which device/browser did you use?</label>
+            <input type="text" class="form-control" id="which-device-or-browser">
+        </div>
+        
+        <div class="form-group">
+            <label for="email-for-user-feedback">Email address (if required for reply)</label>
+            <input type="text" class="form-control" id="email-for-user-feedback">
+        </div>
+        <br />
+    </form>
+    <div class="form-group">
+        <button type="button" id="send-feedback-btn" onclick="sendFeedback()" class="btn btn-primary">Send</button>
+    </div>
+</div>
+
+<div id="footer-feedback" class="container-fluid">
+    <div class="row justify-content-center">
+        <div id="feedback-message" class="col-auto">
+            <a href="#" onclick="return openFeedback()">Is there anything wrong with this page?</a>
+        </div>
+    </div>
+</div>
+
+<div id="feedback-footer-divider"></div>
+<div id="footer" class="container-fluid gov-font">
+    <div id="footer-wrap" class="container pt-4">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-8 footer-links">
+                    <h3>Public health profiles</h3>
+                    <div class="row footer-links-row">
+                        <div class="col-12 col-md-6 footer-link-column">
+                            <a class="title" href="https://www.gov.uk/guidance/phe-data-and-analysis-tools">PHE Data and Knowledge Gateway</a>
+                        </div>
+
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/amr-local-indicators">AMR local indicators - produced by the UKHSA</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/atlas-of-variation">Atlas of Variation</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/cancerservices">Cancer Services</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/cardiovascular-disease-diabetes-kidney-disease">Cardiovascular Disease, Diabetes and Kidney Disease</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/child-health-profiles">Child and Maternal Health</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/general-practice-patients">GP profiles for patients</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/health-protection">Health Protection</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/inequality-tools">Inequality Tools</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/inhale">Inhale - INteractive Health Atlas of Lung conditions in England</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/learning-disabilities">Learning Disability Profiles</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/liver-disease">Liver Disease Profiles</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/local-alcohol-profiles">Local Alcohol Profiles for England</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/health-profiles">Local Authority Health Profiles</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/local-health">Local Health - Small Area Public Health Data</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/tobacco-control">Local Tobacco Control Profiles</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/marmot">Marmot Indicators</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile-group/mental-health">Mental Health, Dementia and Neurology</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/mortality-profile">Mortality Profile</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/msk">Musculoskeletal health: local profiles</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/general-practice">National General Practice Profiles</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/nhs-health-check-detailed">NHS Health Check</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/national-child-measurement-programme">Obesity Profile</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/end-of-life">Palliative and End of Life Care Profiles</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/physical-activity">Physical Activity</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/healthy-ageing">Productive Healthy Ageing Profile</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="//healthierlives.phe.org.uk">Public Health Dashboard </a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/public-health-outcomes-framework">Public Health Outcomes Framework</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/sexualhealth">Sexual and Reproductive Health Profiles</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/tb-monitoring">TB Strategy Monitoring Indicators</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/wider-determinants">Wider Determinants of Health</a>
+
+                            </div>
+                            <div class="col-12 col-md-6 footer-link-column">
+                                
+
+    <a class="title" href="https://fingertips.phe.org.uk/profile/covid19">Wider Impacts of COVID-19 on Health</a>
+
+                            </div>
+                    </div>
+            </div>
+            <div id="site_policies" class="col-12 col-md-6 col-lg-4 footer-links">
+                <h3>Site policies</h3>
+                <div class="row footer-links-row">
+                    <div class="col-12 footer-link-column"><a href="/information/site-privacy-notice">Privacy</a></div>
+                    <div class="col-12 footer-link-column"><a href="/information/site-accessibility-statement">Accessibility</a></div>
+                    <div class="col-12 footer-link-column"><a href="/information/site-cookies">Cookies</a></div>
+                </div>
+                <p>
+                    Please cite any use of this website as follows specifying the date of access:<br><br>
+
+                    Office for Health Improvement and Disparities. Public health profiles. 2023 https://fingertips.phe.org.uk © Crown copyright 2023
+                </p>
+            </div>
+        </div>
+        <div id="footer-copyright" class="row mt-4 pt-4">
+            <div class="col-12 col-md-6">
+                <p>
+                    All content is available under the <a href="http://www.nationalarchives.gov.uk/doc/open-government-licence">Open Government Licence</a>, except where otherwise stated
+                </p>
+            </div>
+            <div class="col-12 col-md-6">
+                <p class="text-end">
+                <a class="copyright" href="https://www.nationalarchives.gov.uk/information-management/re-using-public-sector-information/uk-government-licensing-framework/crown-copyright/" target="_blank" rel="noreferrer noopener">&copy; Crown Copyright</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="trend-helper" style="display: none;">
+</div>
+
+<form id="image-capture-form" action="/capture-shot" method="POST">
+    <input id="captured-image" name="captured-image" type="hidden" value="" />
+    <input id="tab-name" name="tab-name" type="hidden" value="" />
+</form>
+</body>
+</html>

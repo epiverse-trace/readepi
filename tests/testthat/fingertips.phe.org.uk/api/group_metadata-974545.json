@@ -1,0 +1,65 @@
+[
+    {
+        "Id": 1938132696,
+        "Name": "Life expectancy and causes of death",
+        "Sequence": 1,
+        "ProfileId": 26,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132695,
+        "Name": "Injuries and ill health",
+        "Sequence": 2,
+        "ProfileId": 26,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132694,
+        "Name": "Behavioural risk factors",
+        "Sequence": 3,
+        "ProfileId": 26,
+        "DataAvailable": null
+    },
+    {
+        "Id": 8000073,
+        "Name": "Child health",
+        "Sequence": 4,
+        "ProfileId": 26,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133217,
+        "Name": "Inequalities",
+        "Sequence": 5,
+        "ProfileId": 26,
+        "DataAvailable": null
+    },
+    {
+        "Id": 3007000,
+        "Name": "Wider determinants of health",
+        "Sequence": 6,
+        "ProfileId": 26,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133216,
+        "Name": "Health protection",
+        "Sequence": 7,
+        "ProfileId": 26,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132701,
+        "Name": "All indicators",
+        "Sequence": 8,
+        "ProfileId": 26,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132974,
+        "Name": "Supporting information",
+        "Sequence": 9,
+        "ProfileId": 26,
+        "DataAvailable": null
+    }
+]

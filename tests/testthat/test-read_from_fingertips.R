@@ -1,13 +1,28 @@
+<<<<<<< HEAD
 test_that("read_from_fingertips works", {
   data <- read_from_fingertips(
     indicator_id = 90362, indicator_name = "Healthy life expectancy at birth",
     area_type_id = 202, parent_area_type_id = 6,
     profile_id = 19, profile_name = "Public Health Outcomes Framework",
     domain_id = 1000049, domain_name = "A. Overarching indicators",
+=======
+# httptest::with_mock_api({
+#
+# })
+
+test_that("read_from_fingertips works", {
+  testthat::skip_on_cran()
+  data <- read_from_fingertips(
+    indicator_id = 90362L, indicator_name = "Healthy life expectancy at birth",
+    area_type_id = 202L, parent_area_type_id = 6L,
+    profile_id = 19L, profile_name = "Public Health Outcomes Framework",
+    domain_id = 1000049L, domain_name = "A. Overarching indicators",
+>>>>>>> review
     fields = NULL, records = NULL,
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
+<<<<<<< HEAD
   expect_length(data, 1)
   expect_named(data, "data")
   expect_s3_class(data$data, "data.frame")
@@ -15,12 +30,22 @@ test_that("read_from_fingertips works", {
   data <- read_from_fingertips(
     indicator_id = 90362, indicator_name = NULL,
     area_type_id = 202, parent_area_type_id = NULL,
+=======
+  expect_length(data, 1L)
+  expect_named(data, "data")
+  expect_s3_class(data[["data"]], "data.frame")
+
+  data <- read_from_fingertips(
+    indicator_id = 90362L, indicator_name = NULL,
+    area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = NULL,
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
+<<<<<<< HEAD
   expect_length(data, 1)
   expect_named(data, "data")
   expect_s3_class(data$data, "data.frame")
@@ -28,12 +53,22 @@ test_that("read_from_fingertips works", {
   data <- read_from_fingertips(
     indicator_id = c(90362, 90283), indicator_name = NULL,
     area_type_id = 202, parent_area_type_id = NULL,
+=======
+  expect_length(data, 1L)
+  expect_named(data, "data")
+  expect_s3_class(data[["data"]], "data.frame")
+
+  data <- read_from_fingertips(
+    indicator_id = c(90362, 90283), indicator_name = NULL, # nolint
+    area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = NULL,
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
+<<<<<<< HEAD
   expect_length(data, 1)
   expect_named(data, "data")
   expect_s3_class(data$data, "data.frame")
@@ -41,12 +76,22 @@ test_that("read_from_fingertips works", {
   data <- read_from_fingertips(
     indicator_id = 90362, indicator_name = NULL,
     area_type_id = 202, parent_area_type_id = NULL,
+=======
+  expect_length(data, 1L)
+  expect_named(data, "data")
+  expect_s3_class(data[["data"]], "data.frame")
+
+  data <- read_from_fingertips(
+    indicator_id = 90362L, indicator_name = NULL,
+    area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = c("E92000001", "E12000002"),
     id_position = NULL, id_col_name = "AreaCode"
   )
   expect_type(data, type = "list")
+<<<<<<< HEAD
   expect_length(data, 1)
   expect_named(data, "data")
   expect_s3_class(data$data, "data.frame")
@@ -54,12 +99,22 @@ test_that("read_from_fingertips works", {
   data <- read_from_fingertips(
     indicator_id = 90362, indicator_name = NULL,
     area_type_id = 202, parent_area_type_id = NULL,
+=======
+  expect_length(data, 1L)
+  expect_named(data, "data")
+  expect_s3_class(data[["data"]], "data.frame")
+
+  data <- read_from_fingertips(
+    indicator_id = 90362L, indicator_name = NULL,
+    area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = c("IndicatorID", "AreaCode", "Age", "Value"), records = NULL,
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
+<<<<<<< HEAD
   expect_length(data, 1)
   expect_named(data, "data")
   expect_s3_class(data$data, "data.frame")
@@ -67,6 +122,15 @@ test_that("read_from_fingertips works", {
   data <- read_from_fingertips(
     indicator_id = 90362, indicator_name = NULL,
     area_type_id = 202, parent_area_type_id = NULL,
+=======
+  expect_length(data, 1L)
+  expect_named(data, "data")
+  expect_s3_class(data[["data"]], "data.frame")
+
+  data <- read_from_fingertips(
+    indicator_id = 90362L, indicator_name = NULL,
+    area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = c("IndicatorID", "AreaCode", "Age", "Value"),
@@ -74,6 +138,7 @@ test_that("read_from_fingertips works", {
     id_position = NULL, id_col_name = "AreaCode"
   )
   expect_type(data, type = "list")
+<<<<<<< HEAD
   expect_length(data, 1)
   expect_named(data, "data")
   expect_s3_class(data$data, "data.frame")
@@ -111,12 +176,25 @@ test_that("read_from_fingertips works with domain name or ID", {
   data <- read_from_fingertips(
     indicator_id = NULL, indicator_name = "Pupil absence",
     area_type_id = 202, parent_area_type_id = NULL,
+=======
+  expect_length(data, 1L)
+  expect_named(data, "data")
+  expect_s3_class(data[["data"]], "data.frame")
+})
+
+test_that("read_from_fingertips works with domain name or ID", {
+  testthat::skip_on_cran()
+  data <- read_from_fingertips(
+    indicator_id = NULL, indicator_name = "Pupil absence",
+    area_type_id = 101L, parent_area_type_id = NULL,
+>>>>>>> review
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = "B. Wider determinants of health",
     fields = NULL, records = NULL,
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
+<<<<<<< HEAD
   expect_length(data, 1)
   expect_named(data, "data")
   expect_s3_class(data$data, "data.frame")
@@ -126,10 +204,22 @@ test_that("read_from_fingertips works with domain name or ID", {
     area_type_id = 202, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = 1000049, domain_name = NULL,
+=======
+  expect_length(data, 1L)
+  expect_named(data, "data")
+  expect_s3_class(data[["data"]], "data.frame")
+
+  data <- read_from_fingertips(
+    indicator_id = NULL, indicator_name = "Pupil absence",
+    area_type_id = 101L, parent_area_type_id = NULL,
+    profile_id = NULL, profile_name = NULL,
+    domain_id = 1000049L, domain_name = NULL,
+>>>>>>> review
     fields = NULL, records = NULL,
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
+<<<<<<< HEAD
   expect_length(data, 1)
   expect_named(data, "data")
   expect_s3_class(data$data, "data.frame")
@@ -152,23 +242,49 @@ test_that("read_from_fingertips works with profile name or ID", {
   data <- read_from_fingertips(
     indicator_id = NULL, indicator_name = "Pupil absence",
     area_type_id = 202, parent_area_type_id = NULL,
+=======
+  expect_length(data, 1L)
+  expect_named(data, "data")
+  expect_s3_class(data[["data"]], "data.frame")
+})
+
+test_that("read_from_fingertips works with profile name or ID", {
+  testthat::skip_on_cran()
+  data <- read_from_fingertips(
+    indicator_id = NULL, indicator_name = "Pupil absence",
+    area_type_id = 101L, parent_area_type_id = NULL,
+>>>>>>> review
     profile_id = NULL, profile_name = "Public Health Outcomes Framework",
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = NULL,
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
+<<<<<<< HEAD
   expect_length(data, 1)
   expect_named(data, "data")
   expect_s3_class(data$data, "data.frame")
+=======
+  expect_length(data, 1L)
+  expect_named(data, "data")
+  expect_s3_class(data[["data"]], "data.frame")
+>>>>>>> review
 })
 
 
 test_that("read_from_fingertips fails with bad indicator ID", {
+<<<<<<< HEAD
   expect_error(
     data = read_from_fingertips(
       indicator_id = NA, indicator_name = NULL,
       area_type_id = 202, parent_area_type_id = NULL,
+=======
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = NA, indicator_name = NULL,
+      area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -177,6 +293,7 @@ test_that("read_from_fingertips fails with bad indicator ID", {
     regexp = cat("Assertion on',indicator_id,'failed: Missing value
                  not allowed.")
   )
+<<<<<<< HEAD
 
   expect_error(
     data = read_from_fingertips(
@@ -196,6 +313,16 @@ test_that("read_from_fingertips fails with bad indicator name", {
     data = read_from_fingertips(
       indicator_id = 90362, indicator_name = NA,
       area_type_id = 202, parent_area_type_id = NULL,
+=======
+})
+
+test_that("read_from_fingertips fails with bad indicator name", {
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 90362L, indicator_name = NA,
+      area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -207,9 +334,16 @@ test_that("read_from_fingertips fails with bad indicator name", {
 })
 
 test_that("read_from_fingertips fails with bad area type ID", {
+<<<<<<< HEAD
   expect_error(
     data = read_from_fingertips(
       indicator_id = 90362, indicator_name = NULL,
+=======
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 90362L, indicator_name = NULL,
+>>>>>>> review
       area_type_id = NA, parent_area_type_id = NULL,
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
@@ -219,6 +353,7 @@ test_that("read_from_fingertips fails with bad area type ID", {
     regexp = cat("Assertion on',area_type_id,'failed: Missing value
                  not allowed.")
   )
+<<<<<<< HEAD
 
   expect_error(
     data = read_from_fingertips(
@@ -238,6 +373,16 @@ test_that("read_from_fingertips fails with bad parent area type ID", {
     data = read_from_fingertips(
       indicator_id = 90362, indicator_name = NULL,
       area_type_id = 202, parent_area_type_id = NA,
+=======
+})
+
+test_that("read_from_fingertips fails with bad parent area type ID", {
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 90362L, indicator_name = NULL,
+      area_type_id = 202L, parent_area_type_id = NA,
+>>>>>>> review
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -246,6 +391,7 @@ test_that("read_from_fingertips fails with bad parent area type ID", {
     regexp = cat("Assertion on',parent_area_type_id,'failed: Missing value
                  not allowed.")
   )
+<<<<<<< HEAD
 
   expect_error(
     data = read_from_fingertips(
@@ -266,11 +412,22 @@ test_that("read_from_fingertips fails with bad profile ID", {
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
       area_type_id = 202, parent_area_type_id = NULL,
+=======
+})
+
+test_that("read_from_fingertips fails with bad profile ID", {
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 10301L, indicator_name = NULL,
+      area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
       profile_id = NA, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
       id_position = NULL, id_col_name = NULL
     ),
+<<<<<<< HEAD
     regexp = cat("Assertion on',profile_id,'failed: Missing value not allowed.")
   )
 
@@ -278,6 +435,16 @@ test_that("read_from_fingertips fails with bad profile ID", {
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
       area_type_id = 202, parent_area_type_id = NULL,
+=======
+    regexp = cat("Assertion on',profile_id,'failed: Missing value not
+                 allowed.")
+  )
+
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 10301L, indicator_name = NULL,
+      area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
       profile_id = "19", profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -288,10 +455,18 @@ test_that("read_from_fingertips fails with bad profile ID", {
 })
 
 test_that("read_from_fingertips fails with bad profile name", {
+<<<<<<< HEAD
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
       area_type_id = 202, parent_area_type_id = NULL,
+=======
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 10301L, indicator_name = NULL,
+      area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
       profile_id = NULL, profile_name = NA,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -303,15 +478,24 @@ test_that("read_from_fingertips fails with bad profile name", {
 })
 
 test_that("read_from_fingertips fails with bad domain ID", {
+<<<<<<< HEAD
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
       area_type_id = 202, parent_area_type_id = NULL,
+=======
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 10301L, indicator_name = NULL,
+      area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
       profile_id = NULL, profile_name = NULL,
       domain_id = NA, domain_name = NULL,
       fields = NULL, records = NULL,
       id_position = NULL, id_col_name = NULL
     ),
+<<<<<<< HEAD
     regexp = cat("Assertion on',domain_id,'failed: Missing value not allowed.")
   )
 
@@ -319,6 +503,16 @@ test_that("read_from_fingertips fails with bad domain ID", {
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
       area_type_id = 202, parent_area_type_id = NULL,
+=======
+    regexp = cat("Assertion on',domain_id,'failed: Missing value not
+                 allowed.")
+  )
+
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 10301L, indicator_name = NULL,
+      area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
       profile_id = NULL, profile_name = NULL,
       domain_id = "1000041", domain_name = NULL,
       fields = NULL, records = NULL,
@@ -329,10 +523,18 @@ test_that("read_from_fingertips fails with bad domain ID", {
 })
 
 test_that("read_from_fingertips fails with bad domain name", {
+<<<<<<< HEAD
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
       area_type_id = 202, parent_area_type_id = NULL,
+=======
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 10301L, indicator_name = NULL,
+      area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NA,
       fields = NULL, records = NULL,
@@ -344,10 +546,18 @@ test_that("read_from_fingertips fails with bad domain name", {
 })
 
 test_that("read_from_fingertips fails with bad records", {
+<<<<<<< HEAD
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
       area_type_id = 202, parent_area_type_id = NULL,
+=======
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 10301L, indicator_name = NULL,
+      area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NA,
@@ -358,10 +568,18 @@ test_that("read_from_fingertips fails with bad records", {
 })
 
 test_that("read_from_fingertips fails with bad fields", {
+<<<<<<< HEAD
   expect_error(
     data = read_from_fingertips(
       indicator_id = 10301, indicator_name = NULL,
       area_type_id = 202, parent_area_type_id = NULL,
+=======
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 10301L, indicator_name = NULL,
+      area_type_id = 202L, parent_area_type_id = NULL,
+>>>>>>> review
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NA, records = NULL,
@@ -370,3 +588,38 @@ test_that("read_from_fingertips fails with bad fields", {
     regexp = cat("Assertion on',fields,'failed: Missing value not allowed.")
   )
 })
+<<<<<<< HEAD
+=======
+
+test_that("read_from_fingertips fails when no argument is provided", {
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = NULL, indicator_name = NULL,
+      area_type_id = NULL, parent_area_type_id = NULL,
+      profile_id = NULL, profile_name = NULL,
+      domain_id = NULL, domain_name = NULL,
+      fields = NULL, records = NULL,
+      id_position = NULL, id_col_name = NULL
+    ),
+    regexp = cat("Assertion on',Fingertips arguments,'failed: Must provide a
+                 value for the area_type_id and one of the remaining
+                 arguments.")
+  )
+})
+
+test_that("read_from_fingertips fails when the area_type_id is not provided", {
+  testthat::skip_on_cran()
+  expect_error(
+    read_from_fingertips(
+      indicator_id = 10301L, indicator_name = NULL,
+      area_type_id = NULL, parent_area_type_id = NULL,
+      profile_id = NULL, profile_name = NULL,
+      domain_id = NULL, domain_name = NULL,
+      fields = NA, records = NULL,
+      id_position = NULL, id_col_name = NULL
+    ),
+    regexp = cat("Assertion on',area_type_id,'failed: Must be provided.")
+  )
+})
+>>>>>>> review

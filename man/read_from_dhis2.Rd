@@ -13,8 +13,8 @@ read_from_dhis2(
   data_element_group,
   start_date,
   end_date,
-  records,
-  fields,
+  records = NULL,
+  fields = NULL,
   id_col_name = "dataElement"
 )
 }
@@ -47,8 +47,26 @@ If provided, only those columns will be imported.}
 \item{id_col_name}{the column name with the records of interest.}
 }
 \value{
-a list of data frames
+a \code{list} of 1 element of type \verb{data frame}.
 }
 \description{
 Import data form DHIS2 into R
 }
+\examples{
+\dontrun{
+data <- read_from_dhis2(
+  base_url           = file.path("https:/", "play.dhis2.org", "dev"),
+  user_name          = "admin",
+  password           = "district",
+  dataset            = "pBOMPrpg1QX",
+  organisation_unit  = "DiszpKrYNg8",
+  data_element_group = "oDkJh5Ddh7d",
+  start_date         = "2014",
+  end_date           = "2023",
+  records            = NULL,
+  fields             = NULL,
+  id_col_name        = "dataElement"
+)
+}
+}
+\keyword{internal}

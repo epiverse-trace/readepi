@@ -1,9 +1,13 @@
 #' Display the structure of the credentials file
-#' @export
 #' @examples
-#' show_example_file()
+#' \dontrun{
+#'   show_example_file()
+#' }
+#' @export
+#'
 show_example_file <- function() {
   example_data <- data.table::fread(system.file("extdata", "test.ini",
-                                                package = "readepi"))
+                                                package = "readepi"
+  ))
   print(example_data)
 }

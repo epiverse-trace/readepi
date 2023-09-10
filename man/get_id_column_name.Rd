@@ -13,6 +13,10 @@ get_id_column_name(id_col_name, j, id_position)
 
 \item{id_position}{the id position}
 }
+\value{
+a \code{list} of 2 elements of type \code{character} and \code{numeric}
+corresponding to the ID column name and position
+}
 \description{
 get the id column name
 }

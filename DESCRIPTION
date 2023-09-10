@@ -1,30 +1,28 @@
 Package: readepi
-Title: Import Data From Files and Health Information Systems Into R
+Title: Read Data From Health Information Systems
 Version: 0.0.1
 Authors@R: c(
     person("Karim", "Mané", , "lshkm1@lshtm.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9892-2999")),
     person("Bubacarr", "Bah", , "Bubacarr.Bah1@lshtm.ac.uk", role = "ctb",
-            comment = c(ORCID = "0000-0003-3318-6668")),
+           comment = c(ORCID = "0000-0003-3318-6668")),
     person("Bankolé", "Ahadzie", , "Bankole.Ahadzie@lshtm.ac.uk", role = "ctb"),
-    person("Nuredin", "Mohammed", , 
-            "Nuredin.Mohammed@lshtm.ac.uk", role = "ctb"),
-    person("Hugo", "Gruson", , "hugo.gruson@lshtm.ac.uk", role = "rev",
+    person("Nuredin", "Mohammed", , "Nuredin.Mohammed@lshtm.ac.uk", role = "ctb"),
+    person("Hugo", "Gruson", , "hugo.gruson@data.org", role = "rev",
            comment = c(ORCID = "0000-0002-4094-1476")),
     person("Pratik", "Gupte", , "pratik.gupte@lshtm.ac.uk", role = "rev",
            comment = c(ORCID = "0000-0001-5294-7819")),
-    person("Andree", "Valle-Campos", , 
-            "andree.valle-campos@lshtm.ac.uk", role = "rev",
-            comment = c(ORCID = "0000-0002-7779-481X"))
+    person("Andree", "Valle-Campos", , "andree.valle-campos@lshtm.ac.uk", role = "rev",
+           comment = c(ORCID = "0000-0002-7779-481X"))
   )
-Description: Data import from several sources. These include files and
-    health information systems (HIS). The current version of the package
-    covers HIS such as REDCap, SQL, MySQL, PostGRESQL servers, DHIS2 and
+Description: Data import from several sources including files and health
+    information systems (HIS). The current version of the package covers
+    HIS such as MS SQL, MySQL, PostGRESQL servers, REDCap, DHIS2 and
     Fingertips.
 License: MIT + file LICENSE
 URL: https://github.com/epiverse-trace/readepi
 BugReports: https://github.com/epiverse-trace/readepi/issues
-Imports:
+Imports: 
     checkmate,
     data.table,
     DBI,
@@ -35,24 +33,19 @@ Imports:
     magrittr,
     odbc,
     pool,
-    purrr,
-    R.utils,
-    readxl,
     REDCapR,
-    rio,
-    RMySQL,
-    stringr
+    RMySQL
 Suggests: 
-    covr,
-    devtools,
+    bookdown,
+    httptest,
     knitr,
     rmarkdown,
-    testthat (>= 3.0.0),
-    usethis
+    testthat (>= 3.0.0)
 VignetteBuilder: 
     knitr
 Remotes: 
     rOpenSci/fingertipsR
+Config/Needs/website: epiverse-trace/epiversetheme
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)

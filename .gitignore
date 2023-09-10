@@ -4,3 +4,7 @@ docs
 .Rproj.user
 /doc/
 /Meta/
+.DS_Store
+.Rhistory
+/..Rcheck/
+/Meta/

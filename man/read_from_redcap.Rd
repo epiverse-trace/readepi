@@ -33,19 +33,22 @@ be imported.}
 If provided, only those columns will be imported.}
 }
 \value{
-a list with 2 data frames: the data of interest and the metadata
-associated to the data.
+a \code{list} of 2 elements of type \code{data.frame}. They include a data
+frame of the dataset of interest and its associated metadata.
 }
 \description{
 Import data from REDCap into R
 }
 \examples{
+\dontrun{
 redcap_data <- read_from_redcap(
-  uri = "https://bbmc.ouhsc.edu/redcap/api/",
-  token = "9A81268476645C4E5F03428B8AC3AA7B",
+  uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+  token       = "9A81268476645C4E5F03428B8AC3AA7B",
   id_position = 1,
   id_col_name = NULL,
-  records = NULL,
-  fields = NULL
+  records     = NULL,
+  fields      = NULL
 )
 }
+}
+\keyword{internal}

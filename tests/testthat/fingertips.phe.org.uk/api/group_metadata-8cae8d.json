@@ -1,0 +1,58 @@
+[
+    {
+        "Id": 1000002,
+        "Name": "All Indicators",
+        "Sequence": 1,
+        "ProfileId": 30,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133209,
+        "Name": "Gastrointestinal infection",
+        "Sequence": 2,
+        "ProfileId": 30,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132804,
+        "Name": "Immunisation & childhood vaccine preventable diseases",
+        "Sequence": 3,
+        "ProfileId": 30,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133210,
+        "Name": "Respiratory infection",
+        "Sequence": 4,
+        "ProfileId": 30,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133211,
+        "Name": "Hepatitis",
+        "Sequence": 5,
+        "ProfileId": 30,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133212,
+        "Name": "Sexually transmitted infections & HIV",
+        "Sequence": 6,
+        "ProfileId": 30,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133214,
+        "Name": "Health care associated infection",
+        "Sequence": 7,
+        "ProfileId": 30,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132818,
+        "Name": "Non-infectious environmental hazards",
+        "Sequence": 8,
+        "ProfileId": 30,
+        "DataAvailable": null
+    }
+]

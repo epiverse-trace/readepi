@@ -1,0 +1,424 @@
+{
+    "dataElementGroups": [
+        {
+            "name": "Acute Flaccid Paralysis (AFP) ",
+            "shortName": "Acute Flaccid Paralysis (AFP) ",
+            "id": "oDkJh5Ddh7d"
+        },
+        {
+            "name": "All Others",
+            "shortName": "All Others",
+            "id": "GBHN1a1Jddh"
+        },
+        {
+            "name": "Anaemia",
+            "shortName": "Anaemia",
+            "id": "KmwPVkjp7yl"
+        },
+        {
+            "name": "ANC",
+            "shortName": "ANC",
+            "id": "qfxEYY9xAl6"
+        },
+        {
+            "name": "ARI treated with antibiotics (Pneumonia)",
+            "shortName": "ARI treated with antibiotics (Pneumonia)",
+            "id": "M2cth8EmrlT"
+        },
+        {
+            "name": "ARI Treated Without Antibiotics (Cough)",
+            "shortName": "ARI Treated Without Antibiotics (Cough)",
+            "id": "yhg8oYU9ekY"
+        },
+        {
+            "name": "ART",
+            "shortName": "ART",
+            "id": "k1M0nuodfhN"
+        },
+        {
+            "name": "ART enrollment",
+            "shortName": "ART enrollment",
+            "id": "bdiyMm9qZl5"
+        },
+        {
+            "name": "ART entry points",
+            "shortName": "ART entry points",
+            "id": "s8FiXqB2DhB"
+        },
+        {
+            "name": "ART pediatric 1st line",
+            "shortName": "ART pediatric 1st line",
+            "id": "TcxHxMlYzpv"
+        },
+        {
+            "name": "ART staging",
+            "shortName": "ART staging",
+            "id": "vxIWSNeEcf7"
+        },
+        {
+            "name": "ART treatment",
+            "shortName": "ART treatment",
+            "id": "zz1lNBgRKWU"
+        },
+        {
+            "name": "Burns",
+            "shortName": "Burns",
+            "id": "oGktdmYkRNo"
+        },
+        {
+            "name": "Cholera",
+            "shortName": "Cholera",
+            "id": "KUSvwZQsMSN"
+        },
+        {
+            "name": "Clinical Malnutrition",
+            "shortName": "Clinical Malnutrition",
+            "id": "Euvh58hLl61"
+        },
+        {
+            "name": "Commodities",
+            "shortName": "Commodities",
+            "id": "Svac1cNQhRS"
+        },
+        {
+            "name": "Commodities Child Health",
+            "shortName": "Commodities Child Health",
+            "id": "KJKWrWBcJdf"
+        },
+        {
+            "name": "Commodities Maternal Health",
+            "shortName": "Commodities Maternal Health",
+            "id": "idD1wcvBISQ"
+        },
+        {
+            "name": "Commodities Newborn Health",
+            "shortName": "Commodities Newborn Health",
+            "id": "rioWDAi1S7z"
+        },
+        {
+            "name": "Commodities Reproductive Health",
+            "shortName": "Commodities Reproductive Health",
+            "id": "IyIa0h8CbCZ"
+        },
+        {
+            "name": "Deaths",
+            "shortName": "Deaths",
+            "id": "PfJGQacYpjn"
+        },
+        {
+            "name": "Delivery",
+            "shortName": "Delivery",
+            "id": "t5W0AAqvK5b"
+        },
+        {
+            "name": "Diarrhoea With Blood (Dysentery)",
+            "shortName": "Diarrhoea With Blood (Dysentery)",
+            "id": "mcjC3qZgIkO"
+        },
+        {
+            "name": "Diarrhoea Without Severe Dehydration",
+            "shortName": "Diarrhoea Without Severe Dehydration",
+            "id": "kE8lP5t0b5R"
+        },
+        {
+            "name": "Diarrhoea With Severe Dehydration",
+            "shortName": "Diarrhoea With Severe Dehydration",
+            "id": "RSFc8ADyKTw"
+        },
+        {
+            "name": "Emergency Response",
+            "shortName": "Emergency Response",
+            "id": "qiF051Ue9Ei"
+        },
+        {
+            "name": "Expenditures",
+            "shortName": "Expenditures",
+            "id": "GbSz3TobZcc"
+        },
+        {
+            "name": "Eye Infection",
+            "shortName": "Eye Infection",
+            "id": "lLKpwhjd1dM"
+        },
+        {
+            "name": "Facility infrastructure",
+            "shortName": "Facility infrastructure",
+            "id": "Sp1jJqzsiOi"
+        },
+        {
+            "name": "Follow-up",
+            "shortName": "Follow-up",
+            "id": "g50BzGAsrvu"
+        },
+        {
+            "name": "HIV/AIDS",
+            "shortName": "HIV/AIDS",
+            "id": "HKU7L73im5r"
+        },
+        {
+            "name": "HIV Care",
+            "shortName": "HIV Care",
+            "id": "URmi41e0SFH"
+        },
+        {
+            "name": "HIV Peadriatics",
+            "shortName": "HIV Peadriatics",
+            "id": "ID4BbhF7Eli"
+        },
+        {
+            "name": "Hypertension",
+            "shortName": "Hypertension",
+            "id": "jWgEsdH87Jk"
+        },
+        {
+            "name": "ICS Children",
+            "shortName": "ICS Children",
+            "id": "nb3rBNvVHtp"
+        },
+        {
+            "name": "ICS mother",
+            "shortName": "ICS mother",
+            "id": "dMyLpSQn6hu"
+        },
+        {
+            "name": "IDSR",
+            "shortName": "IDSR",
+            "id": "b3gDdvmrSFc"
+        },
+        {
+            "name": "Immunization",
+            "shortName": "Immunization",
+            "id": "h9cuJOkOwY2"
+        },
+        {
+            "name": "Inpatient morbidity/mortality aggregates",
+            "shortName": "Inpatient morbidity/mortality aggregates",
+            "id": "OP4dLqk0JTH"
+        },
+        {
+            "name": "Lassa Fever",
+            "shortName": "Lassa Fever",
+            "id": "SriP0jBXMr6"
+        },
+        {
+            "name": "Leprosy",
+            "shortName": "Leprosy",
+            "id": "U0uJG4kydwE"
+        },
+        {
+            "name": "Low birth",
+            "shortName": "Low birth",
+            "id": "eeQCyjnMyGY"
+        },
+        {
+            "name": "Malaria",
+            "shortName": "Malaria",
+            "id": "TzwKbcw1nUK"
+        },
+        {
+            "name": "Measles",
+            "shortName": "Measles",
+            "id": "qk2KOBMX4Mf"
+        },
+        {
+            "name": "Meningitis / Severe Bacterial Infection",
+            "shortName": "Meningitis / Severe Bacterial Infection",
+            "id": "lnLbEej0gwe"
+        },
+        {
+            "name": "MNCH Aggregates",
+            "shortName": "MNCH Aggregates",
+            "id": "LEet4tb49IP"
+        },
+        {
+            "name": "Morbidity",
+            "shortName": "Morbidity",
+            "id": "SLsJy3zqUbD"
+        },
+        {
+            "name": "Mortality",
+            "shortName": "Mortality",
+            "id": "QAc5FhbeFwl"
+        },
+        {
+            "name": "Mortality < 5 years",
+            "shortName": "Mortality < 5 years",
+            "id": "rPGfUFYbcfJ"
+        },
+        {
+            "name": "Mortality Narrative",
+            "shortName": "Mortality Narrative",
+            "id": "KU0wDurtWDM"
+        },
+        {
+            "name": "Neonatal Tetanus",
+            "shortName": "Neonatal Tetanus",
+            "id": "UAEhIWpoQFN"
+        },
+        {
+            "name": "New cases",
+            "shortName": "New cases",
+            "id": "weRMUzBs8T7"
+        },
+        {
+            "name": "New on ART",
+            "shortName": "New on ART",
+            "id": "XGSHYf5uOlJ"
+        },
+        {
+            "name": "Nutrition",
+            "shortName": "Nutrition",
+            "id": "u1ilfnoYafG"
+        },
+        {
+            "name": "Onchocerciasis",
+            "shortName": "Onchocerciasis",
+            "id": "HDdnX6XqxIn"
+        },
+        {
+            "name": "Otitis Media",
+            "shortName": "Otitis Media",
+            "id": "JZ3usxLEcc9"
+        },
+        {
+            "name": "PMTCT",
+            "shortName": "PMTCT",
+            "id": "WS3MniopkOQ"
+        },
+        {
+            "name": "PMTCT ANC",
+            "shortName": "PMTCT ANC",
+            "id": "e5NGCRQR8Yo"
+        },
+        {
+            "name": "PMTCT Maternity/Delivery",
+            "shortName": "PMTCT Maternity/Delivery",
+            "id": "bXpe2ByvlFR"
+        },
+        {
+            "name": "PMTCT Postnatal",
+            "shortName": "PMTCT Postnatal",
+            "id": "sGLusXgmaOT"
+        },
+        {
+            "name": "Population Estimates",
+            "shortName": "Population Estimates",
+            "id": "sP7jTt3YGBb"
+        },
+        {
+            "name": "Postnatal",
+            "shortName": "Postnatal",
+            "id": "ubJrVb4v5xy"
+        },
+        {
+            "name": "Pregnancy complications and deaths",
+            "shortName": "Pregnancy complications and deaths",
+            "id": "qkrZMU4Y2h5"
+        },
+        {
+            "name": "Pregnancy-related (PHUF5)",
+            "shortName": "Pregnancy-related (PHUF5)",
+            "id": "ZPtRFVLY40u"
+        },
+        {
+            "name": "Prev month on ART",
+            "shortName": "Prev month on ART",
+            "id": "AiytigJkHP6"
+        },
+        {
+            "name": "Referrals",
+            "shortName": "Referrals",
+            "id": "UWaMbg9h7vF"
+        },
+        {
+            "name": "Reproductive health",
+            "shortName": "Reproductive health",
+            "id": "OJxi4vkcTBS"
+        },
+        {
+            "name": "Schistosomiasis",
+            "shortName": "Schistosomiasis",
+            "id": "LqG1FnAUhyb"
+        },
+        {
+            "name": "Shift from ART reg.",
+            "shortName": "Shift from ART reg.",
+            "id": "rwG73cCi66Z"
+        },
+        {
+            "name": "Shift to ART reg.",
+            "shortName": "Shift to ART reg.",
+            "id": "rgTZ4mKjZza"
+        },
+        {
+            "name": "Skin Infection",
+            "shortName": "Skin Infection",
+            "id": "VCoSeRRVS1n"
+        },
+        {
+            "name": "Staffing",
+            "shortName": "Staffing",
+            "id": "rVEe5QNBgDX"
+        },
+        {
+            "name": "STI - Genital Discharge",
+            "shortName": "STI - Genital Discharge",
+            "id": "xNrDrDbJgnm"
+        },
+        {
+            "name": "STI - Genital Ulcer",
+            "shortName": "STI - Genital Ulcer",
+            "id": "UmyRWILcoed"
+        },
+        {
+            "name": "Stock PHU",
+            "shortName": "Stock PHU",
+            "id": "pxWhf42tCIs"
+        },
+        {
+            "name": "TB",
+            "shortName": "TB",
+            "id": "OnAQ2lsilN9"
+        },
+        {
+            "name": "Tetanus",
+            "shortName": "Tetanus",
+            "id": "LgtuBcNaMB3"
+        },
+        {
+            "name": "Tuberculosis",
+            "shortName": "Tuberculosis",
+            "id": "yHtsPZqpAxm"
+        },
+        {
+            "name": "Typhoid Fever",
+            "shortName": "Typhoid Fever",
+            "id": "dUK38PhdUdV"
+        },
+        {
+            "name": "VCCT",
+            "shortName": "VCCT",
+            "id": "U9wcARyKSzx"
+        },
+        {
+            "name": "Worm Infestation",
+            "shortName": "Worm Infestation",
+            "id": "LzDaTmQYWcj"
+        },
+        {
+            "name": "Wounds/Trauma",
+            "shortName": "Wounds/Trauma",
+            "id": "IUZ0GidX0jh"
+        },
+        {
+            "name": "Yaws",
+            "shortName": "Yaws",
+            "id": "zmWJAEjfv59"
+        },
+        {
+            "name": "Yellow Fever",
+            "shortName": "Yellow Fever",
+            "id": "HAraPb0v7ex"
+        }
+    ]
+}

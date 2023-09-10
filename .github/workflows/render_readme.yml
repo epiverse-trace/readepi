@@ -1,8 +1,25 @@
-# Name of the workflow
+# Reproduce locally by running:
+# ```r
+# pak::pak(c("any::rmarkdown", "any::usethis", "."))
+# writeLines(
+#   knitr::knit_expand(
+#     "README.Rmd",
+#     packagename = read.dcf("DESCRIPTION", "Package"),
+#     gh_repo = usethis:::github_remote_list()$repo_spec
+#   ),
+#   "README_expanded.Rmd"
+# )
+# rmarkdown::render(
+#   "README_expanded.Rmd",
+#   output_file = "README.md",
+#   output_dir = "."
+# )
+# unlink("README_expanded.Rmd")
+# ```
 name: render-readme
 
 # Controls when the action will run. Triggers include:
-# 
+#
 # - button trigger from github action page
 # - on changes to readme.Rmd
 
@@ -11,16 +28,25 @@ on:
   push:
     paths:
       - 'README.Rmd'
+      - '.github/workflows/render_readme.yml'
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   render-readme:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Checkout repos
+<<<<<<< HEAD
         uses: actions/checkout@v2
+=======
+        uses: actions/checkout@v3
+>>>>>>> review
 
       - name: Setup R
         uses: r-lib/actions/setup-r@v2
@@ -29,11 +55,16 @@ jobs:
 
       - name: Setup pandoc
         uses: r-lib/actions/setup-pandoc@v2
+<<<<<<< HEAD
     
+=======
+
+>>>>>>> review
       - name: Install dependencies
         uses: r-lib/actions/setup-r-dependencies@v2
         with:
           extra-packages: any::rmarkdown, local::.
+<<<<<<< HEAD
  
       - name: Compile the readme
         run: |
@@ -47,8 +78,26 @@ jobs:
             tf
           )
           rmarkdown::render(tf, output_file = "README.md", output_dir = ".")
+=======
+
+      - name: Compile the readme
+        run: |
+          writeLines(
+            knitr::knit_expand(
+              "README.Rmd",
+              packagename = read.dcf("DESCRIPTION", "Package"),
+              gh_repo     = Sys.getenv("GITHUB_REPOSITORY")
+            ),
+            "README_expanded.Rmd"
+          )
+          rmarkdown::render(
+            "README_expanded.Rmd",
+            output_file = "README.md",
+            output_dir  = "."
+          )
+>>>>>>> review
         shell: Rscript {0}
-        
+
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
@@ -60,4 +109,8 @@ jobs:
             git add man/figures/
           fi
           git diff-index --quiet HEAD || git commit -m "Automatic readme update"
+<<<<<<< HEAD
           git push origin || echo "No changes to push"
+=======
+          git push origin || echo "No changes to push"
+>>>>>>> review

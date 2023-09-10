@@ -1,0 +1,44 @@
+[
+    {
+        "Id": 1938133138,
+        "Name": "Prevalence and risk",
+        "Sequence": 1,
+        "ProfileId": 139,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133136,
+        "Name": "Care processes",
+        "Sequence": 2,
+        "ProfileId": 139,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133158,
+        "Name": "Structured education",
+        "Sequence": 3,
+        "ProfileId": 139,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133135,
+        "Name": "Treatment targets",
+        "Sequence": 4,
+        "ProfileId": 139,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133137,
+        "Name": "Complications",
+        "Sequence": 5,
+        "ProfileId": 139,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133181,
+        "Name": "Foot care activity",
+        "Sequence": 6,
+        "ProfileId": 139,
+        "DataAvailable": null
+    }
+]

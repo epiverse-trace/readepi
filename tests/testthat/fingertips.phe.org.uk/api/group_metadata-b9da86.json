@@ -1,0 +1,51 @@
+[
+    {
+        "Id": 1938132984,
+        "Name": "Key Indicators",
+        "Sequence": 1,
+        "ProfileId": 87,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132832,
+        "Name": "Mortality",
+        "Sequence": 2,
+        "ProfileId": 87,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132833,
+        "Name": "Hospital Admissions",
+        "Sequence": 3,
+        "ProfileId": 87,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132982,
+        "Name": "Hospital Admissions By Age-Group",
+        "Sequence": 4,
+        "ProfileId": 87,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132848,
+        "Name": "Alcohol-Related Conditions",
+        "Sequence": 5,
+        "ProfileId": 87,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132895,
+        "Name": "Treatment",
+        "Sequence": 6,
+        "ProfileId": 87,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133118,
+        "Name": "Consumption and Availability",
+        "Sequence": 7,
+        "ProfileId": 87,
+        "DataAvailable": null
+    }
+]

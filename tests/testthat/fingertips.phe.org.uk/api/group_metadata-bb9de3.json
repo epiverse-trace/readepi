@@ -1,0 +1,51 @@
+[
+    {
+        "Id": 1938132883,
+        "Name": "Place of Death",
+        "Sequence": 1,
+        "ProfileId": 95,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132882,
+        "Name": "Underlying Cause of Death",
+        "Sequence": 2,
+        "ProfileId": 95,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132901,
+        "Name": "Mortality ",
+        "Sequence": 3,
+        "ProfileId": 95,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133060,
+        "Name": "Care Homes and Community",
+        "Sequence": 4,
+        "ProfileId": 95,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133338,
+        "Name": "Hospital Care",
+        "Sequence": 5,
+        "ProfileId": 95,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132951,
+        "Name": "Dementia",
+        "Sequence": 6,
+        "ProfileId": 95,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133387,
+        "Name": "Needs Assessment",
+        "Sequence": 7,
+        "ProfileId": 95,
+        "DataAvailable": null
+    }
+]

@@ -1,0 +1,44 @@
+[
+    {
+        "Id": 8000057,
+        "Name": "Key Indicators",
+        "Sequence": 1,
+        "ProfileId": 45,
+        "DataAvailable": null
+    },
+    {
+        "Id": 8000035,
+        "Name": "STI",
+        "Sequence": 2,
+        "ProfileId": 45,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133286,
+        "Name": "HIV",
+        "Sequence": 3,
+        "ProfileId": 45,
+        "DataAvailable": null
+    },
+    {
+        "Id": 8000059,
+        "Name": "Reproductive Health",
+        "Sequence": 4,
+        "ProfileId": 45,
+        "DataAvailable": null
+    },
+    {
+        "Id": 8000036,
+        "Name": "Teenage Pregnancy",
+        "Sequence": 5,
+        "ProfileId": 45,
+        "DataAvailable": null
+    },
+    {
+        "Id": 8000037,
+        "Name": "Wider Determinants of Health",
+        "Sequence": 6,
+        "ProfileId": 45,
+        "DataAvailable": null
+    }
+]
