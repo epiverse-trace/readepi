@@ -72,12 +72,12 @@ show_example_file()
 credentials_file <- system.file("extdata", "test.ini", package = "readepi")
 
 # READING FILE FROM A PROJECT IN A REDCap DATABASE
-data <- readepi(
+dat <- readepi(
   data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
   credentials_file = credentials_file
 )
-project_data     <- data$data # accessing the actual data
-project_metadeta <- data$metadata # accessing the metadata associated with project
+project_data     <- dat$data # accessing the actual data
+project_metadeta <- dat$metadata # accessing the metadata associated with project
 
 # VIEWING THE LIST OF ALL TABLES IN A MySQL DATABASE
 show_tables(
@@ -95,7 +95,7 @@ visualise_table(
 )
 
 # READING ALL FILEDS AND RECORDS FROM A MySQL SERVER
-data <- readepi(
+dat <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   from             = "author", # this is the table name
@@ -103,7 +103,7 @@ data <- readepi(
 )
 
 # READING DATA FROM DHIS2
-data <- readepi(
+dat <- readepi(
   data_source        = "https://play.dhis2.org/dev",
   credentials_file   = credentials_file,
   dataset            = "pBOMPrpg1QX",
@@ -114,7 +114,7 @@ data <- readepi(
 )
 
 # READING DATA FROM THE FINGERTIPS REPOSITORY
-data <- readepi(
+dat <- readepi(
   indicator_id        = 90362,
   area_type_id        = 202,
   parent_area_type_id = 6 # optional
