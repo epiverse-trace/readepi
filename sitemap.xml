@@ -22,13 +22,13 @@
     <loc>/index.html</loc>
   </url>
   <url>
-    <loc>/reference/check_dhis2_attributes.html</loc>
-  </url>
-  <url>
     <loc>/reference/connect_to_server.html</loc>
   </url>
   <url>
-    <loc>/reference/detect_separator.html</loc>
+    <loc>/reference/dhis2_check_attributes.html</loc>
+  </url>
+  <url>
+    <loc>/reference/dhis2_get_relevant_attributes.html</loc>
   </url>
   <url>
     <loc>/reference/dhis2_subset_fields.html</loc>
@@ -46,16 +46,10 @@
     <loc>/reference/fingertips_subset_rows.html</loc>
   </url>
   <url>
-    <loc>/reference/get_base_name.html</loc>
+    <loc>/reference/get_attributes_from_user.html</loc>
   </url>
   <url>
-    <loc>/reference/get_data_elements.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_data_sets.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_extension.html</loc>
+    <loc>/reference/get_dhis2_attributes.html</loc>
   </url>
   <url>
     <loc>/reference/get_fingertips_metadata.html</loc>
@@ -76,25 +70,10 @@
     <loc>/reference/get_ind_id_from_profile.html</loc>
   </url>
   <url>
-    <loc>/reference/get_organisation_units.html</loc>
-  </url>
-  <url>
     <loc>/reference/get_profile_name.html</loc>
   </url>
   <url>
-    <loc>/reference/get_read_file_args.html</loc>
-  </url>
-  <url>
     <loc>/reference/get_read_fingertips_args.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_relevant_data_elt_group.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_relevant_dataset.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_relevant_organisation_unit.html</loc>
   </url>
   <url>
     <loc>/reference/identify_table_name.html</loc>
@@ -109,19 +88,13 @@
     <loc>/reference/login.html</loc>
   </url>
   <url>
+    <loc>/reference/make_api_request.html</loc>
+  </url>
+  <url>
     <loc>/reference/read_credentials.html</loc>
   </url>
   <url>
-    <loc>/reference/read_files.html</loc>
-  </url>
-  <url>
-    <loc>/reference/read_files_in_directory.html</loc>
-  </url>
-  <url>
     <loc>/reference/read_from_dhis2.html</loc>
-  </url>
-  <url>
-    <loc>/reference/read_from_file.html</loc>
   </url>
   <url>
     <loc>/reference/read_from_fingertips.html</loc>
@@ -130,19 +103,13 @@
     <loc>/reference/read_from_redcap.html</loc>
   </url>
   <url>
-    <loc>/reference/read_multiple_files.html</loc>
-  </url>
-  <url>
-    <loc>/reference/read_rio_formats.html</loc>
-  </url>
-  <url>
     <loc>/reference/readepi.html</loc>
   </url>
   <url>
     <loc>/reference/redcap_get_results.html</loc>
   </url>
   <url>
-    <loc>/reference/redcap_read.html</loc>
+    <loc>/reference/redcap_read_data.html</loc>
   </url>
   <url>
     <loc>/reference/redcap_read_fields.html</loc>
