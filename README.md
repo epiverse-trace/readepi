@@ -156,12 +156,7 @@ browseVignettes("readepi")
 
 ## Development
 
-<<<<<<< HEAD
 ### Lifecycle
-=======
-To report a bug please open an
-[issue](https://github.com/epiverse-trace/readepi/issues/new/choose).
->>>>>>> db24446 (Automatic readme update)
 
 This package is currently a *maturing*, as defined by the [RECON
 software lifecycle](https://www.reconverse.org/lifecycle.html). This
@@ -171,11 +166,11 @@ interface may still undergo minor changes.
 ### Contributions
 
 Contributions are welcome via [pull
-requests](https://github.com/epiverse-trace/readepi/pulls).
+requests](https://github.com/%7B%7B%20gh_repo%20%7D%7D/pulls).
 
 ### Code of Conduct
 
-Please note that the readepi project is released with a [Contributor
-Code of
+Please note that the {{ packagename }} project is released with a
+[Contributor Code of
 Conduct](https://github.com/epiverse-trace/.github/blob/main/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
