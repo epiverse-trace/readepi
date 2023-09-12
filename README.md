@@ -49,8 +49,6 @@ You can install the development version of **{readepi}** from
 [GitHub](https://github.com/) with:
 
 ``` r
-# install.packages("devtools")
-# devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
 if (!require("pak")) install.packages("pak")
 pak::pak("epiverse-trace/readepi")
 library(readepi)
