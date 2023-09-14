@@ -1,4 +1,5 @@
 ---
+<<<<<<< HEAD
 title: "readepi: Reading data from health information systems"
 output:
   bookdown::html_vignette2:
@@ -8,10 +9,17 @@ pkgdown:
   as_is: false
 vignette: >
   %\VignetteIndexEntry{Reading data from health information systems}
+=======
+title: "readepi-vignette"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{readepi-vignette}
+>>>>>>> main
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
 
+<<<<<<< HEAD
 # Overview 
 
 Health-related data in general, and epidemiological data in particular, are stored in files, relation database management systems (RDBMS), or health information systems (HIS). Each category includes numerous options, such as various file formats, RDBMS types, and HIS APIs. Import data from such repositories involve the usage of different format-specific functions or API-specific packages, which is an exhausting task for end users. 
@@ -28,10 +36,17 @@ knitr::opts_chunk[["set"]](
   message = FALSE,
   warning = FALSE,
   dpi = 300L
+=======
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+>>>>>>> main
 )
 ```
 
 ```{r setup}
+<<<<<<< HEAD
 # LOAD readepi
 library("readepi") # nolint
 ```
@@ -49,6 +64,71 @@ Mac users can follow the instructions below to install the MS SQL ODBC driver. C
  
 1. installation of MS SQL driver 17 on Mac
 
+=======
+library(readepi)
+```
+
+# Reading data from file or directory
+
+`readepi` provides functions for reading data from `common health information systems` as well as from various file types. When several files of different formats are stored in the same folder, the user can provide `readepi` with a specific pattern, allowing reading only the matching files.     
+
+When reading data from file or directory, the function expects the following arguments:   
+* *file_path*: the path to the file of interest. When several files need to be imported from a directory, this should be the path to that directory,      
+* *sep*: the separator between the columns in the file. This is only required for space-separated files,     
+* *format*: a string used to specify the file format. This is useful when a file does not have an extension, or has a file extension that does not match its actual type,      
+* *which*: a string used to specify which objects should be extracted (e.g. the name of the excel sheet to import),     
+* *pattern*: when provided, only files that contain this pattern will be imported from the specified directory.    
+The function will return an object of class list with one or more data frames.       
+
+## importing data from JSON file
+Many database management systems (DBMS) can export data into `JSON` format that can be read into R using the `readepi()` function.      
+```{r eval=FALSE}
+file <- system.file("extdata", "test.json", package = "readepi")
+data <- readepi(file_path = file)
+```
+
+## importing data from excel file 
+`readepi()` can import data from MS excel file with a single sheet. The user must specify the names of the excel sheets with the data of interest when the files contains several sheets.      
+```{r eval=FALSE}
+# IMPORTING DATA FROM THE SECOND EXCEL SHEET
+file <- system.file("extdata", "test.xlsx", package = "readepi")
+data <- readepi(file_path = file, which = "Sheet2")
+
+# IMPORTING DATA FROM THE FIRST AND SECOND EXCEL SHEETS
+file <- system.file("extdata", "test.xlsx", package = "readepi")
+data <- readepi(file_path = file, which = c("Sheet2", "Sheet1"))
+```
+
+## importing data from several files in a directory
+`readepi()` can be used to read data from multiple files that are all stored in the same directory. When there are different file format in that directory, the user is expected to specify the file type of interest with the `pattern` argument.     
+```{r eval=FALSE}
+# READING ALL FILES IN THE GIVEN DIRECTOR
+dir_path <- system.file("extdata", package = "readepi")
+data <- readepi(file_path = dir_path)
+
+# READING ONLY '.txt' FILES
+data <- readepi(file_path = dir_path, pattern = ".txt")
+
+# READING '.txt' and '.xlsx' FILES
+data <- readepi(file_path = dir_path, pattern = c(".txt", ".xlsx"))
+```
+
+# importing from DBMS (database management systems)
+Users should be granted with read access to be able to pull data from the DBMS. 
+
+## Reading data from relational database management systems (RDBMS): HDSS, EMRS, REDCap
+Research data are usually stored in either relational databases or NoSQL databases. At the MRCG@LSHTM, project data are stored in relational databases. The HDSS and EMRS host databases that run under MS SQL Server, while REDCap (that uses an EAV schema) run under a MySQL server.    
+To import data from MS SQL Servers (HDSS or EMRS) into R, some dependencies need to be installed first.    
+
+### installation of dependencies
+If you are using a Unix-based system, you will need to install the MS ODBC driver that is compatible with the version of the target MS SQL server. For **SQL server 2019, version 15.0**, we installed **ODBC Driver 17 for SQL Server** on the mac OS which is compatible with the test server.    
+
+#### installation of MS SQL driver on Mac
+Mac users can follow the instructions below to install the MS SQL ODBC driver.     
+
+##### installation of MS SQL driver 17 or 18 on Mac
+Open the terminal, and run the followings:    
+>>>>>>> main
 ```{bash eval=FALSE}
 driver=17
 brew install unixodbc
@@ -59,8 +139,12 @@ brew install mssql-tools
 ODBCSYSINI=/
 ```
 
+<<<<<<< HEAD
 2. installation of MS SQL driver 13.1 on Mac
 
+=======
+##### installation of MS SQL driver 13.1 on Mac
+>>>>>>> main
 ```{bash eval=FALSE}
 brew install unixodbc
 brew tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release
@@ -70,12 +154,17 @@ brew install mssql-tools@14.0.6.0
 ODBCSYSINI=/
 ```
 
+<<<<<<< HEAD
 ## MS SQL drivers for Linux-based systems
 
 Note that this requires **Ubuntu 16.04 and above**. Choose the appropriate driver, open the terminal and type the instructions below: 
 
 1. installation of MS SQL driver version 17 on `Ubuntu`
 
+=======
+#### installation of MS SQL driver version 17 or 18 on `Ubuntu`
+Note that this requires **Ubuntu 16.04 and above**. Open the terminal and type the code below:         
+>>>>>>> main
 ```{bash eval=FALSE}
 driver=17
 sudo su
@@ -91,8 +180,13 @@ source ~/.bashrc
 sudo apt-get install -y unixodbc-dev
 ```
 
+<<<<<<< HEAD
 2. installation of MS SQL driver version 13.1 on `Ubuntu`
 
+=======
+#### installation of MS SQL driver version 13.1 on `Ubuntu`
+Note that this works for older versions of Ubuntu, including version 16.04.   
+>>>>>>> main
 ```{bash eval=FALSE}
 sudo su
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
@@ -106,14 +200,23 @@ source ~/.bashrc
 sudo apt-get install unixodbc-dev
 ```
 
+<<<<<<< HEAD
 3. installation of MS SQL driver on other Linux distributions 
 
 To install an MS SQL driver for other Linux distributions, such as Debian and Fedora, click [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline) and follow the instructions. After the  installation, check the installed drivers  using:      
 
+=======
+#### installation of MS SQL driver on other Linux distributions
+When working on a Linux distribution other than Ubuntu, follow the instructions [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline) for the MS SQL driver installation process.           
+
+
+After the driver installation, the list of drivers can be displayed in R using:       
+>>>>>>> main
 ```{r eval=FALSE}
 odbc::odbcListDrivers()
 ```
 
+<<<<<<< HEAD
 If this command  does not return the list of installed drivers or if you are facing issues during the driver installation process, consult [the odbc github page](https://github.com/r-dbi/odbc#installation) or the [MS documentation on this topic](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15). 
 
 It is also important to view the data stored in the MS SQL server. For that purpose, we recommend you to install a graphical user interface (GUI) such as `Azure Data Studio`.
@@ -166,11 +269,65 @@ show_tables(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   driver_name      = ""
+=======
+If the command above does not return the list of installed drivers or if you are facing issues during the driver installation process, consult    
+[the odbc github page](https://github.com/r-dbi/odbc#installation) or the [MS documentation on this topic](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15)     
+
+
+**Note that it is important to view the data that is stored in the MS SQL server. We recommend to install a GUI such as `Azure Data Studio` for that purpose.**         
+
+## importing from MS SQL or MySQL server
+The current version of `readepi` allows for data import from:   
+1. MS SQL server,      
+2. MySQL server,     
+3. PostgreSQL server.   
+To be able to read data these data management information systems, the **readepi()** expects the following arguments:     
+
+* *credentials_file*: the path to the file with the user-specific credential details for the projects of interest. This is a tab-delimited file with the following 7  columns:     
+
+`user_name`: the user name,    
+`password`: the user password (for REDCap, this corresponds to the **token** that serves as password to the project),    
+`host_name`: the host name (for HDSS and EMRS) or the URI (for REDCap),    
+`project_id`: the project ID (for REDCap) or the name of the database (for HDSS and EMRS) you are access to,   
+`comment`: a summary description about the project or database of interest,     
+`dbms`: the name of the DBMS: 'redcap' or 'REDCap' when reading from REDCap, 'sqlserver' or 'SQLServer' when reading from MS SQL Server,    
+`port`: the port ID (used for MS SQL Servers only).    
+
+* *project_id*: for relational DB, this is the name of the database that contains the table from which the data should be pulled. Otherwise, it is the project ID you were given access to. Note that this should be similar to the value of the **project_id** field in the credential file.  
+* *driver_name*: the name of the MS driver (only for HDSS and EMRS). use  `odbc::odbcListDrivers()` to display the list of installed drivers,    
+* *source*: This can be a vector of the table names or an SQL query. When table names are specified, subsetting from tables is done by specifying the `fields` and `records` parameters     
+* *records*: a vector or a comma-separated string of a subset of subject IDs. When specified, only the records that correspond to these subjects will be imported,    
+* *fields*: a vector or a comma-separated string of column names. If provided, only those columns will be imported,     
+* *id_position*: the column position of the variable that unique identifies the subjects. default is 1.    
+* *id_col_name*: the name of the column that unique identifies the subjects.
+
+
+Use the `show_example_file()` as below to view the credentials file used as template in the **readepi** package.      
+```{r eval=FALSE}
+# DISPLAY THE STRUCTURE OF THE CREDENTIALS FILE
+show_example_file()
+```
+All demos in the sections below rely on the credentials stored in the template file, defined as described above, and that is part of the `readepi` package.     
+Also, these examples are based on a MySQL server that does not require the user to specify the `driver name`. But it is important to keep in mind that specify the driver name is a requirement for MS SQL server.         
+```{r eval=FALSE}
+# DEFINING THE CREDENTIALS FILE
+credentials_file <- system.file("extdata", "test.ini", package = "readepi")
+```
+
+### list the names of all tables in the database
+To displays the list of tables from the database of interest, use:  
+```{r eval=FALSE}
+show_tables(
+  credentials_file = credentials_file,
+  project_id = "Rfam", # this is the database name
+  driver_name = "" # ODBC Driver 17 for SQL Server
+>>>>>>> main
 )
 # use driver_name = "ODBC Driver 17 for SQL Server" when reading from MS SQL
 # server
 ```
 
+<<<<<<< HEAD
 ### Fetching data using table names
 
 ```{r eval=FALSE}
@@ -188,20 +345,48 @@ dat <- readepi(
   credentials_file = credentials_file,
   from             = "author", # this is the table name
   driver_name      = ""
+=======
+Note that in the above, the value for the `project_id` argument is the name of the database of interest.    
+
+### fetching the data using table names    
+```{r eval=FALSE}
+# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`)
+data <- readepi(credentials_file,
+  project_id = "Rfam",
+  driver_name = "", # ODBC Driver 17 for SQL Server
+  source = "author"
+)
+
+# VISUALIZE THE FIRST 5 ROWS OF THE TABLE 'author'
+visualise_table(
+  credentials_file = credentials_file,
+  source = "author", # this is the table name
+  project_id = "Rfam", # this is the database name
+  driver_name = ""
+>>>>>>> main
 )
 
 # READING SPECIFIED FIELDS AND ALL RECORDS FROM ONE TABLE
 fields <- "author_id,name,last_name,initials"
+<<<<<<< HEAD
 dat    <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   from             = "author", # this is the table name
   driver_name      = "",
   fields           = fields # these are  the columns of interest.
+=======
+data <- readepi(credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = "author",
+  fields = fields
+>>>>>>> main
 )
 
 # READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE
 records <- "1, 34, 15, 70, 118, 20"
+<<<<<<< HEAD
 dat <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
@@ -220,15 +405,40 @@ dat <- readepi(
   records          = records,
   fields           = fields,
   id_col_name      = "author_id"
+=======
+data <- readepi(credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = "author",
+  records = records,
+  id_position = 1
+)
+
+# READING SPECIFIED FIELDS AND RECORDS ONE THE TABLE
+data <- readepi(credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = "author",
+  records = records,
+  fields = fields,
+  id_col_name = "author_id"
+>>>>>>> main
 )
 
 # READING DATA FROM SEVERAL TABLES
 table_names <- c("author", "family_author")
+<<<<<<< HEAD
 dat <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   from             = table_names, # this is the table name
   driver_name      = ""
+=======
+data <- readepi(credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = table_names
+>>>>>>> main
 )
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING FIELDS ACROSS TABLES
@@ -239,12 +449,20 @@ fields <- c(
 # the first string in the field vector corresponds to the name of the
 # columns of interest from the first table specified in the `table_names`
 # argument and so on...
+<<<<<<< HEAD
 dat <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   from             = table_names, # this is the table name
   driver_name      = "",
   fields           = fields
+=======
+data <- readepi(credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = table_names,
+  fields = fields
+>>>>>>> main
 )
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS ACROSS TABLES
@@ -256,6 +474,7 @@ records <- c(
 # interest from the first table specified in the `table_name` argument and so
 # on... when the id column is not the first column in a table,
 # use the `id_position`"
+<<<<<<< HEAD
 dat <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
@@ -263,10 +482,19 @@ dat <- readepi(
   driver_name      = "",
   records          = records,
   id_position      = c(1, 1) # nolint
+=======
+data <- readepi(credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = table_names,
+  records = records,
+  id_position = c(1, 1)
+>>>>>>> main
 )
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS
 # TABLES
+<<<<<<< HEAD
 dat <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
@@ -356,10 +584,93 @@ dat <- readepi(
   data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
   credentials_file = credentials_file,
   fields           = fields
+=======
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = table_names,
+  records = records,
+  fields = fields,
+  id_col_name = c("author_id", "rfam_acc")
+)
+```
+
+### fetching the data using an SQL query
+```{r eval=FALSE}
+# SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = "select author.author_id, author.name, family_author.author_id from 
+  author left join family_author on author.author_id = family_author.author_id"
+)
+
+# SELECT ALL DATA FROM THE author TABLE
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = "select * from author"
+)
+
+# SELECT FEW COLUMNS FROM THE author TABLE
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = "select author_id, name, last_name from author"
+)
+
+# SELECT FEW RECORDS FROM THE author TABLE
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = "select * from author where author_id in ('1','20','50')"
+)
+
+# SELECT FEW RECORDS AND FIELDS FROM THE author TABLE
+data <- readepi(
+  credentials_file,
+  project_id = "Rfam",
+  driver_name = "",
+  source = "select author_id, name, last_name from author where 
+  author_id in ('1','20','50')"
+)
+```
+
+## importing from REDCap
+To import data from REDCap, the user must call the `readepi` function with the following arguments:     
+
+* *credentials_file*: the credentials file (required)
+* *project_id*: the project ID (required)
+* *records*: the list of the desired records (optional)
+* *fields*: the list of the desired columns (optional)
+
+Both the data and its associated metadata will be will be returned after a successful import.    
+
+```{r eval=FALSE}
+# READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT
+data <- readepi(
+  credentials_file = credentials_file,
+  project_id = "SD_DATA"
+)
+project_data <- data$data
+project_metadeta <- data$metadata
+
+# READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT
+fields <- c("record_id", "name_first", "age", "bmi")
+data <- readepi(credentials_file,
+  project_id = "SD_DATA",
+  fields = fields
+>>>>>>> main
 )
 
 # READING SPECIFIC RECORDS AND ALL FIELDS FROM THE PROJECT
 records <- c("1", "3", "5")
+<<<<<<< HEAD
 dat <- readepi(
   data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
   credentials_file = credentials_file,
@@ -448,10 +759,95 @@ dat <- readepi(
   data_element_group = NULL,
   start_date         = "2014",
   end_date           = "2023"
+=======
+data <- readepi(credentials_file,
+  project_id = "SD_DATA",
+  records = records,
+  id_col_name = "record_id"
+)
+
+# READING SPECIFIC RECORDS AND FIELDS FROM THE PROJECT
+data <- readepi(credentials_file,
+  project_id = "SD_DATA",
+  records = records,
+  fields = fields,
+  id_col_name = "record_id"
+)
+project_data <- data$data
+project_metadeta <- data$metadata
+```
+
+
+## importing from DHIS2
+To import data from **DHIS2**, the user must call the `readepi` function with the following arguments:     
+
+* *credentials_file*: the credentials file (required)
+* *project_id*: the project ID (required)
+* *dataset*: the dataset identifier (required)
+* *organisation_unit*: the organisation unit identifier (required)    
+* *data_element_group*: the data element group (optional)    
+* *start_date*: the start date for the time span of the values to export (required)    
+* *end_date*: the end date for the time span of the values to export (required)   
+* *id_col_name*: the column name with the records of interest (optional)    
+* *records*: the list of the desired records (optional)     
+* *fields*: the list of the desired columns (optional)    
+
+```{r eval=FALSE}
+# GETTING THE DATA ELEMENT IDENTIFIERS AND NAMES
+data_elements <- get_data_elements(
+  base_url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district"
+)
+
+# GETTING THE DATASET IDENTIFIERS AND NAMES
+datasets <- get_data_sets(
+  base_url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district"
+)
+
+# GETTING THE ORGANISATION UNIT IDENTIFIERS AND NAMES
+organisation_units <- get_data_sets(
+  base_url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district"
+)
+
+# GETTING THE DATA ELEMENT GROUP IDENTIFIERS AND NAMES
+data_element_groups <- get_organisation_units(
+  base_url = "https://play.dhis2.org/dev/",
+  username = "admin",
+  password = "district"
+)
+
+# READING THE DATASET ID `pBOMPrpg1QX`
+data <- readepi(
+  credentials_file = credentials_file,
+  project_id = "DHIS2_DEMO",
+  dataset = "pBOMPrpg1QX",
+  organisation_unit = "DiszpKrYNg8",
+  data_element_group = NULL,
+  start_date = "2014",
+  end_date = "2023"
+)
+
+# READING DATA FROM 2 DATASETS `pBOMPrpg1QX`
+data <- readepi(
+  credentials_file = credentials_file,
+  project_id = "DHIS2_DEMO",
+  dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+  # same as dataset=c("pBOMPrpg1QX","BfMAe6Itzgt")
+  organisation_unit = "DiszpKrYNg8",
+  data_element_group = NULL,
+  start_date = "2014",
+  end_date = "2023"
+>>>>>>> main
 )
 
 # READING SPECIFIC DATA ELEMENTS FROM THE DATASET ID `pBOMPrpg1QX`
 data_elts <- c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea")
+<<<<<<< HEAD
 dat <- readepi(
   data_source        = "https://play.dhis2.org/dev",
   credentials_file   = credentials_file,
@@ -500,10 +896,57 @@ It is worth noting that, while reading such data, the `readepi()` function makes
 ### Examples
 
 This section provides various examples demonstrating how **{readepi}** imports data from Fingertips-based APIs.
+=======
+data <- readepi(
+  credentials_file = credentials_file,
+  project_id = "DHIS2_DEMO",
+  dataset = "pBOMPrpg1QX",
+  organisation_unit = "DiszpKrYNg8",
+  data_element_group = NULL,
+  start_date = "2014",
+  end_date = "2023",
+  records = data_elts,
+  id_col_name = "dataElement"
+)
+
+# READING SPECIFIC COLUMNS FROM A DATASET
+data <- readepi(
+  credentials_file = credentials_file,
+  project_id = "DHIS2_DEMO",
+  dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+  organisation_unit = "DiszpKrYNg8",
+  data_element_group = NULL,
+  start_date = "2014",
+  end_date = "2023",
+  fields = c("dataElement", "period", "value")
+)
+
+test_data <- data$data
+```
+
+## importing from Fingertips
+[Fingertips](https://fingertips.phe.org.uk/) is a repository of public health data indicators in England. The data in Fingertips website is organised into themed profiles. The `readepi()` function takes the arguments listed below to import data from Fingertips through its API:     
+
+* *indicator_id*: the indicator ID
+* *indicator_name*: the indicator name
+* *area_type_id*: the area type ID. This determines the geographic area for the imported data
+* *parent_area_type_id*: the parent area type code of the specified area type ID
+* *profile_id*: the profile ID
+* *profile_name*: the profile name
+* *domain_id*: the domain ID
+* *domain_name*: the domain name
+* *records*: the list of the desired records     
+* *fields*: the list of the desired columns 
+* *id_col_name*: the column name with the records of interest 
+* *id_position*: the column position of the variable that unique identifies the subjects. default is 1. 
+
+Note that the `readepi()` function makes call of wrapper around the major function in the [fingertipsR](https://docs.ropensci.org/fingertipsR/) package.    
+>>>>>>> main
 
 ```{r eval=FALSE}
 # GET THE INFORMATION ABOUT THE INDICATOR PROFILES, DOMAIN, AREA TYPE, ...
 metadata <- get_fingertips_metadata()
+<<<<<<< HEAD
 head(metadata[["indicator_profile_domain"]])
 head(metadata[["indicator_ids_names"]])
 head(metadata[["area_type"]])
@@ -563,3 +1006,69 @@ dat <- readepi(
   id_col_name  = "AreaCode"
 )
 ```
+=======
+head(metadata$indicator_profile_domain)
+# indicator_profile_domain contains the indicator, profile,
+# and domain information.
+head(metadata$indicator_ids_names)
+# indicator_ids_names contains the list of indicators IDs together
+# with their names.
+head(metadata$area_type)
+# area_type contains the list of all area types with their associated
+# parent area types.
+
+# IMPORTING DATA USING THE INDICATOR ID
+data <- readepi(
+  indicator_id = 90362,
+  area_type_id = 202
+)
+
+# IMPORTING DATA USING THE INDICATOR NAME
+data <- readepi(
+  indicator_name = "Healthy life expectancy at birth",
+  area_type_id = 202
+)
+
+# IMPORTING DATA USING THE DOMAIN NAME
+data <- readepi(
+  domain_name = "A. Overarching indicators",
+  area_type_id = 202
+)
+
+data <- readepi(
+  indicator_name = "Healthy life expectancy at birth",
+  area_type_id = 202,
+  domain_name = "A. Overarching indicators"
+)
+
+# IMPORTING DATA USING THE PROFILE ID
+data <- readepi(
+  profile_id = 19,
+  area_type_id = 202
+)
+
+# IMPORTING DATA FROM SPECIFIC INDICATOR, DOMAIN, PROFILE, AREA TYPE
+data <- readepi(
+  indicator_id = 90362,
+  indicator_name = "Healthy life expectancy at birth",
+  area_type_id = 202, parent_area_type_id = 6,
+  profile_id = 19,
+  profile_name = "Public Health Outcomes Framework",
+  domain_id = 1000049, domain_name = "A. Overarching indicators",
+  fields = NULL, records = NULL,
+  id_position = NULL, id_col_name = NULL
+)
+
+# IMPORTING DATA AND SUBSETTING SPECIFIC RECORDS AND FIELDS
+data <- readepi(
+  indicator_id = 90362,
+  area_type_id = 202,
+  fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+  records = c("E92000001", "E12000002", "E12000009"),
+  id_col_name = "AreaCode"
+)
+```
+
+
+
+>>>>>>> main

@@ -4,6 +4,7 @@
 \alias{fingertips_subset_rows}
 \title{Subset records when reading from Fingertips}
 \usage{
+<<<<<<< HEAD
 fingertips_subset_rows(data, records, id_col_name)
 }
 \arguments{
@@ -16,11 +17,25 @@ fingertips_subset_rows(data, records, id_col_name)
 \value{
 an object of type \code{data.frame} with the Fingertips dataset that
 contains only the records of interest
+=======
+fingertips_subset_rows(records, id_col_name, data)
+}
+\arguments{
+\item{records}{a vector or a comma-separated string of records}
+
+\item{id_col_name}{the column name with the subject IDs}
+
+\item{data}{the data read from Fingertips}
+}
+\value{
+a data frame with the records of interest
+>>>>>>> main
 }
 \description{
 Subset records when reading from Fingertips
 }
 \examples{
+<<<<<<< HEAD
 \dontrun{
 res <- fingertips_subset_rows(
   data = readepi(
@@ -33,3 +48,15 @@ res <- fingertips_subset_rows(
 }
 }
 \keyword{internal}
+=======
+res <- fingertips_subset_rows(
+  records = c("E92000001", "E12000002", "E12000009"),
+  id_col_name = "AreaCode",
+  data = readepi(
+    profile_id = 19,
+    area_type_id = 202
+  )$data
+)
+
+}
+>>>>>>> main

@@ -4,6 +4,7 @@
 \alias{dhis2_subset_fields}
 \title{Subset fields when reading from DHIS2}
 \usage{
+<<<<<<< HEAD
 dhis2_subset_fields(data, fields)
 }
 \arguments{
@@ -14,11 +15,23 @@ dhis2_subset_fields(data, fields)
 \value{
 an object of type \code{data.frame} with the data that contains only the
 fields of interest
+=======
+dhis2_subset_fields(fields, data)
+}
+\arguments{
+\item{fields}{vector of fields to select from the data frame}
+
+\item{data}{the input data frame}
+}
+\value{
+the data frame with the fields of interest
+>>>>>>> main
 }
 \description{
 Subset fields when reading from DHIS2
 }
 \examples{
+<<<<<<< HEAD
 \dontrun{
 results <- dhis2_subset_fields(
   data = readepi(
@@ -37,3 +50,19 @@ results <- dhis2_subset_fields(
 }
 }
 \keyword{internal}
+=======
+results <- dhis2_subset_fields(
+ fields = c("dataElement","period","value"),
+ data = readepi(
+  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+   project_id = "DHIS2_DEMO",
+   dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
+   organisation_unit = "DiszpKrYNg8",
+   data_element_group = NULL,
+   start_date = "2014",
+   end_date = "2023",
+   fields = c("dataElement","period","value")
+ )$data
+)
+}
+>>>>>>> main

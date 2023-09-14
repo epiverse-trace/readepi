@@ -12,13 +12,19 @@ redcap_get_results(redcap_data, metadata)
 \item{metadata}{the object with redcap metadata}
 }
 \value{
+<<<<<<< HEAD
 a \code{list} of 2 elements of type \code{data.frame}. These are the dataset of
 interest and its associated metadata.
+=======
+a list with the redcap dataset and its associated metadata as
+data frames
+>>>>>>> main
 }
 \description{
 Check and return data fetch from redcap
 }
 \examples{
+<<<<<<< HEAD
 \dontrun{
 result <- redcap_get_results(
   redcap_data = REDCapR::redcap_read(
@@ -39,3 +45,22 @@ result <- redcap_get_results(
 }
 
 }
+=======
+result <- redcap_get_results(
+redcap_data = REDCapR::redcap_read(
+  redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
+  token = "9A81268476645C4E5F03428B8AC3AA7B",
+  records = c("1", "3", "5"),
+  fields = c("record_id", "name_first", "age", "bmi"),
+  verbose = FALSE,
+  id_position = 1L
+  ),
+metadata = REDCapR::redcap_metadata_read(
+  redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
+  token = "9A81268476645C4E5F03428B8AC3AA7B",
+  fields = NULL,
+  verbose = FALSE
+  )
+)
+}
+>>>>>>> main

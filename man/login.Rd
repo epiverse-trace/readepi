@@ -14,8 +14,13 @@ login(username, password, base_url)
 \item{base_url}{the base URL of the DHIS2 server}
 }
 \description{
+<<<<<<< HEAD
 If the user were granted with access to the API, this will return a message
 specifying that the user was successfully connected. Otherwise, it will throw
 an error message.
 }
 \keyword{internal}
+=======
+Check DHIS2 authentication details
+}
+>>>>>>> main

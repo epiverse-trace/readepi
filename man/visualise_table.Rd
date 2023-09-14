@@ -4,6 +4,7 @@
 \alias{visualise_table}
 \title{Visualize the first 5 rows of the data from a table}
 \usage{
+<<<<<<< HEAD
 visualise_table(data_source, credentials_file, from, driver_name)
 }
 \arguments{
@@ -13,16 +14,32 @@ visualise_table(data_source, credentials_file, from, driver_name)
 credential details for the projects of interest}
 
 \item{from}{the table name}
+=======
+visualise_table(credentials_file, source, project_id, driver_name)
+}
+\arguments{
+\item{credentials_file}{the path to the file with the user-specific
+credential details for the projects of interest}
+
+\item{source}{the table name}
+
+\item{project_id}{the name of the target database}
+>>>>>>> main
 
 \item{driver_name}{the name of the MS driver}
 }
 \value{
+<<<<<<< HEAD
 prints the first 5 rows of the specified table
+=======
+return the first 5 rows of the table if display=TRUE
+>>>>>>> main
 }
 \description{
 Visualize the first 5 rows of the data from a table
 }
 \examples{
+<<<<<<< HEAD
 \dontrun{
 visualise_table(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
@@ -31,4 +48,13 @@ visualise_table(
   driver_name      = ""
 )
 }
+=======
+visualise_table(
+ credentials_file <- system.file("extdata", "test.ini", package = "readepi"),
+  source = "author",
+  project_id = "Rfam",
+  driver_name = ""
+)
+
+>>>>>>> main
 }

@@ -2,6 +2,7 @@
 % Please edit documentation in R/read_servers.R
 \name{sql_server_read_data}
 \alias{sql_server_read_data}
+<<<<<<< HEAD
 \title{Read data from database management systems (DBMS).}
 \usage{
 sql_server_read_data(
@@ -11,12 +12,27 @@ sql_server_read_data(
   port = 1433L,
   database_name = "Rfam",
   driver_name = "",
+=======
+\title{Read data from relational databases hosted by a MS SQL server.}
+\usage{
+sql_server_read_data(
+  user,
+  password,
+  host,
+  port = 1433,
+  database_name,
+  driver_name,
+>>>>>>> main
   source = NULL,
   records = NULL,
   fields = NULL,
   id_position = NULL,
   id_col_name = NULL,
+<<<<<<< HEAD
   dbms = "MySQL"
+=======
+  dbms
+>>>>>>> main
 )
 }
 \arguments{
@@ -34,11 +50,16 @@ which the data should be pulled}
 \item{driver_name}{the name of the MS driver. use \code{odbc::odbcListDrivers()}
 to display the list of installed drivers}
 
+<<<<<<< HEAD
 \item{source}{an SQL query or a vector of table names from
+=======
+\item{source}{and SQL query or a vector of table names from
+>>>>>>> main
 the project or database. When this is not specified, the function will
 extract data from all tables in the database.}
 
 \item{records}{a vector or a comma-separated string of subset of subject IDs.
+<<<<<<< HEAD
 When specified, only the records that correspond to these subjects will
 be imported.}
 
@@ -51,12 +72,26 @@ and so on...}
 unique identifies the subjects in each table. When the column name with
 the subject IDs is known, use the \code{id_col_name} argument instead. default
 is 1.}
+=======
+When specified, only the records that correspond to these subjects will be
+imported.}
+
+\item{fields}{a vector of strings where each string is a comma-separated list
+of column names. The element of this vector should be a list of column names
+from the first table specified in the \code{table_names} argument and so on...}
+
+\item{id_position}{a vector of the column positions of the variable that
+unique identifies the subjects in each table. When the column name with the
+subject IDs is known, use the \code{id_col_name} argument instead. default is.
+default is 1.}
+>>>>>>> main
 
 \item{id_col_name}{the column name with the subject IDs}
 
 \item{dbms}{the SQL server type}
 }
 \value{
+<<<<<<< HEAD
 a \code{list} of 1 or several objects of type \code{data.frame}. The number of
 elements in the list depends on the number of tables from which the
 data is fetched.
@@ -66,10 +101,22 @@ The function assumes the user has read access to the database.
 Importing data stored in DBMS into R requires the installation
 of the appropriate \code{driver} that is compatible with the server version
 hosting the database. See the \code{vignette} for how to install the driver
+=======
+a list of data frames
+}
+\description{
+For a user with read access to a Microsoft SQL server,
+this function allows data import from the database into R. It required the
+installation
+of the appropriate MS driver that is compatible with the SQL server version
+hosting the
+database.
+>>>>>>> main
 }
 \examples{
 \dontrun{
 data <- sql_server_read_data(
+<<<<<<< HEAD
   user          = "rfamro",
   password      = "",
   host          = "mysql-rfam-public.ebi.ac.uk",
@@ -82,3 +129,16 @@ data <- sql_server_read_data(
 }
 }
 \keyword{internal}
+=======
+  user = "rfamro",
+  password = "",
+  host = "mysql-rfam-public.ebi.ac.uk",
+  port = 4497,
+  database_name = "Rfam",
+  source = "author",
+  driver_name = "",
+  dbms = "MySQL"
+)
+}
+}
+>>>>>>> main

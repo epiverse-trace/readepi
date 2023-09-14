@@ -7,16 +7,24 @@
 get_read_fingertips_args(args_list)
 }
 \arguments{
+<<<<<<< HEAD
 \item{args_list}{a \code{list} of user specified arguments}
 }
 \value{
 a \code{list} of 8 elements of type \code{character} or \code{numeric} that will be
 used for importing data from Fingertips
+=======
+\item{args_list}{a list of user specified arguments}
+}
+\value{
+a list of the parameters to be used for reading from Fingertips
+>>>>>>> main
 }
 \description{
 Get arguments for reading from Fingertips
 }
 \examples{
+<<<<<<< HEAD
 \dontrun{
 args_list <- get_read_fingertips_args(
   list(
@@ -27,3 +35,12 @@ args_list <- get_read_fingertips_args(
 }
 }
 \keyword{internal}
+=======
+args_list <- get_read_fingertips_args(
+ list(
+   indicator_id = 90362,
+   area_type_id = 202
+ )
+)
+}
+>>>>>>> main

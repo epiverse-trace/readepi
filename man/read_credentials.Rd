@@ -6,18 +6,31 @@
 \usage{
 read_credentials(
   file_path = system.file("extdata", "test.ini", package = "readepi"),
+<<<<<<< HEAD
   url = "mysql-rfam-public.ebi.ac.uk"
+=======
+  project_id = NULL
+>>>>>>> main
 )
 }
 \arguments{
 \item{file_path}{the path to the file with the user-specific credential
 details for the projects of interest.}
 
+<<<<<<< HEAD
 \item{url}{the URL of the HIS of interest}
 }
 \value{
 a \code{list} of 5 elements of type \code{character} or \code{numeric}. These
 correspond to the user's credential details.
+=======
+\item{project_id}{for relational DB, this is the name of the database
+that contains the table from which the data should be pulled. Otherwise,
+it is the project ID you were given access to.}
+}
+\value{
+a list with the user credential details.
+>>>>>>> main
 }
 \description{
 Read credentials from a configuration file
@@ -26,8 +39,15 @@ Read credentials from a configuration file
 \dontrun{
 credentials <- read_credentials(
   file_path = system.file("extdata", "test.ini", package = "readepi"),
+<<<<<<< HEAD
   url       = "mysql-rfam-public.ebi.ac.uk"
 )
 }
 }
 \keyword{internal}
+=======
+  project_id = "Rfam"
+)
+}
+}
+>>>>>>> main

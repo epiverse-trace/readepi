@@ -4,6 +4,7 @@
 \alias{fingertips_subset_columns}
 \title{Subset columns when reading from Fingertips}
 \usage{
+<<<<<<< HEAD
 fingertips_subset_columns(data, fields)
 }
 \arguments{
@@ -14,11 +15,23 @@ fingertips_subset_columns(data, fields)
 \value{
 an object of type \code{data.frame} with the Fingertips dataset that
 contains only the fields of interest
+=======
+fingertips_subset_columns(fields, data)
+}
+\arguments{
+\item{fields}{a vector or a comma-separated string of column names}
+
+\item{data}{the data read from Fingertips}
+}
+\value{
+a data frame with the columns of interest
+>>>>>>> main
 }
 \description{
 Subset columns when reading from Fingertips
 }
 \examples{
+<<<<<<< HEAD
 \dontrun{
 res <- fingertips_subset_columns(
   data = readepi(
@@ -30,3 +43,14 @@ res <- fingertips_subset_columns(
 }
 }
 \keyword{internal}
+=======
+res <- fingertips_subset_columns(
+  fields = c("IndicatorID", "AreaCode", "Age", "Value"),
+  data = readepi(
+    profile_id = 19,
+    area_type_id = 202
+  )$data
+)
+
+}
+>>>>>>> main

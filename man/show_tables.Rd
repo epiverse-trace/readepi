@@ -4,21 +4,36 @@
 \alias{show_tables}
 \title{Display the list of tables in a database}
 \usage{
+<<<<<<< HEAD
 show_tables(data_source, credentials_file, driver_name)
 }
 \arguments{
 \item{data_source}{the URL of the HIS of interest}
 
+=======
+show_tables(credentials_file, project_id, driver_name)
+}
+\arguments{
+>>>>>>> main
 \item{credentials_file}{the path to the file with the user-specific
 credential details for the projects of interest. See the help of
 the \code{readepi} function for more details.}
 
+<<<<<<< HEAD
+=======
+\item{project_id}{the name of the target database}
+
+>>>>>>> main
 \item{driver_name}{the name of the MS driver. use \code{odbc::odbcListDrivers()}
 to display the list of installed drivers}
 }
 \value{
+<<<<<<< HEAD
 a \code{character} that contains the list of all tables found
 in the specified database
+=======
+the list of tables in the specified database
+>>>>>>> main
 }
 \description{
 Display the list of tables in a database
@@ -26,10 +41,16 @@ Display the list of tables in a database
 \examples{
 \dontrun{
 show_tables(
+<<<<<<< HEAD
   credentials_file = system.file("extdata", "test.ini",
                                  package = "readepi"),
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   driver_name      = ""
+=======
+  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+  project_id = "Rfam",
+  driver_name = ""
+>>>>>>> main
 )
 }
 }

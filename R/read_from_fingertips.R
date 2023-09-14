@@ -9,6 +9,7 @@
 #' @param domain_id a vector of domain IDs
 #' @param domain_name a vector or a comma-separated list of domain names
 #' @param fields a vector or a comma-separated string of column names.
+<<<<<<< HEAD
 #'    If provided, only those columns will be imported.
 #' @param records a vector or a comma-separated string of records.
 #'    When specified, only these records will be imported.
@@ -29,11 +30,29 @@
 read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
                                  area_type_id = NULL,
                                  parent_area_type_id = NULL,
+=======
+#' If provided, only those columns will be imported.
+#' @param records a vector or a comma-separated string of records.
+#' When specified, only these records will be imported.
+#' @param id_position the column position of the variable that unique identifies
+#' the subjects. When the name of the column with the subject IDs is known,
+#' this can be provided using the `id_col_name` argument
+#' @param id_col_name the column name with the subject IDs.
+#'
+#' @return a data frame
+#' @export
+#'
+#' @examples
+#' data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
+read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
+                                 area_type_id, parent_area_type_id = NULL,
+>>>>>>> main
                                  profile_id = NULL, profile_name = NULL,
                                  domain_id = NULL, domain_name = NULL,
                                  fields = NULL, records = NULL,
                                  id_position = NULL, id_col_name = NULL) {
   checkmate::assert_vector(indicator_id,
+<<<<<<< HEAD
                            any.missing = FALSE, min.len = 0L,
                            null.ok = TRUE, unique = TRUE
   )
@@ -65,13 +84,64 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
                            any.missing = FALSE, min.len = 0L,
                            null.ok = TRUE, unique = TRUE
   )
+=======
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(indicator_name,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(area_type_id,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(parent_area_type_id,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(profile_id,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(profile_name,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(domain_id,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(domain_name,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(records,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_vector(fields,
+    any.missing = FALSE, min.len = 0,
+    null.ok = TRUE, unique = TRUE
+  )
+  checkmate::assert_number(id_position, null.ok = TRUE, na.ok = FALSE,
+                           lower = 1)
+  checkmate::assert_character(id_col_name, any.missing = FALSE, len = 1,
+                              null.ok = TRUE)
+>>>>>>> main
 
   # check if one of these is not provided
   if (all(is.null(profile_id) & is.null(indicator_id) & is.null(domain_id) &
           is.null(profile_name) & is.null(indicator_name) &
+<<<<<<< HEAD
           is.null(domain_name) & is.null(area_type_id))) {
     stop("\nPlease use the readepi:::get_fingertips_metadata() function to see
          the Fingertips metadata.")
+=======
+          is.null(domain_name))) {
+    stop("\nPlease use the get_fingertips_metadata() function to see the
+         Fingertips metadata.")
+>>>>>>> main
   }
 
   # extract the metadata
@@ -81,30 +151,49 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
   if (is.null(area_type_id)) {
     message("\narea_type_id not provided! Please choose an area type ID from the
             list below:\n")
+<<<<<<< HEAD
     print(metadata[["area_type"]])
+=======
+    print(metadata$area_type)
+>>>>>>> main
     stop()
   }
 
   # get the indicator ID from the indicator name
   if (!is.null(indicator_name) && is.null(indicator_id)) {
+<<<<<<< HEAD
     indicator_id <- get_ind_id_from_ind_name(metadata, indicator_name)
+=======
+    indicator_id <- get_ind_id_from_ind_name(metadata,
+                                             indicator_name)
+>>>>>>> main
   }
 
   # get the indicator ID from the domain ID
   if (!is.null(domain_id) && is.null(indicator_id)) {
+<<<<<<< HEAD
     indicator_id <- get_ind_id_from_domain_id(
       metadata, domain_id,
       indicator_name
     )
+=======
+    indicator_id <- get_ind_id_from_domain_id(metadata, domain_id,
+                                                  indicator_name)
+>>>>>>> main
   }
 
   # get the indicator ID from the domain name
   if (!is.null(domain_name) &&
       all(is.null(indicator_id) & is.null(domain_id))) {
+<<<<<<< HEAD
     indicator_id <- get_ind_id_from_domain_name(
       metadata, domain_name,
       indicator_name
     )
+=======
+    indicator_id <- get_ind_id_from_domain_name(metadata, domain_name,
+                                                    indicator_name)
+>>>>>>> main
   }
   # get the indicator ID from the profile ID or profile name
   if (any(!is.null(profile_id) | !is.null(profile_name)) &&
@@ -116,13 +205,18 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
   }
 
   # extract the data
+<<<<<<< HEAD
   data <- fingertipsR::fingertips_data(
+=======
+  data <- data <- fingertipsR::fingertips_data(
+>>>>>>> main
     IndicatorID = indicator_id,
     AreaTypeID = area_type_id,
     ParentAreaTypeID = parent_area_type_id
   )
 
   # subset columns
+<<<<<<< HEAD
   data <- fingertips_subset_columns(data, fields)
 
   # subset rows
@@ -131,4 +225,12 @@ read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
   list(
     data = data
   )
+=======
+  data <- fingertips_subset_columns(fields, data)
+
+  # subset rows
+  data <- fingertips_subset_rows(records, id_col_name, data)
+
+  list(data = data)
+>>>>>>> main
 }

@@ -22,12 +22,17 @@ connect_to_server(dbms, driver_name, host, database_name, user, password, port)
 \item{port}{the server port ID}
 }
 \value{
+<<<<<<< HEAD
 the \code{connection} object
+=======
+the connection object
+>>>>>>> main
 }
 \description{
 Establish connection to the server
 }
 \examples{
+<<<<<<< HEAD
 \dontrun{
 con <- connect_to_server(
   dbms          = "MySQL",
@@ -41,3 +46,15 @@ con <- connect_to_server(
 }
 
 }
+=======
+con <- connect_to_server(
+ dbms = "MySQL",
+ driver_name = "",
+ host = "mysql-rfam-public.ebi.ac.uk",
+ database_name = "Rfam",
+ user = "rfamro",
+ password = "",
+ port = 4497
+)
+}
+>>>>>>> main
