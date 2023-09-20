@@ -27,21 +27,21 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
                               user, password, port) {
   con <- switch(
                 dbms,
-                "SQLServer" = pool::dbPool(odbc::odbc(),
+                "SQLServer" = pool::dbPool(odbc::odbc(), # nolint: keyword_quote_linter
                                            driver   = driver_name,
                                            server   = host,
                                            database = database_name,
                                            uid      = user,
                                            pwd      = password,
                                            port     = port),
-                "PostgreSQL" = pool::dbPool(odbc::odbc(),
+                "PostgreSQL" = pool::dbPool(odbc::odbc(), # nolint: keyword_quote_linter
                                             driver   = driver_name,
                                             host     = host,
                                             database = database_name,
                                             uid      = user,
                                             pwd      = password,
                                             port     = port),
-                "MySQL" = pool::dbPool(drv = RMySQL::MySQL(),
+                "MySQL" = pool::dbPool(drv = RMySQL::MySQL(), # nolint: keyword_quote_linter
                                        dbname   = database_name,
                                        username = user,
                                        password = password,

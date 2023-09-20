@@ -32,21 +32,21 @@ show_tables <- function(data_source, credentials_file, driver_name) {
   # establishing the connection to the server
   con <- switch(
                 credentials[["dbms"]],
-                "SQLServer" = DBI::dbConnect(odbc::odbc(),
+                "SQLServer" = DBI::dbConnect(odbc::odbc(), # nolint: keyword_quote_linter
                                              driver   = driver_name,
                                              server   = credentials[["host"]],
                                              database = credentials[["project"]], # nolint: line_length_linter
                                              uid      = credentials[["user"]],
                                              pwd      = credentials[["pwd"]],
                                              port     = as.numeric(credentials[["port"]])), # nolint: line_length_linter
-                "MySQL" = DBI::dbConnect(RMySQL::MySQL(),
+                "MySQL" = DBI::dbConnect(RMySQL::MySQL(), # nolint: keyword_quote_linter
                                          driver   = driver_name,
                                          host     = credentials[["host"]],
                                          dbname   = credentials[["project"]],
                                          user     = credentials[["user"]],
                                          password = credentials[["pwd"]],
                                          port     = as.numeric(credentials[["port"]])), # nolint: line_length_linter
-                "PostgreSQL" = DBI::dbConnect(odbc::odbc(),
+                "PostgreSQL" = DBI::dbConnect(odbc::odbc(), # nolint: keyword_quote_linter
                                               driver   = driver_name,
                                               host     = credentials[["host"]],
                                               database = credentials[["project"]], # nolint: line_length_linter

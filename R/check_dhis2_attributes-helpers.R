@@ -113,13 +113,13 @@ dhis2_get_relevant_attributes <- function(attribute_id = NULL,
 
   res <- switch(
     which,
-    "dataSets"          = list(dataset   = attribute_id,
+    "dataSets"          = list(dataset   = attribute_id, # nolint: keyword_quote_linter
                                data_sets = attributes),
-    "organisationUnits" = list(organisation_unit = attribute_id,
+    "organisationUnits" = list(organisation_unit = attribute_id, # nolint: keyword_quote_linter
                                org_units         = attributes),
-    "dataElementGroups" = list(data_element_group = attribute_id,
+    "dataElementGroups" = list(data_element_group = attribute_id, # nolint: keyword_quote_linter
                                data_elt_groups    = attributes),
-    "dataElements"      = attributes
+    "dataElements"      = attributes # nolint: keyword_quote_linter
   )
   res
 }

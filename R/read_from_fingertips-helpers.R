@@ -114,7 +114,7 @@ get_ind_id_from_domain_id <- function(metadata, domain_id,
   idx <- domain_id %in% metadata[["indicator_profile_domain"]][["DomainID"]]
 
   # return an error message if all domain ids provided by the user are not found
-  if (!any(idx)) {
+  if (!any(idx)) { # nolint: if_not_else_linter
     message("\nCould not find specified domain ID.\n
              Below is the list of all domain IDs in Fingertips.")
     print(metadata[["indicator_profile_domain"]][, c("DomainID", "DomainName")])

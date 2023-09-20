@@ -100,14 +100,14 @@ read_from_dhis2 <- function(base_url,
 
   # add the variable names
   tmp_data_elt <- attributes[["data_elements"]][, c("shortName", "id")] %>%
-    dplyr::rename("dataElement" = "id")
+    dplyr::rename("dataElement" = "id") # nolint: keyword_quote_linter
   tmp_org_units <- attributes[["org_units_details"]][, c("shortName", "id")] %>%
-    dplyr::rename("orgUnit" = "id")
+    dplyr::rename("orgUnit" = "id") # nolint: keyword_quote_linter
   data <- data %>%
     dplyr::left_join(tmp_data_elt, by = "dataElement") %>%
-    dplyr::rename("dataElementName" = "shortName") %>%
+    dplyr::rename("dataElementName" = "shortName") %>% # nolint: keyword_quote_linter
     dplyr::left_join(tmp_org_units, by = "orgUnit") %>%
-    dplyr::rename("OrgUnitName" = "shortName")
+    dplyr::rename("OrgUnitName" = "shortName") # nolint: keyword_quote_linter
 
   # subsetting fields
   data <- dhis2_subset_fields(data, fields)
