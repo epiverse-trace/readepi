@@ -8,7 +8,7 @@
 # ```
 on:
   push:
-    branches: [main, master, develop]
+    branches: [main, master, develop, release/1.0.0]
     paths:
       - 'README.Rmd'
       - 'README.md'

@@ -8,7 +8,7 @@
 # ```
 on:
   push:
-    branches: [main, master, develop, review]
+    branches: [main, master, develop, review, release/1.0.0]
     paths:
       - 'data/**'
       - 'R/**'
