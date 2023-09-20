@@ -2,7 +2,6 @@
 % Please edit documentation in R/read_from_dhis2-helpers.R
 \name{dhis2_subset_records}
 \alias{dhis2_subset_records}
-<<<<<<< HEAD
 \title{Subset a specified set of records from a dataset imported from DHIS2}
 \usage{
 dhis2_subset_records(data, records, id_col_name)
@@ -41,38 +40,3 @@ result <- dhis2_subset_records(
 }
 }
 \keyword{internal}
-=======
-\title{Title}
-\usage{
-dhis2_subset_records(records, id_col_name, data)
-}
-\arguments{
-\item{records}{a vector of records to select from the data}
-
-\item{id_col_name}{the column name where the records belong to}
-
-\item{data}{the input data frame}
-}
-\value{
-a data frame with the records of interest
-}
-\description{
-Title
-}
-\examples{
-result <- dhis2_subset_records(
- records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
- id_col_name = "dataElement",
- data = readepi(
-  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-  project_id = "DHIS2_DEMO",
-  dataset = "pBOMPrpg1QX",
-  organisation_unit = "DiszpKrYNg8",
-  data_element_group = NULL,
-  start_date = "2014",
-  end_date = "2023"
-  )$data
-)
-
-}
->>>>>>> main

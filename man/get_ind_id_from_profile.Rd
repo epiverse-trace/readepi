@@ -27,17 +27,12 @@ get_ind_id_from_profile(
 \item{profile_id}{the profile ID}
 }
 \value{
-<<<<<<< HEAD
 an object of type \code{numeric} that contains the indicator ID
-=======
-the indicator ID
->>>>>>> main
 }
 \description{
 Get indicator ID from profile ID and/or profile name
 }
 \examples{
-<<<<<<< HEAD
 \dontrun{
 res <- get_ind_id_from_profile(
   metadata   = list(
@@ -50,15 +45,3 @@ res <- get_ind_id_from_profile(
 }
 }
 \keyword{internal}
-=======
-res <- get_ind_id_from_profile(
-metadata = list(
-  indicator_profile_domain = fingertipsR::indicators(),
-  indicator_ids_names = fingertipsR::indicators_unique(),
-  area_type = fingertipsR::area_types()
-),
-profile_id = 19
-)
-
-}
->>>>>>> main

@@ -7,25 +7,15 @@
 get_fingertips_metadata()
 }
 \value{
-<<<<<<< HEAD
 a \code{list} of 3 objects of type \code{data.frame}. They contain information
 about the indicators in the Fingertips repository.
-=======
-a list of data frames
->>>>>>> main
 }
 \description{
 get fingertips metadata
 }
 \examples{
-<<<<<<< HEAD
 \dontrun{
   metadata <- get_fingertips_metadata()
 }
 }
 \keyword{internal}
-=======
-metadata <- get_fingertips_metadata()
-
-}
->>>>>>> main

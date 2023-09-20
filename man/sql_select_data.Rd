@@ -48,18 +48,13 @@ unique identifies the subjects in each table}
 \item{port}{the server port ID}
 }
 \value{
-<<<<<<< HEAD
 a \code{list} of 1 or more elements of type \code{data.frame} where every
 element contains the subset of the data from the corresponding table
-=======
-a subset of the data in the specified tables
->>>>>>> main
 }
 \description{
 Subset data read from servers
 }
 \examples{
-<<<<<<< HEAD
 \dontrun{
 result <- sql_select_data(
   table_names   = "author",
@@ -76,21 +71,5 @@ result <- sql_select_data(
   port          = 4497
 )
 }
-=======
-result = sql_select_data(
- table_names = "author",
- dbms = "MySQL",
- id_col_name = "author_id",
- fields = c("author_id", "name"),
- records = NULL,
- id_position = NULL,
- driver_name = "",
- host = "mysql-rfam-public.ebi.ac.uk",
- database_name = "Rfam",
- user = "rfamro",
- password = "",
- port = 4497
-)
->>>>>>> main
 
 }

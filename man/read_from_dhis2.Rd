@@ -13,13 +13,8 @@ read_from_dhis2(
   data_element_group,
   start_date,
   end_date,
-<<<<<<< HEAD
   records = NULL,
   fields = NULL,
-=======
-  records,
-  fields,
->>>>>>> main
   id_col_name = "dataElement"
 )
 }
@@ -52,16 +47,11 @@ If provided, only those columns will be imported.}
 \item{id_col_name}{the column name with the records of interest.}
 }
 \value{
-<<<<<<< HEAD
 a \code{list} of 1 element of type \verb{data frame}.
-=======
-a list of data frames
->>>>>>> main
 }
 \description{
 Import data form DHIS2 into R
 }
-<<<<<<< HEAD
 \examples{
 \dontrun{
 data <- read_from_dhis2(
@@ -80,5 +70,3 @@ data <- read_from_dhis2(
 }
 }
 \keyword{internal}
-=======
->>>>>>> main

@@ -14,18 +14,13 @@ get_profile_name(profile_id, profile_name, metadata)
 \item{metadata}{the Fingertips metadata}
 }
 \value{
-<<<<<<< HEAD
 a \code{list} of 2 elements of type \code{character} and \code{numeric}. These are
 the \verb{profile name} and their correspondent indexes.
-=======
-a list with the profile name and their correspondent indexes
->>>>>>> main
 }
 \description{
 Get profile name from Fingertips
 }
 \examples{
-<<<<<<< HEAD
 \dontrun{
 res <- get_profile_name(
   profile_id   = 19,
@@ -39,16 +34,3 @@ res <- get_profile_name(
 }
 }
 \keyword{internal}
-=======
-res <- get_profile_name(
-profile_id = 19,
-profile_name = "Public Health Outcomes Framework",
-metadata = list(
-  indicator_profile_domain = fingertipsR::indicators(),
-  indicator_ids_names = fingertipsR::indicators_unique(),
-  area_type = fingertipsR::area_types()
-  )
-)
-
-}
->>>>>>> main

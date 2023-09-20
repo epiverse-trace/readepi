@@ -12,28 +12,17 @@ identify_table_name(query, tables)
 \item{tables}{the list of all tables from the database}
 }
 \value{
-<<<<<<< HEAD
 a \code{character} with the extracted table name(s) from the SQL query
-=======
-the table name of interest
->>>>>>> main
 }
 \description{
 Detect table names from an SQL query
 }
 \examples{
-<<<<<<< HEAD
 \dontrun{
 table_name <- identify_table_name(
   query  = "select * from author",
   tables = c("family_author", "author", "test")
 )
 }
-=======
-table_name = identify_table_name(
- query = "select * from author",
- tables = c("family_author", "author", "test")
-)
->>>>>>> main
 
 }

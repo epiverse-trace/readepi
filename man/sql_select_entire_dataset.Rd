@@ -33,18 +33,13 @@ sql_select_entire_dataset(
 \item{port}{the server port ID}
 }
 \value{
-<<<<<<< HEAD
 an object of type \code{data.frame} with the entire dataset fetched from
 the specified table
-=======
-a data frame with the entire dataset that is contained in the table
->>>>>>> main
 }
 \description{
 Fetch entire dataset in a table
 }
 \examples{
-<<<<<<< HEAD
 \dontrun{
 result <- sql_select_entire_dataset(
   table         = "author",
@@ -57,17 +52,5 @@ result <- sql_select_entire_dataset(
   port          = 4497
 )
 }
-=======
-result <- sql_select_entire_dataset(
- table = "author",
- dbms = "MySQL",
- driver_name = "",
- host = "mysql-rfam-public.ebi.ac.uk",
- database_name = "Rfam",
- user = "rfamro",
- password = "",
- port = 4497
-)
->>>>>>> main
 
 }

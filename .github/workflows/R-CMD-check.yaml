@@ -84,7 +84,6 @@ jobs:
       - uses: r-lib/actions/check-r-package@v2
         id: rcmdcheck
         with:
-<<<<<<< HEAD
           upload-snapshots: true
 
       # fail-fast but only if rcmdcheck step fails
@@ -93,6 +92,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: always() && steps.rcmdcheck.outcome == 'failure'
         run: gh run cancel ${{ github.run_id }}
-=======
-          upload-snapshots: true
->>>>>>> main
