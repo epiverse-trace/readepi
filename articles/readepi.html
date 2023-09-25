@@ -214,8 +214,32 @@ For that purpose, we recommend you to install a graphical user interface
 (GUI) such as <code>Azure Data Studio</code>.</p>
 </div>
 <div class="section level3">
-<h3 id="credentials-file">Credentials file<a class="anchor" aria-label="anchor" href="#credentials-file"></a>
+<h3 id="main-arguments">Main arguments<a class="anchor" aria-label="anchor" href="#main-arguments"></a>
 </h3>
+<p>The <code><a href="../reference/readepi.html">readepi()</a></code> function expects the following
+arguments:</p>
+<ul>
+<li>
+<code>data_source</code>: (required) this is the URL of the target
+HIS.</li>
+<li>
+<code>records</code>: (optional) a vector or a comma-separated
+string of subject IDs. When specified, only the records that correspond
+to these subjects will be imported.</li>
+<li>
+<code>fields</code>: (optional) a vector or a comma-separated string
+of column names. If provided, only those columns will be imported.</li>
+<li>
+<code>id_position</code>: (optional) the column position of the
+variable that unique identifies the subjects. It’s default value is
+1.</li>
+<li>
+<code>id_col_name</code>: (optional) the name of the column that
+unique identifies the subjects.</li>
+</ul>
+<div class="section level4">
+<h4 id="credentials-file">Credentials file<a class="anchor" aria-label="anchor" href="#credentials-file"></a>
+</h4>
 <p>The access to data stored in a database management system requires
 valid user credentials, such as a user name and password. The
 <strong>{readepi}</strong> package expect that the user credential
@@ -259,30 +283,7 @@ the <strong>{readepi}</strong> package, use the
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># DISPLAY THE STRUCTURE OF THE TEMPLATE CREDENTIALS FILE</span></span>
 <span><span class="fu"><a href="../reference/show_example_file.html">show_example_file</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>In addition to credentials file, the <code><a href="../reference/readepi.html">readepi()</a></code> function
-expects the following arguments:</p>
-<ul>
-<li>
-<code>data_source</code>: (required) this is the URL of the target
-HIS.</li>
-<li>
-<code>driver_name</code>: (optional) the name of the MS driver (only
-for MS SQL servers).</li>
-<li>
-<code>records</code>: (optional) a vector or a comma-separated
-string of subject IDs. When specified, only the records that correspond
-to these subjects will be imported.</li>
-<li>
-<code>fields</code>: (optional) a vector or a comma-separated string
-of column names. If provided, only those columns will be imported.</li>
-<li>
-<code>id_position</code>: (optional) the column position of the
-variable that unique identifies the subjects. It’s default value is
-1.</li>
-<li>
-<code>id_col_name</code>: (optional) the name of the column that
-unique identifies the subjects.</li>
-</ul>
+</div>
 </div>
 <div class="section level3">
 <h3 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
@@ -309,8 +310,20 @@ to supply the <code>driver name</code>.</p>
 <span><span class="co"># server</span></span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="fetching-data-using-table-names">Fetching data using table names<a class="anchor" aria-label="anchor" href="#fetching-data-using-table-names"></a>
+<h4 id="fetching-data-from-a-mysql-server-using-the-table-names">Fetching data from a MySQL server using the table names<a class="anchor" aria-label="anchor" href="#fetching-data-from-a-mysql-server-using-the-table-names"></a>
 </h4>
+<p>When importing data from <strong>MS SQL, MySQL and PostgreSQL
+servers</strong>, the user needs to provide the following additional
+arguments:</p>
+<ul>
+<li>
+<code>driver_name</code>: the name of the MS driver (only for MS SQL
+servers).</li>
+<li>
+<code>from</code>: the name of the table from which the data will be
+fetched. This can also be the SQL query to be used for fetching data
+from the system.</li>
+</ul>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># VISUALIZING THE FIRST 5 ROWS OF THE TABLE 'author'</span></span>
 <span><span class="fu"><a href="../reference/visualise_table.html">visualise_table</a></span><span class="op">(</span></span>
@@ -340,7 +353,7 @@ to supply the <code>driver name</code>.</p>
 <span></span>
 <span><span class="co"># READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE</span></span>
 <span><span class="va">records</span> <span class="op">&lt;-</span> <span class="st">"1, 34, 15, 70, 118, 20"</span></span>
-<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span><span class="va">dat</span>     <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
 <span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
 <span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
 <span>  from             <span class="op">=</span> <span class="st">"author"</span>, <span class="co"># this is the table name</span></span>
@@ -479,7 +492,8 @@ repo, the <code><a href="../reference/readepi.html">readepi()</a></code> functio
 arguments:</p>
 <ul>
 <li>
-<code>data_source</code>: the URL of the REDCap server</li>
+<code>data_source</code>: the URL of the REDCap server
+(mandatory)</li>
 <li>
 <code>credentials_file</code>: the credentials file (mandatory)</li>
 <li>
