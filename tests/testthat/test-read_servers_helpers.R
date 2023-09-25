@@ -1,19 +1,19 @@
 test_that("connect_to_server works as expected", {
   con <- connect_to_server(
-    dbms = "MySQL",
-    driver_name = "",
-    host = "mysql-rfam-public.ebi.ac.uk",
+    dbms          = "MySQL",
+    driver_name   = "",
+    host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user = "rfamro",
-    password = "",
-    port = 4497L
+    user          = "rfamro",
+    password      = "",
+    port          = 4497L
   )
   expect_type(con, "environment")
 })
 
 test_that("identify_table_name works as expected", {
   table_name <- identify_table_name(
-    query = "select * from author",
+    query  = "select * from author",
     tables = c("family_author", "author", "test")
   )
   expect_type(table_name, "character")
@@ -24,7 +24,7 @@ test_that("identify_table_name works as expected", {
 test_that("identify_table_name fails with an incorrect query", {
   expect_error(
     identify_table_name(
-      query = NA,
+      query  = NA,
       tables = c("family_author", "author", "test")
     ),
     regexp = cat("Assertion on',query,'failed: Missing value not allowed for
@@ -33,7 +33,7 @@ test_that("identify_table_name fails with an incorrect query", {
 
   expect_error(
     identify_table_name(
-      query = NULL,
+      query  = NULL,
       tables = c("family_author", "author", "test")
     ),
     regexp = cat("Assertion on',query,'failed: Must be provided.")
@@ -41,7 +41,7 @@ test_that("identify_table_name fails with an incorrect query", {
 
   expect_error(
     identify_table_name(
-      query = c("select * from author", "select * from family_author"),
+      query  = c("select * from author", "select * from family_author"),
       tables = c("family_author", "author", "test")
     ),
     regexp = cat("Assertion on',query,'failed: Must be of type character with
@@ -52,7 +52,7 @@ test_that("identify_table_name fails with an incorrect query", {
 test_that("identify_table_name fails with incorrect tables", {
   expect_error(
     identify_table_name(
-      query = "select * from author",
+      query  = "select * from author",
       tables = NA
     ),
     regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
@@ -61,7 +61,7 @@ test_that("identify_table_name fails with incorrect tables", {
 
   expect_error(
     identify_table_name(
-      query = "select * from author",
+      query  = "select * from author",
       tables = NULL
     ),
     regexp = cat("Assertion on',tables,'failed: Must be provided.")
@@ -70,15 +70,15 @@ test_that("identify_table_name fails with incorrect tables", {
 
 test_that("fetch_data_from_query works as expected", {
   result <- fetch_data_from_query(
-    source = "select author_id, name, last_name from author",
-    dbms = "MySQL",
-    tables = c("family_author", "author"),
-    driver_name = "",
-    host = "mysql-rfam-public.ebi.ac.uk",
+    source        = "select author_id, name, last_name from author",
+    dbms          = "MySQL",
+    tables        = c("family_author", "author"),
+    driver_name   = "",
+    host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user = "rfamro",
-    password = "",
-    port = 4497L
+    user          = "rfamro",
+    password      = "",
+    port          = 4497L
   )
   expect_type(result, "list")
   expect_length(result, 1L)
@@ -89,15 +89,15 @@ test_that("fetch_data_from_query works as expected", {
 test_that("fetch_data_from_query fails with incorrect tables", {
   expect_error(
     fetch_data_from_query(
-      source = "select author_id, name, last_name from author",
-      dbms = "MySQL",
-      tables = NA,
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
+      source        = "select author_id, name, last_name from author",
+      dbms          = "MySQL",
+      tables        = NA,
+      driver_name   = "",
+      host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497L
+      user          = "rfamro",
+      password      = "",
+      port          = 4497L
     ),
     regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
                  the 'tables' argument.")
@@ -105,15 +105,15 @@ test_that("fetch_data_from_query fails with incorrect tables", {
 
   expect_error(
     fetch_data_from_query(
-      source = "select author_id, name, last_name from author",
-      dbms = "MySQL",
-      tables = NULL,
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
+      source        = "select author_id, name, last_name from author",
+      dbms          = "MySQL",
+      tables        = NULL,
+      driver_name   = "",
+      host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497L
+      user          = "rfamro",
+      password      = "",
+      port          = 4497L
     ),
     regexp = cat("Assertion on',tables,'failed: Must be provided.")
   )
@@ -121,18 +121,18 @@ test_that("fetch_data_from_query fails with incorrect tables", {
 
 test_that("sql_select_data works as expected", {
   result <- sql_select_data(
-    table_names = "author",
-    dbms = "MySQL",
-    id_col_name = "author_id",
-    fields = c("author_id", "name"),
-    records = NULL,
-    id_position = NULL,
-    driver_name = "",
-    host = "mysql-rfam-public.ebi.ac.uk",
+    table_names   = "author",
+    dbms          = "MySQL",
+    id_col_name   = "author_id",
+    fields        = c("author_id", "name"),
+    records       = NULL,
+    id_position   = NULL,
+    driver_name   = "",
+    host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user = "rfamro",
-    password = "",
-    port = 4497L
+    user          = "rfamro",
+    password      = "",
+    port          = 4497L
   )
   expect_type(result, "list")
   expect_length(result, 1L)
@@ -160,18 +160,18 @@ test_that("sql_select_data works as expected", {
   expect_s3_class(result[["family_author"]], "data.frame")
 
   result <- sql_select_data(
-    table_names = c("author", "family_author"),
-    dbms = "MySQL",
-    id_position = c(1, 1), # nolint
-    fields = c("author_id,name,last_name,initials", "rfam_acc,author_id"),
-    records = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
-    driver_name = "",
-    host = "mysql-rfam-public.ebi.ac.uk",
+    table_names   = c("author", "family_author"),
+    dbms          = "MySQL",
+    id_position   = c(1, 1), # nolint
+    fields        = c("author_id,name,last_name,initials", "rfam_acc,author_id"), #nolint: line_length_linter
+    records       = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
+    driver_name   = "",
+    host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user = "rfamro",
-    password = "",
-    port = 4497L,
-    id_col_name = NULL
+    user          = "rfamro",
+    password      = "",
+    port          = 4497L,
+    id_col_name   = NULL
   )
   expect_type(result, "list")
   expect_length(result, 2L)
@@ -180,18 +180,18 @@ test_that("sql_select_data works as expected", {
   expect_s3_class(result[["family_author"]], "data.frame")
 
   result <- sql_select_data(
-    table_names = c("author", "family_author"),
-    dbms = "MySQL",
-    id_col_name = "author_id",
-    fields = c("author_id,name,last_name,initials", "rfam_acc,author_id"),
-    records = NULL,
-    id_position = NULL,
-    driver_name = "",
-    host = "mysql-rfam-public.ebi.ac.uk",
+    table_names   = c("author", "family_author"),
+    dbms          = "MySQL",
+    id_col_name   = "author_id",
+    fields        = c("author_id,name,last_name,initials", "rfam_acc,author_id"), #nolint: line_length_linter
+    records       = NULL,
+    id_position   = NULL,
+    driver_name   = "",
+    host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user = "rfamro",
-    password = "",
-    port = 4497L
+    user          = "rfamro",
+    password      = "",
+    port          = 4497L
   )
   expect_type(result, "list")
   expect_length(result, 2L)
@@ -203,18 +203,18 @@ test_that("sql_select_data works as expected", {
 test_that("sql_select_data fails with incorrect table_names", {
   expect_error(
     sql_select_data(
-      table_names = NA,
-      dbms = "MySQL",
-      id_col_name = "author_id",
-      fields = c("author_id", "name"),
-      records = NULL,
-      id_position = NULL,
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
+      table_names   = NA,
+      dbms          = "MySQL",
+      id_col_name   = "author_id",
+      fields        = c("author_id", "name"),
+      records       = NULL,
+      id_position   = NULL,
+      driver_name   = "",
+      host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497L
+      user          = "rfamro",
+      password      = "",
+      port          = 4497L
     ),
     regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
                  the 'tables' argument.")
@@ -222,18 +222,18 @@ test_that("sql_select_data fails with incorrect table_names", {
 
   expect_error(
     sql_select_data(
-      table_names = NULL,
-      dbms = "MySQL",
-      id_col_name = "author_id",
-      fields = c("author_id", "name"),
-      records = NULL,
-      id_position = NULL,
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
+      table_names   = NULL,
+      dbms          = "MySQL",
+      id_col_name   = "author_id",
+      fields        = c("author_id", "name"),
+      records       = NULL,
+      id_position   = NULL,
+      driver_name   = "",
+      host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497L
+      user          = "rfamro",
+      password      = "",
+      port          = 4497L
     ),
     regexp = cat("Assertion on',tables,'failed: Must be provided.")
   )
@@ -242,8 +242,8 @@ test_that("sql_select_data fails with incorrect table_names", {
 test_that("get_id_column_name works as expected", {
   result <- get_id_column_name(
     id_col_name = c("author_id", "rfam_acc"),
-    j = 1L,
-    id_position = c(1, 1) # nolint
+    j           = 1L,
+    id_position = c(1L, 1L)
   )
   expect_type(result, "list")
   expect_length(result, 2L)
@@ -257,8 +257,8 @@ test_that("sql_select_data fails with incorrect j", {
   expect_error(
     get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
-      j = NA,
-      id_position = c(1, 1) # nolint
+      j           = NA,
+      id_position = c(1L, 1L)
     ),
     regexp = cat("Assertion on',j,'failed: Missing value not allowed for
                  the 'j' argument.")
@@ -267,8 +267,8 @@ test_that("sql_select_data fails with incorrect j", {
   expect_error(
     get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
-      j = NULL,
-      id_position = c(1, 1) # nolint
+      j           = NULL,
+      id_position = c(1L, 1L)
     ),
     regexp = cat("Assertion on',j,'failed: Must be provided.")
   )
@@ -276,8 +276,8 @@ test_that("sql_select_data fails with incorrect j", {
   expect_error(
     get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
-      j = 1:2, # nolint
-      id_position = c(1, 1) # nolint
+      j           = 1:2, # nolint
+      id_position = c(1L, 1L)
     ),
     regexp = cat("Assertion on',j,'failed: Must be a numeric with length 1.")
   )
@@ -285,14 +285,14 @@ test_that("sql_select_data fails with incorrect j", {
 
 test_that("sql_select_entire_dataset works as expected", {
   result <- sql_select_entire_dataset(
-    table = "author",
-    dbms = "MySQL",
-    driver_name = "",
-    host = "mysql-rfam-public.ebi.ac.uk",
+    table         = "author",
+    dbms          = "MySQL",
+    driver_name   = "",
+    host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user = "rfamro",
-    password = "",
-    port = 4497L
+    user          = "rfamro",
+    password      = "",
+    port          = 4497L
   )
   expect_s3_class(result, "data.frame")
 })
@@ -300,14 +300,14 @@ test_that("sql_select_entire_dataset works as expected", {
 test_that("sql_select_entire_dataset fails with incorrect table", {
   expect_error(
     sql_select_entire_dataset(
-      table = NA,
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
+      table         = NA,
+      dbms          = "MySQL",
+      driver_name   = "",
+      host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497L
+      user          = "rfamro",
+      password      = "",
+      port          = 4497L
     ),
     regexp = cat("Assertion on',table,'failed: Missing value not allowed for
                  the 'table' argument.")
@@ -315,14 +315,14 @@ test_that("sql_select_entire_dataset fails with incorrect table", {
 
   expect_error(
     sql_select_entire_dataset(
-      table = NULL,
-      dbms = "MySQL",
-      driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk",
+      table         = NULL,
+      dbms          = "MySQL",
+      driver_name   = "",
+      host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user = "rfamro",
-      password = "",
-      port = 4497L
+      user          = "rfamro",
+      password      = "",
+      port          = 4497L
     ),
     regexp = cat("Assertion on',table,'failed: Must be provided.")
   )
@@ -330,18 +330,18 @@ test_that("sql_select_entire_dataset fails with incorrect table", {
 
 test_that("sql_select_records_and_fields works as expected", {
   result <- sql_select_records_and_fields(
-    table = "author",
-    record = c("1", "20", "50"),
+    table          = "author",
+    record         = c("1", "20", "50"),
     id_column_name = "author_id",
-    field = c("author_id", "last_name"),
-    id_pos = NULL,
-    dbms = "MySQL",
-    driver_name = "",
-    host = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
-    user = "rfamro",
-    password = "",
-    port = 4497L
+    field          = c("author_id", "last_name"),
+    id_pos         = NULL,
+    dbms           = "MySQL",
+    driver_name    = "",
+    host           = "mysql-rfam-public.ebi.ac.uk",
+    database_name  = "Rfam",
+    user           = "rfamro",
+    password       = "",
+    port           = 4497L
   )
   expect_s3_class(result, "data.frame")
 })
@@ -349,11 +349,18 @@ test_that("sql_select_records_and_fields works as expected", {
 test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
-      table = "author", record = c("1", "20", "50"),
-      id_column_name = NA, field = c("author_id", "last_name"),
-      id_pos = NULL, dbms = "MySQL", driver_name = "",
-      host = "mysql-rfam-public.ebi.ac.uk", database_name = "Rfam",
-      user = "rfamro", password = "", port = 4497L
+      table          = "author",
+      record         = c("1", "20", "50"),
+      id_column_name = NA,
+      field          = c("author_id", "last_name"),
+      id_pos         = NULL,
+      dbms           = "MySQL",
+      driver_name    = "",
+      host           = "mysql-rfam-public.ebi.ac.uk",
+      database_name  = "Rfam",
+      user           = "rfamro",
+      password       = "",
+      port           = 4497L
     ),
     regexp = cat("Assertion on',id_column_name,'failed: Missing value not
                  allowed for the 'id_column_name' argument.")
@@ -361,11 +368,18 @@ test_that("sql_select_records_and_fields fails as expected", {
 
   expect_error(
     sql_select_records_and_fields(
-      table = "author", record = c("1", "20", "50"),
+      table          = "author",
+      record         = c("1", "20", "50"),
       id_column_name = c("author_id", "last_name", "author_id"),
-      field = c("author_id", "last_name"), id_pos = NULL, dbms = "MySQL",
-      driver_name = "", host = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam", user = "rfamro", password = "", port = 4497L
+      field          = c("author_id", "last_name"),
+      id_pos         = NULL,
+      dbms           = "MySQL",
+      driver_name    = "",
+      host           = "mysql-rfam-public.ebi.ac.uk",
+      database_name  = "Rfam",
+      user           = "rfamro",
+      password       = "",
+      port           = 4497L
     ),
     regexp = cat("Assertion on',id_column_name,'failed: Must be a character
                  vector of unique elements.")

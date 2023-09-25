@@ -117,8 +117,18 @@ odbc::odbcListDrivers()
 If this command  does not return the list of installed drivers or if you are facing issues during the driver installation process, consult [the odbc github page](https://github.com/r-dbi/odbc#installation) or the [MS documentation on this topic](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15). 
 
 It is also important to view the data stored in the MS SQL server. For that purpose, we recommend you to install a graphical user interface (GUI) such as `Azure Data Studio`.
-         
-## Credentials file
+   
+## Main arguments
+
+The `readepi()` function expects the following arguments:
+
+- `data_source`: (required) this is the URL of the target HIS.
+- `records`:     (optional) a vector or a comma-separated string of subject IDs. When specified, only the records that correspond to these subjects will be imported.
+- `fields`:      (optional) a vector or a comma-separated string of column names. If provided, only those columns will be imported.
+- `id_position`: (optional) the column position of the variable that unique identifies the subjects. It's default value is 1.
+- `id_col_name`: (optional) the name of the column that unique identifies the subjects.
+
+### Credentials file
 
 The access to data stored in a database management system requires valid user credentials, such as a user name and password. The **{readepi}** package expect that the user credential details to be saved in a tab-separated file. The path to that constitute the value for the `credentials_file` argument of the `readepi()` function.
 
@@ -138,15 +148,6 @@ To see the structure of a toy credentials file used as a template in the **{read
 # DISPLAY THE STRUCTURE OF THE TEMPLATE CREDENTIALS FILE
 show_example_file()
 ```
-
-In addition to credentials file, the `readepi()` function expects the following arguments:
-
-- `data_source`: (required) this is the URL of the target HIS.
-- `driver_name`: (optional) the name of the MS driver (only for MS SQL servers).
-- `records`:     (optional) a vector or a comma-separated string of subject IDs. When specified, only the records that correspond to these subjects will be imported.
-- `fields`:      (optional) a vector or a comma-separated string of column names. If provided, only those columns will be imported.
-- `id_position`: (optional) the column position of the variable that unique identifies the subjects. It's default value is 1.
-- `id_col_name`: (optional) the name of the column that unique identifies the subjects.
 
 ## Examples
 
@@ -171,7 +172,12 @@ show_tables(
 # server
 ```
 
-### Fetching data using table names
+### Fetching data from a MySQL server using the table names
+
+When importing data from **MS SQL, MySQL and PostgreSQL servers**, the user needs to provide the following additional arguments:  
+
+- `driver_name`: the name of the MS driver (only for MS SQL servers).
+- `from`: the name of the table from which the data will be fetched. This can also be the SQL query to be used for fetching data from the system.
 
 ```{r eval=FALSE}
 # VISUALIZING THE FIRST 5 ROWS OF THE TABLE 'author'
@@ -202,7 +208,7 @@ dat    <- readepi(
 
 # READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE
 records <- "1, 34, 15, 70, 118, 20"
-dat <- readepi(
+dat     <- readepi(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
   from             = "author", # this is the table name
@@ -334,7 +340,7 @@ The current version of **{readepi}** supports reading data from three common HIS
 Research Electronic Data Capture ([REDCap](https://www.project-redcap.org/)) is a web-based application and workflow methodology for designing clinical and translational research databases.
 To import data from a REDCap-based repo, the `readepi()` function takes the following arguments:     
 
-* `data_source`:      the URL of the REDCap server
+* `data_source`:      the URL of the REDCap server (mandatory)
 * `credentials_file`: the credentials file (mandatory)
 * `records`:          the list of the desired records (optional)
 * `fields`:           the list of the desired columns (optional)

@@ -4025,6 +4025,44 @@
         ]
     },
     {
+        "Id": 10,
+        "Name": "Parliamentary Constituency 2022-12-31",
+        "Short": "Constituencies",
+        "Class": "parl-constituency",
+        "Sequence": 0,
+        "CanBeDisplayedOnMap": false,
+        "ParentAreaTypes": [
+            {
+                "Id": 6,
+                "Name": "Government Office Region",
+                "Short": "Region",
+                "Class": null,
+                "Sequence": 0,
+                "CanBeDisplayedOnMap": true,
+                "ParentAreaTypes": [
+                    {
+                        "Id": 15,
+                        "Name": "England",
+                        "Short": "England",
+                        "Class": null,
+                        "Sequence": 0,
+                        "CanBeDisplayedOnMap": false,
+                        "ParentAreaTypes": [
+                            {
+                                "Id": 159,
+                                "Name": "United Kingdom",
+                                "Short": "UK",
+                                "Class": null,
+                                "Sequence": 0,
+                                "CanBeDisplayedOnMap": false
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "Id": 401,
         "Name": "Lower tier local authorities (4/21-3/23)",
         "Short": "Districts & UAs (2021/22-2022/23)",

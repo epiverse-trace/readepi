@@ -3,7 +3,7 @@ test_that("readepi works as expected when reading from DBMS", {
     data_source      = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
     driver_name      = "",
-    table_name       = "author",
+    from             = "author",
     records          = NULL,
     fields           = NULL,
     id_position      = 1L,
@@ -107,7 +107,7 @@ test_that("readepi works as expected when reading from DBMS", {
     data_source      = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
     driver_name      = "",
-    table_name       = "author",
+    from             = "author",
     records          = NULL,
     fields           = NULL,
     id_position      = 1L
@@ -399,9 +399,9 @@ test_that("readepi fails as expected when reading from DBMS", {
                                      package = "readepi"),
       data_source = "mysql-rfam-public.ebi.ac.uk",
       driver_name = NULL,
-      table_name = "author",
-      records = NULL,
-      fields = NULL,
+      from        = "author",
+      records     = NULL,
+      fields      = NULL,
       id_position = 1L
     ),
     regexp = cat("Assertion on',driver_name,failed: MS driver name
@@ -412,8 +412,8 @@ test_that("readepi fails as expected when reading from DBMS", {
     readepi(
       credentials_file = NULL,
       data_source      = "mysql-rfam-public.ebi.ac.uk",
-      driver_name      = NULL,
-      table_name       = "author",
+      driver_name      = "",
+      from             = "author",
       records          = NULL,
       fields           = NULL,
       id_position      = 1L
@@ -428,16 +428,16 @@ test_that("readepi fails as expected when reading from DBMS", {
 test_that("readepi fails as expected when reading from Fingertips", {
   expect_error(
     readepi(
-      indicator_id = NA,
-      area_type_id = 202L,
+      indicator_id   = NA,
+      area_type_id   = 202L,
       indicator_name = "Healthy life expectancy at birth",
-      domain_id = 1000049L,
-      domain_name = "A. Overarching indicators",
-      profile_id = 19L,
-      profile_name = "Public Health Outcomes Framework",
-      fields = c("IndicatorID", "AreaCode", "Age", "Value"),
-      records = c("E12000002", "E12000001", "E12000009"),
-      id_col_name = "AreaCode"
+      domain_id      = 1000049L,
+      domain_name    = "A. Overarching indicators",
+      profile_id     = 19L,
+      profile_name   = "Public Health Outcomes Framework",
+      fields         = c("IndicatorID", "AreaCode", "Age", "Value"),
+      records        = c("E12000002", "E12000001", "E12000009"),
+      id_col_name    = "AreaCode"
     ),
     regexp = cat("Assertion on',indicator_id,'failed: Missing value
                  not allowed.")
@@ -445,16 +445,16 @@ test_that("readepi fails as expected when reading from Fingertips", {
 
   expect_error(
     readepi(
-      indicator_id = 90362L,
-      area_type_id = 202L,
+      indicator_id   = 90362L,
+      area_type_id   = 202L,
       indicator_name = NA,
-      domain_id = 1000049L,
-      domain_name = "A. Overarching indicators",
-      profile_id = 19L,
-      profile_name = "Public Health Outcomes Framework",
-      fields = c("IndicatorID", "AreaCode", "Age", "Value"),
-      records = c("E12000002", "E12000001", "E12000009"),
-      id_col_name = "AreaCode"
+      domain_id      = 1000049L,
+      domain_name    = "A. Overarching indicators",
+      profile_id     = 19L,
+      profile_name   = "Public Health Outcomes Framework",
+      fields         = c("IndicatorID", "AreaCode", "Age", "Value"),
+      records        = c("E12000002", "E12000001", "E12000009"),
+      id_col_name    = "AreaCode"
     ),
     regexp = cat("Assertion on',indicator_name,'failed: Missing value
                  not allowed.")
