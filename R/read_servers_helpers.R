@@ -187,7 +187,7 @@ sql_select_data <- function(table_names, dbms, id_col_name,
     message("\nFetching data from: ", table)
 
     # select records from table
-    if (all(is.null(records) & is.null(fields))) {
+    if (is.null(records) & is.null(fields)) {
       result[[table]] <- sql_select_entire_dataset(
         table, dbms, driver_name,
         host, database_name, user,
