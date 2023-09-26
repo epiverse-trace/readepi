@@ -256,7 +256,7 @@ get_profile_name <- function(profile_id, profile_name, metadata) {
   checkmate::assert_vector(profile_id,
                            min.len = 1L, null.ok = TRUE,
                            any.missing = FALSE)
-  if (all(!is.null(profile_id) & !is.null(profile_name))) {
+  if (!is.null(profile_id) && !is.null(profile_name)) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(
                  metadata[["indicator_profile_domain"]][["ProfileID"]] ==

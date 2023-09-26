@@ -31,9 +31,9 @@
 #' @noRd
 import_redcap_data <- function(records, fields, uri, token,
                                id_position, id_col_name) {
-  if (all(is.null(records) & is.null(fields))) {
+  if (is.null(records) && is.null(fields)) {
     res <- redcap_read_data(uri, token, id_position)
-  } else if (all(!is.null(records) & !is.null(fields))) {
+  } else if (!is.null(records) && !is.null(fields)) {
     res <- redcap_read_rows_columns(
       fields, uri, token, id_position,
       id_col_name, records
