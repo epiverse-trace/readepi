@@ -80,7 +80,7 @@ sql_server_read_data <- function(user = "rfamro", password = "",
   final_result <- list()
 
   # check the id_position and id_column name
-  if (all(!is.null(id_position) & !is.null(id_col_name))) {
+  if (!is.null(id_position) && !is.null(id_col_name)) {
     stop("Cannot specify both 'id_position' and 'id_col_name' at
          the same time.")
   }
