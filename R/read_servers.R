@@ -10,7 +10,7 @@
 #' @param port the port ID
 #' @param database_name the name of the database that contains the table from
 #'    which the data should be pulled
-#' @param source an SQL query or a vector of table names from
+#' @param src an SQL query or a vector of table names from
 #'    the project or database. When this is not specified, the function will
 #'    extract data from all tables in the database.
 #' @param driver_name the name of the MS driver. use `odbc::odbcListDrivers()`
@@ -39,18 +39,19 @@
 #'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   port          = 4497,
 #'   database_name = "Rfam",
-#'   source        = "author",
+#'   src           = "author",
 #'   driver_name   = "",
 #'   dbms          = "MySQL"
 #' )
 #' }
 #' @importFrom magrittr %>%
 #' @keywords internal
+#' @noRd
 sql_server_read_data <- function(user = "rfamro", password = "",
                                  host = "mysql-rfam-public.ebi.ac.uk",
                                  port = 1433L,
                                  database_name = "Rfam", driver_name = "",
-                                 source = NULL, records = NULL, # no lint
+                                 src = NULL, records = NULL,
                                  fields = NULL, id_position = NULL,
                                  id_col_name = NULL, dbms = "MySQL") {
   # check the input arguments
@@ -73,7 +74,7 @@ sql_server_read_data <- function(user = "rfamro", password = "",
   checkmate::assert_character(driver_name,
                               len = 1L, null.ok = FALSE,
                               any.missing = FALSE)
-  checkmate::assert_vector(source, # nolint
+  checkmate::assert_vector(src,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = TRUE, unique = TRUE)
 
@@ -97,17 +98,17 @@ sql_server_read_data <- function(user = "rfamro", password = "",
   # closing the connection
   pool::poolClose(con)
 
-  # separate the sources
-  idx <- which(source %in% tables) # nolint
+  # separate the srcs
+  idx <- which(src %in% tables)
   if (length(idx) > 0L) {
-    table_names <- source[idx] # nolint
-    source      <- source[-idx] # nolint
+    table_names <- src[idx]
+    src      <- src[-idx]
   }
 
   # fetch data using SQL query
-  if (length(source) > 0L) { # nolint
+  if (length(src) > 0L) {
     from_query <- fetch_data_from_query(
-      source, dbms, tables, # nolint
+      src, dbms, tables,
       driver_name, host, database_name,
       user, password, port
     )

@@ -25,7 +25,7 @@
 #' @returns a `list` of 2 elements of type `data.frame`. They include a data
 #'     frame of the dataset of interest and its associated metadata.
 #' @keywords internal
-#'
+#' @noRd
 read_from_redcap <- function(uri, token, id_position = NULL, id_col_name = NULL,
                              records = NULL, fields = NULL) {
   # check input variables

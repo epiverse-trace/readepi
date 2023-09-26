@@ -31,7 +31,7 @@ test_that("read_from_fingertips works", {
   expect_s3_class(data[["data"]], "data.frame")
 
   data <- read_from_fingertips(
-    indicator_id = c(90362, 90283), indicator_name = NULL, # nolint
+    indicator_id = c(90362L, 90283L), indicator_name = NULL,
     area_type_id = 202L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,

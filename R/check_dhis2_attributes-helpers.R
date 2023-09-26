@@ -66,7 +66,7 @@ make_api_request <- function(base_url, username, password,
 #' )
 #' }
 #' @keywords internal
-#'
+#' @noRd
 dhis2_get_relevant_attributes <- function(attribute_id = NULL,
                                           base_url =
                                             "https://play.dhis2.org/dev/",
@@ -142,7 +142,7 @@ dhis2_get_relevant_attributes <- function(attribute_id = NULL,
 #'   base_url = "https://play.dhis2.org/dev/",
 #'   username = "admin",
 #'   password = "district",
-#'   which = "dataSets"
+#'   which    = "dataSets"
 #' )
 #' }
 get_dhis2_attributes <- function(base_url = "https://play.dhis2.org/dev/",

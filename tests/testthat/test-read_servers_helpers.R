@@ -162,7 +162,7 @@ test_that("sql_select_data works as expected", {
   result <- sql_select_data(
     table_names   = c("author", "family_author"),
     dbms          = "MySQL",
-    id_position   = c(1, 1), # nolint
+    id_position   = c(1L, 1L),
     fields        = c("author_id,name,last_name,initials", "rfam_acc,author_id"), #nolint: line_length_linter
     records       = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
     driver_name   = "",
@@ -276,7 +276,7 @@ test_that("sql_select_data fails with incorrect j", {
   expect_error(
     get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
-      j           = 1:2, # nolint
+      j           = 1L:2L,
       id_position = c(1L, 1L)
     ),
     regexp = cat("Assertion on',j,'failed: Must be a numeric with length 1.")

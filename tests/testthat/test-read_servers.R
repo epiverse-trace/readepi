@@ -5,7 +5,7 @@ test_that("sql_server_read_data works as expected", {
     host = "mysql-rfam-public.ebi.ac.uk",
     port = 4497L,
     database_name = "Rfam",
-    source = "author",
+    src = "author",
     driver_name = "",
     dbms = "MySQL"
   )
@@ -17,7 +17,7 @@ test_that("sql_server_read_data works as expected", {
     host = "mysql-rfam-public.ebi.ac.uk",
     port = 4497L,
     database_name = "Rfam",
-    source = "select * from author",
+    src = "select * from author",
     driver_name = "",
     dbms = "MySQL"
   )

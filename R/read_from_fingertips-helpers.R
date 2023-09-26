@@ -8,6 +8,7 @@
 #'   metadata <- get_fingertips_metadata()
 #' }
 #' @keywords internal
+#' @noRd
 #'
 get_fingertips_metadata <- function() {
   list(
@@ -40,6 +41,8 @@ get_fingertips_metadata <- function() {
 #' )
 #' }
 #' @keywords internal
+#' @noRd
+#'
 get_ind_id_from_ind_name <- function(metadata, indicator_name) {
   checkmate::assert_list(metadata,
                          len = 3L, null.ok = FALSE,
@@ -98,6 +101,7 @@ get_ind_id_from_ind_name <- function(metadata, indicator_name) {
 #' )
 #' }
 #' @keywords internal
+#' @noRd
 #'
 get_ind_id_from_domain_id <- function(metadata, domain_id,
                                       indicator_name = NULL) {
@@ -165,6 +169,8 @@ get_ind_id_from_domain_id <- function(metadata, domain_id,
 #' )
 #' }
 #' @keywords internal
+#' @noRd
+#'
 get_ind_id_from_domain_name <- function(metadata, domain_name,
                                         indicator_name = NULL) {
   checkmate::assert_list(metadata,
@@ -239,6 +245,7 @@ get_ind_id_from_domain_name <- function(metadata, domain_name,
 #' )
 #' }
 #' @keywords internal
+#' @noRd
 get_profile_name <- function(profile_id, profile_name, metadata) {
   checkmate::assert_list(metadata,
                          len = 3L, null.ok = FALSE,
@@ -295,6 +302,7 @@ get_profile_name <- function(profile_id, profile_name, metadata) {
 #' )
 #' }
 #' @keywords internal
+#' @noRd
 get_ind_id_from_profile <- function(metadata, domain_id = NULL,
                                     domain_name = NULL,
                                     indicator_name = NULL,
@@ -364,7 +372,7 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #' )
 #' }
 #' @keywords internal
-#'
+#' @noRd
 fingertips_subset_rows <- function(data, records, id_col_name) {
   checkmate::assert_data_frame(data,
                                null.ok = FALSE, min.rows = 1L,
@@ -409,7 +417,7 @@ fingertips_subset_rows <- function(data, records, id_col_name) {
 #' )
 #' }
 #' @keywords internal
-#'
+#' @noRd
 fingertips_subset_columns <- function(data, fields) {
   checkmate::assert_data_frame(data,
                                min.cols = 1L, min.rows = 1L,

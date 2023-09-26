@@ -14,6 +14,7 @@
 #' )
 #' }
 #' @keywords internal
+#' @noRd
 #' @importFrom utils read.table
 read_credentials <- function(
     file_path = system.file("extdata", "test.ini", package = "readepi"),
@@ -70,7 +71,7 @@ read_credentials <- function(
 #' )
 #' }
 #' @keywords internal
-#'
+#' @noRd
 get_read_fingertips_args <- function(args_list) {
   checkmate::assert_list(args_list)
   if ("indicator_id" %in% names(args_list)) {

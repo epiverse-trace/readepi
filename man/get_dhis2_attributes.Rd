@@ -33,7 +33,7 @@ datasets <- get_dhis2_attributes(
   base_url = "https://play.dhis2.org/dev/",
   username = "admin",
   password = "district",
-  which = "dataSets"
+  which    = "dataSets"
 )
 }
 }

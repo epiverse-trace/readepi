@@ -22,7 +22,8 @@
 #'   port          = 4497
 #' )
 #' }
-#'
+#' @keywords internal
+#' @noRd
 connect_to_server <- function(dbms, driver_name, host, database_name,
                               user, password, port) {
   con <- switch(
@@ -66,7 +67,8 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
 #'   tables = c("family_author", "author", "test")
 #' )
 #' }
-#'
+#' @keywords internal
+#' @noRd
 identify_table_name <- function(query, tables) {
   checkmate::assert_character(query,
                               any.missing = FALSE, len = 1L,
@@ -111,7 +113,8 @@ identify_table_name <- function(query, tables) {
 #'   port          = 4497
 #' )
 #' }
-#'
+#' @keywords internal
+#' @noRd
 fetch_data_from_query <- function(source, dbms, tables,
                                   driver_name, host, database_name,
                                   user, password, port) {
@@ -172,7 +175,8 @@ fetch_data_from_query <- function(source, dbms, tables,
 #'   port          = 4497
 #' )
 #' }
-#'
+#' @keywords internal
+#' @noRd
 sql_select_data <- function(table_names, dbms, id_col_name,
                             fields, records, id_position,
                             driver_name, host, database_name,
@@ -230,7 +234,7 @@ sql_select_data <- function(table_names, dbms, id_col_name,
         password, port
       )
     }
-    j <- j + 1 # nolint
+    j <- j + 1L
   }
 
   result
@@ -244,7 +248,8 @@ sql_select_data <- function(table_names, dbms, id_col_name,
 #'
 #' @returns a `list` of 2 elements of type `character` and `numeric`
 #'    corresponding to the ID column name and position
-#'
+#' @keywords internal
+#' @noRd
 get_id_column_name <- function(id_col_name, j, id_position) {
   checkmate::assert_numeric(j,
                             lower = 1L, any.missing = FALSE,
@@ -295,7 +300,8 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 #'   port          = 4497
 #' )
 #' }
-#'
+#' @keywords internal
+#' @noRd
 sql_select_entire_dataset <- function(table, dbms, driver_name, host,
                                       database_name, user, password, port) {
   checkmate::assert_character(table,
@@ -351,7 +357,8 @@ sql_select_entire_dataset <- function(table, dbms, driver_name, host,
 #'   port           = 4497
 #' )
 #' }
-#'
+#' @keywords internal
+#' @noRd
 sql_select_records_and_fields <- function(table, record, id_column_name, field,
                                           id_pos, dbms, driver_name, host,
                                           database_name, user, password, port) {
@@ -467,7 +474,8 @@ visualise_table <- function(data_source, credentials_file, from, driver_name) {
 #'   port           = 4497
 #' )
 #' }
-#'
+#' @keywords internal
+#' @noRd
 sql_select_records_only <- function(table, record, id_column_name, id_pos,
                                     dbms, driver_name, host, database_name,
                                     user, password, port) {
@@ -539,7 +547,8 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
 #'   port          = 4497
 #' )
 #' }
-#'
+#' @keywords internal
+#' @noRd
 sql_select_fields_only <- function(table, field, dbms, driver_name, host,
                                    database_name, user, password, port) {
   checkmate::assert_character(table,

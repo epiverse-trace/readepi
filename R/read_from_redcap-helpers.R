@@ -27,7 +27,8 @@
 #'   id_position = 1
 #' )
 #' }
-#'
+#' @keywords internal
+#' @noRd
 import_redcap_data <- function(records, fields, uri, token,
                                id_position, id_col_name) {
   if (all(is.null(records) & is.null(fields))) {
@@ -45,8 +46,8 @@ import_redcap_data <- function(records, fields, uri, token,
       id_position, id_col_name
     )
   }
-  redcap_data <- res[[1]] # nolint
-  metadata    <- res[[2]] # nolint
+  redcap_data <- res[[1L]]
+  metadata    <- res[[2L]]
 
   list(
     redcap_data = redcap_data,
@@ -64,7 +65,8 @@ import_redcap_data <- function(records, fields, uri, token,
 #'
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data and its associated metadata.
-#'
+#' @keywords internal
+#' @noRd
 redcap_read_data <- function(uri, token, id_position) {
   redcap_data <- REDCapR::redcap_read(
     redcap_uri  = uri,
@@ -100,7 +102,8 @@ redcap_read_data <- function(uri, token, id_position) {
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data with only the records and fields of interest and
 #'    its associated metadata.
-#'
+#' @keywords internal
+#' @noRd
 redcap_read_rows_columns <- function(fields, uri, token, id_position,
                                      id_col_name, records) {
   fields      <- glue::glue_collapse(fields, sep = ", ")
@@ -153,7 +156,8 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
 #'
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data with the fields of interest and its associated metadata.
-#'
+#' @keywords internal
+#' @noRd
 redcap_read_fields <- function(fields, uri, token, id_position) {
   fields      <- glue::glue_collapse(fields, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
@@ -185,7 +189,8 @@ redcap_read_fields <- function(fields, uri, token, id_position) {
 #'
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data with the records of interest and its associated metadata.
-#'
+#' @keywords internal
+#' @noRd
 redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
   records     <- glue::glue_collapse(records, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
@@ -249,7 +254,8 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
 #'   )
 #' )
 #' }
-#'
+#' @keywords internal
+#' @noRd
 redcap_get_results <- function(redcap_data, metadata) {
   checkmate::assert_list(redcap_data,
                          null.ok     = FALSE,

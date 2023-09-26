@@ -25,7 +25,7 @@
 #'   data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
 #' }
 #' @keywords internal
-#'
+#' @noRd
 read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
                                  area_type_id = NULL,
                                  parent_area_type_id = NULL,

@@ -22,6 +22,7 @@
 #' }
 #'
 #' @keywords internal
+#' @noRd
 dhis2_check_attributes <- function(username,
                                    password,
                                    base_url,
@@ -37,10 +38,10 @@ dhis2_check_attributes <- function(username,
       password     = password,
       which        = "dataSets"
     )
-    dataset <- tmp_res[["dataset"]]
+    dataset   <- tmp_res[["dataset"]]
     data_sets <- tmp_res[["data_sets"]]
   } else {
-    dataset <- data_sets <- NULL
+    dataset   <- data_sets <- NULL
   }
 
   # get the relevant organisation units
@@ -53,7 +54,7 @@ dhis2_check_attributes <- function(username,
       which        = "organisationUnits"
     )
     organisation_unit <- tmp_res[["organisation_unit"]]
-    org_units <- tmp_res[["org_units"]]
+    org_units         <- tmp_res[["org_units"]]
   } else {
     organisation_unit <- org_units <- NULL
   }
@@ -68,7 +69,7 @@ dhis2_check_attributes <- function(username,
       which        = "dataElementGroups"
     )
     data_element_group <- tmp_res[["data_element_group"]]
-    data_elt_groups <- tmp_res[["data_elt_groups"]]
+    data_elt_groups    <- tmp_res[["data_elt_groups"]]
   } else {
     data_element_group <- data_elt_groups <- NULL
   }
