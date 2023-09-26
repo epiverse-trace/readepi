@@ -15,6 +15,7 @@
 #' @return an object of class `data.frame` that contains the information of
 #'    interest.
 #' @keywords internal
+#' @noRd
 make_api_request <- function(base_url, username, password,
                              which = "dataElements") {
   checkmate::assert_character(base_url, len = 1L, any.missing = FALSE,
