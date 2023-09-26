@@ -9,7 +9,7 @@ Authors@R: c(
     person("Bankolé", "Ahadzie", , "Bankole.Ahadzie@lshtm.ac.uk", role = "ctb"),
     person("Nuredin", "Mohammed", , "Nuredin.Mohammed@lshtm.ac.uk", role = "ctb"),
     person("Abdoelnaser", "Degoot", , "abdoelnaser-mahmood.degoot@lshtm.ac.uk", role = "ctb"),
-    person("Hugo", "Gruson", , "hugo.gruson@data.org", role = "rev",
+    person("Hugo", "Gruson", , "hugo@data.org", role = "rev",
            comment = c(ORCID = "0000-0002-4094-1476")),
     person("Pratik", "Gupte", , "pratik.gupte@lshtm.ac.uk", role = "rev",
            comment = c(ORCID = "0000-0001-5294-7819")),
