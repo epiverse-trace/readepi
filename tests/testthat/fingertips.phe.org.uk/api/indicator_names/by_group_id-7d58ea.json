@@ -352,7 +352,7 @@
     {
         "GroupId": 1000049,
         "IndicatorId": 93562,
-        "IndicatorName": "Disability-free life expectancy at birth"
+        "IndicatorName": "Disability free life expectancy at birth"
     },
     {
         "GroupId": 1000041,
@@ -392,7 +392,7 @@
     {
         "GroupId": 1000041,
         "IndicatorId": 11601,
-        "IndicatorName": "Utilisation of outdoor space for exercise/health reasons"
+        "IndicatorName": "Utilisation of outdoor space for exercise or health reasons"
     },
     {
         "GroupId": 1000041,
@@ -767,7 +767,7 @@
     {
         "GroupId": 1000042,
         "IndicatorId": 92544,
-        "IndicatorName": "Adults with substance misuse treatment need who successfully engage in community-based structured treatment following release from prison"
+        "IndicatorName": "Adults with substance misuse treatment need who successfully engage in community based structured treatment following release from prison"
     },
     {
         "GroupId": 1000042,
@@ -807,17 +807,17 @@
     {
         "GroupId": 1000042,
         "IndicatorId": 93431,
-        "IndicatorName": "Child development: percentage of children achieving the expected level in communication skills at 2 to 2½ years"
+        "IndicatorName": "Child development: percentage of children achieving the expected level in communication skills at 2 to 2 and a half years"
     },
     {
         "GroupId": 1000042,
         "IndicatorId": 93435,
-        "IndicatorName": "Child development: percentage of children achieving the expected level in personal social skills at 2 to 2½ years"
+        "IndicatorName": "Child development: percentage of children achieving the expected level in personal social skills at 2 to 2 and a half years"
     },
     {
         "GroupId": 1000042,
         "IndicatorId": 93436,
-        "IndicatorName": "Child development: percentage of children achieving a good level of development at 2 to 2½ years"
+        "IndicatorName": "Child development: percentage of children achieving a good level of development at 2 to 2 and a half years"
     },
     {
         "GroupId": 1000042,
@@ -972,7 +972,7 @@
     {
         "GroupId": 1000043,
         "IndicatorId": 91367,
-        "IndicatorName": "Proportion of drug sensitive TB cases who had completed a full course of treatment by 12 months"
+        "IndicatorName": "Proportion of drug sensitive TB notifications who had completed a full course of treatment by 12 months"
     },
     {
         "GroupId": 1000043,
@@ -1132,7 +1132,7 @@
     {
         "GroupId": 1000044,
         "IndicatorId": 92949,
-        "IndicatorName": "Estimated dementia diagnosis rate (aged 65 and over)"
+        "IndicatorName": "Estimated dementia diagnosis rate (aged 65 and older)"
     },
     {
         "GroupId": 1000044,
@@ -2252,7 +2252,7 @@
     {
         "GroupId": 1938132695,
         "IndicatorId": 92949,
-        "IndicatorName": "Estimated dementia diagnosis rate (aged 65 and over)"
+        "IndicatorName": "Estimated dementia diagnosis rate (aged 65 and older)"
     },
     {
         "GroupId": 1938132695,
@@ -2477,7 +2477,7 @@
     {
         "GroupId": 1938132701,
         "IndicatorId": 92949,
-        "IndicatorName": "Estimated dementia diagnosis rate (aged 65 and over)"
+        "IndicatorName": "Estimated dementia diagnosis rate (aged 65 and older)"
     },
     {
         "GroupId": 1938132701,
@@ -2836,6 +2836,11 @@
     },
     {
         "GroupId": 1938133300,
+        "IndicatorId": 93664,
+        "IndicatorName": "High-dose inhaled corticosteroid prescribing"
+    },
+    {
+        "GroupId": 1938133300,
         "IndicatorId": 93724,
         "IndicatorName": "Under 75 mortality rate from respiratory disease considered preventable"
     },
@@ -3017,17 +3022,17 @@
     {
         "GroupId": 1000002,
         "IndicatorId": 91367,
-        "IndicatorName": "Proportion of drug sensitive TB cases who had completed a full course of treatment by 12 months"
+        "IndicatorName": "Proportion of drug sensitive TB notifications who had completed a full course of treatment by 12 months"
     },
     {
         "GroupId": 1000002,
         "IndicatorId": 91373,
-        "IndicatorName": "Proportion of TB cases offered an HIV test"
+        "IndicatorName": "Proportion of TB notifications offered an HIV test"
     },
     {
         "GroupId": 1000002,
         "IndicatorId": 91451,
-        "IndicatorName": "Proportion of pulmonary TB cases starting treatment within four months of symptom onset"
+        "IndicatorName": "Proportion of pulmonary TB notifications starting treatment within four months of symptom onset"
     },
     {
         "GroupId": 1000002,
@@ -3522,17 +3527,17 @@
     {
         "GroupId": 1938133210,
         "IndicatorId": 91367,
-        "IndicatorName": "Proportion of drug sensitive TB cases who had completed a full course of treatment by 12 months"
+        "IndicatorName": "Proportion of drug sensitive TB notifications who had completed a full course of treatment by 12 months"
     },
     {
         "GroupId": 1938133210,
         "IndicatorId": 91373,
-        "IndicatorName": "Proportion of TB cases offered an HIV test"
+        "IndicatorName": "Proportion of TB notifications offered an HIV test"
     },
     {
         "GroupId": 1938133210,
         "IndicatorId": 91451,
-        "IndicatorName": "Proportion of pulmonary TB cases starting treatment within four months of symptom onset"
+        "IndicatorName": "Proportion of pulmonary TB notifications starting treatment within four months of symptom onset"
     },
     {
         "GroupId": 1938133210,
@@ -3667,7 +3672,7 @@
     {
         "GroupId": 1938133212,
         "IndicatorId": 91373,
-        "IndicatorName": "Proportion of TB cases offered an HIV test"
+        "IndicatorName": "Proportion of TB notifications offered an HIV test"
     },
     {
         "GroupId": 1938133212,
@@ -4032,7 +4037,7 @@
     {
         "GroupId": 8000041,
         "IndicatorId": 11601,
-        "IndicatorName": "Utilisation of outdoor space for exercise/health reasons"
+        "IndicatorName": "Utilisation of outdoor space for exercise or health reasons"
     },
     {
         "GroupId": 8000041,
@@ -5182,7 +5187,7 @@
     {
         "GroupId": 1938133286,
         "IndicatorId": 91373,
-        "IndicatorName": "Proportion of TB cases offered an HIV test"
+        "IndicatorName": "Proportion of TB notifications offered an HIV test"
     },
     {
         "GroupId": 1938133286,
@@ -6011,16 +6016,6 @@
     },
     {
         "GroupId": 1938132791,
-        "IndicatorId": 91294,
-        "IndicatorName": "Concurrent contact with mental health services and substance misuse services for drug misuse"
-    },
-    {
-        "GroupId": 1938132791,
-        "IndicatorId": 91295,
-        "IndicatorName": "Concurrent contact with mental health services and substance misuse services for alcohol misuse"
-    },
-    {
-        "GroupId": 1938132791,
         "IndicatorId": 91736,
         "IndicatorName": "Smokers setting a quit date"
     },
@@ -6062,6 +6057,6 @@
     {
         "GroupId": 1938132792,
         "IndicatorId": 92544,
-        "IndicatorName": "Adults with substance misuse treatment need who successfully engage in community-based structured treatment following release from prison"
+        "IndicatorName": "Adults with substance misuse treatment need who successfully engage in community based structured treatment following release from prison"
     }
 ]

@@ -28,6 +28,10 @@
                         "IndicatorCount": 14
                     },
                     {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 2
+                    },
+                    {
                         "AreaTypeId": 126,
                         "IndicatorCount": 12
                     },
@@ -90,6 +94,14 @@
                     {
                         "AreaTypeId": 15,
                         "IndicatorCount": 14
+                    },
+                    {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 4
+                    },
+                    {
+                        "AreaTypeId": 118,
+                        "IndicatorCount": 2
                     },
                     {
                         "AreaTypeId": 126,
@@ -297,7 +309,7 @@
                     },
                     {
                         "AreaTypeId": 301,
-                        "IndicatorCount": 14
+                        "IndicatorCount": 12
                     },
                     {
                         "AreaTypeId": 302,
@@ -305,7 +317,7 @@
                     },
                     {
                         "AreaTypeId": 401,
-                        "IndicatorCount": 14
+                        "IndicatorCount": 12
                     },
                     {
                         "AreaTypeId": 402,
@@ -415,7 +427,7 @@
                     },
                     {
                         "AreaTypeId": 301,
-                        "IndicatorCount": 24
+                        "IndicatorCount": 40
                     },
                     {
                         "AreaTypeId": 302,
@@ -423,7 +435,7 @@
                     },
                     {
                         "AreaTypeId": 501,
-                        "IndicatorCount": 24
+                        "IndicatorCount": 40
                     },
                     {
                         "AreaTypeId": 502,
@@ -523,7 +535,7 @@
                     },
                     {
                         "AreaTypeId": 301,
-                        "IndicatorCount": 20
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 302,
@@ -531,7 +543,7 @@
                     },
                     {
                         "AreaTypeId": 501,
-                        "IndicatorCount": 20
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 502,
@@ -1746,6 +1758,10 @@
                         "IndicatorCount": 20
                     },
                     {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 2
+                    },
+                    {
                         "AreaTypeId": 167,
                         "IndicatorCount": 8
                     },
@@ -1775,7 +1791,7 @@
                     },
                     {
                         "AreaTypeId": 66,
-                        "IndicatorCount": 16
+                        "IndicatorCount": 24
                     },
                     {
                         "AreaTypeId": 167,
@@ -1807,7 +1823,7 @@
                     },
                     {
                         "AreaTypeId": 66,
-                        "IndicatorCount": 6
+                        "IndicatorCount": 14
                     },
                     {
                         "AreaTypeId": 167,
@@ -1838,6 +1854,10 @@
                         "IndicatorCount": 14
                     },
                     {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 10
+                    },
+                    {
                         "AreaTypeId": 167,
                         "IndicatorCount": 14
                     },
@@ -1863,15 +1883,19 @@
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 10
+                        "IndicatorCount": 12
                     },
                     {
                         "AreaTypeId": 66,
-                        "IndicatorCount": 4
+                        "IndicatorCount": 8
+                    },
+                    {
+                        "AreaTypeId": 165,
+                        "IndicatorCount": 2
                     },
                     {
                         "AreaTypeId": 167,
-                        "IndicatorCount": 6
+                        "IndicatorCount": 10
                     },
                     {
                         "AreaTypeId": 401,
@@ -1883,7 +1907,7 @@
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 5
+                        "IndicatorCount": 6
                     }
                 ]
             }
@@ -1942,7 +1966,7 @@
                     },
                     {
                         "AreaTypeId": 101,
-                        "IndicatorCount": 76
+                        "IndicatorCount": 74
                     },
                     {
                         "AreaTypeId": 102,
@@ -1954,7 +1978,7 @@
                     },
                     {
                         "AreaTypeId": 201,
-                        "IndicatorCount": 78
+                        "IndicatorCount": 76
                     },
                     {
                         "AreaTypeId": 202,
@@ -1962,7 +1986,7 @@
                     },
                     {
                         "AreaTypeId": 401,
-                        "IndicatorCount": 104
+                        "IndicatorCount": 102
                     },
                     {
                         "AreaTypeId": 402,
@@ -3538,7 +3562,7 @@
                     },
                     {
                         "AreaTypeId": 402,
-                        "IndicatorCount": 46
+                        "IndicatorCount": 44
                     },
                     {
                         "AreaTypeId": 15,
@@ -3758,6 +3782,10 @@
                         "IndicatorCount": 18
                     },
                     {
+                        "AreaTypeId": 502,
+                        "IndicatorCount": 18
+                    },
+                    {
                         "AreaTypeId": 15,
                         "IndicatorCount": 9
                     }
@@ -3783,6 +3811,10 @@
                     },
                     {
                         "AreaTypeId": 402,
+                        "IndicatorCount": 10
+                    },
+                    {
+                        "AreaTypeId": 502,
                         "IndicatorCount": 10
                     },
                     {
@@ -3814,6 +3846,10 @@
                         "IndicatorCount": 14
                     },
                     {
+                        "AreaTypeId": 502,
+                        "IndicatorCount": 14
+                    },
+                    {
                         "AreaTypeId": 15,
                         "IndicatorCount": 7
                     }
@@ -3839,6 +3875,10 @@
                     },
                     {
                         "AreaTypeId": 402,
+                        "IndicatorCount": 2
+                    },
+                    {
+                        "AreaTypeId": 502,
                         "IndicatorCount": 2
                     },
                     {
@@ -4266,15 +4306,15 @@
                 "DataAvailable": [
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 10
+                        "IndicatorCount": 6
                     },
                     {
                         "AreaTypeId": 102,
-                        "IndicatorCount": 10
+                        "IndicatorCount": 6
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 5
+                        "IndicatorCount": 3
                     }
                 ]
             },
@@ -4310,11 +4350,11 @@
                 "DataAvailable": [
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 10
+                        "IndicatorCount": 4
                     },
                     {
                         "AreaTypeId": 102,
-                        "IndicatorCount": 10
+                        "IndicatorCount": 4
                     },
                     {
                         "AreaTypeId": 302,
@@ -4322,7 +4362,7 @@
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 7
+                        "IndicatorCount": 4
                     }
                 ]
             },
@@ -4398,6 +4438,10 @@
                         "IndicatorCount": 28
                     },
                     {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 20
+                    },
+                    {
                         "AreaTypeId": 166,
                         "IndicatorCount": 20
                     },
@@ -4407,6 +4451,10 @@
                     },
                     {
                         "AreaTypeId": 220,
+                        "IndicatorCount": 20
+                    },
+                    {
+                        "AreaTypeId": 221,
                         "IndicatorCount": 20
                     },
                     {
@@ -4490,6 +4538,10 @@
                         "IndicatorCount": 4
                     },
                     {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 2
+                    },
+                    {
                         "AreaTypeId": 166,
                         "IndicatorCount": 4
                     },
@@ -4500,6 +4552,10 @@
                     {
                         "AreaTypeId": 220,
                         "IndicatorCount": 4
+                    },
+                    {
+                        "AreaTypeId": 221,
+                        "IndicatorCount": 2
                     },
                     {
                         "AreaTypeId": 302,
@@ -4649,48 +4705,36 @@
                         "IndicatorCount": 24
                     },
                     {
-                        "AreaTypeId": 66,
-                        "IndicatorCount": 2
+                        "AreaTypeId": 104,
+                        "IndicatorCount": 22
                     },
                     {
                         "AreaTypeId": 165,
-                        "IndicatorCount": 2
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 166,
-                        "IndicatorCount": 16
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 167,
-                        "IndicatorCount": 16
-                    },
-                    {
-                        "AreaTypeId": 202,
-                        "IndicatorCount": 2
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 221,
-                        "IndicatorCount": 4
+                        "IndicatorCount": 16
                     },
                     {
                         "AreaTypeId": 302,
-                        "IndicatorCount": 2
-                    },
-                    {
-                        "AreaTypeId": 401,
-                        "IndicatorCount": 2
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 402,
-                        "IndicatorCount": 24
-                    },
-                    {
-                        "AreaTypeId": 501,
-                        "IndicatorCount": 2
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 502,
-                        "IndicatorCount": 22
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 15,
@@ -5121,6 +5165,10 @@
                         "IndicatorCount": 12
                     },
                     {
+                        "AreaTypeId": 167,
+                        "IndicatorCount": 18
+                    },
+                    {
                         "AreaTypeId": 201,
                         "IndicatorCount": 6
                     },
@@ -5173,8 +5221,8 @@
                         "IndicatorCount": 8
                     },
                     {
-                        "AreaTypeId": 165,
-                        "IndicatorCount": 4
+                        "AreaTypeId": 167,
+                        "IndicatorCount": 8
                     },
                     {
                         "AreaTypeId": 219,
@@ -5206,7 +5254,7 @@
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 32
+                        "IndicatorCount": 30
                     },
                     {
                         "AreaTypeId": 102,
@@ -5214,23 +5262,23 @@
                     },
                     {
                         "AreaTypeId": 152,
-                        "IndicatorCount": 20
-                    },
-                    {
-                        "AreaTypeId": 154,
-                        "IndicatorCount": 2
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 165,
                         "IndicatorCount": 2
                     },
                     {
+                        "AreaTypeId": 167,
+                        "IndicatorCount": 18
+                    },
+                    {
                         "AreaTypeId": 219,
-                        "IndicatorCount": 20
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 16
+                        "IndicatorCount": 15
                     }
                 ]
             }
@@ -5942,7 +5990,7 @@
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 42
+                        "IndicatorCount": 38
                     },
                     {
                         "AreaTypeId": 166,
@@ -5966,7 +6014,7 @@
                     },
                     {
                         "AreaTypeId": 302,
-                        "IndicatorCount": 10
+                        "IndicatorCount": 6
                     },
                     {
                         "AreaTypeId": 401,
@@ -5974,11 +6022,11 @@
                     },
                     {
                         "AreaTypeId": 402,
-                        "IndicatorCount": 22
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 18
+                        "IndicatorCount": 16
                     }
                 ]
             },
@@ -6115,7 +6163,7 @@
                     },
                     {
                         "AreaTypeId": 301,
-                        "IndicatorCount": 22
+                        "IndicatorCount": 20
                     },
                     {
                         "AreaTypeId": 302,
@@ -6123,7 +6171,7 @@
                     },
                     {
                         "AreaTypeId": 401,
-                        "IndicatorCount": 28
+                        "IndicatorCount": 26
                     },
                     {
                         "AreaTypeId": 402,
@@ -6316,7 +6364,7 @@
                     },
                     {
                         "AreaTypeId": 201,
-                        "IndicatorCount": 16
+                        "IndicatorCount": 14
                     },
                     {
                         "AreaTypeId": 202,
@@ -6417,7 +6465,11 @@
                 "DataAvailable": [
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 30
+                        "IndicatorCount": 32
+                    },
+                    {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 4
                     },
                     {
                         "AreaTypeId": 118,
@@ -6533,7 +6585,7 @@
                 "DataAvailable": [
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 8
+                        "IndicatorCount": 12
                     },
                     {
                         "AreaTypeId": 118,
@@ -6541,7 +6593,7 @@
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 4
+                        "IndicatorCount": 6
                     }
                 ]
             },
@@ -6553,19 +6605,19 @@
                 "DataAvailable": [
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 8
+                        "IndicatorCount": 4
+                    },
+                    {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 4
                     },
                     {
                         "AreaTypeId": 118,
-                        "IndicatorCount": 4
-                    },
-                    {
-                        "AreaTypeId": 166,
-                        "IndicatorCount": 4
+                        "IndicatorCount": 2
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 4
+                        "IndicatorCount": 3
                     }
                 ]
             },
@@ -6577,15 +6629,15 @@
                 "DataAvailable": [
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 122
+                        "IndicatorCount": 118
                     },
                     {
                         "AreaTypeId": 118,
-                        "IndicatorCount": 130
+                        "IndicatorCount": 126
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 65
+                        "IndicatorCount": 63
                     }
                 ]
             },
@@ -6800,66 +6852,6 @@
         "OpenInequalitiesOnAreaData": false,
         "HasAnyData": true,
         "HasOwnFrontPage": false
-    },
-    {
-        "Id": 103,
-        "Name": "INLIQ test profile",
-        "Key": "inliq",
-        "GroupIds": [
-            1938133101
-        ],
-        "GroupMetadata": [
-            {
-                "Id": 1938133101,
-                "Name": "INLIQ",
-                "Sequence": 1,
-                "ProfileId": 103,
-                "DataAvailable": [
-                    {
-                        "AreaTypeId": 15,
-                        "IndicatorCount": 16
-                    },
-                    {
-                        "AreaTypeId": 154,
-                        "IndicatorCount": 16
-                    },
-                    {
-                        "AreaTypeId": 165,
-                        "IndicatorCount": 16
-                    },
-                    {
-                        "AreaTypeId": 219,
-                        "IndicatorCount": 16
-                    },
-                    {
-                        "AreaTypeId": 15,
-                        "IndicatorCount": 8
-                    }
-                ]
-            }
-        ],
-        "Visualisations": [
-            "Overview",
-            "CompareAreas",
-            "Trends",
-            "AreaProfile",
-            "CompareIndicators",
-            "Definitions",
-            "Map",
-            "Download"
-        ],
-        "HasRecentTrends": true,
-        "StartValueAxisFromZero": false,
-        "IsChangeFromPreviousPeriodShown": false,
-        "DefaultAreaTypeId": 15,
-        "DefaultTabId": 1,
-        "IgnoredSpineChartAreas": [
-            "E06000053",
-            "E09000001"
-        ],
-        "OpenInequalitiesOnAreaData": false,
-        "HasAnyData": true,
-        "HasOwnFrontPage": true
     },
     {
         "Id": 105,
@@ -8015,7 +8007,7 @@
                     },
                     {
                         "AreaTypeId": 102,
-                        "IndicatorCount": 32
+                        "IndicatorCount": 34
                     },
                     {
                         "AreaTypeId": 401,
@@ -8023,7 +8015,7 @@
                     },
                     {
                         "AreaTypeId": 402,
-                        "IndicatorCount": 36
+                        "IndicatorCount": 38
                     },
                     {
                         "AreaTypeId": 15,
@@ -8683,7 +8675,7 @@
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 16
+                        "IndicatorCount": 18
                     },
                     {
                         "AreaTypeId": 66,
@@ -8696,6 +8688,10 @@
                     {
                         "AreaTypeId": 167,
                         "IndicatorCount": 16
+                    },
+                    {
+                        "AreaTypeId": 202,
+                        "IndicatorCount": 2
                     },
                     {
                         "AreaTypeId": 220,
@@ -8711,7 +8707,7 @@
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 10
+                        "IndicatorCount": 11
                     }
                 ]
             },
@@ -9240,7 +9236,7 @@
         "StartValueAxisFromZero": false,
         "IsChangeFromPreviousPeriodShown": false,
         "DefaultAreaTypeId": 15,
-        "DefaultTabId": 0,
+        "DefaultTabId": 1,
         "IgnoredSpineChartAreas": [
             "E06000053",
             "E09000001"
@@ -9696,7 +9692,7 @@
     },
     {
         "Id": 143,
-        "Name": "Local Health - Small Area Public Health Data",
+        "Name": "Local Health. Public Health Data for small geographic areas",
         "Key": "local-health",
         "GroupIds": [
             1938133180,
@@ -9857,6 +9853,7 @@
             "AreaProfile",
             "CompareIndicators",
             "Definitions",
+            "Map",
             "Download"
         ],
         "HasRecentTrends": false,
@@ -10656,6 +10653,152 @@
         "HasOwnFrontPage": true
     },
     {
+        "Id": 165,
+        "Name": "Vision",
+        "Key": "vision",
+        "GroupIds": [
+            1938133375,
+            1938133392,
+            1938133391,
+            1938133390
+        ],
+        "GroupMetadata": [
+            {
+                "Id": 1938133375,
+                "Name": "Outpatients",
+                "Sequence": 1,
+                "ProfileId": 165,
+                "DataAvailable": [
+                    {
+                        "AreaTypeId": 15,
+                        "IndicatorCount": 4
+                    },
+                    {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 4
+                    },
+                    {
+                        "AreaTypeId": 15,
+                        "IndicatorCount": 2
+                    }
+                ]
+            },
+            {
+                "Id": 1938133392,
+                "Name": "Procedures",
+                "Sequence": 2,
+                "ProfileId": 165,
+                "DataAvailable": [
+                    {
+                        "AreaTypeId": 15,
+                        "IndicatorCount": 6
+                    },
+                    {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 6
+                    },
+                    {
+                        "AreaTypeId": 15,
+                        "IndicatorCount": 3
+                    }
+                ]
+            },
+            {
+                "Id": 1938133391,
+                "Name": "Sight loss outcomes",
+                "Sequence": 3,
+                "ProfileId": 165,
+                "DataAvailable": [
+                    {
+                        "AreaTypeId": 6,
+                        "IndicatorCount": 12
+                    },
+                    {
+                        "AreaTypeId": 15,
+                        "IndicatorCount": 12
+                    },
+                    {
+                        "AreaTypeId": 502,
+                        "IndicatorCount": 12
+                    },
+                    {
+                        "AreaTypeId": 15,
+                        "IndicatorCount": 6
+                    }
+                ]
+            },
+            {
+                "Id": 1938133390,
+                "Name": "Risk factors",
+                "Sequence": 4,
+                "ProfileId": 165,
+                "DataAvailable": [
+                    {
+                        "AreaTypeId": 6,
+                        "IndicatorCount": 6
+                    },
+                    {
+                        "AreaTypeId": 15,
+                        "IndicatorCount": 24
+                    },
+                    {
+                        "AreaTypeId": 66,
+                        "IndicatorCount": 2
+                    },
+                    {
+                        "AreaTypeId": 167,
+                        "IndicatorCount": 8
+                    },
+                    {
+                        "AreaTypeId": 401,
+                        "IndicatorCount": 12
+                    },
+                    {
+                        "AreaTypeId": 402,
+                        "IndicatorCount": 20
+                    },
+                    {
+                        "AreaTypeId": 501,
+                        "IndicatorCount": 12
+                    },
+                    {
+                        "AreaTypeId": 502,
+                        "IndicatorCount": 20
+                    },
+                    {
+                        "AreaTypeId": 15,
+                        "IndicatorCount": 12
+                    }
+                ]
+            }
+        ],
+        "Visualisations": [
+            "Overview",
+            "CompareAreas",
+            "Trends",
+            "AreaProfile",
+            "CompareIndicators",
+            "Population",
+            "Definitions",
+            "Inequalities",
+            "BoxPlots",
+            "Map",
+            "Download"
+        ],
+        "HasRecentTrends": false,
+        "StartValueAxisFromZero": false,
+        "IsChangeFromPreviousPeriodShown": false,
+        "DefaultAreaTypeId": 15,
+        "DefaultTabId": 1,
+        "IgnoredSpineChartAreas": [
+            "E06000053",
+            "E09000001"
+        ],
+        "OpenInequalitiesOnAreaData": false,
+        "HasAnyData": true,
+        "HasOwnFrontPage": true
+    },
+    {
         "Id": 167,
         "Name": "GP profiles for patients",
         "Key": "general-practice-patients",
@@ -10716,39 +10859,39 @@
                 "DataAvailable": [
                     {
                         "AreaTypeId": 6,
-                        "IndicatorCount": 6
+                        "IndicatorCount": 8
                     },
                     {
                         "AreaTypeId": 7,
-                        "IndicatorCount": 8
+                        "IndicatorCount": 10
                     },
                     {
                         "AreaTypeId": 10,
-                        "IndicatorCount": 8
+                        "IndicatorCount": 10
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 8
+                        "IndicatorCount": 10
                     },
                     {
                         "AreaTypeId": 66,
-                        "IndicatorCount": 8
+                        "IndicatorCount": 10
                     },
                     {
                         "AreaTypeId": 204,
-                        "IndicatorCount": 8
+                        "IndicatorCount": 10
                     },
                     {
                         "AreaTypeId": 221,
-                        "IndicatorCount": 8
+                        "IndicatorCount": 10
                     },
                     {
                         "AreaTypeId": 223,
-                        "IndicatorCount": 8
+                        "IndicatorCount": 10
                     },
                     {
                         "AreaTypeId": 15,
-                        "IndicatorCount": 4
+                        "IndicatorCount": 5
                     }
                 ]
             }
