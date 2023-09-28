@@ -1,9 +1,7 @@
-# httptest::with_mock_api({
-#
-# })
 
 test_that("read_from_fingertips works", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = "Healthy life expectancy at birth",
     area_type_id = 202L, parent_area_type_id = 6L,
@@ -86,6 +84,7 @@ test_that("read_from_fingertips works", {
 
 test_that("read_from_fingertips works with domain name or ID", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- read_from_fingertips(
     indicator_id = NULL, indicator_name = "Pupil absence",
     area_type_id = 101L, parent_area_type_id = NULL,
@@ -115,6 +114,7 @@ test_that("read_from_fingertips works with domain name or ID", {
 
 test_that("read_from_fingertips works with profile name or ID", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- read_from_fingertips(
     indicator_id = NULL, indicator_name = "Pupil absence",
     area_type_id = 101L, parent_area_type_id = NULL,
@@ -132,6 +132,7 @@ test_that("read_from_fingertips works with profile name or ID", {
 
 test_that("read_from_fingertips fails with bad indicator ID", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = NA, indicator_name = NULL,
@@ -148,6 +149,7 @@ test_that("read_from_fingertips fails with bad indicator ID", {
 
 test_that("read_from_fingertips fails with bad indicator name", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = 90362L, indicator_name = NA,
@@ -164,6 +166,7 @@ test_that("read_from_fingertips fails with bad indicator name", {
 
 test_that("read_from_fingertips fails with bad area type ID", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = 90362L, indicator_name = NULL,
@@ -180,6 +183,7 @@ test_that("read_from_fingertips fails with bad area type ID", {
 
 test_that("read_from_fingertips fails with bad parent area type ID", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = 90362L, indicator_name = NULL,
@@ -196,6 +200,7 @@ test_that("read_from_fingertips fails with bad parent area type ID", {
 
 test_that("read_from_fingertips fails with bad profile ID", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
@@ -224,6 +229,7 @@ test_that("read_from_fingertips fails with bad profile ID", {
 
 test_that("read_from_fingertips fails with bad profile name", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
@@ -240,6 +246,7 @@ test_that("read_from_fingertips fails with bad profile name", {
 
 test_that("read_from_fingertips fails with bad domain ID", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
@@ -268,6 +275,7 @@ test_that("read_from_fingertips fails with bad domain ID", {
 
 test_that("read_from_fingertips fails with bad domain name", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
@@ -284,6 +292,7 @@ test_that("read_from_fingertips fails with bad domain name", {
 
 test_that("read_from_fingertips fails with bad records", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
@@ -299,6 +308,7 @@ test_that("read_from_fingertips fails with bad records", {
 
 test_that("read_from_fingertips fails with bad fields", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
@@ -314,6 +324,7 @@ test_that("read_from_fingertips fails with bad fields", {
 
 test_that("read_from_fingertips fails when no argument is provided", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = NULL, indicator_name = NULL,
@@ -331,6 +342,7 @@ test_that("read_from_fingertips fails when no argument is provided", {
 
 test_that("read_from_fingertips fails when the area_type_id is not provided", {
   testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,

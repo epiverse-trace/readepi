@@ -1,6 +1,8 @@
 httptest::with_mock_api({
   test_that("dhis2_check_attributes works as expected when all attribute
             types are specified", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
                 username = "admin",
                 password = "district",
@@ -36,6 +38,8 @@ httptest::with_mock_api({
 
   test_that("dhis2_check_attributes works as expected when only the
             dataSet ID is specified", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
                 username = "admin",
                 password = "district",
@@ -66,6 +70,8 @@ httptest::with_mock_api({
 
   test_that("dhis2_check_attributes works as expected when only the
             organisation unit ID is specified", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
                                                    username = "admin",
                                                    password = "district",
@@ -95,6 +101,8 @@ httptest::with_mock_api({
 
   test_that("dhis2_check_attributes works as expected when only the
             data element group ID is specified", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
                                                    username = "admin",
                                                    password = "district",
@@ -126,6 +134,8 @@ httptest::with_mock_api({
 
   test_that("dhis2_check_attributes only returns the data elements when none
             of the attributes is specified", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
                                                    username = "admin",
                                                    password = "district",
@@ -153,6 +163,8 @@ httptest::with_mock_api({
 
   test_that("dhis2_check_attributes works as expected when the dataset and
             organisation unit IDs are specified", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
                                                    username = "admin",
                                                    password = "district",
@@ -184,6 +196,8 @@ httptest::with_mock_api({
 
   test_that("dhis2_check_attributes works as expected when the dataset and
             data element group IDs are specified", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
                                                    username = "admin",
                                                    password = "district",
@@ -217,6 +231,8 @@ httptest::with_mock_api({
 
   test_that("dhis2_check_attributes works as expected when the organisation unit
             and data element group IDs are specified", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
                                                    username = "admin",
                                                    password = "district",

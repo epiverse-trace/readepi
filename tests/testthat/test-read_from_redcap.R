@@ -1,4 +1,6 @@
 httptest::with_mock_api({
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
       uri = "https://bbmc.ouhsc.edu/redcap/api/",

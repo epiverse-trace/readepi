@@ -1,4 +1,6 @@
 test_that("connect_to_server works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   con <- connect_to_server(
     dbms          = "MySQL",
     driver_name   = "",
@@ -69,6 +71,8 @@ test_that("identify_table_name fails with incorrect tables", {
 })
 
 test_that("fetch_data_from_query works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   result <- fetch_data_from_query(
     source        = "select author_id, name, last_name from author",
     dbms          = "MySQL",
@@ -87,6 +91,8 @@ test_that("fetch_data_from_query works as expected", {
 })
 
 test_that("fetch_data_from_query fails with incorrect tables", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     fetch_data_from_query(
       source        = "select author_id, name, last_name from author",
@@ -120,6 +126,8 @@ test_that("fetch_data_from_query fails with incorrect tables", {
 })
 
 test_that("sql_select_data works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   result <- sql_select_data(
     table_names   = "author",
     dbms          = "MySQL",
@@ -201,6 +209,8 @@ test_that("sql_select_data works as expected", {
 })
 
 test_that("sql_select_data fails with incorrect table_names", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     sql_select_data(
       table_names   = NA,
@@ -253,7 +263,7 @@ test_that("get_id_column_name works as expected", {
   expect_identical(result[["id_pos"]], "1")
 })
 
-test_that("sql_select_data fails with incorrect j", {
+test_that("get_id_column_name fails with incorrect j", {
   expect_error(
     get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
@@ -284,6 +294,8 @@ test_that("sql_select_data fails with incorrect j", {
 })
 
 test_that("sql_select_entire_dataset works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   result <- sql_select_entire_dataset(
     table         = "author",
     dbms          = "MySQL",
@@ -298,6 +310,8 @@ test_that("sql_select_entire_dataset works as expected", {
 })
 
 test_that("sql_select_entire_dataset fails with incorrect table", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     sql_select_entire_dataset(
       table         = NA,
@@ -329,6 +343,8 @@ test_that("sql_select_entire_dataset fails with incorrect table", {
 })
 
 test_that("sql_select_records_and_fields works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   result <- sql_select_records_and_fields(
     table          = "author",
     record         = c("1", "20", "50"),
@@ -347,6 +363,8 @@ test_that("sql_select_records_and_fields works as expected", {
 })
 
 test_that("sql_select_records_and_fields fails as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     sql_select_records_and_fields(
       table          = "author",
@@ -443,6 +461,8 @@ test_that("sql_select_records_and_fields fails as expected", {
 })
 
 test_that("visualise_table works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   result <- visualise_table(
     data_source      = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
@@ -453,6 +473,8 @@ test_that("visualise_table works as expected", {
 })
 
 test_that("sql_select_records_only works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   result <- sql_select_records_only(
     table          = "author",
     record         = c("1", "20", "50"),
@@ -470,6 +492,8 @@ test_that("sql_select_records_only works as expected", {
 })
 
 test_that("sql_select_fields_only works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   result <- sql_select_fields_only(
     table         = "author",
     field         = c("author_id", "name", "last_name"),

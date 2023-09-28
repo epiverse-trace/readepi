@@ -1,4 +1,6 @@
 test_that("readepi works as expected when reading from DBMS", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- readepi(
     data_source      = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
@@ -13,6 +15,8 @@ test_that("readepi works as expected when reading from DBMS", {
 })
 
 test_that("readepi works as expected when reading from Fingertips", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- readepi(
     indicator_id = 90362L,
     area_type_id = 202L,
@@ -103,6 +107,8 @@ test_that("readepi works as expected when reading from Fingertips", {
 })
 
 test_that("readepi works as expected when reading from DBMS", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- readepi(
     data_source      = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
@@ -116,6 +122,8 @@ test_that("readepi works as expected when reading from DBMS", {
 })
 
 test_that("readepi fails as expected when reading from DHIS2", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     readepi(
       data_source        = "https://play.dhis2.org/dev",
@@ -248,6 +256,8 @@ test_that("readepi fails as expected when reading from DHIS2", {
 })
 
 test_that("readepi works as expected when reading from REDCap", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- readepi(
     data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
@@ -314,6 +324,8 @@ test_that("readepi works as expected when reading from REDCap", {
 })
 
 test_that("readepi fails as expected when reading from REDCap", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     readepi(
       credentials_file = c(system.file("extdata", "test.ini",
@@ -393,6 +405,8 @@ test_that("readepi fails as expected when reading from REDCap", {
 })
 
 test_that("readepi fails as expected when reading from DBMS", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     readepi(
       credentials_file = system.file("extdata", "test.ini",
@@ -426,6 +440,8 @@ test_that("readepi fails as expected when reading from DBMS", {
 
 
 test_that("readepi fails as expected when reading from Fingertips", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     readepi(
       indicator_id   = NA,

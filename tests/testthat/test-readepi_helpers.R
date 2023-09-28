@@ -1,4 +1,6 @@
 test_that("read_credentials works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   res <- read_credentials(
     file_path  = system.file("extdata", "test.ini", package = "readepi"),
     url        = "mysql-rfam-public.ebi.ac.uk"
@@ -21,6 +23,8 @@ test_that("read_credentials works as expected", {
 })
 
 test_that("read_credentials fails as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_credentials(
       file_path  = system.file("extdata", "fake_test.ini", package = "readepi"),
@@ -59,6 +63,8 @@ test_that("read_credentials fails as expected", {
 })
 
 test_that("get_read_fingertips_args works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   res <- get_read_fingertips_args(
     list(
       indicator_id = 90362L,
@@ -83,6 +89,8 @@ test_that("get_read_fingertips_args works as expected", {
 })
 
 test_that("get_read_fingertips_args works as expected with all arguments", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   res <- get_read_fingertips_args(
     list(
       indicator_id   = 90362L,
@@ -112,6 +120,8 @@ test_that("get_read_fingertips_args works as expected with all arguments", {
 })
 
 test_that("get_read_fingertips_args works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   res <- get_read_fingertips_args(
     list(
       indicator_id   = 90362L,
@@ -137,6 +147,8 @@ test_that("get_read_fingertips_args works as expected", {
 })
 
 test_that("get_read_fingertips_args works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   res <- get_read_fingertips_args(
     list(
       indicator_id   = 90362L,
@@ -163,6 +175,8 @@ test_that("get_read_fingertips_args works as expected", {
 })
 
 test_that("get_read_fingertips_args fails as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   res <- get_read_fingertips_args(
     list(
       indicator_id   = 90362L,

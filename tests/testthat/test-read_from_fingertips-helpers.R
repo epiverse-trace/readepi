@@ -76,6 +76,8 @@ test_that("fingertips_subset_columns fails as expected", {
 })
 
 httptest::with_mock_api({
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   test_that("get_fingertips_metadata works as expected", {
     metadata <- get_fingertips_metadata()
     expect_type(metadata, "list")
@@ -91,11 +93,13 @@ httptest::with_mock_api({
   })
 
   test_that("get_ind_id_from_ind_name works as expected", {
+    testthat::skip_on_cran()
+    testthat::skip_if_offline()
     indicator_id <- get_ind_id_from_ind_name(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
-        indicator_ids_names = fingertipsR::indicators_unique(),
-        area_type = fingertipsR::area_types()
+        indicator_ids_names      = fingertipsR::indicators_unique(),
+        area_type                = fingertipsR::area_types()
       ),
       indicator_name = "Pupil absence"
     )
@@ -106,6 +110,8 @@ httptest::with_mock_api({
   })
 
   test_that("get_ind_id_from_ind_name fails as expected", {
+    testthat::skip_on_cran()
+    testthat::skip_if_offline()
     expect_error(
       get_ind_id_from_ind_name(
         metadata = list(
@@ -144,6 +150,8 @@ httptest::with_mock_api({
   })
 
   test_that("get_ind_id_from_domain_id works as expected", {
+    testthat::skip_on_cran()
+    testthat::skip_if_offline()
     indicator_id <- get_ind_id_from_domain_id(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
@@ -172,6 +180,8 @@ httptest::with_mock_api({
   })
 
   test_that("get_ind_id_from_domain_id works as expected", {
+    testthat::skip_on_cran()
+    testthat::skip_if_offline()
     expect_error(
       get_ind_id_from_domain_id(
         metadata = list(
@@ -213,6 +223,8 @@ httptest::with_mock_api({
   })
 
   test_that("get_ind_id_from_domain_name works as expected", {
+    testthat::skip_on_cran()
+    testthat::skip_if_offline()
     indicator_id <- get_ind_id_from_domain_name(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
@@ -241,6 +253,8 @@ httptest::with_mock_api({
   })
 
   test_that("get_ind_id_from_domain_name fails as expected", {
+    testthat::skip_on_cran()
+    testthat::skip_if_offline()
     expect_error(
       get_ind_id_from_domain_name(
         metadata = list(
@@ -270,6 +284,8 @@ httptest::with_mock_api({
 
   test_that("get_ind_id_from_profile works as expected when all arguments are
             provided", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               indicator_id <- get_ind_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
@@ -291,6 +307,8 @@ httptest::with_mock_api({
 
   test_that("get_ind_id_from_profile works as expected when only the profile
             name is provided", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               indicator_id <- get_ind_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
@@ -312,6 +330,8 @@ httptest::with_mock_api({
 
   test_that("get_ind_id_from_profile works as expected when only the profile
             and indicator names is provided", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               indicator_id <- get_ind_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
@@ -353,6 +373,8 @@ httptest::with_mock_api({
 
   test_that("get_ind_id_from_profile works as expected when only the profile
             name is provided", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               indicator_id <- get_ind_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
@@ -374,6 +396,8 @@ httptest::with_mock_api({
 
   test_that("get_ind_id_from_profile works as expected when the profile ID and
             domain name is provided", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               indicator_id <- get_ind_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
@@ -395,6 +419,8 @@ httptest::with_mock_api({
 
   test_that("get_ind_id_from_profile works as expected when the profile ID and
             domain name is provided", {
+              testthat::skip_on_cran()
+              testthat::skip_if_offline()
               indicator_id <- get_ind_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
@@ -415,6 +441,8 @@ httptest::with_mock_api({
             })
 
   test_that("get_ind_id_from_profile fails as expected", {
+    testthat::skip_on_cran()
+    testthat::skip_if_offline()
     expect_error(
       get_ind_id_from_profile(
         metadata = list(
@@ -433,6 +461,8 @@ httptest::with_mock_api({
   })
 
   test_that("get_profile_name works as expected", {
+    testthat::skip_on_cran()
+    testthat::skip_if_offline()
     res <- get_profile_name(
       profile_id = 19L,
       profile_name = "Public Health Outcomes Framework",

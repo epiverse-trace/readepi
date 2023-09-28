@@ -1,4 +1,6 @@
 httptest::with_mock_api({
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   test_that("login works as expected", {
     expect_message(
       login(
@@ -12,6 +14,8 @@ httptest::with_mock_api({
 })
 
 test_that("login fails as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     login(
       username = "admin",
@@ -23,6 +27,8 @@ test_that("login fails as expected", {
 })
 
 test_that("dhis2_subset_fields works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini",
                                    package = "readepi"),
@@ -41,6 +47,8 @@ test_that("dhis2_subset_fields works as expected", {
 })
 
 test_that("dhis2_subset_fields fails as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- readepi(credentials_file  = system.file("extdata", "test.ini",
                                                   package = "readepi"),
     data_source        = "https://play.dhis2.org/dev",
@@ -57,6 +65,8 @@ test_that("dhis2_subset_fields fails as expected", {
 })
 
 test_that("dhis2_subset_records works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini",
                                    package = "readepi"),
@@ -76,6 +86,8 @@ test_that("dhis2_subset_records works as expected", {
 })
 
 test_that("dhis2_subset_records fails as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini",
                                    package = "readepi"),
@@ -100,6 +112,8 @@ test_that("dhis2_subset_records fails as expected", {
 
 test_that("dhis2_subset_fields sends a warning when the provided field is not
           found", {
+            testthat::skip_on_cran()
+            testthat::skip_if_offline()
             data <- readepi(
               credentials_file = system.file("extdata", "test.ini",
                                              package = "readepi"),
@@ -123,6 +137,8 @@ test_that("dhis2_subset_fields sends a warning when the provided field is not
 
 test_that("dhis2_subset_records sends a warning when the provided record is not
           found", {
+            testthat::skip_on_cran()
+            testthat::skip_if_offline()
             data <- readepi(
                             credentials_file = system.file("extdata", "test.ini", # nolint: line_length_linter
                                                            package = "readepi"),

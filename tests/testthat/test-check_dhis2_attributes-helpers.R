@@ -1,4 +1,6 @@
 httptest::with_mock_api({
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   test_that("the API request is working fine", {
     response <- make_api_request(
       base_url = file.path("https:/", "play.dhis2.org", "dev"),
@@ -79,6 +81,8 @@ httptest::with_mock_api({
 })
 
 test_that("the API request fails as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     make_api_request(
       base_url = file.path("test", "play.dhis2.org", "dev"),
@@ -91,6 +95,8 @@ test_that("the API request fails as expected", {
 })
 
 test_that("the API request fails with an incorrect attribute", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     make_api_request(
       base_url = file.path("test", "play.dhis2.org", "dev"),
@@ -104,6 +110,8 @@ test_that("the API request fails with an incorrect attribute", {
 })
 
 test_that("dhis2_get_relevant_attributes fails as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     dhis2_get_relevant_attributes(
       attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",

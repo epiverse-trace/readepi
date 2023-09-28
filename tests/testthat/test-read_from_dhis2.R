@@ -1,4 +1,6 @@
 test_that("read_from_dhis2 works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   data <- read_from_dhis2(
     base_url           = file.path("https:/", "play.dhis2.org", "dev"),
     user_name          = "admin",
@@ -20,6 +22,8 @@ test_that("read_from_dhis2 works as expected", {
 
 test_that("read_from_dhis2 works as expected when subsetting on columns and
           records is allowed", {
+            testthat::skip_on_cran()
+            testthat::skip_if_offline()
             data <- read_from_dhis2(
               base_url = file.path("https:/", "play.dhis2.org", "dev"),
               user_name = "admin",
@@ -40,6 +44,8 @@ test_that("read_from_dhis2 works as expected when subsetting on columns and
           })
 
 test_that("read_from_dhis2 fails with a wrong URL", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_dhis2(
       base_url = NULL,
@@ -98,6 +104,8 @@ test_that("read_from_dhis2 fails with a wrong URL", {
 })
 
 test_that("read_from_dhis2 fails with a wrong user_name", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
   expect_error(
     read_from_dhis2(
       base_url = file.path("https:/", "play.dhis2.org", "dev"),
