@@ -41,11 +41,9 @@ knitr::opts_chunk$set(
 
 ## Installation
 
-You can install the development version of **{readepi}** from [GitHub](https://github.com/) with:
+You can install the development version of **{readepi}** from [GitHub](https://github.com/epiverse-trace/readepi) with:
 
-```{r eval=FALSE}
-# install.packages("devtools")
-# devtools::install_github("epiverse-trace/readepi", build_vignettes = TRUE)
+```{r}
 if (!require("pak")) install.packages("pak")
 pak::pak("epiverse-trace/readepi")
 library(readepi)
