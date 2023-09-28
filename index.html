@@ -105,79 +105,7 @@
 <p>You can install the development version of <strong>{readepi}</strong> from <a href="https://github.com/epiverse-trace/readepi" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">require</a></span><span class="op">(</span><span class="st"><a href="https://pak.r-lib.org/" class="external-link">"pak"</a></span><span class="op">)</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"pak"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Loading required package: pak</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"epiverse-trace/readepi"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ℹ Loading metadata database</span></span>
-<span><span class="co">#&gt; ✔ Loading metadata database ... done</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; → Will install 10 packages.</span></span>
-<span><span class="co">#&gt; → Will update 1 package.</span></span>
-<span><span class="co">#&gt; → All 11 packages (0 B) are cached.</span></span>
-<span><span class="co">#&gt; + cellranger          1.1.0  </span></span>
-<span><span class="co">#&gt; + forcats             1.0.0  </span></span>
-<span><span class="co">#&gt; + haven               2.5.3   + ✔ make, ✔ zlib1g-dev</span></span>
-<span><span class="co">#&gt; + R.methodsS3         1.8.2  </span></span>
-<span><span class="co">#&gt; + R.oo                1.25.0 </span></span>
-<span><span class="co">#&gt; + R.utils             2.12.2 </span></span>
-<span><span class="co">#&gt; + readepi     1.0.0 → 0.0.1  [bld][cmp] (GitHub: 6b4212c)</span></span>
-<span><span class="co">#&gt; + readxl              1.4.3  </span></span>
-<span><span class="co">#&gt; + rematch             2.0.0  </span></span>
-<span><span class="co">#&gt; + rio                 1.0.1  </span></span>
-<span><span class="co">#&gt; + writexl             1.4.2</span></span>
-<span><span class="co">#&gt; ✔ All system requirements are already installed.</span></span>
-<span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; ℹ No downloads are needed, 11 pkgs are cached</span></span>
-<span><span class="co">#&gt; ✔ Got R.methodsS3 1.8.2 (x86_64-pc-linux-gnu-ubuntu-22.04) (80.50 kB)</span></span>
-<span><span class="co">#&gt; ✔ Got cellranger 1.1.0 (x86_64-pc-linux-gnu-ubuntu-22.04) (100.74 kB)</span></span>
-<span><span class="co">#&gt; ✔ Got writexl 1.4.2 (x86_64-pc-linux-gnu-ubuntu-22.04) (158.84 kB)</span></span>
-<span><span class="co">#&gt; ✔ Got forcats 1.0.0 (x86_64-pc-linux-gnu-ubuntu-22.04) (421.62 kB)</span></span>
-<span><span class="co">#&gt; ✔ Got haven 2.5.3 (x86_64-pc-linux-gnu-ubuntu-22.04) (376.38 kB)</span></span>
-<span><span class="co">#&gt; ✔ Got rematch 2.0.0 (x86_64-pc-linux-gnu-ubuntu-22.04) (15.95 kB)</span></span>
-<span><span class="co">#&gt; ✔ Got readxl 1.4.3 (x86_64-pc-linux-gnu-ubuntu-22.04) (862.02 kB)</span></span>
-<span><span class="co">#&gt; ✔ Got R.oo 1.25.0 (x86_64-pc-linux-gnu-ubuntu-22.04) (963.51 kB)</span></span>
-<span><span class="co">#&gt; ✔ Got rio 1.0.1 (x86_64-pc-linux-gnu-ubuntu-22.04) (596.72 kB)</span></span>
-<span><span class="co">#&gt; ✔ Got R.utils 2.12.2 (x86_64-pc-linux-gnu-ubuntu-22.04) (1.40 MB)</span></span>
-<span><span class="co">#&gt; ✔ Got readepi 0.0.1 (source) (582.01 kB)</span></span>
-<span><span class="co">#&gt; ℹ Installing system requirements</span></span>
-<span><span class="co">#&gt; ℹ Executing `sudo sh -c apt-get -y update`</span></span>
-<span><span class="co">#&gt; Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [142 B]</span></span>
-<span><span class="co">#&gt; Hit:2 http://azure.archive.ubuntu.com/ubuntu jammy InRelease</span></span>
-<span><span class="co">#&gt; Hit:3 http://azure.archive.ubuntu.com/ubuntu jammy-updates InRelease</span></span>
-<span><span class="co">#&gt; Hit:4 http://azure.archive.ubuntu.com/ubuntu jammy-backports InRelease</span></span>
-<span><span class="co">#&gt; Hit:5 http://azure.archive.ubuntu.com/ubuntu jammy-security InRelease</span></span>
-<span><span class="co">#&gt; Hit:6 https://packages.microsoft.com/ubuntu/22.04/prod jammy InRelease</span></span>
-<span><span class="co">#&gt; Hit:7 https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu jammy InRelease</span></span>
-<span><span class="co">#&gt; Reading package lists...</span></span>
-<span><span class="co">#&gt; ℹ Executing `sudo sh -c apt-get -y install make zlib1g-dev libcurl4-openssl-dev libssl-dev unixodbc-dev libmysqlclient-dev libicu-dev pandoc`</span></span>
-<span><span class="co">#&gt; Reading package lists...</span></span>
-<span><span class="co">#&gt; Building dependency tree...</span></span>
-<span><span class="co">#&gt; Reading state information...</span></span>
-<span><span class="co">#&gt; libicu-dev is already the newest version (70.1-2).</span></span>
-<span><span class="co">#&gt; make is already the newest version (4.3-4.1build1).</span></span>
-<span><span class="co">#&gt; unixodbc-dev is already the newest version (2.3.9-5).</span></span>
-<span><span class="co">#&gt; libcurl4-openssl-dev is already the newest version (7.81.0-1ubuntu1.13).</span></span>
-<span><span class="co">#&gt; libmysqlclient-dev is already the newest version (8.0.34-0ubuntu0.22.04.1).</span></span>
-<span><span class="co">#&gt; libssl-dev is already the newest version (3.0.2-0ubuntu1.10).</span></span>
-<span><span class="co">#&gt; zlib1g-dev is already the newest version (1:1.2.11.dfsg-2ubuntu9.2).</span></span>
-<span><span class="co">#&gt; pandoc is already the newest version (2.19.2-1).</span></span>
-<span><span class="co">#&gt; 0 upgraded, 0 newly installed, 0 to remove and 28 not upgraded.</span></span>
-<span><span class="co">#&gt; ✔ Installed R.methodsS3 1.8.2  (24ms)</span></span>
-<span><span class="co">#&gt; ✔ Installed R.oo 1.25.0  (59ms)</span></span>
-<span><span class="co">#&gt; ✔ Installed R.utils 2.12.2  (34ms)</span></span>
-<span><span class="co">#&gt; ✔ Installed cellranger 1.1.0  (22ms)</span></span>
-<span><span class="co">#&gt; ✔ Installed forcats 1.0.0  (26ms)</span></span>
-<span><span class="co">#&gt; ✔ Installed haven 2.5.3  (29ms)</span></span>
-<span><span class="co">#&gt; ✔ Installed readxl 1.4.3  (67ms)</span></span>
-<span><span class="co">#&gt; ✔ Installed rematch 2.0.0  (21ms)</span></span>
-<span><span class="co">#&gt; ✔ Installed rio 1.0.1  (36ms)</span></span>
-<span><span class="co">#&gt; ✔ Installed writexl 1.4.2  (23ms)</span></span>
-<span><span class="co">#&gt; ℹ Packaging readepi 0.0.1</span></span>
-<span><span class="co">#&gt; ✔ Packaged readepi 0.0.1 (453ms)</span></span>
-<span><span class="co">#&gt; ℹ Building readepi 0.0.1</span></span>
-<span><span class="co">#&gt; ✔ Built readepi 0.0.1 (1.7s)</span></span>
-<span><span class="co">#&gt; ✔ Installed readepi 0.0.1 (github::epiverse-trace/readepi@6b4212c) (24ms)</span></span>
-<span><span class="co">#&gt; ✔ 1 pkg + 90 deps: kept 77, upd 1, added 10, dld 11 (NA B) [13.7s]</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://epiverse-trace.github.io/readepi">readepi</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
@@ -273,12 +201,12 @@
 <div class="section level3">
 <h3 id="contributions">Contributions<a class="anchor" aria-label="anchor" href="#contributions"></a>
 </h3>
-<p>Contributions are welcome via <a href="https://github.com/epiverse-trace/readepi/pulls" class="external-link">pull requests</a>.</p>
+<p>Contributions are welcome via <a href="https://github.com/%7B%7B%20gh_repo%20%7D%7D/pulls" class="external-link">pull requests</a>.</p>
 </div>
 <div class="section level3">
 <h3 id="code-of-conduct">Code of Conduct<a class="anchor" aria-label="anchor" href="#code-of-conduct"></a>
 </h3>
-<p>Please note that the readepi project is released with a <a href="https://github.com/epiverse-trace/.github/blob/main/CODE_OF_CONDUCT.md" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
+<p>Please note that the {{ packagename }} project is released with a <a href="https://github.com/epiverse-trace/.github/blob/main/CODE_OF_CONDUCT.md" class="external-link">Contributor Code of Conduct</a>. By contributing to this project, you agree to abide by its terms.</p>
 </div>
 </div>
 </div>
