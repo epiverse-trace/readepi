@@ -56,201 +56,73 @@ pak::pak("epiverse-trace/readepi")
 #> ✔ Loading metadata database ... done
 #> 
 #> 
-#> → Will install 89 packages.
+#> → Will install 10 packages.
 #> → Will update 1 package.
-#> → All 90 packages (90.99 MB) are cached.
-#> + askpass                 1.2.0       
-#> + backports               1.4.1       
-#> + base64enc               0.1-3       
-#> + bit                     4.0.5       
-#> + bit64                   4.0.5       
-#> + blob                    1.2.4       
-#> + bslib                   0.5.1       
-#> + cachem                  1.0.8       
-#> + cellranger              1.1.0       
-#> + checkmate               2.2.0       
-#> + cli                     3.6.1       
-#> + clipr                   0.8.0       
-#> + commonmark              1.9.0       
-#> + crayon                  1.5.2       
-#> + crosstalk               1.2.0       
-#> + curl                    5.0.2       
-#> + data.table              1.14.8      
-#> + DBI                     1.1.3       
-#> + digest                  0.6.33      
-#> + dplyr                   1.1.3       
-#> + DT                      0.29        
-#> + ellipsis                0.3.2       
-#> + evaluate                0.21        
-#> + fansi                   1.0.4       
-#> + fastmap                 1.1.1       
-#> + fingertipsR             1.0.10.9002 👷🏼‍♂️🔧 (GitHub: caa9b7b)
-#> + fontawesome             0.5.2       
-#> + forcats                 1.0.0       
-#> + fs                      1.6.3       
-#> + generics                0.1.3       
-#> + glue                    1.6.2       
-#> + haven                   2.5.3       
-#> + highr                   0.10        
-#> + hms                     1.1.3       
-#> + htmltools               0.5.6       
-#> + htmlwidgets             1.6.2       
-#> + httpuv                  1.6.11      
-#> + httr                    1.4.7       
-#> + jquerylib               0.1.4       
-#> + jsonlite                1.8.7       
-#> + knitr                   1.44        
-#> + later                   1.3.1       
-#> + lazyeval                0.2.2       
-#> + lifecycle               1.0.3       
-#> + magrittr                2.0.3       
-#> + memoise                 2.0.1       
-#> + mime                    0.12        
-#> + miniUI                  0.1.1.1     
-#> + odbc                    1.3.5       
-#> + openssl                 2.1.1       
-#> + pillar                  1.9.0       
-#> + pkgconfig               2.0.3       
-#> + pool                    1.0.1       
-#> + promises                1.2.1       
-#> + purrr                   1.0.2       
-#> + R.methodsS3             1.8.2       
-#> + R.oo                    1.25.0      
-#> + R.utils                 2.12.2      
-#> + R6                      2.5.1       
-#> + rappdirs                0.3.3       
-#> + Rcpp                    1.0.11      
-#> + readepi         1.0.0 → 0.0.1       👷‍♂️🔧 (GitHub: 6b4212c)
-#> + readr                   2.1.4       
-#> + readxl                  1.4.3       
-#> + REDCapR                 1.1.0       
-#> + rematch                 2.0.0       
-#> + rio                     1.0.1       
-#> + rlang                   1.1.1       
-#> + rmarkdown               2.25        
-#> + RMySQL                  0.10.26     
-#> + sass                    0.4.7       
-#> + shiny                   1.7.5       
-#> + shinycssloaders         1.0.0       
-#> + sourcetools             0.1.7-1     
-#> + stringi                 1.7.12      
-#> + stringr                 1.5.0       
-#> + sys                     3.4.2       
-#> + tibble                  3.2.1       
-#> + tidyr                   1.3.0       
-#> + tidyselect              1.2.0       
-#> + tinytex                 0.46        
-#> + tzdb                    0.4.0       
-#> + utf8                    1.2.3       
-#> + vctrs                   0.6.3       
-#> + vroom                   1.6.3       
-#> + withr                   2.5.1       
-#> + writexl                 1.4.2       
-#> + xfun                    0.40        
-#> + xtable                  1.8-4       
-#> + yaml                    2.3.7
-#> ℹ No downloads are needed, 90 pkgs (90.99 MB) are cached
-#> ✔ Got pool 1.0.1 (aarch64-apple-darwin20) (187.78 kB)
-#> ✔ Got readxl 1.4.3 (aarch64-apple-darwin20) (1.54 MB)
-#> ✔ Got fastmap 1.1.1 (aarch64-apple-darwin20) (190.58 kB)
-#> ✔ Got memoise 2.0.1 (aarch64-apple-darwin20) (47.93 kB)
-#> ✔ Got rio 1.0.1 (aarch64-apple-darwin20) (591.50 kB)
-#> ✔ Got curl 5.0.2 (aarch64-apple-darwin20) (809.84 kB)
-#> ✔ Got fontawesome 0.5.2 (aarch64-apple-darwin20) (1.36 MB)
-#> ✔ Got sourcetools 0.1.7-1 (aarch64-apple-darwin20) (136.07 kB)
-#> ✔ Got htmltools 0.5.6 (aarch64-apple-darwin20) (356.41 kB)
-#> ✔ Got promises 1.2.1 (aarch64-apple-darwin20) (1.82 MB)
-#> ✔ Installed readepi 0.0.1 (github::epiverse-trace/readepi@6b4212c) (77ms)
-#> ✔ Installed DBI 1.1.3  (94ms)
-#> ✔ Installed R.methodsS3 1.8.2  (134ms)
-#> ✔ Installed R.oo 1.25.0  (143ms)
-#> ✔ Installed R.utils 2.12.2  (152ms)
-#> ✔ Installed R6 2.5.1  (160ms)
-#> ✔ Installed REDCapR 1.1.0  (176ms)
-#> ✔ Installed RMySQL 0.10.26  (187ms)
-#> ✔ Installed Rcpp 1.0.11  (197ms)
-#> ✔ Installed askpass 1.2.0  (206ms)
-#> ✔ Installed backports 1.4.1  (72ms)
-#> ✔ Installed bit64 4.0.5  (57ms)
-#> ✔ Installed bit 4.0.5  (34ms)
-#> ✔ Installed blob 1.2.4  (30ms)
-#> ✔ Installed cellranger 1.1.0  (36ms)
-#> ✔ Installed checkmate 2.2.0  (39ms)
-#> ✔ Installed cli 3.6.1  (35ms)
-#> ✔ Installed clipr 0.8.0  (31ms)
-#> ✔ Installed crayon 1.5.2  (29ms)
-#> ✔ Installed curl 5.0.2  (32ms)
-#> ✔ Installed data.table 1.14.8  (62ms)
-#> ✔ Installed dplyr 1.1.3  (36ms)
-#> ✔ Installed fansi 1.0.4  (32ms)
-#> ✔ Installed forcats 1.0.0  (30ms)
-#> ✔ Installed generics 0.1.3  (30ms)
-#> ✔ Installed glue 1.6.2  (31ms)
-#> ✔ Installed haven 2.5.3  (32ms)
-#> ✔ Installed hms 1.1.3  (31ms)
-#> ✔ Installed httr 1.4.7  (50ms)
-#> ✔ Installed jsonlite 1.8.7  (57ms)
-#> ✔ Installed later 1.3.1  (36ms)
-#> ✔ Installed lifecycle 1.0.3  (33ms)
-#> ✔ Installed magrittr 2.0.3  (32ms)
-#> ✔ Installed mime 0.12  (30ms)
-#> ✔ Installed odbc 1.3.5  (39ms)
-#> ✔ Installed openssl 2.1.1  (40ms)
-#> ✔ Installed pillar 1.9.0  (35ms)
-#> ✔ Installed pkgconfig 2.0.3  (56ms)
-#> ✔ Installed pool 1.0.1  (55ms)
-#> ✔ Installed purrr 1.0.2  (31ms)
-#> ✔ Installed readr 2.1.4  (33ms)
-#> ✔ Installed readxl 1.4.3  (35ms)
-#> ✔ Installed rematch 2.0.0  (32ms)
-#> ✔ Installed rio 1.0.1  (31ms)
-#> ✔ Installed rlang 1.1.1  (34ms)
-#> ✔ Installed stringr 1.5.0  (18ms)
-#> ✔ Installed sys 3.4.2  (20ms)
-#> ✔ Installed stringi 1.7.12  (125ms)
-#> ✔ Installed tibble 3.2.1  (44ms)
-#> ✔ Installed tidyr 1.3.0  (34ms)
-#> ✔ Installed tidyselect 1.2.0  (31ms)
-#> ✔ Installed tzdb 0.4.0  (31ms)
-#> ✔ Installed utf8 1.2.3  (31ms)
-#> ✔ Installed vctrs 0.6.3  (32ms)
-#> ✔ Installed withr 2.5.1  (15ms)
-#> ✔ Installed vroom 1.6.3  (86ms)
-#> ✔ Installed writexl 1.4.2  (32ms)
-#> ✔ Installed fingertipsR 1.0.10.9002 (github::rOpenSci/fingertipsR@caa9b7b) (30ms)
-#> ✔ Installed base64enc 0.1-3  (13ms)
-#> ✔ Installed DT 0.29  (82ms)
-#> ✔ Installed cachem 1.0.8  (15ms)
-#> ✔ Installed commonmark 1.9.0  (18ms)
-#> ✔ Installed crosstalk 1.2.0  (22ms)
-#> ✔ Installed bslib 0.5.1  (172ms)
-#> ✔ Installed digest 0.6.33  (58ms)
-#> ✔ Installed ellipsis 0.3.2  (30ms)
-#> ✔ Installed evaluate 0.21  (30ms)
-#> ✔ Installed fastmap 1.1.1  (32ms)
-#> ✔ Installed fontawesome 0.5.2  (31ms)
-#> ✔ Installed fs 1.6.3  (33ms)
-#> ✔ Installed highr 0.10  (32ms)
-#> ✔ Installed htmltools 0.5.6  (31ms)
-#> ✔ Installed htmlwidgets 1.6.2  (60ms)
-#> ✔ Installed httpuv 1.6.11  (62ms)
-#> ✔ Installed jquerylib 0.1.4  (34ms)
-#> ✔ Installed lazyeval 0.2.2  (16ms)
-#> ✔ Installed knitr 1.44  (66ms)
-#> ✔ Installed memoise 2.0.1  (38ms)
-#> ✔ Installed miniUI 0.1.1.1  (28ms)
-#> ✔ Installed promises 1.2.1  (30ms)
-#> ✔ Installed rappdirs 0.3.3  (31ms)
-#> ✔ Installed rmarkdown 2.25  (91ms)
-#> ✔ Installed sass 0.4.7  (66ms)
-#> ✔ Installed shinycssloaders 1.0.0  (17ms)
-#> ✔ Installed sourcetools 0.1.7-1  (21ms)
-#> ✔ Installed shiny 1.7.5  (98ms)
-#> ✔ Installed tinytex 0.46  (34ms)
-#> ✔ Installed xfun 0.40  (30ms)
-#> ✔ Installed xtable 1.8-4  (31ms)
-#> ✔ Installed yaml 2.3.7  (24ms)
-#> ✔ 1 pkg + 90 deps: upd 1, added 89, dld 10 (7.04 MB) [10.8s]
+#> → All 11 packages (0 B) are cached.
+#> + cellranger          1.1.0  
+#> + forcats             1.0.0  
+#> + haven               2.5.3   + ✔ make, ✔ zlib1g-dev
+#> + R.methodsS3         1.8.2  
+#> + R.oo                1.25.0 
+#> + R.utils             2.12.2 
+#> + readepi     1.0.0 → 0.0.1  [bld][cmp] (GitHub: 6b4212c)
+#> + readxl              1.4.3  
+#> + rematch             2.0.0  
+#> + rio                 1.0.1  
+#> + writexl             1.4.2
+#> ✔ All system requirements are already installed.
+#> 
+#> ℹ No downloads are needed, 11 pkgs are cached
+#> ✔ Got R.methodsS3 1.8.2 (x86_64-pc-linux-gnu-ubuntu-22.04) (80.50 kB)
+#> ✔ Got cellranger 1.1.0 (x86_64-pc-linux-gnu-ubuntu-22.04) (100.74 kB)
+#> ✔ Got writexl 1.4.2 (x86_64-pc-linux-gnu-ubuntu-22.04) (158.84 kB)
+#> ✔ Got forcats 1.0.0 (x86_64-pc-linux-gnu-ubuntu-22.04) (421.62 kB)
+#> ✔ Got haven 2.5.3 (x86_64-pc-linux-gnu-ubuntu-22.04) (376.38 kB)
+#> ✔ Got rematch 2.0.0 (x86_64-pc-linux-gnu-ubuntu-22.04) (15.95 kB)
+#> ✔ Got readxl 1.4.3 (x86_64-pc-linux-gnu-ubuntu-22.04) (862.02 kB)
+#> ✔ Got R.oo 1.25.0 (x86_64-pc-linux-gnu-ubuntu-22.04) (963.51 kB)
+#> ✔ Got rio 1.0.1 (x86_64-pc-linux-gnu-ubuntu-22.04) (596.72 kB)
+#> ✔ Got R.utils 2.12.2 (x86_64-pc-linux-gnu-ubuntu-22.04) (1.40 MB)
+#> ✔ Got readepi 0.0.1 (source) (582.01 kB)
+#> ℹ Installing system requirements
+#> ℹ Executing `sudo sh -c apt-get -y update`
+#> Get:1 file:/etc/apt/apt-mirrors.txt Mirrorlist [142 B]
+#> Hit:2 http://azure.archive.ubuntu.com/ubuntu jammy InRelease
+#> Hit:3 http://azure.archive.ubuntu.com/ubuntu jammy-updates InRelease
+#> Hit:4 http://azure.archive.ubuntu.com/ubuntu jammy-backports InRelease
+#> Hit:5 http://azure.archive.ubuntu.com/ubuntu jammy-security InRelease
+#> Hit:6 https://packages.microsoft.com/ubuntu/22.04/prod jammy InRelease
+#> Hit:7 https://ppa.launchpadcontent.net/ubuntu-toolchain-r/test/ubuntu jammy InRelease
+#> Reading package lists...
+#> ℹ Executing `sudo sh -c apt-get -y install make zlib1g-dev libcurl4-openssl-dev libssl-dev unixodbc-dev libmysqlclient-dev libicu-dev pandoc`
+#> Reading package lists...
+#> Building dependency tree...
+#> Reading state information...
+#> libicu-dev is already the newest version (70.1-2).
+#> make is already the newest version (4.3-4.1build1).
+#> unixodbc-dev is already the newest version (2.3.9-5).
+#> libcurl4-openssl-dev is already the newest version (7.81.0-1ubuntu1.13).
+#> libmysqlclient-dev is already the newest version (8.0.34-0ubuntu0.22.04.1).
+#> libssl-dev is already the newest version (3.0.2-0ubuntu1.10).
+#> zlib1g-dev is already the newest version (1:1.2.11.dfsg-2ubuntu9.2).
+#> pandoc is already the newest version (2.19.2-1).
+#> 0 upgraded, 0 newly installed, 0 to remove and 28 not upgraded.
+#> ✔ Installed R.methodsS3 1.8.2  (24ms)
+#> ✔ Installed R.oo 1.25.0  (59ms)
+#> ✔ Installed R.utils 2.12.2  (34ms)
+#> ✔ Installed cellranger 1.1.0  (22ms)
+#> ✔ Installed forcats 1.0.0  (26ms)
+#> ✔ Installed haven 2.5.3  (29ms)
+#> ✔ Installed readxl 1.4.3  (67ms)
+#> ✔ Installed rematch 2.0.0  (21ms)
+#> ✔ Installed rio 1.0.1  (36ms)
+#> ✔ Installed writexl 1.4.2  (23ms)
+#> ℹ Packaging readepi 0.0.1
+#> ✔ Packaged readepi 0.0.1 (453ms)
+#> ℹ Building readepi 0.0.1
+#> ✔ Built readepi 0.0.1 (1.7s)
+#> ✔ Installed readepi 0.0.1 (github::epiverse-trace/readepi@6b4212c) (24ms)
+#> ✔ 1 pkg + 90 deps: kept 77, upd 1, added 10, dld 11 (NA B) [13.7s]
 library(readepi)
 ```
 
@@ -364,11 +236,11 @@ interface may still undergo minor changes.
 ### Contributions
 
 Contributions are welcome via [pull
-requests](https://github.com/%7B%7B%20gh_repo%20%7D%7D/pulls).
+requests](https://github.com/epiverse-trace/readepi/pulls).
 
 ### Code of Conduct
 
-Please note that the {{ packagename }} project is released with a
-[Contributor Code of
+Please note that the readepi project is released with a [Contributor
+Code of
 Conduct](https://github.com/epiverse-trace/.github/blob/main/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
