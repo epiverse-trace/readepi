@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="readepi">
-<title>readepi-vignette • readepi</title>
+<title>readepi: Reading data from health information systems • readepi</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -17,7 +17,7 @@
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
-<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="readepi-vignette">
+<!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="readepi: Reading data from health information systems">
 <meta property="og:description" content="readepi">
 <meta property="og:image" content="https://epiverse-trace.github.io/readepi/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
@@ -39,7 +39,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">readepi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.0.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -78,7 +78,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="../logo.png" class="logo" alt=""><h1>readepi-vignette</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>readepi: Reading data from health information systems</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/epiverse-trace/readepi/blob/HEAD/vignettes/readepi.Rmd" class="external-link"><code>vignettes/readepi.Rmd</code></a></small>
@@ -87,331 +87,299 @@
 
     
     
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/epiverse-trace/readepi" class="external-link">readepi</a></span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
-<h2 id="reading-data-from-file-or-directory">Reading data from file or directory<a class="anchor" aria-label="anchor" href="#reading-data-from-file-or-directory"></a>
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
-<p><code>readepi</code> provides functions for reading data from
-<code>common health information systems</code> as well as from various
-file types. When several files of different formats are stored in the
-same folder, the user can provide <code>readepi</code> with a specific
-pattern, allowing reading only the matching files.</p>
-<p>When reading data from file or directory, the function expects the
-following arguments:<br>
-* <em>file_path</em>: the path to the file of interest. When several
-files need to be imported from a directory, this should be the path to
-that directory,<br>
-* <em>sep</em>: the separator between the columns in the file. This is
-only required for space-separated files,<br>
-* <em>format</em>: a string used to specify the file format. This is
-useful when a file does not have an extension, or has a file extension
-that does not match its actual type,<br>
-* <em>which</em>: a string used to specify which objects should be
-extracted (e.g. the name of the excel sheet to import),<br>
-* <em>pattern</em>: when provided, only files that contain this pattern
-will be imported from the specified directory.<br>
-The function will return an object of class list with one or more data
+<p>Health-related data in general, and epidemiological data in
+particular, are stored in files, relation database management systems
+(RDBMS), or health information systems (HIS). Each category includes
+numerous options, such as various file formats, RDBMS types, and HIS
+APIs. Import data from such repositories involve the usage of different
+format-specific functions or API-specific packages, which is an
+exhausting task for end users.</p>
+<p>The main objective of <strong>{readepi}</strong> package is to
+simplify the process of reading health-related data from diverse
+sources, allowing the user to focus more on downstream analysis tasks.
+<strong>{readepi}</strong> also streamlines the way data is read into a
+single function —it imports data from a specified systems (can be SQL
+database, or HIS API) using the <code><a href="../reference/readepi.html">readepi()</a></code> function, which
+returns a <code>list</code> object containing one or more data
 frames.</p>
-<div class="section level3">
-<h3 id="importing-data-from-json-file">importing data from JSON file<a class="anchor" aria-label="anchor" href="#importing-data-from-json-file"></a>
-</h3>
-<p>Many database management systems (DBMS) can export data into
-<code>JSON</code> format that can be read into R using the
-<code><a href="../reference/readepi.html">readepi()</a></code> function.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.json"</span>, package <span class="op">=</span> <span class="st">"readepi"</span><span class="op">)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span>file_path <span class="op">=</span> <span class="va">file</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="importing-data-from-excel-file">importing data from excel file<a class="anchor" aria-label="anchor" href="#importing-data-from-excel-file"></a>
-</h3>
-<p><code><a href="../reference/readepi.html">readepi()</a></code> can import data from MS excel file with a
-single sheet. The user must specify the names of the excel sheets with
-the data of interest when the files contains several sheets.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># IMPORTING DATA FROM THE SECOND EXCEL SHEET</span></span>
-<span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.xlsx"</span>, package <span class="op">=</span> <span class="st">"readepi"</span><span class="op">)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span>file_path <span class="op">=</span> <span class="va">file</span>, which <span class="op">=</span> <span class="st">"Sheet2"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># IMPORTING DATA FROM THE FIRST AND SECOND EXCEL SHEETS</span></span>
-<span><span class="va">file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.xlsx"</span>, package <span class="op">=</span> <span class="st">"readepi"</span><span class="op">)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span>file_path <span class="op">=</span> <span class="va">file</span>, which <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Sheet2"</span>, <span class="st">"Sheet1"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="importing-data-from-several-files-in-a-directory">importing data from several files in a directory<a class="anchor" aria-label="anchor" href="#importing-data-from-several-files-in-a-directory"></a>
-</h3>
-<p><code><a href="../reference/readepi.html">readepi()</a></code> can be used to read data from multiple files
-that are all stored in the same directory. When there are different file
-format in that directory, the user is expected to specify the file type
-of interest with the <code>pattern</code> argument.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># READING ALL FILES IN THE GIVEN DIRECTOR</span></span>
-<span><span class="va">dir_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, package <span class="op">=</span> <span class="st">"readepi"</span><span class="op">)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span>file_path <span class="op">=</span> <span class="va">dir_path</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># READING ONLY '.txt' FILES</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span>file_path <span class="op">=</span> <span class="va">dir_path</span>, pattern <span class="op">=</span> <span class="st">".txt"</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># READING '.txt' and '.xlsx' FILES</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span>file_path <span class="op">=</span> <span class="va">dir_path</span>, pattern <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">".txt"</span>, <span class="st">".xlsx"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-</div>
+<p>The current implementation of <strong>{readepi}</strong> provides a
+function for reading data from three common HIS: (<a href="https://www.project-redcap.org/" class="external-link">REDCap</a>, <a href="https://dhis2.org/" class="external-link">DHIS2</a>, and <a href="https://fingertips.phe.org.uk/" class="external-link">Fingertips</a>), and RDBMS such as
+MS SQL, MySQL, and PostgreSQL. Other utility functions for processing
+and manipulating the imported data, such as row or column/row
+sub-setting, are also included in this package.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># LOAD readepi</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://epiverse-trace.github.io/readepi">"readepi"</a></span><span class="op">)</span> <span class="co"># nolint</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="importing-from-dbms-database-management-systems">importing from DBMS (database management systems)<a class="anchor" aria-label="anchor" href="#importing-from-dbms-database-management-systems"></a>
+<h2 id="reading-data-from-rdbms">Reading data from RDBMS<a class="anchor" aria-label="anchor" href="#reading-data-from-rdbms"></a>
 </h2>
-<p>Users should be granted with read access to be able to pull data from
-the DBMS.</p>
+<p>Health related research data are usually stored in either relational
+databases or non-SQL databases. For example, at <a href="https://www.lshtm.ac.uk/research/units/mrc-gambia" class="external-link">MRCG@LSHTM</a>,
+projects data are stored in relational databases. A SQL-based database
+is run under a specific sever. The current version of the
+<strong>{readepi}</strong> package supports reading data from MS SQL,
+MySQL, and PostgreSQL servers.</p>
+<p>To read data from a MS SQL database, the user is expected to have, at
+least, read access to the database. The user credential details should
+be stored in file. Also, users who are using an operating system other
+than Microsoft need to have the appropriate MS driver installed into
+their system. In the following section we show how to install these
+drivers and describe the structure of the credentials file.</p>
 <div class="section level3">
-<h3 id="reading-data-from-relational-database-management-systems-rdbms-hdss-emrs-redcap">Reading data from relational database management systems (RDBMS):
-HDSS, EMRS, REDCap<a class="anchor" aria-label="anchor" href="#reading-data-from-relational-database-management-systems-rdbms-hdss-emrs-redcap"></a>
+<h3 id="ms-sql-drivers-for-osx-based-systems">MS SQL drivers for OSX-based systems<a class="anchor" aria-label="anchor" href="#ms-sql-drivers-for-osx-based-systems"></a>
 </h3>
-<p>Research data are usually stored in either relational databases or
-NoSQL databases. At the <a href="mailto:MRCG@LSHTM" class="email">MRCG@LSHTM</a>, project data are stored in relational
-databases. The HDSS and EMRS host databases that run under MS SQL
-Server, while REDCap (that uses an EAV schema) run under a MySQL
-server.<br>
-To import data from MS SQL Servers (HDSS or EMRS) into R, some
-dependencies need to be installed first.</p>
-<div class="section level4">
-<h4 id="installation-of-dependencies">installation of dependencies<a class="anchor" aria-label="anchor" href="#installation-of-dependencies"></a>
-</h4>
-<p>If you are using a Unix-based system, you will need to install the MS
-ODBC driver that is compatible with the version of the target MS SQL
-server. For <strong>SQL server 2019, version 15.0</strong>, we installed
-<strong>ODBC Driver 17 for SQL Server</strong> on the mac OS which is
-compatible with the test server.</p>
-<div class="section level5">
-<h5 id="installation-of-ms-sql-driver-on-mac">installation of MS SQL driver on Mac<a class="anchor" aria-label="anchor" href="#installation-of-ms-sql-driver-on-mac"></a>
-</h5>
+<p>Reading data from Unix-based systems require to install an MS ODBC
+driver that is compatible with the version of the target MS SQL server.
+For example, <strong><em>ODBC Driver 17</em></strong> is compatible with
+<strong><em>SQL server 2019, version 15.0</em></strong>.</p>
 <p>Mac users can follow the instructions below to install the MS SQL
-ODBC driver.</p>
-<div class="section level6">
-<h6 id="installation-of-ms-sql-driver-17-or-18-on-mac">installation of MS SQL driver 17 or 18 on Mac<a class="anchor" aria-label="anchor" href="#installation-of-ms-sql-driver-17-or-18-on-mac"></a>
-</h6>
-<p>Open the terminal, and run the followings:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="va">driver</span><span class="op">=</span>17</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install unixodbc</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> update</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install msodbcsql<span class="va">${driver}</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install mssql-tools</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="va">ODBCSYSINI</span><span class="op">=</span>/</span></code></pre></div>
+ODBC driver. Choose the appropriate driver, open the terminal, and run
+these instructions.</p>
+<ol style="list-style-type: decimal">
+<li>installation of MS SQL driver 17 on Mac</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">driver</span><span class="op">=</span>17</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install unixodbc</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> update</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install msodbcsql<span class="va">${driver}</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install mssql-tools</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="va">ODBCSYSINI</span><span class="op">=</span>/</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>installation of MS SQL driver 13.1 on Mac</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install unixodbc</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> update</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install msodbcsql@13.1.9.2</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install mssql-tools@14.0.6.0</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="va">ODBCSYSINI</span><span class="op">=</span>/</span></code></pre></div>
 </div>
-<div class="section level6">
-<h6 id="installation-of-ms-sql-driver-13-1-on-mac">installation of MS SQL driver 13.1 on Mac<a class="anchor" aria-label="anchor" href="#installation-of-ms-sql-driver-13-1-on-mac"></a>
-</h6>
-<div class="sourceCode" id="cb6"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install unixodbc</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> update</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install msodbcsql@13.1.9.2</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install mssql-tools@14.0.6.0</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="va">ODBCSYSINI</span><span class="op">=</span>/</span></code></pre></div>
-</div>
-</div>
-<div class="section level5">
-<h5 id="installation-of-ms-sql-driver-version-17-or-18-on-ubuntu">installation of MS SQL driver version 17 or 18 on
-<code>Ubuntu</code><a class="anchor" aria-label="anchor" href="#installation-of-ms-sql-driver-version-17-or-18-on-ubuntu"></a>
-</h5>
-<p>Note that this requires <strong>Ubuntu 16.04 and above</strong>. Open
-the terminal and type the code below:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="va">driver</span><span class="op">=</span>17</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/keys/microsoft.asc <span class="kw">|</span> <span class="ex">apt-key</span> add <span class="at">-</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/config/ubuntu/<span class="va">$(</span><span class="ex">lsb_release</span> <span class="at">-rs</span><span class="va">)</span>/prod.list <span class="op">&gt;</span> /etc/apt/sources.list.d/mssql-release.list</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install <span class="at">-y</span> msodbcsql<span class="va">${driver}</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install <span class="at">-y</span> mssql-tools</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'export PATH="$PATH:/opt/mssql-tools/bin"'</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-y</span> unixodbc-dev</span></code></pre></div>
-</div>
-<div class="section level5">
-<h5 id="installation-of-ms-sql-driver-version-13-1-on-ubuntu">installation of MS SQL driver version 13.1 on
-<code>Ubuntu</code><a class="anchor" aria-label="anchor" href="#installation-of-ms-sql-driver-version-13-1-on-ubuntu"></a>
-</h5>
-<p>Note that this works for older versions of Ubuntu, including version
-16.04.</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/keys/microsoft.asc <span class="kw">|</span> <span class="ex">apt-key</span> add <span class="at">-</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/config/ubuntu/16.04/prod.list <span class="op">&gt;</span> /etc/apt/sources.list.d/mssql-release.list</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install msodbcsql</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install mssql-tools</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'export PATH="$PATH:/opt/mssql-tools/bin"'</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install unixodbc-dev</span></code></pre></div>
-</div>
-<div class="section level5">
-<h5 id="installation-of-ms-sql-driver-on-other-linux-distributions">installation of MS SQL driver on other Linux distributions<a class="anchor" aria-label="anchor" href="#installation-of-ms-sql-driver-on-other-linux-distributions"></a>
-</h5>
-<p>When working on a Linux distribution other than Ubuntu, follow the
-instructions <a href="https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&amp;tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline" class="external-link">here</a>
-for the MS SQL driver installation process.</p>
-<p>After the driver installation, the list of drivers can be displayed
-in R using:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="section level3">
+<h3 id="ms-sql-drivers-for-linux-based-systems">MS SQL drivers for Linux-based systems<a class="anchor" aria-label="anchor" href="#ms-sql-drivers-for-linux-based-systems"></a>
+</h3>
+<p>Note that this requires <strong>Ubuntu 16.04 and above</strong>.
+Choose the appropriate driver, open the terminal and type the
+instructions below:</p>
+<ol style="list-style-type: decimal">
+<li>installation of MS SQL driver version 17 on <code>Ubuntu</code>
+</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="va">driver</span><span class="op">=</span>17</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/keys/microsoft.asc <span class="kw">|</span> <span class="ex">apt-key</span> add <span class="at">-</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/config/ubuntu/<span class="va">$(</span><span class="ex">lsb_release</span> <span class="at">-rs</span><span class="va">)</span>/prod.list <span class="op">&gt;</span> /etc/apt/sources.list.d/mssql-release.list</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install <span class="at">-y</span> msodbcsql<span class="va">${driver}</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install <span class="at">-y</span> mssql-tools</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'export PATH="$PATH:/opt/mssql-tools/bin"'</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-y</span> unixodbc-dev</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>installation of MS SQL driver version 13.1 on
+<code>Ubuntu</code>
+</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> su</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/keys/microsoft.asc <span class="kw">|</span> <span class="ex">apt-key</span> add <span class="at">-</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/config/ubuntu/16.04/prod.list <span class="op">&gt;</span> /etc/apt/sources.list.d/mssql-release.list</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">exit</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install msodbcsql</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install mssql-tools</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">echo</span> <span class="st">'export PATH="$PATH:/opt/mssql-tools/bin"'</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt-get install unixodbc-dev</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>installation of MS SQL driver on other Linux distributions</li>
+</ol>
+<p>To install an MS SQL driver for other Linux distributions, such as
+Debian and Fedora, click <a href="https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&amp;tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline" class="external-link">here</a>
+and follow the instructions. After the installation, check the installed
+drivers using:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">odbc</span><span class="fu">::</span><span class="fu"><a href="https://r-dbi.github.io/odbc/reference/odbcListDrivers.html" class="external-link">odbcListDrivers</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>If the command above does not return the list of installed drivers or
-if you are facing issues during the driver installation process,
-consult<br><a href="https://github.com/r-dbi/odbc#installation" class="external-link">the odbc github
+<p>If this command does not return the list of installed drivers or if
+you are facing issues during the driver installation process, consult <a href="https://github.com/r-dbi/odbc#installation" class="external-link">the odbc github
 page</a> or the <a href="https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15" class="external-link">MS
-documentation on this topic</a></p>
-<p><strong>Note that it is important to view the data that is stored in
-the MS SQL server. We recommend to install a GUI such as
-<code>Azure Data Studio</code> for that purpose.</strong></p>
+documentation on this topic</a>.</p>
+<p>It is also important to view the data stored in the MS SQL server.
+For that purpose, we recommend you to install a graphical user interface
+(GUI) such as <code>Azure Data Studio</code>.</p>
 </div>
+<div class="section level3">
+<h3 id="main-arguments">Main arguments<a class="anchor" aria-label="anchor" href="#main-arguments"></a>
+</h3>
+<p>The <code><a href="../reference/readepi.html">readepi()</a></code> function expects the following
+arguments:</p>
+<ul>
+<li>
+<code>data_source</code>: (required) this is the URL of the target
+HIS.</li>
+<li>
+<code>records</code>: (optional) a vector or a comma-separated
+string of subject IDs. When specified, only the records that correspond
+to these subjects will be imported.</li>
+<li>
+<code>fields</code>: (optional) a vector or a comma-separated string
+of column names. If provided, only those columns will be imported.</li>
+<li>
+<code>id_position</code>: (optional) the column position of the
+variable that unique identifies the subjects. It’s default value is
+1.</li>
+<li>
+<code>id_col_name</code>: (optional) the name of the column that
+unique identifies the subjects.</li>
+</ul>
+<div class="section level4">
+<h4 id="credentials-file">Credentials file<a class="anchor" aria-label="anchor" href="#credentials-file"></a>
+</h4>
+<p>The access to data stored in a database management system requires
+valid user credentials, such as a user name and password. The
+<strong>{readepi}</strong> package expect that the user credential
+details to be saved in a tab-separated file. The path to that constitute
+the value for the <code>credentials_file</code> argument of the
+<code><a href="../reference/readepi.html">readepi()</a></code> function.</p>
+<p>This credential (tab-delimited) file must contain the following
+columns:</p>
+<ol style="list-style-type: decimal">
+<li>
+<code>user_name</code>: the user name. </li>
+<li>
+<code>password</code>: the user password (in REDCap, this
+corresponds to token). </li>
+<li>
+<code>host_name</code>: the host name (in REDCap, this corresponds
+to the host URL). <br>
+</li>
+<li>
+<code>project_id</code>: the name of the database (for relation DB)
+or the name of project (for REDCap API) that contains data of
+interest. </li>
+<li>
+<code>comment</code>: (optional) a brief description of the project
+or database of interest. <br>
+</li>
+<li>
+<code>dbms</code>: the type of the DBMS. Possible values are:
+<code>REDCap</code> when reading from REDCap; <code>MySQL</code> when
+reading from a MySQL server, <code>SQLServer</code> when reading from an
+MS SQL server, <code>PostgreSQL</code> when reading from a PostgreSQL
+system. <br>
+</li>
+<li>
+<code>port</code>: (optional) the port ID, this is only used for MS
+SQL servers.</li>
+</ol>
+<p>To see the structure of a toy credentials file used as a template in
+the <strong>{readepi}</strong> package, use the
+<code><a href="../reference/show_example_file.html">show_example_file()</a></code> function as shown below.</p>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># DISPLAY THE STRUCTURE OF THE TEMPLATE CREDENTIALS FILE</span></span>
+<span><span class="fu"><a href="../reference/show_example_file.html">show_example_file</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
-<h3 id="importing-from-ms-sql-or-mysql-server">importing from MS SQL or MySQL server<a class="anchor" aria-label="anchor" href="#importing-from-ms-sql-or-mysql-server"></a>
+<h3 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h3>
-<p>The current version of <code>readepi</code> allows for data import
-from:<br>
-1. MS SQL server,<br>
-2. MySQL server,<br>
-3. PostgreSQL server.<br>
-To be able to read data these data management information systems, the
-<strong>readepi()</strong> expects the following arguments:</p>
-<ul>
-<li>
-<em>credentials_file</em>: the path to the file with the
-user-specific credential details for the projects of interest. This is a
-tab-delimited file with the following 7 columns:</li>
-</ul>
-<p><code>user_name</code>: the user name,<br><code>password</code>: the user password (for REDCap, this corresponds
-to the <strong>token</strong> that serves as password to the
-project),<br><code>host_name</code>: the host name (for HDSS and EMRS) or the URI
-(for REDCap),<br><code>project_id</code>: the project ID (for REDCap) or the name of the
-database (for HDSS and EMRS) you are access to,<br><code>comment</code>: a summary description about the project or
-database of interest,<br><code>dbms</code>: the name of the DBMS: ‘redcap’ or ‘REDCap’ when
-reading from REDCap, ‘sqlserver’ or ‘SQLServer’ when reading from MS SQL
-Server,<br><code>port</code>: the port ID (used for MS SQL Servers only).</p>
-<ul>
-<li>
-<em>project_id</em>: for relational DB, this is the name of the
-database that contains the table from which the data should be pulled.
-Otherwise, it is the project ID you were given access to. Note that this
-should be similar to the value of the <strong>project_id</strong> field
-in the credential file.<br>
-</li>
-<li>
-<em>driver_name</em>: the name of the MS driver (only for HDSS and
-EMRS). use <code><a href="https://r-dbi.github.io/odbc/reference/odbcListDrivers.html" class="external-link">odbc::odbcListDrivers()</a></code> to display the list of
-installed drivers,<br>
-</li>
-<li>
-<em>source</em>: This can be a vector of the table names or an SQL
-query. When table names are specified, subsetting from tables is done by
-specifying the <code>fields</code> and <code>records</code>
-parameters<br>
-</li>
-<li>
-<em>records</em>: a vector or a comma-separated string of a subset
-of subject IDs. When specified, only the records that correspond to
-these subjects will be imported,<br>
-</li>
-<li>
-<em>fields</em>: a vector or a comma-separated string of column
-names. If provided, only those columns will be imported,<br>
-</li>
-<li>
-<em>id_position</em>: the column position of the variable that
-unique identifies the subjects. default is 1.<br>
-</li>
-<li>
-<em>id_col_name</em>: the name of the column that unique identifies
-the subjects.</li>
-</ul>
-<p>Use the <code><a href="../reference/show_example_file.html">show_example_file()</a></code> as below to view the
-credentials file used as template in the <strong>readepi</strong>
-package.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># DISPLAY THE STRUCTURE OF THE CREDENTIALS FILE</span></span>
-<span><span class="fu"><a href="../reference/show_example_file.html">show_example_file</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>All demos in the sections below rely on the credentials stored in the
-template file, defined as described above, and that is part of the
-<code>readepi</code> package.<br>
-Also, these examples are based on a MySQL server that does not require
-the user to specify the <code>driver name</code>. But it is important to
-keep in mind that specify the driver name is a requirement for MS SQL
-server.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># DEFINING THE CREDENTIALS FILE</span></span>
+<p>This section contains various examples demonstrating how
+<strong>{readepi}</strong> imports data from databases. We assume that
+the credentials are stored in a file as explained above. Furthermore,
+these examples are based on a MySQL server that does not need the user
+to supply the <code>driver name</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># DEFINING THE PATH TO THE TEMPLATE CREDENTIALS FILE</span></span>
 <span><span class="va">credentials_file</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.ini"</span>, package <span class="op">=</span> <span class="st">"readepi"</span><span class="op">)</span></span></code></pre></div>
 <div class="section level4">
-<h4 id="list-the-names-of-all-tables-in-the-database">list the names of all tables in the database<a class="anchor" aria-label="anchor" href="#list-the-names-of-all-tables-in-the-database"></a>
+<h4 id="listing-names-of-all-tables-in-a-database">Listing names of all tables in a database<a class="anchor" aria-label="anchor" href="#listing-names-of-all-tables-in-a-database"></a>
 </h4>
-<p>To displays the list of tables from the database of interest,
-use:</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<p>To display list of tables from a database of interest, use:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/show_tables.html">show_tables</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
 <span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>, <span class="co"># this is the database name</span></span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span> <span class="co"># ODBC Driver 17 for SQL Server</span></span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co"># use driver_name = "ODBC Driver 17 for SQL Server" when reading from MS SQL</span></span>
 <span><span class="co"># server</span></span></code></pre></div>
-<p>Note that in the above, the value for the <code>project_id</code>
-argument is the name of the database of interest.</p>
 </div>
 <div class="section level4">
-<h4 id="fetching-the-data-using-table-names">fetching the data using table names<a class="anchor" aria-label="anchor" href="#fetching-the-data-using-table-names"></a>
+<h4 id="fetching-data-from-a-mysql-server-using-the-table-names">Fetching data from a MySQL server using the table names<a class="anchor" aria-label="anchor" href="#fetching-data-from-a-mysql-server-using-the-table-names"></a>
 </h4>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>, <span class="co"># ODBC Driver 17 for SQL Server</span></span>
-<span>  source <span class="op">=</span> <span class="st">"author"</span></span>
+<p>When importing data from <strong>MS SQL, MySQL and PostgreSQL
+servers</strong>, the user needs to provide the following additional
+arguments:</p>
+<ul>
+<li>
+<code>driver_name</code>: the name of the MS driver (only for MS SQL
+servers).</li>
+<li>
+<code>from</code>: the name of the table from which the data will be
+fetched. This can also be the SQL query to be used for fetching data
+from the system.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># VISUALIZING THE FIRST 5 ROWS OF THE TABLE 'author'</span></span>
+<span><span class="fu"><a href="../reference/visualise_table.html">visualise_table</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="st">"author"</span>, <span class="co"># this is the table name</span></span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># VISUALIZE THE FIRST 5 ROWS OF THE TABLE 'author'</span></span>
-<span><span class="fu"><a href="../reference/visualise_table.html">visualise_table</a></span><span class="op">(</span></span>
+<span><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`)</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
 <span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
-<span>  source <span class="op">=</span> <span class="st">"author"</span>, <span class="co"># this is the table name</span></span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>, <span class="co"># this is the database name</span></span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span></span>
+<span>  from             <span class="op">=</span> <span class="st">"author"</span>, <span class="co"># this is the table name</span></span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING SPECIFIED FIELDS AND ALL RECORDS FROM ONE TABLE</span></span>
 <span><span class="va">fields</span> <span class="op">&lt;-</span> <span class="st">"author_id,name,last_name,initials"</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="st">"author"</span>,</span>
-<span>  fields <span class="op">=</span> <span class="va">fields</span></span>
+<span><span class="va">dat</span>    <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="st">"author"</span>, <span class="co"># this is the table name</span></span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  fields           <span class="op">=</span> <span class="va">fields</span> <span class="co"># these are  the columns of interest.</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE</span></span>
 <span><span class="va">records</span> <span class="op">&lt;-</span> <span class="st">"1, 34, 15, 70, 118, 20"</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="st">"author"</span>,</span>
-<span>  records <span class="op">=</span> <span class="va">records</span>,</span>
-<span>  id_position <span class="op">=</span> <span class="fl">1</span></span>
+<span><span class="va">dat</span>     <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="st">"author"</span>, <span class="co"># this is the table name</span></span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  records          <span class="op">=</span> <span class="va">records</span>,</span>
+<span>  id_position      <span class="op">=</span> <span class="fl">1L</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING SPECIFIED FIELDS AND RECORDS ONE THE TABLE</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="st">"author"</span>,</span>
-<span>  records <span class="op">=</span> <span class="va">records</span>,</span>
-<span>  fields <span class="op">=</span> <span class="va">fields</span>,</span>
-<span>  id_col_name <span class="op">=</span> <span class="st">"author_id"</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="st">"author"</span>, <span class="co"># this is the table name</span></span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  records          <span class="op">=</span> <span class="va">records</span>,</span>
+<span>  fields           <span class="op">=</span> <span class="va">fields</span>,</span>
+<span>  id_col_name      <span class="op">=</span> <span class="st">"author_id"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING DATA FROM SEVERAL TABLES</span></span>
 <span><span class="va">table_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"author"</span>, <span class="st">"family_author"</span><span class="op">)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="va">table_names</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="va">table_names</span>, <span class="co"># this is the table name</span></span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING DATA FROM SEVERAL TABLES AND SUBSETTING FIELDS ACROSS TABLES</span></span>
@@ -422,11 +390,12 @@ argument is the name of the database of interest.</p>
 <span><span class="co"># the first string in the field vector corresponds to the name of the</span></span>
 <span><span class="co"># columns of interest from the first table specified in the `table_names`</span></span>
 <span><span class="co"># argument and so on...</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="va">table_names</span>,</span>
-<span>  fields <span class="op">=</span> <span class="va">fields</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="va">table_names</span>, <span class="co"># this is the table name</span></span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  fields           <span class="op">=</span> <span class="va">fields</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS ACROSS TABLES</span></span>
@@ -438,346 +407,377 @@ argument is the name of the database of interest.</p>
 <span><span class="co"># interest from the first table specified in the `table_name` argument and so</span></span>
 <span><span class="co"># on... when the id column is not the first column in a table,</span></span>
 <span><span class="co"># use the `id_position`"</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="va">table_names</span>,</span>
-<span>  records <span class="op">=</span> <span class="va">records</span>,</span>
-<span>  id_position <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="va">table_names</span>, <span class="co"># this is the table name</span></span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  records          <span class="op">=</span> <span class="va">records</span>,</span>
+<span>  id_position      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span><span class="op">)</span> <span class="co"># nolint</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS</span></span>
 <span><span class="co"># TABLES</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="va">table_names</span>,</span>
-<span>  records <span class="op">=</span> <span class="va">records</span>,</span>
-<span>  fields <span class="op">=</span> <span class="va">fields</span>,</span>
-<span>  id_col_name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"author_id"</span>, <span class="st">"rfam_acc"</span><span class="op">)</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="va">table_names</span>, <span class="co"># this is the table name</span></span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span>,</span>
+<span>  records          <span class="op">=</span> <span class="va">records</span>,</span>
+<span>  fields           <span class="op">=</span> <span class="va">fields</span>,</span>
+<span>  id_col_name      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"author_id"</span>, <span class="st">"rfam_acc"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level4">
-<h4 id="fetching-the-data-using-an-sql-query">fetching the data using an SQL query<a class="anchor" aria-label="anchor" href="#fetching-the-data-using-an-sql-query"></a>
+<h4 id="fetching-data-using-an-sql-query">Fetching data using an SQL query<a class="anchor" aria-label="anchor" href="#fetching-data-using-an-sql-query"></a>
 </h4>
-<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="st">"select author.author_id, author.name, family_author.author_id from </span></span>
-<span><span class="st">  author left join family_author on author.author_id = family_author.author_id"</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="st">"select author.author_id, author.name,</span></span>
+<span><span class="st">  family_author.author_id from author left join family_author on</span></span>
+<span><span class="st">  author.author_id = family_author.author_id"</span>,</span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># SELECT ALL DATA FROM THE author TABLE</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="st">"select * from author"</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="st">"select * from author"</span>,</span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># SELECT FEW COLUMNS FROM THE author TABLE</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="st">"select author_id, name, last_name from author"</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="st">"select author_id, name, last_name from author"</span>,</span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># SELECT FEW RECORDS FROM THE author TABLE</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="st">"select * from author where author_id in ('1','20','50')"</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  source <span class="op">=</span> <span class="st">"select * from author where author_id in ('1','20','50')"</span>,</span>
+<span>  driver_name <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># SELECT FEW RECORDS AND FIELDS FROM THE author TABLE</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
-<span>  source <span class="op">=</span> <span class="st">"select author_id, name, last_name from author where </span></span>
-<span><span class="st">  author_id in ('1','20','50')"</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  from             <span class="op">=</span> <span class="st">"select author_id, name, last_name from author where</span></span>
+<span><span class="st">  author_id in ('1','20','50')"</span>,</span>
+<span>  driver_name      <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
-<h3 id="importing-from-redcap">importing from REDCap<a class="anchor" aria-label="anchor" href="#importing-from-redcap"></a>
+<h3 id="reading-data-from-his">Reading data from HIS<a class="anchor" aria-label="anchor" href="#reading-data-from-his"></a>
 </h3>
-<p>To import data from REDCap, the user must call the
-<code>readepi</code> function with the following arguments:</p>
+<p>The current version of <strong>{readepi}</strong> supports reading
+data from three common HIS: <strong>REDCap</strong>,
+<strong>DHIS2</strong>, and <strong>Fingertips</strong>.</p>
+<div class="section level4">
+<h4 id="importing-data-from-redcap">Importing data from REDCap<a class="anchor" aria-label="anchor" href="#importing-data-from-redcap"></a>
+</h4>
+<p>Research Electronic Data Capture (<a href="https://www.project-redcap.org/" class="external-link">REDCap</a>) is a web-based
+application and workflow methodology for designing clinical and
+translational research databases. To import data from a REDCap-based
+repo, the <code><a href="../reference/readepi.html">readepi()</a></code> function takes the following
+arguments:</p>
 <ul>
 <li>
-<em>credentials_file</em>: the credentials file (required)</li>
+<code>data_source</code>: the URL of the REDCap server
+(mandatory)</li>
 <li>
-<em>project_id</em>: the project ID (required)</li>
+<code>credentials_file</code>: the credentials file (mandatory)</li>
 <li>
-<em>records</em>: the list of the desired records (optional)</li>
+<code>records</code>: the list of the desired records
+(optional)</li>
 <li>
-<em>fields</em>: the list of the desired columns (optional)</li>
+<code>fields</code>: the list of the desired columns (optional)</li>
 </ul>
-<p>Both the data and its associated metadata will be will be returned
-after a successful import.</p>
-<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
+<p>Both the data and its associated metadata will be returned after a
+successful import.</p>
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"SD_DATA"</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"https://bbmc.ouhsc.edu/redcap/api/"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">project_data</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">data</span></span>
-<span><span class="va">project_metadeta</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">metadata</span></span>
+<span><span class="va">project_data</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[[</span><span class="st">"data"</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">project_metadeta</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[[</span><span class="st">"metadata"</span><span class="op">]</span><span class="op">]</span></span>
 <span></span>
 <span><span class="co"># READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT</span></span>
 <span><span class="va">fields</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"record_id"</span>, <span class="st">"name_first"</span>, <span class="st">"age"</span>, <span class="st">"bmi"</span><span class="op">)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"SD_DATA"</span>,</span>
-<span>  fields <span class="op">=</span> <span class="va">fields</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"https://bbmc.ouhsc.edu/redcap/api/"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  fields           <span class="op">=</span> <span class="va">fields</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING SPECIFIC RECORDS AND ALL FIELDS FROM THE PROJECT</span></span>
 <span><span class="va">records</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"3"</span>, <span class="st">"5"</span><span class="op">)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"SD_DATA"</span>,</span>
-<span>  records <span class="op">=</span> <span class="va">records</span>,</span>
-<span>  id_col_name <span class="op">=</span> <span class="st">"record_id"</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"https://bbmc.ouhsc.edu/redcap/api/"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  records          <span class="op">=</span> <span class="va">records</span>,</span>
+<span>  id_col_name      <span class="op">=</span> <span class="st">"record_id"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING SPECIFIC RECORDS AND FIELDS FROM THE PROJECT</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span><span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"SD_DATA"</span>,</span>
-<span>  records <span class="op">=</span> <span class="va">records</span>,</span>
-<span>  fields <span class="op">=</span> <span class="va">fields</span>,</span>
-<span>  id_col_name <span class="op">=</span> <span class="st">"record_id"</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source      <span class="op">=</span> <span class="st">"https://bbmc.ouhsc.edu/redcap/api/"</span>,</span>
+<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  records          <span class="op">=</span> <span class="va">records</span>,</span>
+<span>  fields           <span class="op">=</span> <span class="va">fields</span>,</span>
+<span>  id_col_name      <span class="op">=</span> <span class="st">"record_id"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">project_data</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">data</span></span>
-<span><span class="va">project_metadeta</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">metadata</span></span></code></pre></div>
+<span><span class="va">project_data</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[[</span><span class="st">"data"</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">project_metadeta</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[[</span><span class="st">"metadata"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level3">
-<h3 id="importing-from-dhis2">importing from DHIS2<a class="anchor" aria-label="anchor" href="#importing-from-dhis2"></a>
+<h3 id="importing-data-from-dhis2">Importing data from DHIS2<a class="anchor" aria-label="anchor" href="#importing-data-from-dhis2"></a>
 </h3>
-<p>To import data from <strong>DHIS2</strong>, the user must call the
-<code>readepi</code> function with the following arguments:</p>
+<p><a href="https://dhis2.org/about/" class="external-link">DHIS2</a> is an open source
+software that has transformed global health information management. The
+<code><a href="../reference/readepi.html">readepi()</a></code> function can import data from DHIS2-based
+repositories with following arguments:</p>
 <ul>
 <li>
-<em>credentials_file</em>: the credentials file (required)</li>
+<code>data_source</code>: the URL of the target DHIS2 system
+(required)</li>
 <li>
-<em>project_id</em>: the project ID (required)</li>
+<code>credentials_file</code>: the credentials file (required)</li>
 <li>
-<em>dataset</em>: the dataset identifier (required)</li>
+<code>dataset</code>: a vector or a comma-separated list of dataset
+identifier (optional)</li>
 <li>
-<em>organisation_unit</em>: the organisation unit identifier
-(required)<br>
+<code>organisation_unit</code>: a vector or a comma-separated list
+of organisation unit identifier (optional)<br>
 </li>
 <li>
-<em>data_element_group</em>: the data element group (optional)<br>
+<code>data_element_group</code>: a vector or a comma-separated list
+of data element group (optional)<br>
 </li>
 <li>
-<em>start_date</em>: the start date for the time span of the values
+<code>start_date</code>: the start date for the time span of the
+values to export (required)<br>
+</li>
+<li>
+<code>end_date</code>: the end date for the time span of the values
 to export (required)<br>
 </li>
 <li>
-<em>end_date</em>: the end date for the time span of the values to
-export (required)<br>
+<code>id_col_name</code>: the column name with the records of
+interest (optional)<br>
 </li>
 <li>
-<em>id_col_name</em>: the column name with the records of interest
+<code>records</code>: the list of the desired records
 (optional)<br>
 </li>
 <li>
-<em>records</em>: the list of the desired records (optional)<br>
-</li>
-<li>
-<em>fields</em>: the list of the desired columns (optional)</li>
+<code>fields</code>: the list of the desired columns (optional)</li>
 </ul>
-<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># GETTING THE DATA ELEMENT IDENTIFIERS AND NAMES</span></span>
-<span><span class="va">data_elements</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_data_elements.html">get_data_elements</a></span><span class="op">(</span></span>
+<span><span class="va">data_elements</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_dhis2_attributes.html">get_dhis2_attributes</a></span><span class="op">(</span></span>
 <span>  base_url <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
 <span>  username <span class="op">=</span> <span class="st">"admin"</span>,</span>
-<span>  password <span class="op">=</span> <span class="st">"district"</span></span>
+<span>  password <span class="op">=</span> <span class="st">"district"</span>,</span>
+<span>  which    <span class="op">=</span> <span class="st">"dataElements"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># GETTING THE DATASET IDENTIFIERS AND NAMES</span></span>
-<span><span class="va">datasets</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_data_sets.html">get_data_sets</a></span><span class="op">(</span></span>
+<span><span class="va">datasets</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_dhis2_attributes.html">get_dhis2_attributes</a></span><span class="op">(</span></span>
 <span>  base_url <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
 <span>  username <span class="op">=</span> <span class="st">"admin"</span>,</span>
-<span>  password <span class="op">=</span> <span class="st">"district"</span></span>
+<span>  password <span class="op">=</span> <span class="st">"district"</span>,</span>
+<span>  which    <span class="op">=</span> <span class="st">"dataSets"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># GETTING THE ORGANISATION UNIT IDENTIFIERS AND NAMES</span></span>
-<span><span class="va">organisation_units</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_data_sets.html">get_data_sets</a></span><span class="op">(</span></span>
+<span><span class="va">organisation_units</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_dhis2_attributes.html">get_dhis2_attributes</a></span><span class="op">(</span></span>
 <span>  base_url <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
 <span>  username <span class="op">=</span> <span class="st">"admin"</span>,</span>
-<span>  password <span class="op">=</span> <span class="st">"district"</span></span>
+<span>  password <span class="op">=</span> <span class="st">"district"</span>,</span>
+<span>  which    <span class="op">=</span> <span class="st">"organisationUnits"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># GETTING THE DATA ELEMENT GROUP IDENTIFIERS AND NAMES</span></span>
-<span><span class="va">data_element_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_organisation_units.html">get_organisation_units</a></span><span class="op">(</span></span>
+<span><span class="va">data_element_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_dhis2_attributes.html">get_dhis2_attributes</a></span><span class="op">(</span></span>
 <span>  base_url <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
 <span>  username <span class="op">=</span> <span class="st">"admin"</span>,</span>
-<span>  password <span class="op">=</span> <span class="st">"district"</span></span>
+<span>  password <span class="op">=</span> <span class="st">"district"</span>,</span>
+<span>  which    <span class="op">=</span> <span class="st">"dataElementGroups"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING THE DATASET ID `pBOMPrpg1QX`</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"DHIS2_DEMO"</span>,</span>
-<span>  dataset <span class="op">=</span> <span class="st">"pBOMPrpg1QX"</span>,</span>
-<span>  organisation_unit <span class="op">=</span> <span class="st">"DiszpKrYNg8"</span>,</span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source        <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev"</span>,</span>
+<span>  credentials_file   <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  dataset            <span class="op">=</span> <span class="st">"pBOMPrpg1QX"</span>,</span>
+<span>  organisation_unit  <span class="op">=</span> <span class="st">"DiszpKrYNg8"</span>,</span>
 <span>  data_element_group <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  start_date <span class="op">=</span> <span class="st">"2014"</span>,</span>
-<span>  end_date <span class="op">=</span> <span class="st">"2023"</span></span>
+<span>  start_date         <span class="op">=</span> <span class="st">"2014"</span>,</span>
+<span>  end_date           <span class="op">=</span> <span class="st">"2023"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING DATA FROM 2 DATASETS `pBOMPrpg1QX`</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"DHIS2_DEMO"</span>,</span>
-<span>  dataset <span class="op">=</span> <span class="st">"pBOMPrpg1QX,BfMAe6Itzgt"</span>,</span>
-<span>  <span class="co"># same as dataset=c("pBOMPrpg1QX","BfMAe6Itzgt")</span></span>
-<span>  organisation_unit <span class="op">=</span> <span class="st">"DiszpKrYNg8"</span>,</span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source        <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev"</span>,</span>
+<span>  credentials_file   <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  dataset            <span class="op">=</span> <span class="st">"pBOMPrpg1QX,BfMAe6Itzgt"</span>,</span>
+<span>  organisation_unit  <span class="op">=</span> <span class="st">"DiszpKrYNg8"</span>,</span>
 <span>  data_element_group <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  start_date <span class="op">=</span> <span class="st">"2014"</span>,</span>
-<span>  end_date <span class="op">=</span> <span class="st">"2023"</span></span>
+<span>  start_date         <span class="op">=</span> <span class="st">"2014"</span>,</span>
+<span>  end_date           <span class="op">=</span> <span class="st">"2023"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING SPECIFIC DATA ELEMENTS FROM THE DATASET ID `pBOMPrpg1QX`</span></span>
 <span><span class="va">data_elts</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"FTRrcoaog83"</span>, <span class="st">"eY5ehpbEsB7"</span>, <span class="st">"Ix2HsbDMLea"</span><span class="op">)</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"DHIS2_DEMO"</span>,</span>
-<span>  dataset <span class="op">=</span> <span class="st">"pBOMPrpg1QX"</span>,</span>
-<span>  organisation_unit <span class="op">=</span> <span class="st">"DiszpKrYNg8"</span>,</span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source        <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev"</span>,</span>
+<span>  credentials_file   <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  dataset            <span class="op">=</span> <span class="st">"pBOMPrpg1QX"</span>,</span>
+<span>  organisation_unit  <span class="op">=</span> <span class="st">"DiszpKrYNg8"</span>,</span>
 <span>  data_element_group <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  start_date <span class="op">=</span> <span class="st">"2014"</span>,</span>
-<span>  end_date <span class="op">=</span> <span class="st">"2023"</span>,</span>
-<span>  records <span class="op">=</span> <span class="va">data_elts</span>,</span>
-<span>  id_col_name <span class="op">=</span> <span class="st">"dataElement"</span></span>
+<span>  start_date         <span class="op">=</span> <span class="st">"2014"</span>,</span>
+<span>  end_date           <span class="op">=</span> <span class="st">"2023"</span>,</span>
+<span>  records            <span class="op">=</span> <span class="va">data_elts</span>,</span>
+<span>  id_col_name        <span class="op">=</span> <span class="st">"dataElement"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING SPECIFIC COLUMNS FROM A DATASET</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
-<span>  project_id <span class="op">=</span> <span class="st">"DHIS2_DEMO"</span>,</span>
-<span>  dataset <span class="op">=</span> <span class="st">"pBOMPrpg1QX,BfMAe6Itzgt"</span>,</span>
-<span>  organisation_unit <span class="op">=</span> <span class="st">"DiszpKrYNg8"</span>,</span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  data_source        <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev"</span>,</span>
+<span>  credentials_file   <span class="op">=</span> <span class="va">credentials_file</span>,</span>
+<span>  dataset            <span class="op">=</span> <span class="st">"pBOMPrpg1QX,BfMAe6Itzgt"</span>,</span>
+<span>  organisation_unit  <span class="op">=</span> <span class="st">"DiszpKrYNg8"</span>,</span>
 <span>  data_element_group <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  start_date <span class="op">=</span> <span class="st">"2014"</span>,</span>
-<span>  end_date <span class="op">=</span> <span class="st">"2023"</span>,</span>
-<span>  fields <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dataElement"</span>, <span class="st">"period"</span>, <span class="st">"value"</span><span class="op">)</span></span>
+<span>  start_date         <span class="op">=</span> <span class="st">"2014"</span>,</span>
+<span>  end_date           <span class="op">=</span> <span class="st">"2023"</span>,</span>
+<span>  fields             <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"dataElement"</span>, <span class="st">"period"</span>, <span class="st">"value"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span>
-<span></span>
-<span><span class="va">test_data</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">data</span></span></code></pre></div>
+<span><span class="va">test_data</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">[[</span><span class="st">"data"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="importing-from-fingertips">importing from Fingertips<a class="anchor" aria-label="anchor" href="#importing-from-fingertips"></a>
+<h3 id="importing-data-from-fingertips">Importing data from Fingertips<a class="anchor" aria-label="anchor" href="#importing-data-from-fingertips"></a>
 </h3>
 <p><a href="https://fingertips.phe.org.uk/" class="external-link">Fingertips</a> is a
-repository of public health data indicators in England. The data in
-Fingertips website is organised into themed profiles. The
-<code><a href="../reference/readepi.html">readepi()</a></code> function takes the arguments listed below to
-import data from Fingertips through its API:</p>
+repository for public health data indicators in England, in which data
+is organised into themed profiles. The <code><a href="../reference/readepi.html">readepi()</a></code> function
+allows you to import data from Fingertips-based APIs using the following
+arguments:</p>
 <ul>
 <li>
-<em>indicator_id</em>: the indicator ID</li>
+<code>indicator_id</code>: the indicator ID</li>
 <li>
-<em>indicator_name</em>: the indicator name</li>
+<code>indicator_name</code>: the indicator name</li>
 <li>
-<em>area_type_id</em>: the area type ID. This determines the
-geographic area for the imported data</li>
+<code>area_type_id</code>: the area type ID. This determines the
+geographic area for the imported data (required)</li>
 <li>
-<em>parent_area_type_id</em>: the parent area type code of the
+<code>parent_area_type_id</code>: the parent area type code of the
 specified area type ID</li>
 <li>
-<em>profile_id</em>: the profile ID</li>
+<code>profile_id</code>: the profile ID</li>
 <li>
-<em>profile_name</em>: the profile name</li>
+<code>profile_name</code>: the profile name</li>
 <li>
-<em>domain_id</em>: the domain ID</li>
+<code>domain_id</code>: the domain ID</li>
 <li>
-<em>domain_name</em>: the domain name</li>
+<code>domain_name</code>: the domain name</li>
 <li>
-<em>records</em>: the list of the desired records<br>
+<code>records</code>: the list of the desired records<br>
 </li>
 <li>
-<em>fields</em>: the list of the desired columns</li>
+<code>fields</code>: the list of the desired columns</li>
 <li>
-<em>id_col_name</em>: the column name with the records of
+<code>id_col_name</code>: the column name with the records of
 interest</li>
 <li>
-<em>id_position</em>: the column position of the variable that
+<code>id_position</code>: the column position of the variable that
 unique identifies the subjects. default is 1.</li>
 </ul>
-<p>Note that the <code><a href="../reference/readepi.html">readepi()</a></code> function makes call of wrapper
-around the major function in the <a href="https://docs.ropensci.org/fingertipsR/" class="external-link">fingertipsR</a>
-package.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<p>It is worth noting that, while reading such data, the
+<code><a href="../reference/readepi.html">readepi()</a></code> function makes wrapper-calls to the major
+functions in <a href="https://docs.ropensci.org/fingertipsR/" class="external-link">fingertipsR</a>, a
+pre-existing R package that only reads data from Fingertips
+databases.</p>
+<div class="section level4">
+<h4 id="examples-1">Examples<a class="anchor" aria-label="anchor" href="#examples-1"></a>
+</h4>
+<p>This section provides various examples demonstrating how
+<strong>{readepi}</strong> imports data from Fingertips-based APIs.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># GET THE INFORMATION ABOUT THE INDICATOR PROFILES, DOMAIN, AREA TYPE, ...</span></span>
-<span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_fingertips_metadata.html">get_fingertips_metadata</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">$</span><span class="va">indicator_profile_domain</span><span class="op">)</span></span>
-<span><span class="co"># indicator_profile_domain contains the indicator, profile,</span></span>
-<span><span class="co"># and domain information.</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">$</span><span class="va">indicator_ids_names</span><span class="op">)</span></span>
-<span><span class="co"># indicator_ids_names contains the list of indicators IDs together</span></span>
-<span><span class="co"># with their names.</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">$</span><span class="va">area_type</span><span class="op">)</span></span>
-<span><span class="co"># area_type contains the list of all area types with their associated</span></span>
-<span><span class="co"># parent area types.</span></span>
+<span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu">get_fingertips_metadata</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">[[</span><span class="st">"indicator_profile_domain"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">[[</span><span class="st">"indicator_ids_names"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">[[</span><span class="st">"area_type"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># IMPORTING DATA USING THE INDICATOR ID</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  indicator_id <span class="op">=</span> <span class="fl">90362</span>,</span>
-<span>  area_type_id <span class="op">=</span> <span class="fl">202</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  indicator_id <span class="op">=</span> <span class="fl">90362L</span>,</span>
+<span>  area_type_id <span class="op">=</span> <span class="fl">202L</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># IMPORTING DATA USING THE INDICATOR NAME</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
 <span>  indicator_name <span class="op">=</span> <span class="st">"Healthy life expectancy at birth"</span>,</span>
-<span>  area_type_id <span class="op">=</span> <span class="fl">202</span></span>
+<span>  area_type_id   <span class="op">=</span> <span class="fl">202L</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># IMPORTING DATA USING THE DOMAIN NAME</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  domain_name <span class="op">=</span> <span class="st">"A. Overarching indicators"</span>,</span>
-<span>  area_type_id <span class="op">=</span> <span class="fl">202</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  domain_name  <span class="op">=</span> <span class="st">"A. Overarching indicators"</span>,</span>
+<span>  area_type_id <span class="op">=</span> <span class="fl">202L</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
 <span>  indicator_name <span class="op">=</span> <span class="st">"Healthy life expectancy at birth"</span>,</span>
-<span>  area_type_id <span class="op">=</span> <span class="fl">202</span>,</span>
-<span>  domain_name <span class="op">=</span> <span class="st">"A. Overarching indicators"</span></span>
+<span>  area_type_id   <span class="op">=</span> <span class="fl">202L</span>,</span>
+<span>  domain_name    <span class="op">=</span> <span class="st">"A. Overarching indicators"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># IMPORTING DATA USING THE PROFILE ID</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  profile_id <span class="op">=</span> <span class="fl">19</span>,</span>
-<span>  area_type_id <span class="op">=</span> <span class="fl">202</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  profile_id   <span class="op">=</span> <span class="fl">19L</span>,</span>
+<span>  area_type_id <span class="op">=</span> <span class="fl">202L</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># IMPORTING DATA FROM SPECIFIC INDICATOR, DOMAIN, PROFILE, AREA TYPE</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  indicator_id <span class="op">=</span> <span class="fl">90362</span>,</span>
-<span>  indicator_name <span class="op">=</span> <span class="st">"Healthy life expectancy at birth"</span>,</span>
-<span>  area_type_id <span class="op">=</span> <span class="fl">202</span>, parent_area_type_id <span class="op">=</span> <span class="fl">6</span>,</span>
-<span>  profile_id <span class="op">=</span> <span class="fl">19</span>,</span>
-<span>  profile_name <span class="op">=</span> <span class="st">"Public Health Outcomes Framework"</span>,</span>
-<span>  domain_id <span class="op">=</span> <span class="fl">1000049</span>, domain_name <span class="op">=</span> <span class="st">"A. Overarching indicators"</span>,</span>
-<span>  fields <span class="op">=</span> <span class="cn">NULL</span>, records <span class="op">=</span> <span class="cn">NULL</span>,</span>
-<span>  id_position <span class="op">=</span> <span class="cn">NULL</span>, id_col_name <span class="op">=</span> <span class="cn">NULL</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  indicator_id        <span class="op">=</span> <span class="fl">90362L</span>,</span>
+<span>  indicator_name      <span class="op">=</span> <span class="st">"Healthy life expectancy at birth"</span>,</span>
+<span>  area_type_id        <span class="op">=</span> <span class="fl">202L</span>,</span>
+<span>  parent_area_type_id <span class="op">=</span> <span class="fl">6L</span>,</span>
+<span>  profile_id          <span class="op">=</span> <span class="fl">19L</span>,</span>
+<span>  profile_name        <span class="op">=</span> <span class="st">"Public Health Outcomes Framework"</span>,</span>
+<span>  domain_id           <span class="op">=</span> <span class="fl">1000049L</span>,</span>
+<span>  domain_name         <span class="op">=</span> <span class="st">"A. Overarching indicators"</span>,</span>
+<span>  fields              <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  records             <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  id_position         <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  id_col_name         <span class="op">=</span> <span class="cn">NULL</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># IMPORTING DATA AND SUBSETTING SPECIFIC RECORDS AND FIELDS</span></span>
-<span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
-<span>  indicator_id <span class="op">=</span> <span class="fl">90362</span>,</span>
-<span>  area_type_id <span class="op">=</span> <span class="fl">202</span>,</span>
-<span>  fields <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"IndicatorID"</span>, <span class="st">"AreaCode"</span>, <span class="st">"Age"</span>, <span class="st">"Value"</span><span class="op">)</span>,</span>
-<span>  records <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E92000001"</span>, <span class="st">"E12000002"</span>, <span class="st">"E12000009"</span><span class="op">)</span>,</span>
-<span>  id_col_name <span class="op">=</span> <span class="st">"AreaCode"</span></span>
+<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span>  indicator_id <span class="op">=</span> <span class="fl">90362L</span>,</span>
+<span>  area_type_id <span class="op">=</span> <span class="fl">202L</span>,</span>
+<span>  fields       <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"IndicatorID"</span>, <span class="st">"AreaCode"</span>, <span class="st">"Age"</span>, <span class="st">"Value"</span><span class="op">)</span>,</span>
+<span>  records      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"E92000001"</span>, <span class="st">"E12000002"</span>, <span class="st">"E12000009"</span><span class="op">)</span>,</span>
+<span>  id_col_name  <span class="op">=</span> <span class="st">"AreaCode"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
