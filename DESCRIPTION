@@ -1,6 +1,6 @@
 Package: readepi
 Title: Read Data From Health Information Systems
-Version: 1.0.0
+Version: 0.1.0
 Authors@R: c(
     person("Karim", "Mané", , "lshkm1@lshtm.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9892-2999")),
