@@ -39,6 +39,7 @@ Imports:
 Suggests: 
     bookdown,
     httptest,
+    kableExtra,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0)

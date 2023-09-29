@@ -1,16 +1,20 @@
 ---
 title: "readepi: Reading data from health information systems"
-output:
-  bookdown::html_vignette2:
-    fig_caption: yes
-    code_folding: show
-pkgdown:
-  as_is: false
+output: 
+  rmarkdown::html_vignette:
+    df_print: "kable"
 vignette: >
   %\VignetteIndexEntry{Reading data from health information systems}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+```{r, include = FALSE} 
+knitr::opts_chunk[["set"]](collapse = TRUE, comment = "#>", eval = FALSE,
+                           fig.width = 7L, fig.height = 7L, message = FALSE,
+                           fig.align = "center", warning = FALSE, dpi = 300L)
+row_id <- group_id <- NULL
+```
 
 # Overview 
 
@@ -20,18 +24,7 @@ The main objective of **{readepi}** package is to simplify the process of readin
 
 The current implementation of **{readepi}** provides a function for reading data from three common HIS: ([REDCap](https://www.project-redcap.org/), [DHIS2](https://dhis2.org/), and [Fingertips](https://fingertips.phe.org.uk/)), and RDBMS such as MS SQL, MySQL, and PostgreSQL. Other utility functions for processing and manipulating the imported data, such as row or column/row sub-setting, are also included in this package.
 
-
-```{r, include = FALSE}
-knitr::opts_chunk[["set"]](
-  collapse = TRUE,
-  comment = "#>",
-  message = FALSE,
-  warning = FALSE,
-  dpi = 300L
-)
-```
-
-```{r setup}
+```{r setup, eval=TRUE}
 # LOAD readepi
 library("readepi") # nolint
 ```
@@ -144,7 +137,7 @@ This credential (tab-delimited) file must contain the following columns:
 
 To see the structure of a toy credentials file used as a template in the **{readepi}** package, use the `show_example_file()` function as shown below.
      
-```{r eval=FALSE}
+```{r eval=TRUE}
 # DISPLAY THE STRUCTURE OF THE TEMPLATE CREDENTIALS FILE
 show_example_file()
 ```
@@ -153,7 +146,7 @@ show_example_file()
 
 This section contains various examples demonstrating how **{readepi}** imports data from databases. We assume that the credentials are stored in a file as explained above. Furthermore, these examples are based on a MySQL server that does not need the user to supply the `driver name`. 
 
-```{r eval=FALSE}
+```{r eval=TRUE}
 # DEFINING THE PATH TO THE TEMPLATE CREDENTIALS FILE
 credentials_file <- system.file("extdata", "test.ini", package = "readepi")
 ```
@@ -162,7 +155,7 @@ credentials_file <- system.file("extdata", "test.ini", package = "readepi")
 
 To display  list of tables from a database of interest, use:  
 
-```{r eval=FALSE}
+```{r eval=TRUE}
 show_tables(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
@@ -179,7 +172,7 @@ When importing data from **MS SQL, MySQL and PostgreSQL servers**, the user need
 - `driver_name`: the name of the MS driver (only for MS SQL servers).
 - `from`: the name of the table from which the data will be fetched. This can also be the SQL query to be used for fetching data from the system.
 
-```{r eval=FALSE}
+```{r eval=TRUE}
 # VISUALIZING THE FIRST 5 ROWS OF THE TABLE 'author'
 visualise_table(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
