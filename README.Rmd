@@ -66,11 +66,11 @@ The `readepi()` function can import data from a variety of RDBMS, including MS S
 Users can read data from a RDBMS by providing the details of the tables of interest or an SQL query (for more information, see the **vignette**). 
 
 ```{r eval=FALSE}
-# DISPLAY THE STRUCTUTRE OF THE TEMPLATE CREDENTIAL FILE
-show_example_file()
-
 # DEFINE THE PATH TO THE CREDENTIAL FILE
 credentials_file <- system.file("extdata", "test.ini", package = "readepi")
+
+# DISPLAY THE STRUCTUTRE OF THE TEMPLATE CREDENTIAL FILE
+show_example_file()
 
 # READING FILE FROM A PROJECT IN A REDCap DATABASE
 dat <- readepi(
