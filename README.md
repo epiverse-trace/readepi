@@ -82,11 +82,11 @@ of interest or an SQL query (for more information, see the
 **vignette**).
 
 ``` r
-# DISPLAY THE STRUCTUTRE OF THE TEMPLATE CREDENTIAL FILE
-show_example_file()
-
 # DEFINE THE PATH TO THE CREDENTIAL FILE
 credentials_file <- system.file("extdata", "test.ini", package = "readepi")
+
+# DISPLAY THE STRUCTUTRE OF THE TEMPLATE CREDENTIAL FILE
+show_example_file()
 
 # READING FILE FROM A PROJECT IN A REDCap DATABASE
 dat <- readepi(
