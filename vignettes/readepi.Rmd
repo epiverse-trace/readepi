@@ -155,7 +155,7 @@ credentials_file <- system.file("extdata", "test.ini", package = "readepi")
 
 To display  list of tables from a database of interest, use:  
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 show_tables(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = credentials_file,
@@ -172,7 +172,7 @@ When importing data from **MS SQL, MySQL and PostgreSQL servers**, the user need
 - `driver_name`: the name of the MS driver (only for MS SQL servers).
 - `from`: the name of the table from which the data will be fetched. This can also be the SQL query to be used for fetching data from the system.
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 # VISUALIZING THE FIRST 5 ROWS OF THE TABLE 'author'
 visualise_table(
   data_source      = "mysql-rfam-public.ebi.ac.uk",
