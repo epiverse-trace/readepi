@@ -318,38 +318,6 @@ to supply the <code>driver name</code>.</p>
 <span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
 <span>  driver_name      <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt;  [1] "_annotated_file"             "_family_file"               </span></span>
-<span><span class="co">#&gt;  [3] "_genome_data"                "_lock"                      </span></span>
-<span><span class="co">#&gt;  [5] "_overlap"                    "_overlap_membership"        </span></span>
-<span><span class="co">#&gt;  [7] "_post_process"               "alignment_and_tree"         </span></span>
-<span><span class="co">#&gt;  [9] "author"                      "clan"                       </span></span>
-<span><span class="co">#&gt; [11] "clan_database_link"          "clan_literature_reference"  </span></span>
-<span><span class="co">#&gt; [13] "clan_membership"             "database_link"              </span></span>
-<span><span class="co">#&gt; [15] "db_version"                  "dead_clan"                  </span></span>
-<span><span class="co">#&gt; [17] "dead_family"                 "ensembl_names"              </span></span>
-<span><span class="co">#&gt; [19] "family"                      "family_author"              </span></span>
-<span><span class="co">#&gt; [21] "family_literature_reference" "family_long"                </span></span>
-<span><span class="co">#&gt; [23] "family_ncbi"                 "features"                   </span></span>
-<span><span class="co">#&gt; [25] "full_region"                 "genome"                     </span></span>
-<span><span class="co">#&gt; [27] "genome_temp"                 "genseq"                     </span></span>
-<span><span class="co">#&gt; [29] "genseq_temp"                 "html_alignment"             </span></span>
-<span><span class="co">#&gt; [31] "keywords"                    "literature_reference"       </span></span>
-<span><span class="co">#&gt; [33] "matches_and_fasta"           "motif"                      </span></span>
-<span><span class="co">#&gt; [35] "motif_database_link"         "motif_family_stats"         </span></span>
-<span><span class="co">#&gt; [37] "motif_file"                  "motif_literature"           </span></span>
-<span><span class="co">#&gt; [39] "motif_matches"               "motif_old"                  </span></span>
-<span><span class="co">#&gt; [41] "motif_pdb"                   "motif_ss_image"             </span></span>
-<span><span class="co">#&gt; [43] "pdb"                         "pdb_full_region"            </span></span>
-<span><span class="co">#&gt; [45] "pdb_full_region_old"         "pdb_rfam_reg"               </span></span>
-<span><span class="co">#&gt; [47] "pdb_sequence"                "processed_data"             </span></span>
-<span><span class="co">#&gt; [49] "pseudoknot"                  "refseq"                     </span></span>
-<span><span class="co">#&gt; [51] "refseq_full_region"          "rfamseq"                    </span></span>
-<span><span class="co">#&gt; [53] "rfamseq_temp"                "rnacentral_matches"         </span></span>
-<span><span class="co">#&gt; [55] "rscape_annotations"          "secondary_structure_image"  </span></span>
-<span><span class="co">#&gt; [57] "seed_region"                 "sunburst"                   </span></span>
-<span><span class="co">#&gt; [59] "taxonomic_tree"              "taxonomy"                   </span></span>
-<span><span class="co">#&gt; [61] "taxonomy_websearch"          "version"                    </span></span>
-<span><span class="co">#&gt; [63] "wikitext"</span></span>
 <span><span class="co"># use driver_name = "ODBC Driver 17 for SQL Server" when reading from MS SQL</span></span>
 <span><span class="co"># server</span></span></code></pre></div>
 </div>
@@ -376,12 +344,6 @@ from the system.</li>
 <span>  from             <span class="op">=</span> <span class="st">"author"</span>, <span class="co"># this is the table name</span></span>
 <span>  driver_name      <span class="op">=</span> <span class="st">""</span></span>
 <span><span class="op">)</span></span>
-<span><span class="co">#&gt;   author_id           name   last_name initials               orcid synonyms</span></span>
-<span><span class="co">#&gt; 1         1         Ames T        Ames        T                             </span></span>
-<span><span class="co">#&gt; 2         2   Argasinska J  Argasinska        J 0000-0003-2678-2824         </span></span>
-<span><span class="co">#&gt; 3         3 Bachellerie JP Bachellerie       JP                             </span></span>
-<span><span class="co">#&gt; 4         4    Barquist LE    Barquist       LE 0000-0003-4732-2667         </span></span>
-<span><span class="co">#&gt; 5         5     Barrick JE     Barrick       JE</span></span>
 <span></span>
 <span><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`)</span></span>
 <span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
