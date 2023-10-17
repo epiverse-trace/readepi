@@ -1,0 +1,58 @@
+[
+    {
+        "Id": 1938133186,
+        "Name": "Key Indicators",
+        "Sequence": 1,
+        "ProfileId": 76,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133152,
+        "Name": "Risk factors",
+        "Sequence": 2,
+        "ProfileId": 76,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133151,
+        "Name": "Physical activity",
+        "Sequence": 3,
+        "ProfileId": 76,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133218,
+        "Name": "MSK and comorbidity",
+        "Sequence": 4,
+        "ProfileId": 76,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132773,
+        "Name": "Back pain",
+        "Sequence": 5,
+        "ProfileId": 76,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133148,
+        "Name": "Osteoarthritis",
+        "Sequence": 6,
+        "ProfileId": 76,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133149,
+        "Name": "Osteoporosis and fragility fracture",
+        "Sequence": 7,
+        "ProfileId": 76,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133150,
+        "Name": "Rheumatoid arthritis",
+        "Sequence": 8,
+        "ProfileId": 76,
+        "DataAvailable": null
+    }
+]

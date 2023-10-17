@@ -4,3 +4,10 @@ docs
 .Rproj.user
 /doc/
 /Meta/
+.DS_Store
+.Rhistory
+/..Rcheck/
+/Meta/
+/touchstone/
+/.github/workflows/touchstone-comment.yaml
+/.github/workflows/touchstone-receive.yaml

@@ -1,0 +1,5022 @@
+[
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 10301,
+        "IndicatorName": "Pupil absence"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 10401,
+        "IndicatorName": "First time entrants to the youth justice system"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 90402,
+        "IndicatorName": "Children leaving care: rate per 10,000 children aged under 18"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 90803,
+        "IndicatorName": "Children in care"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 90898,
+        "IndicatorName": "Pupils with special educational needs (SEN): % of school pupils with special educational needs"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 90903,
+        "IndicatorName": "Pupils with Learning Disability: % of school aged pupils"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 90924,
+        "IndicatorName": "Fixed period exclusion due to persistent disruptive behaviour: rate per 100 school aged pupils"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 91161,
+        "IndicatorName": "Primary school fixed period exclusions: rate per 100 pupils"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 91162,
+        "IndicatorName": "Secondary school fixed period exclusions: rate per 100 pupils"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 91548,
+        "IndicatorName": "Smoking prevalence at age 15 - current smokers (WAY survey)"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 91806,
+        "IndicatorName": "Percentage of regular drinkers at age 15"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 91810,
+        "IndicatorName": "Percentage who have taken drugs (excluding cannabis) in the last month at age 15"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 91814,
+        "IndicatorName": "Percentage who were bullied in the past couple of months at age 15"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 91816,
+        "IndicatorName": "Percentage with a long-term illness, disability or medical condition diagnosed by a doctor at age 15"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 91817,
+        "IndicatorName": "Percentage with 3 or more risky behaviours at age 15"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 92821,
+        "IndicatorName": "Children in need due to child disability or illness: rate per 10,000 children aged under 18 years"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 92822,
+        "IndicatorName": "Children in need due to socially unacceptable behaviour: rate per 10,000  aged under 18"
+    },
+    {
+        "GroupId": 1938133096,
+        "IndicatorId": 93203,
+        "IndicatorName": "16 to 17 year olds not in education, employment or training (NEET) or whose activity is not known"
+    },
+    {
+        "GroupId": 1938133376,
+        "IndicatorId": 93622,
+        "IndicatorName": "Attended contacts with community and outpatient mental health services, per 100,000"
+    },
+    {
+        "GroupId": 1938133376,
+        "IndicatorId": 93623,
+        "IndicatorName": "New referrals to secondary mental health services, per 100,000"
+    },
+    {
+        "GroupId": 1938133376,
+        "IndicatorId": 93624,
+        "IndicatorName": "Inpatient stays in secondary mental health services, per 100,000"
+    },
+    {
+        "GroupId": 1938133378,
+        "IndicatorId": 93622,
+        "IndicatorName": "Attended contacts with community and outpatient mental health services, per 100,000"
+    },
+    {
+        "GroupId": 1938133378,
+        "IndicatorId": 93623,
+        "IndicatorName": "New referrals to secondary mental health services, per 100,000"
+    },
+    {
+        "GroupId": 1938133106,
+        "IndicatorId": 219,
+        "IndicatorName": "Hypertension: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133106,
+        "IndicatorId": 280,
+        "IndicatorName": "Atrial fibrillation: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133106,
+        "IndicatorId": 90616,
+        "IndicatorName": "Smoking status of patients with certain conditions recorded in the last 12 months (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133106,
+        "IndicatorId": 90619,
+        "IndicatorName": "Record of offer of support and treatment in the last 24 months for smokers aged 15+ yrs (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133106,
+        "IndicatorId": 91248,
+        "IndicatorName": "new hypertension patients, aged 30-74, with a CV risk assessment >= 20% treated with statins (denominator incl. PCAs) - retired after 2019/20"
+    },
+    {
+        "GroupId": 1938133106,
+        "IndicatorId": 91262,
+        "IndicatorName": "Patients (aged 45+ yrs), who have a record of blood pressure in the last 5 yrs (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133106,
+        "IndicatorId": 91280,
+        "IndicatorName": "Smoking: QOF prevalence (15+ yrs)"
+    },
+    {
+        "GroupId": 1938133106,
+        "IndicatorId": 93553,
+        "IndicatorName": "Deprivation score (IMD 2019)"
+    },
+    {
+        "GroupId": 1938133106,
+        "IndicatorId": 93709,
+        "IndicatorName": "Last BP reading of patients (<80 yrs, with hypertension), in the last 12 months is <= 140/90 mmHg (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133106,
+        "IndicatorId": 93710,
+        "IndicatorName": "Last BP reading of patients (80+ yrs, with hypertension), in the last 12 months is <= 150/90 mmHg (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 241,
+        "IndicatorName": "Diabetes: QOF prevalence (17+ yrs)"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92287,
+        "IndicatorName": "Level of participation in the National Diabetes Audit"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92828,
+        "IndicatorName": "People with type 1 diabetes who received a blood test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92829,
+        "IndicatorName": "People with type 2 diabetes who received a blood test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92830,
+        "IndicatorName": "People with type 1 diabetes who received a blood pressure check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92831,
+        "IndicatorName": "People with type 2 diabetes who received a blood pressure check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92832,
+        "IndicatorName": "People with type 1 diabetes who received a cholesterol check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92833,
+        "IndicatorName": "People with type 2 diabetes who received a cholesterol check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92834,
+        "IndicatorName": "People with type 1 diabetes who received a serum creatinine test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92835,
+        "IndicatorName": "People with type 2 diabetes who received a serum creatinine test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92836,
+        "IndicatorName": "People with type 1 diabetes who received urinary albumin test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92837,
+        "IndicatorName": "People with type 2 diabetes who received urinary albumin test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92842,
+        "IndicatorName": "People with type 1 diabetes who have received an annual foot check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92843,
+        "IndicatorName": "People with type 2 diabetes who have received an annual foot check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92870,
+        "IndicatorName": "People with type 1 diabetes whose smoking status is recorded"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92871,
+        "IndicatorName": "People with type 2 diabetes whose smoking status is recorded"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92872,
+        "IndicatorName": "People with type 1 diabetes who received all 8 care processes"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92873,
+        "IndicatorName": "People with type 2 diabetes who received all 8 care processes"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92874,
+        "IndicatorName": "People with type 1 diabetes who achieved all three treatment targets"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92875,
+        "IndicatorName": "People with type 2 diabetes who achieved all three treatment targets"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92878,
+        "IndicatorName": "People with type 1 diabetes who achieved a blood glucose level of less than 58 mmol/mol"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92879,
+        "IndicatorName": "People with type 2 diabetes who achieved a blood glucose level of less than 58 mmol/mol"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92882,
+        "IndicatorName": "People with type 1 diabetes who achieved a blood pressure less or equal to 140/80"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92883,
+        "IndicatorName": "People with type 2 diabetes who achieved a blood pressure less or equal to 140/80"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92886,
+        "IndicatorName": "People with type 1 diabetes who achieved a cholesterol value of 5mmol/l or less"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92887,
+        "IndicatorName": "People with type 2 diabetes who achieved a cholesterol value of 5mmol/l or less"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92950,
+        "IndicatorName": "People with type 1 diabetes who have had their BMI recorded"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92951,
+        "IndicatorName": "People with type 2 diabetes who have had their BMI recorded"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 92952,
+        "IndicatorName": "Estimated prevalence of diabetes (undiagnosed and diagnosed)"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93204,
+        "IndicatorName": "Percentage of people with type 1 diabetes aged under 40"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93205,
+        "IndicatorName": "Percentage of people with type 1 diabetes aged 40 to 64"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93206,
+        "IndicatorName": "Percentage of people with type 1 diabetes aged 65 to 79"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93207,
+        "IndicatorName": "Percentage of people with type 1 diabetes aged 80 and over"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93208,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged under 40"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93209,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged 40 to 64"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93210,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged 65 to 79"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93211,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged 80 and over"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93212,
+        "IndicatorName": "Percentage of people with type 1 diabetes who are male"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93213,
+        "IndicatorName": "Percentage of people with type 1 diabetes who are female"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93214,
+        "IndicatorName": "Percentage of people with type 2 diabetes who are male"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93216,
+        "IndicatorName": "Percentage of people with type 2 diabetes who are female"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93220,
+        "IndicatorName": "Percentage of people with type 1 diabetes who are white"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93221,
+        "IndicatorName": "Percentage of people with type 1 diabetes who are of minority ethnic origin"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93222,
+        "IndicatorName": "Percentage of people with type 2 diabetes who are white"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93223,
+        "IndicatorName": "Percentage of people with type 2 diabetes who are of minority ethnic origin"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93244,
+        "IndicatorName": "Additional risk of angina among people with diabetes"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93245,
+        "IndicatorName": "Additional risk of myocardial infarction among people with diabetes"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93246,
+        "IndicatorName": "Additional risk of heart failure among people with diabetes"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93247,
+        "IndicatorName": "Additional risk of stroke among people with diabetes"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93248,
+        "IndicatorName": "Additional risk of renal replacement therapy among people with diabetes"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93261,
+        "IndicatorName": "Additional risk of death in people with diabetes"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93327,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received all 8 care processes"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93328,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received all 8 care processes"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93329,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received a blood test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93330,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received a blood test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93331,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received a blood pressure check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93332,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received a blood pressure check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93333,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received a cholesterol check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93334,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received a cholesterol check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93335,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received a serum creatinine test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93336,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received a serum creatinine test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93337,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received a urinary albumin test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93338,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received a urinary albumin test"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93339,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received an annual foot check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93340,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received an annual foot check"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93341,
+        "IndicatorName": "Ratio of people with type 1 diabetes who have had their BMI recorded"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93342,
+        "IndicatorName": "Ratio of people with type 2 diabetes who have had their BMI recorded"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93343,
+        "IndicatorName": "Ratio of people with type 1 diabetes whose smoking status is recorded"
+    },
+    {
+        "GroupId": 1938133107,
+        "IndicatorId": 93344,
+        "IndicatorName": "Ratio of people with type 2 diabetes whose smoking status is recorded"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 262,
+        "IndicatorName": "Heart Failure: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 273,
+        "IndicatorName": "CHD: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 849,
+        "IndicatorName": "Heart failure with LVSD: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 90987,
+        "IndicatorName": "Heart failure admissions (all ages)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 90988,
+        "IndicatorName": "CHD admissions (all ages)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 90999,
+        "IndicatorName": "For patients with CHD, a record that aspirin, APT or ACT is taken exists (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 91000,
+        "IndicatorName": "Patients with CHD immunised against flu (denominator incl. PCAs) - retired after 2020/21"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 91001,
+        "IndicatorName": "Diagnosis confirmed by ECG/specialist assessment (denominator incl. PCAs) - retired after 2019/20"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 91005,
+        "IndicatorName": "Heart failure w LVSD: treated with ACE-I or ARB (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 91058,
+        "IndicatorName": "Proportion of deaths at home (or usual place of residence) from heart failure"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 91059,
+        "IndicatorName": "Coronary heart disease mortality rates, under 75 years"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 93110,
+        "IndicatorName": "Primary PCI intervention time from calling for help for heart attack patients"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 93705,
+        "IndicatorName": "Last BP reading of patients (<80 yrs, with CHD) in the last 12 months is <= 140/90 mmHg (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 93706,
+        "IndicatorName": "Last BP reading of patients (80+ yrs, with CHD) in the last 12 months is <= 150/90 mmHg (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 93793,
+        "IndicatorName": "Patients' heart failure diagnosis confirmed by an ECG or specialist assessment (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 93794,
+        "IndicatorName": "Patients with heart failure due to LVSD treated with beta-blockers (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133108,
+        "IndicatorId": 93795,
+        "IndicatorName": "Patients with heart failure who had a review in the last 12 months, including the assessment of functional capacity (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133109,
+        "IndicatorId": 258,
+        "IndicatorName": "CKD: QOF prevalence (18+ yrs)"
+    },
+    {
+        "GroupId": 1938133109,
+        "IndicatorId": 91020,
+        "IndicatorName": "RRT acceptance rate"
+    },
+    {
+        "GroupId": 1938133109,
+        "IndicatorId": 91021,
+        "IndicatorName": "Number of people receiving RRT"
+    },
+    {
+        "GroupId": 1938133109,
+        "IndicatorId": 91022,
+        "IndicatorName": "Ratio of observed to expected RRT acceptance rate"
+    },
+    {
+        "GroupId": 1938133109,
+        "IndicatorId": 91023,
+        "IndicatorName": "Percentage change in number of people receiving RRT"
+    },
+    {
+        "GroupId": 1938133109,
+        "IndicatorId": 91025,
+        "IndicatorName": "The proportion of patients receiving home dialysis (Home HD and PD combined)"
+    },
+    {
+        "GroupId": 1938133109,
+        "IndicatorId": 91029,
+        "IndicatorName": "The percentage of all people receiving RRT on the different modality types: Kidney transplant"
+    },
+    {
+        "GroupId": 1938133109,
+        "IndicatorId": 91486,
+        "IndicatorName": "The percentage of all people receiving RRT on the different modality types: Home dialysis"
+    },
+    {
+        "GroupId": 1938133109,
+        "IndicatorId": 91487,
+        "IndicatorName": "The percentage of all people receiving RRT on the different modality types: Hospital dialysis"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 212,
+        "IndicatorName": "Stroke: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 280,
+        "IndicatorName": "Atrial fibrillation: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 90986,
+        "IndicatorName": "Stroke all age admission trends"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 91013,
+        "IndicatorName": "For patients with stroke a record exists that an anti-platelet agent or an anti-coagulant is taken (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 91061,
+        "IndicatorName": "Stroke mortality rates, under 75 years (age standardised)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 91106,
+        "IndicatorName": "Stroke mortality rates, over 75 years (age standardised)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 91459,
+        "IndicatorName": "Estimated prevalence of atrial fibrillation"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 91462,
+        "IndicatorName": "Stroke admissions with history of atrial fibrillation not prescribed anticoagulation prior to stroke"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 91468,
+        "IndicatorName": "Stroke admissions (Sentinel Stroke National Audit Programme)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 91469,
+        "IndicatorName": "Stroke patients who are assessed at 6 months"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 92594,
+        "IndicatorName": "Patients with AF who are treated w anti-coag. therapy (CHADS2DS2-VASc >=2) (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 93196,
+        "IndicatorName": "Stroke outcomes on discharge for patients with AF and not on anticoagulation (mRs = 0)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 93197,
+        "IndicatorName": "Stroke outcomes on discharge for patients with AF and not on anticoagulation (mRs = 1)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 93198,
+        "IndicatorName": "Stroke outcomes on discharge for patients with AF and not on anticoagulation (mRs = 2)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 93199,
+        "IndicatorName": "Stroke outcomes on discharge for patients with AF and not on anticoagulation (mRs = 3)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 93200,
+        "IndicatorName": "Stroke outcomes on discharge for patients with AF and not on anticoagulation (mRs = 4)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 93201,
+        "IndicatorName": "Stroke outcomes on discharge for patients with AF and not on anticoagulation (mRs = 5)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 93202,
+        "IndicatorName": "Stroke outcomes on discharge for patients with AF and not on anticoagulation (mRs = 6)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 93707,
+        "IndicatorName": "Last BP reading of patients (<80 yrs, with a history of stroke or TIA) in the last 12 months is <= 140/90 mmHg (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133110,
+        "IndicatorId": 93708,
+        "IndicatorName": "Last BP reading of patients (80+ yrs, with a history of stroke or TIA) in the last 12 months is <= 150/90 mmHg (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 241,
+        "IndicatorName": "Diabetes: QOF prevalence (17+ yrs)"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 336,
+        "IndicatorName": "% population aged 65+ yrs (GP registered)"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 92952,
+        "IndicatorName": "Estimated prevalence of diabetes (undiagnosed and diagnosed)"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 92998,
+        "IndicatorName": "Estimated prevalence of non-diabetic hyperglycaemia for adults aged 16 and over in Engand"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93204,
+        "IndicatorName": "Percentage of people with type 1 diabetes aged under 40"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93205,
+        "IndicatorName": "Percentage of people with type 1 diabetes aged 40 to 64"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93206,
+        "IndicatorName": "Percentage of people with type 1 diabetes aged 65 to 79"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93207,
+        "IndicatorName": "Percentage of people with type 1 diabetes aged 80 and over"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93208,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged under 40"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93209,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged 40 to 64"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93210,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged 65 to 79"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93211,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged 80 and over"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93212,
+        "IndicatorName": "Percentage of people with type 1 diabetes who are male"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93213,
+        "IndicatorName": "Percentage of people with type 1 diabetes who are female"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93214,
+        "IndicatorName": "Percentage of people with type 2 diabetes who are male"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93216,
+        "IndicatorName": "Percentage of people with type 2 diabetes who are female"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93220,
+        "IndicatorName": "Percentage of people with type 1 diabetes who are white"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93221,
+        "IndicatorName": "Percentage of people with type 1 diabetes who are of minority ethnic origin"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93222,
+        "IndicatorName": "Percentage of people with type 2 diabetes who are white"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93223,
+        "IndicatorName": "Percentage of people with type 2 diabetes who are of minority ethnic origin"
+    },
+    {
+        "GroupId": 1938133138,
+        "IndicatorId": 93553,
+        "IndicatorName": "Deprivation score (IMD 2019)"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92287,
+        "IndicatorName": "Level of participation in the National Diabetes Audit"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92828,
+        "IndicatorName": "People with type 1 diabetes who received a blood test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92829,
+        "IndicatorName": "People with type 2 diabetes who received a blood test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92830,
+        "IndicatorName": "People with type 1 diabetes who received a blood pressure check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92831,
+        "IndicatorName": "People with type 2 diabetes who received a blood pressure check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92832,
+        "IndicatorName": "People with type 1 diabetes who received a cholesterol check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92833,
+        "IndicatorName": "People with type 2 diabetes who received a cholesterol check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92834,
+        "IndicatorName": "People with type 1 diabetes who received a serum creatinine test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92835,
+        "IndicatorName": "People with type 2 diabetes who received a serum creatinine test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92836,
+        "IndicatorName": "People with type 1 diabetes who received urinary albumin test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92837,
+        "IndicatorName": "People with type 2 diabetes who received urinary albumin test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92842,
+        "IndicatorName": "People with type 1 diabetes who have received an annual foot check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92843,
+        "IndicatorName": "People with type 2 diabetes who have received an annual foot check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92870,
+        "IndicatorName": "People with type 1 diabetes whose smoking status is recorded"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92871,
+        "IndicatorName": "People with type 2 diabetes whose smoking status is recorded"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92872,
+        "IndicatorName": "People with type 1 diabetes who received all 8 care processes"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92873,
+        "IndicatorName": "People with type 2 diabetes who received all 8 care processes"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92950,
+        "IndicatorName": "People with type 1 diabetes who have had their BMI recorded"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 92951,
+        "IndicatorName": "People with type 2 diabetes who have had their BMI recorded"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93327,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received all 8 care processes"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93328,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received all 8 care processes"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93329,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received a blood test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93330,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received a blood test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93331,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received a blood pressure check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93332,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received a blood pressure check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93333,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received a cholesterol check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93334,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received a cholesterol check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93335,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received a serum creatinine test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93336,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received a serum creatinine test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93337,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received a urinary albumin test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93338,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received a urinary albumin test"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93339,
+        "IndicatorName": "Ratio of people with type 1 diabetes who received an annual foot check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93340,
+        "IndicatorName": "Ratio of people with type 2 diabetes who received an annual foot check"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93341,
+        "IndicatorName": "Ratio of people with type 1 diabetes who have had their BMI recorded"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93342,
+        "IndicatorName": "Ratio of people with type 2 diabetes who have had their BMI recorded"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93343,
+        "IndicatorName": "Ratio of people with type 1 diabetes whose smoking status is recorded"
+    },
+    {
+        "GroupId": 1938133136,
+        "IndicatorId": 93344,
+        "IndicatorName": "Ratio of people with type 2 diabetes whose smoking status is recorded"
+    },
+    {
+        "GroupId": 1938133158,
+        "IndicatorId": 92287,
+        "IndicatorName": "Level of participation in the National Diabetes Audit"
+    },
+    {
+        "GroupId": 1938133158,
+        "IndicatorId": 93000,
+        "IndicatorName": "People with type 1 diabetes who were offered the diabetes structured education programme within 12 months of diagnosis : Percentage of people offered (%)"
+    },
+    {
+        "GroupId": 1938133158,
+        "IndicatorId": 93001,
+        "IndicatorName": "People with type 1 diabetes who attended the diabetes structured education programme within 12 months of diagnosis : Percentage of people who attended (%)"
+    },
+    {
+        "GroupId": 1938133158,
+        "IndicatorId": 93002,
+        "IndicatorName": "People with type 2 diabetes who were offered the diabetes structured education programme within 12 months of diagnosis : Percentage of people offered (%)"
+    },
+    {
+        "GroupId": 1938133158,
+        "IndicatorId": 93003,
+        "IndicatorName": "People with type 2 diabetes who attended the diabetes structured education programme within 12 months of diagnosis : Percentage of people who attended (%)"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92287,
+        "IndicatorName": "Level of participation in the National Diabetes Audit"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92874,
+        "IndicatorName": "People with type 1 diabetes who achieved all three treatment targets"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92875,
+        "IndicatorName": "People with type 2 diabetes who achieved all three treatment targets"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92876,
+        "IndicatorName": "People with type 1 diabetes who achieved a blood glucose level of less than 48 mmol/mol"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92877,
+        "IndicatorName": "People with type 2 diabetes who achieved a blood glucose level of less than 48 mmol/mol"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92878,
+        "IndicatorName": "People with type 1 diabetes who achieved a blood glucose level of less than 58 mmol/mol"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92879,
+        "IndicatorName": "People with type 2 diabetes who achieved a blood glucose level of less than 58 mmol/mol"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92880,
+        "IndicatorName": "People with type 1 diabetes who achieved a blood glucose level of less than 86 mmol/mol"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92881,
+        "IndicatorName": "People with type 2 diabetes who achieved a blood glucose level of less than 86 mmol/mol"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92882,
+        "IndicatorName": "People with type 1 diabetes who achieved a blood pressure less or equal to 140/80"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92883,
+        "IndicatorName": "People with type 2 diabetes who achieved a blood pressure less or equal to 140/80"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92884,
+        "IndicatorName": "People with type 1 diabetes who achieved a cholesterol value of 4mmol/l or less"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92885,
+        "IndicatorName": "People with type 2 diabetes who achieved a cholesterol value of 4mmol/l or less"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92886,
+        "IndicatorName": "People with type 1 diabetes who achieved a cholesterol value of 5mmol/l or less"
+    },
+    {
+        "GroupId": 1938133135,
+        "IndicatorId": 92887,
+        "IndicatorName": "People with type 2 diabetes who achieved a cholesterol value of 5mmol/l or less"
+    },
+    {
+        "GroupId": 1938133137,
+        "IndicatorId": 93244,
+        "IndicatorName": "Additional risk of angina among people with diabetes"
+    },
+    {
+        "GroupId": 1938133137,
+        "IndicatorId": 93245,
+        "IndicatorName": "Additional risk of myocardial infarction among people with diabetes"
+    },
+    {
+        "GroupId": 1938133137,
+        "IndicatorId": 93246,
+        "IndicatorName": "Additional risk of heart failure among people with diabetes"
+    },
+    {
+        "GroupId": 1938133137,
+        "IndicatorId": 93247,
+        "IndicatorName": "Additional risk of stroke among people with diabetes"
+    },
+    {
+        "GroupId": 1938133137,
+        "IndicatorId": 93248,
+        "IndicatorName": "Additional risk of renal replacement therapy among people with diabetes"
+    },
+    {
+        "GroupId": 1938133137,
+        "IndicatorId": 93261,
+        "IndicatorName": "Additional risk of death in people with diabetes"
+    },
+    {
+        "GroupId": 1938133181,
+        "IndicatorId": 92842,
+        "IndicatorName": "People with type 1 diabetes who have received an annual foot check"
+    },
+    {
+        "GroupId": 1938133181,
+        "IndicatorId": 92843,
+        "IndicatorName": "People with type 2 diabetes who have received an annual foot check"
+    },
+    {
+        "GroupId": 1938133181,
+        "IndicatorId": 93047,
+        "IndicatorName": "Major diabetic lower-limb amputation procedures"
+    },
+    {
+        "GroupId": 1938133181,
+        "IndicatorId": 93049,
+        "IndicatorName": "Minor diabetic lower-limb amputation procedures"
+    },
+    {
+        "GroupId": 1938133181,
+        "IndicatorId": 93051,
+        "IndicatorName": "Hospital spells for diabetic foot disease"
+    },
+    {
+        "GroupId": 1938133162,
+        "IndicatorId": 93008,
+        "IndicatorName": "Child obesity summary rank"
+    },
+    {
+        "GroupId": 1938133162,
+        "IndicatorId": 93009,
+        "IndicatorName": "NHS Health Check summary rank"
+    },
+    {
+        "GroupId": 1938133162,
+        "IndicatorId": 93010,
+        "IndicatorName": "Alcohol treatment summary rank"
+    },
+    {
+        "GroupId": 1938133162,
+        "IndicatorId": 93013,
+        "IndicatorName": "Tobacco control summary rank"
+    },
+    {
+        "GroupId": 1938133162,
+        "IndicatorId": 93016,
+        "IndicatorName": "Drug treatment summary rank"
+    },
+    {
+        "GroupId": 1938133162,
+        "IndicatorId": 93017,
+        "IndicatorName": "Sexual and reproductive health summary rank"
+    },
+    {
+        "GroupId": 1938133162,
+        "IndicatorId": 93032,
+        "IndicatorName": "Best start in life summary rank"
+    },
+    {
+        "GroupId": 1938133162,
+        "IndicatorId": 93384,
+        "IndicatorName": "Proportion of population living within AQMAs (%)"
+    },
+    {
+        "GroupId": 1938133145,
+        "IndicatorId": 90319,
+        "IndicatorName": "Reception: Prevalence of obesity (including severe obesity)"
+    },
+    {
+        "GroupId": 1938133145,
+        "IndicatorId": 90323,
+        "IndicatorName": "Year 6: Prevalence of obesity (including severe obesity)"
+    },
+    {
+        "GroupId": 1938133145,
+        "IndicatorId": 93008,
+        "IndicatorName": "Child obesity summary rank"
+    },
+    {
+        "GroupId": 1938133161,
+        "IndicatorId": 91099,
+        "IndicatorName": "Cumulative percentage of the eligible population aged 40 to 74 offered an NHS Health Check"
+    },
+    {
+        "GroupId": 1938133161,
+        "IndicatorId": 91101,
+        "IndicatorName": "Cumulative percentage of the eligible population aged 40 to 74 who received an NHS Health check"
+    },
+    {
+        "GroupId": 1938133161,
+        "IndicatorId": 93009,
+        "IndicatorName": "NHS Health Check summary rank"
+    },
+    {
+        "GroupId": 1938133163,
+        "IndicatorId": 92443,
+        "IndicatorName": "Smoking Prevalence in adults (18+) - current smokers (APS)"
+    },
+    {
+        "GroupId": 1938133163,
+        "IndicatorId": 93013,
+        "IndicatorName": "Tobacco control summary rank"
+    },
+    {
+        "GroupId": 1938133163,
+        "IndicatorId": 93085,
+        "IndicatorName": "Smoking status at time of delivery"
+    },
+    {
+        "GroupId": 1938133155,
+        "IndicatorId": 91123,
+        "IndicatorName": "Proportion waiting more than 3 weeks for alcohol treatment"
+    },
+    {
+        "GroupId": 1938133155,
+        "IndicatorId": 93010,
+        "IndicatorName": "Alcohol treatment summary rank"
+    },
+    {
+        "GroupId": 1938133155,
+        "IndicatorId": 93012,
+        "IndicatorName": "Deaths in alcohol treatment, mortality ratio"
+    },
+    {
+        "GroupId": 1938133155,
+        "IndicatorId": 93531,
+        "IndicatorName": "Successful completion of alcohol treatment, treatment ratio (Current method)"
+    },
+    {
+        "GroupId": 1938133155,
+        "IndicatorId": 93532,
+        "IndicatorName": "Proportion of dependent drinkers not in treatment (%) (Current method)"
+    },
+    {
+        "GroupId": 1938133144,
+        "IndicatorId": 91122,
+        "IndicatorName": "Proportion waiting more than 3 weeks for drug treatment"
+    },
+    {
+        "GroupId": 1938133144,
+        "IndicatorId": 92962,
+        "IndicatorName": "Deaths in drug treatment, mortality ratio"
+    },
+    {
+        "GroupId": 1938133144,
+        "IndicatorId": 93016,
+        "IndicatorName": "Drug treatment summary rank"
+    },
+    {
+        "GroupId": 1938133144,
+        "IndicatorId": 93516,
+        "IndicatorName": "Successful completion of drug treatment, treatment ratio (Current method)"
+    },
+    {
+        "GroupId": 1938133144,
+        "IndicatorId": 93517,
+        "IndicatorName": "Proportion of opiates and/or crack cocaine users (i.e. OCU) not in treatment (%)"
+    },
+    {
+        "GroupId": 1938133159,
+        "IndicatorId": 90631,
+        "IndicatorName": "School readiness: percentage of children achieving a good level of development at the end of Reception"
+    },
+    {
+        "GroupId": 1938133159,
+        "IndicatorId": 92517,
+        "IndicatorName": "Breastfeeding prevalence at 6-8 weeks after birth - current method"
+    },
+    {
+        "GroupId": 1938133159,
+        "IndicatorId": 92543,
+        "IndicatorName": "Proportion of children aged 2-2½yrs receiving ASQ-3 as part of the Healthy Child Programme or integrated review"
+    },
+    {
+        "GroupId": 1938133159,
+        "IndicatorId": 93032,
+        "IndicatorName": "Best start in life summary rank"
+    },
+    {
+        "GroupId": 1938133159,
+        "IndicatorId": 93469,
+        "IndicatorName": "Proportion of New Birth Visits (NBVs) completed within 14 days"
+    },
+    {
+        "GroupId": 1938133160,
+        "IndicatorId": 20401,
+        "IndicatorName": "Under 18s conception rate / 1,000"
+    },
+    {
+        "GroupId": 1938133160,
+        "IndicatorId": 91307,
+        "IndicatorName": "STI testing rate (exclude chlamydia aged under 25) per 100,000"
+    },
+    {
+        "GroupId": 1938133160,
+        "IndicatorId": 91514,
+        "IndicatorName": "Chlamydia detection rate per 100,000 aged 15 to 24"
+    },
+    {
+        "GroupId": 1938133160,
+        "IndicatorId": 91525,
+        "IndicatorName": "HIV testing coverage, total"
+    },
+    {
+        "GroupId": 1938133160,
+        "IndicatorId": 92254,
+        "IndicatorName": "Total prescribed LARC excluding injections rate / 1,000"
+    },
+    {
+        "GroupId": 1938133160,
+        "IndicatorId": 93017,
+        "IndicatorName": "Sexual and reproductive health summary rank"
+    },
+    {
+        "GroupId": 1938133221,
+        "IndicatorId": 93384,
+        "IndicatorName": "Proportion of population living within AQMAs (%)"
+    },
+    {
+        "GroupId": 1938133143,
+        "IndicatorId": 90319,
+        "IndicatorName": "Reception: Prevalence of obesity (including severe obesity)"
+    },
+    {
+        "GroupId": 1938133143,
+        "IndicatorId": 90323,
+        "IndicatorName": "Year 6: Prevalence of obesity (including severe obesity)"
+    },
+    {
+        "GroupId": 1938133156,
+        "IndicatorId": 91099,
+        "IndicatorName": "Cumulative percentage of the eligible population aged 40 to 74 offered an NHS Health Check"
+    },
+    {
+        "GroupId": 1938133156,
+        "IndicatorId": 91101,
+        "IndicatorName": "Cumulative percentage of the eligible population aged 40 to 74 who received an NHS Health check"
+    },
+    {
+        "GroupId": 1938133197,
+        "IndicatorId": 92443,
+        "IndicatorName": "Smoking Prevalence in adults (18+) - current smokers (APS)"
+    },
+    {
+        "GroupId": 1938133197,
+        "IndicatorId": 93085,
+        "IndicatorName": "Smoking status at time of delivery"
+    },
+    {
+        "GroupId": 1938133154,
+        "IndicatorId": 91123,
+        "IndicatorName": "Proportion waiting more than 3 weeks for alcohol treatment"
+    },
+    {
+        "GroupId": 1938133154,
+        "IndicatorId": 93012,
+        "IndicatorName": "Deaths in alcohol treatment, mortality ratio"
+    },
+    {
+        "GroupId": 1938133154,
+        "IndicatorId": 93531,
+        "IndicatorName": "Successful completion of alcohol treatment, treatment ratio (Current method)"
+    },
+    {
+        "GroupId": 1938133154,
+        "IndicatorId": 93532,
+        "IndicatorName": "Proportion of dependent drinkers not in treatment (%) (Current method)"
+    },
+    {
+        "GroupId": 1938133142,
+        "IndicatorId": 91122,
+        "IndicatorName": "Proportion waiting more than 3 weeks for drug treatment"
+    },
+    {
+        "GroupId": 1938133142,
+        "IndicatorId": 92962,
+        "IndicatorName": "Deaths in drug treatment, mortality ratio"
+    },
+    {
+        "GroupId": 1938133142,
+        "IndicatorId": 93516,
+        "IndicatorName": "Successful completion of drug treatment, treatment ratio (Current method)"
+    },
+    {
+        "GroupId": 1938133142,
+        "IndicatorId": 93517,
+        "IndicatorName": "Proportion of opiates and/or crack cocaine users (i.e. OCU) not in treatment (%)"
+    },
+    {
+        "GroupId": 1938133198,
+        "IndicatorId": 90631,
+        "IndicatorName": "School readiness: percentage of children achieving a good level of development at the end of Reception"
+    },
+    {
+        "GroupId": 1938133198,
+        "IndicatorId": 92517,
+        "IndicatorName": "Breastfeeding prevalence at 6-8 weeks after birth - current method"
+    },
+    {
+        "GroupId": 1938133198,
+        "IndicatorId": 92543,
+        "IndicatorName": "Proportion of children aged 2-2½yrs receiving ASQ-3 as part of the Healthy Child Programme or integrated review"
+    },
+    {
+        "GroupId": 1938133198,
+        "IndicatorId": 93469,
+        "IndicatorName": "Proportion of New Birth Visits (NBVs) completed within 14 days"
+    },
+    {
+        "GroupId": 1938133157,
+        "IndicatorId": 20401,
+        "IndicatorName": "Under 18s conception rate / 1,000"
+    },
+    {
+        "GroupId": 1938133157,
+        "IndicatorId": 91307,
+        "IndicatorName": "STI testing rate (exclude chlamydia aged under 25) per 100,000"
+    },
+    {
+        "GroupId": 1938133157,
+        "IndicatorId": 91514,
+        "IndicatorName": "Chlamydia detection rate per 100,000 aged 15 to 24"
+    },
+    {
+        "GroupId": 1938133157,
+        "IndicatorId": 91525,
+        "IndicatorName": "HIV testing coverage, total"
+    },
+    {
+        "GroupId": 1938133157,
+        "IndicatorId": 92254,
+        "IndicatorName": "Total prescribed LARC excluding injections rate / 1,000"
+    },
+    {
+        "GroupId": 1938133220,
+        "IndicatorId": 93384,
+        "IndicatorName": "Proportion of population living within AQMAs (%)"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93081,
+        "IndicatorName": "Percentage of the total resident population who are 65 and over"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93082,
+        "IndicatorName": "Percentage of the total resident population who are 25 to 64 years of age"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93083,
+        "IndicatorName": "Percentage of the total resident population who are 16 to 24 years of age"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93084,
+        "IndicatorName": "Percentage of the total resident population who are 0 to 15 years of age"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93087,
+        "IndicatorName": "Percentage of population whose ethnicity is not 'White UK'"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93094,
+        "IndicatorName": "Child Poverty, Income deprivation affecting children index (IDACI)"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93097,
+        "IndicatorName": "Unemployment (Percentage of the working age population claiming out of work benefit)"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93098,
+        "IndicatorName": "Long-Term Unemployment- rate per 1,000 working age population"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93103,
+        "IndicatorName": "Older people living alone, % of people aged 65 and over who are living alone"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93226,
+        "IndicatorName": "Percentage of the total resident population aged 85 and over"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93267,
+        "IndicatorName": "Percentage of population whose ethnic group is not 'white'"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93268,
+        "IndicatorName": "Income deprivation, English Indices of Deprivation"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93274,
+        "IndicatorName": "The percentage of people that cannot speak English well or at all,  2011"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93275,
+        "IndicatorName": "Index of Multiple Deprivation (IMD) Score"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93277,
+        "IndicatorName": "Households with overcrowding based on overall room occupancy levels"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93279,
+        "IndicatorName": "Older people in poverty: Income deprivation affecting older people Index (IDAOPI)"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93280,
+        "IndicatorName": "Modelled estimates of the proportion of households in fuel poverty (%)"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93482,
+        "IndicatorName": "Percentage of households in Poverty"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93744,
+        "IndicatorName": "Percentage of the total resident population who are 0 to 4 years of age"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93745,
+        "IndicatorName": "Percentage of the total resident population who are 5 to 15 years of age"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93746,
+        "IndicatorName": "Percentage of the total resident population who are 50 to 64 years of age"
+    },
+    {
+        "GroupId": 1938133180,
+        "IndicatorId": 93747,
+        "IndicatorName": "Population density, people per square kilometre"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93089,
+        "IndicatorName": "General fertility rate: live births per 1,000 women aged 15-44 years. five year pooled"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93092,
+        "IndicatorName": "Low birth weight of live babies, five year pooled"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93105,
+        "IndicatorName": "Reception: Prevalence of obesity (including severe obesity), 3-years data combined"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93106,
+        "IndicatorName": "Reception: Prevalence of overweight (including obesity), 3-years data combined"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93107,
+        "IndicatorName": "Year 6: Prevalence of obesity (including severe obesity), 3-years data combined"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93108,
+        "IndicatorName": "Year 6: Prevalence of overweight (including obesity), 3-years data combined"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93113,
+        "IndicatorName": "Deliveries to teenage mothers"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93114,
+        "IndicatorName": "Emergency hospital admissions for injuries in under 5 years old, crude rate"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93115,
+        "IndicatorName": "Emergency hospital admissions in under 5 years old, crude rate"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93219,
+        "IndicatorName": "Emergency hospital admissions for injuries in under 15 years old, crude rate"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93224,
+        "IndicatorName": "Emergency hospital admissions for injuries in 15 to 24 years old, crude rate"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93488,
+        "IndicatorName": "Smoking prevalence at age 15 - regular smokers (modelled estimates)"
+    },
+    {
+        "GroupId": 1938133183,
+        "IndicatorId": 93489,
+        "IndicatorName": "Smoking prevalence at age 15 - regular or occasional smokers (modelled estimates)"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93227,
+        "IndicatorName": "Emergency hospital admissions for all causes, all ages, standardised admission ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93229,
+        "IndicatorName": "Emergency hospital admissions for coronary heart disease, standardised admission ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93231,
+        "IndicatorName": "Emergency hospital admissions for stroke, standardised admission ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93232,
+        "IndicatorName": "Emergency hospital admissions for Myocardial Infarction (heart attack), standardised admission ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93233,
+        "IndicatorName": "Emergency hospital admissions for Chronic Obstructive Pulmonary Disease (COPD), standardised admission ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93234,
+        "IndicatorName": "Incidence of all cancers, standardised incidence ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93235,
+        "IndicatorName": "Incidence of breast cancer, standardised incidence ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93236,
+        "IndicatorName": "Incidence of colorectal cancer, standardised incidence ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93237,
+        "IndicatorName": "Incidence of lung cancer, standardised incidence ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93238,
+        "IndicatorName": "Incidence of prostate cancer, standardised incidence ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93239,
+        "IndicatorName": "Emergency hospital admissions for intentional self harm, standardised admission ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93240,
+        "IndicatorName": "Hospital admissions for alcohol attributable conditions, (Narrow definition)"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93241,
+        "IndicatorName": "Emergency hospital admissions for hip fracture in persons 65 years and over, standardised admission ratio"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93276,
+        "IndicatorName": "Percentage of people who reported having a limiting long term illness or disability"
+    },
+    {
+        "GroupId": 1938133184,
+        "IndicatorId": 93465,
+        "IndicatorName": "Hospital admissions for alcohol attributable conditions, (Broad definition)"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93250,
+        "IndicatorName": "Deaths from all causes, all ages, standardised mortality ratio"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93252,
+        "IndicatorName": "Deaths from all causes, under 75 years, standardised mortality ratio"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93253,
+        "IndicatorName": "Deaths from all cancer, all ages, standardised mortality ratio"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93254,
+        "IndicatorName": "Deaths from all cancer, under 75 years, standardised mortality ratio (SMR)"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93255,
+        "IndicatorName": "Deaths from circulatory disease, all ages, standardised mortality ratio"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93256,
+        "IndicatorName": "Deaths from circulatory disease, under 75 years, standardised mortality ratio"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93257,
+        "IndicatorName": "Deaths from coronary heart disease, all ages, standardised mortality ratio"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93259,
+        "IndicatorName": "Deaths from stroke, all ages, standardised mortality ratio"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93260,
+        "IndicatorName": "Deaths from respiratory diseases, all ages, standardised mortality ratio"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93283,
+        "IndicatorName": "Life expectancy at birth, (upper age band 90 and over)"
+    },
+    {
+        "GroupId": 1938133185,
+        "IndicatorId": 93480,
+        "IndicatorName": "Deaths from causes considered preventable, under 75 years, standardised mortality ratio"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 219,
+        "IndicatorName": "Hypertension: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 22001,
+        "IndicatorName": "Cancer screening coverage: breast cancer"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 30313,
+        "IndicatorName": "Population vaccination coverage: PPV"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 30314,
+        "IndicatorName": "Population vaccination coverage: Flu (aged 65 and over)"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 90362,
+        "IndicatorName": "Healthy life expectancy at birth"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 90366,
+        "IndicatorName": "Life expectancy at birth"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 91099,
+        "IndicatorName": "Cumulative percentage of the eligible population aged 40 to 74 offered an NHS Health Check"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 91100,
+        "IndicatorName": "Cumulative percentage of the eligible population aged 40 to 74 offered an NHS Health Check who received an NHS Health Check"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 91101,
+        "IndicatorName": "Cumulative percentage of the eligible population aged 40 to 74 who received an NHS Health check"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 91102,
+        "IndicatorName": "Life expectancy at 65"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 91195,
+        "IndicatorName": "Health related quality of life for older people"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 91248,
+        "IndicatorName": "new hypertension patients, aged 30-74, with a CV risk assessment >= 20% treated with statins (denominator incl. PCAs) - retired after 2019/20"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 91262,
+        "IndicatorName": "Patients (aged 45+ yrs), who have a record of blood pressure in the last 5 yrs (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 91720,
+        "IndicatorName": "Cancer screening coverage: bowel cancer"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 92317,
+        "IndicatorName": "Abdominal Aortic Aneurysm Screening Coverage"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 92443,
+        "IndicatorName": "Smoking Prevalence in adults (18+) - current smokers (APS)"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93014,
+        "IndicatorName": "Percentage of physically active adults"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93015,
+        "IndicatorName": "Percentage of physically inactive adults"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93077,
+        "IndicatorName": "Proportion of the population meeting the recommended '5 a day' on a 'usual day' (adults) (old method)"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93088,
+        "IndicatorName": "Percentage of adults (aged 18 plus) classified as overweight or obese"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93190,
+        "IndicatorName": "Inequality in life expectancy at 65"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93505,
+        "IndicatorName": "Healthy life expectancy at 65"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93523,
+        "IndicatorName": "Disability-free life expectancy at 65"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93561,
+        "IndicatorName": "Cancer screening coverage: cervical cancer (aged 50 to 64 years old)"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93562,
+        "IndicatorName": "Disability-free life expectancy at birth"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93697,
+        "IndicatorName": "Population vaccination coverage: Shingles vaccination coverage (71 years)"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93773,
+        "IndicatorName": "Admission episodes for alcohol-related conditions (Narrow) – 40 to 64 years"
+    },
+    {
+        "GroupId": 1938133280,
+        "IndicatorId": 93774,
+        "IndicatorName": "Admission episodes for alcohol-related conditions (Narrow) – 65+ years"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 1187,
+        "IndicatorName": "Percentage of people aged 65+ receiving winter fuel payments (previous method)"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 11601,
+        "IndicatorName": "Utilisation of outdoor space for exercise/health reasons"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 22301,
+        "IndicatorName": "Self reported wellbeing: people with a low satisfaction score"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 22302,
+        "IndicatorName": "Self reported wellbeing: people with a low worthwhile score"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 22303,
+        "IndicatorName": "Self reported wellbeing: people with a low happiness score"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 22304,
+        "IndicatorName": "Self reported wellbeing: people with a high anxiety score"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 90280,
+        "IndicatorName": "Social Isolation: percentage of adult social care users who have as much social contact as they would like"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 90356,
+        "IndicatorName": "Fuel poverty (low income, high cost methodology)"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 90638,
+        "IndicatorName": "Social Isolation: percentage of adult carers who have as much social contact as they would like"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 91872,
+        "IndicatorName": "Deprivation score (IMD 2015)"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 92313,
+        "IndicatorName": "Percentage of people in employment"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93074,
+        "IndicatorName": "Access to Healthy Assets & Hazards Index"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93103,
+        "IndicatorName": "Older people living alone, % of people aged 65 and over who are living alone"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93279,
+        "IndicatorName": "Older people in poverty: Income deprivation affecting older people Index (IDAOPI)"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93524,
+        "IndicatorName": "Percentage of homes fail the Decent Homes Standard (ENGLAND)"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93525,
+        "IndicatorName": "Percentage of homes fail the minimum housing standard (ENGLAND)"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93526,
+        "IndicatorName": "People with long-term limiting disability in unsuitable accommodation (ENGLAND)"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93527,
+        "IndicatorName": "Percentage people feel they belong to their neighbourhood"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93528,
+        "IndicatorName": "Percentage volunteered more than once in the last 12 months"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93553,
+        "IndicatorName": "Deprivation score (IMD 2019)"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93559,
+        "IndicatorName": "IDAOPI - Income Deprivation Affecting Older People Index"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93738,
+        "IndicatorName": "Homelessness - households owed a duty under the Homelessness Reduction Act (main applicant 55+ yrs)"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93758,
+        "IndicatorName": "Loneliness: Percentage of adults who feel lonely often or always or some of the time"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93759,
+        "IndicatorName": "Fuel poverty (low income, low energy efficiency methodology)"
+    },
+    {
+        "GroupId": 1938133250,
+        "IndicatorId": 93945,
+        "IndicatorName": "Percentage of people of pensionable age receiving winter fuel payments"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 212,
+        "IndicatorName": "Stroke: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 241,
+        "IndicatorName": "Diabetes: QOF prevalence (17+ yrs)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 253,
+        "IndicatorName": "COPD: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 273,
+        "IndicatorName": "CHD: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 276,
+        "IndicatorName": "Cancer: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 1179,
+        "IndicatorName": "People aged 65-74 registered blind or partially sighted"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 1180,
+        "IndicatorName": "People aged 75+ registered blind or partially sighted"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 41201,
+        "IndicatorName": "Preventable sight loss: age related macular degeneration (AMD)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 41202,
+        "IndicatorName": "Preventable sight loss: glaucoma"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 41203,
+        "IndicatorName": "Preventable sight loss: diabetic eye disease"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 90593,
+        "IndicatorName": "IAPT recovery: % of people who have completed IAPT treatment who are \"moving to recovery\""
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 90747,
+        "IndicatorName": "IAPT referrals: rate (quarterly) per 100,000 population"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 90748,
+        "IndicatorName": "Completion of IAPT treatment: rate (quarterly) per 100,000 population"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 90798,
+        "IndicatorName": "Entering IAPT treatment: rate (quarterly) per 100,000 population"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 90799,
+        "IndicatorName": "IAPT reliable improvement: % of people who have completed IAPT treatment who achieved \"reliable improvement\""
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 91215,
+        "IndicatorName": "Dementia care plan has been reviewed in the last 12 months (denominator incl. PCAs)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 91269,
+        "IndicatorName": "Rheumatoid Arthritis: QOF prevalence (16+ yrs)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 91281,
+        "IndicatorName": "Dementia: Direct standardised rate of emergency admissions (aged 65 years and over)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 91337,
+        "IndicatorName": "New cancer cases (Crude incidence rate: new cases per 100,000 population)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 91882,
+        "IndicatorName": "Two-week wait referrals for suspected cancer (Number per 100,000 population)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 91891,
+        "IndicatorName": "Dementia: Recorded prevalence (aged 65 years and over)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 92302,
+        "IndicatorName": "Emergency hospital admissions for COPD (35+)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 92318,
+        "IndicatorName": "Diabetic eye screening: uptake"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 92785,
+        "IndicatorName": "Access to NHS dental services - successfully obtained a dental appointment"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 92875,
+        "IndicatorName": "People with type 2 diabetes who achieved all three treatment targets"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 92949,
+        "IndicatorName": "Estimated dementia diagnosis rate (aged 65 and over)"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93026,
+        "IndicatorName": "Dementia: Crude Recorded Prevalence (aged under 65 years) per 10,000"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93027,
+        "IndicatorName": "Dementia (aged under 65 years) as a proportion of total dementia (all ages) per 100"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93091,
+        "IndicatorName": "Prevalence of severe hip osteoarthritis in people aged  45 and over"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93093,
+        "IndicatorName": "Prevalence of hip osteoarthritis in people aged  45 and over"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93095,
+        "IndicatorName": "Prevalence of severe knee osteoarthritis in people aged  45 and over"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93096,
+        "IndicatorName": "Prevalence of knee osteoarthritis in people aged  45 and over"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93209,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged 40 to 64"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93210,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged 65 to 79"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93211,
+        "IndicatorName": "Percentage of people with type 2 diabetes aged 80 and over"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93305,
+        "IndicatorName": "Dementia: Direct standardised rate of emergency admissions (aged 65 years and over)  - CCG responsibility"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93347,
+        "IndicatorName": "Estimated diabetes diagnosis rate"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93372,
+        "IndicatorName": "% reporting a long term MSK problem who also report depression or anxiety"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93377,
+        "IndicatorName": "Percentage reporting a long-term Musculoskeletal (MSK) problem"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93453,
+        "IndicatorName": "Percentage reporting at least two long-term conditions, at least one of which is MSK related"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93495,
+        "IndicatorName": "Estimated prevalence of common mental disorders: % of population aged 16 & over"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93496,
+        "IndicatorName": "Estimated prevalence of common mental disorders: % of population aged 65 & over"
+    },
+    {
+        "GroupId": 1938133251,
+        "IndicatorId": 93671,
+        "IndicatorName": "Percentage of cancers diagnosed at stages 1 and 2"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 294,
+        "IndicatorName": "Palliative/supportive care: QOF prevalence (all ages)"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 1194,
+        "IndicatorName": "Permanent admissions to residential and nursing care homes per 100,000 aged 65+"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 22401,
+        "IndicatorName": "Emergency hospital admissions due to falls in people aged 65 and over"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 22402,
+        "IndicatorName": "Emergency hospital admissions due to falls in people aged 65 to 79"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 22403,
+        "IndicatorName": "Emergency hospital admissions due to falls in people aged 80 plus"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 41401,
+        "IndicatorName": "Hip fractures in people aged 65 and over"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 41402,
+        "IndicatorName": "Hip fractures in people aged 65 to 79"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 41403,
+        "IndicatorName": "Hip fractures in people aged 80 and over"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 90280,
+        "IndicatorName": "Social Isolation: percentage of adult social care users who have as much social contact as they would like"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 90443,
+        "IndicatorName": "Osteoporosis: QOF prevalence (50+ yrs)"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 90584,
+        "IndicatorName": "Percentage of people aged 65 and over who were still at home 91 days after discharge from hospital into reablement services"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 90585,
+        "IndicatorName": "Percentage of people aged 65 and over offered reablement services following discharge from hospital."
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 90638,
+        "IndicatorName": "Social Isolation: percentage of adult carers who have as much social contact as they would like"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 91223,
+        "IndicatorName": "Patients (75+ yrs) with a fragility fracture treated with a bone-sparing agent (den. incl. exc.) - retired after 2018/19"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 92463,
+        "IndicatorName": "Carer-reported quality of life score for people caring for someone with dementia"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 92489,
+        "IndicatorName": "Care home beds per 100 people 75+"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 92490,
+        "IndicatorName": "Nursing home beds per 100 people 75+"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 92729,
+        "IndicatorName": "Percentage of people aged 65 and over using social care who receive self-directed support, and those receiving direct payments"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 93521,
+        "IndicatorName": "Percentage of adult social care service users have control over their daily lives, age 65+"
+    },
+    {
+        "GroupId": 1938133252,
+        "IndicatorId": 93522,
+        "IndicatorName": "Percentage of adult social care service users satisfied with care and support services, age 65+"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 40401,
+        "IndicatorName": "Under 75 mortality rate from all cardiovascular diseases"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 40501,
+        "IndicatorName": "Under 75 mortality rate from cancer"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 40701,
+        "IndicatorName": "Under 75 mortality rate from respiratory disease"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 90361,
+        "IndicatorName": "Winter mortality index (age 85 plus)"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 91430,
+        "IndicatorName": "Suicide crude rate 65+ years: per 100,000  (5 year average)"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 91884,
+        "IndicatorName": "Direct standardised rate of mortality: People with dementia (aged 65 years and over)"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 92310,
+        "IndicatorName": "Supporting information - % population aged 65+"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 92718,
+        "IndicatorName": "Mortality rate from all cardiovascular diseases, ages 65+ years"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 92724,
+        "IndicatorName": "Mortality rate from cancer, ages 65+ years"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 92725,
+        "IndicatorName": "Mortality rate from respiratory disease, ages 65+ years"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 92860,
+        "IndicatorName": "Supporting information - % population from ethnic minorities"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 93081,
+        "IndicatorName": "Percentage of the total resident population who are 65 and over"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 93226,
+        "IndicatorName": "Percentage of the total resident population aged 85 and over"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 93497,
+        "IndicatorName": "Percentage of deaths with underlying cause Cancer"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 93498,
+        "IndicatorName": "Percentage of deaths with underlying cause respiratory disease"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 93499,
+        "IndicatorName": "Percentage of deaths with underlying cause circulatory disease"
+    },
+    {
+        "GroupId": 1938133253,
+        "IndicatorId": 93746,
+        "IndicatorName": "Percentage of the total resident population who are 50 to 64 years of age"
+    },
+    {
+        "GroupId": 1938132706,
+        "IndicatorId": 241,
+        "IndicatorName": "Diabetes: QOF prevalence (17+ yrs)"
+    },
+    {
+        "GroupId": 1938132706,
+        "IndicatorId": 92708,
+        "IndicatorName": "Resident population"
+    },
+    {
+        "GroupId": 1938132706,
+        "IndicatorId": 92952,
+        "IndicatorName": "Estimated prevalence of diabetes (undiagnosed and diagnosed)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2000,
+        "IndicatorName": "Spend: Total Public Health"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2001,
+        "IndicatorName": "Spend: Sexual health services - STI testing and treatment"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2002,
+        "IndicatorName": "Spend: Sexual health services - Contraception"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2003,
+        "IndicatorName": "Spend: Sexual health services - Advice, prevention and promotion"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2004,
+        "IndicatorName": "Spend: NHS health check programme"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2005,
+        "IndicatorName": "Spend: Health protection - Local authority role in health protection"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2006,
+        "IndicatorName": "Spend: National child measurement programme"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2007,
+        "IndicatorName": "Spend: Public health advice"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2008,
+        "IndicatorName": "Spend: Obesity - adults"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2009,
+        "IndicatorName": "Spend: Obesity - children"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2010,
+        "IndicatorName": "Spend: Physical activity - adults"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2011,
+        "IndicatorName": "Spend: Physical activity - children"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2012,
+        "IndicatorName": "Spend: Substance misuse - Drug misuse - adults"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2013,
+        "IndicatorName": "Spend: Substance misuse - Alcohol misuse - adults"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2014,
+        "IndicatorName": "Spend: Substance misuse - Preventing and reducing harm from drug misuse in adults"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2015,
+        "IndicatorName": "Spend: Substance misuse - Preventing and reducing harm from alcohol misuse in adults"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2016,
+        "IndicatorName": "Spend: Substance misuse - (drugs and alcohol) - youth services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2017,
+        "IndicatorName": "Spend: Smoking and tobacco - Stop smoking services and interventions"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2018,
+        "IndicatorName": "Spend: Smoking and tobacco - Wider tobacco control"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2019,
+        "IndicatorName": "Spend: Children 5-19 public health programmes"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2020,
+        "IndicatorName": "Spend: Childrens 0-5 services (prescribed)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2021,
+        "IndicatorName": "Spend: Childrens 0-5 services (non-prescribed)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2023,
+        "IndicatorName": "Spend: Health at work"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2024,
+        "IndicatorName": "Spend: Public mental health"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2025,
+        "IndicatorName": "Spend: Miscellaneous public health services - other"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2026,
+        "IndicatorName": "Spend: Total Education services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2027,
+        "IndicatorName": "Spend: Early years"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2028,
+        "IndicatorName": "Spend: Primary schools"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2029,
+        "IndicatorName": "Spend: Secondary schools"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2030,
+        "IndicatorName": "Spend: Special schools and alternative provision"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2031,
+        "IndicatorName": "Spend: Post-16 provision"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2040,
+        "IndicatorName": "Spend: Other education and community budget"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2041,
+        "IndicatorName": "Spend: DFE s251 RO Net Expenditure"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2042,
+        "IndicatorName": "Spend: DFE s251 RO Early Years"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2043,
+        "IndicatorName": "Spend: DFE s251 RO Primary Schools"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2044,
+        "IndicatorName": "Spend: DFE s251 RO Secondary Schools"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2045,
+        "IndicatorName": "Spend: DFE s251 RO SEN / Special schools"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2046,
+        "IndicatorName": "Spend: DFE s251 RO AP / PRUs"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2047,
+        "IndicatorName": "Spend: Total Children Social Care"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2048,
+        "IndicatorName": "Spend: Children's social care: Sure start children's centres/flying start and early years"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2051,
+        "IndicatorName": "Spend: Children's social care: Children looked after"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2052,
+        "IndicatorName": "Spend: Children's social care: Other children and family services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2054,
+        "IndicatorName": "Spend: Children's social care: Family support services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2055,
+        "IndicatorName": "Spend: Children's social care: Youth justice"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2057,
+        "IndicatorName": "Spend: Children's social care: Safeguarding children and young people's services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2059,
+        "IndicatorName": "Spend: Children's social care: Asylum seekers"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2060,
+        "IndicatorName": "Spend: Children's social care: Services for young people"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2062,
+        "IndicatorName": "Spend: Total Adult Social Care"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2064,
+        "IndicatorName": "Spend: Physical support - adults (18-64)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2065,
+        "IndicatorName": "Spend: Physical support - older people (65+)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2066,
+        "IndicatorName": "Spend: Sensory support - adults (18-64)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2067,
+        "IndicatorName": "Spend: Sensory support - older people (65+)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2069,
+        "IndicatorName": "Spend: Support with memory and cognition - adults (18-64)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2070,
+        "IndicatorName": "Spend: Support with memory and cognition - older people (65+)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2071,
+        "IndicatorName": "Spend: Learning disability support - adults (18-64)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2072,
+        "IndicatorName": "Spend: Learning disability support - older people (65+)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2076,
+        "IndicatorName": "Spend: Mental health support - adults (18-64)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2077,
+        "IndicatorName": "Spend: Mental health support - older people (65+)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2078,
+        "IndicatorName": "Spend: Social support: Substance misuse support"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2079,
+        "IndicatorName": "Spend: Social support: Asylum seeker support"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2080,
+        "IndicatorName": "Spend: Social support: Support for carer"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2081,
+        "IndicatorName": "Spend: Social support: Social Isolation"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2084,
+        "IndicatorName": "Spend: Assistive equipment and technology"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2085,
+        "IndicatorName": "Spend: Social care activities"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2086,
+        "IndicatorName": "Spend: Information and early intervention"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2087,
+        "IndicatorName": "Spend: Commissioning and service delivery"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2088,
+        "IndicatorName": "Spend: Housing strategy, advice, advances, enabling, renewals and licensing"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2090,
+        "IndicatorName": "Spend: Homelessness"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2091,
+        "IndicatorName": "Spend: Housing benefits: rent allowances and rent rebates - discretionary payments"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2093,
+        "IndicatorName": "Spend: Total Housing services (GFRA only)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2113,
+        "IndicatorName": "Spend: Housing benefits administration"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2114,
+        "IndicatorName": "Spend: Other council property - travellers' sites and non-HRA council property"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2115,
+        "IndicatorName": "Spend: Housing welfare: Supporting People"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2116,
+        "IndicatorName": "Spend: Other welfare services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2122,
+        "IndicatorName": "Spend: Total Environmental and regulatory services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2123,
+        "IndicatorName": "Spend: Cemetery, cremation and mortuary services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2124,
+        "IndicatorName": "Spend: Regulatory services: Trading standards"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2125,
+        "IndicatorName": "Spend: Regulatory services: Water safety"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2126,
+        "IndicatorName": "Spend: Regulatory services: Food safety"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2127,
+        "IndicatorName": "Spend: Regulatory services: Environmental protection; noise and nuisance"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2128,
+        "IndicatorName": "Spend: Regulatory services: Housing standards"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2129,
+        "IndicatorName": "Spend: Regulatory services: Health and safety"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2130,
+        "IndicatorName": "Spend: Regulatory services: Port health (excluding levies)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2131,
+        "IndicatorName": "Spend: Regulatory services: Port health Levies"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2132,
+        "IndicatorName": "Spend: Regulatory services: Pest control"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2133,
+        "IndicatorName": "Spend: Regulatory services: Public conveniences"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2134,
+        "IndicatorName": "Spend: Regulatory services: Animal and public health; infectious disease"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2135,
+        "IndicatorName": "Spend: Regulatory services: Licensing - Alcohol and entertainment licensing; taxi licensing"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2136,
+        "IndicatorName": "Spend: Community safety (Crime reduction)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2137,
+        "IndicatorName": "Spend: Community safety (Safety services)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2138,
+        "IndicatorName": "Spend: Community safety (CCTV)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2139,
+        "IndicatorName": "Spend: Defences against flooding"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2140,
+        "IndicatorName": "Spend: Land drainage and related work (excluding levy / Special levies)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2141,
+        "IndicatorName": "Spend: Land drainage and related work - Levy / Special levies"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2142,
+        "IndicatorName": "Spend: Coast protection"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2143,
+        "IndicatorName": "Spend: Agriculture and fisheries services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2144,
+        "IndicatorName": "Spend: Street cleansing (not chargeable to Highways)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2145,
+        "IndicatorName": "Spend: Waste collection"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2146,
+        "IndicatorName": "Spend: Waste disposal"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2147,
+        "IndicatorName": "Spend: Trade waste"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2148,
+        "IndicatorName": "Spend: Recycling"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2149,
+        "IndicatorName": "Spend: Waste minimisation"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2150,
+        "IndicatorName": "Spend: Climate change costs"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2151,
+        "IndicatorName": "Spend: Planning policy"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2152,
+        "IndicatorName": "Spend: Total Planning and development services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2153,
+        "IndicatorName": "Spend: Building control"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2154,
+        "IndicatorName": "Spend: Development control"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2157,
+        "IndicatorName": "Spend: Environmental initiatives"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2158,
+        "IndicatorName": "Spend: Economic development"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2159,
+        "IndicatorName": "Spend: Economic research"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2160,
+        "IndicatorName": "Spend: Business Support"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2161,
+        "IndicatorName": "Spend: Community development"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2162,
+        "IndicatorName": "Spend: Transport planning, policy and strategy"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2163,
+        "IndicatorName": "Spend: Structural maintenance"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2164,
+        "IndicatorName": "Spend: Environmental, safety and routine maintenance"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2166,
+        "IndicatorName": "Spend: Parking services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2168,
+        "IndicatorName": "Spend: Total Highways and transport services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2177,
+        "IndicatorName": "Spend: Winter service"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2178,
+        "IndicatorName": "Spend: Street lighting (including energy costs)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2179,
+        "IndicatorName": "Spend: Traffic management and road safety: congestion charging"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2180,
+        "IndicatorName": "Spend: Traffic management and road safety: bus lane enforcement"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2181,
+        "IndicatorName": "Spend: Traffic management and road safety: road safety education and safe routes (including school crossing patrols)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2182,
+        "IndicatorName": "Spend: Traffic management and road safety: other"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2185,
+        "IndicatorName": "Spend: Public transport: statutory concessionary fares"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2186,
+        "IndicatorName": "Spend: Public transport: discretionary concessionary fares"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2189,
+        "IndicatorName": "Spend: Public transport: support to operators"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2190,
+        "IndicatorName": "Spend: Public transport: co-ordination"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2191,
+        "IndicatorName": "Spend: Airports, harbours and toll facilities"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2192,
+        "IndicatorName": "Spend: Culture and heritage (excluding Archives)"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2194,
+        "IndicatorName": "Spend: Recreation and sport"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2195,
+        "IndicatorName": "Spend: Total Cultural and related services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2196,
+        "IndicatorName": "Spend: Archives"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2205,
+        "IndicatorName": "Spend: Open spaces"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2206,
+        "IndicatorName": "Spend: Tourism"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2207,
+        "IndicatorName": "Spend: Library service"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2208,
+        "IndicatorName": "Spend: Central services to the public: other"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2209,
+        "IndicatorName": "Spend: Local tax collection: other"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2212,
+        "IndicatorName": "Spend: Total Central services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2214,
+        "IndicatorName": "Spend: Corporate and democratic core"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2217,
+        "IndicatorName": "Spend: Local tax collection: council tax discounts - locally funded"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2218,
+        "IndicatorName": "Spend: Local tax collection: council tax support administration"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2224,
+        "IndicatorName": "Spend: Emergency planning"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2228,
+        "IndicatorName": "Spend: Coroners' court services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2229,
+        "IndicatorName": "Spend: Other court services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2230,
+        "IndicatorName": "Spend: Non-distributed costs - retirement benefits"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2231,
+        "IndicatorName": "Spend: Non-distributed costs - costs of unused shares of IT facilities and other assets"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2232,
+        "IndicatorName": "Spend: Non-distributed costs - revenue expenditure on surplus assets"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2234,
+        "IndicatorName": "Spend: Police services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2235,
+        "IndicatorName": "Spend: Fire and rescue services"
+    },
+    {
+        "GroupId": 1938133283,
+        "IndicatorId": 2236,
+        "IndicatorName": "Spend: Other services"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2500,
+        "IndicatorName": "Access to GP services"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2501,
+        "IndicatorName": "Access to NHS dental services"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2503,
+        "IndicatorName": "Emergency admissions acute conditions not usually require hospital"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2504,
+        "IndicatorName": "Emergency admissions for children with LRTI"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2505,
+        "IndicatorName": "Health-related quality of life for carers"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2506,
+        "IndicatorName": "Health-related quality of life for people with long-term conditions"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2508,
+        "IndicatorName": "Neonatal mortality and stillbirths rate"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2509,
+        "IndicatorName": "Older people (65+) who were still at home 91 days after discharge"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2512,
+        "IndicatorName": "Patient experience of dental services"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2513,
+        "IndicatorName": "Patient experience of GP out-of-hours services"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2514,
+        "IndicatorName": "Patient experience of GP services"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2515,
+        "IndicatorName": "Proportion of people feeling supported to manage their condition"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2516,
+        "IndicatorName": "PYLL from causes amenable to healthcare - adults"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2519,
+        "IndicatorName": "Tooth extractions due to decay for children admitted as inpatients"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2520,
+        "IndicatorName": "Unplanned hospitalisation for asthma, diabetes and epilepsy u19s"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2521,
+        "IndicatorName": "Unplanned hospitalisation for chronic ambulatory care sensitive"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2522,
+        "IndicatorName": "5 or more A*-C grades at GCSE (inc english and maths)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2531,
+        "IndicatorName": "Level 4+ in reading, writing and maths at key stage 2"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2533,
+        "IndicatorName": "Narrowing the gap - lowest 20% early years foundation stage"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2534,
+        "IndicatorName": "Proportion attaining Level 2 in English and Maths by age 19, who had not achieved this level by age 16."
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2536,
+        "IndicatorName": "Overall absence in primary, secondary and special schools"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2539,
+        "IndicatorName": "Progression by 2 levels in maths between KS1 and KS2"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2540,
+        "IndicatorName": "Progression by 2 levels in reading between KS1 and KS2"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2541,
+        "IndicatorName": "Progression by 2 levels in writing between KS1 and KS2"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2542,
+        "IndicatorName": "Rate of permanent exclusions from school"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2544,
+        "IndicatorName": "Secondary school pupils missing 22 or more sessions Autumn Term"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2549,
+        "IndicatorName": "Education, health and care (EHC) plans within 20 weeks (including exceptional)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2550,
+        "IndicatorName": "Education, health and care (EHC) plans within 20 weeks (excluding exceptional)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2551,
+        "IndicatorName": "Young people who have attained a full level 3 qualification by age 19"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2553,
+        "IndicatorName": "Assessments completed per 10,000 children"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2554,
+        "IndicatorName": "Care leavers in education, employment or training"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2555,
+        "IndicatorName": "Care leavers in suitable accommodation"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2556,
+        "IndicatorName": "Child protection cases, timely review"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2557,
+        "IndicatorName": "Child protection plan subjects per 10,000 children"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2558,
+        "IndicatorName": "Children in need per 10,000 children"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2559,
+        "IndicatorName": "Children on child protection plan, second time"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2560,
+        "IndicatorName": "Children subject to a child protection plan for two years or more"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2562,
+        "IndicatorName": "Duration of core assessment (days - 75th percentile)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2564,
+        "IndicatorName": "EYFSP attainment gap"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2565,
+        "IndicatorName": "EYFSP Average Total Point Score [SPOT Child 13]"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2567,
+        "IndicatorName": "Initial child protection conferences per 10,000 children"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2568,
+        "IndicatorName": "Looked after children per 10,000 children"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2569,
+        "IndicatorName": "Looked after children persistently absent from school"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2570,
+        "IndicatorName": "Looked after children with SDQ score of concern"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2573,
+        "IndicatorName": "Referrals to child social care per 10,000 children"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2576,
+        "IndicatorName": "Section 47 enquiries per 10,000 children"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2580,
+        "IndicatorName": "65yr+ receiving reablement services following hospital"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2586,
+        "IndicatorName": "Adults in contact 2nd mental health services in paid employment"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2588,
+        "IndicatorName": "Adults with learning disabilities in paid employment"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2589,
+        "IndicatorName": "Carer reported quality of life"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2590,
+        "IndicatorName": "Carers (very or extremely satisfied) with social services"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2591,
+        "IndicatorName": "Carers in discussion about the person they care for"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2596,
+        "IndicatorName": "Delayed transfer of care from hospital attributable adult social care"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2597,
+        "IndicatorName": "Delayed transfers of care from hospital"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2601,
+        "IndicatorName": "People who use services who feel safe"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2602,
+        "IndicatorName": "People who use services who receive direct payments"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2603,
+        "IndicatorName": "People who use services who receive self-directed support"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2604,
+        "IndicatorName": "Permanent admissions to residential and nursing care homes, (18-64)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2605,
+        "IndicatorName": "Permanent admissions to residential and nursing care homes, (65+)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2606,
+        "IndicatorName": "Service users (very+ satisfied) with their care and support"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2607,
+        "IndicatorName": "Proportion of service users who find it easy to find information"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2608,
+        "IndicatorName": "Service users having control over their daily life"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2609,
+        "IndicatorName": "Service users saying services make feel safe and secure"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2610,
+        "IndicatorName": "Service users with as much social contact as they would like"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2611,
+        "IndicatorName": "Social care related quality of life"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2612,
+        "IndicatorName": "The outcome of short-term services: sequel to service"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2618,
+        "IndicatorName": "(LA-owned) non-decent homes"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2619,
+        "IndicatorName": "Average weekly rent per dwelling"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2624,
+        "IndicatorName": "Net additional homes provided"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2626,
+        "IndicatorName": "Number of affordable homes provided"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2627,
+        "IndicatorName": "Rent collection rate"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2628,
+        "IndicatorName": "Time to process benefit change of circumstance"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2630,
+        "IndicatorName": "First time entrants to the youth justice system aged 10-17"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2631,
+        "IndicatorName": "Household waste sent for reuse, recycling and composting"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2639,
+        "IndicatorName": "Municipal waste landfilled"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2640,
+        "IndicatorName": "Residual household waste per household"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2643,
+        "IndicatorName": "Waste collected per head"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2644,
+        "IndicatorName": "Processing of major planning applications in target"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2645,
+        "IndicatorName": "Processing of minor planning applications in target"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2646,
+        "IndicatorName": "Processing of other planning applications in target"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2648,
+        "IndicatorName": "Bus services running on time"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2649,
+        "IndicatorName": "Ease of Access to Key Services (all people)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2650,
+        "IndicatorName": "Ease of Access to Key Services (no car households)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2651,
+        "IndicatorName": "Ease of Access to Key Services (people with disabilities)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2652,
+        "IndicatorName": "Highway Enforcement / Obstructions"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2653,
+        "IndicatorName": "Non-principal classified roads where maintenance should be considered"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2654,
+        "IndicatorName": "Overall Satisfaction with Community Transport"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2655,
+        "IndicatorName": "Overall Satisfaction with Cycle Routes & Facilities"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2656,
+        "IndicatorName": "Overall Satisfaction with Highways & Transport (local)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2657,
+        "IndicatorName": "Overall Satisfaction with Highways & Transport (national)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2658,
+        "IndicatorName": "Overall Satisfaction with Local bus services"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2659,
+        "IndicatorName": "Overall Satisfaction with Local taxi (or mini-cab) services"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2660,
+        "IndicatorName": "Overall Satisfaction with Pavements & Footpaths"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2661,
+        "IndicatorName": "Overall Satisfaction with Road Safety Locally"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2662,
+        "IndicatorName": "Overall Satisfaction with Street lighting"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2663,
+        "IndicatorName": "Overall Satisfaction with the Condition of Highways"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2664,
+        "IndicatorName": "Overall Satisfaction with The Local Rights of Way Network"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2665,
+        "IndicatorName": "Overall Satisfaction with Traffic Levels & Congestion"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2666,
+        "IndicatorName": "Principal roads where maintenance should be considered"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2669,
+        "IndicatorName": "Satisfaction with Highway Maintenance"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2670,
+        "IndicatorName": "Satisfaction with Local Bus Services (BVPI 104)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2671,
+        "IndicatorName": "Satisfaction with Local PT Information (BVPI103)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2672,
+        "IndicatorName": "Satisfaction with Management of Roadworks"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2673,
+        "IndicatorName": "Satisfaction with Road Safety Education"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2674,
+        "IndicatorName": "Satisfaction with Road Safety Environment"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2675,
+        "IndicatorName": "Satisfaction with specific aspects of Cycle Routes & Facilities"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2676,
+        "IndicatorName": "Satisfaction with specific aspects of Pavements & Footpaths"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2677,
+        "IndicatorName": "Satisfaction with specific aspects of Rights of Way Network"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2678,
+        "IndicatorName": "Satisfaction with Traffic Management"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2679,
+        "IndicatorName": "Adult participation in sport and active recreation"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2682,
+        "IndicatorName": "Annual employment rate, aged 16-64"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2683,
+        "IndicatorName": "Annual unemployment rate, aged 16-64"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 2684,
+        "IndicatorName": "Economically inactive - aged 16-64"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 92641,
+        "IndicatorName": "Life expectancy at 75 (SPOT: NHSOD 1b)"
+    },
+    {
+        "GroupId": 1938133284,
+        "IndicatorId": 93014,
+        "IndicatorName": "Percentage of physically active adults"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 113,
+        "IndicatorName": "Smoking attributable mortality (old method)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 811,
+        "IndicatorName": "Children in care immunisations"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 1194,
+        "IndicatorName": "Permanent admissions to residential and nursing care homes per 100,000 aged 65+"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 1201,
+        "IndicatorName": "Smoking attributable deaths from heart disease (Old Method)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 1204,
+        "IndicatorName": "Mortality rate from chronic obstructive pulmonary disease, all ages"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 1207,
+        "IndicatorName": "Smoking attributable hospital admissions (old method)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 1210,
+        "IndicatorName": "Smokers that have successfully quit at 4 weeks"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 1211,
+        "IndicatorName": "Smokers that have successfully quit at 4 weeks (CO validated)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 21001,
+        "IndicatorName": "Emergency Hospital Admissions for Intentional Self-Harm"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 22001,
+        "IndicatorName": "Cancer screening coverage: breast cancer"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 22002,
+        "IndicatorName": "Cancer screening coverage - cervical cancer"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 22301,
+        "IndicatorName": "Self reported wellbeing: people with a low satisfaction score"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 22302,
+        "IndicatorName": "Self reported wellbeing: people with a low worthwhile score"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 22303,
+        "IndicatorName": "Self reported wellbeing: people with a low happiness score"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 22304,
+        "IndicatorName": "Self reported wellbeing: people with a high anxiety score"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 22401,
+        "IndicatorName": "Emergency hospital admissions due to falls in people aged 65 and over"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 22402,
+        "IndicatorName": "Emergency hospital admissions due to falls in people aged 65 to 79"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 22403,
+        "IndicatorName": "Emergency hospital admissions due to falls in people aged 80 plus"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 30101,
+        "IndicatorName": "Fraction of mortality attributable to particulate air pollution (old method)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 30301,
+        "IndicatorName": "Population vaccination coverage: Hepatitis B (1 year old)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 30302,
+        "IndicatorName": "Population vaccination coverage: Hepatitis B (2 years old)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 40401,
+        "IndicatorName": "Under 75 mortality rate from all cardiovascular diseases"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 40402,
+        "IndicatorName": "Under 75 mortality rate from cardiovascular diseases considered preventable (2016 definition)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 40501,
+        "IndicatorName": "Under 75 mortality rate from cancer"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 40502,
+        "IndicatorName": "Under 75 mortality rate from cancer considered preventable (2016 definition)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 40601,
+        "IndicatorName": "Under 75 mortality rate from liver disease"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 40602,
+        "IndicatorName": "Under 75 mortality rate from liver disease considered preventable (2016 definition)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 40701,
+        "IndicatorName": "Under 75 mortality rate from respiratory disease"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 40702,
+        "IndicatorName": "Under 75 mortality rate from respiratory disease considered preventable (2016 definition)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 41001,
+        "IndicatorName": "Suicide rate"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90244,
+        "IndicatorName": "Successful completion of drug treatment: opiate users"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90245,
+        "IndicatorName": "Successful completion of drug treatment: non opiate users"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90319,
+        "IndicatorName": "Reception: Prevalence of obesity (including severe obesity)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90414,
+        "IndicatorName": "Marital breakup: % of adults"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90510,
+        "IndicatorName": "Neonatal mortality and stillbirth rate"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90584,
+        "IndicatorName": "Percentage of people aged 65 and over who were still at home 91 days after discharge from hospital into reablement services"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90585,
+        "IndicatorName": "Percentage of people aged 65 and over offered reablement services following discharge from hospital."
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90729,
+        "IndicatorName": "Genital warts diagnostic rate per 100,000"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90731,
+        "IndicatorName": "Under 18s conceptions leading to abortion (%)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90739,
+        "IndicatorName": "Pelvic inflammatory disease (PID) admissions rate / 100,000"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90740,
+        "IndicatorName": "Ectopic pregnancy admissions rate / 100,000"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90741,
+        "IndicatorName": "Under 25s repeat abortions (%)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90742,
+        "IndicatorName": "Syphilis diagnostic rate per 100,000"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90754,
+        "IndicatorName": "Total abortion rate / 1000"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90759,
+        "IndicatorName": "Gonorrhoea diagnostic rate per 100,000"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90776,
+        "IndicatorName": "Chlamydia detection rate per 100,000 aged 15 to 24"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90777,
+        "IndicatorName": "Chlamydia proportion aged 15 to 24 screened"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90784,
+        "IndicatorName": "Abortions under 10 weeks (%)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90790,
+        "IndicatorName": "HIV diagnosed prevalence rate per 1,000 aged 15 to 59"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90791,
+        "IndicatorName": "HIV late diagnosis in people first diagnosed with HIV in the UK"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90801,
+        "IndicatorName": "Child mortality rate (1-17 years)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90803,
+        "IndicatorName": "Children in care"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90808,
+        "IndicatorName": "Hospital admissions due to substance misuse (15 to 24 years)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90809,
+        "IndicatorName": "A&E attendances (0 to 4 years) (previous method)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90810,
+        "IndicatorName": "Hospital admissions for asthma (under 19 years)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90812,
+        "IndicatorName": "Hospital admissions for mental health conditions"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90813,
+        "IndicatorName": "Hospital admissions as a result of self-harm (10-24 years)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90819,
+        "IndicatorName": "Family homelessness"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90820,
+        "IndicatorName": "Children with one or more decayed,  missing or filled teeth"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 90834,
+        "IndicatorName": "Cancer diagnosed at early stage (experimental statistics)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91046,
+        "IndicatorName": "Genital herpes diagnosis rate per 100,000"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91048,
+        "IndicatorName": "HIV testing coverage, women"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91049,
+        "IndicatorName": "HIV testing coverage, gay, bisexual and other men who have sex with men"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91050,
+        "IndicatorName": "HIV testing coverage, men"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91099,
+        "IndicatorName": "Cumulative percentage of the eligible population aged 40 to 74 offered an NHS Health Check"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91100,
+        "IndicatorName": "Cumulative percentage of the eligible population aged 40 to 74 offered an NHS Health Check who received an NHS Health Check"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91101,
+        "IndicatorName": "Cumulative percentage of the eligible population aged 40 to 74 who received an NHS Health check"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91133,
+        "IndicatorName": "Long term claimants of Jobseeker's Allowance"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91182,
+        "IndicatorName": "Number in treatment at specialist alcohol misuse services"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91323,
+        "IndicatorName": "Newborn Blood Spot Screening: Coverage"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91324,
+        "IndicatorName": "Newborn Hearing Screening: Coverage"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91367,
+        "IndicatorName": "Proportion of drug sensitive TB cases who had completed a full course of treatment by 12 months"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91381,
+        "IndicatorName": "Mortality from chronic liver disease, all ages"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91404,
+        "IndicatorName": "Years of life lost due to suicide, age-standardised rate 15-74 years: per 10,000 population (3 year average)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91414,
+        "IndicatorName": "Admission episodes for alcohol-related conditions (Narrow): Old Method"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91456,
+        "IndicatorName": "Under 18s abortions rate / 1,000"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91458,
+        "IndicatorName": "Under 18s births rate / 1,000"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91496,
+        "IndicatorName": "Percentage who eat 5 portions or more of fruit and veg per day at age 15"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91514,
+        "IndicatorName": "Chlamydia detection rate per 100,000 aged 15 to 24"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91548,
+        "IndicatorName": "Smoking prevalence at age 15 - current smokers (WAY survey)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91552,
+        "IndicatorName": "Smoking prevalence at age 15 - regular smokers (WAY survey)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91720,
+        "IndicatorName": "Cancer screening coverage: bowel cancer"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91743,
+        "IndicatorName": "Premature births (less than 37 weeks gestation)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91819,
+        "IndicatorName": "GP prescribed LARC excluding injections rate / 1,000"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91872,
+        "IndicatorName": "Deprivation score (IMD 2015)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 91917,
+        "IndicatorName": "Alcohol Related Road Traffic Accidents"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92302,
+        "IndicatorName": "Emergency hospital admissions for COPD (35+)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92315,
+        "IndicatorName": "Percentage of looked after children whose emotional wellbeing is a cause for concern"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92317,
+        "IndicatorName": "Abdominal Aortic Aneurysm Screening Coverage"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92323,
+        "IndicatorName": "Incidence rate of alcohol-related cancer"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92432,
+        "IndicatorName": "Deaths from drug misuse"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92443,
+        "IndicatorName": "Smoking Prevalence in adults (18+) - current smokers (APS)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92445,
+        "IndicatorName": "Smoking prevalence in adults in routine and manual occupations (18-64) - current smokers (APS)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92447,
+        "IndicatorName": "Successful completion of alcohol treatment"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92454,
+        "IndicatorName": "Adults in treatment at specialist drug misuse services: rate per 1000 population"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92455,
+        "IndicatorName": "Adults in treatment at specialist alcohol misuse services: rate per 1000 population"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92527,
+        "IndicatorName": "Average number of portions of fruit consumed daily at age 15 (WAY survey)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92528,
+        "IndicatorName": "Average number of portions of vegetables consumed daily at age 15 (WAY survey)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92543,
+        "IndicatorName": "Proportion of children aged 2-2½yrs receiving ASQ-3 as part of the Healthy Child Programme or integrated review"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92544,
+        "IndicatorName": "Adults with substance misuse treatment need who successfully engage in community-based structured treatment following release from prison"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92672,
+        "IndicatorName": "Key stage 2 pupils meeting the expected standard in reading, writing and maths"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 92708,
+        "IndicatorName": "Resident population"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93014,
+        "IndicatorName": "Percentage of physically active adults"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93015,
+        "IndicatorName": "Percentage of physically inactive adults"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93077,
+        "IndicatorName": "Proportion of the population meeting the recommended '5 a day' on a 'usual day' (adults) (old method)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93078,
+        "IndicatorName": "Average number of portions of fruit consumed daily (adults)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93079,
+        "IndicatorName": "Average number of portions of vegetables consumed daily (adults)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93088,
+        "IndicatorName": "Percentage of adults (aged 18 plus) classified as overweight or obese"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93195,
+        "IndicatorName": "Year 6: Prevalence of severe obesity"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93347,
+        "IndicatorName": "Estimated diabetes diagnosis rate"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93386,
+        "IndicatorName": "Population vaccination coverage: Flu (2 to 3 years old)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93553,
+        "IndicatorName": "Deprivation score (IMD 2019)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93572,
+        "IndicatorName": "Reoffending levels: average number of reoffences per reoffender"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93720,
+        "IndicatorName": "Under 75 mortality rate from liver disease considered preventable"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93722,
+        "IndicatorName": "Under 75 mortality rate from cardiovascular diseases considered preventable"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93723,
+        "IndicatorName": "Under 75 mortality rate from cancer considered preventable"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93724,
+        "IndicatorName": "Under 75 mortality rate from respiratory disease considered preventable"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93748,
+        "IndicatorName": "Smoking attributable mortality (new method)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93750,
+        "IndicatorName": "Smoking attributable deaths from heart disease (new method)"
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93753,
+        "IndicatorName": "Smoking attributable hospital admissions (new method). This indicator uses new set of attributable fractions, and so differ from that originally published."
+    },
+    {
+        "GroupId": 1938133285,
+        "IndicatorId": 93764,
+        "IndicatorName": "Admission episodes for alcohol-related conditions (Narrow)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 1203,
+        "IndicatorName": "Mortality rate from lung cancer, all ages"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 1205,
+        "IndicatorName": "Lung cancer registrations"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 1206,
+        "IndicatorName": "Oral cancer registrations"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 10101,
+        "IndicatorName": "Children in low income families (under 16s)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 10301,
+        "IndicatorName": "Pupil absence"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 10401,
+        "IndicatorName": "First time entrants to the youth justice system"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 10601,
+        "IndicatorName": "Adults with a learning disability who live in stable and appropriate accommodation"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 10602,
+        "IndicatorName": "Adults in contact with secondary mental health services who live in stable and appropriate accommodation"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 11001,
+        "IndicatorName": "Killed and seriously injured (KSI) casualties on England's roads (historic data)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 11201,
+        "IndicatorName": "Violent crime - hospital admissions for violence (including sexual violence)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 11202,
+        "IndicatorName": "Violent crime - violence offences per 1,000 population"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 11401,
+        "IndicatorName": "The rate of complaints about noise"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 11601,
+        "IndicatorName": "Utilisation of outdoor space for exercise/health reasons"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 20101,
+        "IndicatorName": "Low birth weight of term babies"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 20201,
+        "IndicatorName": "Breastfeeding initiation"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 20401,
+        "IndicatorName": "Under 18s conception rate / 1,000"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 20601,
+        "IndicatorName": "Reception: Prevalence of overweight (including obesity)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 20602,
+        "IndicatorName": "Year 6: Prevalence of overweight (including obesity)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30303,
+        "IndicatorName": "Population vaccination coverage: Dtap IPV  Hib (1 year old)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30304,
+        "IndicatorName": "Population vaccination coverage: Dtap  IPV  Hib (2 years old)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30306,
+        "IndicatorName": "Population vaccination coverage: PCV"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30307,
+        "IndicatorName": "Population vaccination coverage: Hib and  MenC booster (2 years old)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30308,
+        "IndicatorName": "Population vaccination coverage: PCV booster"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30309,
+        "IndicatorName": "Population vaccination coverage: MMR for one dose (2 years old)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30310,
+        "IndicatorName": "Population vaccination coverage: MMR for one dose (5 years old)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30311,
+        "IndicatorName": "Population vaccination coverage: MMR for two doses (5 years old)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30313,
+        "IndicatorName": "Population vaccination coverage: PPV"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30314,
+        "IndicatorName": "Population vaccination coverage: Flu (aged 65 and over)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30315,
+        "IndicatorName": "Population vaccination coverage: Flu (at risk individuals)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 30601,
+        "IndicatorName": "NHS organisations with a board approved sustainable development management plan"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 40401,
+        "IndicatorName": "Under 75 mortality rate from all cardiovascular diseases"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 40402,
+        "IndicatorName": "Under 75 mortality rate from cardiovascular diseases considered preventable (2016 definition)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 40501,
+        "IndicatorName": "Under 75 mortality rate from cancer"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 40502,
+        "IndicatorName": "Under 75 mortality rate from cancer considered preventable (2016 definition)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 40601,
+        "IndicatorName": "Under 75 mortality rate from liver disease"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 40602,
+        "IndicatorName": "Under 75 mortality rate from liver disease considered preventable (2016 definition)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 40701,
+        "IndicatorName": "Under 75 mortality rate from respiratory disease"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 40702,
+        "IndicatorName": "Under 75 mortality rate from respiratory disease considered preventable (2016 definition)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 41001,
+        "IndicatorName": "Suicide rate"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 41201,
+        "IndicatorName": "Preventable sight loss: age related macular degeneration (AMD)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 41202,
+        "IndicatorName": "Preventable sight loss: glaucoma"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 41203,
+        "IndicatorName": "Preventable sight loss: diabetic eye disease"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 41204,
+        "IndicatorName": "Preventable sight loss: sight loss certifications"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 41401,
+        "IndicatorName": "Hip fractures in people aged 65 and over"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 41402,
+        "IndicatorName": "Hip fractures in people aged 65 to 79"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 41403,
+        "IndicatorName": "Hip fractures in people aged 80 and over"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90246,
+        "IndicatorName": "Population vaccination coverage - Hib / Men C booster (5 years old)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90280,
+        "IndicatorName": "Social Isolation: percentage of adult social care users who have as much social contact as they would like"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90282,
+        "IndicatorName": "Gap in the employment rate between those with a physical or mental long term health condition (aged 16 to 64) and the overall employment rate"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90283,
+        "IndicatorName": "Gap in the employment rate between those who are in receipt of long term support for a learning disability (aged 18 to 64) and the overall employment rate"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90284,
+        "IndicatorName": "Hospital admissions caused by unintentional and deliberate injuries in children (aged 0 to 14 years)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90285,
+        "IndicatorName": "Hospital admissions caused by unintentional and deliberate injuries in young people (aged 15 to 24 years)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90286,
+        "IndicatorName": "Sickness absence: the percentage of employees who had at least one day off in the previous week"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90287,
+        "IndicatorName": "Sickness absence:  the percentage of working days lost due to sickness absence"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90356,
+        "IndicatorName": "Fuel poverty (low income, high cost methodology)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90357,
+        "IndicatorName": "The percentage of the population exposed to road, rail and air transport noise of 65dB(A) or more, during the daytime"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90358,
+        "IndicatorName": "The percentage of the population exposed to road, rail and air transport noise of 55 dB(A) or more during the night-time"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90360,
+        "IndicatorName": "Winter mortality index"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90361,
+        "IndicatorName": "Winter mortality index (age 85 plus)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90362,
+        "IndicatorName": "Healthy life expectancy at birth"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90365,
+        "IndicatorName": "Gap in life expectancy at birth between each local authority and England as a whole"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90366,
+        "IndicatorName": "Life expectancy at birth"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90630,
+        "IndicatorName": "Children in low income families (all dependent children under 20)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90631,
+        "IndicatorName": "School readiness: percentage of children achieving a good level of development at the end of Reception"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90632,
+        "IndicatorName": "School Readiness: percentage of children with free school meal status achieving a good level of development at the end of Reception"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90633,
+        "IndicatorName": "School readiness: percentage of children achieving the expected level in the phonics screening check in Year 1"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90634,
+        "IndicatorName": "School readiness: percentage of children with free school meal status achieving the expected level in the phonics screening check in Year 1"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90635,
+        "IndicatorName": "Gap in the employment rate for those who are in contact with secondary mental health services  (aged 18 to 69) and on the Care Plan Approach, and the overall employment rate"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90637,
+        "IndicatorName": "Violent crime - sexual offences per 1,000 population"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90638,
+        "IndicatorName": "Social Isolation: percentage of adult carers who have as much social contact as they would like"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90639,
+        "IndicatorName": "Under 16s conception rate / 1,000"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90641,
+        "IndicatorName": "Excess winter deaths index (3 years, all ages)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90642,
+        "IndicatorName": "Excess winter deaths index (3 years, age 85+)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90804,
+        "IndicatorName": "Children killed and seriously injured (KSI) on England's roads"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 90811,
+        "IndicatorName": "Teenage mothers"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 91195,
+        "IndicatorName": "Health related quality of life for older people"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 91361,
+        "IndicatorName": "TB incidence (three year average)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 91380,
+        "IndicatorName": "Alcohol-specific mortality"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 91382,
+        "IndicatorName": "Alcohol-related mortality: Old Method"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92031,
+        "IndicatorName": "Inequality in healthy life expectancy at birth LA"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92196,
+        "IndicatorName": "Infant mortality rate"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92313,
+        "IndicatorName": "Percentage of people in employment"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92314,
+        "IndicatorName": "Statutory homelessness - Eligible homeless people not in priority need"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92319,
+        "IndicatorName": "Population vaccination coverage: HPV vaccination coverage for one dose (12 to 13 year old)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92324,
+        "IndicatorName": "Population vaccination coverage - Shingles vaccination coverage (70 years old)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92326,
+        "IndicatorName": "Mortality rate from a range of specified communicable diseases, including influenza"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92441,
+        "IndicatorName": "Proportion of five year old children free from dental decay"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92456,
+        "IndicatorName": "First time offenders"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92488,
+        "IndicatorName": "Mortality rate from causes considered preventable (2016 definition)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92517,
+        "IndicatorName": "Breastfeeding prevalence at 6-8 weeks after birth - current method"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92863,
+        "IndicatorName": "Domestic abuse related incidents and crimes"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92901,
+        "IndicatorName": "Inequality in life expectancy at birth"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92904,
+        "IndicatorName": "Admission episodes for alcohol-specific conditions - Under 18s"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 92906,
+        "IndicatorName": "Admission episodes for alcohol-specific conditions"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 93085,
+        "IndicatorName": "Smoking status at time of delivery"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 93203,
+        "IndicatorName": "16 to 17 year olds not in education, employment or training (NEET) or whose activity is not known"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 93513,
+        "IndicatorName": "Reoffending levels: percentage of offenders who reoffend"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 93572,
+        "IndicatorName": "Reoffending levels: average number of reoffences per reoffender"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 93580,
+        "IndicatorName": "Baby's first feed breastmilk (previous method)"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 93721,
+        "IndicatorName": "Under 75 mortality rate from causes considered preventable"
+    },
+    {
+        "GroupId": 1938133299,
+        "IndicatorId": 93763,
+        "IndicatorName": "Alcohol-related mortality"
+    },
+    {
+        "GroupId": 1938133293,
+        "IndicatorId": 90366,
+        "IndicatorName": "Life expectancy at birth"
+    },
+    {
+        "GroupId": 1938133294,
+        "IndicatorId": 90362,
+        "IndicatorName": "Healthy life expectancy at birth"
+    },
+    {
+        "GroupId": 1938133301,
+        "IndicatorId": 90362,
+        "IndicatorName": "Healthy life expectancy at birth"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 349,
+        "IndicatorName": "% reporting good overall experience of making an appointment"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93438,
+        "IndicatorName": "% who have a positive experience of their GP practice"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93442,
+        "IndicatorName": "% satisfied with practice appointment times"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93934,
+        "IndicatorName": "Average number of appointments per registered patient"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93935,
+        "IndicatorName": "Percentage of appointments taking place within 14 days of booking"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93940,
+        "IndicatorName": "Percentage of patients enabled to book and cancel appointments online"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93941,
+        "IndicatorName": "Percentage of patients enabled to order repeat prescriptions online"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93944,
+        "IndicatorName": "Percentage of appointments taking place within 2 days of booking"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93949,
+        "IndicatorName": "Percentage of patients enabled to view detailed coded records online"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93950,
+        "IndicatorName": "Total funding per patient (PCN average applied to all practices in the PCN)"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93952,
+        "IndicatorName": "Percentage of not attended appointments (DNA)"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93953,
+        "IndicatorName": "Percentage of Electronic prescription items of all items prescribed"
+    },
+    {
+        "GroupId": 1938133408,
+        "IndicatorId": 93966,
+        "IndicatorName": "Number of clinical workforce (FTE) in general practice per 10,000 registered patients (PCN average applied to all practices in the PCN)"
+    },
+    {
+        "GroupId": 1938133414,
+        "IndicatorId": 93940,
+        "IndicatorName": "Percentage of patients enabled to book and cancel appointments online"
+    },
+    {
+        "GroupId": 1938133414,
+        "IndicatorId": 93941,
+        "IndicatorName": "Percentage of patients enabled to order repeat prescriptions online"
+    },
+    {
+        "GroupId": 1938133414,
+        "IndicatorId": 93949,
+        "IndicatorName": "Percentage of patients enabled to view detailed coded records online"
+    },
+    {
+        "GroupId": 1938133414,
+        "IndicatorId": 93953,
+        "IndicatorName": "Percentage of Electronic prescription items of all items prescribed"
+    }
+]

@@ -1,0 +1,23 @@
+[
+    {
+        "Id": 1938132899,
+        "Name": "Key Indicators",
+        "Sequence": 1,
+        "ProfileId": 99,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133001,
+        "Name": "Related conditions",
+        "Sequence": 2,
+        "ProfileId": 99,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133004,
+        "Name": "Supporting information",
+        "Sequence": 3,
+        "ProfileId": 99,
+        "DataAvailable": null
+    }
+]

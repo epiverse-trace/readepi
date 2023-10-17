@@ -1,0 +1,44 @@
+[
+    {
+        "Id": 1000049,
+        "Name": "A. Overarching indicators",
+        "Sequence": 1,
+        "ProfileId": 19,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1000041,
+        "Name": "B. Wider determinants of health",
+        "Sequence": 2,
+        "ProfileId": 19,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1000042,
+        "Name": "C. Health improvement",
+        "Sequence": 3,
+        "ProfileId": 19,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1000043,
+        "Name": "D. Health protection",
+        "Sequence": 4,
+        "ProfileId": 19,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1000044,
+        "Name": "E. Healthcare and premature mortality",
+        "Sequence": 5,
+        "ProfileId": 19,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938132983,
+        "Name": "Supporting information",
+        "Sequence": 6,
+        "ProfileId": 19,
+        "DataAvailable": null
+    }
+]

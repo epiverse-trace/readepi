@@ -7,78 +7,89 @@
 #' @param organisation_unit the organisationUnits identifiers
 #' @param data_element_group the dataElementGroups identifiers
 #'
-#' @return a list
-#' @export
+#' @return a list of 7 elements of type `character`.
 #'
 #' @examples
-#' attributes <- check_dhis2_attributes(
-#'  username = "admin",
-#'  password = "district",
-#'  base_url = "https://play.dhis2.org/dev/",
-#'  dataset = "pBOMPrpg1QX",
-#'  organisation_unit = "DiszpKrYNg8",
-#'  data_element_group = NULL
+#' \dontrun{
+#' attributes <- dhis2_check_attributes(
+#'   username           = "admin",
+#'   password           = "district",
+#'   base_url           = "https://play.dhis2.org/dev/",
+#'   dataset            = "pBOMPrpg1QX",
+#'   organisation_unit  = "DiszpKrYNg8",
+#'   data_element_group = NULL
 #' )
-check_dhis2_attributes <- function(username,
+#' }
+#'
+#' @keywords internal
+#' @noRd
+dhis2_check_attributes <- function(username,
                                    password,
                                    base_url,
                                    dataset,
                                    organisation_unit = NULL,
                                    data_element_group = NULL) {
-  checkmate::assertCharacter(base_url,
-    len = 1L, null.ok = FALSE,
-    any.missing = FALSE
-  )
-  checkmate::assertCharacter(username,
-    len = 1L, null.ok = FALSE,
-    any.missing = FALSE
-  )
-  checkmate::assertCharacter(password,
-    len = 1L, null.ok = FALSE,
-    any.missing = FALSE
-  )
-  checkmate::assert_vector(dataset,
-    any.missing = FALSE, min.len = 1,
-    null.ok = FALSE, unique = TRUE
-  )
-  checkmate::assert_vector(organisation_unit,
-    any.missing = FALSE, min.len = 1,
-    null.ok = FALSE, unique = TRUE
-  )
-  checkmate::assert_vector(data_element_group,
-    any.missing = FALSE, min.len = 1,
-    null.ok = TRUE, unique = TRUE
-  )
-  data_elt_groups <- data_sets <- org_units <- data_elements <- NULL
-
   # get the relevant dataset
-  tmp_res <- get_relevant_dataset(dataset, base_url, username, password)
-  dataset <- tmp_res[[1]]
-  data_sets <- tmp_res[[2]]
+  if (!is.null(dataset)) {
+    tmp_res <- dhis2_get_relevant_attributes(
+      attribute_id = dataset,
+      base_url     = base_url,
+      username     = username,
+      password     = password,
+      which        = "dataSets"
+    )
+    dataset   <- tmp_res[["dataset"]]
+    data_sets <- tmp_res[["data_sets"]]
+  } else {
+    dataset   <- data_sets <- NULL
+  }
 
   # get the relevant organisation units
-  tmp_res <- get_relevant_organisation_unit(organisation_unit,
-                                                     base_url, username,
-                                                     password)
-  organisation_unit <- tmp_res[[1]]
-  org_units <- tmp_res[[2]]
+  if (!is.null(organisation_unit)) {
+    tmp_res <- dhis2_get_relevant_attributes(
+      attribute_id = organisation_unit,
+      base_url     = base_url,
+      username     = username,
+      password     = password,
+      which        = "organisationUnits"
+    )
+    organisation_unit <- tmp_res[["organisation_unit"]]
+    org_units         <- tmp_res[["org_units"]]
+  } else {
+    organisation_unit <- org_units <- NULL
+  }
 
   # get the relevant data element groups
-  tmp_res <- get_relevant_data_elt_group(data_element_group, base_url,
-                                            username, password)
-  data_element_group <- tmp_res[[1]]
-  data_elt_groups <- tmp_res[[2]]
+  if (!is.null(data_element_group)) {
+    tmp_res <- dhis2_get_relevant_attributes(
+      attribute_id = data_element_group,
+      base_url     = base_url,
+      username     = username,
+      password     = password,
+      which        = "dataElementGroups"
+    )
+    data_element_group <- tmp_res[["data_element_group"]]
+    data_elt_groups    <- tmp_res[["data_elt_groups"]]
+  } else {
+    data_element_group <- data_elt_groups <- NULL
+  }
 
   # get the data element
-  data_elements <- get_data_elements(base_url, username, password)
+  data_elements <- dhis2_get_relevant_attributes(
+    attribute_id = NULL,
+    base_url     = base_url,
+    username     = username,
+    password     = password,
+    which        = "dataElements"
+  )
 
   list(
-    dataset = dataset,
-    dataset_details = data_sets,
-    organisation_unit = organisation_unit,
-    org_units_details = org_units,
-    data_element_group = data_element_group,
+    dataset                     = dataset,
+    dataset_details             = data_sets,
+    organisation_unit           = organisation_unit,
+    org_units_details           = org_units,
+    data_element_group          = data_element_group,
     data_element_groups_details = data_elt_groups,
-    data_elements = data_elements
+    data_elements               = data_elements
   )
 }

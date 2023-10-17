@@ -10,5 +10,7 @@ show_example_file()
 Display the structure of the credentials file
 }
 \examples{
-show_example_file()
+\dontrun{
+  show_example_file()
+}
 }

@@ -1,0 +1,37 @@
+[
+    {
+        "Id": 1938133359,
+        "Name": "Impact on mortality",
+        "Sequence": 1,
+        "ProfileId": 100,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133360,
+        "Name": "Disruption to healthcare",
+        "Sequence": 2,
+        "ProfileId": 100,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133361,
+        "Name": "Reduction in prevention, detection and management of conditions",
+        "Sequence": 3,
+        "ProfileId": 100,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133363,
+        "Name": "Wider societal and economic impacts that affect health",
+        "Sequence": 4,
+        "ProfileId": 100,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133364,
+        "Name": "Wellbeing and behavioural risk factors",
+        "Sequence": 5,
+        "ProfileId": 100,
+        "DataAvailable": null
+    }
+]
