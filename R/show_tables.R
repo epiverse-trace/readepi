@@ -34,28 +34,29 @@ show_tables <- function(data_source      = "mysql-rfam-public.ebi.ac.uk",
 
   # establishing the connection to the server
   con <- switch(
-                credentials[["dbms"]],
-                SQLServer = DBI::dbConnect(odbc::odbc(),
-                                           driver   = driver_name,
-                                           server   = credentials[["host"]],
-                                           database = credentials[["project"]],
-                                           uid      = credentials[["user"]],
-                                           pwd      = credentials[["pwd"]],
-                                           port     = as.numeric(credentials[["port"]])), # nolint: line_length_linter
-                MySQL = DBI::dbConnect(RMySQL::MySQL(),
-                                       driver   = driver_name,
-                                       host     = credentials[["host"]],
-                                       dbname   = credentials[["project"]],
-                                       user     = credentials[["user"]],
-                                       password = credentials[["pwd"]],
-                                       port     = as.numeric(credentials[["port"]])), # nolint: line_length_linter
-                PostgreSQL = DBI::dbConnect(odbc::odbc(),
-                                            driver   = driver_name,
-                                            host     = credentials[["host"]],
-                                            database = credentials[["project"]],
-                                            uid      = credentials[["user"]],
-                                            pwd      = credentials[["pwd"]],
-                                            port     = as.numeric(credentials[["port"]]))) # nolint: line_length_linter
+    credentials[["dbms"]],
+    SQLServer = DBI::dbConnect(odbc::odbc(),
+                               driver   = driver_name,
+                               server   = credentials[["host"]],
+                               database = credentials[["project"]],
+                               uid      = credentials[["user"]],
+                               pwd      = credentials[["pwd"]],
+                               port     = as.numeric(credentials[["port"]])),
+    MySQL = DBI::dbConnect(RMySQL::MySQL(),
+                           driver   = driver_name,
+                           host     = credentials[["host"]],
+                           dbname   = credentials[["project"]],
+                           user     = credentials[["user"]],
+                           password = credentials[["pwd"]],
+                           port     = as.numeric(credentials[["port"]])),
+    PostgreSQL = DBI::dbConnect(odbc::odbc(),
+                                driver   = driver_name,
+                                host     = credentials[["host"]],
+                                database = credentials[["project"]],
+                                uid      = credentials[["user"]],
+                                pwd      = credentials[["pwd"]],
+                                port     = as.numeric(credentials[["port"]]))
+  )
 
   # listing the names of the tables present in the database
   tables <- DBI::dbListTables(conn = con)

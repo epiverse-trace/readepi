@@ -45,11 +45,11 @@ get_fingertips_metadata <- function() {
 #'
 get_ind_id_from_ind_name <- function(metadata =
                                        list(indicator_profile_domain =
-                                            fingertipsR::indicators(),
+                                              fingertipsR::indicators(),
                                             indicator_ids_names      =
-                                            fingertipsR::indicators_unique(),
+                                              fingertipsR::indicators_unique(),
                                             area_type                =
-                                            fingertipsR::area_types()),
+                                              fingertipsR::area_types()),
                                      indicator_name = "Pupil absence") {
   checkmate::assert_list(metadata,
                          len = 3L, null.ok = FALSE,
@@ -112,11 +112,11 @@ get_ind_id_from_ind_name <- function(metadata =
 #'
 get_ind_id_from_domain_id <- function(metadata =
                                         list(indicator_profile_domain =
-                                             fingertipsR::indicators(),
+                                               fingertipsR::indicators(),
                                              indicator_ids_names      =
-                                             fingertipsR::indicators_unique(),
+                                               fingertipsR::indicators_unique(),
                                              area_type                =
-                                             fingertipsR::area_types()),
+                                               fingertipsR::area_types()),
                                       domain_id      = 1000041L,
                                       indicator_name = NULL) {
   checkmate::assert_list(metadata,
@@ -187,12 +187,12 @@ get_ind_id_from_domain_id <- function(metadata =
 #'
 get_ind_id_from_domain_name <- function(metadata =
                                           list(indicator_profile_domain =
-                                               fingertipsR::indicators(),
+                                                 fingertipsR::indicators(),
                                                indicator_ids_names      =
-                                               fingertipsR::indicators_unique(), # nolint: line_length_linter
+                                                 fingertipsR::indicators_unique(), # nolint: line_length_linter
                                                fingertipsR::indicators_unique(), # nolint: line_length_linter
                                                area_type                =
-                                               fingertipsR::area_types()),
+                                                 fingertipsR::area_types()),
                                         domain_name    = "B. Wider determinants of health", # nolint: line_length_linter
                                         indicator_name = NULL) {
   checkmate::assert_list(metadata,
@@ -270,11 +270,11 @@ get_ind_id_from_domain_name <- function(metadata =
 #' @noRd
 get_profile_name <- function(metadata =
                                list(indicator_profile_domain =
-                                    fingertipsR::indicators(),
+                                      fingertipsR::indicators(),
                                     indicator_ids_names      =
-                                    fingertipsR::indicators_unique(),
+                                      fingertipsR::indicators_unique(),
                                     area_type                =
-                                    fingertipsR::area_types()),
+                                      fingertipsR::area_types()),
                              profile_id = 19L,
                              profile_name = "Public Health Outcomes Framework") { # nolint: line_length_linter
   checkmate::assert_list(metadata,
@@ -289,19 +289,19 @@ get_profile_name <- function(metadata =
   if (!is.null(profile_id) && !is.null(profile_name)) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(
-                 metadata[["indicator_profile_domain"]][["ProfileID"]] ==
-                   profile_id &
-                   metadata[["indicator_profile_domain"]][["ProfileName"]] ==
-                     profile_name)
+      metadata[["indicator_profile_domain"]][["ProfileID"]] ==
+        profile_id &
+        metadata[["indicator_profile_domain"]][["ProfileName"]] ==
+        profile_name)
   } else if (!is.null(profile_id) && is.null(profile_name)) {
     idx <- which(
-                 metadata[["indicator_profile_domain"]][["ProfileID"]] ==
-                   profile_id)
+      metadata[["indicator_profile_domain"]][["ProfileID"]] ==
+        profile_id)
   } else if (!is.null(profile_name) && is.null(profile_id)) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(
-                 metadata[["indicator_profile_domain"]][["ProfileName"]] ==
-                   profile_name)
+      metadata[["indicator_profile_domain"]][["ProfileName"]] ==
+        profile_name)
   }
 
   list(
@@ -335,11 +335,11 @@ get_profile_name <- function(metadata =
 #' @noRd
 get_ind_id_from_profile <- function(metadata =
                                       list(indicator_profile_domain =
-                                           fingertipsR::indicators(),
+                                             fingertipsR::indicators(),
                                            indicator_ids_names      =
-                                           fingertipsR::indicators_unique(),
+                                             fingertipsR::indicators_unique(),
                                            area_type                =
-                                           fingertipsR::area_types()),
+                                             fingertipsR::area_types()),
                                     domain_id      = NULL,
                                     domain_name    = NULL,
                                     indicator_name = NULL,

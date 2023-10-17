@@ -21,7 +21,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-# readepi: Read data from health information systems <img src="man/figures/logo.svg" align="right" width="130"/>
+# readepi: Read Data from Health Information Systems <img src="man/figures/logo.svg" align="right" width="130"/>
 
 <!-- badges: start -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit/)

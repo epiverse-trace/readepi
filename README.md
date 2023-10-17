@@ -5,7 +5,7 @@
 <!-- `packagename` is extracted from the DESCRIPTION file -->
 <!-- `gh_repo` is extracted via a special environment variable in GitHub Actions -->
 
-# readepi: Read data from health information systems <img src="man/figures/logo.svg" align="right" width="130"/>
+# readepi: Read Data from Health Information Systems <img src="man/figures/logo.svg" align="right" width="130"/>
 
 <!-- badges: start -->
 
