@@ -52,7 +52,7 @@ test_that("dhis2_subset_fields fails as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   data <- readepi(
-    credentials_file  = system.file("extdata", "test.ini", package = "readepi"),
+    credentials_file = system.file("extdata", "test.ini", package = "readepi"),
     data_source        = "https://play.dhis2.org/dev",
     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
     organisation_unit  = "DiszpKrYNg8",
