@@ -17,6 +17,7 @@ httptest::with_mock_api({
 test_that("dhis2_login fails as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
+  testthat::skip_if_not_installed("httptest")
   expect_error(
     dhis2_login(
       base_url  = file.path("test", "play.dhis2.org", "dev"),

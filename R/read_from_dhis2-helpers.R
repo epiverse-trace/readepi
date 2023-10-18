@@ -13,6 +13,8 @@
 #'
 #' @return a message if the login was successfull, thows an error otherwise.
 #'
+#' @return a message if the login was successfull, thows an error otherwise.
+#'
 #' @keywords internal
 #' @noRd
 dhis2_login <- function(base_url  = file.path("https:/", "play.dhis2.org",
