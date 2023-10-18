@@ -1,8 +1,7 @@
 #' Display the structure of the credentials file
+#' @return Displays the content of the template credential file.
 #' @examples
-#' \dontrun{
 #'   show_example_file()
-#' }
 #' @export
 #' @importFrom utils read.table
 show_example_file <- function() {

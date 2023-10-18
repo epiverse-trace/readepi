@@ -1,6 +1,7 @@
 httptest::with_mock_api({
   testthat::skip_on_cran()
   testthat::skip_if_offline()
+  testthat::skip_if_not_installed("httptest")
   test_that("login works as expected", {
     expect_message(
       login(
@@ -16,6 +17,7 @@ httptest::with_mock_api({
 test_that("login fails as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
+  testthat::skip_if_not_installed("httptest")
   expect_error(
     login(
       username = "admin",
@@ -49,8 +51,8 @@ test_that("dhis2_subset_fields works as expected", {
 test_that("dhis2_subset_fields fails as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
-  data <- readepi(credentials_file  = system.file("extdata", "test.ini",
-                                                  package = "readepi"),
+  data <- readepi(
+    credentials_file = system.file("extdata", "test.ini", package = "readepi"),
     data_source        = "https://play.dhis2.org/dev",
     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
     organisation_unit  = "DiszpKrYNg8",

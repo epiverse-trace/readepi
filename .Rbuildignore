@@ -11,3 +11,4 @@
 ^Meta$
 ^\.lintr$
 ^touchstone$
+^cran-comments\.md$

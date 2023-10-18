@@ -27,7 +27,7 @@ get_fingertips_metadata <- function() {
 #' @param metadata a list with the fingertips metadata
 #' @param indicator_name the indicator name
 #'
-#' @return an object of type `numeric` that contains the indicator ID
+#' @return an object of type `numeric` that contains the indicator ID.
 #'
 #' @examples
 #' \dontrun{
@@ -87,7 +87,7 @@ get_ind_id_from_ind_name <- function(metadata, indicator_name) {
 #' @param domain_id the domain ID
 #' @param indicator_name the indicator name
 #'
-#' @return an object of type `numeric` that contains the indicator ID
+#' @return an object of type `numeric` that contains the indicator ID.
 #' @examples
 #' \dontrun{
 #' indicator_id <- get_ind_id_from_domain_id(
@@ -156,7 +156,7 @@ get_ind_id_from_domain_id <- function(metadata, domain_id,
 #' @param domain_name the domain name
 #' @param indicator_name the indicator name
 #'
-#' @return an object of type `numeric` that contains the indicator ID
+#' @return an object of type `numeric` that contains the indicator ID.
 #' @examples
 #' \dontrun{
 #' indicator_id <- get_ind_id_from_domain_name(
@@ -289,7 +289,7 @@ get_profile_name <- function(profile_id, profile_name, metadata) {
 #' @param profile_name the profile name
 #' @param profile_id the profile ID
 #'
-#' @return an object of type `numeric` that contains the indicator ID
+#' @return an object of type `numeric` that contains the indicator ID.
 #' @examples
 #' \dontrun{
 #' res <- get_ind_id_from_profile(
@@ -358,7 +358,7 @@ get_ind_id_from_profile <- function(metadata, domain_id = NULL,
 #' @param id_col_name the column name with the subject IDs
 #'
 #' @return an object of type `data.frame` with the Fingertips dataset that
-#'    contains only the records of interest
+#'    contains only the records of interest.
 #'
 #' @examples
 #' \dontrun{
@@ -405,7 +405,7 @@ fingertips_subset_rows <- function(data, records, id_col_name) {
 #' @param fields a vector or a comma-separated string of column names
 #'
 #' @return an object of type `data.frame` with the Fingertips dataset that
-#'    contains only the fields of interest
+#'    contains only the fields of interest.
 #' @examples
 #' \dontrun{
 #' res <- fingertips_subset_columns(

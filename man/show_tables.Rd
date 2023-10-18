@@ -18,7 +18,7 @@ to display the list of installed drivers}
 }
 \value{
 a \code{character} that contains the list of all tables found
-in the specified database
+in the specified database.
 }
 \description{
 Display the list of tables in a database

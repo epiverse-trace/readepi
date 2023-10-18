@@ -1,8 +1,8 @@
 Package: readepi
-Title: Read Data From Health Information Systems
-Version: 0.1.0
+Title: Read Data from Health Information Systems
+Version: 0.0.1
 Authors@R: c(
-    person("Karim", "Mané", , "lshkm1@lshtm.ac.uk", role = c("aut", "cre"),
+    person("Karim", "Mané", , "lshkm1@lshtm.ac.uk", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-9892-2999")),
     person("Bubacarr", "Bah", , "Bubacarr.Bah1@lshtm.ac.uk", role = "ctb",
            comment = c(ORCID = "0000-0003-3318-6668")),
@@ -18,10 +18,10 @@ Authors@R: c(
   )
 Description: Data import from several health information systems ('HIS').
     The current version of the package covers 'HIS' such as 'MS SQL',
-    'MySQL', 'PostGRESQL' servers, 'REDCap', 'DHIS2' and 'Fingertips'.
+    'MySQL', and 'PostGRESQL' servers, 'REDCap', 'DHIS2' and 'Fingertips'.
 License: MIT + file LICENSE
-URL: https://epiverse-trace.github.io/readepi,
-    https://github.com/epiverse-trace/readepi
+URL: https://epiverse-trace.github.io/readepi/,
+    https://github.com/epiverse-trace/readepi/
 BugReports: https://github.com/epiverse-trace/readepi/issues
 Imports: 
     checkmate,

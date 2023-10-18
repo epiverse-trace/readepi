@@ -32,7 +32,7 @@ this can be provided using the \code{id_col_name} argument}
 enumerated and described in the vignette.}
 }
 \value{
-a \code{list} of 1 or several object of type \verb{data frame}.
+a \code{list} of 1 or several object(s) of type \verb{data frame}.
 }
 \description{
 the function allows import of data from Health Information

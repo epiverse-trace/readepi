@@ -8,6 +8,8 @@
 #' @param password the user's password
 #' @param base_url the base URL of the DHIS2 server
 #'
+#' @return a message if the login was successfull, thows an error otherwise.
+#'
 #' @keywords internal
 #' @noRd
 login <- function(username, password, base_url) {
@@ -32,7 +34,7 @@ login <- function(username, password, base_url) {
 #' @param data the input data frame
 #'
 #' @return an object of type `data.frame` with the data that contains only the
-#'    fields of interest
+#'    fields of interest.
 #' @examples
 #' \dontrun{
 #' results <- dhis2_subset_fields(
@@ -86,7 +88,7 @@ dhis2_subset_fields <- function(data, fields) {
 #' @param data the input data frame
 #'
 #' @return an object of type `data.frame` with the data that contains only the
-#'    records of interest
+#'    records of interest.
 #' @examples
 #' \dontrun{
 #' result <- dhis2_subset_records(
@@ -138,7 +140,7 @@ dhis2_subset_records <- function(data, records, id_col_name) {
 #'
 #' @param args_list a `list` of parameters provided by the user
 #'
-#' @return an object of type `list` with the values for the DHIS2 attributes
+#' @return an object of type `list` with the values for the DHIS2 attributes.
 #' @keywords internal
 #' @noRd
 get_attributes_from_user <- function(args_list) {
