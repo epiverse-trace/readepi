@@ -1,0 +1,999 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+
+
+<title>readepi: Reading data from health information systems</title>
+
+<script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
+// be compatible with the behavior of Pandoc < 2.8).
+document.addEventListener('DOMContentLoaded', function(e) {
+  var hs = document.querySelectorAll("div.section[class*='level'] > :first-child");
+  var i, h, a;
+  for (i = 0; i < hs.length; i++) {
+    h = hs[i];
+    if (!/^h[1-6]$/i.test(h.tagName)) continue;  // it should be a header h1-h6
+    a = h.attributes;
+    while (a.length > 0) h.removeAttribute(a[0].name);
+  }
+});
+</script>
+
+<style type="text/css">
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+
+<style type="text/css">
+code {
+white-space: pre;
+}
+.sourceCode {
+overflow: visible;
+}
+</style>
+<style type="text/css" data-origin="pandoc">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+{ counter-reset: source-line 0; }
+pre.numberSource code > span
+{ position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+{ content: counter(source-line);
+position: relative; left: -1em; text-align: right; vertical-align: baseline;
+border: none; display: inline-block;
+-webkit-touch-callout: none; -webkit-user-select: none;
+-khtml-user-select: none; -moz-user-select: none;
+-ms-user-select: none; user-select: none;
+padding: 0 4px; width: 4em;
+color: #aaaaaa;
+}
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa; padding-left: 4px; }
+div.sourceCode
+{ }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } 
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.at { color: #7d9029; } 
+code span.bn { color: #40a070; } 
+code span.bu { color: #008000; } 
+code span.cf { color: #007020; font-weight: bold; } 
+code span.ch { color: #4070a0; } 
+code span.cn { color: #880000; } 
+code span.co { color: #60a0b0; font-style: italic; } 
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.do { color: #ba2121; font-style: italic; } 
+code span.dt { color: #902000; } 
+code span.dv { color: #40a070; } 
+code span.er { color: #ff0000; font-weight: bold; } 
+code span.ex { } 
+code span.fl { color: #40a070; } 
+code span.fu { color: #06287e; } 
+code span.im { color: #008000; font-weight: bold; } 
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } 
+code span.kw { color: #007020; font-weight: bold; } 
+code span.op { color: #666666; } 
+code span.ot { color: #007020; } 
+code span.pp { color: #bc7a00; } 
+code span.sc { color: #4070a0; } 
+code span.ss { color: #bb6688; } 
+code span.st { color: #4070a0; } 
+code span.va { color: #19177c; } 
+code span.vs { color: #4070a0; } 
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } 
+</style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    var j = 0;
+    while (j < rules.length) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") {
+        j++;
+        continue;
+      }
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') {
+        j++;
+        continue;
+      }
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
+
+
+
+
+<style type="text/css">body {
+background-color: #fff;
+margin: 1em auto;
+max-width: 700px;
+overflow: visible;
+padding-left: 2em;
+padding-right: 2em;
+font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-size: 14px;
+line-height: 1.35;
+}
+#TOC {
+clear: both;
+margin: 0 0 10px 10px;
+padding: 4px;
+width: 400px;
+border: 1px solid #CCCCCC;
+border-radius: 5px;
+background-color: #f6f6f6;
+font-size: 13px;
+line-height: 1.3;
+}
+#TOC .toctitle {
+font-weight: bold;
+font-size: 15px;
+margin-left: 5px;
+}
+#TOC ul {
+padding-left: 40px;
+margin-left: -1.5em;
+margin-top: 5px;
+margin-bottom: 5px;
+}
+#TOC ul ul {
+margin-left: -2em;
+}
+#TOC li {
+line-height: 16px;
+}
+table {
+margin: 1em auto;
+border-width: 1px;
+border-color: #DDDDDD;
+border-style: outset;
+border-collapse: collapse;
+}
+table th {
+border-width: 2px;
+padding: 5px;
+border-style: inset;
+}
+table td {
+border-width: 1px;
+border-style: inset;
+line-height: 18px;
+padding: 5px 5px;
+}
+table, table th, table td {
+border-left-style: none;
+border-right-style: none;
+}
+table thead, table tr.even {
+background-color: #f7f7f7;
+}
+p {
+margin: 0.5em 0;
+}
+blockquote {
+background-color: #f6f6f6;
+padding: 0.25em 0.75em;
+}
+hr {
+border-style: solid;
+border: none;
+border-top: 1px solid #777;
+margin: 28px 0;
+}
+dl {
+margin-left: 0;
+}
+dl dd {
+margin-bottom: 13px;
+margin-left: 13px;
+}
+dl dt {
+font-weight: bold;
+}
+ul {
+margin-top: 0;
+}
+ul li {
+list-style: circle outside;
+}
+ul ul {
+margin-bottom: 0;
+}
+pre, code {
+background-color: #f7f7f7;
+border-radius: 3px;
+color: #333;
+white-space: pre-wrap; 
+}
+pre {
+border-radius: 3px;
+margin: 5px 0px 10px 0px;
+padding: 10px;
+}
+pre:not([class]) {
+background-color: #f7f7f7;
+}
+code {
+font-family: Consolas, Monaco, 'Courier New', monospace;
+font-size: 85%;
+}
+p > code, li > code {
+padding: 2px 0px;
+}
+div.figure {
+text-align: center;
+}
+img {
+background-color: #FFFFFF;
+padding: 2px;
+border: 1px solid #DDDDDD;
+border-radius: 3px;
+border: 1px solid #CCCCCC;
+margin: 0 5px;
+}
+h1 {
+margin-top: 0;
+font-size: 35px;
+line-height: 40px;
+}
+h2 {
+border-bottom: 4px solid #f7f7f7;
+padding-top: 10px;
+padding-bottom: 2px;
+font-size: 145%;
+}
+h3 {
+border-bottom: 2px solid #f7f7f7;
+padding-top: 10px;
+font-size: 120%;
+}
+h4 {
+border-bottom: 1px solid #f7f7f7;
+margin-left: 8px;
+font-size: 105%;
+}
+h5, h6 {
+border-bottom: 1px solid #ccc;
+font-size: 105%;
+}
+a {
+color: #0033dd;
+text-decoration: none;
+}
+a:hover {
+color: #6666ff; }
+a:visited {
+color: #800080; }
+a:visited:hover {
+color: #BB00BB; }
+a[href^="http:"] {
+text-decoration: underline; }
+a[href^="https:"] {
+text-decoration: underline; }
+
+code > span.kw { color: #555; font-weight: bold; } 
+code > span.dt { color: #902000; } 
+code > span.dv { color: #40a070; } 
+code > span.bn { color: #d14; } 
+code > span.fl { color: #d14; } 
+code > span.ch { color: #d14; } 
+code > span.st { color: #d14; } 
+code > span.co { color: #888888; font-style: italic; } 
+code > span.ot { color: #007020; } 
+code > span.al { color: #ff0000; font-weight: bold; } 
+code > span.fu { color: #900; font-weight: bold; } 
+code > span.er { color: #a61717; background-color: #e3d2d2; } 
+</style>
+
+
+
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">readepi: Reading data from health
+information systems</h1>
+
+
+
+<div id="overview" class="section level1">
+<h1>Overview</h1>
+<p>Health-related data in general, and epidemiological data in
+particular, are stored in files, relation database management systems
+(RDBMS), or health information systems (HIS). Each category includes
+numerous options, such as various file formats, RDBMS types, and HIS
+APIs. Import data from such repositories involve the usage of different
+format-specific functions or API-specific packages, which is an
+exhausting task for end users.</p>
+<p>The main objective of <strong>{readepi}</strong> package is to
+simplify the process of reading health-related data from diverse
+sources, allowing the user to focus more on downstream analysis tasks.
+<strong>{readepi}</strong> also streamlines the way data is read into a
+single function —it imports data from a specified systems (can be SQL
+database, or HIS API) using the <code>readepi()</code> function, which
+returns a <code>list</code> object containing one or more data
+frames.</p>
+<p>The current implementation of <strong>{readepi}</strong> provides a
+function for reading data from three common HIS: (<a href="https://www.project-redcap.org/">REDCap</a>, <a href="https://dhis2.org/">DHIS2</a>, and <a href="https://fingertips.phe.org.uk/">Fingertips</a>), and RDBMS such as
+MS SQL, MySQL, and PostgreSQL. Other utility functions for processing
+and manipulating the imported data, such as row or column/row
+sub-setting, are also included in this package.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="co"># LOAD readepi</span></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;readepi&quot;</span>) <span class="co"># nolint</span></span></code></pre></div>
+</div>
+<div id="reading-data-from-rdbms" class="section level1">
+<h1>Reading data from RDBMS</h1>
+<p>Health related research data are usually stored in either relational
+databases or non-SQL databases. For example, at <a href="https://www.lshtm.ac.uk/research/units/mrc-gambia">MRCG@LSHTM</a>,
+projects data are stored in relational databases. A SQL-based database
+is run under a specific sever. The current version of the
+<strong>{readepi}</strong> package supports reading data from MS SQL,
+MySQL, and PostgreSQL servers.</p>
+<p>To read data from a MS SQL database, the user is expected to have, at
+least, read access to the database. The user credential details should
+be stored in file. Also, users who are using an operating system other
+than Microsoft need to have the appropriate MS driver installed into
+their system. In the following section we show how to install these
+drivers and describe the structure of the credentials file.</p>
+<div id="ms-sql-drivers-for-osx-based-systems" class="section level2">
+<h2>MS SQL drivers for OSX-based systems</h2>
+<p>Reading data from Unix-based systems require to install an MS ODBC
+driver that is compatible with the version of the target MS SQL server.
+For example, <strong><em>ODBC Driver 17</em></strong> is compatible with
+<strong><em>SQL server 2019, version 15.0</em></strong>.</p>
+<p>Mac users can follow the instructions below to install the MS SQL
+ODBC driver. Choose the appropriate driver, open the terminal, and run
+these instructions.</p>
+<ol style="list-style-type: decimal">
+<li>installation of MS SQL driver 17 on Mac</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="va">driver</span><span class="op">=</span>17</span>
+<span id="cb2-2"><a href="#cb2-2" tabindex="-1"></a><span class="ex">brew</span> install unixodbc</span>
+<span id="cb2-3"><a href="#cb2-3" tabindex="-1"></a><span class="ex">brew</span> tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release</span>
+<span id="cb2-4"><a href="#cb2-4" tabindex="-1"></a><span class="ex">brew</span> update</span>
+<span id="cb2-5"><a href="#cb2-5" tabindex="-1"></a><span class="ex">brew</span> install msodbcsql<span class="va">${driver}</span></span>
+<span id="cb2-6"><a href="#cb2-6" tabindex="-1"></a><span class="ex">brew</span> install mssql-tools</span>
+<span id="cb2-7"><a href="#cb2-7" tabindex="-1"></a><span class="va">ODBCSYSINI</span><span class="op">=</span>/</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>installation of MS SQL driver 13.1 on Mac</li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" tabindex="-1"></a><span class="ex">brew</span> install unixodbc</span>
+<span id="cb3-2"><a href="#cb3-2" tabindex="-1"></a><span class="ex">brew</span> tap microsoft/mssql-release https://github.com/Microsoft/homebrew-mssql-release</span>
+<span id="cb3-3"><a href="#cb3-3" tabindex="-1"></a><span class="ex">brew</span> update</span>
+<span id="cb3-4"><a href="#cb3-4" tabindex="-1"></a><span class="ex">brew</span> install msodbcsql@13.1.9.2</span>
+<span id="cb3-5"><a href="#cb3-5" tabindex="-1"></a><span class="ex">brew</span> install mssql-tools@14.0.6.0</span>
+<span id="cb3-6"><a href="#cb3-6" tabindex="-1"></a><span class="va">ODBCSYSINI</span><span class="op">=</span>/</span></code></pre></div>
+</div>
+<div id="ms-sql-drivers-for-linux-based-systems" class="section level2">
+<h2>MS SQL drivers for Linux-based systems</h2>
+<p>Note that this requires <strong>Ubuntu 16.04 and above</strong>.
+Choose the appropriate driver, open the terminal and type the
+instructions below:</p>
+<ol style="list-style-type: decimal">
+<li>installation of MS SQL driver version 17 on <code>Ubuntu</code></li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="va">driver</span><span class="op">=</span>17</span>
+<span id="cb4-2"><a href="#cb4-2" tabindex="-1"></a><span class="fu">sudo</span> su</span>
+<span id="cb4-3"><a href="#cb4-3" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/keys/microsoft.asc <span class="kw">|</span> <span class="ex">apt-key</span> add <span class="at">-</span></span>
+<span id="cb4-4"><a href="#cb4-4" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/config/ubuntu/<span class="va">$(</span><span class="ex">lsb_release</span> <span class="at">-rs</span><span class="va">)</span>/prod.list <span class="op">&gt;</span> /etc/apt/sources.list.d/mssql-release.list</span>
+<span id="cb4-5"><a href="#cb4-5" tabindex="-1"></a><span class="bu">exit</span></span>
+<span id="cb4-6"><a href="#cb4-6" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb4-8"><a href="#cb4-8" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install <span class="at">-y</span> msodbcsql<span class="va">${driver}</span></span>
+<span id="cb4-9"><a href="#cb4-9" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install <span class="at">-y</span> mssql-tools</span>
+<span id="cb4-10"><a href="#cb4-10" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;$PATH:/opt/mssql-tools/bin&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
+<span id="cb4-11"><a href="#cb4-11" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span>
+<span id="cb4-12"><a href="#cb4-12" tabindex="-1"></a><span class="fu">sudo</span> apt-get install <span class="at">-y</span> unixodbc-dev</span></code></pre></div>
+<ol start="2" style="list-style-type: decimal">
+<li>installation of MS SQL driver version 13.1 on
+<code>Ubuntu</code></li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" tabindex="-1"></a><span class="fu">sudo</span> su</span>
+<span id="cb5-2"><a href="#cb5-2" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/keys/microsoft.asc <span class="kw">|</span> <span class="ex">apt-key</span> add <span class="at">-</span></span>
+<span id="cb5-3"><a href="#cb5-3" tabindex="-1"></a><span class="ex">curl</span> https://packages.microsoft.com/config/ubuntu/16.04/prod.list <span class="op">&gt;</span> /etc/apt/sources.list.d/mssql-release.list</span>
+<span id="cb5-4"><a href="#cb5-4" tabindex="-1"></a><span class="bu">exit</span></span>
+<span id="cb5-5"><a href="#cb5-5" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
+<span id="cb5-6"><a href="#cb5-6" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install msodbcsql</span>
+<span id="cb5-7"><a href="#cb5-7" tabindex="-1"></a><span class="fu">sudo</span> ACCEPT_EULA=Y apt-get install mssql-tools</span>
+<span id="cb5-8"><a href="#cb5-8" tabindex="-1"></a><span class="bu">echo</span> <span class="st">&#39;export PATH=&quot;$PATH:/opt/mssql-tools/bin&quot;&#39;</span> <span class="op">&gt;&gt;</span> ~/.bashrc</span>
+<span id="cb5-9"><a href="#cb5-9" tabindex="-1"></a><span class="bu">source</span> ~/.bashrc</span>
+<span id="cb5-10"><a href="#cb5-10" tabindex="-1"></a><span class="fu">sudo</span> apt-get install unixodbc-dev</span></code></pre></div>
+<ol start="3" style="list-style-type: decimal">
+<li>installation of MS SQL driver on other Linux distributions</li>
+</ol>
+<p>To install an MS SQL driver for other Linux distributions, such as
+Debian and Fedora, click <a href="https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&amp;tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline">here</a>
+and follow the instructions. After the installation, check the installed
+drivers using:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a>odbc<span class="sc">::</span><span class="fu">odbcListDrivers</span>()</span></code></pre></div>
+<p>If this command does not return the list of installed drivers or if
+you are facing issues during the driver installation process, consult <a href="https://github.com/r-dbi/odbc#installation">the odbc github
+page</a> or the <a href="https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15">MS
+documentation on this topic</a>.</p>
+<p>It is also important to view the data stored in the MS SQL server.
+For that purpose, we recommend you to install a graphical user interface
+(GUI) such as <code>Azure Data Studio</code>.</p>
+</div>
+<div id="main-arguments" class="section level2">
+<h2>Main arguments</h2>
+<p>The <code>readepi()</code> function expects the following
+arguments:</p>
+<ul>
+<li><code>data_source</code>: (required) this is the URL of the target
+HIS.</li>
+<li><code>records</code>: (optional) a vector or a comma-separated
+string of subject IDs. When specified, only the records that correspond
+to these subjects will be imported.</li>
+<li><code>fields</code>: (optional) a vector or a comma-separated string
+of column names. If provided, only those columns will be imported.</li>
+<li><code>id_position</code>: (optional) the column position of the
+variable that unique identifies the subjects. It’s default value is
+1.</li>
+<li><code>id_col_name</code>: (optional) the name of the column that
+unique identifies the subjects.</li>
+</ul>
+<div id="credentials-file" class="section level3">
+<h3>Credentials file</h3>
+<p>The access to data stored in a database management system requires
+valid user credentials, such as a user name and password. The
+<strong>{readepi}</strong> package expect that the user credential
+details to be saved in a tab-separated file. The path to that constitute
+the value for the <code>credentials_file</code> argument of the
+<code>readepi()</code> function.</p>
+<p>This credential (tab-delimited) file must contain the following
+columns:</p>
+<ol style="list-style-type: decimal">
+<li><code>user_name</code>: the user name. </li>
+<li><code>password</code>: the user password (in REDCap, this
+corresponds to token). </li>
+<li><code>host_name</code>: the host name (in REDCap, this corresponds
+to the host URL). <br />
+</li>
+<li><code>project_id</code>: the name of the database (for relation DB)
+or the name of project (for REDCap API) that contains data of
+interest. </li>
+<li><code>comment</code>: (optional) a brief description of the project
+or database of interest. <br />
+</li>
+<li><code>dbms</code>: the type of the DBMS. Possible values are:
+<code>REDCap</code> when reading from REDCap; <code>MySQL</code> when
+reading from a MySQL server, <code>SQLServer</code> when reading from an
+MS SQL server, <code>PostgreSQL</code> when reading from a PostgreSQL
+system. <br />
+</li>
+<li><code>port</code>: (optional) the port ID, this is only used for MS
+SQL servers.</li>
+</ol>
+<p>To see the structure of a toy credentials file used as a template in
+the <strong>{readepi}</strong> package, use the
+<code>show_example_file()</code> function as shown below.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="co"># DISPLAY THE STRUCTURE OF THE TEMPLATE CREDENTIALS FILE</span></span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a><span class="fu">show_example_file</span>()</span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a><span class="co">#&gt;    user_name                         password</span></span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a><span class="co">#&gt; 1:     admin                         district</span></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a><span class="co">#&gt; 2:    rfamro                                 </span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a><span class="co">#&gt; 3:     kmane 9A81268476645C4E5F03428B8AC3AA7B</span></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a><span class="co">#&gt;                             host_name project_id</span></span>
+<span id="cb7-8"><a href="#cb7-8" tabindex="-1"></a><span class="co">#&gt; 1:         https://play.dhis2.org/dev DHIS2_DEMO</span></span>
+<span id="cb7-9"><a href="#cb7-9" tabindex="-1"></a><span class="co">#&gt; 2:        mysql-rfam-public.ebi.ac.uk       Rfam</span></span>
+<span id="cb7-10"><a href="#cb7-10" tabindex="-1"></a><span class="co">#&gt; 3: https://bbmc.ouhsc.edu/redcap/api/    SD_DATA</span></span>
+<span id="cb7-11"><a href="#cb7-11" tabindex="-1"></a><span class="co">#&gt;                             comment   dbms port</span></span>
+<span id="cb7-12"><a href="#cb7-12" tabindex="-1"></a><span class="co">#&gt; 1:      this is a test DHIS2 server  DHIS2   NA</span></span>
+<span id="cb7-13"><a href="#cb7-13" tabindex="-1"></a><span class="co">#&gt; 2:      this is a test MySQL server  MySQL 4497</span></span>
+<span id="cb7-14"><a href="#cb7-14" tabindex="-1"></a><span class="co">#&gt; 3: testing access to REDCap project REDCap   NA</span></span></code></pre></div>
+</div>
+</div>
+<div id="examples" class="section level2">
+<h2>Examples</h2>
+<p>This section contains various examples demonstrating how
+<strong>{readepi}</strong> imports data from databases. We assume that
+the credentials are stored in a file as explained above. Furthermore,
+these examples are based on a MySQL server that does not need the user
+to supply the <code>driver name</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a><span class="co"># DEFINING THE PATH TO THE TEMPLATE CREDENTIALS FILE</span></span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a>credentials_file <span class="ot">&lt;-</span> <span class="fu">system.file</span>(<span class="st">&quot;extdata&quot;</span>, <span class="st">&quot;test.ini&quot;</span>, <span class="at">package =</span> <span class="st">&quot;readepi&quot;</span>)</span></code></pre></div>
+<div id="listing-names-of-all-tables-in-a-database" class="section level3">
+<h3>Listing names of all tables in a database</h3>
+<p>To display list of tables from a database of interest, use:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="fu">show_tables</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb9-4"><a href="#cb9-4" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb9-5"><a href="#cb9-5" tabindex="-1"></a>)</span>
+<span id="cb9-6"><a href="#cb9-6" tabindex="-1"></a><span class="co"># use driver_name = &quot;ODBC Driver 17 for SQL Server&quot; when reading from MS SQL</span></span>
+<span id="cb9-7"><a href="#cb9-7" tabindex="-1"></a><span class="co"># server</span></span></code></pre></div>
+</div>
+<div id="fetching-data-from-a-mysql-server-using-the-table-names" class="section level3">
+<h3>Fetching data from a MySQL server using the table names</h3>
+<p>When importing data from <strong>MS SQL, MySQL and PostgreSQL
+servers</strong>, the user needs to provide the following additional
+arguments:</p>
+<ul>
+<li><code>driver_name</code>: the name of the MS driver (only for MS SQL
+servers).</li>
+<li><code>from</code>: the name of the table from which the data will be
+fetched. This can also be the SQL query to be used for fetching data
+from the system.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" tabindex="-1"></a><span class="co"># VISUALIZING THE FIRST 5 ROWS OF THE TABLE &#39;author&#39;</span></span>
+<span id="cb10-2"><a href="#cb10-2" tabindex="-1"></a><span class="fu">visualise_table</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb10-5"><a href="#cb10-5" tabindex="-1"></a>  <span class="at">from             =</span> <span class="st">&quot;author&quot;</span>, <span class="co"># this is the table name</span></span>
+<span id="cb10-6"><a href="#cb10-6" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb10-7"><a href="#cb10-7" tabindex="-1"></a>)</span>
+<span id="cb10-8"><a href="#cb10-8" tabindex="-1"></a></span>
+<span id="cb10-9"><a href="#cb10-9" tabindex="-1"></a><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`)</span></span>
+<span id="cb10-10"><a href="#cb10-10" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb10-11"><a href="#cb10-11" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb10-13"><a href="#cb10-13" tabindex="-1"></a>  <span class="at">from             =</span> <span class="st">&quot;author&quot;</span>, <span class="co"># this is the table name</span></span>
+<span id="cb10-14"><a href="#cb10-14" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb10-15"><a href="#cb10-15" tabindex="-1"></a>)</span>
+<span id="cb10-16"><a href="#cb10-16" tabindex="-1"></a></span>
+<span id="cb10-17"><a href="#cb10-17" tabindex="-1"></a><span class="co"># READING SPECIFIED FIELDS AND ALL RECORDS FROM ONE TABLE</span></span>
+<span id="cb10-18"><a href="#cb10-18" tabindex="-1"></a>fields <span class="ot">&lt;-</span> <span class="st">&quot;author_id,name,last_name,initials&quot;</span></span>
+<span id="cb10-19"><a href="#cb10-19" tabindex="-1"></a>dat    <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb10-20"><a href="#cb10-20" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb10-21"><a href="#cb10-21" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb10-22"><a href="#cb10-22" tabindex="-1"></a>  <span class="at">from             =</span> <span class="st">&quot;author&quot;</span>, <span class="co"># this is the table name</span></span>
+<span id="cb10-23"><a href="#cb10-23" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb10-24"><a href="#cb10-24" tabindex="-1"></a>  <span class="at">fields           =</span> fields <span class="co"># these are  the columns of interest.</span></span>
+<span id="cb10-25"><a href="#cb10-25" tabindex="-1"></a>)</span>
+<span id="cb10-26"><a href="#cb10-26" tabindex="-1"></a></span>
+<span id="cb10-27"><a href="#cb10-27" tabindex="-1"></a><span class="co"># READING SPECIFIED RECORDS AND ALL FIELDS FROM ONE TABLE</span></span>
+<span id="cb10-28"><a href="#cb10-28" tabindex="-1"></a>records <span class="ot">&lt;-</span> <span class="st">&quot;1, 34, 15, 70, 118, 20&quot;</span></span>
+<span id="cb10-29"><a href="#cb10-29" tabindex="-1"></a>dat     <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb10-30"><a href="#cb10-30" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb10-31"><a href="#cb10-31" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb10-32"><a href="#cb10-32" tabindex="-1"></a>  <span class="at">from             =</span> <span class="st">&quot;author&quot;</span>, <span class="co"># this is the table name</span></span>
+<span id="cb10-33"><a href="#cb10-33" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb10-34"><a href="#cb10-34" tabindex="-1"></a>  <span class="at">records          =</span> records,</span>
+<span id="cb10-35"><a href="#cb10-35" tabindex="-1"></a>  <span class="at">id_position      =</span> 1L</span>
+<span id="cb10-36"><a href="#cb10-36" tabindex="-1"></a>)</span>
+<span id="cb10-37"><a href="#cb10-37" tabindex="-1"></a></span>
+<span id="cb10-38"><a href="#cb10-38" tabindex="-1"></a><span class="co"># READING SPECIFIED FIELDS AND RECORDS ONE THE TABLE</span></span>
+<span id="cb10-39"><a href="#cb10-39" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb10-40"><a href="#cb10-40" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb10-41"><a href="#cb10-41" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb10-42"><a href="#cb10-42" tabindex="-1"></a>  <span class="at">from             =</span> <span class="st">&quot;author&quot;</span>, <span class="co"># this is the table name</span></span>
+<span id="cb10-43"><a href="#cb10-43" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb10-44"><a href="#cb10-44" tabindex="-1"></a>  <span class="at">records          =</span> records,</span>
+<span id="cb10-45"><a href="#cb10-45" tabindex="-1"></a>  <span class="at">fields           =</span> fields,</span>
+<span id="cb10-46"><a href="#cb10-46" tabindex="-1"></a>  <span class="at">id_col_name      =</span> <span class="st">&quot;author_id&quot;</span></span>
+<span id="cb10-47"><a href="#cb10-47" tabindex="-1"></a>)</span>
+<span id="cb10-48"><a href="#cb10-48" tabindex="-1"></a></span>
+<span id="cb10-49"><a href="#cb10-49" tabindex="-1"></a><span class="co"># READING DATA FROM SEVERAL TABLES</span></span>
+<span id="cb10-50"><a href="#cb10-50" tabindex="-1"></a>table_names <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;author&quot;</span>, <span class="st">&quot;family_author&quot;</span>)</span>
+<span id="cb10-51"><a href="#cb10-51" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb10-52"><a href="#cb10-52" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb10-53"><a href="#cb10-53" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb10-54"><a href="#cb10-54" tabindex="-1"></a>  <span class="at">from             =</span> table_names, <span class="co"># this is the table name</span></span>
+<span id="cb10-55"><a href="#cb10-55" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb10-56"><a href="#cb10-56" tabindex="-1"></a>)</span>
+<span id="cb10-57"><a href="#cb10-57" tabindex="-1"></a></span>
+<span id="cb10-58"><a href="#cb10-58" tabindex="-1"></a><span class="co"># READING DATA FROM SEVERAL TABLES AND SUBSETTING FIELDS ACROSS TABLES</span></span>
+<span id="cb10-59"><a href="#cb10-59" tabindex="-1"></a>fields <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb10-60"><a href="#cb10-60" tabindex="-1"></a>  <span class="st">&quot;author_id,name,last_name,initials&quot;</span>,</span>
+<span id="cb10-61"><a href="#cb10-61" tabindex="-1"></a>  <span class="st">&quot;rfam_acc,author_id&quot;</span></span>
+<span id="cb10-62"><a href="#cb10-62" tabindex="-1"></a>)</span>
+<span id="cb10-63"><a href="#cb10-63" tabindex="-1"></a><span class="co"># the first string in the field vector corresponds to the name of the</span></span>
+<span id="cb10-64"><a href="#cb10-64" tabindex="-1"></a><span class="co"># columns of interest from the first table specified in the `table_names`</span></span>
+<span id="cb10-65"><a href="#cb10-65" tabindex="-1"></a><span class="co"># argument and so on...</span></span>
+<span id="cb10-66"><a href="#cb10-66" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb10-67"><a href="#cb10-67" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb10-68"><a href="#cb10-68" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb10-69"><a href="#cb10-69" tabindex="-1"></a>  <span class="at">from             =</span> table_names, <span class="co"># this is the table name</span></span>
+<span id="cb10-70"><a href="#cb10-70" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb10-71"><a href="#cb10-71" tabindex="-1"></a>  <span class="at">fields           =</span> fields</span>
+<span id="cb10-72"><a href="#cb10-72" tabindex="-1"></a>)</span>
+<span id="cb10-73"><a href="#cb10-73" tabindex="-1"></a></span>
+<span id="cb10-74"><a href="#cb10-74" tabindex="-1"></a><span class="co"># READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS ACROSS TABLES</span></span>
+<span id="cb10-75"><a href="#cb10-75" tabindex="-1"></a>records <span class="ot">&lt;-</span> <span class="fu">c</span>(</span>
+<span id="cb10-76"><a href="#cb10-76" tabindex="-1"></a>  <span class="st">&quot;1, 34, 15, 70, 118, 20&quot;</span>,</span>
+<span id="cb10-77"><a href="#cb10-77" tabindex="-1"></a>  <span class="st">&quot;RF00591,RF01420,RF01421&quot;</span></span>
+<span id="cb10-78"><a href="#cb10-78" tabindex="-1"></a>)</span>
+<span id="cb10-79"><a href="#cb10-79" tabindex="-1"></a><span class="co"># &quot;note that first string in the records vector corresponds to the records of</span></span>
+<span id="cb10-80"><a href="#cb10-80" tabindex="-1"></a><span class="co"># interest from the first table specified in the `table_name` argument and so</span></span>
+<span id="cb10-81"><a href="#cb10-81" tabindex="-1"></a><span class="co"># on... when the id column is not the first column in a table,</span></span>
+<span id="cb10-82"><a href="#cb10-82" tabindex="-1"></a><span class="co"># use the `id_position`&quot;</span></span>
+<span id="cb10-83"><a href="#cb10-83" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb10-84"><a href="#cb10-84" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb10-85"><a href="#cb10-85" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb10-86"><a href="#cb10-86" tabindex="-1"></a>  <span class="at">from             =</span> table_names, <span class="co"># this is the table name</span></span>
+<span id="cb10-87"><a href="#cb10-87" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb10-88"><a href="#cb10-88" tabindex="-1"></a>  <span class="at">records          =</span> records,</span>
+<span id="cb10-89"><a href="#cb10-89" tabindex="-1"></a>  <span class="at">id_position      =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>) <span class="co"># nolint</span></span>
+<span id="cb10-90"><a href="#cb10-90" tabindex="-1"></a>)</span>
+<span id="cb10-91"><a href="#cb10-91" tabindex="-1"></a></span>
+<span id="cb10-92"><a href="#cb10-92" tabindex="-1"></a><span class="co"># READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS</span></span>
+<span id="cb10-93"><a href="#cb10-93" tabindex="-1"></a><span class="co"># TABLES</span></span>
+<span id="cb10-94"><a href="#cb10-94" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb10-95"><a href="#cb10-95" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb10-96"><a href="#cb10-96" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb10-97"><a href="#cb10-97" tabindex="-1"></a>  <span class="at">from             =</span> table_names, <span class="co"># this is the table name</span></span>
+<span id="cb10-98"><a href="#cb10-98" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span>,</span>
+<span id="cb10-99"><a href="#cb10-99" tabindex="-1"></a>  <span class="at">records          =</span> records,</span>
+<span id="cb10-100"><a href="#cb10-100" tabindex="-1"></a>  <span class="at">fields           =</span> fields,</span>
+<span id="cb10-101"><a href="#cb10-101" tabindex="-1"></a>  <span class="at">id_col_name      =</span> <span class="fu">c</span>(<span class="st">&quot;author_id&quot;</span>, <span class="st">&quot;rfam_acc&quot;</span>)</span>
+<span id="cb10-102"><a href="#cb10-102" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+<div id="fetching-data-using-an-sql-query" class="section level3">
+<h3>Fetching data using an SQL query</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a><span class="co"># SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE</span></span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>  <span class="at">from             =</span> <span class="st">&quot;select author.author_id, author.name,</span></span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a><span class="st">  family_author.author_id from author left join family_author on</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a><span class="st">  author.author_id = family_author.author_id&quot;</span>,</span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb11-9"><a href="#cb11-9" tabindex="-1"></a>)</span>
+<span id="cb11-10"><a href="#cb11-10" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" tabindex="-1"></a><span class="co"># SELECT ALL DATA FROM THE author TABLE</span></span>
+<span id="cb11-12"><a href="#cb11-12" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb11-13"><a href="#cb11-13" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb11-14"><a href="#cb11-14" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb11-15"><a href="#cb11-15" tabindex="-1"></a>  <span class="at">from             =</span> <span class="st">&quot;select * from author&quot;</span>,</span>
+<span id="cb11-16"><a href="#cb11-16" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb11-17"><a href="#cb11-17" tabindex="-1"></a>)</span>
+<span id="cb11-18"><a href="#cb11-18" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" tabindex="-1"></a><span class="co"># SELECT FEW COLUMNS FROM THE author TABLE</span></span>
+<span id="cb11-20"><a href="#cb11-20" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb11-21"><a href="#cb11-21" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb11-22"><a href="#cb11-22" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb11-23"><a href="#cb11-23" tabindex="-1"></a>  <span class="at">from             =</span> <span class="st">&quot;select author_id, name, last_name from author&quot;</span>,</span>
+<span id="cb11-24"><a href="#cb11-24" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb11-25"><a href="#cb11-25" tabindex="-1"></a>)</span>
+<span id="cb11-26"><a href="#cb11-26" tabindex="-1"></a></span>
+<span id="cb11-27"><a href="#cb11-27" tabindex="-1"></a><span class="co"># SELECT FEW RECORDS FROM THE author TABLE</span></span>
+<span id="cb11-28"><a href="#cb11-28" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb11-29"><a href="#cb11-29" tabindex="-1"></a>  <span class="at">data_source =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb11-30"><a href="#cb11-30" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb11-31"><a href="#cb11-31" tabindex="-1"></a>  <span class="at">source =</span> <span class="st">&quot;select * from author where author_id in (&#39;1&#39;,&#39;20&#39;,&#39;50&#39;)&quot;</span>,</span>
+<span id="cb11-32"><a href="#cb11-32" tabindex="-1"></a>  <span class="at">driver_name =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb11-33"><a href="#cb11-33" tabindex="-1"></a>)</span>
+<span id="cb11-34"><a href="#cb11-34" tabindex="-1"></a></span>
+<span id="cb11-35"><a href="#cb11-35" tabindex="-1"></a><span class="co"># SELECT FEW RECORDS AND FIELDS FROM THE author TABLE</span></span>
+<span id="cb11-36"><a href="#cb11-36" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb11-37"><a href="#cb11-37" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;mysql-rfam-public.ebi.ac.uk&quot;</span>,</span>
+<span id="cb11-38"><a href="#cb11-38" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb11-39"><a href="#cb11-39" tabindex="-1"></a>  <span class="at">from             =</span> <span class="st">&quot;select author_id, name, last_name from author where</span></span>
+<span id="cb11-40"><a href="#cb11-40" tabindex="-1"></a><span class="st">  author_id in (&#39;1&#39;,&#39;20&#39;,&#39;50&#39;)&quot;</span>,</span>
+<span id="cb11-41"><a href="#cb11-41" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">&quot;&quot;</span></span>
+<span id="cb11-42"><a href="#cb11-42" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+</div>
+<div id="reading-data-from-his" class="section level2">
+<h2>Reading data from HIS</h2>
+<p>The current version of <strong>{readepi}</strong> supports reading
+data from three common HIS: <strong>REDCap</strong>,
+<strong>DHIS2</strong>, and <strong>Fingertips</strong>.</p>
+<div id="importing-data-from-redcap" class="section level3">
+<h3>Importing data from REDCap</h3>
+<p>Research Electronic Data Capture (<a href="https://www.project-redcap.org/">REDCap</a>) is a web-based
+application and workflow methodology for designing clinical and
+translational research databases. To import data from a REDCap-based
+repo, the <code>readepi()</code> function takes the following
+arguments:</p>
+<ul>
+<li><code>data_source</code>: the URL of the REDCap server
+(mandatory)</li>
+<li><code>credentials_file</code>: the credentials file (mandatory)</li>
+<li><code>records</code>: the list of the desired records
+(optional)</li>
+<li><code>fields</code>: the list of the desired columns (optional)</li>
+</ul>
+<p>Both the data and its associated metadata will be returned after a
+successful import.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a><span class="co"># READING ALL FIELDS AND RECORDS FROM A REDCap PROJECT</span></span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;https://bbmc.ouhsc.edu/redcap/api/&quot;</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file</span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a>)</span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>project_data <span class="ot">&lt;-</span> dat[[<span class="st">&quot;data&quot;</span>]]</span>
+<span id="cb12-7"><a href="#cb12-7" tabindex="-1"></a>project_metadeta <span class="ot">&lt;-</span> dat[[<span class="st">&quot;metadata&quot;</span>]]</span>
+<span id="cb12-8"><a href="#cb12-8" tabindex="-1"></a></span>
+<span id="cb12-9"><a href="#cb12-9" tabindex="-1"></a><span class="co"># READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT</span></span>
+<span id="cb12-10"><a href="#cb12-10" tabindex="-1"></a>fields <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;record_id&quot;</span>, <span class="st">&quot;name_first&quot;</span>, <span class="st">&quot;age&quot;</span>, <span class="st">&quot;bmi&quot;</span>)</span>
+<span id="cb12-11"><a href="#cb12-11" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb12-12"><a href="#cb12-12" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;https://bbmc.ouhsc.edu/redcap/api/&quot;</span>,</span>
+<span id="cb12-13"><a href="#cb12-13" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb12-14"><a href="#cb12-14" tabindex="-1"></a>  <span class="at">fields           =</span> fields</span>
+<span id="cb12-15"><a href="#cb12-15" tabindex="-1"></a>)</span>
+<span id="cb12-16"><a href="#cb12-16" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" tabindex="-1"></a><span class="co"># READING SPECIFIC RECORDS AND ALL FIELDS FROM THE PROJECT</span></span>
+<span id="cb12-18"><a href="#cb12-18" tabindex="-1"></a>records <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;1&quot;</span>, <span class="st">&quot;3&quot;</span>, <span class="st">&quot;5&quot;</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb12-20"><a href="#cb12-20" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;https://bbmc.ouhsc.edu/redcap/api/&quot;</span>,</span>
+<span id="cb12-21"><a href="#cb12-21" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb12-22"><a href="#cb12-22" tabindex="-1"></a>  <span class="at">records          =</span> records,</span>
+<span id="cb12-23"><a href="#cb12-23" tabindex="-1"></a>  <span class="at">id_col_name      =</span> <span class="st">&quot;record_id&quot;</span></span>
+<span id="cb12-24"><a href="#cb12-24" tabindex="-1"></a>)</span>
+<span id="cb12-25"><a href="#cb12-25" tabindex="-1"></a></span>
+<span id="cb12-26"><a href="#cb12-26" tabindex="-1"></a><span class="co"># READING SPECIFIC RECORDS AND FIELDS FROM THE PROJECT</span></span>
+<span id="cb12-27"><a href="#cb12-27" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb12-28"><a href="#cb12-28" tabindex="-1"></a>  <span class="at">data_source      =</span> <span class="st">&quot;https://bbmc.ouhsc.edu/redcap/api/&quot;</span>,</span>
+<span id="cb12-29"><a href="#cb12-29" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
+<span id="cb12-30"><a href="#cb12-30" tabindex="-1"></a>  <span class="at">records          =</span> records,</span>
+<span id="cb12-31"><a href="#cb12-31" tabindex="-1"></a>  <span class="at">fields           =</span> fields,</span>
+<span id="cb12-32"><a href="#cb12-32" tabindex="-1"></a>  <span class="at">id_col_name      =</span> <span class="st">&quot;record_id&quot;</span></span>
+<span id="cb12-33"><a href="#cb12-33" tabindex="-1"></a>)</span>
+<span id="cb12-34"><a href="#cb12-34" tabindex="-1"></a>project_data <span class="ot">&lt;-</span> dat[[<span class="st">&quot;data&quot;</span>]]</span>
+<span id="cb12-35"><a href="#cb12-35" tabindex="-1"></a>project_metadeta <span class="ot">&lt;-</span> dat[[<span class="st">&quot;metadata&quot;</span>]]</span></code></pre></div>
+</div>
+</div>
+<div id="importing-data-from-dhis2" class="section level2">
+<h2>Importing data from DHIS2</h2>
+<p><a href="https://dhis2.org/about/">DHIS2</a> is an open source
+software that has transformed global health information management. The
+<code>readepi()</code> function can import data from DHIS2-based
+repositories with following arguments:</p>
+<ul>
+<li><code>data_source</code>: the URL of the target DHIS2 system
+(required)</li>
+<li><code>credentials_file</code>: the credentials file (required)</li>
+<li><code>dataset</code>: a vector or a comma-separated list of dataset
+identifier (optional)</li>
+<li><code>organisation_unit</code>: a vector or a comma-separated list
+of organisation unit identifier (optional)<br />
+</li>
+<li><code>data_element_group</code>: a vector or a comma-separated list
+of data element group (optional)<br />
+</li>
+<li><code>start_date</code>: the start date for the time span of the
+values to export (required)<br />
+</li>
+<li><code>end_date</code>: the end date for the time span of the values
+to export (required)<br />
+</li>
+<li><code>id_col_name</code>: the column name with the records of
+interest (optional)<br />
+</li>
+<li><code>records</code>: the list of the desired records
+(optional)<br />
+</li>
+<li><code>fields</code>: the list of the desired columns (optional)</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a><span class="co"># GETTING THE DATA ELEMENT IDENTIFIERS AND NAMES</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a>data_elements <span class="ot">&lt;-</span> <span class="fu">get_dhis2_attributes</span>(</span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>  <span class="at">base_url =</span> <span class="st">&quot;https://play.dhis2.org/dev/&quot;</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a>  <span class="at">username =</span> <span class="st">&quot;admin&quot;</span>,</span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>  <span class="at">password =</span> <span class="st">&quot;district&quot;</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a>  <span class="at">which    =</span> <span class="st">&quot;dataElements&quot;</span></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>)</span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a><span class="co"># GETTING THE DATASET IDENTIFIERS AND NAMES</span></span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>datasets <span class="ot">&lt;-</span> <span class="fu">get_dhis2_attributes</span>(</span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a>  <span class="at">base_url =</span> <span class="st">&quot;https://play.dhis2.org/dev/&quot;</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a>  <span class="at">username =</span> <span class="st">&quot;admin&quot;</span>,</span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a>  <span class="at">password =</span> <span class="st">&quot;district&quot;</span>,</span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a>  <span class="at">which    =</span> <span class="st">&quot;dataSets&quot;</span></span>
+<span id="cb13-15"><a href="#cb13-15" tabindex="-1"></a>)</span>
+<span id="cb13-16"><a href="#cb13-16" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" tabindex="-1"></a><span class="co"># GETTING THE ORGANISATION UNIT IDENTIFIERS AND NAMES</span></span>
+<span id="cb13-18"><a href="#cb13-18" tabindex="-1"></a>organisation_units <span class="ot">&lt;-</span> <span class="fu">get_dhis2_attributes</span>(</span>
+<span id="cb13-19"><a href="#cb13-19" tabindex="-1"></a>  <span class="at">base_url =</span> <span class="st">&quot;https://play.dhis2.org/dev/&quot;</span>,</span>
+<span id="cb13-20"><a href="#cb13-20" tabindex="-1"></a>  <span class="at">username =</span> <span class="st">&quot;admin&quot;</span>,</span>
+<span id="cb13-21"><a href="#cb13-21" tabindex="-1"></a>  <span class="at">password =</span> <span class="st">&quot;district&quot;</span>,</span>
+<span id="cb13-22"><a href="#cb13-22" tabindex="-1"></a>  <span class="at">which    =</span> <span class="st">&quot;organisationUnits&quot;</span></span>
+<span id="cb13-23"><a href="#cb13-23" tabindex="-1"></a>)</span>
+<span id="cb13-24"><a href="#cb13-24" tabindex="-1"></a></span>
+<span id="cb13-25"><a href="#cb13-25" tabindex="-1"></a><span class="co"># GETTING THE DATA ELEMENT GROUP IDENTIFIERS AND NAMES</span></span>
+<span id="cb13-26"><a href="#cb13-26" tabindex="-1"></a>data_element_groups <span class="ot">&lt;-</span> <span class="fu">get_dhis2_attributes</span>(</span>
+<span id="cb13-27"><a href="#cb13-27" tabindex="-1"></a>  <span class="at">base_url =</span> <span class="st">&quot;https://play.dhis2.org/dev/&quot;</span>,</span>
+<span id="cb13-28"><a href="#cb13-28" tabindex="-1"></a>  <span class="at">username =</span> <span class="st">&quot;admin&quot;</span>,</span>
+<span id="cb13-29"><a href="#cb13-29" tabindex="-1"></a>  <span class="at">password =</span> <span class="st">&quot;district&quot;</span>,</span>
+<span id="cb13-30"><a href="#cb13-30" tabindex="-1"></a>  <span class="at">which    =</span> <span class="st">&quot;dataElementGroups&quot;</span></span>
+<span id="cb13-31"><a href="#cb13-31" tabindex="-1"></a>)</span>
+<span id="cb13-32"><a href="#cb13-32" tabindex="-1"></a></span>
+<span id="cb13-33"><a href="#cb13-33" tabindex="-1"></a><span class="co"># READING THE DATASET ID `pBOMPrpg1QX`</span></span>
+<span id="cb13-34"><a href="#cb13-34" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb13-35"><a href="#cb13-35" tabindex="-1"></a>  <span class="at">data_source        =</span> <span class="st">&quot;https://play.dhis2.org/dev&quot;</span>,</span>
+<span id="cb13-36"><a href="#cb13-36" tabindex="-1"></a>  <span class="at">credentials_file   =</span> credentials_file,</span>
+<span id="cb13-37"><a href="#cb13-37" tabindex="-1"></a>  <span class="at">dataset            =</span> <span class="st">&quot;pBOMPrpg1QX&quot;</span>,</span>
+<span id="cb13-38"><a href="#cb13-38" tabindex="-1"></a>  <span class="at">organisation_unit  =</span> <span class="st">&quot;DiszpKrYNg8&quot;</span>,</span>
+<span id="cb13-39"><a href="#cb13-39" tabindex="-1"></a>  <span class="at">data_element_group =</span> <span class="cn">NULL</span>,</span>
+<span id="cb13-40"><a href="#cb13-40" tabindex="-1"></a>  <span class="at">start_date         =</span> <span class="st">&quot;2014&quot;</span>,</span>
+<span id="cb13-41"><a href="#cb13-41" tabindex="-1"></a>  <span class="at">end_date           =</span> <span class="st">&quot;2023&quot;</span></span>
+<span id="cb13-42"><a href="#cb13-42" tabindex="-1"></a>)</span>
+<span id="cb13-43"><a href="#cb13-43" tabindex="-1"></a></span>
+<span id="cb13-44"><a href="#cb13-44" tabindex="-1"></a><span class="co"># READING DATA FROM 2 DATASETS `pBOMPrpg1QX`</span></span>
+<span id="cb13-45"><a href="#cb13-45" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb13-46"><a href="#cb13-46" tabindex="-1"></a>  <span class="at">data_source        =</span> <span class="st">&quot;https://play.dhis2.org/dev&quot;</span>,</span>
+<span id="cb13-47"><a href="#cb13-47" tabindex="-1"></a>  <span class="at">credentials_file   =</span> credentials_file,</span>
+<span id="cb13-48"><a href="#cb13-48" tabindex="-1"></a>  <span class="at">dataset            =</span> <span class="st">&quot;pBOMPrpg1QX,BfMAe6Itzgt&quot;</span>,</span>
+<span id="cb13-49"><a href="#cb13-49" tabindex="-1"></a>  <span class="at">organisation_unit  =</span> <span class="st">&quot;DiszpKrYNg8&quot;</span>,</span>
+<span id="cb13-50"><a href="#cb13-50" tabindex="-1"></a>  <span class="at">data_element_group =</span> <span class="cn">NULL</span>,</span>
+<span id="cb13-51"><a href="#cb13-51" tabindex="-1"></a>  <span class="at">start_date         =</span> <span class="st">&quot;2014&quot;</span>,</span>
+<span id="cb13-52"><a href="#cb13-52" tabindex="-1"></a>  <span class="at">end_date           =</span> <span class="st">&quot;2023&quot;</span></span>
+<span id="cb13-53"><a href="#cb13-53" tabindex="-1"></a>)</span>
+<span id="cb13-54"><a href="#cb13-54" tabindex="-1"></a></span>
+<span id="cb13-55"><a href="#cb13-55" tabindex="-1"></a><span class="co"># READING SPECIFIC DATA ELEMENTS FROM THE DATASET ID `pBOMPrpg1QX`</span></span>
+<span id="cb13-56"><a href="#cb13-56" tabindex="-1"></a>data_elts <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;FTRrcoaog83&quot;</span>, <span class="st">&quot;eY5ehpbEsB7&quot;</span>, <span class="st">&quot;Ix2HsbDMLea&quot;</span>)</span>
+<span id="cb13-57"><a href="#cb13-57" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb13-58"><a href="#cb13-58" tabindex="-1"></a>  <span class="at">data_source        =</span> <span class="st">&quot;https://play.dhis2.org/dev&quot;</span>,</span>
+<span id="cb13-59"><a href="#cb13-59" tabindex="-1"></a>  <span class="at">credentials_file   =</span> credentials_file,</span>
+<span id="cb13-60"><a href="#cb13-60" tabindex="-1"></a>  <span class="at">dataset            =</span> <span class="st">&quot;pBOMPrpg1QX&quot;</span>,</span>
+<span id="cb13-61"><a href="#cb13-61" tabindex="-1"></a>  <span class="at">organisation_unit  =</span> <span class="st">&quot;DiszpKrYNg8&quot;</span>,</span>
+<span id="cb13-62"><a href="#cb13-62" tabindex="-1"></a>  <span class="at">data_element_group =</span> <span class="cn">NULL</span>,</span>
+<span id="cb13-63"><a href="#cb13-63" tabindex="-1"></a>  <span class="at">start_date         =</span> <span class="st">&quot;2014&quot;</span>,</span>
+<span id="cb13-64"><a href="#cb13-64" tabindex="-1"></a>  <span class="at">end_date           =</span> <span class="st">&quot;2023&quot;</span>,</span>
+<span id="cb13-65"><a href="#cb13-65" tabindex="-1"></a>  <span class="at">records            =</span> data_elts,</span>
+<span id="cb13-66"><a href="#cb13-66" tabindex="-1"></a>  <span class="at">id_col_name        =</span> <span class="st">&quot;dataElement&quot;</span></span>
+<span id="cb13-67"><a href="#cb13-67" tabindex="-1"></a>)</span>
+<span id="cb13-68"><a href="#cb13-68" tabindex="-1"></a></span>
+<span id="cb13-69"><a href="#cb13-69" tabindex="-1"></a><span class="co"># READING SPECIFIC COLUMNS FROM A DATASET</span></span>
+<span id="cb13-70"><a href="#cb13-70" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb13-71"><a href="#cb13-71" tabindex="-1"></a>  <span class="at">data_source        =</span> <span class="st">&quot;https://play.dhis2.org/dev&quot;</span>,</span>
+<span id="cb13-72"><a href="#cb13-72" tabindex="-1"></a>  <span class="at">credentials_file   =</span> credentials_file,</span>
+<span id="cb13-73"><a href="#cb13-73" tabindex="-1"></a>  <span class="at">dataset            =</span> <span class="st">&quot;pBOMPrpg1QX,BfMAe6Itzgt&quot;</span>,</span>
+<span id="cb13-74"><a href="#cb13-74" tabindex="-1"></a>  <span class="at">organisation_unit  =</span> <span class="st">&quot;DiszpKrYNg8&quot;</span>,</span>
+<span id="cb13-75"><a href="#cb13-75" tabindex="-1"></a>  <span class="at">data_element_group =</span> <span class="cn">NULL</span>,</span>
+<span id="cb13-76"><a href="#cb13-76" tabindex="-1"></a>  <span class="at">start_date         =</span> <span class="st">&quot;2014&quot;</span>,</span>
+<span id="cb13-77"><a href="#cb13-77" tabindex="-1"></a>  <span class="at">end_date           =</span> <span class="st">&quot;2023&quot;</span>,</span>
+<span id="cb13-78"><a href="#cb13-78" tabindex="-1"></a>  <span class="at">fields             =</span> <span class="fu">c</span>(<span class="st">&quot;dataElement&quot;</span>, <span class="st">&quot;period&quot;</span>, <span class="st">&quot;value&quot;</span>)</span>
+<span id="cb13-79"><a href="#cb13-79" tabindex="-1"></a>)</span>
+<span id="cb13-80"><a href="#cb13-80" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> data[[<span class="st">&quot;data&quot;</span>]]</span></code></pre></div>
+</div>
+<div id="importing-data-from-fingertips" class="section level2">
+<h2>Importing data from Fingertips</h2>
+<p><a href="https://fingertips.phe.org.uk/">Fingertips</a> is a
+repository for public health data indicators in England, in which data
+is organised into themed profiles. The <code>readepi()</code> function
+allows you to import data from Fingertips-based APIs using the following
+arguments:</p>
+<ul>
+<li><code>indicator_id</code>: the indicator ID</li>
+<li><code>indicator_name</code>: the indicator name</li>
+<li><code>area_type_id</code>: the area type ID. This determines the
+geographic area for the imported data (required)</li>
+<li><code>parent_area_type_id</code>: the parent area type code of the
+specified area type ID</li>
+<li><code>profile_id</code>: the profile ID</li>
+<li><code>profile_name</code>: the profile name</li>
+<li><code>domain_id</code>: the domain ID</li>
+<li><code>domain_name</code>: the domain name</li>
+<li><code>records</code>: the list of the desired records<br />
+</li>
+<li><code>fields</code>: the list of the desired columns</li>
+<li><code>id_col_name</code>: the column name with the records of
+interest</li>
+<li><code>id_position</code>: the column position of the variable that
+unique identifies the subjects. default is 1.</li>
+</ul>
+<p>It is worth noting that, while reading such data, the
+<code>readepi()</code> function makes wrapper-calls to the major
+functions in <a href="https://docs.ropensci.org/fingertipsR/">fingertipsR</a>, a
+pre-existing R package that only reads data from Fingertips
+databases.</p>
+<div id="examples-1" class="section level3">
+<h3>Examples</h3>
+<p>This section provides various examples demonstrating how
+<strong>{readepi}</strong> imports data from Fingertips-based APIs.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a><span class="co"># GET THE INFORMATION ABOUT THE INDICATOR PROFILES, DOMAIN, AREA TYPE, ...</span></span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a>metadata <span class="ot">&lt;-</span> <span class="fu">get_fingertips_metadata</span>()</span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a><span class="fu">head</span>(metadata[[<span class="st">&quot;indicator_profile_domain&quot;</span>]])</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a><span class="fu">head</span>(metadata[[<span class="st">&quot;indicator_ids_names&quot;</span>]])</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a><span class="fu">head</span>(metadata[[<span class="st">&quot;area_type&quot;</span>]])</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a><span class="co"># IMPORTING DATA USING THE INDICATOR ID</span></span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>  <span class="at">indicator_id =</span> 90362L,</span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a>  <span class="at">area_type_id =</span> 202L</span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a>)</span>
+<span id="cb14-12"><a href="#cb14-12" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" tabindex="-1"></a><span class="co"># IMPORTING DATA USING THE INDICATOR NAME</span></span>
+<span id="cb14-14"><a href="#cb14-14" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb14-15"><a href="#cb14-15" tabindex="-1"></a>  <span class="at">indicator_name =</span> <span class="st">&quot;Healthy life expectancy at birth&quot;</span>,</span>
+<span id="cb14-16"><a href="#cb14-16" tabindex="-1"></a>  <span class="at">area_type_id   =</span> 202L</span>
+<span id="cb14-17"><a href="#cb14-17" tabindex="-1"></a>)</span>
+<span id="cb14-18"><a href="#cb14-18" tabindex="-1"></a></span>
+<span id="cb14-19"><a href="#cb14-19" tabindex="-1"></a><span class="co"># IMPORTING DATA USING THE DOMAIN NAME</span></span>
+<span id="cb14-20"><a href="#cb14-20" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb14-21"><a href="#cb14-21" tabindex="-1"></a>  <span class="at">domain_name  =</span> <span class="st">&quot;A. Overarching indicators&quot;</span>,</span>
+<span id="cb14-22"><a href="#cb14-22" tabindex="-1"></a>  <span class="at">area_type_id =</span> 202L</span>
+<span id="cb14-23"><a href="#cb14-23" tabindex="-1"></a>)</span>
+<span id="cb14-24"><a href="#cb14-24" tabindex="-1"></a></span>
+<span id="cb14-25"><a href="#cb14-25" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb14-26"><a href="#cb14-26" tabindex="-1"></a>  <span class="at">indicator_name =</span> <span class="st">&quot;Healthy life expectancy at birth&quot;</span>,</span>
+<span id="cb14-27"><a href="#cb14-27" tabindex="-1"></a>  <span class="at">area_type_id   =</span> 202L,</span>
+<span id="cb14-28"><a href="#cb14-28" tabindex="-1"></a>  <span class="at">domain_name    =</span> <span class="st">&quot;A. Overarching indicators&quot;</span></span>
+<span id="cb14-29"><a href="#cb14-29" tabindex="-1"></a>)</span>
+<span id="cb14-30"><a href="#cb14-30" tabindex="-1"></a></span>
+<span id="cb14-31"><a href="#cb14-31" tabindex="-1"></a><span class="co"># IMPORTING DATA USING THE PROFILE ID</span></span>
+<span id="cb14-32"><a href="#cb14-32" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb14-33"><a href="#cb14-33" tabindex="-1"></a>  <span class="at">profile_id   =</span> 19L,</span>
+<span id="cb14-34"><a href="#cb14-34" tabindex="-1"></a>  <span class="at">area_type_id =</span> 202L</span>
+<span id="cb14-35"><a href="#cb14-35" tabindex="-1"></a>)</span>
+<span id="cb14-36"><a href="#cb14-36" tabindex="-1"></a></span>
+<span id="cb14-37"><a href="#cb14-37" tabindex="-1"></a><span class="co"># IMPORTING DATA FROM SPECIFIC INDICATOR, DOMAIN, PROFILE, AREA TYPE</span></span>
+<span id="cb14-38"><a href="#cb14-38" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb14-39"><a href="#cb14-39" tabindex="-1"></a>  <span class="at">indicator_id        =</span> 90362L,</span>
+<span id="cb14-40"><a href="#cb14-40" tabindex="-1"></a>  <span class="at">indicator_name      =</span> <span class="st">&quot;Healthy life expectancy at birth&quot;</span>,</span>
+<span id="cb14-41"><a href="#cb14-41" tabindex="-1"></a>  <span class="at">area_type_id        =</span> 202L,</span>
+<span id="cb14-42"><a href="#cb14-42" tabindex="-1"></a>  <span class="at">parent_area_type_id =</span> 6L,</span>
+<span id="cb14-43"><a href="#cb14-43" tabindex="-1"></a>  <span class="at">profile_id          =</span> 19L,</span>
+<span id="cb14-44"><a href="#cb14-44" tabindex="-1"></a>  <span class="at">profile_name        =</span> <span class="st">&quot;Public Health Outcomes Framework&quot;</span>,</span>
+<span id="cb14-45"><a href="#cb14-45" tabindex="-1"></a>  <span class="at">domain_id           =</span> 1000049L,</span>
+<span id="cb14-46"><a href="#cb14-46" tabindex="-1"></a>  <span class="at">domain_name         =</span> <span class="st">&quot;A. Overarching indicators&quot;</span>,</span>
+<span id="cb14-47"><a href="#cb14-47" tabindex="-1"></a>  <span class="at">fields              =</span> <span class="cn">NULL</span>,</span>
+<span id="cb14-48"><a href="#cb14-48" tabindex="-1"></a>  <span class="at">records             =</span> <span class="cn">NULL</span>,</span>
+<span id="cb14-49"><a href="#cb14-49" tabindex="-1"></a>  <span class="at">id_position         =</span> <span class="cn">NULL</span>,</span>
+<span id="cb14-50"><a href="#cb14-50" tabindex="-1"></a>  <span class="at">id_col_name         =</span> <span class="cn">NULL</span></span>
+<span id="cb14-51"><a href="#cb14-51" tabindex="-1"></a>)</span>
+<span id="cb14-52"><a href="#cb14-52" tabindex="-1"></a></span>
+<span id="cb14-53"><a href="#cb14-53" tabindex="-1"></a><span class="co"># IMPORTING DATA AND SUBSETTING SPECIFIC RECORDS AND FIELDS</span></span>
+<span id="cb14-54"><a href="#cb14-54" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb14-55"><a href="#cb14-55" tabindex="-1"></a>  <span class="at">indicator_id =</span> 90362L,</span>
+<span id="cb14-56"><a href="#cb14-56" tabindex="-1"></a>  <span class="at">area_type_id =</span> 202L,</span>
+<span id="cb14-57"><a href="#cb14-57" tabindex="-1"></a>  <span class="at">fields       =</span> <span class="fu">c</span>(<span class="st">&quot;IndicatorID&quot;</span>, <span class="st">&quot;AreaCode&quot;</span>, <span class="st">&quot;Age&quot;</span>, <span class="st">&quot;Value&quot;</span>),</span>
+<span id="cb14-58"><a href="#cb14-58" tabindex="-1"></a>  <span class="at">records      =</span> <span class="fu">c</span>(<span class="st">&quot;E92000001&quot;</span>, <span class="st">&quot;E12000002&quot;</span>, <span class="st">&quot;E12000009&quot;</span>),</span>
+<span id="cb14-59"><a href="#cb14-59" tabindex="-1"></a>  <span class="at">id_col_name  =</span> <span class="st">&quot;AreaCode&quot;</span></span>
+<span id="cb14-60"><a href="#cb14-60" tabindex="-1"></a>)</span></code></pre></div>
+</div>
+</div>
+</div>
+
+
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
