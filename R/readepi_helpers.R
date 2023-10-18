@@ -4,7 +4,7 @@
 #'    details for the projects of interest.
 #' @param url the URL of the HIS of interest
 #'
-#' @returns a `list` of 5 elements of type `character` or `numeric`. These
+#' @returns a `list` of 5 elements of type `character` and `numeric`. These
 #'    correspond to the user's credential details.
 #' @examples
 #' \dontrun{
@@ -59,7 +59,7 @@ read_credentials <- function(
 #'
 #' @param args_list a `list` of user specified arguments
 #'
-#' @return a `list` of 8 elements of type `character` or `numeric` that will be
+#' @return a `list` of 8 elements of type `character` and `numeric` that will be
 #'    used for importing data from Fingertips
 #' @examples
 #' \dontrun{

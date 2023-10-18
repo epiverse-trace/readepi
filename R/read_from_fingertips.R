@@ -18,7 +18,7 @@
 #' @param id_col_name the column name with the subject IDs.
 #'
 #' @return a `list` of 1 element of type `data.frame`. This contains the
-#'    imported dataset of interest
+#'    imported dataset of interest.
 #'
 #' @examples
 #' \dontrun{

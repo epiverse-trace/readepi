@@ -78,6 +78,7 @@ test_that("fingertips_subset_columns fails as expected", {
 httptest::with_mock_api({
   testthat::skip_on_cran()
   testthat::skip_if_offline()
+  testthat::skip_if_not_installed("httptest")
   test_that("get_fingertips_metadata works as expected", {
     metadata <- get_fingertips_metadata()
     expect_type(metadata, "list")

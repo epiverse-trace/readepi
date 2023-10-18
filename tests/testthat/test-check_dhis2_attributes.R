@@ -1,4 +1,5 @@
 httptest::with_mock_api({
+  testthat::skip_if_not_installed("httptest")
   test_that("dhis2_check_attributes works as expected when all attribute
             types are specified", {
               testthat::skip_on_cran()

@@ -28,27 +28,27 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
                               user, password, port) {
   con <- switch(
                 dbms,
-                "SQLServer" = pool::dbPool(odbc::odbc(), # nolint: keyword_quote_linter
-                                           driver   = driver_name,
-                                           server   = host,
-                                           database = database_name,
-                                           uid      = user,
-                                           pwd      = password,
-                                           port     = port),
-                "PostgreSQL" = pool::dbPool(odbc::odbc(), # nolint: keyword_quote_linter
-                                            driver   = driver_name,
-                                            host     = host,
-                                            database = database_name,
-                                            uid      = user,
-                                            pwd      = password,
-                                            port     = port),
-                "MySQL" = pool::dbPool(drv = RMySQL::MySQL(), # nolint: keyword_quote_linter
-                                       dbname   = database_name,
-                                       username = user,
-                                       password = password,
-                                       host     = host,
-                                       port     = port,
-                                       driver   = driver_name))
+                SQLServer = pool::dbPool(odbc::odbc(),
+                                         driver   = driver_name,
+                                         server   = host,
+                                         database = database_name,
+                                         uid      = user,
+                                         pwd      = password,
+                                         port     = port),
+                PostgreSQL = pool::dbPool(odbc::odbc(),
+                                          driver   = driver_name,
+                                          host     = host,
+                                          database = database_name,
+                                          uid      = user,
+                                          pwd      = password,
+                                          port     = port),
+                MySQL = pool::dbPool(drv = RMySQL::MySQL(),
+                                     dbname   = database_name,
+                                     username = user,
+                                     password = password,
+                                     host     = host,
+                                     port     = port,
+                                     driver   = driver_name))
   con
 }
 
@@ -58,7 +58,7 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
 #' @param query the SQL query
 #' @param tables the list of all tables from the database
 #'
-#' @return a `character` with the extracted table name(s) from the SQL query
+#' @return a `character` with the identified tables name(s) from the SQL query
 #'
 #' @examples
 #' \dontrun{
@@ -157,7 +157,7 @@ fetch_data_from_query <- function(source, dbms, tables,
 #' @param port the server port ID
 #'
 #' @return a `list` of 1 or more elements of type `data.frame` where every
-#'    element contains the subset of the data from the corresponding table
+#'    element contains the subset of the data from the corresponding table.
 #' @examples
 #' \dontrun{
 #' result <- sql_select_data(
@@ -247,7 +247,7 @@ sql_select_data <- function(table_names, dbms, id_col_name,
 #' @param id_position the id position
 #'
 #' @returns a `list` of 2 elements of type `character` and `numeric`
-#'    corresponding to the ID column name and position
+#'    corresponding to the ID column name and position.
 #' @keywords internal
 #' @noRd
 get_id_column_name <- function(id_col_name, j, id_position) {
@@ -285,7 +285,7 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 #' @param port the server port ID
 #'
 #' @return an object of type `data.frame` with the entire dataset fetched from
-#'    the specified table
+#'    the specified table.
 #'
 #' @examples
 #' \dontrun{
@@ -403,7 +403,7 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #' @param from the table name
 #' @param driver_name the name of the MS driver
 #'
-#' @return prints the first 5 rows of the specified table
+#' @return prints the first 5 rows of the specified table.
 #'
 #' @examples
 #' \dontrun{

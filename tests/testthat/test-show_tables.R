@@ -1,6 +1,8 @@
+testthat::skip_on_cran()
+testthat::skip_if_offline()
 test_that("Function 'show_tables' correctly displays the table names", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
+  # testthat::skip_on_cran()
+  # testthat::skip_if_offline()
   tables <- show_tables(
     data_source      = "mysql-rfam-public.ebi.ac.uk",
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),

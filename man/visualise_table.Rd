@@ -17,7 +17,7 @@ credential details for the projects of interest}
 \item{driver_name}{the name of the MS driver}
 }
 \value{
-prints the first 5 rows of the specified table
+prints the first 5 rows of the specified table.
 }
 \description{
 Visualize the first 5 rows of the data from a table

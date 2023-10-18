@@ -6,11 +6,12 @@
 \usage{
 show_example_file()
 }
+\value{
+Displays the content of the template credential file.
+}
 \description{
 Display the structure of the credentials file
 }
 \examples{
-\dontrun{
   show_example_file()
-}
 }

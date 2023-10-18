@@ -100,8 +100,8 @@ redcap_read_data <- function(uri, token, id_position) {
 #' @param records a vector or a comma-separated string of subset of subject IDs
 #'
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
-#'    data with only the records and fields of interest and
-#'    its associated metadata.
+#'    data with only the records and fields of interest and its associated
+#'    metadata.
 #' @keywords internal
 #' @noRd
 redcap_read_rows_columns <- function(fields, uri, token, id_position,

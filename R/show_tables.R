@@ -16,7 +16,7 @@
 #' )
 #' }
 #' @returns a `character` that contains the list of all tables found
-#'     in the specified database
+#'     in the specified database.
 #' @export
 #'
 show_tables <- function(data_source, credentials_file, driver_name) {
