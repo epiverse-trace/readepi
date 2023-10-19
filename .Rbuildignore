@@ -13,3 +13,4 @@
 ^touchstone$
 ^cran-comments\.md$
 ^revdep$
+^CITATION\.cff$
