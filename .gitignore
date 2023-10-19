@@ -62,3 +62,4 @@ inst/doc
 /touchstone/
 /.github/workflows/touchstone-comment.yaml
 /.github/workflows/touchstone-receive.yaml
+/doc/
