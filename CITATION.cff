@@ -7,15 +7,15 @@ cff-version: 1.2.0
 message: 'To cite package "readepi" in publications use:'
 type: software
 license: MIT
-title: 'readepi: Read Data From Health Information Systems'
-version: 0.1.0
+title: 'readepi: Read Data from Health Information Systems'
+version: 0.0.1
 abstract: Data import from several health information systems ('HIS'). The current
-  version of the package covers 'HIS' such as 'MS SQL', 'MySQL', 'PostGRESQL' servers,
-  'REDCap', 'DHIS2' and 'Fingertips'.
+  version of the package covers 'HIS' such as 'MS SQL', 'MySQL', and 'PostGRESQL'
+  servers, 'REDCap', 'DHIS2' and 'Fingertips'.
 authors:
 - family-names: Mané
   given-names: Karim
-  email: lshkm1@lshtm.ac.uk
+  email: karim.mane@lshtm.ac.uk
   orcid: https://orcid.org/0000-0002-9892-2999
 preferred-citation:
   type: manual
@@ -23,7 +23,7 @@ preferred-citation:
   authors:
   - family-names: Mané
     given-names: Karim
-    email: lshkm1@lshtm.ac.uk
+    email: karim.mane@lshtm.ac.uk
     orcid: https://orcid.org/0000-0002-9892-2999
   - family-names: Mohammed
     given-names: Nuredin
@@ -36,11 +36,11 @@ preferred-citation:
   year: '2023'
   url: https://github.com/epiverse-trace/readepi
 repository-code: https://github.com/epiverse-trace/readepi
-url: https://epiverse-trace.github.io/readepi
+url: https://epiverse-trace.github.io/readepi/
 contact:
 - family-names: Mané
   given-names: Karim
-  email: lshkm1@lshtm.ac.uk
+  email: karim.mane@lshtm.ac.uk
   orcid: https://orcid.org/0000-0002-9892-2999
 keywords:
 - data-import
@@ -55,7 +55,7 @@ references:
   abstract: 'checkmate: Fast and Versatile Argument Checks'
   notes: Imports
   url: https://mllg.github.io/checkmate/
-  repository: https://CRAN.R-project.org/package=checkmate
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - family-names: Lang
     given-names: Michel
@@ -67,7 +67,7 @@ references:
   abstract: 'DBI: R Database Interface'
   notes: Imports
   url: https://dbi.r-dbi.org
-  repository: https://CRAN.R-project.org/package=DBI
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - name: R Special Interest Group on Databases (R-SIG-DB)
   - family-names: Wickham
@@ -82,7 +82,7 @@ references:
   abstract: 'dplyr: A Grammar of Data Manipulation'
   notes: Imports
   url: https://dplyr.tidyverse.org
-  repository: https://CRAN.R-project.org/package=dplyr
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -122,7 +122,7 @@ references:
   abstract: 'glue: Interpreted String Literals'
   notes: Imports
   url: https://glue.tidyverse.org/
-  repository: https://CRAN.R-project.org/package=glue
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - family-names: Hester
     given-names: Jim
@@ -137,7 +137,7 @@ references:
   abstract: 'httr: Tools for Working with URLs and HTTP'
   notes: Imports
   url: https://httr.r-lib.org/
-  repository: https://CRAN.R-project.org/package=httr
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -148,7 +148,7 @@ references:
   abstract: 'magrittr: A Forward-Pipe Operator for R'
   notes: Imports
   url: https://magrittr.tidyverse.org
-  repository: https://CRAN.R-project.org/package=magrittr
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - family-names: Bache
     given-names: Stefan Milton
@@ -162,7 +162,7 @@ references:
   abstract: 'odbc: Connect to ODBC Compatible Databases (using the DBI Interface)'
   notes: Imports
   url: https://r-dbi.github.io/odbc/
-  repository: https://CRAN.R-project.org/package=odbc
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - family-names: Hester
     given-names: Jim
@@ -177,7 +177,7 @@ references:
   abstract: 'pool: Object Pooling'
   notes: Imports
   url: http://rstudio.github.io/pool/
-  repository: https://CRAN.R-project.org/package=pool
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - family-names: Cheng
     given-names: Joe
@@ -193,7 +193,7 @@ references:
   abstract: 'REDCapR: Interaction Between R and REDCap'
   notes: Imports
   url: https://ouhscbbmc.github.io/REDCapR/
-  repository: https://CRAN.R-project.org/package=REDCapR
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - family-names: Beasley
     given-names: Will
@@ -205,7 +205,7 @@ references:
   abstract: 'RMySQL: Database Interface and ''MySQL'' Driver for R'
   notes: Imports
   url: https://downloads.mariadb.org/connector-c/
-  repository: https://CRAN.R-project.org/package=RMySQL
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - family-names: Ooms
     given-names: Jeroen
@@ -226,7 +226,7 @@ references:
   abstract: 'httptest: A Test Environment for HTTP Requests'
   notes: Suggests
   url: https://enpiar.com/r/httptest/
-  repository: https://CRAN.R-project.org/package=httptest
+  repository: https://packagemanager.posit.co/cran/latest/
   authors:
   - family-names: Richardson
     given-names: Neal
@@ -300,3 +300,6 @@ references:
     email: hadley@posit.co
   year: '2023'
   version: '>= 3.0.0'
+identifiers:
+- type: url
+  value: https://github.com/epiverse-trace/readepi/
