@@ -39,7 +39,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">readepi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -53,9 +53,6 @@
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
-</li>
-<li class="nav-item">
-  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -115,7 +112,7 @@ and manipulating the imported data, such as row or column/row
 sub-setting, are also included in this package.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># LOAD readepi</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://epiverse-trace.github.io/readepi/">"readepi"</a></span><span class="op">)</span> <span class="co"># nolint</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="st"><a href="https://epiverse-trace.github.io/readepi">"readepi"</a></span><span class="op">)</span> <span class="co"># nolint</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="reading-data-from-rdbms">Reading data from RDBMS<a class="anchor" aria-label="anchor" href="#reading-data-from-rdbms"></a>
@@ -286,18 +283,14 @@ the <strong>{readepi}</strong> package, use the
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># DISPLAY THE STRUCTURE OF THE TEMPLATE CREDENTIALS FILE</span></span>
 <span><span class="fu"><a href="../reference/show_example_file.html">show_example_file</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt;    user_name                         password</span></span>
-<span><span class="co">#&gt; 1:     admin                         district</span></span>
-<span><span class="co">#&gt; 2:    rfamro                                 </span></span>
-<span><span class="co">#&gt; 3:     kmane 9A81268476645C4E5F03428B8AC3AA7B</span></span>
-<span><span class="co">#&gt;                             host_name project_id</span></span>
-<span><span class="co">#&gt; 1:         https://play.dhis2.org/dev DHIS2_DEMO</span></span>
-<span><span class="co">#&gt; 2:        mysql-rfam-public.ebi.ac.uk       Rfam</span></span>
-<span><span class="co">#&gt; 3: https://bbmc.ouhsc.edu/redcap/api/    SD_DATA</span></span>
-<span><span class="co">#&gt;                             comment   dbms port</span></span>
-<span><span class="co">#&gt; 1:      this is a test DHIS2 server  DHIS2   NA</span></span>
-<span><span class="co">#&gt; 2:      this is a test MySQL server  MySQL 4497</span></span>
-<span><span class="co">#&gt; 3: testing access to REDCap project REDCap   NA</span></span></code></pre></div>
+<span><span class="co">#&gt;   user_name                         password                          host_name</span></span>
+<span><span class="co">#&gt; 1     admin                         district         https://play.dhis2.org/dev</span></span>
+<span><span class="co">#&gt; 2    rfamro                                         mysql-rfam-public.ebi.ac.uk</span></span>
+<span><span class="co">#&gt; 3     kmane 9A81268476645C4E5F03428B8AC3AA7B https://bbmc.ouhsc.edu/redcap/api/</span></span>
+<span><span class="co">#&gt;   project_id                          comment   dbms port</span></span>
+<span><span class="co">#&gt; 1 DHIS2_DEMO      this is a test DHIS2 server  DHIS2   NA</span></span>
+<span><span class="co">#&gt; 2       Rfam      this is a test MySQL server  MySQL 4497</span></span>
+<span><span class="co">#&gt; 3    SD_DATA testing access to REDCap project REDCap   NA</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">
