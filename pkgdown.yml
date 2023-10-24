@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   readepi: readepi.html
-last_built: 2023-10-19T09:15Z
+last_built: 2023-10-24T10:23Z
 urls:
   reference: https://epiverse-trace.github.io/readepi/reference
   article: https://epiverse-trace.github.io/readepi/articles
