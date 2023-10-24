@@ -25,7 +25,6 @@ URL: https://epiverse-trace.github.io/readepi,
 BugReports: https://github.com/epiverse-trace/readepi/issues
 Imports: 
     checkmate,
-    data.table,
     DBI,
     dplyr,
     fingertipsR (>= 1.0.10.9001),
