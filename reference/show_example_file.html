@@ -16,7 +16,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">readepi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -29,6 +29,9 @@
 </li>
 <li class="active nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="../search.json" id="search-input" placeholder="Search for" autocomplete="off"></form>
@@ -60,12 +63,24 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">show_example_file</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>Displays the content of the template credential file.</p>
+    </div>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span>  <span class="fu">show_example_file</span><span class="op">(</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="op">}</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span>  <span class="fu">show_example_file</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   user_name                         password                          host_name</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1     admin                         district         https://play.dhis2.org/dev</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2    rfamro                                         mysql-rfam-public.ebi.ac.uk</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3     kmane 9A81268476645C4E5F03428B8AC3AA7B https://bbmc.ouhsc.edu/redcap/api/</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   project_id                          comment   dbms port</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 DHIS2_DEMO      this is a test DHIS2 server  DHIS2   NA</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2       Rfam      this is a test MySQL server  MySQL 4497</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3    SD_DATA testing access to REDCap project REDCap   NA</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
