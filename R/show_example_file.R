@@ -4,6 +4,7 @@
 #'   show_example_file()
 #' @export
 #' @importFrom utils read.table
+#'
 show_example_file <- function() {
   example_data <- read.table(
     system.file("extdata", "test.ini", package = "readepi"),
