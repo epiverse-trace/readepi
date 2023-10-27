@@ -4,16 +4,22 @@
 #' specifying that the user was successfully connected. Otherwise, it will throw
 #' an error message.
 #'
-#' @param username the user name
-#' @param password the user's password
 #' @param base_url the base URL of the DHIS2 server
+#' @param user_name the user name
+#' @param password the user's password
+#'
+#' @return a message if the dhis2_login was successful,
+#'    throws an error otherwise.
 #'
 #' @return a message if the login was successfull, thows an error otherwise.
 #'
 #' @keywords internal
 #' @noRd
-login <- function(username, password, base_url) {
-  checkmate::assert_character(username,
+dhis2_login <- function(base_url  = file.path("https:/", "play.dhis2.org",
+                                              "dev"),
+                        user_name = "admin",
+                        password  = "district") {
+  checkmate::assert_character(user_name,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
   checkmate::assert_character(password,
@@ -22,8 +28,8 @@ login <- function(username, password, base_url) {
   checkmate::assert_character(base_url,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
-  url <- file.path(base_url, "api", "me")
-  resp <- httr::GET(url, httr::authenticate(username, password))
+  url  <- file.path(base_url, "api", "me")
+  resp <- httr::GET(url, httr::authenticate(user_name, password))
   httr::stop_for_status(resp)
   message("\nLogged in successfully!")
 }
@@ -54,7 +60,18 @@ login <- function(username, password, base_url) {
 #' }
 #' @keywords internal
 #' @noRd
-dhis2_subset_fields <- function(data, fields) {
+dhis2_subset_fields <- function(
+    data   = readepi(
+      credentials_file   = system.file("extdata", "test.ini",
+                                       package = "readepi"),
+      data_source        = "https://play.dhis2.org/dev",
+      dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
+      organisation_unit  = "DiszpKrYNg8",
+      data_element_group = NULL,
+      start_date         = "2014",
+      end_date           = "2023"
+    )[["data"]],
+    fields = c("dataElement", "period", "value")) {
   checkmate::assert_data_frame(data,
                                min.rows = 1L, null.ok = FALSE,
                                min.cols = 1L)
@@ -109,7 +126,19 @@ dhis2_subset_fields <- function(data, fields) {
 #' }
 #' @keywords internal
 #' @noRd
-dhis2_subset_records <- function(data, records, id_col_name) {
+dhis2_subset_records <- function(
+    data = readepi(credentials_file   = system.file("extdata",
+                                                    "test.ini",
+                                                    package = "readepi"),
+                   data_source        = "https://play.dhis2.org/dev",
+
+                   dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
+                   organisation_unit  = "DiszpKrYNg8",
+                   data_element_group = NULL,
+                   start_date         = "2014",
+                   end_date           = "2023")[["data"]],
+    records     = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+    id_col_name = "dataElement") {
   checkmate::assert_data_frame(data,
                                min.rows = 1L, null.ok = FALSE,
                                min.cols = 1L)
@@ -143,7 +172,7 @@ dhis2_subset_records <- function(data, records, id_col_name) {
 #' @return an object of type `list` with the values for the DHIS2 attributes.
 #' @keywords internal
 #' @noRd
-get_attributes_from_user <- function(args_list) {
+dhis2_get_attributes_from_user <- function(args_list) {
   dataset <- organisation_unit <- data_element_group <- start_date <-
     end_date <- NULL
   if ("dataset" %in% names(args_list)) {

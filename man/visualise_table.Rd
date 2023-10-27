@@ -4,7 +4,12 @@
 \alias{visualise_table}
 \title{Visualize the first 5 rows of the data from a table}
 \usage{
-visualise_table(data_source, credentials_file, from, driver_name)
+visualise_table(
+  data_source = "mysql-rfam-public.ebi.ac.uk",
+  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+  from = "author",
+  driver_name = ""
+)
 }
 \arguments{
 \item{data_source}{the the URL of the HIS}
