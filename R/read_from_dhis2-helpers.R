@@ -8,11 +8,6 @@
 #' @param user_name the user name
 #' @param password the user's password
 #'
-#' @return a message if the dhis2_login was successful,
-#'    throws an error otherwise.
-#'
-#' @return a message if the login was successfull, thows an error otherwise.
-#'
 #' @return a message if the login was successfull, thows an error otherwise.
 #'
 #' @keywords internal

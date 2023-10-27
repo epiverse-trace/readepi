@@ -20,9 +20,15 @@ test_that("dhis2_login fails as expected", {
   testthat::skip_if_not_installed("httptest")
   expect_error(
     dhis2_login(
+<<<<<<< HEAD
       base_url  = file.path("test", "play.dhis2.org", "dev"),
       user_name = "admin",
       password  = "district"
+=======
+      base_url = file.path("test", "play.dhis2.org", "dev"),
+      user_name = "admin",
+      password = "district"
+>>>>>>> ecf782b (check args default values and consistency)
     ),
     regexp = cat("The base URL should start with 'https://'")
   )
@@ -61,10 +67,16 @@ test_that("dhis2_subset_fields fails as expected", {
     end_date           = "2023"
   )[["data"]]
   expect_error(
+<<<<<<< HEAD
     dhis2_subset_fields(data = data, fields = c(1L, 2L, 3L)),
     regexp = cat("The value for the 'fields' argument should be a
                             vector of character.")
   )
+=======
+               dhis2_subset_fields(data = data, fields = c(1L, 2L, 3L)),
+               regexp = cat("The value for the 'fields' argument should be a
+                            vector of character."))
+>>>>>>> ecf782b (check args default values and consistency)
 })
 
 test_that("dhis2_subset_records works as expected", {
