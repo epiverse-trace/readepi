@@ -1,8 +1,8 @@
 #' Check the DHIS2 attributes for data import
 #'
-#' @param username the user name
-#' @param password the user's password
 #' @param base_url the web address of the server the user wishes to log in to
+#' @param user_name the user name
+#' @param password the user's password
 #' @param dataset the dataSets identifiers
 #' @param organisation_unit the organisationUnits identifiers
 #' @param data_element_group the dataElementGroups identifiers
@@ -12,30 +12,30 @@
 #' @examples
 #' \dontrun{
 #' attributes <- dhis2_check_attributes(
-#'   username           = "admin",
-#'   password           = "district",
-#'   base_url           = "https://play.dhis2.org/dev/",
-#'   dataset            = "pBOMPrpg1QX",
-#'   organisation_unit  = "DiszpKrYNg8",
-#'   data_element_group = NULL
+#'   base_url            = "https://play.dhis2.org/dev/",
+#'   user_name           = "admin",
+#'   password            = "district",
+#'   dataset             = "pBOMPrpg1QX",
+#'   organisation_unit   = "DiszpKrYNg8",
+#'   data_element_group  = NULL
 #' )
 #' }
 #'
 #' @keywords internal
 #' @noRd
-dhis2_check_attributes <- function(username,
-                                   password,
-                                   base_url,
-                                   dataset,
+dhis2_check_attributes <- function(base_url   = "https://play.dhis2.org/dev/",
+                                   user_name         = "admin",
+                                   password          = "district",
+                                   dataset           = "pBOMPrpg1QX",
                                    organisation_unit = NULL,
                                    data_element_group = NULL) {
   # get the relevant dataset
   if (!is.null(dataset)) {
     tmp_res <- dhis2_get_relevant_attributes(
-      attribute_id = dataset,
       base_url     = base_url,
-      username     = username,
+      user_name     = user_name,
       password     = password,
+      attribute_id = dataset,
       which        = "dataSets"
     )
     dataset   <- tmp_res[["dataset"]]
@@ -47,10 +47,10 @@ dhis2_check_attributes <- function(username,
   # get the relevant organisation units
   if (!is.null(organisation_unit)) {
     tmp_res <- dhis2_get_relevant_attributes(
-      attribute_id = organisation_unit,
       base_url     = base_url,
-      username     = username,
+      user_name     = user_name,
       password     = password,
+      attribute_id = organisation_unit,
       which        = "organisationUnits"
     )
     organisation_unit <- tmp_res[["organisation_unit"]]
@@ -62,10 +62,10 @@ dhis2_check_attributes <- function(username,
   # get the relevant data element groups
   if (!is.null(data_element_group)) {
     tmp_res <- dhis2_get_relevant_attributes(
-      attribute_id = data_element_group,
       base_url     = base_url,
-      username     = username,
+      user_name    = user_name,
       password     = password,
+      attribute_id = data_element_group,
       which        = "dataElementGroups"
     )
     data_element_group <- tmp_res[["data_element_group"]]
@@ -76,10 +76,10 @@ dhis2_check_attributes <- function(username,
 
   # get the data element
   data_elements <- dhis2_get_relevant_attributes(
-    attribute_id = NULL,
     base_url     = base_url,
-    username     = username,
+    user_name    = user_name,
     password     = password,
+    attribute_id = NULL,
     which        = "dataElements"
   )
 

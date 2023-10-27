@@ -26,13 +26,18 @@
 #' }
 #' @keywords internal
 #' @noRd
-read_from_fingertips <- function(indicator_id = NULL, indicator_name = NULL,
-                                 area_type_id = NULL,
+read_from_fingertips <- function(indicator_id        = 90362L,
+                                 indicator_name      = NULL,
+                                 area_type_id        = 202L,
                                  parent_area_type_id = NULL,
-                                 profile_id = NULL, profile_name = NULL,
-                                 domain_id = NULL, domain_name = NULL,
-                                 fields = NULL, records = NULL,
-                                 id_position = NULL, id_col_name = NULL) {
+                                 profile_id          = NULL,
+                                 profile_name        = NULL,
+                                 domain_id           = NULL,
+                                 domain_name         = NULL,
+                                 fields              = NULL,
+                                 records             = NULL,
+                                 id_position         = NULL,
+                                 id_col_name         = NULL) {
   checkmate::assert_vector(indicator_id,
                            any.missing = FALSE, min.len = 0L,
                            null.ok = TRUE, unique = TRUE)

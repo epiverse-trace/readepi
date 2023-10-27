@@ -25,11 +25,11 @@ test_that("read_from_dhis2 works as expected when subsetting on columns and
             testthat::skip_on_cran()
             testthat::skip_if_offline()
             data <- read_from_dhis2(
-              base_url = file.path("https:/", "play.dhis2.org", "dev"),
-              user_name = "admin",
-              password = "district",
-              dataset = "pBOMPrpg1QX",
-              organisation_unit = "DiszpKrYNg8",
+              base_url           = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
+              user_name          = "admin",
+              password           = "district",
+              dataset            = "pBOMPrpg1QX",
+              organisation_unit  = "DiszpKrYNg8",
               data_element_group = "oDkJh5Ddh7d",
               start_date = "2014",
               end_date = "2023",
@@ -48,17 +48,17 @@ test_that("read_from_dhis2 fails with a wrong URL", {
   testthat::skip_if_offline()
   expect_error(
     read_from_dhis2(
-      base_url = NULL,
-      user_name = "admin",
-      password = "district",
-      dataset = "pBOMPrpg1QX",
-      organisation_unit = "DiszpKrYNg8",
+      base_url           = NULL,
+      user_name          = "admin",
+      password           = "district",
+      dataset            = "pBOMPrpg1QX",
+      organisation_unit  = "DiszpKrYNg8",
       data_element_group = "oDkJh5Ddh7d",
-      start_date = "2014",
-      end_date = "2023",
-      records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-      fields = c("dataElement", "period", "value"),
-      id_col_name = "dataElement"
+      start_date         = "2014",
+      end_date           = "2023",
+      records            = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+      fields             = c("dataElement", "period", "value"),
+      id_col_name        = "dataElement"
     ),
     regexp = cat("Assertion on',base_url,'failed: Must be provided.")
   )

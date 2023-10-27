@@ -4,7 +4,11 @@
 \alias{show_tables}
 \title{Display the list of tables in a database}
 \usage{
-show_tables(data_source, credentials_file, driver_name)
+show_tables(
+  data_source = "mysql-rfam-public.ebi.ac.uk",
+  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+  driver_name = ""
+)
 }
 \arguments{
 \item{data_source}{the URL of the HIS of interest}
@@ -26,9 +30,9 @@ Display the list of tables in a database
 \examples{
 \dontrun{
 show_tables(
+  data_source      = "mysql-rfam-public.ebi.ac.uk",
   credentials_file = system.file("extdata", "test.ini",
                                  package = "readepi"),
-  data_source      = "mysql-rfam-public.ebi.ac.uk",
   driver_name      = ""
 )
 }

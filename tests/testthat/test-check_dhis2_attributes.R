@@ -5,11 +5,12 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                username = "admin",
-                password = "district",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
-                dataset = "pBOMPrpg1QX",
-                organisation_unit = "DiszpKrYNg8",
+                user_name          = "admin",
+                password           = "district",
+                base_url           = file.path("https:/", "play.dhis2.org",
+                                               "dev"),
+                dataset            = "pBOMPrpg1QX",
+                organisation_unit  = "DiszpKrYNg8",
                 data_element_group = "oDkJh5Ddh7d"
               )
               expect_type(attributes, "list")
@@ -42,11 +43,12 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                username = "admin",
-                password = "district",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
-                dataset = "pBOMPrpg1QX",
-                organisation_unit = NULL,
+                user_name          = "admin",
+                password           = "district",
+                base_url           = file.path("https:/", "play.dhis2.org",
+                                               "dev"),
+                dataset            = "pBOMPrpg1QX",
+                organisation_unit  = NULL,
                 data_element_group = NULL
               )
               expect_type(attributes, "list")
@@ -74,11 +76,11 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   username = "admin",
-                                                   password = "district",
+                                                   user_name          = "admin",
+                                                   password       = "district",
                                                    base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
-                                                   dataset  = NULL,
-                                                   organisation_unit = "DiszpKrYNg8", # nolint: line_length_linter
+                                                   dataset            = NULL,
+                                                   organisation_unit  = "DiszpKrYNg8", # nolint: line_length_linter
                                                    data_element_group = NULL)
               expect_type(attributes, "list")
               expect_length(attributes, 7L)
@@ -105,11 +107,11 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   username = "admin",
-                                                   password = "district",
+                                                   user_name          = "admin",
+                                                   password       = "district",
                                                    base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
-                                                   dataset = NULL,
-                                                   organisation_unit = NULL,
+                                                   dataset            = NULL,
+                                                   organisation_unit  = NULL,
                                                    data_element_group = "oDkJh5Ddh7d") # nolint: line_length_linter
               expect_type(attributes, "list")
               expect_length(attributes, 7L)
@@ -138,11 +140,11 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   username = "admin",
-                                                   password = "district",
+                                                   user_name          = "admin",
+                                                   password       = "district",
                                                    base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
-                                                   dataset = NULL,
-                                                   organisation_unit = NULL,
+                                                   dataset            = NULL,
+                                                   organisation_unit  = NULL,
                                                    data_element_group = NULL)
               expect_type(attributes, "list")
               expect_length(attributes, 7L)
@@ -167,11 +169,11 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   username = "admin",
-                                                   password = "district",
+                                                   user_name          = "admin",
+                                                   password       = "district",
                                                    base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
-                                                   dataset = "pBOMPrpg1QX",
-                                                   organisation_unit = "DiszpKrYNg8", # nolint: line_length_linter
+                                                   dataset      = "pBOMPrpg1QX",
+                                                   organisation_unit  = "DiszpKrYNg8", # nolint: line_length_linter
                                                    data_element_group = NULL)
               expect_type(attributes, "list")
               expect_length(attributes, 7L)
@@ -200,7 +202,7 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   username = "admin",
+                                                   user_name = "admin",
                                                    password = "district",
                                                    base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
                                                    dataset = "pBOMPrpg1QX",
@@ -235,7 +237,7 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   username = "admin",
+                                                   user_name = "admin",
                                                    password = "district",
                                                    base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
                                                    dataset = NULL,
