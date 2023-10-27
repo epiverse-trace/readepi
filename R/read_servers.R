@@ -39,21 +39,26 @@
 #'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   port          = 4497,
 #'   database_name = "Rfam",
-#'   src           = "author",
 #'   driver_name   = "",
+#'   src           = "author",
 #'   dbms          = "MySQL"
 #' )
 #' }
 #' @importFrom magrittr %>%
 #' @keywords internal
 #' @noRd
-sql_server_read_data <- function(user = "rfamro", password = "",
+sql_server_read_data <- function(user = "rfamro",
+                                 password = "",
                                  host = "mysql-rfam-public.ebi.ac.uk",
                                  port = 1433L,
-                                 database_name = "Rfam", driver_name = "",
-                                 src = NULL, records = NULL,
-                                 fields = NULL, id_position = NULL,
-                                 id_col_name = NULL, dbms = "MySQL") {
+                                 database_name = "Rfam",
+                                 driver_name = "",
+                                 src = NULL,
+                                 records = NULL,
+                                 fields = NULL,
+                                 id_position = NULL,
+                                 id_col_name = NULL,
+                                 dbms = "MySQL") {
   # check the input arguments
   checkmate::assert_number(port, lower = 1L)
   checkmate::assert_character(user,
@@ -108,7 +113,7 @@ sql_server_read_data <- function(user = "rfamro", password = "",
   # fetch data using SQL query
   if (length(src) > 0L) {
     from_query <- fetch_data_from_query(
-      src, dbms, tables,
+      source, dbms, tables,
       driver_name, host, database_name,
       user, password, port
     )

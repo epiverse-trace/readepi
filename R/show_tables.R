@@ -9,9 +9,9 @@
 #' @examples
 #' \dontrun{
 #' show_tables(
+#'   data_source      = "mysql-rfam-public.ebi.ac.uk",
 #'   credentials_file = system.file("extdata", "test.ini",
 #'                                  package = "readepi"),
-#'   data_source      = "mysql-rfam-public.ebi.ac.uk",
 #'   driver_name      = ""
 #' )
 #' }
@@ -19,7 +19,10 @@
 #'     in the specified database.
 #' @export
 #'
-show_tables <- function(data_source, credentials_file, driver_name) {
+show_tables <- function(data_source      = "mysql-rfam-public.ebi.ac.uk",
+                        credentials_file = system.file("extdata", "test.ini",
+                                                       package = "readepi"),
+                        driver_name      = "") {
   # checking input parameters
   checkmate::assert_character(credentials_file, null.ok = TRUE, len = 1L)
   checkmate::assert_file_exists(credentials_file)

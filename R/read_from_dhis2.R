@@ -36,17 +36,17 @@
 #'   id_col_name        = "dataElement"
 #' )
 #' }
-read_from_dhis2 <- function(base_url,
-                            user_name,
-                            password,
-                            dataset,
-                            organisation_unit,
-                            data_element_group,
-                            start_date,
-                            end_date,
-                            records = NULL,
-                            fields = NULL,
-                            id_col_name = "dataElement") {
+read_from_dhis2 <- function(base_url           = "https://play.dhis2.org/dev",
+                            user_name          = "admin",
+                            password           = "district",
+                            dataset            = "pBOMPrpg1QX",
+                            organisation_unit  = "DiszpKrYNg8",
+                            data_element_group = "oDkJh5Ddh7d",
+                            start_date         = "2014",
+                            end_date           = "2023",
+                            records            = NULL,
+                            fields             = NULL,
+                            id_col_name        = "dataElement") {
   checkmate::assert_character(base_url,
                               len = 1L, null.ok = FALSE,
                               any.missing = FALSE)
@@ -73,13 +73,13 @@ read_from_dhis2 <- function(base_url,
                            null.ok = TRUE, unique = TRUE)
 
   # checking user credentials
-  login(user_name, password, base_url)
+  dhis2_login(base_url, user_name, password)
 
   # checking the attribute details
   attributes <- dhis2_check_attributes(
+    base_url,
     user_name,
     password,
-    base_url,
     dataset,
     organisation_unit,
     data_element_group

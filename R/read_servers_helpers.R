@@ -24,8 +24,13 @@
 #' }
 #' @keywords internal
 #' @noRd
-connect_to_server <- function(dbms, driver_name, host, database_name,
-                              user, password, port) {
+connect_to_server <- function(dbms          = "MySQL",
+                              driver_name   = "",
+                              host          = "mysql-rfam-public.ebi.ac.uk",
+                              database_name = "Rfam",
+                              user          = "rfamro",
+                              password      = "",
+                              port          = 4497L) {
   con <- switch(
                 dbms,
                 SQLServer = pool::dbPool(odbc::odbc(),
@@ -69,7 +74,8 @@ connect_to_server <- function(dbms, driver_name, host, database_name,
 #' }
 #' @keywords internal
 #' @noRd
-identify_table_name <- function(query, tables) {
+identify_table_name <- function(query  = "select * from author",
+                                tables = c("family_author", "author", "test")) {
   checkmate::assert_character(query,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
@@ -115,9 +121,15 @@ identify_table_name <- function(query, tables) {
 #' }
 #' @keywords internal
 #' @noRd
-fetch_data_from_query <- function(source, dbms, tables,
-                                  driver_name, host, database_name,
-                                  user, password, port) {
+fetch_data_from_query <- function(source        = "select author_id, name, last_name from author", # nolint: line_length_linter
+                                  tables        = c("family_author", "author"),
+                                  dbms          = "MySQL",
+                                  driver_name   = "",
+                                  host          = "mysql-rfam-public.ebi.ac.uk",
+                                  database_name = "Rfam",
+                                  user          = "rfamro",
+                                  password      = "",
+                                  port          = 4497L) {
   checkmate::assert_vector(tables,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = FALSE, unique = TRUE)
@@ -177,10 +189,18 @@ fetch_data_from_query <- function(source, dbms, tables,
 #' }
 #' @keywords internal
 #' @noRd
-sql_select_data <- function(table_names, dbms, id_col_name,
-                            fields, records, id_position,
-                            driver_name, host, database_name,
-                            user, password, port) {
+sql_select_data <- function(table_names   = "author",
+                            id_col_name   = "author_id",
+                            fields        = c("author_id", "name"),
+                            records       = NULL,
+                            id_position   = NULL,
+                            dbms          = "MySQL",
+                            driver_name   = "",
+                            host          = "mysql-rfam-public.ebi.ac.uk",
+                            database_name = "Rfam",
+                            user          = "rfamro",
+                            password      = "",
+                            port          = 4497L) {
   checkmate::assert_vector(table_names,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = FALSE, unique = FALSE)
@@ -250,7 +270,9 @@ sql_select_data <- function(table_names, dbms, id_col_name,
 #'    corresponding to the ID column name and position.
 #' @keywords internal
 #' @noRd
-get_id_column_name <- function(id_col_name, j, id_position) {
+get_id_column_name <- function(id_col_name = c("author_id", "rfam_acc"),
+                               j           = 1L,
+                               id_position = c(1L, 1L)) {
   checkmate::assert_numeric(j,
                             lower = 1L, any.missing = FALSE,
                             len = 1L, null.ok = FALSE)
@@ -302,8 +324,14 @@ get_id_column_name <- function(id_col_name, j, id_position) {
 #' }
 #' @keywords internal
 #' @noRd
-sql_select_entire_dataset <- function(table, dbms, driver_name, host,
-                                      database_name, user, password, port) {
+sql_select_entire_dataset <- function(table         = "author",
+                                      dbms          = "MySQL",
+                                      driver_name   = "",
+                                      host      = "mysql-rfam-public.ebi.ac.uk",
+                                      database_name = "Rfam",
+                                      user          = "rfamro",
+                                      password      = "",
+                                      port          = 4497L) {
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
@@ -359,9 +387,19 @@ sql_select_entire_dataset <- function(table, dbms, driver_name, host,
 #' }
 #' @keywords internal
 #' @noRd
-sql_select_records_and_fields <- function(table, record, id_column_name, field,
-                                          id_pos, dbms, driver_name, host,
-                                          database_name, user, password, port) {
+sql_select_records_and_fields <- function(table          = "author",
+                                          record         = c("1", "20", "50"),
+                                          id_column_name = "author_id",
+                                          field          = c("author_id",
+                                                             "last_name"),
+                                          id_pos         = NULL,
+                                          dbms           = "MySQL",
+                                          driver_name    = "",
+                                          host  = "mysql-rfam-public.ebi.ac.uk",
+                                          database_name  = "Rfam",
+                                          user           = "rfamro",
+                                          password       = "",
+                                          port           = 4497L) {
   checkmate::assert_character(id_column_name,
                               any.missing = FALSE,
                               null.ok = TRUE, unique = TRUE)
@@ -416,7 +454,12 @@ sql_select_records_and_fields <- function(table, record, id_column_name, field,
 #' }
 #' @export
 #'
-visualise_table <- function(data_source, credentials_file, from, driver_name) {
+visualise_table <- function(data_source      = "mysql-rfam-public.ebi.ac.uk",
+                            credentials_file = system.file("extdata",
+                                                           "test.ini",
+                                                           package = "readepi"),
+                            from             = "author",
+                            driver_name      = "") {
   checkmate::assert_character(from,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
@@ -476,9 +519,17 @@ visualise_table <- function(data_source, credentials_file, from, driver_name) {
 #' }
 #' @keywords internal
 #' @noRd
-sql_select_records_only <- function(table, record, id_column_name, id_pos,
-                                    dbms, driver_name, host, database_name,
-                                    user, password, port) {
+sql_select_records_only <- function(table          = "author",
+                                    record         = c("1", "20", "50"),
+                                    id_column_name = NULL,
+                                    id_pos         = 1L,
+                                    dbms           = "MySQL",
+                                    driver_name    = "",
+                                    host  = "mysql-rfam-public.ebi.ac.uk",
+                                    database_name  = "Rfam",
+                                    user           = "rfamro",
+                                    password       = "",
+                                    port           = 4497L) {
   checkmate::assert_vector(id_pos,
                            any.missing = FALSE, min.len = 0L,
                            null.ok = TRUE, unique = FALSE)
@@ -549,8 +600,16 @@ sql_select_records_only <- function(table, record, id_column_name, id_pos,
 #' }
 #' @keywords internal
 #' @noRd
-sql_select_fields_only <- function(table, field, dbms, driver_name, host,
-                                   database_name, user, password, port) {
+sql_select_fields_only <- function(table          = "author",
+                                   field          = c("author_id", "name",
+                                                      "last_name"),
+                                   dbms           = "MySQL",
+                                   driver_name    = "",
+                                   host         = "mysql-rfam-public.ebi.ac.uk",
+                                   database_name  = "Rfam",
+                                   user           = "rfamro",
+                                   password       = "",
+                                   port           = 4497L) {
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
