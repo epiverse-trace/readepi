@@ -3,11 +3,11 @@ httptest::with_mock_api({
   testthat::skip_if_offline()
   testthat::skip_if_not_installed("httptest")
   test_that("the API request is working fine", {
-    response <- make_api_request(
-      base_url = file.path("https:/", "play.dhis2.org", "dev"),
-      username = "admin",
-      password = "district",
-      which    = "dataElements"
+    response <- dhis2_make_api_request(
+      base_url  = file.path("https:/", "play.dhis2.org", "dev"),
+      user_name = "admin",
+      password  = "district",
+      which     = "dataElements"
     )
     expect_type(response, "list")
     expect_length(response, 8L)
@@ -19,7 +19,7 @@ httptest::with_mock_api({
               result <- dhis2_get_relevant_attributes(
                 attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
                 base_url     = file.path("https:/", "play.dhis2.org", "dev"),
-                username     = "admin",
+                user_name    = "admin",
                 password     = "district",
                 which        = "dataSets"
               )
@@ -32,10 +32,10 @@ httptest::with_mock_api({
             dataElements", {
               result <- dhis2_get_relevant_attributes(
                 attribute_id = "FTRrcoaog83",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
-                username = "admin",
-                password = "district",
-                which = "dataElements"
+                base_url     = file.path("https:/", "play.dhis2.org", "dev"),
+                user_name    = "admin",
+                password     = "district",
+                which        = "dataElements"
               )
               expect_s3_class(result, "data.frame")
             })
@@ -44,10 +44,10 @@ httptest::with_mock_api({
             organisationUnits", {
               result <- dhis2_get_relevant_attributes(
                 attribute_id = "Rp268JB6Ne4",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
-                username = "admin",
-                password = "district",
-                which = "organisationUnits"
+                base_url     = file.path("https:/", "play.dhis2.org", "dev"),
+                user_name    = "admin",
+                password     = "district",
+                which        = "organisationUnits"
               )
               expect_type(result, "list")
               expect_identical(result[["organisation_unit"]], "Rp268JB6Ne4")
@@ -58,10 +58,10 @@ httptest::with_mock_api({
             dataElementGroups", {
               result <- dhis2_get_relevant_attributes(
                 attribute_id = "oDkJh5Ddh7d",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
-                username = "admin",
-                password = "district",
-                which = "dataElementGroups"
+                base_url     = file.path("https:/", "play.dhis2.org", "dev"),
+                user_name    = "admin",
+                password     = "district",
+                which        = "dataElementGroups"
               )
               expect_type(result, "list")
               expect_identical(result[["data_element_group"]], "oDkJh5Ddh7d")
@@ -70,10 +70,10 @@ httptest::with_mock_api({
 
   test_that("get_dhis2_attributes works as expected", {
     attributes <- get_dhis2_attributes(
-      base_url = file.path("https:/", "play.dhis2.org", "dev"),
-      username = "admin",
-      password = "district",
-      which    = "dataSets"
+      base_url  = file.path("https:/", "play.dhis2.org", "dev"),
+      user_name = "admin",
+      password  = "district",
+      which     = "dataSets"
     )
     expect_s3_class(attributes, "data.frame")
     expect_identical(ncol(attributes), 3L)
@@ -86,9 +86,9 @@ test_that("the API request fails as expected", {
   testthat::skip_if_offline()
   testthat::skip_if_not_installed("httptest")
   expect_error(
-    make_api_request(
+    dhis2_make_api_request(
       base_url = file.path("test", "play.dhis2.org", "dev"),
-      username = "admin",
+      user_name = "admin",
       password = "district",
       which    = "dataElements"
     ),
@@ -101,9 +101,9 @@ test_that("the API request fails with an incorrect attribute", {
   testthat::skip_if_offline()
   testthat::skip_if_not_installed("httptest")
   expect_error(
-    make_api_request(
+    dhis2_make_api_request(
       base_url = file.path("test", "play.dhis2.org", "dev"),
-      username = "admin",
+      user_name = "admin",
       password = "district",
       which    = "test"
     ),
@@ -118,10 +118,10 @@ test_that("dhis2_get_relevant_attributes fails as expected", {
   expect_error(
     dhis2_get_relevant_attributes(
       attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
-      base_url = file.path("test", "play.dhis2.org", "dev"),
-      username = "admin",
-      password = "district",
-      which = "dataSets"
+      base_url     = file.path("test", "play.dhis2.org", "dev"),
+      user_name    = "admin",
+      password     = "district",
+      which        = "dataSets"
     ),
     regexp = cat("The 'base_url' should start with 'https://'")
   )
@@ -129,10 +129,10 @@ test_that("dhis2_get_relevant_attributes fails as expected", {
   expect_error(
     dhis2_get_relevant_attributes(
       attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
-      base_url = file.path("https:/", "play.dhis2.org", "dev"),
-      username = "admin",
-      password = "district",
-      which = "test"
+      base_url     = file.path("https:/", "play.dhis2.org", "dev"),
+      user_name    = "admin",
+      password     = "district",
+      which        = "test"
     ),
     regexp = cat("The expected values for the 'which' argument are:
           'dataSets, 'organisationUnits', 'dataElementGroups', 'dataElements'")
@@ -142,7 +142,7 @@ test_that("dhis2_get_relevant_attributes fails as expected", {
     dhis2_get_relevant_attributes(
       attribute_id = "test",
       base_url     = file.path("https:/", "play.dhis2.org", "dev"),
-      username     = "admin",
+      user_name    = "admin",
       password     = "district",
       which        = "dataSets"
     ),
@@ -153,7 +153,7 @@ test_that("dhis2_get_relevant_attributes fails as expected", {
     dhis2_get_relevant_attributes(
       attribute_id = "pBOMPrpg1QX, test",
       base_url     = file.path("https:/", "play.dhis2.org", "dev"),
-      username     = "admin",
+      user_name    = "admin",
       password     = "district",
       which        = "dataSets"
     ),

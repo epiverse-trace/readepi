@@ -26,8 +26,12 @@
 #'     frame of the dataset of interest and its associated metadata.
 #' @keywords internal
 #' @noRd
-read_from_redcap <- function(uri, token, id_position = NULL, id_col_name = NULL,
-                             records = NULL, fields = NULL) {
+read_from_redcap <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+                             token       = "9A81268476645C4E5F03428B8AC3AA7B",
+                             id_position = 1L,
+                             id_col_name = NULL,
+                             records     = NULL,
+                             fields      = NULL) {
   # check input variables
   checkmate::assert_character(token,
                               n.chars = 32L, len = 1L, null.ok = FALSE,
@@ -43,7 +47,7 @@ read_from_redcap <- function(uri, token, id_position = NULL, id_col_name = NULL,
 
   # importing data and the metadata into R
   tmp_res <- import_redcap_data(
-    records, fields, uri, token,
+    uri, token, records, fields,
     id_position, id_col_name
   )
   redcap_data <- tmp_res[["redcap_data"]]

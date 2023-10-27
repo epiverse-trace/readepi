@@ -5,11 +5,11 @@
 #'    project, around the function that read specific records/fields or both at
 #'    the same time
 #'
-#' @param records a vector or a comma-separated string of subset of subject IDs
-#' @param fields a vector or a comma-separated string of column names
 #' @param uri the URI of the server
 #' @param token the user-specific string that serves as the password for a
 #'    project
+#' @param records a vector or a comma-separated string of subset of subject IDs
+#' @param fields a vector or a comma-separated string of column names
 #' @param id_position the column position of the variable that unique identifies
 #'    the subjects
 #' @param id_col_name the column name with the subject IDs
@@ -23,26 +23,31 @@
 #'   token       = "9A81268476645C4E5F03428B8AC3AA7B",
 #'   records     = c("1", "3", "5"),
 #'   fields      = c("record_id", "name_first", "age", "bmi"),
-#'   id_col_name = NULL,
 #'   id_position = 1
+#'   id_col_name = NULL
 #' )
 #' }
 #' @keywords internal
 #' @noRd
-import_redcap_data <- function(records, fields, uri, token,
-                               id_position, id_col_name) {
+import_redcap_data <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/", # nolint: line_length_linter
+                               token       = "9A81268476645C4E5F03428B8AC3AA7B",
+                               records     = c("1", "3", "5"),
+                               fields      = c("record_id", "name_first",
+                                               "age", "bmi"),
+                               id_position = 1L,
+                               id_col_name = NULL) {
   if (is.null(records) && is.null(fields)) {
     res <- redcap_read_data(uri, token, id_position)
   } else if (!is.null(records) && !is.null(fields)) {
     res <- redcap_read_rows_columns(
-      fields, uri, token, id_position,
-      id_col_name, records
+      uri, token, fields, records, id_position,
+      id_col_name
     )
   } else if (!is.null(fields) && is.null(records)) {
-    res <- redcap_read_fields(fields, uri, token, id_position)
+    res <- redcap_read_fields(uri, token, fields, id_position)
   } else if (!is.null(records) && is.null(fields)) {
     res <- redcap_read_records(
-      records, uri, token,
+      uri, token, records,
       id_position, id_col_name
     )
   }
@@ -67,7 +72,9 @@ import_redcap_data <- function(records, fields, uri, token,
 #'    data and its associated metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_data <- function(uri, token, id_position) {
+redcap_read_data <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+                             token       = "9A81268476645C4E5F03428B8AC3AA7B",
+                             id_position = 1L) {
   redcap_data <- REDCapR::redcap_read(
     redcap_uri  = uri,
     token       = token,
@@ -90,22 +97,27 @@ redcap_read_data <- function(uri, token, id_position) {
 
 #' Subset records and columns from a REDCap project
 #'
-#' @param fields a vector or a comma-separated string of column names
 #' @param uri the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
 #'    project
+#' @param fields a vector or a comma-separated string of column names
+#' @param records a vector or a comma-separated string of subset of subject IDs
 #' @param id_position the column position of the variable that unique identifies
 #'    the subjects
 #' @param id_col_name the column name with the subject IDs
-#' @param records a vector or a comma-separated string of subset of subject IDs
 #'
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data with only the records and fields of interest and its associated
 #'    metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_rows_columns <- function(fields, uri, token, id_position,
-                                     id_col_name, records) {
+redcap_read_rows_columns <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/", # nolint: line_length_linter
+                                     token       = "9A81268476645C4E5F03428B8AC3AA7B", # nolint: line_length_linter
+                                     fields      = c("record_id", "name_first",
+                                                     "age", "bmi"),
+                                     records     = c("1", "3", "5"),
+                                     id_position = 1L,
+                                     id_col_name = NULL) {
   fields      <- glue::glue_collapse(fields, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
     redcap_uri       = uri,
@@ -147,10 +159,10 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
 
 #' Subset fields from a REDCap project
 #'
-#' @param fields a vector or a comma-separated string of column names
 #' @param uri the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
 #'    project
+#' @param fields a vector or a comma-separated string of column names
 #' @param id_position the column position of the variable that unique identifies
 #'    the subjects
 #'
@@ -158,7 +170,11 @@ redcap_read_rows_columns <- function(fields, uri, token, id_position,
 #'    data with the fields of interest and its associated metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_fields <- function(fields, uri, token, id_position) {
+redcap_read_fields <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/", # nolint: line_length_linter
+                               token       = "9A81268476645C4E5F03428B8AC3AA7B",
+                               fields      = c("record_id", "name_first",
+                                               "age", "bmi"),
+                               id_position = 1L) {
   fields      <- glue::glue_collapse(fields, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
     redcap_uri       = uri, token = token,
@@ -179,10 +195,10 @@ redcap_read_fields <- function(fields, uri, token, id_position) {
 
 #' Subset records from a REDCap project
 #'
-#' @param records a vector or a comma-separated string of subset of subject IDs
 #' @param uri the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
 #'    project
+#' @param records a vector or a comma-separated string of subset of subject IDs
 #' @param id_position the column position of the variable that unique identifies
 #'    the subjects
 #' @param id_col_name the column name with the subject IDs
@@ -191,7 +207,11 @@ redcap_read_fields <- function(fields, uri, token, id_position) {
 #'    data with the records of interest and its associated metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
+redcap_read_records <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/", # nolint: line_length_linter
+                                token       = "9A81268476645C4E5F03428B8AC3AA7B", # nolint: line_length_linter
+                                records     = c("1", "2", "3"),
+                                id_position = 1L,
+                                id_col_name = NULL) {
   records     <- glue::glue_collapse(records, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
     redcap_uri  = uri,
@@ -256,7 +276,21 @@ redcap_read_records <- function(records, uri, token, id_position, id_col_name) {
 #' }
 #' @keywords internal
 #' @noRd
-redcap_get_results <- function(redcap_data, metadata) {
+redcap_get_results <- function(
+    redcap_data = REDCapR::redcap_read(
+      redcap_uri  = "https://bbmc.ouhsc.edu/redcap/api/",
+      token       = "9A81268476645C4E5F03428B8AC3AA7B",
+      records     = c("1", "3", "5"),
+      fields      = c("record_id", "name_first", "age", "bmi"),
+      verbose     = FALSE,
+      id_position = 1L
+    ),
+    metadata = REDCapR::redcap_metadata_read(
+      redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
+      token      = "9A81268476645C4E5F03428B8AC3AA7B",
+      fields     = NULL,
+      verbose    = FALSE
+    )) {
   checkmate::assert_list(redcap_data,
                          null.ok     = FALSE,
                          min.len     = 2L,

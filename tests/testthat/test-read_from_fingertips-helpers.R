@@ -465,13 +465,13 @@ httptest::with_mock_api({
     testthat::skip_on_cran()
     testthat::skip_if_offline()
     res <- get_profile_name(
-      profile_id = 19L,
-      profile_name = "Public Health Outcomes Framework",
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
         indicator_ids_names = fingertipsR::indicators_unique(),
         area_type = fingertipsR::area_types()
-      )
+      ),
+      profile_id = 19L,
+      profile_name = "Public Health Outcomes Framework"
     )
     expect_type(res, "list")
     expect_length(res, 2L)

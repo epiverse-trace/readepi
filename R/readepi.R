@@ -28,9 +28,9 @@
 #' }
 #' @returns a `list` of 1 or several object(s) of type `data frame`.
 #' @export
-readepi <- function(data_source = NULL,
-                    records = NULL,
-                    fields = NULL,
+readepi <- function(data_source = "mysql-rfam-public.ebi.ac.uk",
+                    records     = NULL,
+                    fields      = NULL,
                     id_position = NULL,
                     id_col_name = NULL,
                     ...) {
@@ -119,7 +119,7 @@ readepi <- function(data_source = NULL,
         dbms          = credentials[["dbms"]]
       )
     } else if (credentials[["dbms"]] %in% c("dhis2", "DHIS2")) {
-      tmp_attributes <- get_attributes_from_user(args_list)
+      tmp_attributes <- dhis2_get_attributes_from_user(args_list)
       res <- read_from_dhis2(
         base_url           = credentials[["host"]],
         user_name          = credentials[["user"]],

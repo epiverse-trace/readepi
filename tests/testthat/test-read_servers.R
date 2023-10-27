@@ -7,8 +7,8 @@ test_that("sql_server_read_data works as expected", {
     host = "mysql-rfam-public.ebi.ac.uk",
     port = 4497L,
     database_name = "Rfam",
-    src = "author",
     driver_name = "",
+    src = "author",
     dbms = "MySQL"
   )
   expect_type(result, "list")
@@ -19,8 +19,8 @@ test_that("sql_server_read_data works as expected", {
     host = "mysql-rfam-public.ebi.ac.uk",
     port = 4497L,
     database_name = "Rfam",
-    src = "select * from author",
     driver_name = "",
+    src = "select * from author",
     dbms = "MySQL"
   )
   expect_type(result, "list")
