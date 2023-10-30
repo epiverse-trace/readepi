@@ -98,6 +98,9 @@ readepi <- function(data_source = "mysql-rfam-public.ebi.ac.uk",
                  c("MySQL", "SQLServer", "PostgreSQL")) {
       from <- NULL
       driver_name <- ""
+      # if ("from" %in% names(args_list)) {
+      #   from <- args_list[["from"]]
+      # }
       if ("from" %in% names(args_list)) {
         from <- args_list[["from"]]
       }
@@ -105,18 +108,18 @@ readepi <- function(data_source = "mysql-rfam-public.ebi.ac.uk",
         driver_name <- args_list[["driver_name"]]
       }
       res <- sql_server_read_data(
-        user          = credentials[["user"]],
-        password      = credentials[["pwd"]],
-        host          = credentials[["host"]],
-        port          = credentials[["port"]],
-        database_name = credentials[["project"]],
-        src           = from,
+        dbms          = credentials[["dbms"]],
         driver_name   = driver_name,
+        host          = credentials[["host"]],
+        database_name = credentials[["project"]],
+        user_name     = credentials[["user"]],
+        password      = credentials[["pwd"]],
+        port          = credentials[["port"]],
+        src           = from,
         records       = records,
         fields        = fields,
         id_position   = id_position,
-        id_col_name   = id_col_name,
-        dbms          = credentials[["dbms"]]
+        id_col_name   = id_col_name
       )
     } else if (credentials[["dbms"]] %in% c("dhis2", "DHIS2")) {
       tmp_attributes <- dhis2_get_attributes_from_user(args_list)

@@ -4,7 +4,7 @@
 #'    Importing data stored in DBMS into R requires the installation
 #'    of the appropriate `driver` that is compatible with the server version
 #'    hosting the database. See the `vignette` for how to install the driver
-#' @param user the user name
+#' @param user_name the user name
 #' @param password the user password
 #' @param host the name of the host server
 #' @param port the port ID
@@ -34,34 +34,38 @@
 #' @examples
 #' \dontrun{
 #' data <- sql_server_read_data(
-#'   user          = "rfamro",
-#'   password      = "",
-#'   host          = "mysql-rfam-public.ebi.ac.uk",
-#'   port          = 4497,
-#'   database_name = "Rfam",
+#'   dbms          = "MySQL",
 #'   driver_name   = "",
+#'   host          = "mysql-rfam-public.ebi.ac.uk",
+#'   database_name = "Rfam",
+#'   user_name     = "rfamro",
+#'   password      = "",
+#'   port          = 4497,
 #'   src           = "author",
-#'   dbms          = "MySQL"
+#'   records       = NULL,
+#'   fields        = NULL,
+#'   id_position   = NULL,
+#'   id_col_name   = NULL
 #' )
 #' }
 #' @importFrom magrittr %>%
 #' @keywords internal
 #' @noRd
-sql_server_read_data <- function(user = "rfamro",
-                                 password = "",
-                                 host = "mysql-rfam-public.ebi.ac.uk",
-                                 port = 1433L,
+sql_server_read_data <- function(dbms          = "MySQL",
+                                 driver_name   = "",
+                                 host          = "mysql-rfam-public.ebi.ac.uk",
                                  database_name = "Rfam",
-                                 driver_name = "",
-                                 src = NULL,
-                                 records = NULL,
-                                 fields = NULL,
-                                 id_position = NULL,
-                                 id_col_name = NULL,
-                                 dbms = "MySQL") {
+                                 user_name     = "rfamro",
+                                 password      = "",
+                                 port          = 4497L,
+                                 src           = NULL,
+                                 records       = NULL,
+                                 fields        = NULL,
+                                 id_position   = NULL,
+                                 id_col_name   = NULL) {
   # check the input arguments
   checkmate::assert_number(port, lower = 1L)
-  checkmate::assert_character(user,
+  checkmate::assert_character(user_name,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
   checkmate::assert_character(dbms,
@@ -94,39 +98,39 @@ sql_server_read_data <- function(user = "rfamro",
   # establishing the connection to the server
   con <- connect_to_server(
     dbms, driver_name, host, database_name,
-    user, password, port
+    user_name, password, port
   )
 
   # listing the names of the tables present in the database
   tables      <- DBI::dbListTables(conn = con)
-  table_names <- NULL
   # closing the connection
   pool::poolClose(con)
 
   # separate the srcs
-  idx <- which(src %in% tables)
-  if (length(idx) > 0L) {
-    table_names <- src[idx]
-    src      <- src[-idx]
-  }
+  attributes <- identify_tables_and_queries(
+    src    = src,
+    tables = tables
+  )
+  queries <- attributes[["queries"]]
+  src     <- attributes[["tables"]]
 
-  # fetch data using SQL query
-  if (length(src) > 0L) {
+  # fetch data from queries
+  if (length(queries) > 0L) {
     from_query <- fetch_data_from_query(
-      source, dbms, tables,
+      queries, dbms, tables,
       driver_name, host, database_name,
-      user, password, port
+      user_name, password, port
     )
     final_result <- c(final_result, from_query)
   }
 
   # fetch data from tables
-  if (length(table_names) > 0L) {
+  if (length(src) > 0L) {
     from_table_names <- sql_select_data(
-      table_names, dbms, id_col_name,
+      src, id_col_name,
       fields, records, id_position,
-      driver_name, host, database_name,
-      user, password, port
+      dbms, driver_name, host, database_name,
+      user_name, password, port
     )
     final_result <- c(final_result, from_table_names)
   }

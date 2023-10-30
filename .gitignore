@@ -52,7 +52,7 @@ rsconnect/
 .DS_Store
 *~
 
- # Built files
+# Built files
 inst/doc
 /Meta/
 .DS_Store
