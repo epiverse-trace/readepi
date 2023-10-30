@@ -13,11 +13,7 @@ test_that("sql_server_read_data works as expected", {
     records       = NULL,
     fields        = NULL,
     id_position   = NULL,
-<<<<<<< Updated upstream
     id_col_name   = NULL
-=======
-    id_col_name   = NULL,
->>>>>>> Stashed changes
   )
   expect_type(result, "list")
 
@@ -33,11 +29,7 @@ test_that("sql_server_read_data works as expected", {
     records       = NULL,
     fields        = NULL,
     id_position   = NULL,
-<<<<<<< Updated upstream
     id_col_name   = NULL
-=======
-    id_col_name   = NULL,
->>>>>>> Stashed changes
   )
   expect_type(result, "list")
 })
