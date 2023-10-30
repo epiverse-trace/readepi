@@ -6,7 +6,7 @@ test_that("connect_to_server works as expected", {
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user          = "rfamro",
+    user_name     = "rfamro",
     password      = "",
     port          = 4497L
   )
@@ -74,13 +74,13 @@ test_that("fetch_data_from_query works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   result <- fetch_data_from_query(
-    source        = "select author_id, name, last_name from author",
-    dbms          = "MySQL",
+    src           = "select author_id, name, last_name from author",
     tables        = c("family_author", "author"),
+    dbms          = "MySQL",
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user          = "rfamro",
+    user_name     = "rfamro",
     password      = "",
     port          = 4497L
   )
@@ -95,13 +95,13 @@ test_that("fetch_data_from_query fails with incorrect tables", {
   testthat::skip_if_offline()
   expect_error(
     fetch_data_from_query(
-      source        = "select author_id, name, last_name from author",
-      dbms          = "MySQL",
+      src           = "select author_id, name, last_name from author",
       tables        = NA,
+      dbms          = "MySQL",
       driver_name   = "",
       host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user          = "rfamro",
+      user_name     = "rfamro",
       password      = "",
       port          = 4497L
     ),
@@ -111,13 +111,13 @@ test_that("fetch_data_from_query fails with incorrect tables", {
 
   expect_error(
     fetch_data_from_query(
-      source        = "select author_id, name, last_name from author",
-      dbms          = "MySQL",
+      src           = "select author_id, name, last_name from author",
       tables        = NULL,
+      dbms          = "MySQL",
       driver_name   = "",
       host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user          = "rfamro",
+      user_name     = "rfamro",
       password      = "",
       port          = 4497L
     ),
@@ -130,15 +130,15 @@ test_that("sql_select_data works as expected", {
   testthat::skip_if_offline()
   result <- sql_select_data(
     table_names   = "author",
-    dbms          = "MySQL",
     id_col_name   = "author_id",
     fields        = c("author_id", "name"),
     records       = NULL,
     id_position   = NULL,
+    dbms          = "MySQL",
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user          = "rfamro",
+    user_name     = "rfamro",
     password      = "",
     port          = 4497L
   )
@@ -149,15 +149,15 @@ test_that("sql_select_data works as expected", {
 
   result <- sql_select_data(
     table_names   = c("author", "family_author"),
-    dbms          = "MySQL",
     id_col_name   = "author_id",
     fields        = NULL,
     records       = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
     id_position   = NULL,
+    dbms          = "MySQL",
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user          = "rfamro",
+    user_name     = "rfamro",
     password      = "",
     port          = 4497L
   )
@@ -169,14 +169,14 @@ test_that("sql_select_data works as expected", {
 
   result <- sql_select_data(
     table_names   = c("author", "family_author"),
-    dbms          = "MySQL",
     id_position   = c(1L, 1L),
     fields        = c("author_id,name,last_name,initials", "rfam_acc,author_id"), #nolint: line_length_linter
     records       = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
+    dbms          = "MySQL",
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user          = "rfamro",
+    user_name     = "rfamro",
     password      = "",
     port          = 4497L,
     id_col_name   = NULL
@@ -189,15 +189,15 @@ test_that("sql_select_data works as expected", {
 
   result <- sql_select_data(
     table_names   = c("author", "family_author"),
-    dbms          = "MySQL",
     id_col_name   = "author_id",
     fields        = c("author_id,name,last_name,initials", "rfam_acc,author_id"), #nolint: line_length_linter
     records       = NULL,
     id_position   = NULL,
+    dbms          = "MySQL",
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user          = "rfamro",
+    user_name     = "rfamro",
     password      = "",
     port          = 4497L
   )
@@ -214,15 +214,15 @@ test_that("sql_select_data fails with incorrect table_names", {
   expect_error(
     sql_select_data(
       table_names   = NA,
-      dbms          = "MySQL",
       id_col_name   = "author_id",
       fields        = c("author_id", "name"),
       records       = NULL,
       id_position   = NULL,
+      dbms          = "MySQL",
       driver_name   = "",
       host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user          = "rfamro",
+      user_name     = "rfamro",
       password      = "",
       port          = 4497L
     ),
@@ -233,15 +233,15 @@ test_that("sql_select_data fails with incorrect table_names", {
   expect_error(
     sql_select_data(
       table_names   = NULL,
-      dbms          = "MySQL",
       id_col_name   = "author_id",
       fields        = c("author_id", "name"),
       records       = NULL,
       id_position   = NULL,
+      dbms          = "MySQL",
       driver_name   = "",
       host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user          = "rfamro",
+      user_name     = "rfamro",
       password      = "",
       port          = 4497L
     ),
@@ -302,7 +302,7 @@ test_that("sql_select_entire_dataset works as expected", {
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user          = "rfamro",
+    user_name     = "rfamro",
     password      = "",
     port          = 4497L
   )
@@ -319,7 +319,7 @@ test_that("sql_select_entire_dataset fails with incorrect table", {
       driver_name   = "",
       host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user          = "rfamro",
+      user_name     = "rfamro",
       password      = "",
       port          = 4497L
     ),
@@ -334,7 +334,7 @@ test_that("sql_select_entire_dataset fails with incorrect table", {
       driver_name   = "",
       host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
-      user          = "rfamro",
+      user_name     = "rfamro",
       password      = "",
       port          = 4497L
     ),
@@ -355,7 +355,7 @@ test_that("sql_select_records_and_fields works as expected", {
     driver_name    = "",
     host           = "mysql-rfam-public.ebi.ac.uk",
     database_name  = "Rfam",
-    user           = "rfamro",
+    user_name      = "rfamro",
     password       = "",
     port           = 4497L
   )
@@ -376,7 +376,7 @@ test_that("sql_select_records_and_fields fails as expected", {
       driver_name    = "",
       host           = "mysql-rfam-public.ebi.ac.uk",
       database_name  = "Rfam",
-      user           = "rfamro",
+      user_name      = "rfamro",
       password       = "",
       port           = 4497L
     ),
@@ -395,7 +395,7 @@ test_that("sql_select_records_and_fields fails as expected", {
       driver_name    = "",
       host           = "mysql-rfam-public.ebi.ac.uk",
       database_name  = "Rfam",
-      user           = "rfamro",
+      user_name      = "rfamro",
       password       = "",
       port           = 4497L
     ),
@@ -414,7 +414,7 @@ test_that("sql_select_records_and_fields fails as expected", {
       driver_name    = "",
       host           = "mysql-rfam-public.ebi.ac.uk",
       database_name  = "Rfam",
-      user           = "rfamro",
+      user_name      = "rfamro",
       password       = "",
       port           = 4497L
     ),
@@ -433,7 +433,7 @@ test_that("sql_select_records_and_fields fails as expected", {
       driver_name    = "",
       host           = "mysql-rfam-public.ebi.ac.uk",
       database_name  = "Rfam",
-      user           = "rfamro",
+      user_name      = "rfamro",
       password       = "",
       port           = 4497L
     ),
@@ -452,7 +452,7 @@ test_that("sql_select_records_and_fields fails as expected", {
       driver_name    = "",
       host           = "mysql-rfam-public.ebi.ac.uk",
       database_name  = "Rfam",
-      user           = "rfamro",
+      user_name      = "rfamro",
       password       = "",
       port           = 4497L
     ),
@@ -484,7 +484,7 @@ test_that("sql_select_records_only works as expected", {
     driver_name    = "",
     host           = "mysql-rfam-public.ebi.ac.uk",
     database_name  = "Rfam",
-    user           = "rfamro",
+    user_name      = "rfamro",
     password       = "",
     port           = 4497L
   )
@@ -501,7 +501,7 @@ test_that("sql_select_fields_only works as expected", {
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
-    user          = "rfamro",
+    user_name     = "rfamro",
     password      = "",
     port          = 4497L
   )
