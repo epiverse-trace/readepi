@@ -1,7 +1,0 @@
-get_dhis2_attributes    Get the target DHIS2 attribute identifiers and
-                        names
-readepi                 Import data from different data_sources into R
-show_example_file       Display the structure of the credentials file
-show_tables             Display the list of tables in a database
-visualise_table         Visualize the first 5 rows of the data from a
-                        table
