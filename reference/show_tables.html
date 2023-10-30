@@ -60,11 +60,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">show_tables</span><span class="op">(</span></span>
-<span>  data_source <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
-<span>  credentials_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.ini"</span>, package <span class="op">=</span> <span class="st">"readepi"</span><span class="op">)</span>,</span>
-<span>  driver_name <span class="op">=</span> <span class="st">""</span></span>
-<span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">show_tables</span><span class="op">(</span><span class="va">data_source</span>, <span class="va">credentials_file</span>, <span class="va">driver_name</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -96,9 +92,9 @@ in the specified database.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
 <span class="r-in"><span><span class="fu">show_tables</span><span class="op">(</span></span></span>
-<span class="r-in"><span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span></span>
 <span class="r-in"><span>  credentials_file <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"test.ini"</span>,</span></span>
 <span class="r-in"><span>                                 package <span class="op">=</span> <span class="st">"readepi"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  data_source      <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span></span>
 <span class="r-in"><span>  driver_name      <span class="op">=</span> <span class="st">""</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
