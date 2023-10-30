@@ -20,9 +20,9 @@ test_that("dhis2_login fails as expected", {
   testthat::skip_if_not_installed("httptest")
   expect_error(
     dhis2_login(
-      base_url = file.path("test", "play.dhis2.org", "dev"),
+      base_url  = file.path("test", "play.dhis2.org", "dev"),
       user_name = "admin",
-      password = "district"
+      password  = "district"
     ),
     regexp = cat("The base URL should start with 'https://'")
   )

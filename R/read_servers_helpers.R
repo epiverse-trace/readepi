@@ -4,7 +4,7 @@
 #' @param driver_name the driver name
 #' @param host the host server name
 #' @param database_name the database name
-#' @param user the user name
+#' @param user_name the user name
 #' @param password the user's password
 #' @param port the server port ID
 #'
@@ -17,7 +17,7 @@
 #'   driver_name   = "",
 #'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name = "Rfam",
-#'   user          = "rfamro",
+#'   user_name     = "rfamro",
 #'   password      = "",
 #'   port          = 4497
 #' )
@@ -28,7 +28,7 @@ connect_to_server <- function(dbms          = "MySQL",
                               driver_name   = "",
                               host          = "mysql-rfam-public.ebi.ac.uk",
                               database_name = "Rfam",
-                              user          = "rfamro",
+                              user_name     = "rfamro",
                               password      = "",
                               port          = 4497L) {
   con <- switch(
@@ -37,19 +37,19 @@ connect_to_server <- function(dbms          = "MySQL",
                                          driver   = driver_name,
                                          server   = host,
                                          database = database_name,
-                                         uid      = user,
+                                         uid      = user_name,
                                          pwd      = password,
                                          port     = port),
                 PostgreSQL = pool::dbPool(odbc::odbc(),
                                           driver   = driver_name,
                                           host     = host,
                                           database = database_name,
-                                          uid      = user,
+                                          uid      = user_name,
                                           pwd      = password,
                                           port     = port),
                 MySQL = pool::dbPool(drv = RMySQL::MySQL(),
                                      dbname   = database_name,
-                                     username = user,
+                                     username = user_name,
                                      password = password,
                                      host     = host,
                                      port     = port,
@@ -92,13 +92,13 @@ identify_table_name <- function(query  = "select * from author",
 
 #' Fetch data from server using an SQL query
 #'
-#' @param source the SQL query
+#' @param src the SQL query
 #' @param dbms the database management system type
 #' @param tables the list of tables from the database
 #' @param driver_name the driver name
 #' @param host the host server name
 #' @param database_name the database name
-#' @param user the user name
+#' @param user_name the user name
 #' @param password the user's password
 #' @param port the server port ID
 #'
@@ -108,26 +108,26 @@ identify_table_name <- function(query  = "select * from author",
 #' @examples
 #' \dontrun{
 #' result <- fetch_data_from_query(
-#'   source        = "select author_id, name, last_name from author",
-#'   dbms          = "MySQL",
+#'   src           = "select author_id, name, last_name from author",
 #'   tables        = c("family_author", "author"),
+#'   dbms          = "MySQL",
 #'   driver_name   = "",
 #'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name = "Rfam",
-#'   user          = "rfamro",
+#'   user_name     = "rfamro",
 #'   password      = "",
 #'   port          = 4497
 #' )
 #' }
 #' @keywords internal
 #' @noRd
-fetch_data_from_query <- function(source        = "select author_id, name, last_name from author", # nolint: line_length_linter
+fetch_data_from_query <- function(src           = "select author_id, name, last_name from author", # nolint: line_length_linter
                                   tables        = c("family_author", "author"),
                                   dbms          = "MySQL",
                                   driver_name   = "",
                                   host          = "mysql-rfam-public.ebi.ac.uk",
                                   database_name = "Rfam",
-                                  user          = "rfamro",
+                                  user_name     = "rfamro",
                                   password      = "",
                                   port          = 4497L) {
   checkmate::assert_vector(tables,
@@ -135,14 +135,19 @@ fetch_data_from_query <- function(source        = "select author_id, name, last_
                            null.ok = FALSE, unique = TRUE)
 
   pool <- connect_to_server(
-    dbms, driver_name, host, database_name,
-    user, password, port
+    dbms          = dbms,
+    driver_name   = driver_name,
+    host          = host,
+    database_name = database_name,
+    user_name     = user_name,
+    password      = password,
+    port          = port
   )
   result <- list()
-  for (query in source) { # nolint
+  for (query in src) {
     table <- identify_table_name(query, tables)
     stopifnot("Could not detect table name from the query" = !is.null(table))
-    result[[table]] <- DBI::dbGetQuery(pool, source) # nolint
+    result[[table]] <- DBI::dbGetQuery(pool, src)
   }
   pool::poolClose(pool)
 
@@ -164,7 +169,7 @@ fetch_data_from_query <- function(source        = "select author_id, name, last_
 #' @param driver_name the driver name
 #' @param host host server name
 #' @param database_name the database name
-#' @param user the user name
+#' @param user_name the user name
 #' @param password the user's password
 #' @param port the server port ID
 #'
@@ -182,7 +187,7 @@ fetch_data_from_query <- function(source        = "select author_id, name, last_
 #'   driver_name   = "",
 #'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name = "Rfam",
-#'   user          = "rfamro",
+#'   user_name     = "rfamro",
 #'   password      = "",
 #'   port          = 4497
 #' )
@@ -198,7 +203,7 @@ sql_select_data <- function(table_names   = "author",
                             driver_name   = "",
                             host          = "mysql-rfam-public.ebi.ac.uk",
                             database_name = "Rfam",
-                            user          = "rfamro",
+                            user_name     = "rfamro",
                             password      = "",
                             port          = 4497L) {
   checkmate::assert_vector(table_names,
@@ -214,7 +219,7 @@ sql_select_data <- function(table_names   = "author",
     if (is.null(records) && is.null(fields)) {
       result[[table]] <- sql_select_entire_dataset(
         table, dbms, driver_name,
-        host, database_name, user,
+        host, database_name, user_name,
         password, port
       )
     } else if (!is.null(records) && is.null(fields)) {
@@ -224,7 +229,7 @@ sql_select_data <- function(table_names   = "author",
       result[[table]] <- sql_select_records_only(
         table, record, id_col_name,
         id_position, dbms, driver_name,
-        host, database_name, user,
+        host, database_name, user_name,
         password, port
       )
     } else if (!is.null(fields) && is.null(records)) {
@@ -232,7 +237,7 @@ sql_select_data <- function(table_names   = "author",
                             length(fields) > 1L),
                       fields[j], fields)
       result[[table]] <- sql_select_fields_only(table, field, dbms, driver_name,
-                                                host, database_name, user,
+                                                host, database_name, user_name,
                                                 password, port)
     } else {
       record <- ifelse(all(grepl(",", records, fixed = TRUE) &
@@ -250,7 +255,7 @@ sql_select_data <- function(table_names   = "author",
         id_column_name, field,
         id_pos, dbms,
         driver_name, host,
-        database_name, user,
+        database_name, user_name,
         password, port
       )
     }
@@ -302,7 +307,7 @@ get_id_column_name <- function(id_col_name = c("author_id", "rfam_acc"),
 #' @param driver_name the driver name
 #' @param host host server name
 #' @param database_name the database name
-#' @param user the user name
+#' @param user_name the user name
 #' @param password the user's password
 #' @param port the server port ID
 #'
@@ -317,7 +322,7 @@ get_id_column_name <- function(id_col_name = c("author_id", "rfam_acc"),
 #'   driver_name   = "",
 #'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name = "Rfam",
-#'   user          = "rfamro",
+#'   user_name     = "rfamro",
 #'   password      = "",
 #'   port          = 4497
 #' )
@@ -329,7 +334,7 @@ sql_select_entire_dataset <- function(table         = "author",
                                       driver_name   = "",
                                       host      = "mysql-rfam-public.ebi.ac.uk",
                                       database_name = "Rfam",
-                                      user          = "rfamro",
+                                      user_name     = "rfamro",
                                       password      = "",
                                       port          = 4497L) {
   checkmate::assert_character(table,
@@ -338,7 +343,7 @@ sql_select_entire_dataset <- function(table         = "author",
 
   con <- connect_to_server(
     dbms, driver_name, host, database_name,
-    user, password, port
+    user_name, password, port
   )
   query <- sprintf("select * from %s", table)
   res <- DBI::dbGetQuery(con, query)
@@ -354,7 +359,7 @@ sql_select_entire_dataset <- function(table         = "author",
 #' @param driver_name the driver name
 #' @param host host server name
 #' @param database_name the database name
-#' @param user the user name
+#' @param user_name the user name
 #' @param password the user's password
 #' @param port the server port ID
 #' @param id_column_name the column names that unique identify the records in
@@ -380,7 +385,7 @@ sql_select_entire_dataset <- function(table         = "author",
 #'   driver_name    = "",
 #'   host           = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name  = "Rfam",
-#'   user           = "rfamro",
+#'   user_name      = "rfamro",
 #'   password       = "",
 #'   port           = 4497
 #' )
@@ -397,7 +402,7 @@ sql_select_records_and_fields <- function(table          = "author",
                                           driver_name    = "",
                                           host  = "mysql-rfam-public.ebi.ac.uk",
                                           database_name  = "Rfam",
-                                          user           = "rfamro",
+                                          user_name      = "rfamro",
                                           password       = "",
                                           port           = 4497L) {
   checkmate::assert_character(id_column_name,
@@ -417,9 +422,9 @@ sql_select_records_and_fields <- function(table          = "author",
                            null.ok = TRUE, unique = TRUE)
 
   con <- connect_to_server(dbms, driver_name, host, database_name,
-                           user, password, port)
+                           user_name, password, port)
   res <- sql_select_records_only(table, record, id_column_name, id_pos, dbms,
-                                 driver_name, host, database_name, user,
+                                 driver_name, host, database_name, user_name,
                                  password, port)
   if (is.character(field)) {
     field <- as.character(lapply(field, function(x) {
@@ -494,7 +499,7 @@ visualise_table <- function(data_source      = "mysql-rfam-public.ebi.ac.uk",
 #' @param driver_name the driver name
 #' @param host host server name
 #' @param database_name the database name
-#' @param user the user name
+#' @param user_name the user name
 #' @param password the user's password
 #' @param port the server port ID
 #'
@@ -512,7 +517,7 @@ visualise_table <- function(data_source      = "mysql-rfam-public.ebi.ac.uk",
 #'   driver_name    = "",
 #'   host           = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name  = "Rfam",
-#'   user           = "rfamro",
+#'   user_name      = "rfamro",
 #'   password       = "",
 #'   port           = 4497
 #' )
@@ -527,7 +532,7 @@ sql_select_records_only <- function(table          = "author",
                                     driver_name    = "",
                                     host  = "mysql-rfam-public.ebi.ac.uk",
                                     database_name  = "Rfam",
-                                    user           = "rfamro",
+                                    user_name      = "rfamro",
                                     password       = "",
                                     port           = 4497L) {
   checkmate::assert_vector(id_pos,
@@ -544,7 +549,7 @@ sql_select_records_only <- function(table          = "author",
                            null.ok = TRUE, unique = TRUE)
 
   con   <- connect_to_server(dbms, driver_name, host, database_name,
-                             user, password, port)
+                             user_name, password, port)
   query <- ifelse(dbms == "MySQL",
                   sprintf("select * from %s limit 5", table),
                   sprintf("select top 5 * from %s", table))
@@ -577,7 +582,7 @@ sql_select_records_only <- function(table          = "author",
 #' @param driver_name the driver name
 #' @param host host server name
 #' @param database_name the database name
-#' @param user the user name
+#' @param user_name the user name
 #' @param password the user's password
 #' @param port the server port ID
 #'
@@ -593,7 +598,7 @@ sql_select_records_only <- function(table          = "author",
 #'   driver_name   = "",
 #'   host          = "mysql-rfam-public.ebi.ac.uk",
 #'   database_name = "Rfam",
-#'   user          = "rfamro",
+#'   user_name     = "rfamro",
 #'   password      = "",
 #'   port          = 4497
 #' )
@@ -607,7 +612,7 @@ sql_select_fields_only <- function(table          = "author",
                                    driver_name    = "",
                                    host         = "mysql-rfam-public.ebi.ac.uk",
                                    database_name  = "Rfam",
-                                   user           = "rfamro",
+                                   user_name      = "rfamro",
                                    password       = "",
                                    port           = 4497L) {
   checkmate::assert_character(table,
@@ -622,7 +627,7 @@ sql_select_fields_only <- function(table          = "author",
   )
   con <- connect_to_server(
     dbms, driver_name, host, database_name,
-    user, password, port
+    user_name, password, port
   )
   if (is.vector(field)) {
     field <- glue::glue_collapse(field, sep = ", ")
