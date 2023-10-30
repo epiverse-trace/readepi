@@ -107,20 +107,21 @@ sql_server_read_data <- function(dbms          = "MySQL",
   pool::poolClose(con)
 
   # separate the srcs
-  attributes <- identify_tables_and_queries(
-    src    = src,
-    tables = tables
-  )
+  attributes <- identify_tables_and_queries(src = src, tables = tables)
   queries <- attributes[["queries"]]
   src     <- attributes[["tables"]]
 
   # fetch data from queries
   if (length(queries) > 0L) {
-    from_query <- fetch_data_from_query(
-      queries, dbms, tables,
-      driver_name, host, database_name,
-      user_name, password, port
-    )
+    from_query <- fetch_data_from_query(src           = queries,
+                                        tables        = tables,
+                                        dbms          = dbms,
+                                        driver_name   = driver_name,
+                                        host          = host,
+                                        database_name = database_name,
+                                        user_name     = user_name,
+                                        password      = password,
+                                        port          = port)
     final_result <- c(final_result, from_query)
   }
 
