@@ -98,6 +98,9 @@ readepi <- function(data_source = "mysql-rfam-public.ebi.ac.uk",
                c("MySQL", "SQLServer", "PostgreSQL")) {
       from <- NULL
       driver_name <- ""
+      # if ("from" %in% names(args_list)) {
+      #   from <- args_list[["from"]]
+      # }
       if ("from" %in% names(args_list)) {
         from <- args_list[["from"]]
       }

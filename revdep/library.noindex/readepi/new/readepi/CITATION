@@ -1,0 +1,36 @@
+citHeader("To cite readepi in publications use:")
+
+bibentry(
+  bibtype = "Manual",
+  title = "Read Data From Health Information Systems",
+  author = c(
+        person(
+            given = "Karim",
+            family = "Mané"
+        ),
+        person(
+            given = "Nuredin",
+            family = "Mohammed"
+        ),
+        person(
+            given = "Bubacarr",
+            family = "Bah"
+        ),
+        person(
+            given = "Bankolé",
+            family = "Ahadzie"
+        ),
+        person(
+            given = "Abdoelnaser",
+            family = "Degoot"
+        )
+      ),
+  year = "2023",
+  url = "https://github.com/epiverse-trace/readepi",
+  textVersion =
+  sprintf("%s %s %s",
+  "Karim Mané, Nuredin Mohammed, Bankolé Ahadzie, Abdoelnaser Degoot, Bubacarr Bah (2023).",
+  "readepi: Read Data From Health Information Systems",
+  "website: https://github.com/epiverse-trace/readepi/"
+  )
+)

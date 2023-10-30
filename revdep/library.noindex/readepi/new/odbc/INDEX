@@ -1,0 +1,50 @@
+Microsoft SQL Server-class
+                        Simple class prototype to avoid messages about
+                        unknown classes from setMethod
+OdbcConnection          Odbc Connection Methods
+OdbcDriver              Odbc Driver Methods
+OdbcResult              Odbc Result Methods
+SUPPORTED_CONNECTION_ATTRIBUTES
+                        Supported Connection Attributes
+dbConnect,OdbcDriver-method
+                        Connect to a ODBC compatible database
+dbListFields,OdbcConnection,character-method
+                        List field names of a remote table
+dbListTables,OdbcConnection-method
+                        List remote tables
+dbListTables-methods    ~~ Methods for Function 'dbListTables' in
+                        Package 'DBI' ~~
+dbQuoteString-methods   ~~ Methods for Function 'dbQuoteString' in
+                        Package 'DBI' ~~
+isTempTable             Helper method used to determine if a table
+                        identifier is that of a temporary table.
+odbc                    Odbc driver
+odbc-package            odbc: Connect to ODBC Compatible Databases
+                        (using the DBI Interface)
+odbc-tables             Convenience functions for reading/writing DBMS
+                        tables
+odbcConnectionActions   List the actions supported for the connection
+odbcConnectionCatalogs
+                        odbcConnectionCatalogs
+odbcConnectionColumns   odbcConnectionColumns
+odbcConnectionIcon      Get an icon representing a connection.
+odbcConnectionSchemas   odbcConnectionSchemas
+odbcConnectionTableTypes
+                        odbcConnectionTableTypes
+odbcConnectionTables    odbcConnectionTables
+odbcDataType            Return the corresponding ODBC data type for an
+                        R object
+odbcListColumns         List columns in an object.
+odbcListDataSources     List Available Data Source Names
+odbcListDrivers         List Available ODBC Drivers
+odbcListObjectTypes     Return the object hierarchy supported by a
+                        connection.
+odbcListObjects         List objects in a connection.
+odbcPreviewObject       Preview the data in an object.
+odbcPreviewQuery        Create a preview query.
+odbcSetTransactionIsolationLevel
+                        Set the Transaction Isolation Level for a
+                        Connection
+sqlCreateTable-methods
+                        ~~ Methods for Function 'sqlCreateTable' in
+                        Package 'DBI' ~~

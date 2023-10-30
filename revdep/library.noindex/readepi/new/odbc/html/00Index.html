@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head><title>R: Connect to ODBC Compatible Databases (using the DBI Interface)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body><div class="container">
+<h1> Connect to ODBC Compatible Databases (using the DBI Interface)
+<img class="toplogo" src="../../../doc/html/Rlogo.svg" alt="[R logo]" />
+</h1>
+<hr/>
+<div style="text-align: center;">
+<a href="../../../doc/html/packages.html"><img class="arrow" src="../../../doc/html/left.jpg" alt="[Up]" /></a>
+<a href="../../../doc/html/index.html"><img class="arrow" src="../../../doc/html/up.jpg" alt="[Top]" /></a>
+</div><h2>Documentation for package &lsquo;odbc&rsquo; version 1.3.5.9000</h2>
+
+<ul><li><a href="../DESCRIPTION">DESCRIPTION file</a>.</li>
+</ul>
+
+<h2>Help Pages</h2>
+
+
+<table style="width: 100%;">
+<tr><td style="width: 25%;"><a href="odbc-package.html">odbc-package</a></td>
+<td>odbc: Connect to ODBC Compatible Databases (using the DBI Interface)</td></tr>
+<tr><td style="width: 25%;"><a href="ConnectionAttributes.html">ConnectionAttributes</a></td>
+<td>Supported Connection Attributes</td></tr>
+<tr><td style="width: 25%;"><a href="odbc-tables.html">dbAppendTable-method</a></td>
+<td>Convenience functions for reading/writing DBMS tables</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbBegin-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">dbBind-method</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">dbClearResult-method</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">dbColumnInfo-method</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbCommit-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="dbConnect-OdbcDriver-method.html">dbConnect</a></td>
+<td>Connect to a ODBC compatible database</td></tr>
+<tr><td style="width: 25%;"><a href="dbConnect-OdbcDriver-method.html">dbConnect-method</a></td>
+<td>Connect to a ODBC compatible database</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbDataType-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcDriver.html">dbDataType-method</a></td>
+<td>Odbc Driver Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbDisconnect-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="SQLServer.html">dbExistsTable</a></td>
+<td>Simple class prototype to avoid messages about unknown classes from setMethod</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbExistsTable-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="SQLServer.html">dbExistsTable-method</a></td>
+<td>Simple class prototype to avoid messages about unknown classes from setMethod</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">dbFetch-method</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbGetInfo-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcDriver.html">dbGetInfo-method</a></td>
+<td>Odbc Driver Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbGetQuery-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">dbGetRowCount-method</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">dbGetRowsAffected-method</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">dbGetStatement-method</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">dbHasCompleted-method</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbIsValid-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcDriver.html">dbIsValid-method</a></td>
+<td>Odbc Driver Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">dbIsValid-method</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="dbListFields-OdbcConnection-character-method.html">dbListFields</a></td>
+<td>List field names of a remote table</td></tr>
+<tr><td style="width: 25%;"><a href="dbListFields-OdbcConnection-character-method.html">dbListFields-method</a></td>
+<td>List field names of a remote table</td></tr>
+<tr><td style="width: 25%;"><a href="dbListTables-OdbcConnection-method.html">dbListTables</a></td>
+<td>List remote tables</td></tr>
+<tr><td style="width: 25%;"><a href="dbListTables-OdbcConnection-method.html">dbListTables-method</a></td>
+<td>List remote tables</td></tr>
+<tr><td style="width: 25%;"><a href="dbListTables-methods.html">dbListTables-method</a></td>
+<td>~~ Methods for Function 'dbListTables' in Package 'DBI' ~~</td></tr>
+<tr><td style="width: 25%;"><a href="dbListTables-methods.html">dbListTables-methods</a></td>
+<td>~~ Methods for Function 'dbListTables' in Package 'DBI' ~~</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbQuoteIdentifier-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="dbQuoteString-methods.html">dbQuoteString-method</a></td>
+<td>~~ Methods for Function 'dbQuoteString' in Package 'DBI' ~~</td></tr>
+<tr><td style="width: 25%;"><a href="dbQuoteString-methods.html">dbQuoteString-methods</a></td>
+<td>~~ Methods for Function 'dbQuoteString' in Package 'DBI' ~~</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbRemoveTable-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbRollback-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbSendQuery-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">dbSendStatement-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="SQLServer.html">dbUnquoteIdentifier-method</a></td>
+<td>Simple class prototype to avoid messages about unknown classes from setMethod</td></tr>
+<tr><td style="width: 25%;"><a href="odbc-tables.html">dbWriteTable-method</a></td>
+<td>Convenience functions for reading/writing DBMS tables</td></tr>
+<tr><td style="width: 25%;"><a href="isTempTable.html">isTempTable</a></td>
+<td>Helper method used to determine if a table identifier is that of a temporary table.</td></tr>
+<tr><td style="width: 25%;"><a href="SQLServer.html">isTempTable-method</a></td>
+<td>Simple class prototype to avoid messages about unknown classes from setMethod</td></tr>
+<tr><td style="width: 25%;"><a href="isTempTable.html">isTempTable-method</a></td>
+<td>Helper method used to determine if a table identifier is that of a temporary table.</td></tr>
+<tr><td style="width: 25%;"><a href="SQLServer.html">Microsoft SQL Server-class</a></td>
+<td>Simple class prototype to avoid messages about unknown classes from setMethod</td></tr>
+<tr><td style="width: 25%;"><a href="odbc.html">odbc</a></td>
+<td>Odbc driver</td></tr>
+<tr><td style="width: 25%;"><a href="odbc-tables.html">odbc-tables</a></td>
+<td>Convenience functions for reading/writing DBMS tables</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">OdbcConnection</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">OdbcConnection-class</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionActions.html">odbcConnectionActions</a></td>
+<td>List the actions supported for the connection</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionCatalogs.html">odbcConnectionCatalogs</a></td>
+<td>odbcConnectionCatalogs</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionCatalogs.html">odbcConnectionCatalogs-method</a></td>
+<td>odbcConnectionCatalogs</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionColumns.html">odbcConnectionColumns</a></td>
+<td>odbcConnectionColumns</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionColumns.html">odbcConnectionColumns-method</a></td>
+<td>odbcConnectionColumns</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionIcon.html">odbcConnectionIcon</a></td>
+<td>Get an icon representing a connection.</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionSchemas.html">odbcConnectionSchemas</a></td>
+<td>odbcConnectionSchemas</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionSchemas.html">odbcConnectionSchemas-method</a></td>
+<td>odbcConnectionSchemas</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionTables.html">odbcConnectionTables</a></td>
+<td>odbcConnectionTables</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionTables.html">odbcConnectionTables-method</a></td>
+<td>odbcConnectionTables</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionTableTypes.html">odbcConnectionTableTypes</a></td>
+<td>odbcConnectionTableTypes</td></tr>
+<tr><td style="width: 25%;"><a href="odbcConnectionTableTypes.html">odbcConnectionTableTypes-method</a></td>
+<td>odbcConnectionTableTypes</td></tr>
+<tr><td style="width: 25%;"><a href="odbcDataType.html">odbcDataType</a></td>
+<td>Return the corresponding ODBC data type for an R object</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcDriver.html">OdbcDriver</a></td>
+<td>Odbc Driver Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcDriver.html">OdbcDriver-class</a></td>
+<td>Odbc Driver Methods</td></tr>
+<tr><td style="width: 25%;"><a href="odbcListColumns.html">odbcListColumns</a></td>
+<td>List columns in an object.</td></tr>
+<tr><td style="width: 25%;"><a href="odbcListDataSources.html">odbcListDataSources</a></td>
+<td>List Available Data Source Names</td></tr>
+<tr><td style="width: 25%;"><a href="odbcListDrivers.html">odbcListDrivers</a></td>
+<td>List Available ODBC Drivers</td></tr>
+<tr><td style="width: 25%;"><a href="odbcListObjects.html">odbcListObjects</a></td>
+<td>List objects in a connection.</td></tr>
+<tr><td style="width: 25%;"><a href="odbcListObjectTypes.html">odbcListObjectTypes</a></td>
+<td>Return the object hierarchy supported by a connection.</td></tr>
+<tr><td style="width: 25%;"><a href="odbcPreviewObject.html">odbcPreviewObject</a></td>
+<td>Preview the data in an object.</td></tr>
+<tr><td style="width: 25%;"><a href="odbcPreviewQuery.html">odbcPreviewQuery</a></td>
+<td>Create a preview query.</td></tr>
+<tr><td style="width: 25%;"><a href="odbcPreviewQuery.html">odbcPreviewQuery.Microsoft SQL Server</a></td>
+<td>Create a preview query.</td></tr>
+<tr><td style="width: 25%;"><a href="odbcPreviewQuery.html">odbcPreviewQuery.OdbcConnection</a></td>
+<td>Create a preview query.</td></tr>
+<tr><td style="width: 25%;"><a href="odbcPreviewQuery.html">odbcPreviewQuery.Oracle</a></td>
+<td>Create a preview query.</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">OdbcResult</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcResult.html">OdbcResult-class</a></td>
+<td>Odbc Result Methods</td></tr>
+<tr><td style="width: 25%;"><a href="odbcSetTransactionIsolationLevel.html">odbcSetTransactionIsolationLevel</a></td>
+<td>Set the Transaction Isolation Level for a Connection</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcConnection.html">show-method</a></td>
+<td>Odbc Connection Methods</td></tr>
+<tr><td style="width: 25%;"><a href="OdbcDriver.html">show-method</a></td>
+<td>Odbc Driver Methods</td></tr>
+<tr><td style="width: 25%;"><a href="SQLServer.html">sqlCreateTable-method</a></td>
+<td>Simple class prototype to avoid messages about unknown classes from setMethod</td></tr>
+<tr><td style="width: 25%;"><a href="odbc-tables.html">sqlCreateTable-method</a></td>
+<td>Convenience functions for reading/writing DBMS tables</td></tr>
+<tr><td style="width: 25%;"><a href="sqlCreateTable-methods.html">sqlCreateTable-method</a></td>
+<td>~~ Methods for Function 'sqlCreateTable' in Package 'DBI' ~~</td></tr>
+<tr><td style="width: 25%;"><a href="sqlCreateTable-methods.html">sqlCreateTable-methods</a></td>
+<td>~~ Methods for Function 'sqlCreateTable' in Package 'DBI' ~~</td></tr>
+<tr><td style="width: 25%;"><a href="odbc-tables.html">sqlData-method</a></td>
+<td>Convenience functions for reading/writing DBMS tables</td></tr>
+<tr><td style="width: 25%;"><a href="ConnectionAttributes.html">SUPPORTED_CONNECTION_ATTRIBUTES</a></td>
+<td>Supported Connection Attributes</td></tr>
+</table>
+</div></body></html>
