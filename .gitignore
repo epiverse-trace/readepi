@@ -55,7 +55,6 @@ rsconnect/
 # Built files
 inst/doc
 /Meta/
-.DS_Store
 .Rhistory
 /..Rcheck/
 /Meta/
