@@ -122,6 +122,7 @@ sql_server_read_data <- function(dbms          = "MySQL",
                                         user_name     = user_name,
                                         password      = password,
                                         port          = port)
+
     final_result <- c(final_result, from_query)
   }
 
