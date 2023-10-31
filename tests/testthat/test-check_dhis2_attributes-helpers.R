@@ -87,10 +87,10 @@ test_that("the API request fails as expected", {
   testthat::skip_if_not_installed("httptest")
   expect_error(
     dhis2_make_api_request(
-      base_url = file.path("test", "play.dhis2.org", "dev"),
+      base_url  = file.path("test", "play.dhis2.org", "dev"),
       user_name = "admin",
-      password = "district",
-      which    = "dataElements"
+      password  = "district",
+      which     = "dataElements"
     ),
     regexp = cat("The 'base_url' should start with 'https://'")
   )
@@ -102,10 +102,10 @@ test_that("the API request fails with an incorrect attribute", {
   testthat::skip_if_not_installed("httptest")
   expect_error(
     dhis2_make_api_request(
-      base_url = file.path("test", "play.dhis2.org", "dev"),
+      base_url  = file.path("test", "play.dhis2.org", "dev"),
       user_name = "admin",
-      password = "district",
-      which    = "test"
+      password  = "district",
+      which     = "test"
     ),
     regexp = cat("The expected values for the 'which' argument are:
           'dataSets, 'organisationUnits', 'dataElementGroups', 'dataElements'")

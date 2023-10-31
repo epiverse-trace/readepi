@@ -61,9 +61,10 @@ test_that("dhis2_subset_fields fails as expected", {
     end_date           = "2023"
   )[["data"]]
   expect_error(
-               dhis2_subset_fields(data = data, fields = c(1L, 2L, 3L)),
-               regexp = cat("The value for the 'fields' argument should be a
-                            vector of character."))
+    dhis2_subset_fields(data = data, fields = c(1L, 2L, 3L)),
+    regexp = cat("The value for the 'fields' argument should be a
+                            vector of character.")
+  )
 })
 
 test_that("dhis2_subset_records works as expected", {
@@ -93,18 +94,18 @@ test_that("dhis2_subset_records fails as expected", {
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini",
                                    package = "readepi"),
-    data_source = "https://play.dhis2.org/dev",
-    dataset = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit = "DiszpKrYNg8",
+    data_source        = "https://play.dhis2.org/dev",
+    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
+    organisation_unit  = "DiszpKrYNg8",
     data_element_group = NULL,
-    start_date = "2014",
-    end_date = "2023"
+    start_date         = "2014",
+    end_date           = "2023"
   )[["data"]]
 
   expect_error(
     dhis2_subset_records(
       data        = data,
-      records     = c(1, 2, 3), # nolint
+      records     = c(1L, 2L, 3L),
       id_col_name = "dataElement"
     ),
     regexp = cat("The value for the 'records' argument should be a vector of
@@ -142,19 +143,20 @@ test_that("dhis2_subset_records sends a warning when the provided record is not
             testthat::skip_on_cran()
             testthat::skip_if_offline()
             data <- readepi(
-                            credentials_file = system.file("extdata", "test.ini", # nolint: line_length_linter
-                                                           package = "readepi"),
-                            data_source        = "https://play.dhis2.org/dev",
-                            dataset            = "pBOMPrpg1QX",
-                            organisation_unit  = "DiszpKrYNg8",
-                            data_element_group = NULL,
-                            start_date         = "2014",
-                            end_date           = "2023")[["data"]]
+              credentials_file = system.file("extdata", "test.ini",
+                                             package = "readepi"),
+              data_source        = "https://play.dhis2.org/dev",
+              dataset            = "pBOMPrpg1QX",
+              organisation_unit  = "DiszpKrYNg8",
+              data_element_group = NULL,
+              start_date         = "2014",
+              end_date           = "2023"
+            )[["data"]]
 
             expect_warning(dhis2_subset_records(data = data,
                                                 records = c("FTRrcoaog83",
                                                             "eY5ehpbEsB7",
                                                             "test"),
                                                 id_col_name = "dataElement"),
-                                                regexp = cat("Assertion on',records,'failed: 'test' is not a valid record.")) # nolint: line_length_linter
+                           regexp = cat("Assertion on',records,'failed: 'test' is not a valid record.")) # nolint: line_length_linter
           })

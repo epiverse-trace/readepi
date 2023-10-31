@@ -1,4 +1,5 @@
-#' Import data form DHIS2 into R
+#' Import data form DHIS2
+#'
 #' @param base_url the web address of the server the user wishes to log in to
 #' @param user_name the user name
 #' @param password the user password

@@ -37,7 +37,7 @@ test_that("read_credentials fails as expected", {
     read_credentials(
       file_path = system.file("extdata", "bad_column_name.ini",
                               package = "readepi"),
-      url = "mysql-rfam-public.ebi.ac.uk"
+      url       = "mysql-rfam-public.ebi.ac.uk"
     ),
     regexp = cat("Unexpected column name(s) in the provided credential file.
                  The expected column names are: 'user_name', 'password',
