@@ -123,13 +123,13 @@ get_read_fingertips_args <- function(args_list = list(indicator_id = NULL,
   }
 
   list(
-    indicator_id = indicator_id,
-    indicator_name = indicator_name,
-    area_type_id = area_type_id,
-    profile_id = profile_id,
-    profile_name = profile_name,
-    domain_id = domain_id,
-    domain_name = domain_name,
+    indicator_id        = indicator_id,
+    indicator_name      = indicator_name,
+    area_type_id        = area_type_id,
+    profile_id          = profile_id,
+    profile_name        = profile_name,
+    domain_id           = domain_id,
+    domain_name         = domain_name,
     parent_area_type_id = parent_area_type_id
   )
 }

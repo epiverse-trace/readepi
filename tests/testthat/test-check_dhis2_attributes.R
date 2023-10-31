@@ -76,12 +76,13 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   user_name          = "admin",
-                                                   password       = "district",
-                                                   base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
-                                                   dataset            = NULL,
-                                                   organisation_unit  = "DiszpKrYNg8", # nolint: line_length_linter
-                                                   data_element_group = NULL)
+                user_name          = "admin",
+                password           = "district",
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
+                dataset            = NULL,
+                organisation_unit  = "DiszpKrYNg8",
+                data_element_group = NULL
+              )
               expect_type(attributes, "list")
               expect_length(attributes, 7L)
               expect_named(attributes, c("dataset", "dataset_details",
@@ -107,12 +108,13 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   user_name          = "admin",
-                                                   password       = "district",
-                                                   base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
-                                                   dataset            = NULL,
-                                                   organisation_unit  = NULL,
-                                                   data_element_group = "oDkJh5Ddh7d") # nolint: line_length_linter
+                user_name          = "admin",
+                password           = "district",
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
+                dataset            = NULL,
+                organisation_unit  = NULL,
+                data_element_group = "oDkJh5Ddh7d"
+              )
               expect_type(attributes, "list")
               expect_length(attributes, 7L)
               expect_named(attributes, c("dataset", "dataset_details",
@@ -123,8 +125,9 @@ httptest::with_mock_api({
                                          "data_elements"))
               expect_type(attributes[["data_element_group"]], "character")
               expect_identical(
-                               attributes[["data_element_group"]],
-                               "oDkJh5Ddh7d")
+                attributes[["data_element_group"]],
+                "oDkJh5Ddh7d"
+              )
               expect_s3_class(attributes[["data_element_groups_details"]],
                               class = "data.frame")
               expect_s3_class(attributes[["data_elements"]],
@@ -140,12 +143,13 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   user_name          = "admin",
-                                                   password       = "district",
-                                                   base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
-                                                   dataset            = NULL,
-                                                   organisation_unit  = NULL,
-                                                   data_element_group = NULL)
+                user_name          = "admin",
+                password           = "district",
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
+                dataset            = NULL,
+                organisation_unit  = NULL,
+                data_element_group = NULL
+              )
               expect_type(attributes, "list")
               expect_length(attributes, 7L)
               expect_named(attributes, c("dataset", "dataset_details",
@@ -169,12 +173,13 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   user_name          = "admin",
-                                                   password       = "district",
-                                                   base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
-                                                   dataset      = "pBOMPrpg1QX",
-                                                   organisation_unit  = "DiszpKrYNg8", # nolint: line_length_linter
-                                                   data_element_group = NULL)
+                user_name          = "admin",
+                password           = "district",
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
+                dataset            = "pBOMPrpg1QX",
+                organisation_unit  = "DiszpKrYNg8",
+                data_element_group = NULL
+              )
               expect_type(attributes, "list")
               expect_length(attributes, 7L)
               expect_named(attributes, c("dataset", "dataset_details",
@@ -202,12 +207,13 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   user_name = "admin",
-                                                   password = "district",
-                                                   base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
-                                                   dataset = "pBOMPrpg1QX",
-                                                   organisation_unit = NULL,
-                                                   data_element_group = "oDkJh5Ddh7d") # nolint: line_length_linter
+                user_name          = "admin",
+                password           = "district",
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
+                dataset            = "pBOMPrpg1QX",
+                organisation_unit  = NULL,
+                data_element_group = "oDkJh5Ddh7d"
+              )
               expect_type(attributes, "list")
               expect_length(attributes, 7L)
               expect_named(attributes, c("dataset", "dataset_details",
@@ -226,8 +232,9 @@ httptest::with_mock_api({
                               class = "data.frame")
               expect_type(attributes[["data_element_group"]], "character")
               expect_identical(
-                               attributes[["data_element_group"]],
-                               "oDkJh5Ddh7d")
+                attributes[["data_element_group"]],
+                "oDkJh5Ddh7d"
+              )
               expect_s3_class(attributes[["data_element_groups_details"]],
                               class = "data.frame")
             })
@@ -237,12 +244,13 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                                                   user_name = "admin",
-                                                   password = "district",
-                                                   base_url = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
-                                                   dataset = NULL,
-                                                   organisation_unit = "DiszpKrYNg8", # nolint: line_length_linter
-                                                   data_element_group = "oDkJh5Ddh7d") # nolint: line_length_linter
+                user_name          = "admin",
+                password           = "district",
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
+                dataset            = NULL,
+                organisation_unit  = "DiszpKrYNg8",
+                data_element_group = "oDkJh5Ddh7d"
+              )
               expect_type(attributes, "list")
               expect_length(attributes, 7L)
               expect_named(attributes, c("dataset", "dataset_details",
@@ -261,8 +269,9 @@ httptest::with_mock_api({
                               class = "data.frame")
               expect_type(attributes[["data_element_group"]], "character")
               expect_identical(
-                               attributes[["data_element_group"]],
-                               "oDkJh5Ddh7d")
+                attributes[["data_element_group"]],
+                "oDkJh5Ddh7d"
+              )
               expect_s3_class(attributes[["data_element_groups_details"]],
                               class = "data.frame")
             })

@@ -189,7 +189,8 @@ get_ind_id_from_domain_name <- function(metadata =
                                           list(indicator_profile_domain =
                                                fingertipsR::indicators(),
                                                indicator_ids_names      =
-                                                 fingertipsR::indicators_unique(), # nolint: line_length_linter
+                                               fingertipsR::indicators_unique(), # nolint: line_length_linter
+                                               fingertipsR::indicators_unique(), # nolint: line_length_linter
                                                area_type                =
                                                fingertipsR::area_types()),
                                         domain_name    = "B. Wider determinants of health", # nolint: line_length_linter
@@ -367,7 +368,7 @@ get_ind_id_from_profile <- function(metadata =
     message("\nCould not find the specified profile ID or name.\n
              Below is the list of all profile IDs and names in Fingertips.")
     print(
-          metadata[["indicator_profile_domain"]][, c("ProfileID", "ProfileName")]) # nolint
+      metadata[["indicator_profile_domain"]][, c("ProfileID", "ProfileName")]) # nolint
     stop()
   } else {
     subs <- metadata[["indicator_profile_domain"]][idx, ]
