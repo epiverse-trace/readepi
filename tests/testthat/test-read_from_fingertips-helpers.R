@@ -2,12 +2,13 @@ test_that("fingertips_subset_rows works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   data <- readepi(
-    data_source = NULL, profile_id = 19L,
+    data_source  = NULL,
+    profile_id   = 19L,
     area_type_id = 202L
   )[["data"]]
   res <- fingertips_subset_rows(
-    data = data,
-    records = c("E92000001", "E12000002", "E12000009"),
+    data        = data,
+    records     = c("E92000001", "E12000002", "E12000009"),
     id_col_name = "AreaCode"
   )
   expect_s3_class(res, "data.frame")
@@ -22,7 +23,8 @@ test_that("fingertips_subset_rows fails as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   data <- readepi(
-    data_source = NULL, profile_id = 19L,
+    data_source  = NULL,
+    profile_id   = 19L,
     area_type_id = 202L
   )[["data"]]
   expect_warning(
@@ -39,7 +41,7 @@ test_that("fingertips_subset_columns works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   data <- readepi(
-    data_source = NULL, profile_id = 19L,
+    data_source  = NULL, profile_id = 19L,
     area_type_id = 202L
   )[["data"]]
   res <- fingertips_subset_columns(
@@ -55,7 +57,7 @@ test_that("fingertips_subset_columns fails as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   data <- readepi(
-    data_source = NULL, profile_id = 19L,
+    data_source  = NULL, profile_id = 19L,
     area_type_id = 202L
   )[["data"]]
   expect_error(
@@ -117,8 +119,8 @@ httptest::with_mock_api({
       get_ind_id_from_ind_name(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
-          indicator_ids_names = fingertipsR::indicators_unique(),
-          area_type = fingertipsR::area_types()
+          indicator_ids_names      = fingertipsR::indicators_unique(),
+          area_type                = fingertipsR::area_types()
         ),
         indicator_name = 10L
       ),
@@ -129,8 +131,8 @@ httptest::with_mock_api({
       get_ind_id_from_ind_name(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
-          indicator_ids_names = fingertipsR::indicators_unique(),
-          area_type = fingertipsR::area_types()
+          indicator_ids_names      = fingertipsR::indicators_unique(),
+          area_type                = fingertipsR::area_types()
         ),
         indicator_name = "test"
       ),
@@ -156,10 +158,10 @@ httptest::with_mock_api({
     indicator_id <- get_ind_id_from_domain_id(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
-        indicator_ids_names = fingertipsR::indicators_unique(),
-        area_type = fingertipsR::area_types()
+        indicator_ids_names      = fingertipsR::indicators_unique(),
+        area_type                = fingertipsR::area_types()
       ),
-      domain_id = 1000041L,
+      domain_id      = 1000041L,
       indicator_name = "Pupil absence"
     )
     expect_vector(indicator_id)
@@ -169,10 +171,10 @@ httptest::with_mock_api({
     indicator_id <- get_ind_id_from_domain_id(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
-        indicator_ids_names = fingertipsR::indicators_unique(),
-        area_type = fingertipsR::area_types()
+        indicator_ids_names      = fingertipsR::indicators_unique(),
+        area_type                = fingertipsR::area_types()
       ),
-      domain_id = 1000041L,
+      domain_id      = 1000041L,
       indicator_name = NULL
     )
     expect_vector(indicator_id)
@@ -187,10 +189,10 @@ httptest::with_mock_api({
       get_ind_id_from_domain_id(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
-          indicator_ids_names = fingertipsR::indicators_unique(),
-          area_type = fingertipsR::area_types()
+          indicator_ids_names      = fingertipsR::indicators_unique(),
+          area_type                = fingertipsR::area_types()
         ),
-        domain_id = 1000041L,
+        domain_id      = 1000041L,
         indicator_name = 10L
       ),
       regexp = cat("Indicator_name should be of type character.")
@@ -200,10 +202,10 @@ httptest::with_mock_api({
       get_ind_id_from_domain_id(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
-          indicator_ids_names = fingertipsR::indicators_unique(),
-          area_type = fingertipsR::area_types()
+          indicator_ids_names      = fingertipsR::indicators_unique(),
+          area_type                = fingertipsR::area_types()
         ),
-        domain_id = c(1000041L, 0L),
+        domain_id      = c(1000041L, 0L),
         indicator_name = NULL
       ),
       regexp = cat("'0' is an invalid domain ID.")
@@ -213,10 +215,10 @@ httptest::with_mock_api({
       get_ind_id_from_domain_id(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
-          indicator_ids_names = fingertipsR::indicators_unique(),
-          area_type = fingertipsR::area_types()
+          indicator_ids_names      = fingertipsR::indicators_unique(),
+          area_type                = fingertipsR::area_types()
         ),
-        domain_id = c(-1L, 0L),
+        domain_id      = c(-1L, 0L),
         indicator_name = NULL
       ),
       regexp = cat("Provided domain IDs are invalid.")
@@ -229,10 +231,10 @@ httptest::with_mock_api({
     indicator_id <- get_ind_id_from_domain_name(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
-        indicator_ids_names = fingertipsR::indicators_unique(),
-        area_type = fingertipsR::area_types()
+        indicator_ids_names      = fingertipsR::indicators_unique(),
+        area_type                = fingertipsR::area_types()
       ),
-      domain_name = "B. Wider determinants of health",
+      domain_name    = "B. Wider determinants of health",
       indicator_name = "Pupil absence"
     )
     expect_vector(indicator_id)
@@ -242,10 +244,10 @@ httptest::with_mock_api({
     indicator_id <- get_ind_id_from_domain_name(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
-        indicator_ids_names = fingertipsR::indicators_unique(),
-        area_type = fingertipsR::area_types()
+        indicator_ids_names      = fingertipsR::indicators_unique(),
+        area_type                = fingertipsR::area_types()
       ),
-      domain_name = "B. Wider determinants of health",
+      domain_name    = "B. Wider determinants of health",
       indicator_name = NULL
     )
     expect_vector(indicator_id)
@@ -260,10 +262,10 @@ httptest::with_mock_api({
       get_ind_id_from_domain_name(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
-          indicator_ids_names = fingertipsR::indicators_unique(),
-          area_type = fingertipsR::area_types()
+          indicator_ids_names      = fingertipsR::indicators_unique(),
+          area_type                = fingertipsR::area_types()
         ),
-        domain_name = c("Karim", "Mane"),
+        domain_name    = c("Karim", "Mane"),
         indicator_name = NULL
       ),
       regexp = cat("The provided domain names are invalid.")
@@ -273,10 +275,10 @@ httptest::with_mock_api({
       get_ind_id_from_domain_name(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
-          indicator_ids_names = fingertipsR::indicators_unique(),
-          area_type = fingertipsR::area_types()
+          indicator_ids_names      = fingertipsR::indicators_unique(),
+          area_type                = fingertipsR::area_types()
         ),
-        domain_name = c("B. Wider determinants of health", "Mane"),
+        domain_name    = c("B. Wider determinants of health", "Mane"),
         indicator_name = NULL
       ),
       regexp = cat("'Mane' is an invalid domain name.")
@@ -295,11 +297,11 @@ httptest::with_mock_api({
                     fingertipsR::indicators_unique(),
                   area_type = fingertipsR::area_types()
                 ),
-                domain_id = 1000041L,
-                domain_name = "B. Wider determinants of health",
+                domain_id      = 1000041L,
+                domain_name    = "B. Wider determinants of health",
                 indicator_name = "Pupil absence",
-                profile_name = "Public Health Outcomes Framework",
-                profile_id = 19L
+                profile_name   = "Public Health Outcomes Framework",
+                profile_id     = 19L
               )
               expect_vector(indicator_id)
               expect_type(indicator_id, "integer")
@@ -318,11 +320,11 @@ httptest::with_mock_api({
                     fingertipsR::indicators_unique(),
                   area_type = fingertipsR::area_types()
                 ),
-                domain_id = NULL,
-                domain_name = NULL,
+                domain_id      = NULL,
+                domain_name    = NULL,
                 indicator_name = NULL,
-                profile_name = "Public Health Outcomes Framework",
-                profile_id = NULL
+                profile_name   = "Public Health Outcomes Framework",
+                profile_id     = NULL
               )
               expect_vector(indicator_id)
               expect_type(indicator_id, "integer")
@@ -341,11 +343,11 @@ httptest::with_mock_api({
                     fingertipsR::indicators_unique(),
                   area_type = fingertipsR::area_types()
                 ),
-                domain_id = NULL,
-                domain_name = NULL,
+                domain_id      = NULL,
+                domain_name    = NULL,
                 indicator_name = "Pupil absence",
-                profile_name = "Public Health Outcomes Framework",
-                profile_id = NULL
+                profile_name   = "Public Health Outcomes Framework",
+                profile_id     = NULL
               )
               expect_vector(indicator_id)
               expect_type(indicator_id, "integer")
@@ -360,11 +362,11 @@ httptest::with_mock_api({
                     fingertipsR::indicators_unique(),
                   area_type = fingertipsR::area_types()
                 ),
-                domain_id = NULL,
-                domain_name = NULL,
+                domain_id      = NULL,
+                domain_name    = NULL,
                 indicator_name = "Pupil absence",
-                profile_name = NULL,
-                profile_id = 19L
+                profile_name   = NULL,
+                profile_id     = 19L
               )
               expect_vector(indicator_id)
               expect_type(indicator_id, "integer")
@@ -384,11 +386,11 @@ httptest::with_mock_api({
                     fingertipsR::indicators_unique(),
                   area_type = fingertipsR::area_types()
                 ),
-                domain_id = NULL,
-                domain_name = NULL,
+                domain_id      = NULL,
+                domain_name    = NULL,
                 indicator_name = NULL,
-                profile_name = NULL,
-                profile_id = 19L
+                profile_name   = NULL,
+                profile_id     = 19L
               )
               expect_vector(indicator_id)
               expect_type(indicator_id, "integer")
@@ -407,11 +409,11 @@ httptest::with_mock_api({
                     fingertipsR::indicators_unique(),
                   area_type = fingertipsR::area_types()
                 ),
-                domain_id = NULL,
-                domain_name = "B. Wider determinants of health",
+                domain_id      = NULL,
+                domain_name    = "B. Wider determinants of health",
                 indicator_name = NULL,
-                profile_name = NULL,
-                profile_id = 19L
+                profile_name   = NULL,
+                profile_id     = 19L
               )
               expect_vector(indicator_id)
               expect_type(indicator_id, "integer")
@@ -430,11 +432,11 @@ httptest::with_mock_api({
                     fingertipsR::indicators_unique(),
                   area_type = fingertipsR::area_types()
                 ),
-                domain_id = 1000041L,
-                domain_name = NULL,
+                domain_id      = 1000041L,
+                domain_name    = NULL,
                 indicator_name = NULL,
-                profile_name = NULL,
-                profile_id = 19L
+                profile_name   = NULL,
+                profile_id     = 19L
               )
               expect_vector(indicator_id)
               expect_type(indicator_id, "integer")
@@ -465,13 +467,13 @@ httptest::with_mock_api({
     testthat::skip_on_cran()
     testthat::skip_if_offline()
     res <- get_profile_name(
+      profile_id   = 19L,
+      profile_name = "Public Health Outcomes Framework",
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
-        indicator_ids_names = fingertipsR::indicators_unique(),
-        area_type = fingertipsR::area_types()
-      ),
-      profile_id = 19L,
-      profile_name = "Public Health Outcomes Framework"
+        indicator_ids_names      = fingertipsR::indicators_unique(),
+        area_type                = fingertipsR::area_types()
+      )
     )
     expect_type(res, "list")
     expect_length(res, 2L)

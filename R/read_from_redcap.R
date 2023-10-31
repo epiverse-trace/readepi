@@ -1,4 +1,5 @@
-#' Import data from REDCap into R
+#' Import data from REDCap
+#'
 #' @param uri the URI of the server
 #' @param token the user-specific string that serves as the password for a
 #'    project
