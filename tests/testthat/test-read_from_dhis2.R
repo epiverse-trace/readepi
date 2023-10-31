@@ -31,11 +31,12 @@ test_that("read_from_dhis2 works as expected when subsetting on columns and
               dataset            = "pBOMPrpg1QX",
               organisation_unit  = "DiszpKrYNg8",
               data_element_group = "oDkJh5Ddh7d",
-              start_date = "2014",
-              end_date = "2023",
-              records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-              fields = c("dataElement", "period", "value"),
-              id_col_name = "dataElement"
+              start_date         = "2014",
+              end_date           = "2023",
+              records            = c("FTRrcoaog83", "eY5ehpbEsB7",
+                                     "Ix2HsbDMLea"),
+              fields             = c("dataElement", "period", "value"),
+              id_col_name        = "dataElement"
             )
             expect_type(data, "list")
             expect_length(data, 1L)
@@ -65,17 +66,17 @@ test_that("read_from_dhis2 fails with a wrong URL", {
 
   expect_error(
     read_from_dhis2(
-      base_url = NA,
-      user_name = "admin",
-      password = "district",
-      dataset = "pBOMPrpg1QX",
-      organisation_unit = "DiszpKrYNg8",
+      base_url           = NA,
+      user_name          = "admin",
+      password           = "district",
+      dataset            = "pBOMPrpg1QX",
+      organisation_unit  = "DiszpKrYNg8",
       data_element_group = "oDkJh5Ddh7d",
-      start_date = "2014",
-      end_date = "2023",
-      records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-      fields = c("dataElement", "period", "value"),
-      id_col_name = "dataElement"
+      start_date         = "2014",
+      end_date           = "2023",
+      records            = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+      fields             = c("dataElement", "period", "value"),
+      id_col_name        = "dataElement"
     ),
     regexp = cat("Assertion on',base_url,'failed: Missing value not allowed for
                  base_url argument.")
@@ -87,16 +88,16 @@ test_that("read_from_dhis2 fails with a wrong URL", {
         file.path("https:/", "play.dhis2.org", "dev"),
         file.path("https:/", "play.dhis2.org", "dev")
       ),
-      user_name = "admin",
-      password = "district",
-      dataset = "pBOMPrpg1QX",
-      organisation_unit = "DiszpKrYNg8",
+      user_name          = "admin",
+      password           = "district",
+      dataset            = "pBOMPrpg1QX",
+      organisation_unit  = "DiszpKrYNg8",
       data_element_group = "oDkJh5Ddh7d",
-      start_date = "2014",
-      end_date = "2023",
-      records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-      fields = c("dataElement", "period", "value"),
-      id_col_name = "dataElement"
+      start_date         = "2014",
+      end_date           = "2023",
+      records            = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+      fields             = c("dataElement", "period", "value"),
+      id_col_name        = "dataElement"
     ),
     regexp = cat("Assertion on',base_url,'failed: should provide only one URL at
                  a time.")
@@ -108,17 +109,17 @@ test_that("read_from_dhis2 fails with a wrong user_name", {
   testthat::skip_if_offline()
   expect_error(
     read_from_dhis2(
-      base_url = file.path("https:/", "play.dhis2.org", "dev"),
-      user_name = NULL,
-      password = "district",
-      dataset = "pBOMPrpg1QX",
-      organisation_unit = "DiszpKrYNg8",
+      base_url           = file.path("https:/", "play.dhis2.org", "dev"),
+      user_name          = NULL,
+      password           = "district",
+      dataset            = "pBOMPrpg1QX",
+      organisation_unit  = "DiszpKrYNg8",
       data_element_group = "oDkJh5Ddh7d",
-      start_date = "2014",
-      end_date = "2023",
-      records = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-      fields = c("dataElement", "period", "value"),
-      id_col_name = "dataElement"
+      start_date         = "2014",
+      end_date           = "2023",
+      records            = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+      fields             = c("dataElement", "period", "value"),
+      id_col_name        = "dataElement"
     ),
     regexp = cat("Assertion on',user_name,'failed: Must be provided.")
   )
