@@ -64,7 +64,7 @@ connect_to_server <- function(dbms          = "MySQL",
 #' @param query the SQL query
 #' @param tables the list of all tables from the database
 #'
-#' @return a `character` with the identified tables name(s) from the SQL query
+#' @return a `character` with the extracted table name(s) from the SQL query
 #'
 #' @examples
 #' \dontrun{
@@ -175,7 +175,7 @@ fetch_data_from_query <- function(src           = "select author_id, name, last_
 #' @param port the server port ID
 #'
 #' @return a `list` of 1 or more elements of type `data.frame` where every
-#'    element contains the subset of the data from the corresponding table.
+#'    element contains the subset of the data from the corresponding table
 #' @examples
 #' \dontrun{
 #' result <- sql_select_data(
@@ -273,7 +273,7 @@ sql_select_data <- function(table_names   = "author",
 #' @param id_position the id position
 #'
 #' @returns a `list` of 2 elements of type `character` and `numeric`
-#'    corresponding to the ID column name and position.
+#'    corresponding to the ID column name and position
 #' @keywords internal
 #' @noRd
 get_id_column_name <- function(id_col_name = c("author_id", "rfam_acc"),
@@ -313,7 +313,7 @@ get_id_column_name <- function(id_col_name = c("author_id", "rfam_acc"),
 #' @param port the server port ID
 #'
 #' @return an object of type `data.frame` with the entire dataset fetched from
-#'    the specified table.
+#'    the specified table
 #'
 #' @examples
 #' \dontrun{
@@ -447,7 +447,7 @@ sql_select_records_and_fields <- function(table          = "author",
 #' @param from the table name
 #' @param driver_name the name of the MS driver
 #'
-#' @return prints the first 5 rows of the specified table.
+#' @return prints the first 5 rows of the specified table
 #'
 #' @examples
 #' \dontrun{

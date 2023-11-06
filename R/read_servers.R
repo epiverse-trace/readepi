@@ -108,8 +108,8 @@ sql_server_read_data <- function(dbms          = "MySQL",
 
   # separate the srcs
   attributes <- identify_tables_and_queries(src = src, tables = tables)
-  queries <- attributes[["queries"]]
-  src     <- attributes[["tables"]]
+  queries    <- attributes[["queries"]]
+  src        <- attributes[["tables"]]
 
   # fetch data from queries
   if (length(queries) > 0L) {
