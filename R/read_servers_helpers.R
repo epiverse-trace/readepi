@@ -579,3 +579,39 @@ sql_select_fields_only <- function(table, field, dbms, driver_name, host,
   pool::poolClose(con)
   res
 }
+
+#' Identify queries or tables names from the user supplied string
+#'
+#' @param src the user supplied string. This is usually an SQL query or a table
+#'    name or a combination of both.
+#' @param tables the list of all tables in the database
+#'
+#' @return a list with the identified queries and tables
+#' @keywords internal
+#' @noRd
+#'
+#' @examples
+#' test <- identify_tables_and_queries(
+#'   src    = "select * from author",
+#'   tables = c("author", "karim")
+#' )
+identify_tables_and_queries <- function(src    = "select * from author",
+                                        tables = c("author", "karim")) {
+  # detect the SQL queries
+  # I assume that a query will contain at least 'select' and 'from' or both of
+  # them
+  queries <- table_names <- NULL
+  for (s in src) {
+    if (grepl("select", s, fixed = TRUE) || grepl("from", s, fixed = TRUE)) {
+      queries <- c(queries, s)
+    } else {
+      if (s %in% tables) {
+        table_names <- c(table_names, s)
+      }
+    }
+  }
+  list(
+    queries = queries,
+    tables  = table_names
+  )
+}
