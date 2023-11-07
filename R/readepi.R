@@ -56,12 +56,12 @@ readepi <- function(data_source = "mysql-rfam-public.ebi.ac.uk",
 
   # reading from Fingertips
   if (any("indicator_id" %in% names(args_list) |
-          "indicator_name" %in% names(args_list) |
-          "area_type_id" %in% names(args_list) |
-          "profile_id" %in% names(args_list) |
-          "profile_name" %in% names(args_list) |
-          "domain_id" %in% names(args_list) |
-          "domain_name" %in% names(args_list))) {
+            "indicator_name" %in% names(args_list) |
+            "area_type_id" %in% names(args_list) |
+            "profile_id" %in% names(args_list) |
+            "profile_name" %in% names(args_list) |
+            "domain_id" %in% names(args_list) |
+            "domain_name" %in% names(args_list))) {
     args <- get_read_fingertips_args(args_list)
     res <- read_from_fingertips(
       indicator_id        = args[["indicator_id"]],
@@ -95,14 +95,11 @@ readepi <- function(data_source = "mysql-rfam-public.ebi.ac.uk",
         fields      = fields
       )
     } else if (credentials[["dbms"]] %in%
-               c("MySQL", "SQLServer", "PostgreSQL")) {
-      from <- NULL
+                 c("MySQL", "SQLServer", "PostgreSQL")) {
+      from        <- NULL
       driver_name <- ""
-      # if ("from" %in% names(args_list)) {
-      #   from <- args_list[["from"]]
-      # }
       if ("from" %in% names(args_list)) {
-        from <- args_list[["from"]]
+        from      <- args_list[["from"]]
       }
       if ("driver_name" %in% names(args_list)) {
         driver_name <- args_list[["driver_name"]]

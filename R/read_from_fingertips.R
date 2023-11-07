@@ -65,13 +65,13 @@ read_from_fingertips <- function(indicator_id        = 90362L,
 
   # check if one of these is not provided
   if (all(
-    is.null(profile_id) &
-    is.null(indicator_id) &
-    is.null(domain_id) &
-    is.null(profile_name) &
-    is.null(indicator_name) &
-    is.null(domain_name) &
-    is.null(area_type_id))) {
+          is.null(profile_id) &
+            is.null(indicator_id) &
+            is.null(domain_id) &
+            is.null(profile_name) &
+            is.null(indicator_name) &
+            is.null(domain_name) &
+            is.null(area_type_id))) {
     stop("\nPlease use the readepi:::get_fingertips_metadata() function to see
          the Fingertips metadata.")
   }

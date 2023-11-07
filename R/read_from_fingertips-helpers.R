@@ -264,19 +264,19 @@ get_profile_name <- function(metadata,
   if (!is.null(profile_id) && !is.null(profile_name)) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(
-      metadata[["indicator_profile_domain"]][["ProfileID"]] ==
-        profile_id &
-        metadata[["indicator_profile_domain"]][["ProfileName"]] ==
-        profile_name)
+                 metadata[["indicator_profile_domain"]][["ProfileID"]] ==
+                   profile_id &
+                   metadata[["indicator_profile_domain"]][["ProfileName"]] ==
+                     profile_name)
   } else if (!is.null(profile_id) && is.null(profile_name)) {
     idx <- which(
-      metadata[["indicator_profile_domain"]][["ProfileID"]] ==
-        profile_id)
+                 metadata[["indicator_profile_domain"]][["ProfileID"]] ==
+                   profile_id)
   } else if (!is.null(profile_name) && is.null(profile_id)) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(
-      metadata[["indicator_profile_domain"]][["ProfileName"]] ==
-        profile_name)
+                 metadata[["indicator_profile_domain"]][["ProfileName"]] ==
+                   profile_name)
   }
 
   list(

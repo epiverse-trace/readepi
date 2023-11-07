@@ -32,8 +32,8 @@ httptest::with_mock_api({
                               class = "data.frame")
               expect_type(attributes[["data_element_group"]], "character")
               expect_identical(
-                attributes[["data_element_group"]],
-                "oDkJh5Ddh7d")
+                               attributes[["data_element_group"]],
+                               "oDkJh5Ddh7d")
               expect_s3_class(attributes[["data_element_groups_details"]],
                               class = "data.frame")
             })
