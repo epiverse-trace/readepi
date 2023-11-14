@@ -29,11 +29,10 @@
 #' }
 #' @keywords internal
 #' @noRd
-import_redcap_data <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/", # nolint: line_length_linter
-                               token       = "9A81268476645C4E5F03428B8AC3AA7B",
-                               records     = c("1", "3", "5"),
-                               fields      = c("record_id", "name_first",
-                                               "age", "bmi"),
+import_redcap_data <- function(uri,
+                               token,
+                               records,
+                               fields,
                                id_position = 1L,
                                id_col_name = NULL) {
   if (is.null(records) && is.null(fields)) {
@@ -72,8 +71,8 @@ import_redcap_data <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/
 #'    data and its associated metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_data <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/",
-                             token       = "9A81268476645C4E5F03428B8AC3AA7B",
+redcap_read_data <- function(uri,
+                             token,
                              id_position = 1L) {
   redcap_data <- REDCapR::redcap_read(
     redcap_uri  = uri,
@@ -111,11 +110,10 @@ redcap_read_data <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/",
 #'    metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_rows_columns <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/", # nolint: line_length_linter
-                                     token       = "9A81268476645C4E5F03428B8AC3AA7B", # nolint: line_length_linter
-                                     fields      = c("record_id", "name_first",
-                                                     "age", "bmi"),
-                                     records     = c("1", "3", "5"),
+redcap_read_rows_columns <- function(uri,
+                                     token,
+                                     fields,
+                                     records,
                                      id_position = 1L,
                                      id_col_name = NULL) {
   fields      <- glue::glue_collapse(fields, sep = ", ")
@@ -170,10 +168,9 @@ redcap_read_rows_columns <- function(uri         = "https://bbmc.ouhsc.edu/redca
 #'    data with the fields of interest and its associated metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_fields <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/", # nolint: line_length_linter
-                               token       = "9A81268476645C4E5F03428B8AC3AA7B",
-                               fields      = c("record_id", "name_first",
-                                               "age", "bmi"),
+redcap_read_fields <- function(uri,
+                               token,
+                               fields,
                                id_position = 1L) {
   fields      <- glue::glue_collapse(fields, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
@@ -207,9 +204,9 @@ redcap_read_fields <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/
 #'    data with the records of interest and its associated metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_records <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/", # nolint: line_length_linter
-                                token       = "9A81268476645C4E5F03428B8AC3AA7B", # nolint: line_length_linter
-                                records     = c("1", "2", "3"),
+redcap_read_records <- function(uri,
+                                token,
+                                records,
                                 id_position = 1L,
                                 id_col_name = NULL) {
   records     <- glue::glue_collapse(records, sep = ", ")
@@ -276,21 +273,7 @@ redcap_read_records <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api
 #' }
 #' @keywords internal
 #' @noRd
-redcap_get_results <- function(
-    redcap_data = REDCapR::redcap_read(
-      redcap_uri  = "https://bbmc.ouhsc.edu/redcap/api/",
-      token       = "9A81268476645C4E5F03428B8AC3AA7B",
-      records     = c("1", "3", "5"),
-      fields      = c("record_id", "name_first", "age", "bmi"),
-      verbose     = FALSE,
-      id_position = 1L
-    ),
-    metadata = REDCapR::redcap_metadata_read(
-      redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
-      token      = "9A81268476645C4E5F03428B8AC3AA7B",
-      fields     = NULL,
-      verbose    = FALSE
-    )) {
+redcap_get_results <- function(redcap_data, metadata) {
   checkmate::assert_list(redcap_data,
                          null.ok     = FALSE,
                          min.len     = 2L,

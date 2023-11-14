@@ -4,12 +4,7 @@
 \alias{get_dhis2_attributes}
 \title{Get the target DHIS2 attribute identifiers and names}
 \usage{
-get_dhis2_attributes(
-  base_url = "https://play.dhis2.org/dev/",
-  user_name = "admin",
-  password = "district",
-  which = "dataSets"
-)
+get_dhis2_attributes(base_url, user_name, password, which = "dataSets")
 }
 \arguments{
 \item{base_url}{the base URL of the DHIS2 server}
@@ -30,10 +25,10 @@ Get the target DHIS2 attribute identifiers and names
 \examples{
 \dontrun{
 datasets <- get_dhis2_attributes(
-  base_url = "https://play.dhis2.org/dev/",
+  base_url  = "https://play.dhis2.org/dev/",
   user_name = "admin",
-  password = "district",
-  which    = "dataSets"
+  password  = "district",
+  which     = "dataSets"
 )
 }
 }

@@ -23,17 +23,17 @@
 #'
 #' @keywords internal
 #' @noRd
-dhis2_check_attributes <- function(base_url   = "https://play.dhis2.org/dev/",
-                                   user_name         = "admin",
-                                   password          = "district",
-                                   dataset           = "pBOMPrpg1QX",
-                                   organisation_unit = NULL,
+dhis2_check_attributes <- function(base_url,
+                                   user_name,
+                                   password,
+                                   dataset,
+                                   organisation_unit  = NULL,
                                    data_element_group = NULL) {
   # get the relevant dataset
   if (!is.null(dataset)) {
     tmp_res <- dhis2_get_relevant_attributes(
       base_url     = base_url,
-      user_name     = user_name,
+      user_name    = user_name,
       password     = password,
       attribute_id = dataset,
       which        = "dataSets"
@@ -48,7 +48,7 @@ dhis2_check_attributes <- function(base_url   = "https://play.dhis2.org/dev/",
   if (!is.null(organisation_unit)) {
     tmp_res <- dhis2_get_relevant_attributes(
       base_url     = base_url,
-      user_name     = user_name,
+      user_name    = user_name,
       password     = password,
       attribute_id = organisation_unit,
       which        = "organisationUnits"

@@ -99,7 +99,7 @@ httptest::with_mock_api({
     testthat::skip_on_cran()
     testthat::skip_if_offline()
     indicator_id <- get_ind_id_from_ind_name(
-      metadata = list(
+      metadata       = list(
         indicator_profile_domain = fingertipsR::indicators(),
         indicator_ids_names      = fingertipsR::indicators_unique(),
         area_type                = fingertipsR::area_types()
@@ -117,7 +117,7 @@ httptest::with_mock_api({
     testthat::skip_if_offline()
     expect_error(
       get_ind_id_from_ind_name(
-        metadata = list(
+        metadata      = list(
           indicator_profile_domain = fingertipsR::indicators(),
           indicator_ids_names      = fingertipsR::indicators_unique(),
           area_type                = fingertipsR::area_types()

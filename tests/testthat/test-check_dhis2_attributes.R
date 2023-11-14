@@ -5,10 +5,10 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                user_name          = "admin",
-                password           = "district",
                 base_url           = file.path("https:/", "play.dhis2.org",
                                                "dev"),
+                user_name          = "admin",
+                password           = "district",
                 dataset            = "pBOMPrpg1QX",
                 organisation_unit  = "DiszpKrYNg8",
                 data_element_group = "oDkJh5Ddh7d"
@@ -43,10 +43,10 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                user_name          = "admin",
-                password           = "district",
                 base_url           = file.path("https:/", "play.dhis2.org",
                                                "dev"),
+                user_name          = "admin",
+                password           = "district",
                 dataset            = "pBOMPrpg1QX",
                 organisation_unit  = NULL,
                 data_element_group = NULL
@@ -76,9 +76,9 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 user_name          = "admin",
                 password           = "district",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 dataset            = NULL,
                 organisation_unit  = "DiszpKrYNg8",
                 data_element_group = NULL
@@ -108,9 +108,9 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 user_name          = "admin",
                 password           = "district",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 dataset            = NULL,
                 organisation_unit  = NULL,
                 data_element_group = "oDkJh5Ddh7d"
@@ -143,9 +143,9 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 user_name          = "admin",
                 password           = "district",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 dataset            = NULL,
                 organisation_unit  = NULL,
                 data_element_group = NULL
@@ -173,9 +173,9 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 user_name          = "admin",
                 password           = "district",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 dataset            = "pBOMPrpg1QX",
                 organisation_unit  = "DiszpKrYNg8",
                 data_element_group = NULL
@@ -207,9 +207,9 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 user_name          = "admin",
                 password           = "district",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 dataset            = "pBOMPrpg1QX",
                 organisation_unit  = NULL,
                 data_element_group = "oDkJh5Ddh7d"
@@ -244,9 +244,9 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
+                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 user_name          = "admin",
                 password           = "district",
-                base_url = file.path("https:/", "play.dhis2.org", "dev"),
                 dataset            = NULL,
                 organisation_unit  = "DiszpKrYNg8",
                 data_element_group = "oDkJh5Ddh7d"

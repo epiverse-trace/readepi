@@ -190,7 +190,6 @@ get_ind_id_from_domain_name <- function(metadata =
                                                fingertipsR::indicators(),
                                                indicator_ids_names      =
                                                fingertipsR::indicators_unique(), # nolint: line_length_linter
-                                               fingertipsR::indicators_unique(), # nolint: line_length_linter
                                                area_type                =
                                                fingertipsR::area_types()),
                                         domain_name    = "B. Wider determinants of health", # nolint: line_length_linter
@@ -410,10 +409,8 @@ get_ind_id_from_profile <- function(metadata =
 #' }
 #' @keywords internal
 #' @noRd
-fingertips_subset_rows <- function(data = readepi(profile_id   = 19L,
-                                                  area_type_id = 202L)[["data"]], # nolint: line_length_linter
-                                   records     = c("E92000001", "E12000002",
-                                                   "E12000009"),
+fingertips_subset_rows <- function(data,
+                                   records,
                                    id_col_name = "AreaCode") {
   checkmate::assert_data_frame(data,
                                null.ok = FALSE, min.rows = 1L,
