@@ -130,17 +130,17 @@ test_that("sql_select_data works as expected", {
   testthat::skip_if_offline()
   result <- sql_select_data(
     table_names   = "author",
-    id_col_name   = "author_id",
-    fields        = c("author_id", "name"),
-    records       = NULL,
-    id_position   = NULL,
     dbms          = "MySQL",
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
     user_name     = "rfamro",
     password      = "",
-    port          = 4497L
+    port          = 4497L,
+    id_col_name   = "author_id",
+    fields        = c("author_id", "name"),
+    records       = NULL,
+    id_position   = NULL
   )
   expect_type(result, "list")
   expect_length(result, 1L)
@@ -149,29 +149,6 @@ test_that("sql_select_data works as expected", {
 
   result <- sql_select_data(
     table_names   = c("author", "family_author"),
-    id_col_name   = "author_id",
-    fields        = NULL,
-    records       = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
-    id_position   = NULL,
-    dbms          = "MySQL",
-    driver_name   = "",
-    host          = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
-    user_name     = "rfamro",
-    password      = "",
-    port          = 4497L
-  )
-  expect_type(result, "list")
-  expect_length(result, 2L)
-  expect_named(result, c("author", "family_author"))
-  expect_s3_class(result[["author"]], "data.frame")
-  expect_s3_class(result[["family_author"]], "data.frame")
-
-  result <- sql_select_data(
-    table_names   = c("author", "family_author"),
-    id_position   = c(1L, 1L),
-    fields        = c("author_id,name,last_name,initials", "rfam_acc,author_id"), #nolint: line_length_linter
-    records       = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
     dbms          = "MySQL",
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
@@ -179,7 +156,10 @@ test_that("sql_select_data works as expected", {
     user_name     = "rfamro",
     password      = "",
     port          = 4497L,
-    id_col_name   = NULL
+    id_col_name   = "author_id",
+    fields        = NULL,
+    records       = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
+    id_position   = NULL
   )
   expect_type(result, "list")
   expect_length(result, 2L)
@@ -189,17 +169,39 @@ test_that("sql_select_data works as expected", {
 
   result <- sql_select_data(
     table_names   = c("author", "family_author"),
-    id_col_name   = "author_id",
-    fields        = c("author_id,name,last_name,initials", "rfam_acc,author_id"), #nolint: line_length_linter
-    records       = NULL,
-    id_position   = NULL,
     dbms          = "MySQL",
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
     user_name     = "rfamro",
     password      = "",
-    port          = 4497L
+    port          = 4497L,
+    id_col_name   = NULL,
+    fields        = c("author_id,name,last_name,initials",
+                      "rfam_acc,author_id"),
+    records       = c("1, 34, 15, 70, 118, 20", "RF00591,RF01420,RF01421"),
+    id_position   = c(1L, 1L)
+  )
+  expect_type(result, "list")
+  expect_length(result, 2L)
+  expect_named(result, c("author", "family_author"))
+  expect_s3_class(result[["author"]], "data.frame")
+  expect_s3_class(result[["family_author"]], "data.frame")
+
+  result <- sql_select_data(
+    table_names   = c("author", "family_author"),
+    dbms          = "MySQL",
+    driver_name   = "",
+    host          = "mysql-rfam-public.ebi.ac.uk",
+    database_name = "Rfam",
+    user_name     = "rfamro",
+    password      = "",
+    port          = 4497L,
+    id_col_name   = "author_id",
+    fields        = c("author_id,name,last_name,initials",
+                      "rfam_acc,author_id"),
+    records       = NULL,
+    id_position   = NULL
   )
   expect_type(result, "list")
   expect_length(result, 2L)
@@ -214,17 +216,17 @@ test_that("sql_select_data fails with incorrect table_names", {
   expect_error(
     sql_select_data(
       table_names   = NA,
-      id_col_name   = "author_id",
-      fields        = c("author_id", "name"),
-      records       = NULL,
-      id_position   = NULL,
       dbms          = "MySQL",
       driver_name   = "",
       host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
       user_name     = "rfamro",
       password      = "",
-      port          = 4497L
+      port          = 4497L,
+      id_col_name   = "author_id",
+      fields        = c("author_id", "name"),
+      records       = NULL,
+      id_position   = NULL
     ),
     regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
                  the 'tables' argument.")
@@ -233,17 +235,17 @@ test_that("sql_select_data fails with incorrect table_names", {
   expect_error(
     sql_select_data(
       table_names   = NULL,
-      id_col_name   = "author_id",
-      fields        = c("author_id", "name"),
-      records       = NULL,
-      id_position   = NULL,
       dbms          = "MySQL",
       driver_name   = "",
       host          = "mysql-rfam-public.ebi.ac.uk",
       database_name = "Rfam",
       user_name     = "rfamro",
       password      = "",
-      port          = 4497L
+      port          = 4497L,
+      id_col_name   = "author_id",
+      fields        = c("author_id", "name"),
+      records       = NULL,
+      id_position   = NULL
     ),
     regexp = cat("Assertion on',tables,'failed: Must be provided.")
   )
@@ -347,17 +349,17 @@ test_that("sql_select_records_and_fields works as expected", {
   testthat::skip_if_offline()
   result <- sql_select_records_and_fields(
     table          = "author",
-    record         = c("1", "20", "50"),
-    id_column_name = "author_id",
-    field          = c("author_id", "last_name"),
-    id_pos         = NULL,
     dbms           = "MySQL",
     driver_name    = "",
     host           = "mysql-rfam-public.ebi.ac.uk",
     database_name  = "Rfam",
     user_name      = "rfamro",
     password       = "",
-    port           = 4497L
+    port           = 4497L,
+    record         = c("1", "20", "50"),
+    id_column_name = "author_id",
+    field          = c("author_id", "last_name"),
+    id_pos         = NULL
   )
   expect_s3_class(result, "data.frame")
 })
@@ -368,17 +370,17 @@ test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
       table          = "author",
-      record         = c("1", "20", "50"),
-      id_column_name = NA,
-      field          = c("author_id", "last_name"),
-      id_pos         = NULL,
       dbms           = "MySQL",
       driver_name    = "",
       host           = "mysql-rfam-public.ebi.ac.uk",
       database_name  = "Rfam",
       user_name      = "rfamro",
       password       = "",
-      port           = 4497L
+      port           = 4497L,
+      record         = c("1", "20", "50"),
+      id_column_name = NA,
+      field          = c("author_id", "last_name"),
+      id_pos         = NULL
     ),
     regexp = cat("Assertion on',id_column_name,'failed: Missing value not
                  allowed for the 'id_column_name' argument.")
@@ -387,17 +389,17 @@ test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
       table          = "author",
-      record         = c("1", "20", "50"),
-      id_column_name = c("author_id", "last_name", "author_id"),
-      field          = c("author_id", "last_name"),
-      id_pos         = NULL,
       dbms           = "MySQL",
       driver_name    = "",
       host           = "mysql-rfam-public.ebi.ac.uk",
       database_name  = "Rfam",
       user_name      = "rfamro",
       password       = "",
-      port           = 4497L
+      port           = 4497L,
+      record         = c("1", "20", "50"),
+      id_column_name = c("author_id", "last_name", "author_id"),
+      field          = c("author_id", "last_name"),
+      id_pos         = NULL
     ),
     regexp = cat("Assertion on',id_column_name,'failed: Must be a character
                  vector of unique elements.")
@@ -406,17 +408,17 @@ test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
       table          = "author",
-      record         = c("1", "20", "50"),
-      id_column_name = c("author_id", "last_name", "author_id"),
-      field          = c("author_id", "last_name"),
-      id_pos         = NA,
       dbms           = "MySQL",
       driver_name    = "",
       host           = "mysql-rfam-public.ebi.ac.uk",
       database_name  = "Rfam",
       user_name      = "rfamro",
       password       = "",
-      port           = 4497L
+      port           = 4497L,
+      record         = c("1", "20", "50"),
+      id_column_name = c("author_id", "last_name", "author_id"),
+      field          = c("author_id", "last_name"),
+      id_pos         = NA
     ),
     regexp = cat("Assertion on',id_pos,'failed: Missing value not allowed
                  for the 'id_pos' argument.")
@@ -425,17 +427,17 @@ test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
       table          = NA,
-      record         = c("1", "20", "50"),
-      id_column_name = c("author_id", "last_name", "author_id"),
-      field          = c("author_id", "last_name"),
-      id_pos         = NULL,
       dbms           = "MySQL",
       driver_name    = "",
       host           = "mysql-rfam-public.ebi.ac.uk",
       database_name  = "Rfam",
       user_name      = "rfamro",
       password       = "",
-      port           = 4497L
+      port           = 4497L,
+      record         = c("1", "20", "50"),
+      id_column_name = c("author_id", "last_name", "author_id"),
+      field          = c("author_id", "last_name"),
+      id_pos         = NULL
     ),
     regexp = cat("Assertion on',table,'failed: Missing value not allowed
                  for the 'table' argument.")
@@ -444,17 +446,17 @@ test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
       table          = NULL,
-      record         = c("1", "20", "50"),
-      id_column_name = c("author_id", "last_name", "author_id"),
-      field          = c("author_id", "last_name"),
-      id_pos         = NULL,
       dbms           = "MySQL",
       driver_name    = "",
       host           = "mysql-rfam-public.ebi.ac.uk",
       database_name  = "Rfam",
       user_name      = "rfamro",
       password       = "",
-      port           = 4497L
+      port           = 4497L,
+      record         = c("1", "20", "50"),
+      id_column_name = c("author_id", "last_name", "author_id"),
+      field          = c("author_id", "last_name"),
+      id_pos         = NULL
     ),
     regexp = cat("Assertion on',table,'failed: Must be provided.")
   )
@@ -477,16 +479,16 @@ test_that("sql_select_records_only works as expected", {
   testthat::skip_if_offline()
   result <- sql_select_records_only(
     table          = "author",
-    record         = c("1", "20", "50"),
-    id_column_name = NULL,
-    id_pos         = 1L,
     dbms           = "MySQL",
     driver_name    = "",
     host           = "mysql-rfam-public.ebi.ac.uk",
     database_name  = "Rfam",
     user_name      = "rfamro",
     password       = "",
-    port           = 4497L
+    port           = 4497L,
+    record         = c("1", "20", "50"),
+    id_column_name = NULL,
+    id_pos         = 1L
   )
   expect_s3_class(result, "data.frame")
 })
@@ -496,14 +498,14 @@ test_that("sql_select_fields_only works as expected", {
   testthat::skip_if_offline()
   result <- sql_select_fields_only(
     table         = "author",
-    field         = c("author_id", "name", "last_name"),
     dbms          = "MySQL",
     driver_name   = "",
     host          = "mysql-rfam-public.ebi.ac.uk",
     database_name = "Rfam",
     user_name     = "rfamro",
     password      = "",
-    port          = 4497L
+    port          = 4497L,
+    field         = c("author_id", "name", "last_name")
   )
   expect_s3_class(result, "data.frame")
 })

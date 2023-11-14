@@ -153,10 +153,10 @@ test_that("dhis2_subset_records sends a warning when the provided record is not
               end_date           = "2023"
             )[["data"]]
 
-            expect_warning(dhis2_subset_records(data = data,
-                                                records = c("FTRrcoaog83",
-                                                            "eY5ehpbEsB7",
-                                                            "test"),
+            expect_warning(dhis2_subset_records(data        = data,
+                                                records     = c("FTRrcoaog83",
+                                                                "eY5ehpbEsB7",
+                                                                "test"),
                                                 id_col_name = "dataElement"),
                            regexp = cat("Assertion on',records,'failed: 'test' is not a valid record.")) # nolint: line_length_linter
           })

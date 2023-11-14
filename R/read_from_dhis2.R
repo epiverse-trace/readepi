@@ -37,12 +37,12 @@
 #'   id_col_name        = "dataElement"
 #' )
 #' }
-read_from_dhis2 <- function(base_url           = "https://play.dhis2.org/dev",
-                            user_name          = "admin",
-                            password           = "district",
-                            dataset            = "pBOMPrpg1QX",
-                            organisation_unit  = "DiszpKrYNg8",
-                            data_element_group = "oDkJh5Ddh7d",
+read_from_dhis2 <- function(base_url,
+                            user_name,
+                            password,
+                            dataset,
+                            organisation_unit,
+                            data_element_group,
                             start_date         = "2014",
                             end_date           = "2023",
                             records            = NULL,

@@ -43,7 +43,13 @@ get_fingertips_metadata <- function() {
 #' @keywords internal
 #' @noRd
 #'
-get_ind_id_from_ind_name <- function(metadata,
+get_ind_id_from_ind_name <- function(metadata =
+                                       list(indicator_profile_domain =
+                                            fingertipsR::indicators(),
+                                            indicator_ids_names      =
+                                            fingertipsR::indicators_unique(),
+                                            area_type                =
+                                            fingertipsR::area_types()),
                                      indicator_name = "Pupil absence") {
   checkmate::assert_list(metadata,
                          len = 3L, null.ok = FALSE,
@@ -104,7 +110,13 @@ get_ind_id_from_ind_name <- function(metadata,
 #' @keywords internal
 #' @noRd
 #'
-get_ind_id_from_domain_id <- function(metadata,
+get_ind_id_from_domain_id <- function(metadata =
+                                        list(indicator_profile_domain =
+                                             fingertipsR::indicators(),
+                                             indicator_ids_names      =
+                                             fingertipsR::indicators_unique(),
+                                             area_type                =
+                                             fingertipsR::area_types()),
                                       domain_id      = 1000041L,
                                       indicator_name = NULL) {
   checkmate::assert_list(metadata,
@@ -173,7 +185,13 @@ get_ind_id_from_domain_id <- function(metadata,
 #' @keywords internal
 #' @noRd
 #'
-get_ind_id_from_domain_name <- function(metadata,
+get_ind_id_from_domain_name <- function(metadata =
+                                          list(indicator_profile_domain =
+                                               fingertipsR::indicators(),
+                                               indicator_ids_names      =
+                                               fingertipsR::indicators_unique(), # nolint: line_length_linter
+                                               area_type                =
+                                               fingertipsR::area_types()),
                                         domain_name    = "B. Wider determinants of health", # nolint: line_length_linter
                                         indicator_name = NULL) {
   checkmate::assert_list(metadata,
@@ -249,7 +267,12 @@ get_ind_id_from_domain_name <- function(metadata,
 #' }
 #' @keywords internal
 #' @noRd
-get_profile_name <- function(metadata,
+get_profile_name <- function(metadata = list(indicator_profile_domain =
+                                               fingertipsR::indicators(),
+                                             indicator_ids_names      =
+                                               fingertipsR::indicators_unique(),
+                                             area_type                =
+                                               fingertipsR::area_types()),
                              profile_id   = 19L,
                              profile_name = "Public Health Outcomes Framework") { # nolint: line_length_linter
   checkmate::assert_list(metadata,
@@ -308,7 +331,13 @@ get_profile_name <- function(metadata,
 #' }
 #' @keywords internal
 #' @noRd
-get_ind_id_from_profile <- function(metadata,
+get_ind_id_from_profile <- function(metadata =
+                                      list(indicator_profile_domain =
+                                           fingertipsR::indicators(),
+                                           indicator_ids_names      =
+                                           fingertipsR::indicators_unique(),
+                                           area_type                =
+                                           fingertipsR::area_types()),
                                     domain_id      = NULL,
                                     domain_name    = NULL,
                                     indicator_name = NULL,
@@ -380,8 +409,7 @@ get_ind_id_from_profile <- function(metadata,
 #' @keywords internal
 #' @noRd
 fingertips_subset_rows <- function(data,
-                                   records     = c("E92000001", "E12000002",
-                                                   "E12000009"),
+                                   records,
                                    id_col_name = "AreaCode") {
   checkmate::assert_data_frame(data,
                                null.ok = FALSE, min.rows = 1L,

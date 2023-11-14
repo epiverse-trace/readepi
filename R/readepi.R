@@ -28,7 +28,7 @@
 #' }
 #' @returns a `list` of 1 or several object(s) of type `data frame`.
 #' @export
-readepi <- function(data_source = "mysql-rfam-public.ebi.ac.uk",
+readepi <- function(data_source = NULL,
                     records     = NULL,
                     fields      = NULL,
                     id_position = NULL,

@@ -19,12 +19,14 @@
 #'     in the specified database.
 #' @export
 #'
-show_tables <- function(data_source      = "mysql-rfam-public.ebi.ac.uk",
-                        credentials_file = system.file("extdata", "test.ini",
-                                                       package = "readepi"),
-                        driver_name      = "") {
+show_tables <- function(data_source,
+                        driver_name,
+                        credentials_file = NULL) {
   # checking input parameters
   checkmate::assert_character(credentials_file, null.ok = TRUE, len = 1L)
+  if (is.null(credentials_file)) {
+    credentials_file <- system.file("extdata", "test.ini", package = "readepi")
+  }
   checkmate::assert_file_exists(credentials_file)
   checkmate::assert_character(data_source, null.ok = FALSE, len = 1L)
 
