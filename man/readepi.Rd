@@ -5,7 +5,7 @@
 \title{Import data from different data_sources into R}
 \usage{
 readepi(
-  data_source = "mysql-rfam-public.ebi.ac.uk",
+  data_source = NULL,
   records = NULL,
   fields = NULL,
   id_position = NULL,

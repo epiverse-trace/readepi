@@ -51,13 +51,13 @@
 #' @importFrom magrittr %>%
 #' @keywords internal
 #' @noRd
-sql_server_read_data <- function(dbms          = "MySQL",
-                                 driver_name   = "",
-                                 host          = "mysql-rfam-public.ebi.ac.uk",
-                                 database_name = "Rfam",
-                                 user_name     = "rfamro",
-                                 password      = "",
-                                 port          = 4497L,
+sql_server_read_data <- function(dbms,
+                                 driver_name,
+                                 host,
+                                 database_name,
+                                 user_name,
+                                 password,
+                                 port,
                                  src           = NULL,
                                  records       = NULL,
                                  fields        = NULL,
@@ -128,10 +128,10 @@ sql_server_read_data <- function(dbms          = "MySQL",
   # fetch data from tables
   if (length(src) > 0L) {
     from_table_names <- sql_select_data(
-      src, id_col_name,
-      fields, records, id_position,
+      src,
       dbms, driver_name, host, database_name,
-      user_name, password, port
+      user_name, password, port, id_col_name,
+      fields, records, id_position
     )
     final_result <- c(final_result, from_table_names)
   }

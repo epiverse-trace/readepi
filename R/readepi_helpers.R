@@ -16,9 +16,7 @@
 #' @keywords internal
 #' @noRd
 #' @importFrom utils read.table
-read_credentials <- function(
-    file_path = system.file("extdata", "test.ini", package = "readepi"),
-    url       = "mysql-rfam-public.ebi.ac.uk") {
+read_credentials <- function(file_path, url) {
   checkmate::assert_character(url,
                               len = 1L, null.ok = FALSE,
                               any.missing = FALSE)
@@ -72,14 +70,15 @@ read_credentials <- function(
 #' }
 #' @keywords internal
 #' @noRd
-get_read_fingertips_args <- function(args_list = list(indicator_id = NULL,
-                                                      indicator_name = NULL,
-                                                      area_type_id = NULL,
-                                                      profile_id = NULL,
-                                                      profile_name = NULL,
-                                                      domain_id = NULL,
-                                                      domain_name = NULL,
-                                                      parent_area_type_id = NULL)) { # nolint: line_length_linter
+get_read_fingertips_args <- function(args_list =
+                                       list(indicator_id        = NULL,
+                                            indicator_name      = NULL,
+                                            area_type_id        = NULL,
+                                            profile_id          = NULL,
+                                            profile_name        = NULL,
+                                            domain_id           = NULL,
+                                            domain_name         = NULL,
+                                            parent_area_type_id = NULL)) {
   checkmate::assert_list(args_list)
   if ("indicator_id" %in% names(args_list)) {
     indicator_id <- args_list[["indicator_id"]]

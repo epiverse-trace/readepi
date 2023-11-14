@@ -27,8 +27,8 @@
 #'     frame of the dataset of interest and its associated metadata.
 #' @keywords internal
 #' @noRd
-read_from_redcap <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/",
-                             token       = "9A81268476645C4E5F03428B8AC3AA7B",
+read_from_redcap <- function(uri,
+                             token,
                              id_position = 1L,
                              id_col_name = NULL,
                              records     = NULL,
@@ -44,7 +44,7 @@ read_from_redcap <- function(uri         = "https://bbmc.ouhsc.edu/redcap/api/",
   stopifnot("Cannot specify both 'id_position' and 'id_col_name' at
             the same time." = !all(!is.null(id_position) &
                                      !is.null(id_col_name)))
-  id_position <- ifelse(!is.null(id_position), id_position, 1) # nolint
+  id_position <- ifelse(!is.null(id_position), id_position, 1L)
 
   # importing data and the metadata into R
   tmp_res <- import_redcap_data(

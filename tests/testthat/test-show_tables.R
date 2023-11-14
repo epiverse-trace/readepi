@@ -28,7 +28,7 @@ test_that("show_tables fails as expected", {
   expect_error(
     show_tables(
       data_source      = "mysql-rfam-public.ebi.ac.uk",
-      credentials_file = NULL,
+      credentials_file = NA,
       driver_name      = ""
     ),
     regexp = cat("Assertion on',credentials_file,'failed: Credential file
