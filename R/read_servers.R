@@ -4,9 +4,9 @@
 #'    Importing data stored in DBMS into R requires the installation
 #'    of the appropriate `driver` that is compatible with the server version
 #'    hosting the database. See the `vignette` for how to install the driver
+#' @param base_url the name of the host server
 #' @param user_name the user name
 #' @param password the user password
-#' @param host the name of the host server
 #' @param port the port ID
 #' @param database_name the name of the database that contains the table from
 #'    which the data should be pulled
@@ -34,12 +34,12 @@
 #' @examples
 #' \dontrun{
 #' data <- sql_server_read_data(
-#'   dbms          = "MySQL",
-#'   driver_name   = "",
-#'   host          = "mysql-rfam-public.ebi.ac.uk",
-#'   database_name = "Rfam",
+#'   base_url      = "mysql-rfam-public.ebi.ac.uk",
 #'   user_name     = "rfamro",
 #'   password      = "",
+#'   dbms          = "MySQL",
+#'   driver_name   = "",
+#'   database_name = "Rfam",
 #'   port          = 4497,
 #'   src           = "author",
 #'   records       = NULL,
@@ -51,12 +51,12 @@
 #' @importFrom magrittr %>%
 #' @keywords internal
 #' @noRd
-sql_server_read_data <- function(dbms,
-                                 driver_name,
-                                 host,
-                                 database_name,
+sql_server_read_data <- function(base_url,
                                  user_name,
                                  password,
+                                 dbms,
+                                 driver_name,
+                                 database_name,
                                  port,
                                  src           = NULL,
                                  records       = NULL,
@@ -74,7 +74,7 @@ sql_server_read_data <- function(dbms,
   checkmate::assert_character(password,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
-  checkmate::assert_character(host,
+  checkmate::assert_character(base_url,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
   checkmate::assert_character(database_name,
@@ -97,8 +97,8 @@ sql_server_read_data <- function(dbms,
 
   # establishing the connection to the server
   con <- connect_to_server(
-    dbms, driver_name, host, database_name,
-    user_name, password, port
+    base_url, user_name, password, dbms, driver_name, database_name,
+    port
   )
 
   # listing the names of the tables present in the database
@@ -117,7 +117,7 @@ sql_server_read_data <- function(dbms,
                                         tables        = tables,
                                         dbms          = dbms,
                                         driver_name   = driver_name,
-                                        host          = host,
+                                        base_url      = base_url,
                                         database_name = database_name,
                                         user_name     = user_name,
                                         password      = password,
@@ -129,7 +129,7 @@ sql_server_read_data <- function(dbms,
   if (length(src) > 0L) {
     from_table_names <- sql_select_data(
       src,
-      dbms, driver_name, host, database_name,
+      dbms, driver_name, base_url, database_name,
       user_name, password, port, id_col_name,
       fields, records, id_position
     )

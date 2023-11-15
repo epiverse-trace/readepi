@@ -87,7 +87,7 @@ readepi <- function(data_source = NULL,
     )
     if (credentials[["dbms"]] == "REDCap") {
       res <- read_from_redcap(
-        uri         = credentials[["host"]],
+        base_url    = credentials[["host"]],
         token       = credentials[["pwd"]],
         id_position = id_position,
         id_col_name = id_col_name,
@@ -105,12 +105,12 @@ readepi <- function(data_source = NULL,
         driver_name <- args_list[["driver_name"]]
       }
       res <- sql_server_read_data(
-        dbms          = credentials[["dbms"]],
-        driver_name   = driver_name,
-        host          = credentials[["host"]],
-        database_name = credentials[["project"]],
+        base_url      = credentials[["host"]],
         user_name     = credentials[["user"]],
         password      = credentials[["pwd"]],
+        dbms          = credentials[["dbms"]],
+        driver_name   = driver_name,
+        database_name = credentials[["project"]],
         port          = credentials[["port"]],
         src           = from,
         records       = records,
