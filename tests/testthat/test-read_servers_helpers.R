@@ -2,12 +2,12 @@ test_that("connect_to_server works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   con <- connect_to_server(
-    dbms          = "MySQL",
-    driver_name   = "",
-    host          = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
+    base_url      = "mysql-rfam-public.ebi.ac.uk",
     user_name     = "rfamro",
     password      = "",
+    dbms          = "MySQL",
+    driver_name   = "",
+    database_name = "Rfam",
     port          = 4497L
   )
   expect_type(con, "environment")
@@ -76,12 +76,12 @@ test_that("fetch_data_from_query works as expected", {
   result <- fetch_data_from_query(
     src           = "select author_id, name, last_name from author",
     tables        = c("family_author", "author"),
-    dbms          = "MySQL",
-    driver_name   = "",
-    host          = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
+    base_url      = "mysql-rfam-public.ebi.ac.uk",
     user_name     = "rfamro",
     password      = "",
+    dbms          = "MySQL",
+    driver_name   = "",
+    database_name = "Rfam",
     port          = 4497L
   )
   expect_type(result, "list")
@@ -97,12 +97,12 @@ test_that("fetch_data_from_query fails with incorrect tables", {
     fetch_data_from_query(
       src           = "select author_id, name, last_name from author",
       tables        = NA,
-      dbms          = "MySQL",
-      driver_name   = "",
-      host          = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
+      base_url      = "mysql-rfam-public.ebi.ac.uk",
       user_name     = "rfamro",
       password      = "",
+      dbms          = "MySQL",
+      driver_name   = "",
+      database_name = "Rfam",
       port          = 4497L
     ),
     regexp = cat("Assertion on',tables,'failed: Missing value not allowed for
@@ -113,12 +113,12 @@ test_that("fetch_data_from_query fails with incorrect tables", {
     fetch_data_from_query(
       src           = "select author_id, name, last_name from author",
       tables        = NULL,
-      dbms          = "MySQL",
-      driver_name   = "",
-      host          = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
+      base_url      = "mysql-rfam-public.ebi.ac.uk",
       user_name     = "rfamro",
       password      = "",
+      dbms          = "MySQL",
+      driver_name   = "",
+      database_name = "Rfam",
       port          = 4497L
     ),
     regexp = cat("Assertion on',tables,'failed: Must be provided.")
@@ -130,12 +130,12 @@ test_that("sql_select_data works as expected", {
   testthat::skip_if_offline()
   result <- sql_select_data(
     table_names   = "author",
-    dbms          = "MySQL",
-    driver_name   = "",
-    host          = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
+    base_url      = "mysql-rfam-public.ebi.ac.uk",
     user_name     = "rfamro",
     password      = "",
+    dbms          = "MySQL",
+    driver_name   = "",
+    database_name = "Rfam",
     port          = 4497L,
     id_col_name   = "author_id",
     fields        = c("author_id", "name"),
@@ -149,12 +149,12 @@ test_that("sql_select_data works as expected", {
 
   result <- sql_select_data(
     table_names   = c("author", "family_author"),
-    dbms          = "MySQL",
-    driver_name   = "",
-    host          = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
+    base_url      = "mysql-rfam-public.ebi.ac.uk",
     user_name     = "rfamro",
     password      = "",
+    dbms          = "MySQL",
+    driver_name   = "",
+    database_name = "Rfam",
     port          = 4497L,
     id_col_name   = "author_id",
     fields        = NULL,
@@ -169,12 +169,12 @@ test_that("sql_select_data works as expected", {
 
   result <- sql_select_data(
     table_names   = c("author", "family_author"),
-    dbms          = "MySQL",
-    driver_name   = "",
-    host          = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
+    base_url      = "mysql-rfam-public.ebi.ac.uk",
     user_name     = "rfamro",
     password      = "",
+    dbms          = "MySQL",
+    driver_name   = "",
+    database_name = "Rfam",
     port          = 4497L,
     id_col_name   = NULL,
     fields        = c("author_id,name,last_name,initials",
@@ -190,12 +190,12 @@ test_that("sql_select_data works as expected", {
 
   result <- sql_select_data(
     table_names   = c("author", "family_author"),
-    dbms          = "MySQL",
-    driver_name   = "",
-    host          = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
+    base_url      = "mysql-rfam-public.ebi.ac.uk",
     user_name     = "rfamro",
     password      = "",
+    dbms          = "MySQL",
+    driver_name   = "",
+    database_name = "Rfam",
     port          = 4497L,
     id_col_name   = "author_id",
     fields        = c("author_id,name,last_name,initials",
@@ -216,12 +216,12 @@ test_that("sql_select_data fails with incorrect table_names", {
   expect_error(
     sql_select_data(
       table_names   = NA,
-      dbms          = "MySQL",
-      driver_name   = "",
-      host          = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
+      base_url      = "mysql-rfam-public.ebi.ac.uk",
       user_name     = "rfamro",
       password      = "",
+      dbms          = "MySQL",
+      driver_name   = "",
+      database_name = "Rfam",
       port          = 4497L,
       id_col_name   = "author_id",
       fields        = c("author_id", "name"),
@@ -235,12 +235,12 @@ test_that("sql_select_data fails with incorrect table_names", {
   expect_error(
     sql_select_data(
       table_names   = NULL,
-      dbms          = "MySQL",
-      driver_name   = "",
-      host          = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
+      base_url      = "mysql-rfam-public.ebi.ac.uk",
       user_name     = "rfamro",
       password      = "",
+      dbms          = "MySQL",
+      driver_name   = "",
+      database_name = "Rfam",
       port          = 4497L,
       id_col_name   = "author_id",
       fields        = c("author_id", "name"),
@@ -300,12 +300,12 @@ test_that("sql_select_entire_dataset works as expected", {
   testthat::skip_if_offline()
   result <- sql_select_entire_dataset(
     table         = "author",
-    dbms          = "MySQL",
-    driver_name   = "",
-    host          = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
+    base_url      = "mysql-rfam-public.ebi.ac.uk",
     user_name     = "rfamro",
     password      = "",
+    dbms          = "MySQL",
+    driver_name   = "",
+    database_name = "Rfam",
     port          = 4497L
   )
   expect_s3_class(result, "data.frame")
@@ -317,12 +317,12 @@ test_that("sql_select_entire_dataset fails with incorrect table", {
   expect_error(
     sql_select_entire_dataset(
       table         = NA,
-      dbms          = "MySQL",
-      driver_name   = "",
-      host          = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
+      base_url      = "mysql-rfam-public.ebi.ac.uk",
       user_name     = "rfamro",
       password      = "",
+      dbms          = "MySQL",
+      driver_name   = "",
+      database_name = "Rfam",
       port          = 4497L
     ),
     regexp = cat("Assertion on',table,'failed: Missing value not allowed for
@@ -332,12 +332,12 @@ test_that("sql_select_entire_dataset fails with incorrect table", {
   expect_error(
     sql_select_entire_dataset(
       table         = NULL,
-      dbms          = "MySQL",
-      driver_name   = "",
-      host          = "mysql-rfam-public.ebi.ac.uk",
-      database_name = "Rfam",
+      base_url      = "mysql-rfam-public.ebi.ac.uk",
       user_name     = "rfamro",
       password      = "",
+      dbms          = "MySQL",
+      driver_name   = "",
+      database_name = "Rfam",
       port          = 4497L
     ),
     regexp = cat("Assertion on',table,'failed: Must be provided.")
@@ -349,12 +349,12 @@ test_that("sql_select_records_and_fields works as expected", {
   testthat::skip_if_offline()
   result <- sql_select_records_and_fields(
     table          = "author",
-    dbms           = "MySQL",
-    driver_name    = "",
-    host           = "mysql-rfam-public.ebi.ac.uk",
-    database_name  = "Rfam",
+    base_url       = "mysql-rfam-public.ebi.ac.uk",
     user_name      = "rfamro",
     password       = "",
+    dbms           = "MySQL",
+    driver_name    = "",
+    database_name  = "Rfam",
     port           = 4497L,
     record         = c("1", "20", "50"),
     id_column_name = "author_id",
@@ -370,12 +370,12 @@ test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
       table          = "author",
-      dbms           = "MySQL",
-      driver_name    = "",
-      host           = "mysql-rfam-public.ebi.ac.uk",
-      database_name  = "Rfam",
+      base_url           = "mysql-rfam-public.ebi.ac.uk",
       user_name      = "rfamro",
       password       = "",
+      dbms           = "MySQL",
+      driver_name    = "",
+      database_name  = "Rfam",
       port           = 4497L,
       record         = c("1", "20", "50"),
       id_column_name = NA,
@@ -389,12 +389,12 @@ test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
       table          = "author",
-      dbms           = "MySQL",
-      driver_name    = "",
-      host           = "mysql-rfam-public.ebi.ac.uk",
-      database_name  = "Rfam",
+      base_url       = "mysql-rfam-public.ebi.ac.uk",
       user_name      = "rfamro",
       password       = "",
+      dbms           = "MySQL",
+      driver_name    = "",
+      database_name  = "Rfam",
       port           = 4497L,
       record         = c("1", "20", "50"),
       id_column_name = c("author_id", "last_name", "author_id"),
@@ -408,12 +408,12 @@ test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
       table          = "author",
-      dbms           = "MySQL",
-      driver_name    = "",
-      host           = "mysql-rfam-public.ebi.ac.uk",
-      database_name  = "Rfam",
+      base_url       = "mysql-rfam-public.ebi.ac.uk",
       user_name      = "rfamro",
       password       = "",
+      dbms           = "MySQL",
+      driver_name    = "",
+      database_name  = "Rfam",
       port           = 4497L,
       record         = c("1", "20", "50"),
       id_column_name = c("author_id", "last_name", "author_id"),
@@ -427,12 +427,12 @@ test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
       table          = NA,
-      dbms           = "MySQL",
-      driver_name    = "",
-      host           = "mysql-rfam-public.ebi.ac.uk",
-      database_name  = "Rfam",
+      base_url       = "mysql-rfam-public.ebi.ac.uk",
       user_name      = "rfamro",
       password       = "",
+      dbms           = "MySQL",
+      driver_name    = "",
+      database_name  = "Rfam",
       port           = 4497L,
       record         = c("1", "20", "50"),
       id_column_name = c("author_id", "last_name", "author_id"),
@@ -446,12 +446,12 @@ test_that("sql_select_records_and_fields fails as expected", {
   expect_error(
     sql_select_records_and_fields(
       table          = NULL,
-      dbms           = "MySQL",
-      driver_name    = "",
-      host           = "mysql-rfam-public.ebi.ac.uk",
-      database_name  = "Rfam",
+      base_url       = "mysql-rfam-public.ebi.ac.uk",
       user_name      = "rfamro",
       password       = "",
+      dbms           = "MySQL",
+      driver_name    = "",
+      database_name  = "Rfam",
       port           = 4497L,
       record         = c("1", "20", "50"),
       id_column_name = c("author_id", "last_name", "author_id"),
@@ -479,12 +479,12 @@ test_that("sql_select_records_only works as expected", {
   testthat::skip_if_offline()
   result <- sql_select_records_only(
     table          = "author",
-    dbms           = "MySQL",
-    driver_name    = "",
-    host           = "mysql-rfam-public.ebi.ac.uk",
-    database_name  = "Rfam",
+    base_url       = "mysql-rfam-public.ebi.ac.uk",
     user_name      = "rfamro",
     password       = "",
+    dbms           = "MySQL",
+    driver_name    = "",
+    database_name  = "Rfam",
     port           = 4497L,
     record         = c("1", "20", "50"),
     id_column_name = NULL,
@@ -498,12 +498,12 @@ test_that("sql_select_fields_only works as expected", {
   testthat::skip_if_offline()
   result <- sql_select_fields_only(
     table         = "author",
-    dbms          = "MySQL",
-    driver_name   = "",
-    host          = "mysql-rfam-public.ebi.ac.uk",
-    database_name = "Rfam",
+    base_url      = "mysql-rfam-public.ebi.ac.uk",
     user_name     = "rfamro",
     password      = "",
+    dbms          = "MySQL",
+    driver_name   = "",
+    database_name = "Rfam",
     port          = 4497L,
     field         = c("author_id", "name", "last_name")
   )
