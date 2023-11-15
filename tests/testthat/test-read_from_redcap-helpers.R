@@ -4,7 +4,7 @@ httptest::with_mock_api({
   testthat::skip_if_not_installed("httptest")
   test_that("import_redcap_data works as expected", {
     result <- import_redcap_data(
-      uri         = file.path("https:/", "bbmc.ouhsc.edu", "redcap", "api", ""),
+      base_url    = file.path("https:/", "bbmc.ouhsc.edu", "redcap", "api", ""),
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       records     = c("1", "3", "5"),
       fields      = c("record_id", "name_first", "age", "bmi"),
@@ -48,7 +48,7 @@ httptest::with_mock_api({
     expect_error(
       redcap_get_results(
         redcap_data = NULL,
-        metadata = REDCapR::redcap_metadata_read(
+        metadata    = REDCapR::redcap_metadata_read(
           redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
           token      = "9A81268476645C4E5F03428B8AC3AA7B",
           fields     = NULL,
@@ -61,7 +61,7 @@ httptest::with_mock_api({
     expect_error(
       redcap_get_results(
         redcap_data = NA,
-        metadata = REDCapR::redcap_metadata_read(
+        metadata    = REDCapR::redcap_metadata_read(
           redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
           token      = "9A81268476645C4E5F03428B8AC3AA7B",
           fields     = NULL,
@@ -108,7 +108,7 @@ httptest::with_mock_api({
 
   test_that("redcap_read_data works as expected", {
     result <- redcap_read_data(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = 1L
     )
@@ -123,7 +123,7 @@ httptest::with_mock_api({
 
   test_that("redcap_read_rows_columns works as expected", {
     result <- redcap_read_rows_columns(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       fields      = c("record_id", "name_first", "age", "bmi"),
       records     = c("1", "3", "5"),
@@ -141,7 +141,7 @@ httptest::with_mock_api({
 
   test_that("redcap_read_fields works as expected", {
     result <- redcap_read_fields(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       fields      = c("record_id", "name_first", "age", "bmi"),
       id_position = 1L
@@ -157,7 +157,7 @@ httptest::with_mock_api({
 
   test_that("redcap_read_records works as expected", {
     result <- redcap_read_records(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       records     = c("1", "2", "3"),
       id_position = 1L,
@@ -175,7 +175,7 @@ httptest::with_mock_api({
   test_that("redcap_read_records fails as expected", {
     expect_error(
       redcap_read_records(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         records     = c("1", "2", "3"),
         id_position = NULL,
