@@ -2,7 +2,7 @@
 #'
 #' @param file_path the path to the file with the user-specific credential
 #'    details for the projects of interest.
-#' @param url the URL of the HIS of interest
+#' @param base_url the URL of the HIS of interest
 #'
 #' @returns a `list` of 5 elements of type `character` and `numeric`. These
 #'    correspond to the user's credential details.
@@ -10,14 +10,14 @@
 #' \dontrun{
 #' credentials <- read_credentials(
 #'   file_path = system.file("extdata", "test.ini", package = "readepi"),
-#'   url       = "mysql-rfam-public.ebi.ac.uk"
+#'   base_url  = "mysql-rfam-public.ebi.ac.uk"
 #' )
 #' }
 #' @keywords internal
 #' @noRd
 #' @importFrom utils read.table
-read_credentials <- function(file_path, url) {
-  checkmate::assert_character(url,
+read_credentials <- function(file_path, base_url) {
+  checkmate::assert_character(base_url,
                               len = 1L, null.ok = FALSE,
                               any.missing = FALSE)
   checkmate::assert_file(file_path)
@@ -33,20 +33,27 @@ read_credentials <- function(file_path, url) {
          names should be 'user_name', 'password', 'host_name', 'project_id',
          'comment', 'dbms', 'port'")
   }
-  idx <- which(credentials[["host_name"]] == url)
+  idx <- which(credentials[["host_name"]] == base_url)
   if (length(idx) == 0L) {
-    stop("Credential details for ", url, " not found in
+    stop("Credential details for ", base_url, " not found in
          credential file.")
   } else if (length(idx) > 1L) {
     stop("Multiple credential lines found for the specified URL.\n
          Credentials file should contain one line per project.")
   } else {
+    dbms   <- credentials[["dbms"]][idx]
+    if (credentials[["dbms"]][idx] %in% c("MySQL", "SQLServer", "PostgreSQL")) {
+      dbms <- "SQL"
+    }
+    if (credentials[["dbms"]][idx] %in% c("dhis2", "DHIS2")) {
+      dbms <- "DHIS2"
+    }
     project_credentials <- list(
       user    = credentials[["user_name"]][idx],
       pwd     = credentials[["password"]][idx],
       host    = credentials[["host_name"]][idx],
       project = credentials[["project_id"]][idx],
-      dbms    = credentials[["dbms"]][idx],
+      dbms    = dbms,
       port    = credentials[["port"]][idx]
     )
   }

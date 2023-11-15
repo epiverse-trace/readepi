@@ -2,8 +2,8 @@ test_that("read_credentials works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   res <- read_credentials(
-    file_path  = system.file("extdata", "test.ini", package = "readepi"),
-    url        = "mysql-rfam-public.ebi.ac.uk"
+    file_path = system.file("extdata", "test.ini", package = "readepi"),
+    base_url  = "mysql-rfam-public.ebi.ac.uk"
   )
   expect_type(res, "list")
   expect_length(res, 6L)
@@ -27,8 +27,8 @@ test_that("read_credentials fails as expected", {
   testthat::skip_if_offline()
   expect_error(
     read_credentials(
-      file_path  = system.file("extdata", "fake_test.ini", package = "readepi"),
-      url        = "mysql-rfam-public.ebi.ac.uk"
+      file_path = system.file("extdata", "fake_test.ini", package = "readepi"),
+      base_url  = "mysql-rfam-public.ebi.ac.uk"
     ),
     regexp = cat("The credential file is expected to have 7 columns.")
   )
@@ -37,7 +37,7 @@ test_that("read_credentials fails as expected", {
     read_credentials(
       file_path = system.file("extdata", "bad_column_name.ini",
                               package = "readepi"),
-      url       = "mysql-rfam-public.ebi.ac.uk"
+      base_url  = "mysql-rfam-public.ebi.ac.uk"
     ),
     regexp = cat("Unexpected column name(s) in the provided credential file.
                  The expected column names are: 'user_name', 'password',
@@ -46,17 +46,17 @@ test_that("read_credentials fails as expected", {
 
   expect_error(
     read_credentials(
-      file_path  = system.file("extdata", "bad_url.ini", package = "readepi"),
-      url        = "mysql-rfam-public.ebi.ac.uk"
+      file_path = system.file("extdata", "bad_url.ini", package = "readepi"),
+      base_url  = "mysql-rfam-public.ebi.ac.uk"
     ),
     regexp = cat("No user credential file found for the specified URL.")
   )
 
   expect_error(
     read_credentials(
-      file_path  = system.file("extdata", "multiple_urls.ini",
-                               package = "readepi"),
-      url        = "mysql-rfam-public.ebi.ac.uk"
+      file_path = system.file("extdata", "multiple_urls.ini",
+                              package = "readepi"),
+      base_url  = "mysql-rfam-public.ebi.ac.uk"
     ),
     regexp = cat("Found multiple credentials for the specified URL.")
   )
