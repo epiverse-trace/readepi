@@ -1,6 +1,6 @@
 #' Import data from REDCap
 #'
-#' @param uri the URI of the server
+#' @param base_url the URI of the server
 #' @param token the user-specific string that serves as the password for a
 #'    project
 #' @param id_position the column position of the variable that unique identifies
@@ -15,7 +15,7 @@
 #' @examples
 #' \dontrun{
 #' redcap_data <- read_from_redcap(
-#'   uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+#'   base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
 #'   token       = "9A81268476645C4E5F03428B8AC3AA7B",
 #'   id_position = 1,
 #'   id_col_name = NULL,
@@ -27,7 +27,7 @@
 #'     frame of the dataset of interest and its associated metadata.
 #' @keywords internal
 #' @noRd
-read_from_redcap <- function(uri,
+read_from_redcap <- function(base_url,
                              token,
                              id_position = 1L,
                              id_col_name = NULL,
@@ -37,7 +37,7 @@ read_from_redcap <- function(uri,
   checkmate::assert_character(token,
                               n.chars = 32L, len = 1L, null.ok = FALSE,
                               any.missing = FALSE)
-  checkmate::assert_character(uri,
+  checkmate::assert_character(base_url,
                               len = 1L, null.ok = FALSE,
                               any.missing = FALSE)
 
@@ -48,7 +48,7 @@ read_from_redcap <- function(uri,
 
   # importing data and the metadata into R
   tmp_res <- import_redcap_data(
-    uri, token, records, fields,
+    base_url, token, records, fields,
     id_position, id_col_name
   )
   redcap_data <- tmp_res[["redcap_data"]]
