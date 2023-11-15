@@ -5,7 +5,7 @@
 #'    project, around the function that read specific records/fields or both at
 #'    the same time
 #'
-#' @param uri the URI of the server
+#' @param base_url the URI of the server
 #' @param token the user-specific string that serves as the password for a
 #'    project
 #' @param records a vector or a comma-separated string of subset of subject IDs
@@ -19,7 +19,7 @@
 #' @examples
 #' \dontrun{
 #' result <- import_redcap_data(
-#'   uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+#'   base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
 #'   token       = "9A81268476645C4E5F03428B8AC3AA7B",
 #'   records     = c("1", "3", "5"),
 #'   fields      = c("record_id", "name_first", "age", "bmi"),
@@ -29,24 +29,24 @@
 #' }
 #' @keywords internal
 #' @noRd
-import_redcap_data <- function(uri,
+import_redcap_data <- function(base_url,
                                token,
                                records,
                                fields,
                                id_position = 1L,
                                id_col_name = NULL) {
   if (is.null(records) && is.null(fields)) {
-    res <- redcap_read_data(uri, token, id_position)
+    res <- redcap_read_data(base_url, token, id_position)
   } else if (!is.null(records) && !is.null(fields)) {
     res <- redcap_read_rows_columns(
-      uri, token, fields, records, id_position,
+      base_url, token, fields, records, id_position,
       id_col_name
     )
   } else if (!is.null(fields) && is.null(records)) {
-    res <- redcap_read_fields(uri, token, fields, id_position)
+    res <- redcap_read_fields(base_url, token, fields, id_position)
   } else if (!is.null(records) && is.null(fields)) {
     res <- redcap_read_records(
-      uri, token, records,
+      base_url, token, records,
       id_position, id_col_name
     )
   }
@@ -61,7 +61,7 @@ import_redcap_data <- function(uri,
 
 #' Read all rows and columns from redcap
 #'
-#' @param uri the URI of the REDCap project
+#' @param base_url the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
 #'    project
 #' @param id_position the column position of the variable that unique identifies
@@ -71,11 +71,11 @@ import_redcap_data <- function(uri,
 #'    data and its associated metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_data <- function(uri,
+redcap_read_data <- function(base_url,
                              token,
                              id_position = 1L) {
   redcap_data <- REDCapR::redcap_read(
-    redcap_uri  = uri,
+    redcap_uri  = base_url,
     token       = token,
     records     = NULL,
     fields      = NULL,
@@ -83,7 +83,7 @@ redcap_read_data <- function(uri,
     id_position = as.integer(id_position)
   )
   metadata <- REDCapR::redcap_metadata_read(
-    redcap_uri = uri,
+    redcap_uri = base_url,
     token      = token,
     fields     = NULL,
     verbose    = FALSE
@@ -96,7 +96,7 @@ redcap_read_data <- function(uri,
 
 #' Subset records and columns from a REDCap project
 #'
-#' @param uri the URI of the REDCap project
+#' @param base_url the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
 #'    project
 #' @param fields a vector or a comma-separated string of column names
@@ -110,7 +110,7 @@ redcap_read_data <- function(uri,
 #'    metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_rows_columns <- function(uri,
+redcap_read_rows_columns <- function(base_url,
                                      token,
                                      fields,
                                      records,
@@ -118,14 +118,14 @@ redcap_read_rows_columns <- function(uri,
                                      id_col_name = NULL) {
   fields      <- glue::glue_collapse(fields, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
-    redcap_uri       = uri,
+    redcap_uri       = base_url,
     token            = token,
     id_position      = as.integer(id_position),
     fields_collapsed = fields,
     verbose          = FALSE
   )
   metadata <- REDCapR::redcap_metadata_read(
-    redcap_uri = uri,
+    redcap_uri = base_url,
     token      = token,
     verbose    = FALSE
   )
@@ -157,7 +157,7 @@ redcap_read_rows_columns <- function(uri,
 
 #' Subset fields from a REDCap project
 #'
-#' @param uri the URI of the REDCap project
+#' @param base_url the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
 #'    project
 #' @param fields a vector or a comma-separated string of column names
@@ -168,18 +168,18 @@ redcap_read_rows_columns <- function(uri,
 #'    data with the fields of interest and its associated metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_fields <- function(uri,
+redcap_read_fields <- function(base_url,
                                token,
                                fields,
                                id_position = 1L) {
   fields      <- glue::glue_collapse(fields, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
-    redcap_uri       = uri, token = token,
+    redcap_uri       = base_url, token = token,
     id_position      = as.integer(id_position),
     fields_collapsed = fields, verbose = FALSE
   )
   metadata <- REDCapR::redcap_metadata_read(
-    redcap_uri = uri,
+    redcap_uri = base_url,
     token      = token,
     verbose    = FALSE
   )
@@ -192,7 +192,7 @@ redcap_read_fields <- function(uri,
 
 #' Subset records from a REDCap project
 #'
-#' @param uri the URI of the REDCap project
+#' @param base_url the URI of the REDCap project
 #' @param token the user-specific string that serves as the password for a
 #'    project
 #' @param records a vector or a comma-separated string of subset of subject IDs
@@ -204,14 +204,14 @@ redcap_read_fields <- function(uri,
 #'    data with the records of interest and its associated metadata.
 #' @keywords internal
 #' @noRd
-redcap_read_records <- function(uri,
+redcap_read_records <- function(base_url,
                                 token,
                                 records,
                                 id_position = 1L,
                                 id_col_name = NULL) {
   records     <- glue::glue_collapse(records, sep = ", ")
   redcap_data <- REDCapR::redcap_read(
-    redcap_uri  = uri,
+    redcap_uri  = base_url,
     token       = token,
     records     = NULL,
     fields      = NULL,
@@ -228,13 +228,13 @@ redcap_read_records <- function(uri,
     id_column_name <- names(redcap_data[["data"]])[id_position]
   }
   redcap_data <- REDCapR::redcap_read(
-    redcap_uri        = uri,
+    redcap_uri        = base_url,
     token             = token,
     id_position       = as.integer(id_position),
     records_collapsed = records, verbose = FALSE
   )
   metadata <- REDCapR::redcap_metadata_read(
-    redcap_uri = uri,
+    redcap_uri = base_url,
     token      = token,
     verbose    = FALSE
   )
