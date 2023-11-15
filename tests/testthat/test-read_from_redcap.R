@@ -4,7 +4,7 @@ httptest::with_mock_api({
   testthat::skip_if_not_installed("httptest")
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = 1L,
       id_col_name = NULL,
@@ -19,7 +19,7 @@ httptest::with_mock_api({
 
     test_that("read_from_redcap works with valid input", {
       res <- read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = NULL,
         id_col_name = "record_id",
@@ -36,7 +36,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = 1L,
       id_col_name = NULL,
@@ -52,7 +52,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = NULL,
       id_col_name = "record_id",
@@ -68,7 +68,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = 1L,
       id_col_name = NULL,
@@ -84,7 +84,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = NULL,
       id_col_name = "record_id",
@@ -100,7 +100,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = 1L,
       id_col_name = NULL,
@@ -116,7 +116,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = NULL,
       id_col_name = "record_id",
@@ -132,7 +132,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = 1L,
       id_col_name = NULL,
@@ -148,7 +148,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = NULL,
       id_col_name = "record_id",
@@ -164,7 +164,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = NULL,
       id_col_name = "record_id",
@@ -180,7 +180,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = 1L,
       id_col_name = NULL,
@@ -196,7 +196,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = 1L,
       id_col_name = NULL,
@@ -212,7 +212,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = NULL,
       id_col_name = "record_id",
@@ -228,7 +228,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = 1L,
       id_col_name = NULL,
@@ -244,7 +244,7 @@ httptest::with_mock_api({
 
   test_that("read_from_redcap works with valid input", {
     res <- read_from_redcap(
-      uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+      base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       id_position = NULL,
       id_col_name = "record_id",
@@ -261,7 +261,7 @@ httptest::with_mock_api({
   test_that("read_from_redcap fails with incorrect id_position", {
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = -1L,
         id_col_name = NULL,
@@ -274,7 +274,7 @@ httptest::with_mock_api({
 
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = 0L,
         id_col_name = NULL,
@@ -287,7 +287,7 @@ httptest::with_mock_api({
 
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = NA,
         id_col_name = NULL,
@@ -302,7 +302,7 @@ httptest::with_mock_api({
   test_that("read_from_redcap fails with wrong token", {
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = 1234L,
         id_position = 1L,
         id_col_name = NULL,
@@ -315,7 +315,7 @@ httptest::with_mock_api({
 
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = "1234",
         id_position = 1L,
         id_col_name = NULL,
@@ -327,7 +327,7 @@ httptest::with_mock_api({
 
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = c("9A81268476645C4E5F03428B8AC3AA7B",
                         "9A81268476645C4E5F03428B8AC3AA7B"),
         id_position = 1L,
@@ -341,7 +341,7 @@ httptest::with_mock_api({
 
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = NULL,
         id_position = 1L,
         id_col_name = NULL,
@@ -353,7 +353,7 @@ httptest::with_mock_api({
 
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = NA,
         id_position = 1L,
         id_col_name = NULL,
@@ -367,7 +367,7 @@ httptest::with_mock_api({
   test_that("read_from_redcap fails with incorrect URI", {
     expect_error(
       read_from_redcap(
-        uri         = NULL,
+        base_url    = NULL,
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = 1L,
         id_col_name = NULL,
@@ -379,7 +379,7 @@ httptest::with_mock_api({
 
     expect_error(
       read_from_redcap(
-        uri         = NA,
+        base_url    = NA,
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = 1L,
         id_col_name = NULL,
@@ -391,7 +391,7 @@ httptest::with_mock_api({
 
     expect_error(
       read_from_redcap(
-        uri         = c("https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = c("https://bbmc.ouhsc.edu/redcap/api/",
                         "https://bbmc.ouhsc.edu/redcap/api/"),
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = 1L,
@@ -407,7 +407,7 @@ httptest::with_mock_api({
   test_that("read_from_redcap fails with incorrect fields", {
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = 1L,
         id_col_name = NULL,
@@ -419,7 +419,7 @@ httptest::with_mock_api({
 
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = NULL,
         id_col_name = "record_id",
@@ -433,7 +433,7 @@ httptest::with_mock_api({
   test_that("read_from_redcap fails with incorrect id_col_name", {
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = NULL,
         id_col_name = NA,
@@ -446,7 +446,7 @@ httptest::with_mock_api({
 
     expect_error(
       read_from_redcap(
-        uri         = "https://bbmc.ouhsc.edu/redcap/api/",
+        base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
         token       = "9A81268476645C4E5F03428B8AC3AA7B",
         id_position = NULL,
         id_col_name = c("record_id", "name_first"),
