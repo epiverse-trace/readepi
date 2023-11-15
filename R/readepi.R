@@ -63,7 +63,7 @@ readepi <- function(data_source = NULL,
             "domain_id" %in% names(args_list) |
             "domain_name" %in% names(args_list))) {
     args <- get_read_fingertips_args(args_list)
-    res <- read_from_fingertips(
+    res  <- read_from_fingertips(
       indicator_id        = args[["indicator_id"]],
       indicator_name      = args[["indicator_name"]],
       area_type_id        = args[["area_type_id"]],
@@ -81,30 +81,30 @@ readepi <- function(data_source = NULL,
 
   # reading from DBMS
   if ("credentials_file" %in% names(args_list)) {
+    from           <- NULL
+    driver_name    <- ""
+    if ("from" %in% names(args_list)) {
+      from         <- args_list[["from"]]
+    }
+    if ("driver_name" %in% names(args_list)) {
+      driver_name  <- args_list[["driver_name"]]
+    }
+    tmp_attributes <- dhis2_get_attributes_from_user(args_list)
     credentials <- read_credentials(
       args_list[["credentials_file"]],
       data_source
     )
-    if (credentials[["dbms"]] == "REDCap") {
-      res <- read_from_redcap(
+    res <- switch(
+      credentials[["dbms"]],
+      REDCap = read_from_redcap(
         base_url    = credentials[["host"]],
         token       = credentials[["pwd"]],
         id_position = id_position,
         id_col_name = id_col_name,
         records     = records,
         fields      = fields
-      )
-    } else if (credentials[["dbms"]] %in%
-                 c("MySQL", "SQLServer", "PostgreSQL")) {
-      from        <- NULL
-      driver_name <- ""
-      if ("from" %in% names(args_list)) {
-        from      <- args_list[["from"]]
-      }
-      if ("driver_name" %in% names(args_list)) {
-        driver_name <- args_list[["driver_name"]]
-      }
-      res <- sql_server_read_data(
+      ),
+      SQL    = sql_server_read_data(
         base_url      = credentials[["host"]],
         user_name     = credentials[["user"]],
         password      = credentials[["pwd"]],
@@ -117,10 +117,8 @@ readepi <- function(data_source = NULL,
         fields        = fields,
         id_position   = id_position,
         id_col_name   = id_col_name
-      )
-    } else if (credentials[["dbms"]] %in% c("dhis2", "DHIS2")) {
-      tmp_attributes <- dhis2_get_attributes_from_user(args_list)
-      res <- read_from_dhis2(
+      ),
+      DHIS2  = read_from_dhis2(
         base_url           = credentials[["host"]],
         user_name          = credentials[["user"]],
         password           = credentials[["pwd"]],
@@ -133,7 +131,7 @@ readepi <- function(data_source = NULL,
         fields             = fields,
         id_col_name        = id_col_name
       )
-    }
+    )
   }
 
   res

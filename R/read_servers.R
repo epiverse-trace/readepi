@@ -97,8 +97,7 @@ sql_server_read_data <- function(base_url,
 
   # establishing the connection to the server
   con <- connect_to_server(
-    base_url, user_name, password, dbms, driver_name, database_name,
-    port
+    base_url, user_name, password, dbms, driver_name, database_name, port
   )
 
   # listing the names of the tables present in the database
@@ -128,10 +127,9 @@ sql_server_read_data <- function(base_url,
   # fetch data from tables
   if (length(src) > 0L) {
     from_table_names <- sql_select_data(
-      src,
-      dbms, driver_name, base_url, database_name,
-      user_name, password, port, id_col_name,
-      fields, records, id_position
+      src, base_url, user_name, password,
+      dbms, driver_name, database_name, port,
+      id_col_name, fields, records, id_position
     )
     final_result <- c(final_result, from_table_names)
   }
