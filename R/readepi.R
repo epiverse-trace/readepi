@@ -81,6 +81,7 @@ readepi <- function(data_source = NULL,
 
   # reading from DBMS
   if ("credentials_file" %in% names(args_list)) {
+<<<<<<< HEAD
     credentials <- read_credentials(
       args_list[["credentials_file"]],
       data_source
@@ -89,10 +90,35 @@ readepi <- function(data_source = NULL,
       res <- read_from_redcap(
         base_url    = credentials[["host"]],
         token       = credentials[["pwd"]],
+=======
+    from           <- NULL
+    driver_name    <- ""
+    if ("from" %in% names(args_list)) {
+      from         <- args_list[["from"]]
+    }
+    if ("driver_name" %in% names(args_list)) {
+      driver_name  <- args_list[["driver_name"]]
+    }
+    tmp_attributes <- dhis2_get_attributes_from_user(args_list)
+    credentials    <- read_credentials(args_list[["credentials_file"]],
+                                       data_source)
+    base_url       <- credentials[["host"]]
+    user_name      <- credentials[["user"]]
+    password       <- credentials[["pwd"]]
+    dbms           <- credentials[["dbms"]]
+    database_name  <- credentials[["project"]]
+    port           <- credentials[["port"]]
+    res <- switch(
+      credentials[["dbms"]],
+      REDCap = read_from_redcap(
+        base_url    = base_url,
+        token       = password,
+>>>>>>> 3ab5e77 (update read_credentials())
         id_position = id_position,
         id_col_name = id_col_name,
         records     = records,
         fields      = fields
+<<<<<<< HEAD
       )
     } else if (credentials[["dbms"]] %in%
                  c("MySQL", "SQLServer", "PostgreSQL")) {
@@ -109,14 +135,25 @@ readepi <- function(data_source = NULL,
         user_name     = credentials[["user"]],
         password      = credentials[["pwd"]],
         dbms          = credentials[["dbms"]],
+=======
+      ),
+      SQLServer  = ,
+      MySQL      = ,
+      PostgreSQL = sql_server_read_data(
+        base_url      = base_url,
+        user_name     = user_name,
+        password      = password,
+        dbms          = dbms,
+>>>>>>> 3ab5e77 (update read_credentials())
         driver_name   = driver_name,
-        database_name = credentials[["project"]],
-        port          = credentials[["port"]],
+        database_name = database_name,
+        port          = port,
         src           = from,
         records       = records,
         fields        = fields,
         id_position   = id_position,
         id_col_name   = id_col_name
+<<<<<<< HEAD
       )
     } else if (credentials[["dbms"]] %in% c("dhis2", "DHIS2")) {
       tmp_attributes <- dhis2_get_attributes_from_user(args_list)
@@ -124,6 +161,13 @@ readepi <- function(data_source = NULL,
         base_url           = credentials[["host"]],
         user_name          = credentials[["user"]],
         password           = credentials[["pwd"]],
+=======
+      ),
+      DHIS2  = read_from_dhis2(
+        base_url           = base_url,
+        user_name          = user_name,
+        password           = password,
+>>>>>>> 3ab5e77 (update read_credentials())
         dataset            = tmp_attributes[["dataset"]],
         organisation_unit  = tmp_attributes[["organisation_unit"]],
         data_element_group = tmp_attributes[["data_element_group"]],
