@@ -90,28 +90,34 @@ readepi <- function(data_source = NULL,
       driver_name  <- args_list[["driver_name"]]
     }
     tmp_attributes <- dhis2_get_attributes_from_user(args_list)
-    credentials <- read_credentials(
-      args_list[["credentials_file"]],
-      data_source
-    )
+    credentials    <- read_credentials(args_list[["credentials_file"]],
+                                       data_source)
+    base_url       <- credentials[["host"]]
+    user_name      <- credentials[["user"]]
+    password       <- credentials[["pwd"]]
+    dbms           <- credentials[["dbms"]]
+    database_name  <- credentials[["project"]]
+    port           <- credentials[["port"]]
     res <- switch(
       credentials[["dbms"]],
       REDCap = read_from_redcap(
-        base_url    = credentials[["host"]],
-        token       = credentials[["pwd"]],
+        base_url    = base_url,
+        token       = password,
         id_position = id_position,
         id_col_name = id_col_name,
         records     = records,
         fields      = fields
       ),
-      SQL    = sql_server_read_data(
-        base_url      = credentials[["host"]],
-        user_name     = credentials[["user"]],
-        password      = credentials[["pwd"]],
-        dbms          = credentials[["dbms"]],
+      SQLServer  = ,
+      MySQL      = ,
+      PostgreSQL = sql_server_read_data(
+        base_url      = base_url,
+        user_name     = user_name,
+        password      = password,
+        dbms          = dbms,
         driver_name   = driver_name,
-        database_name = credentials[["project"]],
-        port          = credentials[["port"]],
+        database_name = database_name,
+        port          = port,
         src           = from,
         records       = records,
         fields        = fields,
@@ -119,9 +125,9 @@ readepi <- function(data_source = NULL,
         id_col_name   = id_col_name
       ),
       DHIS2  = read_from_dhis2(
-        base_url           = credentials[["host"]],
-        user_name          = credentials[["user"]],
-        password           = credentials[["pwd"]],
+        base_url           = base_url,
+        user_name          = user_name,
+        password           = password,
         dataset            = tmp_attributes[["dataset"]],
         organisation_unit  = tmp_attributes[["organisation_unit"]],
         data_element_group = tmp_attributes[["data_element_group"]],

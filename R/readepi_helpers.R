@@ -41,19 +41,12 @@ read_credentials <- function(file_path, base_url) {
     stop("Multiple credential lines found for the specified URL.\n
          Credentials file should contain one line per project.")
   } else {
-    dbms   <- credentials[["dbms"]][idx]
-    if (credentials[["dbms"]][idx] %in% c("MySQL", "SQLServer", "PostgreSQL")) {
-      dbms <- "SQL"
-    }
-    if (credentials[["dbms"]][idx] %in% c("dhis2", "DHIS2")) {
-      dbms <- "DHIS2"
-    }
     project_credentials <- list(
       user    = credentials[["user_name"]][idx],
       pwd     = credentials[["password"]][idx],
       host    = credentials[["host_name"]][idx],
       project = credentials[["project_id"]][idx],
-      dbms    = dbms,
+      dbms    = credentials[["dbms"]][idx],
       port    = credentials[["port"]][idx]
     )
   }
