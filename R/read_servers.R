@@ -107,19 +107,19 @@ sql_server_read_data <- function(base_url,
 
   # separate the srcs
   attributes <- identify_tables_and_queries(src = src, tables = tables)
-  queries <- attributes[["queries"]]
-  src     <- attributes[["tables"]]
+  queries    <- attributes[["queries"]]
+  src        <- attributes[["tables"]]
 
   # fetch data from queries
   if (length(queries) > 0L) {
     from_query <- fetch_data_from_query(src           = queries,
                                         tables        = tables,
-                                        dbms          = dbms,
-                                        driver_name   = driver_name,
                                         base_url      = base_url,
-                                        database_name = database_name,
                                         user_name     = user_name,
                                         password      = password,
+                                        dbms          = dbms,
+                                        driver_name   = driver_name,
+                                        database_name = database_name,
                                         port          = port)
     final_result <- c(final_result, from_query)
   }
