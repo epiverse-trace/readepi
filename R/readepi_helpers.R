@@ -27,8 +27,8 @@ read_credentials <- function(file_path, base_url) {
     stop("credential file should be a tab-separated file with 7 columns.")
   }
   if (!all((names(credentials) %in%
-            c("user_name", "password", "host_name", "project_id", "comment",
-              "dbms", "port")))) {
+              c("user_name", "password", "host_name", "project_id", "comment",
+                "dbms", "port")))) {
     stop("Incorrect column names found in provided credentials file.\nThe column
          names should be 'user_name', 'password', 'host_name', 'project_id',
          'comment', 'dbms', 'port'")
