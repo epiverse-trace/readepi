@@ -115,13 +115,13 @@ dhis2_get_relevant_attributes <- function(base_url,
 
   res <- switch(
     which,
-    "dataSets"          = list(dataset   = attribute_id, # nolint: keyword_quote_linter
-                               data_sets = attributes),
-    "organisationUnits" = list(organisation_unit = attribute_id, # nolint: keyword_quote_linter
-                               org_units         = attributes),
-    "dataElementGroups" = list(data_element_group = attribute_id, # nolint: keyword_quote_linter
-                               data_elt_groups    = attributes),
-    "dataElements"      = attributes # nolint: keyword_quote_linter
+    dataSets          = list(dataset   = attribute_id,
+                             data_sets = attributes),
+    organisationUnits = list(organisation_unit = attribute_id,
+                             org_units         = attributes),
+    dataElementGroups = list(data_element_group = attribute_id,
+                             data_elt_groups    = attributes),
+    dataElements      = attributes
   )
   res
 }
