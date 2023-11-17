@@ -497,8 +497,8 @@ visualise_table <- function(data_source,
 
   credentials <- read_credentials(credentials_file, data_source)
   con <- connect_to_server(
-    credentials[["dbms"]], driver_name, credentials[["host"]],
-    credentials[["project"]], credentials[["user"]], credentials[["pwd"]],
+    credentials[["host"]], credentials[["user"]], credentials[["pwd"]],
+    credentials[["dbms"]], driver_name, credentials[["project"]],
     credentials[["port"]]
   )
   query <- ifelse(credentials[["dbms"]] == "MySQL",
