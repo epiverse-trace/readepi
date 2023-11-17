@@ -27,8 +27,8 @@ read_credentials <- function(file_path, base_url) {
     stop("credential file should be a tab-separated file with 7 columns.")
   }
   if (!all((names(credentials) %in%
-              c("user_name", "password", "host_name", "project_id", "comment",
-                "dbms", "port")))) {
+            c("user_name", "password", "host_name", "project_id", "comment",
+              "dbms", "port")))) {
     stop("Incorrect column names found in provided credentials file.\nThe column
          names should be 'user_name', 'password', 'host_name', 'project_id',
          'comment', 'dbms', 'port'")
@@ -41,19 +41,12 @@ read_credentials <- function(file_path, base_url) {
     stop("Multiple credential lines found for the specified URL.\n
          Credentials file should contain one line per project.")
   } else {
-    dbms   <- credentials[["dbms"]][idx]
-    if (credentials[["dbms"]][idx] %in% c("MySQL", "SQLServer", "PostgreSQL")) {
-      dbms <- "SQL"
-    }
-    if (credentials[["dbms"]][idx] %in% c("dhis2", "DHIS2")) {
-      dbms <- "DHIS2"
-    }
     project_credentials <- list(
       user    = credentials[["user_name"]][idx],
       pwd     = credentials[["password"]][idx],
       host    = credentials[["host_name"]][idx],
       project = credentials[["project_id"]][idx],
-      dbms    = dbms,
+      dbms    = credentials[["dbms"]][idx],
       port    = credentials[["port"]][idx]
     )
   }

@@ -32,30 +32,6 @@ connect_to_server <- function(base_url,
                               database_name,
                               port) {
   con <- switch(
-<<<<<<< HEAD
-                dbms,
-                SQLServer = pool::dbPool(odbc::odbc(),
-                                         driver   = driver_name,
-                                         server   = host,
-                                         database = database_name,
-                                         uid      = user_name,
-                                         pwd      = password,
-                                         port     = port),
-                PostgreSQL = pool::dbPool(odbc::odbc(),
-                                          driver   = driver_name,
-                                          host     = host,
-                                          database = database_name,
-                                          uid      = user_name,
-                                          pwd      = password,
-                                          port     = port),
-                MySQL = pool::dbPool(drv = RMySQL::MySQL(),
-                                     dbname   = database_name,
-                                     username = user_name,
-                                     password = password,
-                                     host     = host,
-                                     port     = port,
-                                     driver   = driver_name))
-=======
     dbms,
     SQLServer = pool::dbPool(odbc::odbc(),
                              driver   = driver_name,
@@ -79,7 +55,6 @@ connect_to_server <- function(base_url,
                          port     = port,
                          driver   = driver_name)
   )
->>>>>>> aa32101 (replace host with base_url and harmonise on arguments order)
   con
 }
 
