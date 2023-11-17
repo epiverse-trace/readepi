@@ -56,12 +56,12 @@ readepi <- function(data_source = NULL,
 
   # reading from Fingertips
   if (any("indicator_id" %in% names(args_list) |
-          "indicator_name" %in% names(args_list) |
-          "area_type_id" %in% names(args_list) |
-          "profile_id" %in% names(args_list) |
-          "profile_name" %in% names(args_list) |
-          "domain_id" %in% names(args_list) |
-          "domain_name" %in% names(args_list))) {
+            "indicator_name" %in% names(args_list) |
+            "area_type_id" %in% names(args_list) |
+            "profile_id" %in% names(args_list) |
+            "profile_name" %in% names(args_list) |
+            "domain_id" %in% names(args_list) |
+            "domain_name" %in% names(args_list))) {
     args <- get_read_fingertips_args(args_list)
     res  <- read_from_fingertips(
       indicator_id        = args[["indicator_id"]],
