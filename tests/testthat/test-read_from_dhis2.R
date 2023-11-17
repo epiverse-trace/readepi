@@ -25,7 +25,7 @@ test_that("read_from_dhis2 works as expected when subsetting on columns and
             testthat::skip_on_cran()
             testthat::skip_if_offline()
             data <- read_from_dhis2(
-              base_url           = file.path("https:/", "play.dhis2.org", "dev"), # nolint: line_length_linter
+              base_url           = file.path("https:/", "play.dhis2.org", "dev"),
               user_name          = "admin",
               password           = "district",
               dataset            = "pBOMPrpg1QX",
