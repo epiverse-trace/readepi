@@ -530,7 +530,7 @@ sql_select_records_only <- function(table,
                                     driver_name,
                                     database_name,
                                     port           = 4497L,
-                                    record,
+                                    record, # nolint: function_argument_linter
                                     id_column_name = NULL,
                                     id_pos         = NULL) {
   checkmate::assert_vector(id_pos,
