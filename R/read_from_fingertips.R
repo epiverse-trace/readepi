@@ -37,7 +37,7 @@ read_from_fingertips <- function(indicator_id        = 90362L,
                                  fields              = NULL,
                                  records             = NULL,
                                  id_position         = NULL,
-                                 id_col_name         = NULL) {
+                                 id_col_name         = "AreaCode") {
   checkmate::assert_vector(indicator_id,
                            any.missing = FALSE, min.len = 0L,
                            null.ok = TRUE, unique = TRUE)

@@ -31,8 +31,8 @@
 #' @noRd
 import_redcap_data <- function(base_url,
                                token,
-                               records,
-                               fields,
+                               records     = NULL,
+                               fields      = NULL,
                                id_position = 1L,
                                id_col_name = NULL) {
   if (is.null(records) && is.null(fields)) {
@@ -112,8 +112,8 @@ redcap_read_data <- function(base_url,
 #' @noRd
 redcap_read_rows_columns <- function(base_url,
                                      token,
-                                     fields,
-                                     records,
+                                     fields      = NULL,
+                                     records     = NULL,
                                      id_position = 1L,
                                      id_col_name = NULL) {
   fields      <- glue::glue_collapse(fields, sep = ", ")

@@ -25,6 +25,7 @@ show_tables <- function(data_source,
   # checking input parameters
   checkmate::assert_character(credentials_file, null.ok = TRUE, len = 1L)
   if (is.null(credentials_file)) {
+    message("The test credential file looks like below:\n")
     credentials_file <- system.file("extdata", "test.ini", package = "readepi")
   }
   checkmate::assert_file_exists(credentials_file)

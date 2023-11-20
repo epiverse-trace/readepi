@@ -156,19 +156,19 @@ dhis2_get_attributes_from_user <- function(args_list) {
   dataset <- organisation_unit <- data_element_group <- start_date <-
     end_date <- NULL
   if ("dataset" %in% names(args_list)) {
-    dataset <- args_list[["dataset"]]
+    dataset            <- args_list[["dataset"]]
   }
   if ("organisation_unit" %in% names(args_list)) {
-    organisation_unit <- args_list[["organisation_unit"]]
+    organisation_unit  <- args_list[["organisation_unit"]]
   }
   if ("data_element_group" %in% names(args_list)) {
     data_element_group <- args_list[["data_element_group"]]
   }
   if ("start_date" %in% names(args_list)) {
-    start_date <- args_list[["start_date"]]
+    start_date         <- args_list[["start_date"]]
   }
   if ("end_date" %in% names(args_list)) {
-    end_date <- args_list[["end_date"]]
+    end_date           <- args_list[["end_date"]]
   }
   list(
     dataset            = dataset,

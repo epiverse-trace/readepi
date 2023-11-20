@@ -204,7 +204,7 @@ sql_select_data <- function(table_names,
                             database_name,
                             port,
                             id_col_name,
-                            fields,
+                            fields      = NULL,
                             records     = NULL,
                             id_position = NULL) {
   checkmate::assert_vector(table_names,
@@ -280,7 +280,7 @@ sql_select_data <- function(table_names,
 #'
 get_id_column_name <- function(id_col_name,
                                j,
-                               id_position) {
+                               id_position = 1L) {
   checkmate::assert_numeric(j,
                             lower = 1L, any.missing = FALSE,
                             len = 1L, null.ok = FALSE)
@@ -530,7 +530,7 @@ sql_select_records_only <- function(table,
                                     driver_name,
                                     database_name,
                                     port           = 4497L,
-                                    record         = NULL,
+                                    record,
                                     id_column_name = NULL,
                                     id_pos         = NULL) {
   checkmate::assert_vector(id_pos,
@@ -611,7 +611,7 @@ sql_select_fields_only <- function(table,
                                    driver_name,
                                    database_name,
                                    port,
-                                   field          = NULL) {
+                                   field) {
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
