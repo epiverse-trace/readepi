@@ -94,8 +94,8 @@ dhis2_get_relevant_attributes <- function(base_url,
   if (is.character(attribute_id)) {
     attribute_id <- unlist(strsplit(attribute_id, ",", fixed = TRUE))
   }
-  response <- dhis2_make_api_request(base_url, user_name, password, which)
-  content <- httr::content(response, as = "parsed")
+  response   <- dhis2_make_api_request(base_url, user_name, password, which)
+  content    <- httr::content(response, as = "parsed")
   attributes <- do.call(rbind.data.frame, content[[which]])
   if (which != "dataElements") {
     idx <- which(attribute_id %in% attributes[["id"]])

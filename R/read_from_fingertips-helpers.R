@@ -274,7 +274,7 @@ get_profile_name <- function(metadata =
                                     fingertipsR::indicators_unique(),
                                     area_type                =
                                     fingertipsR::area_types()),
-                             profile_id = 19L,
+                             profile_id   = 19L,
                              profile_name = "Public Health Outcomes Framework") { # nolint: line_length_linter
   checkmate::assert_list(metadata,
                          len = 3L, null.ok = FALSE,
