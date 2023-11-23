@@ -4,7 +4,7 @@ output:
   rmarkdown::html_vignette:
     df_print: "kable"
 vignette: >
-  %\VignetteIndexEntry{Reading data from health information systems}
+  %\VignetteIndexEntry{readepi: Reading data from health information systems}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
