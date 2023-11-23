@@ -324,11 +324,11 @@ dat <- readepi(
 )
 ```
 
-## Reading data from HIS
+# Reading data from HIS
 
 The current version of **{readepi}** supports reading data from three common HIS: **REDCap**, **DHIS2**, and **Fingertips**. 
 
-### Importing data from REDCap
+## Importing data from REDCap
 
 Research Electronic Data Capture ([REDCap](https://www.project-redcap.org/)) is a web-based application and workflow methodology for designing clinical and translational research databases.
 To import data from a REDCap-based repo, the `readepi()` function takes the following arguments:     
