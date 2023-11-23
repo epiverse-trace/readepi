@@ -14,7 +14,7 @@
 #' @return a message if the login was successfull, thows an error otherwise.
 #'
 #' @keywords internal
-#' @noRd
+#'
 dhis2_login <- function(base_url,
                         user_name,
                         password) {
@@ -58,7 +58,7 @@ dhis2_login <- function(base_url,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 dhis2_subset_fields <- function(data,
                                 fields = c("dataElement", "period", "value")) {
   checkmate::assert_data_frame(data,
@@ -115,7 +115,7 @@ dhis2_subset_fields <- function(data,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 dhis2_subset_records <- function(data,
                                  records,
                                  id_col_name = "dataElement") {
@@ -151,7 +151,7 @@ dhis2_subset_records <- function(data,
 #'
 #' @return an object of type `list` with the values for the DHIS2 attributes.
 #' @keywords internal
-#' @noRd
+#'
 dhis2_get_attributes_from_user <- function(args_list) {
   dataset <- organisation_unit <- data_element_group <- start_date <-
     end_date <- NULL

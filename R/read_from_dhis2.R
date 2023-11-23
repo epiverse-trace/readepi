@@ -19,7 +19,7 @@
 #'
 #' @returns a `list` of 1 element of type `data frame`.
 #' @keywords internal
-#' @noRd
+#'
 #'
 #' @examples
 #' \dontrun{

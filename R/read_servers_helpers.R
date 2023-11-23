@@ -23,7 +23,7 @@
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 connect_to_server <- function(base_url,
                               user_name,
                               password,
@@ -74,7 +74,7 @@ connect_to_server <- function(base_url,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 identify_table_name <- function(query,
                                 tables) {
   checkmate::assert_character(query,
@@ -121,7 +121,7 @@ identify_table_name <- function(query,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 fetch_data_from_query <- function(src,
                                   tables,
                                   base_url,
@@ -194,7 +194,7 @@ fetch_data_from_query <- function(src,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 sql_select_data <- function(table_names,
                             base_url,
                             user_name,
@@ -269,7 +269,7 @@ sql_select_data <- function(table_names,
 #' @returns a `list` of 2 elements of type `character` and `numeric`
 #'    corresponding to the ID column name and position.
 #' @keywords internal
-#' @noRd
+#'
 #'
 #' @examples
 #' id <- get_id_column_name(
@@ -331,7 +331,7 @@ get_id_column_name <- function(id_col_name,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 sql_select_entire_dataset <- function(table,
                                       base_url,
                                       user_name,
@@ -392,7 +392,7 @@ sql_select_entire_dataset <- function(table,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 sql_select_records_and_fields <- function(table,
                                           base_url,
                                           user_name,
@@ -521,7 +521,7 @@ visualise_table <- function(data_source,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 sql_select_records_only <- function(table,
                                     base_url,
                                     user_name,
@@ -602,7 +602,7 @@ sql_select_records_only <- function(table,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 sql_select_fields_only <- function(table,
                                    base_url,
                                    user_name,
@@ -649,7 +649,7 @@ sql_select_fields_only <- function(table,
 #'
 #' @return a list with the identified queries and tables
 #' @keywords internal
-#' @noRd
+#'
 #'
 #' @examples
 #' test <- identify_tables_and_queries(
