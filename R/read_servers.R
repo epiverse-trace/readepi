@@ -50,7 +50,6 @@
 #' }
 #' @importFrom magrittr %>%
 #' @keywords internal
-#' @noRd
 sql_server_read_data <- function(base_url,
                                  user_name,
                                  password,

@@ -8,7 +8,7 @@
 #'   metadata <- get_fingertips_metadata()
 #' }
 #' @keywords internal
-#' @noRd
+#'
 #'
 get_fingertips_metadata <- function() {
   list(
@@ -41,7 +41,7 @@ get_fingertips_metadata <- function() {
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 #'
 get_ind_id_from_ind_name <- function(metadata =
                                        list(indicator_profile_domain =
@@ -108,7 +108,7 @@ get_ind_id_from_ind_name <- function(metadata =
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 #'
 get_ind_id_from_domain_id <- function(metadata =
                                         list(indicator_profile_domain =
@@ -183,7 +183,7 @@ get_ind_id_from_domain_id <- function(metadata =
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 #'
 get_ind_id_from_domain_name <- function(metadata =
                                           list(indicator_profile_domain =
@@ -266,7 +266,7 @@ get_ind_id_from_domain_name <- function(metadata =
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 get_profile_name <- function(metadata =
                                list(indicator_profile_domain =
                                     fingertipsR::indicators(),
@@ -331,7 +331,7 @@ get_profile_name <- function(metadata =
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 get_ind_id_from_profile <- function(metadata =
                                       list(indicator_profile_domain =
                                            fingertipsR::indicators(),
@@ -408,7 +408,7 @@ get_ind_id_from_profile <- function(metadata =
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 fingertips_subset_rows <- function(data,
                                    records,
                                    id_col_name = "AreaCode") {
@@ -455,7 +455,7 @@ fingertips_subset_rows <- function(data,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 fingertips_subset_columns <- function(data   = readepi(profile_id   = 19L,
                                                        area_type_id = 202L)[["data"]], # nolint: line_length_linter
                                       fields = c("IndicatorID", "AreaCode",

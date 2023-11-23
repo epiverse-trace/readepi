@@ -22,7 +22,7 @@
 #' }
 #'
 #' @keywords internal
-#' @noRd
+#'
 dhis2_check_attributes <- function(base_url,
                                    user_name,
                                    password,

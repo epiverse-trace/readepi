@@ -28,7 +28,7 @@
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 import_redcap_data <- function(base_url,
                                token,
                                records     = NULL,
@@ -70,7 +70,7 @@ import_redcap_data <- function(base_url,
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data and its associated metadata.
 #' @keywords internal
-#' @noRd
+#'
 redcap_read_data <- function(base_url,
                              token,
                              id_position = 1L) {
@@ -109,7 +109,7 @@ redcap_read_data <- function(base_url,
 #'    data with only the records and fields of interest and its associated
 #'    metadata.
 #' @keywords internal
-#' @noRd
+#'
 redcap_read_rows_columns <- function(base_url,
                                      token,
                                      fields      = NULL,
@@ -167,7 +167,7 @@ redcap_read_rows_columns <- function(base_url,
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data with the fields of interest and its associated metadata.
 #' @keywords internal
-#' @noRd
+#'
 redcap_read_fields <- function(base_url,
                                token,
                                fields,
@@ -203,7 +203,7 @@ redcap_read_fields <- function(base_url,
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data with the records of interest and its associated metadata.
 #' @keywords internal
-#' @noRd
+#'
 redcap_read_records <- function(base_url,
                                 token,
                                 records,
@@ -272,7 +272,7 @@ redcap_read_records <- function(base_url,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 redcap_get_results <- function(redcap_data, metadata) {
   checkmate::assert_list(redcap_data,
                          null.ok     = FALSE,

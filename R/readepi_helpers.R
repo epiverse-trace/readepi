@@ -14,7 +14,6 @@
 #' )
 #' }
 #' @keywords internal
-#' @noRd
 #' @importFrom utils read.table
 read_credentials <- function(file_path, base_url) {
   checkmate::assert_character(base_url,
@@ -69,7 +68,6 @@ read_credentials <- function(file_path, base_url) {
 #' )
 #' }
 #' @keywords internal
-#' @noRd
 get_read_fingertips_args <- function(args_list =
                                        list(indicator_id        = NULL,
                                             indicator_name      = NULL,

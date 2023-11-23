@@ -15,7 +15,7 @@
 #' @return an object of class `data.frame` that contains the information of
 #'    interest.
 #' @keywords internal
-#' @noRd
+
 dhis2_make_api_request <- function(base_url,
                                    user_name,
                                    password,
@@ -68,7 +68,7 @@ dhis2_make_api_request <- function(base_url,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+
 dhis2_get_relevant_attributes <- function(base_url,
                                           user_name,
                                           password,
