@@ -26,7 +26,7 @@ The current implementation of **{readepi}** provides a function for reading data
 
 ```{r setup, eval=TRUE}
 # LOAD readepi
-library("readepi") # nolint
+library(readepi)
 ```
 
 # Reading data from RDBMS 
@@ -261,7 +261,7 @@ dat <- readepi(
   from             = table_names, # this is the table name
   driver_name      = "",
   records          = records,
-  id_position      = c(1, 1) # nolint
+  id_position      = c(1, 1)
 )
 
 # READING DATA FROM SEVERAL TABLES AND SUBSETTING RECORDS AND FIELDS ACROSS
