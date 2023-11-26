@@ -66,13 +66,6 @@ connect_to_server <- function(base_url,
 #'
 #' @return a `character` with the identified tables name(s) from the SQL query
 #'
-#' @examples
-#' \dontrun{
-#' table_name <- identify_table_name(
-#'   query  = "select * from author",
-#'   tables = c("family_author", "author", "test")
-#' )
-#' }
 #' @keywords internal
 #' @noRd
 identify_table_name <- function(query,
@@ -212,7 +205,7 @@ sql_select_data <- function(table_names,
                            null.ok = FALSE, unique = FALSE)
 
   result <- list()
-  j <- 1L
+  j      <- 1L
   for (table in table_names) {
     message("\nFetching data from: ", table)
 
@@ -432,7 +425,7 @@ sql_select_records_and_fields <- function(table,
     }))
     field <- unlist(strsplit(field, ",", fixed = TRUE))
   }
-  res <- res %>% dplyr::select(dplyr::all_of(field))
+  res     <- res %>% dplyr::select(dplyr::all_of(field))
   pool::poolClose(con)
   res
 }
@@ -448,15 +441,6 @@ sql_select_records_and_fields <- function(table,
 #'
 #' @return prints the first 5 rows of the specified table.
 #'
-#' @examples
-#' \dontrun{
-#' visualise_table(
-#'   data_source      = "mysql-rfam-public.ebi.ac.uk",
-#'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-#'   from             = "author",
-#'   driver_name      = ""
-#' )
-#' }
 #' @export
 #'
 visualise_table <- function(data_source,
@@ -471,7 +455,7 @@ visualise_table <- function(data_source,
   checkmate::assert_character(data_source, null.ok = FALSE, len = 1L)
 
   credentials <- read_credentials(credentials_file, data_source)
-  con <- connect_to_server(
+  con   <- connect_to_server(
     credentials[["host"]], credentials[["user"]], credentials[["pwd"]],
     credentials[["dbms"]], driver_name, credentials[["project"]],
     credentials[["port"]]
@@ -479,7 +463,7 @@ visualise_table <- function(data_source,
   query <- ifelse(credentials[["dbms"]] == "MySQL",
                   sprintf("select * from %s limit 5", from),
                   sprintf("select top 5 * from %s", from))
-  res <- DBI::dbGetQuery(con, query)
+  res   <- DBI::dbGetQuery(con, query)
   pool::poolClose(con)
   print(res)
 }

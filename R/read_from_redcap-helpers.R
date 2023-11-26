@@ -1,4 +1,4 @@
-#' Import data from REDCap under all scenari
+#' Import data from REDCap under all scenario
 #'
 #' @description This is a wrapper across all the use case of reading data from
 #'    REDCap i.e. around the function that all records and fields from the

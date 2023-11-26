@@ -10,8 +10,7 @@
 #' \dontrun{
 #' show_tables(
 #'   data_source      = "mysql-rfam-public.ebi.ac.uk",
-#'   credentials_file = system.file("extdata", "test.ini",
-#'                                  package = "readepi"),
+#'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
 #'   driver_name      = ""
 #' )
 #' }
