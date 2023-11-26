@@ -1,5 +1,5 @@
 #' Import data from REDCap
-#'
+
 #' @param base_url the URI of the server
 #' @param token the user-specific string that serves as the password for a
 #'    project
@@ -29,10 +29,10 @@
 #' @noRd
 read_from_redcap <- function(base_url,
                              token,
-                             id_position = 1L,
-                             id_col_name = NULL,
                              records     = NULL,
-                             fields      = NULL) {
+                             fields      = NULL,
+                             id_position = 1L,
+                             id_col_name = NULL) {
   # check input variables
   checkmate::assert_character(token,
                               n.chars = 32L, len = 1L, null.ok = FALSE,

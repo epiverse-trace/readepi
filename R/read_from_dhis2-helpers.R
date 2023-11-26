@@ -40,13 +40,12 @@ dhis2_login <- function(base_url,
 #'
 #' @return an object of type `data.frame` with the data that contains only the
 #'    fields of interest.
-#'
 #' @examples
 #' \dontrun{
 #' results <- dhis2_subset_fields(
-#'   data   = readepi(
+#'   data = readepi(
 #'     credentials_file   = system.file("extdata", "test.ini",
-#'                                      package = "readepi"),
+#'     package = "readepi"),
 #'     data_source        = "https://play.dhis2.org/dev",
 #'     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
 #'     organisation_unit  = "DiszpKrYNg8",
@@ -55,10 +54,9 @@ dhis2_login <- function(base_url,
 #'     end_date           = "2023",
 #'     fields             = c("dataElement", "period", "value")
 #'   )$data,
-#'   fields = c("dataElement", "period", "value")
+#'   fields               = c("dataElement", "period", "value")
 #' )
 #' }
-#'
 #' @keywords internal
 #' @noRd
 dhis2_subset_fields <- function(data,
@@ -98,13 +96,13 @@ dhis2_subset_fields <- function(data,
 #'
 #' @return an object of type `data.frame` with the data that contains only the
 #'    records of interest.
-#'
 #' @examples
 #' \dontrun{
 #' result <- dhis2_subset_records(
-#'   data        = readepi(
+#'   data = readepi(
 #'     credentials_file   = system.file("extdata", "test.ini",
-#'                                      package = "readepi"),
+#'       package = "readepi"
+#'     ),
 #'     data_source        = "https://play.dhis2.org/dev",
 #'     dataset            = "pBOMPrpg1QX",
 #'     organisation_unit  = "DiszpKrYNg8",
@@ -112,11 +110,10 @@ dhis2_subset_fields <- function(data,
 #'     start_date         = "2014",
 #'     end_date           = "2023"
 #'   )$data,
-#'   records     = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-#'   id_col_name = "dataElement"
+#'   records              = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+#'   id_col_name          = "dataElement"
 #' )
 #' }
-#'
 #' @keywords internal
 #' @noRd
 dhis2_subset_records <- function(data,

@@ -22,6 +22,11 @@
 #'
 #' @keywords internal
 #' @noRd
+#'
+#' @examples
+#' \dontrun{
+#'   data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
+#' }
 read_from_fingertips <- function(indicator_id        = 90362L,
                                  indicator_name      = NULL,
                                  area_type_id        = 202L,

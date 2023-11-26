@@ -3,6 +3,10 @@
 #' @return a `list` of 3 objects of type `data.frame`. They contain information
 #'    about the indicators in the Fingertips repository.
 #'
+#' @examples
+#' \dontrun{
+#'   metadata <- get_fingertips_metadata()
+#' }
 #' @keywords internal
 #' @noRd
 #'
@@ -36,17 +40,16 @@ get_fingertips_metadata <- function() {
 #'   indicator_name = "Pupil absence"
 #' )
 #' }
-#'
 #' @keywords internal
 #' @noRd
 #'
 get_ind_id_from_ind_name <- function(metadata =
                                        list(indicator_profile_domain =
-                                            fingertipsR::indicators(),
+                                              fingertipsR::indicators(),
                                             indicator_ids_names      =
-                                            fingertipsR::indicators_unique(),
+                                              fingertipsR::indicators_unique(),
                                             area_type                =
-                                            fingertipsR::area_types()),
+                                              fingertipsR::area_types()),
                                      indicator_name = "Pupil absence") {
   checkmate::assert_list(metadata,
                          len = 3L, null.ok = FALSE,
@@ -66,7 +69,7 @@ get_ind_id_from_ind_name <- function(metadata =
           )
         )
       )
-    )
+    ) # nolint: line_length_linter
   )
   if (all(is.na(idx))) {
     message("\nCould not find specified indicator name.\n
@@ -109,11 +112,11 @@ get_ind_id_from_ind_name <- function(metadata =
 #'
 get_ind_id_from_domain_id <- function(metadata =
                                         list(indicator_profile_domain =
-                                             fingertipsR::indicators(),
+                                               fingertipsR::indicators(),
                                              indicator_ids_names      =
-                                             fingertipsR::indicators_unique(),
+                                               fingertipsR::indicators_unique(),
                                              area_type                =
-                                             fingertipsR::area_types()),
+                                               fingertipsR::area_types()),
                                       domain_id      = 1000041L,
                                       indicator_name = NULL) {
   checkmate::assert_list(metadata,
@@ -184,11 +187,11 @@ get_ind_id_from_domain_id <- function(metadata =
 #'
 get_ind_id_from_domain_name <- function(metadata =
                                           list(indicator_profile_domain =
-                                               fingertipsR::indicators(),
+                                                 fingertipsR::indicators(),
                                                indicator_ids_names      =
-                                               fingertipsR::indicators_unique(),
+                                                 fingertipsR::indicators_unique(), # nolint: line_length_linter
                                                area_type                =
-                                               fingertipsR::area_types()),
+                                                 fingertipsR::area_types()),
                                         domain_name    = "B. Wider determinants of health", # nolint: line_length_linter
                                         indicator_name = NULL) {
   checkmate::assert_list(metadata,
@@ -210,7 +213,7 @@ get_ind_id_from_domain_name <- function(metadata =
           metadata[["indicator_profile_domain"]][["DomainName"]]
         ))
       )
-    )
+    ) # nolint: line_length_linter
   )
   if (all(is.na(idx))) {
     message("\nCould not find the specified domain name.\n
@@ -253,7 +256,7 @@ get_ind_id_from_domain_name <- function(metadata =
 #' @examples
 #' \dontrun{
 #' res <- get_profile_name(
-#'   metadata     = list(
+#'   metadata = list(
 #'     indicator_profile_domain = fingertipsR::indicators(),
 #'     indicator_ids_names      = fingertipsR::indicators_unique(),
 #'     area_type                = fingertipsR::area_types()
@@ -266,11 +269,11 @@ get_ind_id_from_domain_name <- function(metadata =
 #' @noRd
 get_profile_name <- function(metadata =
                                list(indicator_profile_domain =
-                                    fingertipsR::indicators(),
+                                      fingertipsR::indicators(),
                                     indicator_ids_names      =
-                                    fingertipsR::indicators_unique(),
+                                      fingertipsR::indicators_unique(),
                                     area_type                =
-                                    fingertipsR::area_types()),
+                                      fingertipsR::area_types()),
                              profile_id   = 19L,
                              profile_name = "Public Health Outcomes Framework") { # nolint: line_length_linter
   checkmate::assert_list(metadata,
@@ -285,19 +288,19 @@ get_profile_name <- function(metadata =
   if (!is.null(profile_id) && !is.null(profile_name)) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(
-                 metadata[["indicator_profile_domain"]][["ProfileID"]] ==
-                   profile_id &
-                   metadata[["indicator_profile_domain"]][["ProfileName"]] ==
-                     profile_name)
+      metadata[["indicator_profile_domain"]][["ProfileID"]] ==
+        profile_id &
+        metadata[["indicator_profile_domain"]][["ProfileName"]] ==
+        profile_name)
   } else if (!is.null(profile_id) && is.null(profile_name)) {
     idx <- which(
-                 metadata[["indicator_profile_domain"]][["ProfileID"]] ==
-                   profile_id)
+      metadata[["indicator_profile_domain"]][["ProfileID"]] ==
+        profile_id)
   } else if (!is.null(profile_name) && is.null(profile_id)) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(
-                 metadata[["indicator_profile_domain"]][["ProfileName"]] ==
-                   profile_name)
+      metadata[["indicator_profile_domain"]][["ProfileName"]] ==
+        profile_name)
   }
 
   list(
@@ -331,11 +334,11 @@ get_profile_name <- function(metadata =
 #' @noRd
 get_ind_id_from_profile <- function(metadata =
                                       list(indicator_profile_domain =
-                                           fingertipsR::indicators(),
+                                             fingertipsR::indicators(),
                                            indicator_ids_names      =
-                                           fingertipsR::indicators_unique(),
+                                             fingertipsR::indicators_unique(),
                                            area_type                =
-                                           fingertipsR::area_types()),
+                                             fingertipsR::area_types()),
                                     domain_id      = NULL,
                                     domain_name    = NULL,
                                     indicator_name = NULL,
@@ -364,7 +367,7 @@ get_ind_id_from_profile <- function(metadata =
     message("\nCould not find the specified profile ID or name.\n
              Below is the list of all profile IDs and names in Fingertips.")
     print(
-      metadata[["indicator_profile_domain"]][, c("ProfileID", "ProfileName")])
+      metadata[["indicator_profile_domain"]][, c("ProfileID", "ProfileName")]) # nolint
     stop()
   } else {
     subs <- metadata[["indicator_profile_domain"]][idx, ]
@@ -396,7 +399,10 @@ get_ind_id_from_profile <- function(metadata =
 #' @examples
 #' \dontrun{
 #' res <- fingertips_subset_rows(
-#'   data           = readepi(profile_id   = 19, area_type_id = 202)$data,
+#'   data = readepi(
+#'     profile_id   = 19,
+#'     area_type_id = 202
+#'   )$data,
 #'   records        = c("E92000001", "E12000002", "E12000009"),
 #'   id_col_name    = "AreaCode"
 #' )
@@ -441,7 +447,10 @@ fingertips_subset_rows <- function(data,
 #' @examples
 #' \dontrun{
 #' res <- fingertips_subset_columns(
-#'   data           = readepi(profile_id   = 19, area_type_id = 202)$data,
+#'   data = readepi(
+#'     profile_id   = 19,
+#'     area_type_id = 202
+#'   )$data,
 #'   fields         = c("IndicatorID", "AreaCode", "Age", "Value")
 #' )
 #' }
