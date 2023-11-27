@@ -60,7 +60,7 @@ read_credentials <- function(file_path, base_url) {
 #'    used for importing data from Fingertips
 #' @examples
 #' \dontrun{
-#' args_list <- get_read_fingertips_args(
+#' args_list <- fingertips_get_args(
 #'   list(
 #'     indicator_id = 90362,
 #'     area_type_id = 202
@@ -68,15 +68,15 @@ read_credentials <- function(file_path, base_url) {
 #' )
 #' }
 #' @keywords internal
-get_read_fingertips_args <- function(args_list =
-                                       list(indicator_id        = NULL,
-                                            indicator_name      = NULL,
-                                            area_type_id        = NULL,
-                                            profile_id          = NULL,
-                                            profile_name        = NULL,
-                                            domain_id           = NULL,
-                                            domain_name         = NULL,
-                                            parent_area_type_id = NULL)) {
+fingertips_get_args <- function(args_list =
+                                  list(indicator_id        = NULL,
+                                       indicator_name      = NULL,
+                                       area_type_id        = NULL,
+                                       profile_id          = NULL,
+                                       profile_name        = NULL,
+                                       domain_id           = NULL,
+                                       domain_name         = NULL,
+                                       parent_area_type_id = NULL)) {
   checkmate::assert_list(args_list)
   if ("indicator_id" %in% names(args_list)) {
     indicator_id <- args_list[["indicator_id"]]
