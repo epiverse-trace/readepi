@@ -60,11 +60,11 @@ dhis2_make_api_request <- function(base_url,
 #' @examples
 #' \dontrun{
 #' result <- dhis2_get_relevant_attributes(
-#'   base_url = "https://play.dhis2.org/dev/",
-#'   user_name = "admin",
-#'   password = "district",
+#'   base_url     = "https://play.dhis2.org/dev/",
+#'   user_name    = "admin",
+#'   password     = "district",
 #'   attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
-#'   which = "dataSets"
+#'   which        = "dataSets"
 #' )
 #' }
 #' @keywords internal
