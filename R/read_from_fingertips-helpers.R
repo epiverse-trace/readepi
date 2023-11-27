@@ -69,7 +69,7 @@ get_ind_id_from_ind_name <- function(metadata =
           )
         )
       )
-    ) # nolint: line_length_linter
+    )
   )
   if (all(is.na(idx))) {
     message("\nCould not find specified indicator name.\n
@@ -256,7 +256,7 @@ get_ind_id_from_domain_name <- function(metadata =
 #' @examples
 #' \dontrun{
 #' res <- get_profile_name(
-#'   metadata = list(
+#'   metadata     = list(
 #'     indicator_profile_domain = fingertipsR::indicators(),
 #'     indicator_ids_names      = fingertipsR::indicators_unique(),
 #'     area_type                = fingertipsR::area_types()
