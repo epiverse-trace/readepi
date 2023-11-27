@@ -18,7 +18,7 @@
 #'    interest and its associated metadata.
 #' @examples
 #' \dontrun{
-#' result <- import_redcap_data(
+#' result <- redcap_import_data(
 #'   base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
 #'   token       = "9A81268476645C4E5F03428B8AC3AA7B",
 #'   records     = c("1", "3", "5"),
@@ -29,7 +29,7 @@
 #' }
 #' @keywords internal
 #'
-import_redcap_data <- function(base_url,
+redcap_import_data <- function(base_url,
                                token,
                                records     = NULL,
                                fields      = NULL,
