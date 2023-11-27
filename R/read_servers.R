@@ -95,7 +95,7 @@ sql_server_read_data <- function(base_url,
   }
 
   # establishing the connection to the server
-  con <- connect_to_server(
+  con <- sql_connect_to_server(
     base_url, user_name, password, dbms, driver_name, database_name, port
   )
 
@@ -105,21 +105,21 @@ sql_server_read_data <- function(base_url,
   pool::poolClose(con)
 
   # separate the srcs
-  attributes <- identify_tables_and_queries(src = src, tables = tables)
+  attributes <- sql_identify_table_and_query(src = src, tables = tables)
   queries    <- attributes[["queries"]]
   src        <- attributes[["tables"]]
 
   # fetch data from queries
   if (length(queries) > 0L) {
-    from_query <- fetch_data_from_query(src           = queries,
-                                        tables        = tables,
-                                        base_url      = base_url,
-                                        user_name     = user_name,
-                                        password      = password,
-                                        dbms          = dbms,
-                                        driver_name   = driver_name,
-                                        database_name = database_name,
-                                        port          = port)
+    from_query <- sql_fetch_data_from_query(src           = queries,
+                                            tables        = tables,
+                                            base_url      = base_url,
+                                            user_name     = user_name,
+                                            password      = password,
+                                            dbms          = dbms,
+                                            driver_name   = driver_name,
+                                            database_name = database_name,
+                                            port          = port)
     final_result <- c(final_result, from_query)
   }
 
