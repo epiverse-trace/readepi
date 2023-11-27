@@ -1,6 +1,6 @@
 #' Display the list of tables in a database
 #'
-#' @param data_source the URL of the HIS of interest
+#' @param data_source the URL of the server of interest
 #' @param credentials_file the path to the file with the user-specific
 #'    credential details for the projects of interest. See the help of
 #'    the `readepi` function for more details.
