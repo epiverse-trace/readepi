@@ -14,4 +14,5 @@ Display the structure of the credentials file
 }
 \examples{
   show_example_file()
+
 }
