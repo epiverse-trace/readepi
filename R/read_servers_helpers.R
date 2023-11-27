@@ -270,14 +270,6 @@ sql_select_data <- function(table_names,
 #'    corresponding to the ID column name and position.
 #' @keywords internal
 #'
-#'
-#' @examples
-#' id <- sql_get_id_column_name(
-#'   id_col_name = c("author_id", "rfam_acc"),
-#'   j           = 1L,
-#'   id_position = c(1L, 1L)
-#' )
-#'
 sql_get_id_column_name <- function(id_col_name,
                                    j,
                                    id_position = 1L) {
@@ -650,12 +642,6 @@ sql_select_fields_only <- function(table,
 #' @return a list with the identified queries and tables
 #' @keywords internal
 #'
-#'
-#' @examples
-#' test <- sql_identify_table_and_query(
-#'   src    = "select * from author",
-#'   tables = c("author", "karim")
-#' )
 sql_identify_table_and_query <- function(src,
                                          tables) {
   # detect the SQL queries
