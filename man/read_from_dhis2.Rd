@@ -55,7 +55,7 @@ Import data form DHIS2
 \examples{
 \dontrun{
 data <- read_from_dhis2(
-  base_url           = file.path("https:/", "play.dhis2.org", "dev"),
+  base_url           = "https://play.dhis2.org/dev",
   user_name          = "admin",
   password           = "district",
   dataset            = "pBOMPrpg1QX",

@@ -139,14 +139,14 @@ dhis2_get_relevant_attributes <- function(base_url,
 #'
 #' @examples
 #' \dontrun{
-#' datasets <- get_dhis2_attributes(
+#' datasets <- dhis2_get_attributes(
 #'   base_url  = "https://play.dhis2.org/dev/",
 #'   user_name = "admin",
 #'   password  = "district",
 #'   which     = "dataSets"
 #' )
 #' }
-get_dhis2_attributes <- function(base_url,
+dhis2_get_attributes <- function(base_url,
                                  user_name,
                                  password,
                                  which = "dataSets") {
