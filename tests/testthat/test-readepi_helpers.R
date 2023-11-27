@@ -62,10 +62,10 @@ test_that("read_credentials fails as expected", {
   )
 })
 
-test_that("get_read_fingertips_args works as expected", {
+test_that("fingertips_get_args works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
-  res <- get_read_fingertips_args(
+  res <- fingertips_get_args(
     list(
       indicator_id = 90362L,
       area_type_id = 202L
@@ -88,10 +88,10 @@ test_that("get_read_fingertips_args works as expected", {
   expect_null(res[["parent_area_type_id"]])
 })
 
-test_that("get_read_fingertips_args works as expected with all arguments", {
+test_that("fingertips_get_args works as expected with all arguments", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
-  res <- get_read_fingertips_args(
+  res <- fingertips_get_args(
     list(
       indicator_id   = 90362L,
       area_type_id   = 202L,
@@ -119,10 +119,10 @@ test_that("get_read_fingertips_args works as expected with all arguments", {
   expect_null(res[["parent_area_type_id"]])
 })
 
-test_that("get_read_fingertips_args works as expected", {
+test_that("fingertips_get_args works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
-  res <- get_read_fingertips_args(
+  res <- fingertips_get_args(
     list(
       indicator_id   = 90362L,
       area_type_id   = 202L,
@@ -146,10 +146,10 @@ test_that("get_read_fingertips_args works as expected", {
   expect_null(res[["parent_area_type_id"]])
 })
 
-test_that("get_read_fingertips_args works as expected", {
+test_that("fingertips_get_args works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
-  res <- get_read_fingertips_args(
+  res <- fingertips_get_args(
     list(
       indicator_id   = 90362L,
       area_type_id   = 202L,
@@ -174,10 +174,10 @@ test_that("get_read_fingertips_args works as expected", {
   expect_null(res[["parent_area_type_id"]])
 })
 
-test_that("get_read_fingertips_args fails as expected", {
+test_that("fingertips_get_args fails as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
-  res <- get_read_fingertips_args(
+  res <- fingertips_get_args(
     list(
       indicator_id   = 90362L,
       area_type_id   = NULL,
@@ -190,7 +190,7 @@ test_that("get_read_fingertips_args fails as expected", {
   )
   expect_null(res[["area_type_id"]])
 
-  res <- get_read_fingertips_args(
+  res <- fingertips_get_args(
     list(
       indicator_id        = 90362L,
       area_type_id        = NULL,
