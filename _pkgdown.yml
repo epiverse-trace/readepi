@@ -7,32 +7,28 @@ reference:
   desc: "`{readepi}` functions available to end-users"
 - contents:
   - lacks_concept("internal")
+
 - title: Internal functions
   desc: "`{readepi}` functions for internal use"
 - subtitle: Shared helpers
 - contents:
   - read_credentials
+
 - subtitle: Fingertips
 - contents:
   - starts_with("fingertips_", internal = TRUE)
   - read_from_fingertips
-  - get_fingertips_metadata
-  - starts_with("get_ind_id_from", internal = TRUE)
-  - get_profile_name
+
 - subtitle: REDCap
 - contents:
   - starts_with("redcap_", internal = TRUE)
   - read_from_redcap
-  - import_redcap_data
+
 - subtitle: DHIS2
 - contents:
   - starts_with("dhis2_", internal = TRUE)
   - read_from_dhis2
+
 - subtitle: RDMS
 - contents:
   - starts_with("sql_", internal = TRUE)
-  - identify_tables_and_queries
-  - get_id_column_name
-  - fetch_data_from_query
-  - identify_table_name
-  - connect_to_server
