@@ -2,8 +2,8 @@ httptest::with_mock_api({
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   testthat::skip_if_not_installed("httptest")
-  test_that("import_redcap_data works as expected", {
-    result <- import_redcap_data(
+  test_that("redcap_import_data works as expected", {
+    result <- redcap_import_data(
       base_url    = file.path("https:/", "bbmc.ouhsc.edu", "redcap", "api", ""),
       token       = "9A81268476645C4E5F03428B8AC3AA7B",
       records     = c("1", "3", "5"),

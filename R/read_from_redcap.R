@@ -47,7 +47,7 @@ read_from_redcap <- function(base_url,
   id_position <- ifelse(!is.null(id_position), id_position, 1L)
 
   # importing data and the metadata into R
-  tmp_res <- import_redcap_data(
+  tmp_res <- redcap_import_data(
     base_url, token, records, fields,
     id_position, id_col_name
   )
