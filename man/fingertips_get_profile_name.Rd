@@ -26,17 +26,4 @@ the \verb{profile name} and their correspondent indexes.
 \description{
 Get profile name from Fingertips
 }
-\examples{
-\dontrun{
-res <- fingertips_get_profile_name(
-  metadata = list(
-    indicator_profile_domain = fingertipsR::indicators(),
-    indicator_ids_names      = fingertipsR::indicators_unique(),
-    area_type                = fingertipsR::area_types()
-  )
-  profile_id   = 19,
-  profile_name = "Public Health Outcomes Framework",
-)
-}
-}
 \keyword{internal}

@@ -249,18 +249,6 @@ fingertips_get_id_from_dm_name <- function(metadata =
 #'
 #' @return a `list` of 2 elements of type `character` and `numeric`. These are
 #'    the `profile name` and their correspondent indexes.
-#' @examples
-#' \dontrun{
-#' res <- fingertips_get_profile_name(
-#'   metadata = list(
-#'     indicator_profile_domain = fingertipsR::indicators(),
-#'     indicator_ids_names      = fingertipsR::indicators_unique(),
-#'     area_type                = fingertipsR::area_types()
-#'   )
-#'   profile_id   = 19,
-#'   profile_name = "Public Health Outcomes Framework",
-#' )
-#' }
 #' @keywords internal
 #'
 fingertips_get_profile_name <- function(metadata =
