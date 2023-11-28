@@ -36,6 +36,7 @@ Health related research data are usually stored in either relational databases o
 To read data from a MS SQL database, the user is expected to have, at least, read access to the database. The user credential details should be stored in file. Also, users who are using an operating system other than Microsoft need to have the appropriate MS driver installed into their system. In the following section we show how  to install these drivers and describe the structure of the credentials file.
 
 ## MS SQL drivers for OSX-based systems
+
 Reading data from Unix-based systems require to install an MS ODBC driver that is compatible with the version of the target MS SQL server. For example, ***ODBC Driver 17***  is compatible with  ***SQL server 2019, version 15.0***.    
 
 Mac users can follow the instructions below to install the MS SQL ODBC driver. Choose the appropriate driver, open the terminal, and run these instructions.    
