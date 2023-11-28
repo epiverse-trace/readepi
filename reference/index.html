@@ -12,7 +12,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a href="https://epiverse-trace.github.io/" class="external-link"><img src="../logo_white.svg" id="logo" alt="Epiverse-TRACE"></a>
     <a class="navbar-brand me-2" href="../index.html">readepi</a>
@@ -54,9 +54,9 @@
     </div>
 
     <div class="section level2">
-      <h2 id="all-functions">All functions<a class="anchor" aria-label="anchor" href="#all-functions"></a></h2>
+      <h2 id="exported-functions">Exported functions<a class="anchor" aria-label="anchor" href="#exported-functions"></a></h2>
       
-      
+      <p class="section-desc"></p><p><a href="https://epiverse-trace.github.io/readepi/">readepi</a> functions available to end-users</p>
 
       
     </div><div id="" class="section level2">
@@ -66,7 +66,7 @@
 
       <dl><dt>
           
-          <code><a href="get_dhis2_attributes.html">get_dhis2_attributes()</a></code> 
+          <code><a href="dhis2_get_attributes.html">dhis2_get_attributes()</a></code> 
         </dt>
         <dd>Get the target DHIS2 attribute identifiers and names</dd>
       </dl><dl><dt>
@@ -89,8 +89,260 @@
           <code><a href="visualise_table.html">visualise_table()</a></code> 
         </dt>
         <dd>Visualize the first 5 rows of the data from a table</dd>
+      </dl></div><div class="section level2">
+      <h2 id="internal-functions">Internal functions<a class="anchor" aria-label="anchor" href="#internal-functions"></a></h2>
+      
+      <p class="section-desc"></p><p><a href="https://epiverse-trace.github.io/readepi/">readepi</a> functions for internal use</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="shared-helpers">Shared helpers<a class="anchor" aria-label="anchor" href="#shared-helpers"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="read_credentials.html">read_credentials()</a></code> 
+        </dt>
+        <dd>Read credentials from a configuration file</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="fingertips">Fingertips<a class="anchor" aria-label="anchor" href="#fingertips"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="fingertips_get_args.html">fingertips_get_args()</a></code> 
+        </dt>
+        <dd>Get arguments for reading from Fingertips</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fingertips_get_id_from_dm_id.html">fingertips_get_id_from_dm_id()</a></code> 
+        </dt>
+        <dd>Get indicator ID from domain ID</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fingertips_get_id_from_dm_name.html">fingertips_get_id_from_dm_name()</a></code> 
+        </dt>
+        <dd>Get indicator ID from domain name</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fingertips_get_id_from_name.html">fingertips_get_id_from_name()</a></code> 
+        </dt>
+        <dd>Get indicator ID from indicator name</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fingertips_get_id_from_profile.html">fingertips_get_id_from_profile()</a></code> 
+        </dt>
+        <dd>Get indicator ID from profile ID and/or profile name</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fingertips_get_metadata.html">fingertips_get_metadata()</a></code> 
+        </dt>
+        <dd>get fingertips metadata</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fingertips_get_profile_name.html">fingertips_get_profile_name()</a></code> 
+        </dt>
+        <dd>Get profile name from Fingertips</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fingertips_subset_columns.html">fingertips_subset_columns()</a></code> 
+        </dt>
+        <dd>Subset columns when reading from Fingertips</dd>
+      </dl><dl><dt>
+          
+          <code><a href="fingertips_subset_rows.html">fingertips_subset_rows()</a></code> 
+        </dt>
+        <dd>Subset records when reading from Fingertips</dd>
+      </dl><dl><dt>
+          
+          <code><a href="read_from_fingertips.html">read_from_fingertips()</a></code> 
+        </dt>
+        <dd>Read from Fingertips</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="redcap">REDCap<a class="anchor" aria-label="anchor" href="#redcap"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="redcap_get_results.html">redcap_get_results()</a></code> 
+        </dt>
+        <dd>Check and return data fetch from redcap</dd>
+      </dl><dl><dt>
+          
+          <code><a href="redcap_import_data.html">redcap_import_data()</a></code> 
+        </dt>
+        <dd>Import data from REDCap under all scenari</dd>
+      </dl><dl><dt>
+          
+          <code><a href="redcap_read_data.html">redcap_read_data()</a></code> 
+        </dt>
+        <dd>Read all rows and columns from redcap</dd>
+      </dl><dl><dt>
+          
+          <code><a href="redcap_read_fields.html">redcap_read_fields()</a></code> 
+        </dt>
+        <dd>Subset fields from a REDCap project</dd>
+      </dl><dl><dt>
+          
+          <code><a href="redcap_read_records.html">redcap_read_records()</a></code> 
+        </dt>
+        <dd>Subset records from a REDCap project</dd>
+      </dl><dl><dt>
+          
+          <code><a href="redcap_read_rows_columns.html">redcap_read_rows_columns()</a></code> 
+        </dt>
+        <dd>Subset records and columns from a REDCap project</dd>
+      </dl><dl><dt>
+          
+          <code><a href="read_from_redcap.html">read_from_redcap()</a></code> 
+        </dt>
+        <dd>Import data from REDCap</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="dhis-">DHIS2<a class="anchor" aria-label="anchor" href="#dhis-"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="dhis2_check_attributes.html">dhis2_check_attributes()</a></code> 
+        </dt>
+        <dd>Check the DHIS2 attributes for data import</dd>
+      </dl><dl><dt>
+          
+          <code><a href="dhis2_get_attributes.html">dhis2_get_attributes()</a></code> 
+        </dt>
+        <dd>Get the target DHIS2 attribute identifiers and names</dd>
+      </dl><dl><dt>
+          
+          <code><a href="dhis2_get_attributes_from_user.html">dhis2_get_attributes_from_user()</a></code> 
+        </dt>
+        <dd>Get the DHIS2 attributes from the user</dd>
+      </dl><dl><dt>
+          
+          <code><a href="dhis2_get_relevant_attributes.html">dhis2_get_relevant_attributes()</a></code> 
+        </dt>
+        <dd>Get the relevant dataset</dd>
+      </dl><dl><dt>
+          
+          <code><a href="dhis2_login.html">dhis2_login()</a></code> 
+        </dt>
+        <dd>Check DHIS2 authentication details</dd>
+      </dl><dl><dt>
+          
+          <code><a href="dhis2_make_api_request.html">dhis2_make_api_request()</a></code> 
+        </dt>
+        <dd>Make an API request to the target DHIS2 system</dd>
+      </dl><dl><dt>
+          
+          <code><a href="dhis2_subset_fields.html">dhis2_subset_fields()</a></code> 
+        </dt>
+        <dd>Subset fields when reading from DHIS2</dd>
+      </dl><dl><dt>
+          
+          <code><a href="dhis2_subset_records.html">dhis2_subset_records()</a></code> 
+        </dt>
+        <dd>Subset a specified set of records from a dataset imported from DHIS2</dd>
+      </dl><dl><dt>
+          
+          <code><a href="read_from_dhis2.html">read_from_dhis2()</a></code> 
+        </dt>
+        <dd>Import data form DHIS2</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="rdms">RDMS<a class="anchor" aria-label="anchor" href="#rdms"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="sql_connect_to_server.html">sql_connect_to_server()</a></code> 
+        </dt>
+        <dd>Establish connection to the server</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_fetch_data_from_query.html">sql_fetch_data_from_query()</a></code> 
+        </dt>
+        <dd>Fetch data from server using an SQL query</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_get_id_column_name.html">sql_get_id_column_name()</a></code> 
+        </dt>
+        <dd>get the id column name</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_identify_table_and_query.html">sql_identify_table_and_query()</a></code> 
+        </dt>
+        <dd>Identify queries or tables names from the user supplied string</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_identify_table_name.html">sql_identify_table_name()</a></code> 
+        </dt>
+        <dd>Detect table names from an SQL query</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_select_data.html">sql_select_data()</a></code> 
+        </dt>
+        <dd>Subset data read from servers</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_select_entire_dataset.html">sql_select_entire_dataset()</a></code> 
+        </dt>
+        <dd>Fetch entire dataset in a table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_select_fields_only.html">sql_select_fields_only()</a></code> 
+        </dt>
+        <dd>Select specified fields from a table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_select_records_and_fields.html">sql_select_records_and_fields()</a></code> 
+        </dt>
+        <dd>Select specified records and fields from a table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_select_records_only.html">sql_select_records_only()</a></code> 
+        </dt>
+        <dd>Select specified records from a table</dd>
+      </dl><dl><dt>
+          
+          <code><a href="sql_server_read_data.html">sql_server_read_data()</a></code> 
+        </dt>
+        <dd>Read data from database management systems (DBMS).</dd>
       </dl></div>
-  </main></div>
+  </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
+    </nav></aside></div>
 
 
     <footer><div class="pkgdown-footer-left">

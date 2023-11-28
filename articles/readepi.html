@@ -35,7 +35,7 @@
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
     
 
-    <nav class="navbar fixed-top navbar-light navbar-expand-lg bg-light"><div class="container">
+    <nav class="navbar fixed-top navbar-dark navbar-expand-lg bg-dark"><div class="container">
     
     <a href="https://epiverse-trace.github.io/" class="external-link"><img src="../logo_white.svg" id="logo" alt="Epiverse-TRACE"></a>
     <a class="navbar-brand me-2" href="../index.html">readepi</a>
@@ -523,12 +523,12 @@ successful import.</p>
 <span>  data_source      <span class="op">=</span> <span class="st">"https://bbmc.ouhsc.edu/redcap/api/"</span>,</span>
 <span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">project_data</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[[</span><span class="st">"data"</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">project_data</span>     <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[[</span><span class="st">"data"</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="va">project_metadeta</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[[</span><span class="st">"metadata"</span><span class="op">]</span><span class="op">]</span></span>
 <span></span>
 <span><span class="co"># READING SPECIFIC FIELDS AND ALL RECORDS FROM THE PROJECT</span></span>
 <span><span class="va">fields</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"record_id"</span>, <span class="st">"name_first"</span>, <span class="st">"age"</span>, <span class="st">"bmi"</span><span class="op">)</span></span>
-<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span><span class="va">dat</span>    <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
 <span>  data_source      <span class="op">=</span> <span class="st">"https://bbmc.ouhsc.edu/redcap/api/"</span>,</span>
 <span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
 <span>  fields           <span class="op">=</span> <span class="va">fields</span></span>
@@ -536,7 +536,7 @@ successful import.</p>
 <span></span>
 <span><span class="co"># READING SPECIFIC RECORDS AND ALL FIELDS FROM THE PROJECT</span></span>
 <span><span class="va">records</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"3"</span>, <span class="st">"5"</span><span class="op">)</span></span>
-<span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
+<span><span class="va">dat</span>     <span class="op">&lt;-</span> <span class="fu"><a href="../reference/readepi.html">readepi</a></span><span class="op">(</span></span>
 <span>  data_source      <span class="op">=</span> <span class="st">"https://bbmc.ouhsc.edu/redcap/api/"</span>,</span>
 <span>  credentials_file <span class="op">=</span> <span class="va">credentials_file</span>,</span>
 <span>  records          <span class="op">=</span> <span class="va">records</span>,</span>
@@ -551,7 +551,7 @@ successful import.</p>
 <span>  fields           <span class="op">=</span> <span class="va">fields</span>,</span>
 <span>  id_col_name      <span class="op">=</span> <span class="st">"record_id"</span></span>
 <span><span class="op">)</span></span>
-<span><span class="va">project_data</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[[</span><span class="st">"data"</span><span class="op">]</span><span class="op">]</span></span>
+<span><span class="va">project_data</span>     <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[[</span><span class="st">"data"</span><span class="op">]</span><span class="op">]</span></span>
 <span><span class="va">project_metadeta</span> <span class="op">&lt;-</span> <span class="va">dat</span><span class="op">[[</span><span class="st">"metadata"</span><span class="op">]</span><span class="op">]</span></span></code></pre></div>
 </div>
 <div class="section level3">
@@ -599,35 +599,35 @@ interest (optional)<br>
 </ul>
 <div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># GETTING THE DATA ELEMENT IDENTIFIERS AND NAMES</span></span>
-<span><span class="va">data_elements</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_dhis2_attributes.html">get_dhis2_attributes</a></span><span class="op">(</span></span>
-<span>  base_url <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
-<span>  username <span class="op">=</span> <span class="st">"admin"</span>,</span>
-<span>  password <span class="op">=</span> <span class="st">"district"</span>,</span>
-<span>  which    <span class="op">=</span> <span class="st">"dataElements"</span></span>
+<span><span class="va">data_elements</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dhis2_get_attributes.html">dhis2_get_attributes</a></span><span class="op">(</span></span>
+<span>  base_url  <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
+<span>  user_name <span class="op">=</span> <span class="st">"admin"</span>,</span>
+<span>  password  <span class="op">=</span> <span class="st">"district"</span>,</span>
+<span>  which     <span class="op">=</span> <span class="st">"dataElements"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># GETTING THE DATASET IDENTIFIERS AND NAMES</span></span>
-<span><span class="va">datasets</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_dhis2_attributes.html">get_dhis2_attributes</a></span><span class="op">(</span></span>
-<span>  base_url <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
-<span>  username <span class="op">=</span> <span class="st">"admin"</span>,</span>
-<span>  password <span class="op">=</span> <span class="st">"district"</span>,</span>
-<span>  which    <span class="op">=</span> <span class="st">"dataSets"</span></span>
+<span><span class="va">datasets</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dhis2_get_attributes.html">dhis2_get_attributes</a></span><span class="op">(</span></span>
+<span>  base_url  <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
+<span>  user_name <span class="op">=</span> <span class="st">"admin"</span>,</span>
+<span>  password  <span class="op">=</span> <span class="st">"district"</span>,</span>
+<span>  which     <span class="op">=</span> <span class="st">"dataSets"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># GETTING THE ORGANISATION UNIT IDENTIFIERS AND NAMES</span></span>
-<span><span class="va">organisation_units</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_dhis2_attributes.html">get_dhis2_attributes</a></span><span class="op">(</span></span>
-<span>  base_url <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
-<span>  username <span class="op">=</span> <span class="st">"admin"</span>,</span>
-<span>  password <span class="op">=</span> <span class="st">"district"</span>,</span>
-<span>  which    <span class="op">=</span> <span class="st">"organisationUnits"</span></span>
+<span><span class="va">organisation_units</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dhis2_get_attributes.html">dhis2_get_attributes</a></span><span class="op">(</span></span>
+<span>  base_url  <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
+<span>  user_name <span class="op">=</span> <span class="st">"admin"</span>,</span>
+<span>  password  <span class="op">=</span> <span class="st">"district"</span>,</span>
+<span>  which     <span class="op">=</span> <span class="st">"organisationUnits"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># GETTING THE DATA ELEMENT GROUP IDENTIFIERS AND NAMES</span></span>
-<span><span class="va">data_element_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_dhis2_attributes.html">get_dhis2_attributes</a></span><span class="op">(</span></span>
-<span>  base_url <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
-<span>  username <span class="op">=</span> <span class="st">"admin"</span>,</span>
-<span>  password <span class="op">=</span> <span class="st">"district"</span>,</span>
-<span>  which    <span class="op">=</span> <span class="st">"dataElementGroups"</span></span>
+<span><span class="va">data_element_groups</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/dhis2_get_attributes.html">dhis2_get_attributes</a></span><span class="op">(</span></span>
+<span>  base_url  <span class="op">=</span> <span class="st">"https://play.dhis2.org/dev/"</span>,</span>
+<span>  user_name <span class="op">=</span> <span class="st">"admin"</span>,</span>
+<span>  password  <span class="op">=</span> <span class="st">"district"</span>,</span>
+<span>  which     <span class="op">=</span> <span class="st">"dataElementGroups"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># READING THE DATASET ID `pBOMPrpg1QX`</span></span>
@@ -730,7 +730,7 @@ databases.</p>
 <strong>{readepi}</strong> imports data from Fingertips-based APIs.</p>
 <div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># GET THE INFORMATION ABOUT THE INDICATOR PROFILES, DOMAIN, AREA TYPE, ...</span></span>
-<span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu">get_fingertips_metadata</span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">metadata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fingertips_get_metadata.html">fingertips_get_metadata</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">[[</span><span class="st">"indicator_profile_domain"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">[[</span><span class="st">"indicator_ids_names"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">metadata</span><span class="op">[[</span><span class="st">"area_type"</span><span class="op">]</span><span class="op">]</span><span class="op">)</span></span>
