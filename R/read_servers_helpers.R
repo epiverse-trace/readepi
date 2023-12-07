@@ -212,7 +212,7 @@ sql_select_data <- function(table_names,
                            null.ok = FALSE, unique = FALSE)
 
   result <- list()
-  j <- 1L
+  j      <- 1L
   for (table in table_names) {
     message("\nFetching data from: ", table)
 
@@ -334,7 +334,7 @@ sql_select_entire_dataset <- function(table,
                                       port) {
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+                              null.ok = FALSE, unique = TRUE)
 
   con   <- sql_connect_to_server(
     base_url, user_name, password, dbms, driver_name, database_name, port
@@ -398,14 +398,14 @@ sql_select_records_and_fields <- function(table,
                                           field          = NULL,
                                           id_pos         = NULL) {
   checkmate::assert_character(id_column_name,
-                              any.missing = FALSE,
+                              any.missing = FALSE, min.len = 0L,
                               null.ok = TRUE, unique = TRUE)
   checkmate::assert_character(id_pos,
-                              any.missing = FALSE,
+                              any.missing = FALSE, min.len = 0L,
                               null.ok = TRUE, unique = TRUE)
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+                              null.ok = FALSE, unique = TRUE)
   checkmate::assert_vector(record,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = TRUE, unique = TRUE)
@@ -460,10 +460,11 @@ visualise_table <- function(data_source,
                               null.ok = FALSE)
   checkmate::assert_character(credentials_file, null.ok = FALSE, len = 1L)
   checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L)
+  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L,
+                              any.missing = FALSE)
 
   credentials <- read_credentials(credentials_file, data_source)
-  con <- sql_connect_to_server(
+  con         <- sql_connect_to_server(
     credentials[["host"]], credentials[["user"]], credentials[["pwd"]],
     credentials[["dbms"]], driver_name, credentials[["project"]],
     credentials[["port"]]
@@ -529,11 +530,11 @@ sql_select_records_only <- function(table,
                            any.missing = FALSE, min.len = 0L,
                            null.ok = TRUE, unique = FALSE)
   checkmate::assert_vector(id_column_name,
-                           any.missing = FALSE, min.len = 1L,
+                           any.missing = FALSE, min.len = 0L,
                            null.ok = TRUE, unique = FALSE)
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+                              null.ok = FALSE, unique = TRUE)
   checkmate::assert_vector(record,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = TRUE, unique = TRUE)
@@ -606,7 +607,7 @@ sql_select_fields_only <- function(table,
                                    field) {
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+                              null.ok = FALSE, unique = TRUE)
   checkmate::assert_vector(field,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = TRUE, unique = TRUE)
@@ -615,20 +616,20 @@ sql_select_fields_only <- function(table,
     "Missing or NULL value found in record argument" =
       (anyNA(field) || !any(is.null(field)))
   )
-  con <- sql_connect_to_server(
+  con     <- sql_connect_to_server(
     base_url, user_name, password, dbms, driver_name, database_name, port
   )
   if (is.vector(field)) {
     field <- glue::glue_collapse(field, sep = ", ")
   }
-  field <- as.character(lapply(field, function(x) {
+  field   <- as.character(lapply(field, function(x) {
     gsub(" ", "", x, fixed = TRUE)
   }))
-  field <- as.character(lapply(field, function(x) {
+  field   <- as.character(lapply(field, function(x) {
     gsub(",", ", ", x, fixed = TRUE)
   }))
-  query <- sprintf("select %s from %s", field, table)
-  res <- DBI::dbGetQuery(con, query)
+  query   <- sprintf("select %s from %s", field, table)
+  res     <- DBI::dbGetQuery(con, query)
   pool::poolClose(con)
   res
 }

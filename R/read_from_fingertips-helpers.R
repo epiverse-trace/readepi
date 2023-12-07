@@ -54,7 +54,7 @@ fingertips_get_id_from_name <- function(metadata =
                          any.missing = FALSE)
   checkmate::assert_vector(indicator_name,
                            min.len = 1L, null.ok = FALSE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   indicator_name <- unlist(strsplit(indicator_name, ",", fixed = TRUE))
   idx <- suppressWarnings(
     as.numeric(
@@ -121,10 +121,10 @@ fingertips_get_id_from_dm_id <- function(metadata =
                          any.missing = FALSE)
   checkmate::assert_vector(domain_id,
                            min.len = 1L, null.ok = FALSE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   checkmate::assert_vector(indicator_name,
                            min.len = 1L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   # check if the provided domain_id is part of the Fingertips
   idx <- domain_id %in% metadata[["indicator_profile_domain"]][["DomainID"]]
 
@@ -195,10 +195,10 @@ fingertips_get_id_from_dm_name <- function(metadata =
                          any.missing = FALSE)
   checkmate::assert_vector(domain_name,
                            min.len = 1L, null.ok = FALSE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   checkmate::assert_vector(indicator_name,
                            min.len = 1L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   domain_name <- unlist(strsplit(domain_name, ",", fixed = TRUE))
   idx <- suppressWarnings(
     as.numeric(
@@ -265,10 +265,10 @@ fingertips_get_profile_name <- function(metadata =
                          any.missing = FALSE)
   checkmate::assert_vector(profile_name,
                            min.len = 1L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   checkmate::assert_vector(profile_id,
                            min.len = 1L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   if (!is.null(profile_id) && !is.null(profile_name)) {
     profile_name <- unlist(strsplit(profile_name, ",", fixed = TRUE))
     idx <- which(
@@ -333,16 +333,16 @@ fingertips_get_id_from_profile <- function(metadata =
                          any.missing = FALSE)
   checkmate::assert_vector(domain_id,
                            min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   checkmate::assert_vector(domain_name,
                            min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   checkmate::assert_vector(indicator_name,
                            min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   checkmate::assert_vector(profile_id,
                            min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   tmp_res      <- fingertips_get_profile_name(metadata, profile_id,
                                               profile_name)
   profile_name <- tmp_res[["profile_name"]]
@@ -402,9 +402,9 @@ fingertips_subset_rows <- function(data,
                                min.cols = 1L)
   checkmate::assert_vector(records,
                            min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   checkmate::assert_character(id_col_name,
-                              null.ok = TRUE, len = 1L,
+                              null.ok = TRUE, len = 1L, min.len = 0L,
                               any.missing = FALSE)
   if (!is.null(records)) {
     records <- unlist(strsplit(records, ",", fixed = TRUE))
@@ -450,7 +450,7 @@ fingertips_subset_columns <- function(data   = readepi(profile_id   = 19L,
                                null.ok = FALSE)
   checkmate::assert_vector(fields,
                            min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   if (!is.null(fields)) {
     fields <- unlist(strsplit(fields, ",", fixed = TRUE))
     fields <- gsub(" ", "", fields, fixed = TRUE)

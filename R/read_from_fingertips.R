@@ -120,6 +120,7 @@ read_from_fingertips <- function(indicator_id        = 90362L,
   data <- fingertipsR::fingertips_data(IndicatorID      = indicator_id,
                                        AreaTypeID       = area_type_id,
                                        ParentAreaTypeID = parent_area_type_id)
+  stopifnot("No data found for the provided indicators." = nrow(data) > 0L)
 
   # subset columns
   data <- fingertips_subset_columns(data, fields)

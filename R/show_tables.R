@@ -29,7 +29,8 @@ show_tables <- function(data_source,
     credentials_file <- system.file("extdata", "test.ini", package = "readepi")
   }
   checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L)
+  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L,
+                              any.missing = FALSE)
 
   # reading the credentials from the credential file
   stopifnot(file.exists(credentials_file))

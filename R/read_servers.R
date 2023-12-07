@@ -73,9 +73,7 @@ sql_server_read_data <- function(base_url,
   checkmate::assert_character(password,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
-  checkmate::assert_character(base_url,
-                              any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+  url_check(base_url)
   checkmate::assert_character(database_name,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
@@ -100,7 +98,7 @@ sql_server_read_data <- function(base_url,
   )
 
   # listing the names of the tables present in the database
-  tables      <- DBI::dbListTables(conn = con)
+  tables     <- DBI::dbListTables(conn = con)
   # closing the connection
   pool::poolClose(con)
 
@@ -130,7 +128,7 @@ sql_server_read_data <- function(base_url,
       dbms, driver_name, database_name, port,
       id_col_name, fields, records, id_position
     )
-    final_result <- c(final_result, from_table_names)
+    final_result     <- c(final_result, from_table_names)
   }
 
   # return the datasets of interest
