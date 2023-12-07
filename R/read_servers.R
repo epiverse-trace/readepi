@@ -133,5 +133,6 @@ sql_server_read_data <- function(base_url,
   }
 
   # return the datasets of interest
+  final_result[["metadata"]] = NA
   final_result
 }
