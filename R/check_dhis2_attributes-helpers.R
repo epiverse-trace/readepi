@@ -20,8 +20,7 @@ dhis2_make_api_request <- function(base_url,
                                    user_name,
                                    password,
                                    which     = "dataElements") {
-  checkmate::assert_character(base_url, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE, pattern = "https://")
+  url_check(base_url)
   checkmate::assert_character(user_name,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
@@ -74,9 +73,7 @@ dhis2_get_relevant_attributes <- function(base_url,
                                           password,
                                           attribute_id  = NULL,
                                           which         = "dataSets") {
-  checkmate::assert_character(base_url,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
+  url_check(base_url)
   checkmate::assert_character(user_name,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
@@ -150,9 +147,7 @@ dhis2_get_attributes <- function(base_url,
                                  user_name,
                                  password,
                                  which = "dataSets") {
-  checkmate::assert_character(base_url,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
+  url_check(base_url)
   checkmate::assert_character(user_name,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)

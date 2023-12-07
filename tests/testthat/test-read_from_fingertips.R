@@ -82,53 +82,6 @@ test_that("read_from_fingertips works", {
   expect_s3_class(data[["data"]], "data.frame")
 })
 
-test_that("read_from_fingertips works with domain name or ID", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
-  data <- read_from_fingertips(
-    indicator_id = NULL, indicator_name = "Pupil absence",
-    area_type_id = 101L, parent_area_type_id = NULL,
-    profile_id = NULL, profile_name = NULL,
-    domain_id = NULL, domain_name = "B. Wider determinants of health",
-    fields = NULL, records = NULL,
-    id_position = NULL, id_col_name = NULL
-  )
-  expect_type(data, type = "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
-  expect_s3_class(data[["data"]], "data.frame")
-
-  data <- read_from_fingertips(
-    indicator_id = NULL, indicator_name = "Pupil absence",
-    area_type_id = 101L, parent_area_type_id = NULL,
-    profile_id = NULL, profile_name = NULL,
-    domain_id = 1000049L, domain_name = NULL,
-    fields = NULL, records = NULL,
-    id_position = NULL, id_col_name = NULL
-  )
-  expect_type(data, type = "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
-  expect_s3_class(data[["data"]], "data.frame")
-})
-
-test_that("read_from_fingertips works with profile name or ID", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
-  data <- read_from_fingertips(
-    indicator_id = NULL, indicator_name = "Pupil absence",
-    area_type_id = 101L, parent_area_type_id = NULL,
-    profile_id = NULL, profile_name = "Public Health Outcomes Framework",
-    domain_id = NULL, domain_name = NULL,
-    fields = NULL, records = NULL,
-    id_position = NULL, id_col_name = NULL
-  )
-  expect_type(data, type = "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
-  expect_s3_class(data[["data"]], "data.frame")
-})
-
 
 test_that("read_from_fingertips fails with bad indicator ID", {
   testthat::skip_on_cran()

@@ -113,7 +113,7 @@ redcap_read_rows_columns <- function(base_url,
     fields_collapsed = fields,
     verbose          = FALSE
   )
-  metadata <- REDCapR::redcap_metadata_read(
+  metadata    <- REDCapR::redcap_metadata_read(
     redcap_uri = base_url,
     token      = token,
     verbose    = FALSE
