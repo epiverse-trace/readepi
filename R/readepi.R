@@ -27,6 +27,7 @@
 #'   from             = "author"
 #' )
 #' }
+#' @returns a `list` of 2 or more object(s) of type `data frame`.
 #' @export
 readepi <- function(data_source = NULL,
                     records     = NULL,
