@@ -22,7 +22,7 @@ Health-related data in general, and epidemiological data in particular, are stor
 
 The main objective of **{readepi}** package is to simplify the process of reading health-related data from diverse sources, allowing the user to focus more on downstream analysis tasks. **{readepi}**  also streamlines the way data is read into a single function ---it imports data from a specified systems (can be SQL database, or HIS API) using the `readepi()` function, which returns a  `list` object containing one or more data frames.
 
-The current implementation of **{readepi}** provides a function for reading data from three common HIS: ([REDCap](https://www.project-redcap.org/), [DHIS2](https://dhis2.org/), and [Fingertips](https://fingertips.phe.org.uk/)), and RDBMS such as MS SQL, MySQL, and PostgreSQL. Other utility functions for processing and manipulating the imported data, such as row or column/row sub-setting, are also included in this package.
+The current implementation of **{readepi}** provides a function for reading data from three common HIS: ([REDCap](https://www.project-redcap.org/), [DHIS2](https://dhis2.org/), and [Fingertips](https://fingertips.phe.org.uk/)), and RDBMS such as MS SQL, MySQL, and PostgreSQL. Other utility functions for processing and manipulating the imported data, such as row or column sub-setting, are also included in this package.
 
 ```{r setup, eval=TRUE}
 # LOAD readepi
@@ -136,7 +136,7 @@ This credential (tab-delimited) file must contain the following columns:
 6. `dbms`:       the type of the DBMS. Possible values are: `REDCap` when reading from REDCap; `MySQL` when reading from a MySQL server, `SQLServer` when reading from an MS SQL server, `PostgreSQL` when reading from a PostgreSQL system.\    
 7. `port`:       (optional)  the port ID, this is only used for MS SQL servers.
 
-To see the structure of a toy credentials file used as a template in the **{readepi}** package, use the `show_example_file()` function as shown below.
+To see the structure of a credentials file used as a template in the **{readepi}** package, use the `show_example_file()` function as shown below.
      
 ```{r eval=TRUE}
 # DISPLAY THE STRUCTURE OF THE TEMPLATE CREDENTIALS FILE
@@ -145,7 +145,7 @@ show_example_file()
 
 ## Examples
 
-This section contains various examples demonstrating how **{readepi}** imports data from databases. We assume that the credentials are stored in a file as explained above. Furthermore, these examples are based on a MySQL server that does not need the user to supply the `driver name`. 
+This section contains various examples demonstrating how **{readepi}** imports data from databases. We assume that the credentials are stored in a file as explained above. Furthermore, these examples are based on a MySQL server that does not need the user to supply the `driver name`.
 
 ```{r eval=TRUE}
 # DEFINING THE PATH TO THE TEMPLATE CREDENTIALS FILE

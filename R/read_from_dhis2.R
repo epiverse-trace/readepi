@@ -116,6 +116,7 @@ read_from_dhis2 <- function(base_url,
   data <- dhis2_subset_records(data, records, id_col_name)
 
   list(
-    data = data
+    data     = data,
+    metadata = NA
   )
 }

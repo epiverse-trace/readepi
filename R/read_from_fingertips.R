@@ -129,6 +129,7 @@ read_from_fingertips <- function(indicator_id        = 90362L,
   data <- fingertips_subset_rows(data, records, id_col_name)
 
   list(
-    data = data
+    data     = data,
+    metadata = NA
   )
 }
