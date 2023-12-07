@@ -134,17 +134,17 @@ dhis2_subset_records <- function(data,
                               any.missing = FALSE, min.len = 0L)
   if (!is.null(records)) {
     if (is.character(records)) {
-      records <- unlist(strsplit(records, ",", fixed = TRUE))
+      records      <- unlist(strsplit(records, ",", fixed = TRUE))
     }
     id_column_name <- id_col_name
-    idx       <- which(records %in% data[[id_column_name]])
+    idx            <- which(records %in% data[[id_column_name]])
     if (length(idx) == 0L) {
       stop("Speficied records not found in column: ", id_column_name)
     } else if (length(idx) < length(records)) {
       warning("The following records were not found: ", records[-idx])
-      records <- records[idx]
+      records      <- records[idx]
     }
-    data      <- data[which(data[[id_column_name]] %in% records), ]
+    data           <- data[which(data[[id_column_name]] %in% records), ]
   }
   data
 }
