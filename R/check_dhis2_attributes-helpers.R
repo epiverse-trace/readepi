@@ -101,7 +101,7 @@ dhis2_get_relevant_attributes <- function(base_url,
   }
   response   <- dhis2_make_api_request(base_url, user_name, password, which)
   content    <- httr::content(response, as = "parsed")
-  attributes <- do.call(rbind.data.frame, content[[which]])
+  attributes <- content %>% dplyr::bind_rows()
   if (which != "dataElements") {
     idx <- which(attribute_id %in% attributes[["id"]])
     if (length(idx) == 0L) {
@@ -169,6 +169,6 @@ dhis2_get_attributes <- function(base_url,
                                    "dataElementGroups", "dataElements"))
   response   <- dhis2_make_api_request(base_url, user_name, password, which)
   content    <- httr::content(response, as = "parsed")
-  attributes <- do.call(rbind.data.frame, content[[which]])
+  attributes <- content %>% dplyr::bind_rows()
   attributes
 }
