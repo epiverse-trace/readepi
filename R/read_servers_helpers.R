@@ -472,7 +472,7 @@ visualise_table <- function(data_source,
   query <- ifelse(credentials[["dbms"]] == "MySQL",
                   sprintf("select * from %s limit 5", from),
                   sprintf("select top 5 * from %s", from))
-  res <- DBI::dbGetQuery(con, query)
+  res   <- DBI::dbGetQuery(con, query)
   pool::poolClose(con)
   print(res)
 }
