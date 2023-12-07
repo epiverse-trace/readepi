@@ -48,9 +48,7 @@ read_from_dhis2 <- function(base_url,
                             records            = NULL,
                             fields             = NULL,
                             id_col_name        = "dataElement") {
-  checkmate::assert_character(base_url,
-                              len = 1L, null.ok = FALSE,
-                              any.missing = FALSE)
+  url_check(base_url)
   checkmate::assert_character(user_name,
                               len = 1L, null.ok = FALSE,
                               any.missing = FALSE)

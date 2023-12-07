@@ -37,9 +37,7 @@ read_from_redcap <- function(base_url,
   checkmate::assert_character(token,
                               n.chars = 32L, len = 1L, null.ok = FALSE,
                               any.missing = FALSE)
-  checkmate::assert_character(base_url,
-                              len = 1L, null.ok = FALSE,
-                              any.missing = FALSE)
+  url_check(base_url)
 
   stopifnot("Cannot specify both 'id_position' and 'id_col_name' at
             the same time." = !all(!is.null(id_position) &
