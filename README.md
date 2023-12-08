@@ -18,24 +18,22 @@ coverage](https://codecov.io/gh/epiverse-trace/readepi/branch/main/graph/badge.s
 <!-- badges: end -->
 
 **{readepi}** is an R package for reading data from several health
-information systems (HIS) including public repositories, relational
+information systems (HIS) including public repositories, and relational
 database management systems (RDBMS).
 
 **{readepi}** currently supports reading data from the followings:
 
-- RDBMS (Relational Database Management Systems) such as MS SQL, MySQL,
-  and PostgreSQL 
-- [REDCap](https://projectredcap.org/software/): Research Electronic
-  Data Capture - a secure web application for building and managing
+- RDBMS  such as MS SQL, MySQL,
+  and PostgreSQL. 
+- [REDCap](https://projectredcap.org/software/):a secure web application for building and managing
   online surveys and databases  
 - [DHIS2](https://dhis2.org/about/): an open source and web-based
-  platform for managing health information  
+  platform for managing health information. 
 - [Fingertips](https://fingertips.phe.org.uk/): a repository of public
-  health indicators in England
+  health indicators in England.
 
-**{readepi}** returns a list object containing one or more data frames.
-**{readepi}** also has a number of auxiliary functions that allow
-importing a subset of the original dataset.
+**{readepi}** returns a list object containing one or more data frames and  has a number of auxiliary functions for viewing, 
+importing a subset, and manipulating the original dataset.
 
 **{readepi}** is developed by
 [Epiverse-TRACE](https://data.org/initiatives/epiverse/) team at the
@@ -56,20 +54,16 @@ library(readepi)
 
 ## Quick start
 
-The main function in **{readepi}** is `readepi()`. It reads data from a
-specified source. The `readepi()` function accepts a user-supplied
-string (the API’s URL) as argument. Other specific arguments can be
-provided depending on the data source (see the **vignette** for more
+The main function in **{readepi}** is `readepi()`, which reads data from a
+specified source. The basic arguments of  the `readepi()` function are: a string of URL-link to the API, credential file, and other specific arguments that depend on the data source (see the **vignette** for more
 details). The examples below show how to use the `readepi()` function to
 import data from a variety of sources.
 
 ### Reading data from RDBMS and HIS
 
-The `readepi()` function can import data from a variety of RDBMS,
-including MS SQL, MySQL, and PostgreSQL. Reading data from a RDBMS
-requires the following:
+`readepi()` function requires the following to reading data from a RDBMS:
 
-1.  A MS SQL driver that is compatible with the version of DBMS of
+1.  A MS SQL driver that is compatible with the version of RDBMS of
     interest. The **vignette** describes how to install the appropriate
     driver for each database management system.  
 2.  Valid Credentials to access the server. The user credential details
