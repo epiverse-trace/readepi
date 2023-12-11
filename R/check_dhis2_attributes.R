@@ -12,7 +12,7 @@
 #' @examples
 #' \dontrun{
 #' attributes <- dhis2_check_attributes(
-#'   base_url            = "https://play.dhis2.org/dev/",
+#'   base_url            = "https://play.dhis2.org/dev",
 #'   user_name           = "admin",
 #'   password            = "district",
 #'   dataset             = "pBOMPrpg1QX",

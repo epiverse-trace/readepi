@@ -10,7 +10,7 @@ httptest::with_mock_api({
       which     = "dataElements"
     )
     expect_type(response, "list")
-    expect_length(response, 8L)
+    expect_length(response, 5L)
     expect_identical(response[["status_code"]], 200L)
   })
 

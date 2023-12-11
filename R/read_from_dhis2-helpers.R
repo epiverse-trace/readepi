@@ -26,9 +26,11 @@ dhis2_login <- function(base_url,
                         user_name,
                         password) {
   url  <- file.path(base_url, "api", "me")
-  resp <- httr::GET(url, httr::authenticate(user_name, password))
-  httr::stop_for_status(resp)
+  resp <- httr2::request(url) %>%
+    httr2::req_auth_basic(user_name, password) %>%
+    httr2::req_perform()
   message("\nLogged in successfully!")
+  invisible(resp)
 }
 
 #' Subset fields when reading from DHIS2
@@ -165,4 +167,43 @@ dhis2_get_attributes_from_user <- function(args_list) {
     start_date         = start_date,
     end_date           = end_date
   )
+}
+
+#' Make full URL from request attributes
+#'
+#' @param base_url the web address of the server the user wishes to log in to
+#' @param dataset a vector or a list of comma-separated data set identifiers
+#' @param org_unit a vector or a list of comma-separated organisation
+#'    unit identifiers
+#' @param start_date the start date for the time span of the values to export
+#' @param end_date the end date for the time span of the values to export
+#'
+#' @return a character string with the full URL to be used in the API request
+#' @keywords internal
+#'
+dhis2_make_request_url <- function(base_url,
+                                   dataset,
+                                   org_unit,
+                                   start_date = NULL,
+                                   end_date   = NULL) {
+  if (is.character(dataset)) {
+    dataset  <- unlist(strsplit(dataset, ",", fixed = TRUE))
+  }
+  if (is.character(org_unit)) {
+    org_unit <- unlist(strsplit(org_unit, ",", fixed = TRUE))
+  }
+  dataset    <- glue::glue_collapse(dataset, sep = "%2C")
+  dataset    <- glue::glue("?dataSet=", dataset, sep = "")
+  org_unit   <- glue::glue_collapse(org_unit, sep = "%2C")
+  org_unit   <- glue::glue("&orgUnit=", org_unit, sep = "")
+  url        <- glue::glue(base_url, dataset, org_unit, sep = "")
+  if (!is.null(start_date)) {
+    start_date <- glue::glue("&startDate=", start_date, sep = "")
+    url        <- glue::glue(url, start_date, sep = "")
+  }
+  if (!is.null(end_date)) {
+    end_date   <- glue::glue("&endDate=", end_date, sep = "")
+    url        <- glue::glue(url, end_date, sep = "")
+  }
+  url
 }

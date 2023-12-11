@@ -84,17 +84,16 @@ read_from_dhis2 <- function(base_url,
   )
 
   # fetching data
-  data <- httr::GET(
-    file.path(base_url, "api", "dataValueSets"),
-    httr::authenticate(user_name, password),
-    query = list(
-      dataSet   = attributes[["dataset"]],
-      orgUnit   = attributes[["organisation_unit"]],
-      startDate = start_date,
-      endDate   = end_date
-    )
-  ) %>%
-    httr::content() %>%
+  url      <- file.path(base_url, "api", "dataValueSets")
+  full_url <- dhis2_make_request_url(url,
+                                     dataset    = attributes[["dataset"]],
+                                     org_unit   = attributes[["organisation_unit"]], # nolint: line_length_linter
+                                     start_date = start_date,
+                                     end_date   = end_date)
+  data <- httr2::request(full_url) %>%
+    httr2::req_auth_basic(user_name, password) %>%
+    httr2::req_perform() %>%
+    httr2::resp_body_json() %>%
     dplyr::bind_rows()
 
   # add the variable names

@@ -35,8 +35,11 @@ dhis2_make_api_request <- function(base_url,
     which,
     "?fields=id,name,shortName&paging=false"
   )
-  response <- httr::GET(url, httr::authenticate(user_name, password))
-  response
+  # response <- httr::GET(url, httr::authenticate(user_name, password))
+  req <- httr2::request(url) %>%
+    httr2::req_auth_basic(user_name, password) %>%
+    httr2::req_perform()
+  req
 }
 
 #' Get the relevant dataset
@@ -80,14 +83,14 @@ dhis2_get_relevant_attributes <- function(base_url,
     attribute_id <- unlist(strsplit(attribute_id, ",", fixed = TRUE))
   }
   response   <- dhis2_make_api_request(base_url, user_name, password, which)
-  content    <- httr::content(response, as = "parsed")
+  content    <- httr2::resp_body_json(response)
   attributes <- content %>% dplyr::bind_rows()
   if (which != "dataElements") {
     idx <- which(attribute_id %in% attributes[["id"]])
     if (length(idx) == 0L) {
-      stop("Provided attribute ids not found!\n
-      Use readepi:::dhis2_make_api_request() function to view the list of
-      available attributes")
+      stop("Provided attribute ids not found!",
+           "Use readepi:::dhis2_make_api_request() function to view the list",
+           "of available attributes")
     }
     if (length(idx) < length(attribute_id)) {
       warning(
@@ -148,7 +151,7 @@ dhis2_get_attributes <- function(base_url,
   checkmate::check_choice(which, c("dataSets", "organisationUnits",
                                    "dataElementGroups", "dataElements"))
   response   <- dhis2_make_api_request(base_url, user_name, password, which)
-  content    <- httr::content(response, as = "parsed")
+  content    <- httr2::resp_body_json(response)
   attributes <- content %>% dplyr::bind_rows()
   attributes
 }
