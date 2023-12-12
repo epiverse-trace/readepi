@@ -157,9 +157,11 @@ url_check <- function(base_url) {
 #'
 #' @keywords internal
 url_check_domain_structure <- function(url_parts) {
-  url_domains                 <- unlist(strsplit(url_parts, ".", fixed = TRUE))
-  domain_structure_is_correct <- ifelse(length(url_domains) >= 3L,
-                                        TRUE,
-                                        FALSE)
+  domain_structure_is_correct   <- TRUE
+  url_domains                   <- unlist(strsplit(url_parts, ".",
+                                                   fixed = TRUE))
+  if (length(url_domains) < 3L) {
+    domain_structure_is_correct <- FALSE
+  }
   domain_structure_is_correct
 }
