@@ -29,19 +29,6 @@ dhis2_make_api_request <- function(base_url,
                                    user_name,
                                    password,
                                    which     = "dataElements") {
-  url_check(base_url)
-  checkmate::assert_character(user_name,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(password,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(which,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::check_choice(which,
-                          c("dataSets", "organisationUnits",
-                            "dataElementGroups", "dataElements"))
   url <- file.path(
     base_url,
     "api",
@@ -81,13 +68,6 @@ dhis2_get_relevant_attributes <- function(base_url,
                                           password,
                                           attribute_id  = NULL,
                                           which         = "dataSets") {
-  url_check(base_url)
-  checkmate::assert_character(user_name,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(password,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
   checkmate::assert_character(which,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
