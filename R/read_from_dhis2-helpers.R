@@ -25,13 +25,6 @@
 dhis2_login <- function(base_url,
                         user_name,
                         password) {
-  checkmate::assert_character(user_name,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  checkmate::assert_character(password,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
-  url_check(base_url)
   url  <- file.path(base_url, "api", "me")
   resp <- httr::GET(url, httr::authenticate(user_name, password))
   httr::stop_for_status(resp)
@@ -69,9 +62,6 @@ dhis2_subset_fields <- function(data,
   checkmate::assert_data_frame(data,
                                min.rows = 1L, null.ok = FALSE,
                                min.cols = 1L)
-  checkmate::assert_vector(fields,
-                           min.len = 1L, null.ok = TRUE,
-                           any.missing = FALSE, unique = TRUE)
   if (!is.null(fields)) {
     if (is.character(fields)) {
       fields <- unlist(strsplit(fields, ",",
@@ -126,12 +116,6 @@ dhis2_subset_records <- function(data,
   checkmate::assert_data_frame(data,
                                min.rows = 1L, null.ok = FALSE,
                                min.cols = 1L)
-  checkmate::assert_vector(records,
-                           min.len = 1L, null.ok = TRUE,
-                           any.missing = FALSE, unique = TRUE)
-  checkmate::assert_character(id_col_name,
-                              len = 1L, null.ok = TRUE,
-                              any.missing = FALSE, min.len = 0L)
   if (!is.null(records)) {
     if (is.character(records)) {
       records      <- unlist(strsplit(records, ",", fixed = TRUE))
