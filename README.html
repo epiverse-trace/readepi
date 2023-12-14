@@ -84,21 +84,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- Variables marked with double curly braces will be transformed beforehand: -->
 <!-- `packagename` is extracted from the DESCRIPTION file -->
 <!-- `gh_repo` is extracted via a special environment variable in GitHub Actions -->
-<section id="readepi-read-data-from-health-information-systems" class="level1">
-<h1>readepi: Read data from health information systems <img src="man/figures/logo.svg" align="right" width="130"></h1>
+<section id="readepi-importing-data-from-health-information-systems" class="level1">
+<h1>readepi: Importing data from health information systems <img src="man/figures/logo.svg" align="right" width="130"></h1>
 <!-- badges: start -->
 <p><a href="https://opensource.org/license/mit/"><img src="https://img.shields.io/badge/License-MIT-yellow.svg" class="img-fluid" alt="License: MIT"></a> <a href="https://github.com/epiverse-trace/readepi/actions/workflows/R-CMD-check.yaml"><img src="https://github.com/epiverse-trace/readepi/actions/workflows/R-CMD-check.yaml/badge.svg" class="img-fluid" alt="R-CMD-check"></a> <a href="https://app.codecov.io/gh/epiverse-trace/readepi?branch=main"><img src="https://codecov.io/gh/epiverse-trace/readepi/branch/main/graph/badge.svg" class="img-fluid" alt="Codecov test coverage"></a> <a href="https://www.reconverse.org/lifecycle.html#concept"><img src="https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-maturing.svg" class="img-fluid" alt="lifecycle-concept"></a> <!-- badges: end --></p>
-<p><strong>{readepi}</strong> is an R package for reading data from several health information systems (HIS) including public repositories, and relational database management systems (RDBMS).</p>
-<p><strong>{readepi}</strong> currently supports reading data from the followings:</p>
+<p><strong>{readepi}</strong> is an R package for reading data from several health information systems (HIS) including public repositories and relational database management systems (RDBMS). <strong>{readepi}</strong> currently supports reading data from the followings:</p>
 <ul>
 <li>RDBMS such as MS SQL, MySQL, and PostgreSQL.&nbsp;</li>
-<li><a href="https://projectredcap.org/software/">REDCap</a>:a secure web application for building and managing online surveys and databases<br>
+<li><a href="https://projectredcap.org/software/">REDCap</a>: a secure web application for building and managing online surveys and databases<br>
 </li>
 <li><a href="https://dhis2.org/about/">DHIS2</a>: an open source and web-based platform for managing health information.</li>
 <li><a href="https://fingertips.phe.org.uk/">Fingertips</a>: a repository of public health indicators in England.</li>
 </ul>
-<p><strong>{readepi}</strong> returns a list object containing one or more data frames and has a number of auxiliary functions for viewing, importing a subset, and manipulating the original dataset.</p>
-<p><strong>{readepi}</strong> is developed by <a href="https://data.org/initiatives/epiverse/">Epiverse-TRACE</a> team at the <a href="https://www.lshtm.ac.uk/research/units/mrc-gambia">Medical Research Center, The Gambia unit at London School of Hygiene and Tropical Medicine</a>.</p>
+<p><strong>{readepi}</strong> returns a list object containing one or more data frames, and has a number of auxiliary functions manipulating the imported dataset.</p>
+<p><strong>{readepi}</strong> is developed by <a href="https://data.org/initiatives/epiverse/">Epiverse-TRACE</a> team at the <a href="https://www.lshtm.ac.uk/research/units/mrc-gambia">Medical Research Council Unit The Gambia at the London School of Hygiene &amp; Tropical Medicine</a>.</p>
 <section id="installation" class="level2">
 <h2 class="anchored" data-anchor-id="installation">Installation</h2>
 <p>You can install the development version of <strong>{readepi}</strong> from <a href="https://github.com/epiverse-trace/readepi">GitHub</a> with:</p>
@@ -109,13 +108,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="quick-start" class="level2">
 <h2 class="anchored" data-anchor-id="quick-start">Quick start</h2>
 <p>The main function in <strong>{readepi}</strong> is <code>readepi()</code>, which reads data from a specified source. The basic arguments of the <code>readepi()</code> function are: a string of URL-link to the API, credential file, and other specific arguments that depend on the data source (see the <strong>vignette</strong> for more details). The examples below show how to use the <code>readepi()</code> function to import data from a variety of sources.</p>
-<section id="reading-data-from-rdbms-and-his" class="level3">
-<h3 class="anchored" data-anchor-id="reading-data-from-rdbms-and-his">Reading data from RDBMS and HIS</h3>
-<p><code>readepi()</code> function requires the following to reading data from a RDBMS:</p>
+<section id="reading-data-from-rdbms" class="level3">
+<h3 class="anchored" data-anchor-id="reading-data-from-rdbms">Reading data from RDBMS</h3>
+<p><code>readepi()</code> function requires the followings to reading data from a RDBMS:</p>
 <ol type="1">
 <li>A MS SQL driver that is compatible with the version of RDBMS of interest. The <strong>vignette</strong> describes how to install the appropriate driver for each database management system.<br>
 </li>
-<li>Valid Credentials to access the server. The user credential details are expected to be stored in a file that will be supplied as an argument of the <code>readepi()</code> function. Use the <code>show_example_file()</code> function to visualize the structure of the template credential file.</li>
+<li>Valid credentials to access the server. The user credential details are expected to be stored in a file that will be supplied as an argument of the <code>readepi()</code> function. Use the <code>show_example_file()</code> function to visualize the structure of template credential file.</li>
 </ol>
 <p>Users can read data from a RDBMS by providing the details of the tables of interest or an SQL query (for more information, see the <strong>vignette</strong>).</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># DEFINE THE PATH TO THE CREDENTIAL FILE</span></span>
@@ -153,35 +152,39 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">credentials_file =</span> credentials_file,</span>
 <span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>  <span class="at">from             =</span> <span class="st">"author"</span>, <span class="co"># this is the table name</span></span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  <span class="at">driver_name      =</span> <span class="st">""</span></span>
-<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="co"># READING DATA FROM DHIS2</span></span>
-<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  <span class="at">data_source        =</span> <span class="st">"https://play.dhis2.org/dev"</span>,</span>
-<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>  <span class="at">credentials_file   =</span> credentials_file,</span>
-<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="at">dataset            =</span> <span class="st">"pBOMPrpg1QX"</span>,</span>
-<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a>  <span class="at">organisation_unit  =</span> <span class="st">"DiszpKrYNg8"</span>,</span>
-<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a>  <span class="at">data_element_group =</span> <span class="cn">NULL</span>,</span>
-<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>  <span class="at">start_date         =</span> <span class="st">"2014"</span>,</span>
-<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date           =</span> <span class="st">"2023"</span></span>
-<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a><span class="co"># READING DATA FROM THE FINGERTIPS REPOSITORY</span></span>
-<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
-<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator_id        =</span> <span class="dv">90362</span>,</span>
-<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  <span class="at">area_type_id        =</span> <span class="dv">202</span>,</span>
-<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a>  <span class="at">parent_area_type_id =</span> <span class="dv">6</span> <span class="co"># optional</span></span>
-<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="reading-data-from-his" class="level3">
+<h3 class="anchored" data-anchor-id="reading-data-from-his">Reading data from HIS</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># READING DATA FROM DHIS2</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">data_source        =</span> <span class="st">"https://play.dhis2.org/dev"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">credentials_file   =</span> credentials_file,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">dataset            =</span> <span class="st">"pBOMPrpg1QX"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">organisation_unit  =</span> <span class="st">"DiszpKrYNg8"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data_element_group =</span> <span class="cn">NULL</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">start_date         =</span> <span class="st">"2014"</span>,</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">end_date           =</span> <span class="st">"2023"</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="reading-data-from-fingertips" class="level3">
+<h3 class="anchored" data-anchor-id="reading-data-from-fingertips">Reading data from Fingertips</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># READING DATA FROM THE FINGERTIPS REPOSITORY</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">readepi</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">indicator_id        =</span> <span class="dv">90362</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">area_type_id        =</span> <span class="dv">202</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">parent_area_type_id =</span> <span class="dv">6</span> <span class="co"># optional</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="package-vignettes" class="level2">
 <h2 class="anchored" data-anchor-id="package-vignettes">Package Vignettes</h2>
 <p>The vignette of the <strong>{readepi}</strong> package contains detailed illustrations about the use of each function and the description of every argument. This can be accessed by typing the command below:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OPEN THE VIGNETTE WITHIN RSTUDIO</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"readepi"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># OPEN THE VIGNETTE IN YOUR WEB BROWSER.</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">"readepi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># OPEN THE VIGNETTE WITHIN RSTUDIO</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">vignette</span>(<span class="st">"readepi"</span>)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># OPEN THE VIGNETTE IN YOUR WEB BROWSER.</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">browseVignettes</span>(<span class="st">"readepi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 <section id="development" class="level2">
 <h2 class="anchored" data-anchor-id="development">Development</h2>
