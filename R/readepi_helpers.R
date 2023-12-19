@@ -160,7 +160,7 @@ url_check_domain_structure <- function(url_parts) {
   domain_structure_is_correct   <- TRUE
   url_domains                   <- unlist(strsplit(url_parts, ".",
                                                    fixed = TRUE))
-  if (length(url_domains) < 3L) {
+  if (length(url_domains) <= 2L) {
     domain_structure_is_correct <- FALSE
   }
   domain_structure_is_correct
