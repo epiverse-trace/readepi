@@ -14,11 +14,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-Being able to import epidemiological-related data from the multiple sources plays an important role in providing real time accurate estimations and inferences during an outbreak. This is one of the central tasks in the early stage of the [Epiverse]() pipelines and workflows. As such, we thought of a centralized tool that will provide users with the possibility of importing data from various health information systems (HIS).
-
-In this vignette, we outline the design decisions that will guide the development strategies of the {readepi} R package, as well as some of the reasoning, and possible pros and cons of each decision.
-
 ## Concept and motivation
+In this document we outline the design decisions that will guide the development strategies of the {readepi} R package, as well as some of the reasoning, and possible pros and cons of each decision.
+
+Import data "from whatever source of it" into `R` environment is the first step in the workflows of outbreak analysis. Epidemiological data are often stored in files of different formats, public repositories, relational database management systems (RDBMS), and health information systems (HIS) wrapped with specific application program interfaces (APIs).  such, we thought of a centralized tool that will provide users with the possibility of importing data from various .
+
+
 
 There are several R packages designed to access data from specific HIS. They are usually tied to a single HIS and can't be used to query others. {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to fetch data from [Fingertips](https://fingertips.phe.org.uk/), [REDCap](https://projectredcap.org/software/), [goData](https://www.who.int/tools/godata), and [Global.Health](https://global.health/) respectively. In these packages, the API end points are accessed differently (please read how this is done from every package and state the differences). This introduces the challenge of having a unified framework for importing data from these HIS into R.
 
