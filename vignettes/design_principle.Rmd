@@ -23,7 +23,7 @@ Import data "from whatever source of it" into `R` environment is the first step 
 
 There are several R packages designed to access data from specific HIS. They are usually tied to a single HIS and can't be used to query others. {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to fetch data from [Fingertips](https://fingertips.phe.org.uk/), [REDCap](https://projectredcap.org/software/), [goData](https://www.who.int/tools/godata), and [Global.Health](https://global.health/) respectively. In these packages, the API end points are accessed differently (please read how this is done from every package and state the differences). This introduces the challenge of having a unified framework for importing data from these HIS into R.
 
-To address this challenge, PIs of the [Epiverse-TRACE]() came with a list of potential data sources for which we aim at building a tool to make requests and fetch the data of interest in the same way. The data sources include: distributed health information systems, and public databases as shown in the figure below. (Please edit this figure and include DHS - talk to Hugo to know how he built this).
+To address this challenge, PIs of the [Epiverse-TRACE](https://data.org/initiatives/epiverse/) came with a list of potential data sources for which we aim at building a tool to make requests and fetch the data of interest in the same way. The data sources include: distributed health information systems, and public databases as shown in the figure below. (Please edit this figure and include DHS - talk to Hugo to know how he built this).
 
 ![readepi roadmap](../man/figures/roadmap-readepi.drawio.png)
 
