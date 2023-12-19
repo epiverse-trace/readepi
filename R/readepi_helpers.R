@@ -138,8 +138,8 @@ fingertips_get_args <- function(args_list =
 url_check <- function(base_url) {
   checkmate::assert_character(base_url, any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
-  if (startsWith(base_url, "https://")) {
-    base_url   <- gsub("https://", "", base_url, fixed = TRUE)
+  if (startsWith(base_url, "https?://")) {
+    base_url   <- gsub("https?://", "", base_url, fixed = TRUE)
   }
 
   # split the URL parts
