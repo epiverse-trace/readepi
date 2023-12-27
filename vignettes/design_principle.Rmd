@@ -32,7 +32,7 @@ To address this challenge, PIs of the [Epiverse-TRACE](https://data.org/initiati
 The {readepi} package intends to import data from two common sources of institutional health-related data: health information systems (HIS) wrapped with specific program interfaces (APIs) and relational database management systems (RDBMS) that run on specific servers. Each source has its own import function, `read_from_api()` for HIS and `read_from_server()` for RDBMS. There is also an auxiliary function, `get_metadata()`, that retrieves metadata from a specified API and offers interoperability with the [{cleanepi} R package](https://epiverse-trace.github.io/cleanepi/).     
 The current version of {readepi} supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), Fingertips, GoData, and Globaldothealth, as well as RDBMS such as MS SQL, MS ACCESS, SQlite, MYSQL, and PostgreSQL. 
 
-![readepi design](../man/figures/readepi_design.svg)
+![readepi design diagram](../man/figures/readepi_design_diagram.drawio.svg)
 
 
 ## Output
