@@ -37,7 +37,7 @@ The current version of {readepi} supports importing data from HIS APIs such as R
 
 ## Output
 
-The two import functions return a `list` object containing one or more `data frames`. Each `data frame` corresponds to the data from a specified table or file. The `get_metadata()` function returns a data dictionary containing information about the data structure. 
+The two `read_from_*()` functions return a `list` object containing one or more `data frames`. Each `data frame` corresponds to the data from a specified table or file. The `get_metadata()` function returns a data dictionary containing information about the data structure. 
 
 ## Design decisions
 
