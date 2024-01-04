@@ -61,7 +61,7 @@ Both the API name and attributes are needed to build the API endpoint.
     * `src`: the name of the desired table or an SQL query, and
     * `condition`: when provided, this will serve for subsetting purpose. This is a `list` of two elements: fields and values.
 
-3. The `get_metadata()` function takes two arguments: a **credential** object and an **api** object. Both are defined in the paragraphs above. 
+3. The `get_metadata()` function takes two arguments: a **credential** object and an **api** object. Both are defined in the paragraphs above. It returns a data frame with the details about the structure of the data.
 
 ## Dependencies
 
@@ -80,7 +80,7 @@ It also has a system dependency for OS-X and Linux users. This will be described
 Both functions will require all other packages that needed in the package development process including:
 
   [{checkmate}](https://CRAN.R-project.org/package=checkmate),
-  [{httptest}](https://CRAN.R-project.org/package=httptest),
+  [{httptest2}](https://CRAN.R-project.org/package=httptest2),
   [{bookdown}](https://CRAN.R-project.org/package=bookdown),
   [{rmarkdown}](https://CRAN.R-project.org/package=rmarkdown),
   [{testthat}](https://CRAN.R-project.org/package=testthat) (>= 3.0.0),
