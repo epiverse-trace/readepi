@@ -199,3 +199,52 @@ test_that("fingertips_get_args fails as expected", {
   )
   expect_identical(res[["parent_area_type_id"]], 6L)
 })
+
+
+test_that("url_check works as expected", {
+  res <- url_check(base_url = "https://www.karim.sn")
+  expect_true(res)
+})
+
+test_that("url_check works as expected", {
+  res <- url_check(base_url = "http://www.karim.sn")
+  expect_true(res)
+})
+
+test_that("url_check works as expected", {
+  res <- url_check(base_url = "www.karim.sn")
+  expect_true(res)
+})
+
+test_that("url_check works as expected", {
+  res <- url_check(base_url = "karim.sn")
+  expect_true(res)
+})
+
+test_that("fingertips_get_args fails as expected", {
+  expect_error(
+    url_check("ftp://www.karim.sn"),
+    regexp = cat("URL must start with 'http://' or 'https://'.")
+  )
+
+  expect_error(
+    url_check("this_should_not_work"),
+    regexp = cat("URL must be in the form of 'https://test.com' or
+                 'https://www.test.com' or 'test.com'.")
+  )
+})
+
+test_that("url_check_domain_structure works as expected", {
+  res <- url_check_domain_structure("www.karim.sn")
+  expect_true(res)
+})
+
+test_that("url_check_domain_structure works as expected", {
+  res <- url_check_domain_structure("karim.sn")
+  expect_true(res)
+})
+
+test_that("url_check_domain_structure works as expected", {
+  res <- url_check_domain_structure("this_should_not_work")
+  expect_false(res)
+})
