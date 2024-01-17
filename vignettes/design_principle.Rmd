@@ -61,7 +61,7 @@ Both the API name and attributes are needed to build the API endpoint.
     * `src`: the name of the desired table or an SQL query, and
     * `condition`: when provided, this will serve for subsetting purpose. This is a `list` of two elements: fields and values.
 
-3. The `get_metadata()` function takes two arguments: a **credential** object and an **api** object. Both are defined in the paragraphs above. It returns a data frame with the details about the structure of the data.
+3. The `get_metadata()` function takes two arguments: a **credential** object and an **api** object. Both are defined in the paragraphs above. It returns a list of one or multiple data frame(s) with the details about the structure of the data. The output from this function can be used to construct the data dictionary needed for the dictionary-based cleaning function in {cleanepi}.
 
 ## Dependencies
 
@@ -73,7 +73,9 @@ The `read_from_api()` will rely mainly on 2 packages:
 The `read_from_server()` will rely mainly on 2 packages:
 
   [{DBI}](https://CRAN.R-project.org/package=DBI),
-  [{pool}](https://CRAN.R-project.org/package=pool)
+  [{pool}](https://CRAN.R-project.org/package=pool),
+  [{odbc}](https://CRAN.R-project.org/package=odbc),
+  [{RMySQL}](https://CRAN.R-project.org/package=RMySQL)
 
 It also has a system dependency for OS-X and Linux users. This will be described in details in the vignette.
 
