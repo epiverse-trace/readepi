@@ -129,7 +129,7 @@ fingertips_get_args <- function(args_list =
   )
 }
 
-#' Check if the base_url argument is specified as a correct URL
+#' Check if the value for the base_url argument has a correct structure
 #'
 #' @param base_url the URL to the HIS of interest
 #'
@@ -138,8 +138,8 @@ fingertips_get_args <- function(args_list =
 url_check <- function(base_url) {
   checkmate::assert_character(base_url, any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
-  if (startsWith(base_url, "https?://")) {
-    base_url   <- gsub("https?://", "", base_url, fixed = TRUE)
+  if (grepl("^https?://", base_url)) {
+    base_url   <- gsub("^https?://", "", base_url)
   }
 
   # split the URL parts
@@ -160,7 +160,7 @@ url_check_domain_structure <- function(url_parts) {
   domain_structure_is_correct   <- TRUE
   url_domains                   <- unlist(strsplit(url_parts, ".",
                                                    fixed = TRUE))
-  if (length(url_domains) <= 2L) {
+  if (length(url_domains) < 2L) {
     domain_structure_is_correct <- FALSE
   }
   domain_structure_is_correct
