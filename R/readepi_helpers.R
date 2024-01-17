@@ -149,6 +149,7 @@ url_check <- function(base_url) {
   domain_structure_is_correct <- url_check_domain_structure(url_parts[[1L]])
   stopifnot("Incorrect domain name in provided URL!" =
               domain_structure_is_correct)
+  return(domain_structure_is_correct)
 }
 
 #' Check whether the domain structure of the URL is correct
