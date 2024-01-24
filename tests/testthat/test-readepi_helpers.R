@@ -207,44 +207,39 @@ test_that("url_check works as expected", {
 })
 
 test_that("url_check works as expected", {
-  res <- url_check(base_url = "http://www.karim.sn")
+  res <- url_check(base_url = "stackoverflow.com")
   expect_true(res)
 })
 
 test_that("url_check works as expected", {
-  res <- url_check(base_url = "www.karim.sn")
+  res <- url_check(base_url = "stackoverflow.com/questions/ask")
   expect_true(res)
 })
 
 test_that("url_check works as expected", {
-  res <- url_check(base_url = "karim.sn")
+  res <- url_check(base_url = "https://stackoverflow.com/questions/ask")
   expect_true(res)
 })
 
-test_that("fingertips_get_args fails as expected", {
-  expect_error(
-    url_check("ftp://www.karim.sn"),
-    regexp = cat("URL must start with 'http://' or 'https://'.")
-  )
+test_that("url_check works as expected", {
+  res <- url_check(base_url = "http://www.amazon.com/Computers-Internet-Books/b/ref=bhp_bb0309A_comint2?ie=UTF8&node=5&pf_rd_m=ATVPDKIKX0DER&pf_rd_s=browse&pf_rd_r=0AH7GM29WF81Q72VPFDH&pf_rd_t=101&pf_rd_p=1273387142&pf_rd_i=283155") # nolint: line_length_linter
+  expect_true(res)
+})
 
+test_that("url_check fails as expected", {
   expect_error(
-    url_check("this_should_not_work"),
+    url_check("google"),
     regexp = cat("URL must be in the form of 'https://test.com' or
                  'https://www.test.com' or 'test.com'.")
   )
-})
-
-test_that("url_check_domain_structure works as expected", {
-  res <- url_check_domain_structure("www.karim.sn")
-  expect_true(res)
-})
-
-test_that("url_check_domain_structure works as expected", {
-  res <- url_check_domain_structure("karim.sn")
-  expect_true(res)
-})
-
-test_that("url_check_domain_structure works as expected", {
-  res <- url_check_domain_structure("this_should_not_work")
-  expect_false(res)
+  expect_error(
+    url_check("http://www"),
+    regexp = cat("URL must be in the form of 'https://test.com' or
+                 'https://www.test.com' or 'test.com'.")
+  )
+  expect_error(
+    url_check("http://www..des"),
+    regexp = cat("URL must be in the form of 'https://test.com' or
+                 'https://www.test.com' or 'test.com'.")
+  )
 })
