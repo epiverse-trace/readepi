@@ -9,6 +9,10 @@ url_check(base_url)
 \arguments{
 \item{base_url}{the URL to the HIS of interest}
 }
+\value{
+throws an error if the domain of the provided URL is not valid,
+(invisibly) TRUE
+}
 \description{
 Check if the value for the base_url argument has a correct structure
 }
