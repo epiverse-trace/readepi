@@ -12,7 +12,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' con <- connect_to_server(
+#' con <- sql_connect_to_server(
 #'   base_url      = "mysql-rfam-public.ebi.ac.uk",
 #'   user_name     = "rfamro",
 #'   password      = "",
@@ -23,14 +23,14 @@
 #' )
 #' }
 #' @keywords internal
-#' @noRd
-connect_to_server <- function(base_url,
-                              user_name,
-                              password,
-                              dbms,
-                              driver_name,
-                              database_name,
-                              port) {
+#'
+sql_connect_to_server <- function(base_url,
+                                  user_name,
+                                  password,
+                                  dbms,
+                                  driver_name,
+                                  database_name,
+                                  port) {
   con <- switch(
     dbms,
     SQLServer = pool::dbPool(odbc::odbc(),
@@ -67,9 +67,9 @@ connect_to_server <- function(base_url,
 #' @return a `character` with the identified tables name(s) from the SQL query
 #'
 #' @keywords internal
-#' @noRd
-identify_table_name <- function(query,
-                                tables) {
+#'
+sql_identify_table_name <- function(query,
+                                    tables) {
   checkmate::assert_character(query,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
@@ -101,7 +101,7 @@ identify_table_name <- function(query,
 #'
 #' @examples
 #' \dontrun{
-#' result <- fetch_data_from_query(
+#' result <- sql_fetch_data_from_query(
 #'   src           = "select author_id, name, last_name from author",
 #'   tables        = c("family_author", "author"),
 #'   base_url      = "mysql-rfam-public.ebi.ac.uk",
@@ -114,21 +114,21 @@ identify_table_name <- function(query,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
-fetch_data_from_query <- function(src,
-                                  tables,
-                                  base_url,
-                                  user_name,
-                                  password,
-                                  dbms,
-                                  driver_name,
-                                  database_name,
-                                  port) {
+#'
+sql_fetch_data_from_query <- function(src,
+                                      tables,
+                                      base_url,
+                                      user_name,
+                                      password,
+                                      dbms,
+                                      driver_name,
+                                      database_name,
+                                      port) {
   checkmate::assert_vector(tables,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = FALSE, unique = TRUE)
 
-  pool    <- connect_to_server(
+  pool    <- sql_connect_to_server(
     base_url      = base_url,
     user_name     = user_name,
     password      = password,
@@ -139,7 +139,7 @@ fetch_data_from_query <- function(src,
   )
   result  <- list()
   for (query in src) {
-    table <- identify_table_name(query, tables)
+    table <- sql_identify_table_name(query, tables)
     stopifnot("Could not detect table name from the query" = !is.null(table))
     result[[table]] <- DBI::dbGetQuery(pool, src)
   }
@@ -187,7 +187,7 @@ fetch_data_from_query <- function(src,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 sql_select_data <- function(table_names,
                             base_url,
                             user_name,
@@ -237,10 +237,10 @@ sql_select_data <- function(table_names,
       field  <- ifelse(all(grepl(",", fields, fixed = TRUE) &
                              length(fields) > 1L),
                        fields[j], fields)
-      id_column_name <- get_id_column_name(id_col_name,
-                                           j,
-                                           id_position)[["id_column_name"]]
-      id_pos <- get_id_column_name(id_col_name, j, id_position)[["id_pos"]]
+      id_column_name <- sql_get_id_column_name(id_col_name,
+                                               j,
+                                               id_position)[["id_column_name"]]
+      id_pos <- sql_get_id_column_name(id_col_name, j, id_position)[["id_pos"]]
       result[[table]] <- sql_select_records_and_fields(
         table, base_url, user_name, password, dbms,
         driver_name, database_name, port,
@@ -262,18 +262,10 @@ sql_select_data <- function(table_names,
 #' @returns a `list` of 2 elements of type `character` and `numeric`
 #'    corresponding to the ID column name and position.
 #' @keywords internal
-#' @noRd
 #'
-#' @examples
-#' id <- get_id_column_name(
-#'   id_col_name = c("author_id", "rfam_acc"),
-#'   j           = 1L,
-#'   id_position = c(1L, 1L)
-#' )
-#'
-get_id_column_name <- function(id_col_name,
-                               j,
-                               id_position = 1L) {
+sql_get_id_column_name <- function(id_col_name,
+                                   j,
+                                   id_position = 1L) {
   checkmate::assert_numeric(j,
                             lower = 1L, any.missing = FALSE,
                             len = 1L, null.ok = FALSE)
@@ -324,7 +316,7 @@ get_id_column_name <- function(id_col_name,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 sql_select_entire_dataset <- function(table,
                                       base_url,
                                       user_name,
@@ -335,9 +327,9 @@ sql_select_entire_dataset <- function(table,
                                       port) {
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+                              null.ok = FALSE, unique = TRUE)
 
-  con   <- connect_to_server(
+  con   <- sql_connect_to_server(
     base_url, user_name, password, dbms, driver_name, database_name, port
   )
   query <- sprintf("select * from %s", table)
@@ -385,7 +377,7 @@ sql_select_entire_dataset <- function(table,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 sql_select_records_and_fields <- function(table,
                                           base_url,
                                           user_name,
@@ -399,14 +391,14 @@ sql_select_records_and_fields <- function(table,
                                           field          = NULL,
                                           id_pos         = NULL) {
   checkmate::assert_character(id_column_name,
-                              any.missing = FALSE,
+                              any.missing = FALSE, min.len = 0L,
                               null.ok = TRUE, unique = TRUE)
   checkmate::assert_character(id_pos,
-                              any.missing = FALSE,
+                              any.missing = FALSE, min.len = 0L,
                               null.ok = TRUE, unique = TRUE)
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+                              null.ok = FALSE, unique = TRUE)
   checkmate::assert_vector(record,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = TRUE, unique = TRUE)
@@ -414,8 +406,8 @@ sql_select_records_and_fields <- function(table,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = TRUE, unique = TRUE)
 
-  con <- connect_to_server(base_url, user_name, password, dbms, driver_name,
-                           database_name, port)
+  con <- sql_connect_to_server(base_url, user_name, password, dbms, driver_name,
+                               database_name, port)
   res <- sql_select_records_only(table, base_url, user_name, password, dbms,
                                  driver_name,  database_name, port,
                                  record, id_column_name, id_pos)
@@ -452,10 +444,11 @@ visualise_table <- function(data_source,
                               null.ok = FALSE)
   checkmate::assert_character(credentials_file, null.ok = FALSE, len = 1L)
   checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L)
+  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L,
+                              any.missing = FALSE)
 
   credentials <- read_credentials(credentials_file, data_source)
-  con   <- connect_to_server(
+  con         <- sql_connect_to_server(
     credentials[["host"]], credentials[["user"]], credentials[["pwd"]],
     credentials[["dbms"]], driver_name, credentials[["project"]],
     credentials[["port"]]
@@ -505,7 +498,7 @@ visualise_table <- function(data_source,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 sql_select_records_only <- function(table,
                                     base_url,
                                     user_name,
@@ -521,17 +514,17 @@ sql_select_records_only <- function(table,
                            any.missing = FALSE, min.len = 0L,
                            null.ok = TRUE, unique = FALSE)
   checkmate::assert_vector(id_column_name,
-                           any.missing = FALSE, min.len = 1L,
+                           any.missing = FALSE, min.len = 0L,
                            null.ok = TRUE, unique = FALSE)
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+                              null.ok = FALSE, unique = TRUE)
   checkmate::assert_vector(record,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = TRUE, unique = TRUE)
 
-  con   <- connect_to_server(base_url, user_name, password, dbms, driver_name,
-                             database_name, port)
+  con   <- sql_connect_to_server(base_url, user_name, password, dbms,
+                                 driver_name, database_name, port)
   query <- ifelse(dbms == "MySQL",
                   sprintf("select * from %s limit 5", table),
                   sprintf("select top 5 * from %s", table))
@@ -586,7 +579,7 @@ sql_select_records_only <- function(table,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 sql_select_fields_only <- function(table,
                                    base_url,
                                    user_name,
@@ -598,7 +591,7 @@ sql_select_fields_only <- function(table,
                                    field) {
   checkmate::assert_character(table,
                               any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+                              null.ok = FALSE, unique = TRUE)
   checkmate::assert_vector(field,
                            any.missing = FALSE, min.len = 1L,
                            null.ok = TRUE, unique = TRUE)
@@ -607,20 +600,20 @@ sql_select_fields_only <- function(table,
     "Missing or NULL value found in record argument" =
       (anyNA(field) || !any(is.null(field)))
   )
-  con <- connect_to_server(
+  con     <- sql_connect_to_server(
     base_url, user_name, password, dbms, driver_name, database_name, port
   )
   if (is.vector(field)) {
     field <- glue::glue_collapse(field, sep = ", ")
   }
-  field <- as.character(lapply(field, function(x) {
+  field   <- as.character(lapply(field, function(x) {
     gsub(" ", "", x, fixed = TRUE)
   }))
-  field <- as.character(lapply(field, function(x) {
+  field   <- as.character(lapply(field, function(x) {
     gsub(",", ", ", x, fixed = TRUE)
   }))
-  query <- sprintf("select %s from %s", field, table)
-  res <- DBI::dbGetQuery(con, query)
+  query   <- sprintf("select %s from %s", field, table)
+  res     <- DBI::dbGetQuery(con, query)
   pool::poolClose(con)
   res
 }
@@ -633,15 +626,9 @@ sql_select_fields_only <- function(table,
 #'
 #' @return a list with the identified queries and tables
 #' @keywords internal
-#' @noRd
 #'
-#' @examples
-#' test <- identify_tables_and_queries(
-#'   src    = "select * from author",
-#'   tables = c("author", "karim")
-#' )
-identify_tables_and_queries <- function(src,
-                                        tables) {
+sql_identify_table_and_query <- function(src,
+                                         tables) {
   # detect the SQL queries
   # I assume that a query will contain at least 'select' and 'from' or both of
   # them

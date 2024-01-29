@@ -14,7 +14,7 @@
 #' @return a message if the login was successfull, thows an error otherwise.
 #'
 #' @keywords internal
-#' @noRd
+#'
 dhis2_login <- function(base_url,
                         user_name,
                         password) {
@@ -24,9 +24,7 @@ dhis2_login <- function(base_url,
   checkmate::assert_character(password,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
-  checkmate::assert_character(base_url,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
+  url_check(base_url)
   url  <- file.path(base_url, "api", "me")
   resp <- httr::GET(url, httr::authenticate(user_name, password))
   httr::stop_for_status(resp)
@@ -58,7 +56,7 @@ dhis2_login <- function(base_url,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 dhis2_subset_fields <- function(data,
                                 fields = c("dataElement", "period", "value")) {
   checkmate::assert_data_frame(data,
@@ -66,7 +64,7 @@ dhis2_subset_fields <- function(data,
                                min.cols = 1L)
   checkmate::assert_vector(fields,
                            min.len = 1L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   if (!is.null(fields)) {
     if (is.character(fields)) {
       fields <- unlist(strsplit(fields, ",",
@@ -115,7 +113,7 @@ dhis2_subset_fields <- function(data,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+#'
 dhis2_subset_records <- function(data,
                                  records,
                                  id_col_name = "dataElement") {
@@ -124,10 +122,10 @@ dhis2_subset_records <- function(data,
                                min.cols = 1L)
   checkmate::assert_vector(records,
                            min.len = 1L, null.ok = TRUE,
-                           any.missing = FALSE)
+                           any.missing = FALSE, unique = TRUE)
   checkmate::assert_character(id_col_name,
                               len = 1L, null.ok = TRUE,
-                              any.missing = FALSE)
+                              any.missing = FALSE, min.len = 0L)
   if (!is.null(records)) {
     if (is.character(records)) {
       records <- unlist(strsplit(records, ",", fixed = TRUE))
@@ -151,7 +149,7 @@ dhis2_subset_records <- function(data,
 #'
 #' @return an object of type `list` with the values for the DHIS2 attributes.
 #' @keywords internal
-#' @noRd
+#'
 dhis2_get_attributes_from_user <- function(args_list) {
   dataset <- organisation_unit <- data_element_group <- start_date <-
     end_date <- NULL

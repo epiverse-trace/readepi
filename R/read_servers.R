@@ -51,8 +51,6 @@
 #' }
 #' @importFrom magrittr %>%
 #' @keywords internal
-#' @noRd
-#'
 sql_server_read_data <- function(base_url,
                                  user_name,
                                  password,
@@ -76,9 +74,7 @@ sql_server_read_data <- function(base_url,
   checkmate::assert_character(password,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
-  checkmate::assert_character(base_url,
-                              any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
+  url_check(base_url)
   checkmate::assert_character(database_name,
                               any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
@@ -98,31 +94,31 @@ sql_server_read_data <- function(base_url,
   }
 
   # establishing the connection to the server
-  con <- connect_to_server(
+  con <- sql_connect_to_server(
     base_url, user_name, password, dbms, driver_name, database_name, port
   )
 
   # listing the names of the tables present in the database
-  tables      <- DBI::dbListTables(conn = con)
+  tables     <- DBI::dbListTables(conn = con)
   # closing the connection
   pool::poolClose(con)
 
   # separate the srcs
-  attributes <- identify_tables_and_queries(src = src, tables = tables)
+  attributes <- sql_identify_table_and_query(src = src, tables = tables)
   queries    <- attributes[["queries"]]
   src        <- attributes[["tables"]]
 
   # fetch data from queries
   if (length(queries) > 0L) {
-    from_query <- fetch_data_from_query(src           = queries,
-                                        tables        = tables,
-                                        base_url      = base_url,
-                                        user_name     = user_name,
-                                        password      = password,
-                                        dbms          = dbms,
-                                        driver_name   = driver_name,
-                                        database_name = database_name,
-                                        port          = port)
+    from_query <- sql_fetch_data_from_query(src           = queries,
+                                            tables        = tables,
+                                            base_url      = base_url,
+                                            user_name     = user_name,
+                                            password      = password,
+                                            dbms          = dbms,
+                                            driver_name   = driver_name,
+                                            database_name = database_name,
+                                            port          = port)
     final_result <- c(final_result, from_query)
   }
 
@@ -133,7 +129,7 @@ sql_server_read_data <- function(base_url,
       dbms, driver_name, database_name, port,
       id_col_name, fields, records, id_position
     )
-    final_result <- c(final_result, from_table_names)
+    final_result     <- c(final_result, from_table_names)
   }
 
   # return the datasets of interest

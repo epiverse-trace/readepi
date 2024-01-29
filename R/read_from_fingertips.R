@@ -27,6 +27,8 @@
 #' \dontrun{
 #'   data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)
 #' }
+#' @keywords internal
+#'
 read_from_fingertips <- function(indicator_id        = 90362L,
                                  indicator_name      = NULL,
                                  area_type_id        = 202L,
@@ -73,12 +75,12 @@ read_from_fingertips <- function(indicator_id        = 90362L,
             is.null(indicator_name) &
             is.null(domain_name) &
             is.null(area_type_id))) {
-    stop("\nPlease use the readepi:::get_fingertips_metadata() function to see
+    stop("\nPlease use the readepi:::fingertips_get_metadata() function to see
          the Fingertips metadata.")
   }
 
   # extract the metadata
-  metadata <- get_fingertips_metadata()
+  metadata <- fingertips_get_metadata()
 
   # check if the area type ID is not provided
   if (is.null(area_type_id)) {
@@ -90,12 +92,12 @@ read_from_fingertips <- function(indicator_id        = 90362L,
 
   # get the indicator ID from the indicator name
   if (!is.null(indicator_name) && is.null(indicator_id)) {
-    indicator_id <- get_ind_id_from_ind_name(metadata, indicator_name)
+    indicator_id <- fingertips_get_id_from_name(metadata, indicator_name)
   }
 
   # get the indicator ID from the domain ID
   if (!is.null(domain_id) && is.null(indicator_id)) {
-    indicator_id <- get_ind_id_from_domain_id(
+    indicator_id <- fingertips_get_id_from_dm_id(
       metadata, domain_id,
       indicator_name
     )
@@ -103,24 +105,25 @@ read_from_fingertips <- function(indicator_id        = 90362L,
 
   # get the indicator ID from the domain name
   if (!is.null(domain_name) && all(is.null(indicator_id) & is.null(domain_id))) { # nolint: line_length_linter
-    indicator_id <- get_ind_id_from_domain_name(metadata,
-                                                domain_name,
-                                                indicator_name)
+    indicator_id <- fingertips_get_id_from_dm_name(metadata,
+                                                   domain_name,
+                                                   indicator_name)
   }
   # get the indicator ID from the profile ID or profile name
   if (any(!is.null(profile_id) | !is.null(profile_name)) && is.null(indicator_id)) { # nolint: line_length_linter
-    indicator_id <- get_ind_id_from_profile(metadata,
-                                            domain_id,
-                                            domain_name,
-                                            indicator_name,
-                                            profile_name,
-                                            profile_id)
+    indicator_id <- fingertips_get_id_from_profile(metadata,
+                                                   domain_id,
+                                                   domain_name,
+                                                   indicator_name,
+                                                   profile_name,
+                                                   profile_id)
   }
 
   # extract the data
   data <- fingertipsR::fingertips_data(IndicatorID      = indicator_id,
                                        AreaTypeID       = area_type_id,
                                        ParentAreaTypeID = parent_area_type_id)
+  stopifnot("No data found for the provided indicators." = nrow(data) > 0L)
 
   # subset columns
   data <- fingertips_subset_columns(data, fields)

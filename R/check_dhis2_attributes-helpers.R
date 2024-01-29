@@ -15,13 +15,12 @@
 #' @return an object of class `data.frame` that contains the information of
 #'    interest.
 #' @keywords internal
-#' @noRd
+
 dhis2_make_api_request <- function(base_url,
                                    user_name,
                                    password,
                                    which     = "dataElements") {
-  checkmate::assert_character(base_url, len = 1L, any.missing = FALSE,
-                              null.ok = FALSE, pattern = "https://")
+  url_check(base_url)
   checkmate::assert_character(user_name,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
@@ -68,15 +67,13 @@ dhis2_make_api_request <- function(base_url,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
+
 dhis2_get_relevant_attributes <- function(base_url,
                                           user_name,
                                           password,
                                           attribute_id  = NULL,
                                           which         = "dataSets") {
-  checkmate::assert_character(base_url,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
+  url_check(base_url)
   checkmate::assert_character(user_name,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
@@ -139,20 +136,18 @@ dhis2_get_relevant_attributes <- function(base_url,
 #'
 #' @examples
 #' \dontrun{
-#' datasets <- get_dhis2_attributes(
+#' datasets <- dhis2_get_attributes(
 #'   base_url  = "https://play.dhis2.org/dev/",
 #'   user_name = "admin",
 #'   password  = "district",
 #'   which     = "dataSets"
 #' )
 #' }
-get_dhis2_attributes <- function(base_url,
+dhis2_get_attributes <- function(base_url,
                                  user_name,
                                  password,
                                  which = "dataSets") {
-  checkmate::assert_character(base_url,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = FALSE)
+  url_check(base_url)
   checkmate::assert_character(user_name,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)

@@ -26,7 +26,7 @@
 #' @returns a `list` of 2 elements of type `data.frame`. They include a data
 #'     frame of the dataset of interest and its associated metadata.
 #' @keywords internal
-#' @noRd
+#'
 read_from_redcap <- function(base_url,
                              token,
                              records     = NULL,
@@ -37,9 +37,7 @@ read_from_redcap <- function(base_url,
   checkmate::assert_character(token,
                               n.chars = 32L, len = 1L, null.ok = FALSE,
                               any.missing = FALSE)
-  checkmate::assert_character(base_url,
-                              len = 1L, null.ok = FALSE,
-                              any.missing = FALSE)
+  url_check(base_url)
 
   stopifnot("Cannot specify both 'id_position' and 'id_col_name' at
             the same time." = !all(!is.null(id_position) &
@@ -47,7 +45,7 @@ read_from_redcap <- function(base_url,
   id_position <- ifelse(!is.null(id_position), id_position, 1L)
 
   # importing data and the metadata into R
-  tmp_res <- import_redcap_data(
+  tmp_res <- redcap_import_data(
     base_url, token, records, fields,
     id_position, id_col_name
   )

@@ -1,6 +1,6 @@
 #' Display the list of tables in a database
 #'
-#' @param data_source the URL of the HIS of interest
+#' @param data_source the URL of the server of interest
 #' @param credentials_file the path to the file with the user-specific
 #'    credential details for the projects of interest. See the help of
 #'    the `readepi` function for more details.
@@ -28,7 +28,8 @@ show_tables <- function(data_source,
     credentials_file <- system.file("extdata", "test.ini", package = "readepi")
   }
   checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L)
+  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L,
+                              any.missing = FALSE)
 
   # reading the credentials from the credential file
   stopifnot(file.exists(credentials_file))

@@ -7,7 +7,7 @@
 show_tables(data_source, driver_name, credentials_file = NULL)
 }
 \arguments{
-\item{data_source}{the URL of the HIS of interest}
+\item{data_source}{the URL of the server of interest}
 
 \item{driver_name}{the name of the MS driver. use \code{odbc::odbcListDrivers()}
 to display the list of installed drivers}

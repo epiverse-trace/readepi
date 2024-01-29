@@ -81,8 +81,8 @@ httptest::with_mock_api({
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   testthat::skip_if_not_installed("httptest")
-  test_that("get_fingertips_metadata works as expected", {
-    metadata <- get_fingertips_metadata()
+  test_that("fingertips_get_metadata works as expected", {
+    metadata <- fingertips_get_metadata()
     expect_type(metadata, "list")
     expect_length(metadata, 3L)
     expect_named(metadata, c(
@@ -95,10 +95,10 @@ httptest::with_mock_api({
     expect_s3_class(metadata[["area_type"]], "data.frame")
   })
 
-  test_that("get_ind_id_from_ind_name works as expected", {
+  test_that("fingertips_get_id_from_name works as expected", {
     testthat::skip_on_cran()
     testthat::skip_if_offline()
-    indicator_id <- get_ind_id_from_ind_name(
+    indicator_id <- fingertips_get_id_from_name(
       metadata       = list(
         indicator_profile_domain = fingertipsR::indicators(),
         indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -112,11 +112,11 @@ httptest::with_mock_api({
     expect_identical(indicator_id, 10301L)
   })
 
-  test_that("get_ind_id_from_ind_name fails as expected", {
+  test_that("fingertips_get_id_from_name fails as expected", {
     testthat::skip_on_cran()
     testthat::skip_if_offline()
     expect_error(
-      get_ind_id_from_ind_name(
+      fingertips_get_id_from_name(
         metadata      = list(
           indicator_profile_domain = fingertipsR::indicators(),
           indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -128,7 +128,7 @@ httptest::with_mock_api({
     )
 
     expect_error(
-      get_ind_id_from_ind_name(
+      fingertips_get_id_from_name(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
           indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -140,7 +140,7 @@ httptest::with_mock_api({
     )
 
     expect_warning(
-      get_ind_id_from_ind_name(
+      fingertips_get_id_from_name(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
           indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -152,10 +152,10 @@ httptest::with_mock_api({
     )
   })
 
-  test_that("get_ind_id_from_domain_id works as expected", {
+  test_that("fingertips_get_id_from_dm_id works as expected", {
     testthat::skip_on_cran()
     testthat::skip_if_offline()
-    indicator_id <- get_ind_id_from_domain_id(
+    indicator_id <- fingertips_get_id_from_dm_id(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
         indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -168,7 +168,7 @@ httptest::with_mock_api({
     expect_type(indicator_id, "integer")
     expect_length(indicator_id, 1L)
 
-    indicator_id <- get_ind_id_from_domain_id(
+    indicator_id <- fingertips_get_id_from_dm_id(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
         indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -182,11 +182,11 @@ httptest::with_mock_api({
     expect_length(indicator_id, 42L)
   })
 
-  test_that("get_ind_id_from_domain_id works as expected", {
+  test_that("fingertips_get_id_from_dm_id works as expected", {
     testthat::skip_on_cran()
     testthat::skip_if_offline()
     expect_error(
-      get_ind_id_from_domain_id(
+      fingertips_get_id_from_dm_id(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
           indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -199,7 +199,7 @@ httptest::with_mock_api({
     )
 
     expect_warning(
-      get_ind_id_from_domain_id(
+      fingertips_get_id_from_dm_id(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
           indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -212,7 +212,7 @@ httptest::with_mock_api({
     )
 
     expect_error(
-      get_ind_id_from_domain_id(
+      fingertips_get_id_from_dm_id(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
           indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -225,10 +225,10 @@ httptest::with_mock_api({
     )
   })
 
-  test_that("get_ind_id_from_domain_name works as expected", {
+  test_that("fingertips_get_id_from_dm_name works as expected", {
     testthat::skip_on_cran()
     testthat::skip_if_offline()
-    indicator_id <- get_ind_id_from_domain_name(
+    indicator_id <- fingertips_get_id_from_dm_name(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
         indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -241,7 +241,7 @@ httptest::with_mock_api({
     expect_type(indicator_id, "integer")
     expect_length(indicator_id, 1L)
 
-    indicator_id <- get_ind_id_from_domain_name(
+    indicator_id <- fingertips_get_id_from_dm_name(
       metadata = list(
         indicator_profile_domain = fingertipsR::indicators(),
         indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -255,11 +255,11 @@ httptest::with_mock_api({
     expect_length(indicator_id, 42L)
   })
 
-  test_that("get_ind_id_from_domain_name fails as expected", {
+  test_that("fingertips_get_id_from_dm_name fails as expected", {
     testthat::skip_on_cran()
     testthat::skip_if_offline()
     expect_error(
-      get_ind_id_from_domain_name(
+      fingertips_get_id_from_dm_name(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
           indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -272,7 +272,7 @@ httptest::with_mock_api({
     )
 
     expect_warning(
-      get_ind_id_from_domain_name(
+      fingertips_get_id_from_dm_name(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
           indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -285,11 +285,11 @@ httptest::with_mock_api({
     )
   })
 
-  test_that("get_ind_id_from_profile works as expected when all arguments are
-            provided", {
+  test_that("fingertips_get_id_from_profile works as expected when all arguments
+            are provided", {
               testthat::skip_on_cran()
               testthat::skip_if_offline()
-              indicator_id <- get_ind_id_from_profile(
+              indicator_id <- fingertips_get_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
                     fingertipsR::indicators(),
@@ -308,11 +308,11 @@ httptest::with_mock_api({
               expect_length(indicator_id, 1L)
             })
 
-  test_that("get_ind_id_from_profile works as expected when only the profile
-            name is provided", {
+  test_that("fingertips_get_id_from_profile works as expected when only the
+            profile name is provided", {
               testthat::skip_on_cran()
               testthat::skip_if_offline()
-              indicator_id <- get_ind_id_from_profile(
+              indicator_id <- fingertips_get_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
                     fingertipsR::indicators(),
@@ -331,11 +331,11 @@ httptest::with_mock_api({
               expect_length(indicator_id, 179L)
             })
 
-  test_that("get_ind_id_from_profile works as expected when only the profile
-            and indicator names is provided", {
+  test_that("fingertips_get_id_from_profile works as expected when only the
+            profile and indicator names is provided", {
               testthat::skip_on_cran()
               testthat::skip_if_offline()
-              indicator_id <- get_ind_id_from_profile(
+              indicator_id <- fingertips_get_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
                     fingertipsR::indicators(),
@@ -354,7 +354,7 @@ httptest::with_mock_api({
               expect_length(indicator_id, 1L)
               expect_identical(indicator_id, 10301L)
 
-              indicator_id <- get_ind_id_from_profile(
+              indicator_id <- fingertips_get_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
                     fingertipsR::indicators(),
@@ -374,11 +374,11 @@ httptest::with_mock_api({
               expect_identical(indicator_id, 10301L)
             })
 
-  test_that("get_ind_id_from_profile works as expected when only the profile
-            name is provided", {
+  test_that("fingertips_get_id_from_profile works as expected when only the
+            profile name is provided", {
               testthat::skip_on_cran()
               testthat::skip_if_offline()
-              indicator_id <- get_ind_id_from_profile(
+              indicator_id <- fingertips_get_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
                     fingertipsR::indicators(),
@@ -397,11 +397,11 @@ httptest::with_mock_api({
               expect_length(indicator_id, 179L)
             })
 
-  test_that("get_ind_id_from_profile works as expected when the profile ID and
-            domain name is provided", {
+  test_that("fingertips_get_id_from_profile works as expected when the profile
+            ID and domain name is provided", {
               testthat::skip_on_cran()
               testthat::skip_if_offline()
-              indicator_id <- get_ind_id_from_profile(
+              indicator_id <- fingertips_get_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
                     fingertipsR::indicators(),
@@ -420,11 +420,11 @@ httptest::with_mock_api({
               expect_length(indicator_id, 42L)
             })
 
-  test_that("get_ind_id_from_profile works as expected when the profile ID and
-            domain name is provided", {
+  test_that("fingertips_get_id_from_profile works as expected when the profile
+            ID and domain name is provided", {
               testthat::skip_on_cran()
               testthat::skip_if_offline()
-              indicator_id <- get_ind_id_from_profile(
+              indicator_id <- fingertips_get_id_from_profile(
                 metadata = list(
                   indicator_profile_domain =
                     fingertipsR::indicators(),
@@ -443,11 +443,11 @@ httptest::with_mock_api({
               expect_length(indicator_id, 42L)
             })
 
-  test_that("get_ind_id_from_profile fails as expected", {
+  test_that("fingertips_get_id_from_profile fails as expected", {
     testthat::skip_on_cran()
     testthat::skip_if_offline()
     expect_error(
-      get_ind_id_from_profile(
+      fingertips_get_id_from_profile(
         metadata = list(
           indicator_profile_domain = fingertipsR::indicators(),
           indicator_ids_names      = fingertipsR::indicators_unique(),
@@ -463,10 +463,10 @@ httptest::with_mock_api({
     )
   })
 
-  test_that("get_profile_name works as expected", {
+  test_that("fingertips_get_profile_name works as expected", {
     testthat::skip_on_cran()
     testthat::skip_if_offline()
-    res <- get_profile_name(
+    res <- fingertips_get_profile_name(
       profile_id   = 19L,
       profile_name = "Public Health Outcomes Framework",
       metadata = list(

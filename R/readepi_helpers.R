@@ -14,12 +14,9 @@
 #' )
 #' }
 #' @keywords internal
-#' @noRd
 #' @importFrom utils read.table
 read_credentials <- function(file_path, base_url) {
-  checkmate::assert_character(base_url,
-                              len = 1L, null.ok = FALSE,
-                              any.missing = FALSE)
+  url_check(base_url)
   checkmate::assert_file(file_path)
 
   credentials <- read.table(file_path, sep = "\t", header = TRUE)
@@ -59,18 +56,16 @@ read_credentials <- function(file_path, base_url) {
 #'
 #' @return a `list` of 8 elements of type `character` and `numeric` that will be
 #'    used for importing data from Fingertips
-#'
 #' @keywords internal
-#' @noRd
-get_read_fingertips_args <- function(args_list =
-                                       list(indicator_id        = NULL,
-                                            indicator_name      = NULL,
-                                            area_type_id        = NULL,
-                                            profile_id          = NULL,
-                                            profile_name        = NULL,
-                                            domain_id           = NULL,
-                                            domain_name         = NULL,
-                                            parent_area_type_id = NULL)) {
+fingertips_get_args <- function(args_list =
+                                  list(indicator_id        = NULL,
+                                       indicator_name      = NULL,
+                                       area_type_id        = NULL,
+                                       profile_id          = NULL,
+                                       profile_name        = NULL,
+                                       domain_id           = NULL,
+                                       domain_name         = NULL,
+                                       parent_area_type_id = NULL)) {
   checkmate::assert_list(args_list)
   if ("indicator_id" %in% names(args_list)) {
     indicator_id <- args_list[["indicator_id"]]
@@ -123,4 +118,23 @@ get_read_fingertips_args <- function(args_list =
     domain_name         = domain_name,
     parent_area_type_id = parent_area_type_id
   )
+}
+
+#' Check if the value for the base_url argument has a correct structure
+#'
+#' @param base_url the URL to the HIS of interest
+#'
+#' @returns throws an error if the domain of the provided URL is not valid,
+#'    (invisibly) TRUE
+#'
+#' @keywords internal
+#'
+url_check <- function(base_url) {
+  checkmate::assert_character(base_url, any.missing = FALSE, len = 1L,
+                              null.ok = FALSE)
+  regex  <- "^(https?://)?(www\\.)?([a-z0-9]([a-z0-9]|(\\-[a-z0-9]))*\\.)+[a-z]+$" # nolint: line_length_linter
+  domain <- strsplit(gsub("^(https?://)?(www\\.)?", "", base_url),
+                     "/")[[c(1L, 1L)]]
+  stopifnot("Incorrect domain name in provided URL!" = grepl(regex, domain))
+  return(invisible(TRUE))
 }

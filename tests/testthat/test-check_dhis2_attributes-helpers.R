@@ -68,8 +68,8 @@ httptest::with_mock_api({
               expect_s3_class(result[["data_elt_groups"]], "data.frame")
             })
 
-  test_that("get_dhis2_attributes works as expected", {
-    attributes <- get_dhis2_attributes(
+  test_that("dhis2_get_attributes works as expected", {
+    attributes <- dhis2_get_attributes(
       base_url  = file.path("https:/", "play.dhis2.org", "dev"),
       user_name = "admin",
       password  = "district",

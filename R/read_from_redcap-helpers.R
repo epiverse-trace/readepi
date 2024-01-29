@@ -16,21 +16,8 @@
 #'
 #' @return a `list` of 2 elements of type `data.frame`. These are the dataset of
 #'    interest and its associated metadata.
-#' @examples
-#' \dontrun{
-#' result <- import_redcap_data(
-#'   base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
-#'   token       = "9A81268476645C4E5F03428B8AC3AA7B",
-#'   records     = c("1", "3", "5"),
-#'   fields      = c("record_id", "name_first", "age", "bmi"),
-#'   id_position = 1
-#'   id_col_name = NULL
-#' )
-#' }
 #' @keywords internal
-#' @noRd
-#'
-import_redcap_data <- function(base_url,
+redcap_import_data <- function(base_url,
                                token,
                                records     = NULL,
                                fields      = NULL,
@@ -71,7 +58,7 @@ import_redcap_data <- function(base_url,
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data and its associated metadata.
 #' @keywords internal
-#' @noRd
+#'
 redcap_read_data <- function(base_url,
                              token,
                              id_position = 1L) {
@@ -110,7 +97,7 @@ redcap_read_data <- function(base_url,
 #'    data with only the records and fields of interest and its associated
 #'    metadata.
 #' @keywords internal
-#' @noRd
+#'
 redcap_read_rows_columns <- function(base_url,
                                      token,
                                      fields      = NULL,
@@ -125,7 +112,7 @@ redcap_read_rows_columns <- function(base_url,
     fields_collapsed = fields,
     verbose          = FALSE
   )
-  metadata <- REDCapR::redcap_metadata_read(
+  metadata    <- REDCapR::redcap_metadata_read(
     redcap_uri = base_url,
     token      = token,
     verbose    = FALSE
@@ -168,7 +155,7 @@ redcap_read_rows_columns <- function(base_url,
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data with the fields of interest and its associated metadata.
 #' @keywords internal
-#' @noRd
+#'
 redcap_read_fields <- function(base_url,
                                token,
                                fields,
@@ -204,7 +191,7 @@ redcap_read_fields <- function(base_url,
 #' @return a `list` of 2 elements of type `data.frame` that contain the project
 #'    data with the records of interest and its associated metadata.
 #' @keywords internal
-#' @noRd
+#'
 redcap_read_records <- function(base_url,
                                 token,
                                 records,
@@ -273,27 +260,6 @@ redcap_read_records <- function(base_url,
 #' )
 #' }
 #' @keywords internal
-#' @noRd
-#'
-#' @examples
-#' \dontrun{
-#' result <- redcap_get_results(
-#'   redcap_data = REDCapR::redcap_read(
-#'     redcap_uri  = "https://bbmc.ouhsc.edu/redcap/api/",
-#'     token       = "9A81268476645C4E5F03428B8AC3AA7B",
-#'     records     = c("1", "3", "5"),
-#'     fields      = c("record_id", "name_first", "age", "bmi"),
-#'     verbose     = FALSE,
-#'     id_position = 1L
-#'   ),
-#'   metadata = REDCapR::redcap_metadata_read(
-#'     redcap_uri = "https://bbmc.ouhsc.edu/redcap/api/",
-#'     token      = "9A81268476645C4E5F03428B8AC3AA7B",
-#'     fields     = NULL,
-#'     verbose    = FALSE
-#'   )
-#' )
-#' }
 #'
 redcap_get_results <- function(redcap_data, metadata) {
   checkmate::assert_list(redcap_data,

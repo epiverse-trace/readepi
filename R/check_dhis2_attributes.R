@@ -22,7 +22,7 @@
 #' }
 #'
 #' @keywords internal
-#' @noRd
+#'
 dhis2_check_attributes <- function(base_url,
                                    user_name,
                                    password,
@@ -31,7 +31,7 @@ dhis2_check_attributes <- function(base_url,
                                    data_element_group = NULL) {
   # get the relevant dataset
   if (!is.null(dataset)) {
-    tmp_res <- dhis2_get_relevant_attributes(
+    tmp_res   <- dhis2_get_relevant_attributes(
       base_url     = base_url,
       user_name    = user_name,
       password     = password,
@@ -46,7 +46,7 @@ dhis2_check_attributes <- function(base_url,
 
   # get the relevant organisation units
   if (!is.null(organisation_unit)) {
-    tmp_res <- dhis2_get_relevant_attributes(
+    tmp_res   <- dhis2_get_relevant_attributes(
       base_url     = base_url,
       user_name    = user_name,
       password     = password,

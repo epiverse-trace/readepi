@@ -1,7 +1,7 @@
-test_that("connect_to_server works as expected", {
+test_that("sql_connect_to_server works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
-  con <- connect_to_server(
+  con <- sql_connect_to_server(
     base_url      = "mysql-rfam-public.ebi.ac.uk",
     user_name     = "rfamro",
     password      = "",
@@ -13,8 +13,8 @@ test_that("connect_to_server works as expected", {
   expect_type(con, "environment")
 })
 
-test_that("identify_table_name works as expected", {
-  table_name <- identify_table_name(
+test_that("sql_identify_table_name works as expected", {
+  table_name <- sql_identify_table_name(
     query  = "select * from author",
     tables = c("family_author", "author", "test")
   )
@@ -23,9 +23,9 @@ test_that("identify_table_name works as expected", {
   expect_identical(table_name, "author")
 })
 
-test_that("identify_table_name fails with an incorrect query", {
+test_that("sql_identify_table_name fails with an incorrect query", {
   expect_error(
-    identify_table_name(
+    sql_identify_table_name(
       query  = NA,
       tables = c("family_author", "author", "test")
     ),
@@ -34,7 +34,7 @@ test_that("identify_table_name fails with an incorrect query", {
   )
 
   expect_error(
-    identify_table_name(
+    sql_identify_table_name(
       query  = NULL,
       tables = c("family_author", "author", "test")
     ),
@@ -42,7 +42,7 @@ test_that("identify_table_name fails with an incorrect query", {
   )
 
   expect_error(
-    identify_table_name(
+    sql_identify_table_name(
       query  = c("select * from author", "select * from family_author"),
       tables = c("family_author", "author", "test")
     ),
@@ -51,9 +51,9 @@ test_that("identify_table_name fails with an incorrect query", {
   )
 })
 
-test_that("identify_table_name fails with incorrect tables", {
+test_that("sql_identify_table_name fails with incorrect tables", {
   expect_error(
-    identify_table_name(
+    sql_identify_table_name(
       query  = "select * from author",
       tables = NA
     ),
@@ -62,7 +62,7 @@ test_that("identify_table_name fails with incorrect tables", {
   )
 
   expect_error(
-    identify_table_name(
+    sql_identify_table_name(
       query  = "select * from author",
       tables = NULL
     ),
@@ -70,10 +70,10 @@ test_that("identify_table_name fails with incorrect tables", {
   )
 })
 
-test_that("fetch_data_from_query works as expected", {
+test_that("sql_sql_fetch_data_from_query works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
-  result <- fetch_data_from_query(
+  result <- sql_fetch_data_from_query(
     src           = "select author_id, name, last_name from author",
     tables        = c("family_author", "author"),
     base_url      = "mysql-rfam-public.ebi.ac.uk",
@@ -90,11 +90,11 @@ test_that("fetch_data_from_query works as expected", {
   expect_s3_class(result[["author"]], "data.frame")
 })
 
-test_that("fetch_data_from_query fails with incorrect tables", {
+test_that("sql_fetch_data_from_query fails with incorrect tables", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   expect_error(
-    fetch_data_from_query(
+    sql_fetch_data_from_query(
       src           = "select author_id, name, last_name from author",
       tables        = NA,
       base_url      = "mysql-rfam-public.ebi.ac.uk",
@@ -110,7 +110,7 @@ test_that("fetch_data_from_query fails with incorrect tables", {
   )
 
   expect_error(
-    fetch_data_from_query(
+    sql_fetch_data_from_query(
       src           = "select author_id, name, last_name from author",
       tables        = NULL,
       base_url      = "mysql-rfam-public.ebi.ac.uk",
@@ -251,8 +251,8 @@ test_that("sql_select_data fails with incorrect table_names", {
   )
 })
 
-test_that("get_id_column_name works as expected", {
-  result <- get_id_column_name(
+test_that("sql_get_id_column_name works as expected", {
+  result <- sql_get_id_column_name(
     id_col_name = c("author_id", "rfam_acc"),
     j           = 1L,
     id_position = c(1L, 1L)
@@ -265,9 +265,9 @@ test_that("get_id_column_name works as expected", {
   expect_identical(result[["id_pos"]], "1")
 })
 
-test_that("get_id_column_name fails with incorrect j", {
+test_that("sql_get_id_column_name fails with incorrect j", {
   expect_error(
-    get_id_column_name(
+    sql_get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
       j           = NA,
       id_position = c(1L, 1L)
@@ -277,7 +277,7 @@ test_that("get_id_column_name fails with incorrect j", {
   )
 
   expect_error(
-    get_id_column_name(
+    sql_get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
       j           = NULL,
       id_position = c(1L, 1L)
@@ -286,7 +286,7 @@ test_that("get_id_column_name fails with incorrect j", {
   )
 
   expect_error(
-    get_id_column_name(
+    sql_get_id_column_name(
       id_col_name = c("author_id", "rfam_acc"),
       j           = 1L:2L,
       id_position = c(1L, 1L)

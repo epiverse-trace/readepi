@@ -62,7 +62,7 @@ readepi <- function(data_source = NULL,
             "profile_name" %in% names(args_list) |
             "domain_id" %in% names(args_list) |
             "domain_name" %in% names(args_list))) {
-    args <- get_read_fingertips_args(args_list)
+    args <- fingertips_get_args(args_list)
     res  <- read_from_fingertips(
       indicator_id        = args[["indicator_id"]],
       indicator_name      = args[["indicator_name"]],
