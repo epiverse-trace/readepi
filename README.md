@@ -5,7 +5,7 @@
 <!-- `packagename` is extracted from the DESCRIPTION file -->
 <!-- `gh_repo` is extracted via a special environment variable in GitHub Actions -->
 
-# readepi: Importing data from health information systems <img src="man/figures/logo.svg" align="right" width="130"/>
+# readepi: Read data from health information systems <img src="man/figures/logo.svg" align="right" width="130"/>
 
 <!-- badges: start -->
 
@@ -18,22 +18,30 @@ coverage](https://codecov.io/gh/epiverse-trace/readepi/branch/main/graph/badge.s
 <!-- badges: end -->
 
 **{readepi}** is an R package for reading data from several health
-information systems (HIS) including public repositories and relational
-database management systems (RDBMS). **{readepi}** currently supports reading data from the followings:
+information systems (HIS) including public repositories, relational
+database management systems (RDBMS).
 
-- RDBMS  such as MS SQL, MySQL, and PostgreSQL. 
-- [REDCap](https://projectredcap.org/software/): a secure web application for building and managing
+**{readepi}** currently supports reading data from the followings:
+
+- RDBMS (Relational Database Management Systems) such as MS SQL, MySQL,
+  and PostgreSQL 
+- [REDCap](https://projectredcap.org/software/): Research Electronic
+  Data Capture - a secure web application for building and managing
   online surveys and databases  
 - [DHIS2](https://dhis2.org/about/): an open source and web-based
-  platform for managing health information. 
+  platform for managing health information  
 - [Fingertips](https://fingertips.phe.org.uk/): a repository of public
-  health indicators in England.
+  health indicators in England
 
-**{readepi}** returns a list object containing one or more data frames, and  has a number of auxiliary functions  manipulating the imported dataset.
+**{readepi}** returns a list object containing one or more data frames.
+**{readepi}** also has a number of auxiliary functions that allow
+importing a subset of the original dataset.
 
 **{readepi}** is developed by
 [Epiverse-TRACE](https://data.org/initiatives/epiverse/) team at the
-[Medical Research Council Unit The Gambia at the London School of Hygiene & Tropical Medicine](https://www.lshtm.ac.uk/research/units/mrc-gambia).
+[Medical Research Center, The Gambia unit at London School of Hygiene
+and Tropical
+Medicine](https://www.lshtm.ac.uk/research/units/mrc-gambia).
 
 ## Installation
 
@@ -48,22 +56,26 @@ library(readepi)
 
 ## Quick start
 
-The main function in **{readepi}** is `readepi()`, which reads data from a
-specified source. The basic arguments of  the `readepi()` function are: a string of URL-link to the API, credential file, and other specific arguments that depend on the data source (see the **vignette** for more
+The main function in **{readepi}** is `readepi()`. It reads data from a
+specified source. The `readepi()` function accepts a user-supplied
+string (the API’s URL) as argument. Other specific arguments can be
+provided depending on the data source (see the **vignette** for more
 details). The examples below show how to use the `readepi()` function to
 import data from a variety of sources.
 
-### Reading data from RDBMS
+### Reading data from RDBMS and HIS
 
-`readepi()` function requires the followings to reading data from a RDBMS:
+The `readepi()` function can import data from a variety of RDBMS,
+including MS SQL, MySQL, and PostgreSQL. Reading data from a RDBMS
+requires the following:
 
-1.  A MS SQL driver that is compatible with the version of RDBMS of
+1.  A MS SQL driver that is compatible with the version of DBMS of
     interest. The **vignette** describes how to install the appropriate
     driver for each database management system.  
-2.  Valid credentials to access the server. The user credential details
+2.  Valid Credentials to access the server. The user credential details
     are expected to be stored in a file that will be supplied as an
     argument of the `readepi()` function. Use the `show_example_file()`
-    function to visualize the structure of  template credential file.
+    function to visualize the structure of the template credential file.
 
 Users can read data from a RDBMS by providing the details of the tables
 of interest or an SQL query (for more information, see the
@@ -106,10 +118,7 @@ dat <- readepi(
   from             = "author", # this is the table name
   driver_name      = ""
 )
-```
-### Reading data from  HIS
 
-```r
 # READING DATA FROM DHIS2
 dat <- readepi(
   data_source        = "https://play.dhis2.org/dev",
@@ -120,10 +129,7 @@ dat <- readepi(
   start_date         = "2014",
   end_date           = "2023"
 )
-```
-### Reading data from  Fingertips
 
-```r
 # READING DATA FROM THE FINGERTIPS REPOSITORY
 dat <- readepi(
   indicator_id        = 90362,
