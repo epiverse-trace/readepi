@@ -17,7 +17,7 @@ reference:
 - subtitle: Fingertips
 - contents:
   - starts_with("fingertips_", internal = TRUE)
-  - read_from_fingertips
+  - ends_with("fingertips", internal = TRUE)
 
 - subtitle: REDCap
 - contents:
