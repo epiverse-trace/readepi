@@ -57,6 +57,16 @@ read_credentials <- function(file_path, base_url) {
 #' @return a `list` of 8 elements of type `character` and `numeric` that will be
 #'    used for importing data from Fingertips
 #' @keywords internal
+#' @examples
+#' \dontrun{
+#'   res <- fingertips_get_args(
+#'     list(indicator_id   = 90362L,
+#'          area_type_id   = 202L,
+#'          indicator_name = "Healthy life expectancy at birth",
+#'          profile_id     = 19L)
+#'   )
+#' }
+#'
 fingertips_get_args <- function(args_list =
                                   list(indicator_id        = NULL,
                                        indicator_name      = NULL,
@@ -128,6 +138,8 @@ fingertips_get_args <- function(args_list =
 #'    (invisibly) TRUE
 #'
 #' @keywords internal
+#' @examples
+#' res <- url_check(base_url = "stackoverflow.com")
 #'
 url_check <- function(base_url) {
   checkmate::assert_character(base_url, any.missing = FALSE, len = 1L,
