@@ -155,11 +155,13 @@ dhis2_subset_records <- function(data,
 #'
 #' @return an object of type `list` with the values for the DHIS2 attributes.
 #' @keywords internal
+#'
 #' @examples
-#' args <- list(dataset    = "pBOMPrpg1QX",
-#'              start_date = "2014",
-#'              end_date   = "2023")
-#' arguments <- dhis2_get_attributes_from_user(args_list = args)
+#' arguments <- dhis2_get_attributes_from_user(
+#'   args_list = list(dataset    = "pBOMPrpg1QX",
+#'                    start_date = "2014",
+#'                    end_date   = "2023")
+#' )
 #'
 dhis2_get_attributes_from_user <- function(args_list) {
   dataset <- organisation_unit <- data_element_group <- start_date <-
