@@ -67,6 +67,11 @@ sql_connect_to_server <- function(base_url,
 #' @return a `character` with the identified tables name(s) from the SQL query
 #'
 #' @keywords internal
+#' @examples
+#' table_name <- sql_identify_table_name(
+#'   query  = "select * from author",
+#'   tables = c("family_author", "author", "test")
+#' )
 #'
 sql_identify_table_name <- function(query,
                                     tables) {
@@ -262,6 +267,12 @@ sql_select_data <- function(table_names,
 #' @returns a `list` of 2 elements of type `character` and `numeric`
 #'    corresponding to the ID column name and position.
 #' @keywords internal
+#' @examples
+#' result <- sql_get_id_column_name(
+#'   id_col_name = c("author_id", "rfam_acc"),
+#'   j           = 1L,
+#'   id_position = c(1L, 1L)
+#' )
 #'
 sql_get_id_column_name <- function(id_col_name,
                                    j,
@@ -434,6 +445,16 @@ sql_select_records_and_fields <- function(table,
 #' @return prints the first 5 rows of the specified table.
 #'
 #' @export
+#' @examples
+#' \dontrun{
+#'   result <- visualise_table(
+#'     data_source      = "mysql-rfam-public.ebi.ac.uk",
+#'     credentials_file = system.file("extdata", "test.ini",
+#'                                    package = "readepi"),
+#'     from             = "author",
+#'     driver_name      = ""
+#'   )
+#' }
 #'
 visualise_table <- function(data_source,
                             credentials_file,
@@ -626,6 +647,11 @@ sql_select_fields_only <- function(table,
 #'
 #' @return a list with the identified queries and tables
 #' @keywords internal
+#' @examples
+#' test <- sql_identify_table_and_query(
+#'   src    = "select * from author",
+#'   tables = c("karim", "author", "reviewer")
+#' )
 #'
 sql_identify_table_and_query <- function(src,
                                          tables) {

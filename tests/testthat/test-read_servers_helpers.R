@@ -509,3 +509,27 @@ test_that("sql_select_fields_only works as expected", {
   )
   expect_s3_class(result, "data.frame")
 })
+
+test_that("sql_identify_table_and_query works as expected", {
+  test <- sql_identify_table_and_query(
+    src    = "select * from author",
+    tables = c("karim", "author", "reviewer")
+  )
+  expect_type(test, "list")
+  expect_length(test, 2L)
+  expect_named(test, c("queries", "tables"))
+  expect_type(test[["queries"]], "character")
+  expect_null(test[["tables"]])
+})
+
+test_that("sql_identify_table_and_query works as expected", {
+  test <- sql_identify_table_and_query(
+    src    = "author",
+    tables = c("karim", "author", "reviewer")
+  )
+  expect_type(test, "list")
+  expect_length(test, 2L)
+  expect_named(test, c("queries", "tables"))
+  expect_null(test[["queries"]])
+  expect_type(test[["tables"]], "character")
+})
