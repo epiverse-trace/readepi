@@ -20,7 +20,6 @@
 #' @returns a `list` of 1 element of type `data frame`.
 #' @keywords internal
 #'
-#'
 #' @examples
 #' \dontrun{
 #' data <- read_from_dhis2(

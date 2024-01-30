@@ -15,7 +15,16 @@
 #' @return an object of class `data.frame` that contains the information of
 #'    interest.
 #' @keywords internal
-
+#' @examples
+#' \dontrun{
+#'   response <- dhis2_make_api_request(
+#'     base_url  = file.path("https:/", "play.dhis2.org", "dev"),
+#'     user_name = "admin",
+#'     password  = "district",
+#'     which     = "dataElements"
+#'   )
+#' }
+#'
 dhis2_make_api_request <- function(base_url,
                                    user_name,
                                    password,
@@ -67,7 +76,6 @@ dhis2_make_api_request <- function(base_url,
 #' )
 #' }
 #' @keywords internal
-
 dhis2_get_relevant_attributes <- function(base_url,
                                           user_name,
                                           password,
