@@ -18,11 +18,4 @@ a list with the identified queries and tables
 \description{
 Identify queries or tables names from the user supplied string
 }
-\examples{
-test <- sql_identify_table_and_query(
-  src    = "select * from author",
-  tables = c("karim", "author", "reviewer")
-)
-
-}
 \keyword{internal}

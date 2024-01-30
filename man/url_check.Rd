@@ -16,8 +16,4 @@ throws an error if the domain of the provided URL is not valid,
 \description{
 Check if the value for the base_url argument has a correct structure
 }
-\examples{
-res <- url_check(base_url = "stackoverflow.com")
-
-}
 \keyword{internal}

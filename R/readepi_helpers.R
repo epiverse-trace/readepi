@@ -138,8 +138,6 @@ fingertips_get_args <- function(args_list =
 #'    (invisibly) TRUE
 #'
 #' @keywords internal
-#' @examples
-#' res <- url_check(base_url = "stackoverflow.com")
 #'
 url_check <- function(base_url) {
   checkmate::assert_character(base_url, any.missing = FALSE, len = 1L,
