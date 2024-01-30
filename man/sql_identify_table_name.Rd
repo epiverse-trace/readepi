@@ -18,11 +18,10 @@ a \code{character} with the identified tables name(s) from the SQL query
 Detect table names from an SQL query
 }
 \examples{
-\dontrun{
 table_name <- sql_identify_table_name(
   query  = "select * from author",
   tables = c("family_author", "author", "test")
 )
-}
+
 }
 \keyword{internal}

@@ -15,4 +15,11 @@ an object of type \code{list} with the values for the DHIS2 attributes.
 \description{
 Get the DHIS2 attributes from the user
 }
+\examples{
+args <- list(dataset    = "pBOMPrpg1QX",
+             start_date = "2014",
+             end_date   = "2023")
+arguments <- dhis2_get_attributes_from_user(args_list = args)
+
+}
 \keyword{internal}

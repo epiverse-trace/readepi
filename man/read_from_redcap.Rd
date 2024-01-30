@@ -7,10 +7,10 @@
 read_from_redcap(
   base_url,
   token,
-  id_position = 1L,
-  id_col_name = NULL,
   records = NULL,
-  fields = NULL
+  fields = NULL,
+  id_position = 1L,
+  id_col_name = NULL
 )
 }
 \arguments{
@@ -19,18 +19,18 @@ read_from_redcap(
 \item{token}{the user-specific string that serves as the password for a
 project}
 
-\item{id_position}{the column position of the variable that unique identifies
-the subjects. When the column name with the subject IDs is known, use
-the \code{id_col_name} argument instead. default is 1}
-
-\item{id_col_name}{the column name with the subject IDs}
-
 \item{records}{a vector or a comma-separated string of subset of subject IDs.
 When specified, only the records that correspond to these subjects will
 be imported.}
 
 \item{fields}{a vector or a comma-separated string of column names.
 If provided, only those columns will be imported.}
+
+\item{id_position}{the column position of the variable that unique identifies
+the subjects. When the column name with the subject IDs is known, use
+the \code{id_col_name} argument instead. default is 1}
+
+\item{id_col_name}{the column name with the subject IDs}
 }
 \value{
 a \code{list} of 2 elements of type \code{data.frame}. They include a data

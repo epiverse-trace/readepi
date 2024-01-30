@@ -160,3 +160,11 @@ test_that("dhis2_subset_records sends a warning when the provided record is not
                                                 id_col_name = "dataElement"),
                            regexp = cat("Assertion on',records,'failed: 'test' is not a valid record.")) # nolint: line_length_linter
           })
+
+test_that("dhis2_subset_records works as expected", {
+  test <- dhis2_get_attributes_from_user(
+    args_list = list(dataset    = "pBOMPrpg1QX",
+                     start_date = "2014",
+                     end_date   = "2023")
+  )
+})

@@ -20,4 +20,12 @@ corresponding to the ID column name and position.
 \description{
 get the id column name
 }
+\examples{
+result <- sql_get_id_column_name(
+  id_col_name = c("author_id", "rfam_acc"),
+  j           = 1L,
+  id_position = c(1L, 1L)
+)
+
+}
 \keyword{internal}

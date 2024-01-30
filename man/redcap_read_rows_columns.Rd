@@ -36,4 +36,17 @@ metadata.
 \description{
 Subset records and columns from a REDCap project
 }
+\examples{
+\dontrun{
+  result <- redcap_read_rows_columns(
+    base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
+    token       = "9A81268476645C4E5F03428B8AC3AA7B",
+    fields      = c("record_id", "name_first", "age", "bmi"),
+    records     = c("1", "3", "5"),
+    id_position = 1L,
+    id_col_name = NULL
+  )
+}
+
+}
 \keyword{internal}
