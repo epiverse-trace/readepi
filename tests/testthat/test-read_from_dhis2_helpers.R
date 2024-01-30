@@ -167,4 +167,14 @@ test_that("dhis2_subset_records works as expected", {
                      start_date = "2014",
                      end_date   = "2023")
   )
+  expect_type(test, "list")
+  expect_length(test, 5)
+  expect_named(test, expected = c("dataset", "organisation_unit",
+                                  "data_element_group", "start_date",
+                                  "end_date"))
+  expect_null(test[["organisation_unit"]])
+  expect_null(test[["data_element_group"]])
+  expect_identical(test[["dataset"]], "pBOMPrpg1QX")
+  expect_identical(test[["start_date"]], "2014")
+  expect_identical(test[["end_date"]], "2023")
 })
