@@ -21,7 +21,6 @@
 #'    imported dataset of interest.
 #'
 #' @keywords internal
-#' @noRd
 #'
 #' @examples
 #' \dontrun{
