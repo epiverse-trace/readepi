@@ -238,6 +238,7 @@ references:
   - family-names: Horner
     given-names: Jeffrey
   year: '2024'
+<<<<<<< HEAD
 - type: software
   title: xml2
   abstract: 'xml2: Parse XML'
@@ -253,6 +254,8 @@ references:
   - family-names: Ooms
     given-names: Jeroen
   year: '2024'
+=======
+>>>>>>> 3d715e2 (Remove \dontrun{} when not strictly required (#61))
 - type: software
   title: httptest
   abstract: 'httptest: A Test Environment for HTTP Requests'
