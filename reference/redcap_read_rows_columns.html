@@ -108,6 +108,21 @@ data with only the records and fields of interest and its associated
 metadata.</p>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="va">result</span> <span class="op">&lt;-</span> <span class="fu">redcap_read_rows_columns</span><span class="op">(</span></span></span>
+<span class="r-in"><span>    base_url    <span class="op">=</span> <span class="st">"https://bbmc.ouhsc.edu/redcap/api/"</span>,</span></span>
+<span class="r-in"><span>    token       <span class="op">=</span> <span class="st">"9A81268476645C4E5F03428B8AC3AA7B"</span>,</span></span>
+<span class="r-in"><span>    fields      <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"record_id"</span>, <span class="st">"name_first"</span>, <span class="st">"age"</span>, <span class="st">"bmi"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    records     <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"1"</span>, <span class="st">"3"</span>, <span class="st">"5"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    id_position <span class="op">=</span> <span class="fl">1L</span>,</span></span>
+<span class="r-in"><span>    id_col_name <span class="op">=</span> <span class="cn">NULL</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+<span class="r-in"><span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
