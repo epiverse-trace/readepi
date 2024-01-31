@@ -11,10 +11,17 @@
 #' @return a message if the dhis2_login was successful,
 #'    throws an error otherwise.
 #'
-#' @return a message if the login was successfull, thows an error otherwise.
+#' @return a message if the login was successful, throws an error otherwise.
 #'
 #' @keywords internal
-#'
+#' @examples
+#' \dontrun{
+#'   dhis2_login(
+#'     base_url  = file.path("https:/", "play.dhis2.org", "dev"),
+#'     user_name = "admin",
+#'     password  = "district"
+#'   )
+#' }
 dhis2_login <- function(base_url,
                         user_name,
                         password) {
@@ -43,7 +50,7 @@ dhis2_login <- function(base_url,
 #' results <- dhis2_subset_fields(
 #'   data = readepi(
 #'     credentials_file   = system.file("extdata", "test.ini",
-#'     package = "readepi"),
+#'                                      package = "readepi"),
 #'     data_source        = "https://play.dhis2.org/dev",
 #'     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
 #'     organisation_unit  = "DiszpKrYNg8",
@@ -99,8 +106,7 @@ dhis2_subset_fields <- function(data,
 #' result <- dhis2_subset_records(
 #'   data = readepi(
 #'     credentials_file   = system.file("extdata", "test.ini",
-#'       package = "readepi"
-#'     ),
+#'                                      package = "readepi"),
 #'     data_source        = "https://play.dhis2.org/dev",
 #'     dataset            = "pBOMPrpg1QX",
 #'     organisation_unit  = "DiszpKrYNg8",

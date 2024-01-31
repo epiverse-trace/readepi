@@ -56,16 +56,17 @@ read_credentials <- function(file_path, base_url) {
 #'
 #' @return a `list` of 8 elements of type `character` and `numeric` that will be
 #'    used for importing data from Fingertips
+#' @keywords internal
 #' @examples
 #' \dontrun{
-#' args_list <- fingertips_get_args(
-#'   list(
-#'     indicator_id = 90362,
-#'     area_type_id = 202
+#'   res <- fingertips_get_args(
+#'     list(indicator_id   = 90362L,
+#'          area_type_id   = 202L,
+#'          indicator_name = "Healthy life expectancy at birth",
+#'          profile_id     = 19L)
 #'   )
-#' )
 #' }
-#' @keywords internal
+#'
 fingertips_get_args <- function(args_list =
                                   list(indicator_id        = NULL,
                                        indicator_name      = NULL,

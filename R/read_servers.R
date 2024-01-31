@@ -4,6 +4,7 @@
 #'    Importing data stored in DBMS into R requires the installation
 #'    of the appropriate `driver` that is compatible with the server version
 #'    hosting the database. See the `vignette` for how to install the driver
+#'
 #' @param base_url the name of the host server
 #' @param user_name the user name
 #' @param password the user password
@@ -13,7 +14,7 @@
 #' @param src an SQL query or a vector of table names from
 #'    the project or database. When this is not specified, the function will
 #'    extract data from all tables in the database.
-#' @param driver_name the name of the MS driver. use `odbc::odbcListDrivers()`
+#' @param driver_name the name of the MS driver. Use `odbc::odbcListDrivers()`
 #'    to display the list of installed drivers
 #' @param records a vector or a comma-separated string of subset of subject IDs.
 #'    When specified, only the records that correspond to these subjects will

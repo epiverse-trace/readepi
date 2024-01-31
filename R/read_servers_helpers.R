@@ -66,13 +66,6 @@ sql_connect_to_server <- function(base_url,
 #'
 #' @return a `character` with the identified tables name(s) from the SQL query
 #'
-#' @examples
-#' \dontrun{
-#' table_name <- sql_identify_table_name(
-#'   query  = "select * from author",
-#'   tables = c("family_author", "author", "test")
-#' )
-#' }
 #' @keywords internal
 #'
 sql_identify_table_name <- function(query,
@@ -424,7 +417,7 @@ sql_select_records_and_fields <- function(table,
     }))
     field <- unlist(strsplit(field, ",", fixed = TRUE))
   }
-  res <- res %>% dplyr::select(dplyr::all_of(field))
+  res     <- res %>% dplyr::select(dplyr::all_of(field))
   pool::poolClose(con)
   res
 }
@@ -440,16 +433,17 @@ sql_select_records_and_fields <- function(table,
 #'
 #' @return prints the first 5 rows of the specified table.
 #'
+#' @export
 #' @examples
 #' \dontrun{
-#' visualise_table(
-#'   data_source      = "mysql-rfam-public.ebi.ac.uk",
-#'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-#'   from             = "author",
-#'   driver_name      = ""
-#' )
+#'   result <- visualise_table(
+#'     data_source      = "mysql-rfam-public.ebi.ac.uk",
+#'     credentials_file = system.file("extdata", "test.ini",
+#'                                    package = "readepi"),
+#'     from             = "author",
+#'     driver_name      = ""
+#'   )
 #' }
-#' @export
 #'
 visualise_table <- function(data_source,
                             credentials_file,
@@ -472,7 +466,7 @@ visualise_table <- function(data_source,
   query <- ifelse(credentials[["dbms"]] == "MySQL",
                   sprintf("select * from %s limit 5", from),
                   sprintf("select top 5 * from %s", from))
-  res <- DBI::dbGetQuery(con, query)
+  res   <- DBI::dbGetQuery(con, query)
   pool::poolClose(con)
   print(res)
 }

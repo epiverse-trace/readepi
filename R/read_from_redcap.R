@@ -1,5 +1,5 @@
 #' Import data from REDCap
-#'
+
 #' @param base_url the URI of the server
 #' @param token the user-specific string that serves as the password for a
 #'    project
@@ -17,10 +17,10 @@
 #' redcap_data <- read_from_redcap(
 #'   base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
 #'   token       = "9A81268476645C4E5F03428B8AC3AA7B",
-#'   id_position = 1,
-#'   id_col_name = NULL,
 #'   records     = NULL,
-#'   fields      = NULL
+#'   fields      = NULL,
+#'   id_position = 1,
+#'   id_col_name = NULL
 #' )
 #' }
 #' @returns a `list` of 2 elements of type `data.frame`. They include a data
@@ -29,10 +29,10 @@
 #'
 read_from_redcap <- function(base_url,
                              token,
-                             id_position = 1L,
-                             id_col_name = NULL,
                              records     = NULL,
-                             fields      = NULL) {
+                             fields      = NULL,
+                             id_position = 1L,
+                             id_col_name = NULL) {
   # check input variables
   checkmate::assert_character(token,
                               n.chars = 32L, len = 1L, null.ok = FALSE,

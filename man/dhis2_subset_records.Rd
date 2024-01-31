@@ -25,8 +25,7 @@ Subset a specified set of records from a dataset imported from DHIS2
 result <- dhis2_subset_records(
   data = readepi(
     credentials_file   = system.file("extdata", "test.ini",
-      package = "readepi"
-    ),
+                                     package = "readepi"),
     data_source        = "https://play.dhis2.org/dev",
     dataset            = "pBOMPrpg1QX",
     organisation_unit  = "DiszpKrYNg8",

@@ -28,7 +28,7 @@ sql_server_read_data(
 
 \item{dbms}{the SQL server type}
 
-\item{driver_name}{the name of the MS driver. use \code{odbc::odbcListDrivers()}
+\item{driver_name}{the name of the MS driver. Use \code{odbc::odbcListDrivers()}
 to display the list of installed drivers}
 
 \item{database_name}{the name of the database that contains the table from

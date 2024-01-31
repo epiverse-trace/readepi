@@ -32,4 +32,16 @@ data with the records of interest and its associated metadata.
 \description{
 Subset records from a REDCap project
 }
+\examples{
+\dontrun{
+  result <- redcap_read_records(
+    base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
+    token       = "9A81268476645C4E5F03428B8AC3AA7B",
+    records     = c("1", "2", "3"),
+    id_position = 1L,
+    id_col_name = NULL
+  )
+}
+
+}
 \keyword{internal}

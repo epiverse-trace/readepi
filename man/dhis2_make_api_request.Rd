@@ -29,4 +29,15 @@ interest.
 \description{
 Make an API request to the target DHIS2 system
 }
+\examples{
+\dontrun{
+  response <- dhis2_make_api_request(
+    base_url  = file.path("https:/", "play.dhis2.org", "dev"),
+    user_name = "admin",
+    password  = "district",
+    which     = "dataElements"
+  )
+}
+
+}
 \keyword{internal}
