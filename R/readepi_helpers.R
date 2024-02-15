@@ -56,6 +56,7 @@ read_credentials <- function(file_path, base_url) {
 #'
 #' @return a `list` of 8 elements of type `character` and `numeric` that will be
 #'    used for importing data from Fingertips
+#' @keywords internal
 #' @examples
 #' \dontrun{
 #' args_list <- fingertips_get_args(
@@ -63,7 +64,6 @@ read_credentials <- function(file_path, base_url) {
 #'     indicator_id = 90362,
 #'     area_type_id = 202
 #'   )
-#' )
 #' }
 #' @keywords internal
 fingertips_get_args <- function(args_list =
@@ -129,37 +129,22 @@ fingertips_get_args <- function(args_list =
   )
 }
 
-#' Check if the base_url argument is specified as a correct URL
+
+#' Check if the value for the base_url argument has a correct structure
 #'
 #' @param base_url the URL to the HIS of interest
+#'
+#' @returns throws an error if the domain of the provided URL is not valid,
+#'    (invisibly) TRUE
 #'
 #' @keywords internal
 #'
 url_check <- function(base_url) {
   checkmate::assert_character(base_url, any.missing = FALSE, len = 1L,
                               null.ok = FALSE)
-  if (startsWith(base_url, "https://")) {
-    base_url   <- gsub("https://", "", base_url, fixed = TRUE)
-  }
-
-  # split the URL parts
-  url_parts    <- unlist(strsplit(base_url, "/", fixed = TRUE))
-  # without the protocol, lets look for the sub-domain, second-level domain
-  # and the top-level domain
-  domain_structure_is_correct <- url_check_domain_structure(url_parts[[1L]])
-  stopifnot("Incorrect domain name in provided URL!" =
-              domain_structure_is_correct)
-}
-
-#' Check whether the domain structure of the URL is correct
-#'
-#' @param url_parts a character string with the domain from the URL
-#'
-#' @keywords internal
-url_check_domain_structure <- function(url_parts) {
-  url_domains                 <- unlist(strsplit(url_parts, ".", fixed = TRUE))
-  domain_structure_is_correct <- ifelse(length(url_domains) >= 3L,
-                                        TRUE,
-                                        FALSE)
-  domain_structure_is_correct
+  regex  <- "^(https?://)?(www\\.)?([a-z0-9]([a-z0-9]|(\\-[a-z0-9]))*\\.)+[a-z]+$" # nolint: line_length_linter
+  domain <- strsplit(gsub("^(https?://)?(www\\.)?", "", base_url),
+                     "/")[[c(1L, 1L)]]
+  stopifnot("Incorrect domain name in provided URL!" = grepl(regex, domain))
+  return(invisible(TRUE))
 }

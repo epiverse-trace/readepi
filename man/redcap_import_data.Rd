@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_from_redcap-helpers.R
 \name{redcap_import_data}
 \alias{redcap_import_data}
-\title{Import data from REDCap under all scenari}
+\title{Import data from REDCap under all scenario}
 \usage{
 redcap_import_data(
   base_url,
@@ -37,5 +37,20 @@ This is a wrapper across all the use case of reading data from
 REDCap i.e. around the function that all records and fields from the
 project, around the function that read specific records/fields or both at
 the same time
+}
+\examples{
+\dontrun{
+  result <- redcap_import_data(
+    base_url    = file.path("https:/", "bbmc.ouhsc.edu",
+                            "redcap", "api", ""),
+    token       = "9A81268476645C4E5F03428B8AC3AA7B",
+    records     = c("1", "3", "5"),
+    fields      = c("record_id", "name_first", "age", "bmi"),
+    id_position = 1L,
+    id_col_name = NULL
+  )
+}
+
+
 }
 \keyword{internal}

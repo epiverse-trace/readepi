@@ -63,3 +63,6 @@ inst/doc
 /.github/workflows/touchstone-comment.yaml
 /.github/workflows/touchstone-receive.yaml
 /doc/
+
+# Readme file
+/README_files/

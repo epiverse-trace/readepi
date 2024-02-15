@@ -55,34 +55,34 @@ references:
   abstract: 'checkmate: Fast and Versatile Argument Checks'
   notes: Imports
   url: https://mllg.github.io/checkmate/
-  repository: https://packagemanager.posit.co/cran/latest/
+  repository: https://CRAN.R-project.org/package=checkmate
   authors:
   - family-names: Lang
     given-names: Michel
     email: michellang@gmail.com
     orcid: https://orcid.org/0000-0001-9754-0393
-  year: '2023'
+  year: '2024'
 - type: software
   title: DBI
   abstract: 'DBI: R Database Interface'
   notes: Imports
   url: https://dbi.r-dbi.org
-  repository: https://packagemanager.posit.co/cran/latest/
+  repository: https://CRAN.R-project.org/package=DBI
   authors:
   - name: R Special Interest Group on Databases (R-SIG-DB)
   - family-names: Wickham
     given-names: Hadley
   - family-names: Müller
     given-names: Kirill
-    email: krlmlr+r@mailbox.org
+    email: kirill@cynkra.com
     orcid: https://orcid.org/0000-0002-1416-3412
-  year: '2023'
+  year: '2024'
 - type: software
   title: dplyr
   abstract: 'dplyr: A Grammar of Data Manipulation'
   notes: Imports
   url: https://dplyr.tidyverse.org
-  repository: https://packagemanager.posit.co/cran/latest/
+  repository: https://CRAN.R-project.org/package=dplyr
   authors:
   - family-names: Wickham
     given-names: Hadley
@@ -100,7 +100,7 @@ references:
     given-names: Davis
     email: davis@posit.co
     orcid: https://orcid.org/0000-0003-4777-038X
-  year: '2023'
+  year: '2024'
 - type: software
   title: fingertipsR
   abstract: 'fingertipsR: Fingertips Data for Public Health'
@@ -115,40 +115,40 @@ references:
     email: sebsfox@gmail.com
   - family-names: Flowers
     given-names: Julian
-  year: '2023'
+  year: '2024'
   version: '>= 1.0.10.9001'
 - type: software
   title: glue
   abstract: 'glue: Interpreted String Literals'
   notes: Imports
   url: https://glue.tidyverse.org/
-  repository: https://packagemanager.posit.co/cran/latest/
+  repository: https://CRAN.R-project.org/package=glue
   authors:
   - family-names: Hester
     given-names: Jim
     orcid: https://orcid.org/0000-0002-2739-7082
   - family-names: Bryan
     given-names: Jennifer
-    email: jenny@rstudio.com
+    email: jenny@posit.co
     orcid: https://orcid.org/0000-0002-6983-2759
-  year: '2023'
+  year: '2024'
 - type: software
   title: httr
   abstract: 'httr: Tools for Working with URLs and HTTP'
   notes: Imports
   url: https://httr.r-lib.org/
-  repository: https://packagemanager.posit.co/cran/latest/
+  repository: https://CRAN.R-project.org/package=httr
   authors:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2023'
+  year: '2024'
 - type: software
   title: magrittr
   abstract: 'magrittr: A Forward-Pipe Operator for R'
   notes: Imports
   url: https://magrittr.tidyverse.org
-  repository: https://packagemanager.posit.co/cran/latest/
+  repository: https://CRAN.R-project.org/package=magrittr
   authors:
   - family-names: Bache
     given-names: Stefan Milton
@@ -156,28 +156,28 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
-  year: '2023'
+  year: '2024'
 - type: software
   title: odbc
   abstract: 'odbc: Connect to ODBC Compatible Databases (using the DBI Interface)'
   notes: Imports
-  url: https://r-dbi.github.io/odbc/
-  repository: https://packagemanager.posit.co/cran/latest/
+  url: https://odbc.r-dbi.org
+  repository: https://CRAN.R-project.org/package=odbc
   authors:
   - family-names: Hester
     given-names: Jim
   - family-names: Wickham
     given-names: Hadley
-    email: hadley@rstudio.com
+    email: hadley@posit.co
   - family-names: Gjoneski
     given-names: Oliver
-  year: '2023'
+  year: '2024'
 - type: software
   title: pool
   abstract: 'pool: Object Pooling'
   notes: Imports
   url: http://rstudio.github.io/pool/
-  repository: https://packagemanager.posit.co/cran/latest/
+  repository: https://CRAN.R-project.org/package=pool
   authors:
   - family-names: Cheng
     given-names: Joe
@@ -187,25 +187,25 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2023'
+  year: '2024'
 - type: software
   title: REDCapR
   abstract: 'REDCapR: Interaction Between R and REDCap'
   notes: Imports
   url: https://ouhscbbmc.github.io/REDCapR/
-  repository: https://packagemanager.posit.co/cran/latest/
+  repository: https://CRAN.R-project.org/package=REDCapR
   authors:
   - family-names: Beasley
     given-names: Will
     email: wibeasley@hotmail.com
     orcid: https://orcid.org/0000-0002-5613-5006
-  year: '2023'
+  year: '2024'
 - type: software
   title: RMySQL
   abstract: 'RMySQL: Database Interface and ''MySQL'' Driver for R'
   notes: Imports
   url: https://downloads.mariadb.org/connector-c/
-  repository: https://packagemanager.posit.co/cran/latest/
+  repository: https://CRAN.R-project.org/package=RMySQL
   authors:
   - family-names: Ooms
     given-names: Jeroen
@@ -220,19 +220,19 @@ references:
     email: hadley@rstudio.com
   - family-names: Horner
     given-names: Jeffrey
-  year: '2023'
+  year: '2024'
 - type: software
   title: httptest
   abstract: 'httptest: A Test Environment for HTTP Requests'
   notes: Suggests
   url: https://enpiar.com/r/httptest/
-  repository: https://packagemanager.posit.co/cran/latest/
+  repository: https://CRAN.R-project.org/package=httptest
   authors:
   - family-names: Richardson
     given-names: Neal
     email: neal.p.richardson@gmail.com
     orcid: https://orcid.org/0009-0002-7992-3520
-  year: '2023'
+  year: '2024'
 - type: software
   title: knitr
   abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
@@ -244,7 +244,7 @@ references:
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2023'
+  year: '2024'
 - type: software
   title: rmarkdown
   abstract: 'rmarkdown: Dynamic Documents for R'
@@ -287,7 +287,7 @@ references:
     given-names: Richard
     email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2023'
+  year: '2024'
 - type: software
   title: testthat
   abstract: 'testthat: Unit Testing for R'
@@ -298,7 +298,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2023'
+  year: '2024'
   version: '>= 3.0.0'
 identifiers:
 - type: url

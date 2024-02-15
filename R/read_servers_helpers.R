@@ -424,7 +424,7 @@ sql_select_records_and_fields <- function(table,
     }))
     field <- unlist(strsplit(field, ",", fixed = TRUE))
   }
-  res <- res %>% dplyr::select(dplyr::all_of(field))
+  res     <- res %>% dplyr::select(dplyr::all_of(field))
   pool::poolClose(con)
   res
 }
@@ -440,16 +440,17 @@ sql_select_records_and_fields <- function(table,
 #'
 #' @return prints the first 5 rows of the specified table.
 #'
+#' @export
 #' @examples
 #' \dontrun{
-#' visualise_table(
-#'   data_source      = "mysql-rfam-public.ebi.ac.uk",
-#'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-#'   from             = "author",
-#'   driver_name      = ""
-#' )
+#'   result <- visualise_table(
+#'     data_source      = "mysql-rfam-public.ebi.ac.uk",
+#'     credentials_file = system.file("extdata", "test.ini",
+#'                                    package = "readepi"),
+#'     from             = "author",
+#'     driver_name      = ""
+#'   )
 #' }
-#' @export
 #'
 visualise_table <- function(data_source,
                             credentials_file,

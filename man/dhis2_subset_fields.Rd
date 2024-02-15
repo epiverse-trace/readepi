@@ -23,7 +23,7 @@ Subset fields when reading from DHIS2
 results <- dhis2_subset_fields(
   data = readepi(
     credentials_file   = system.file("extdata", "test.ini",
-    package = "readepi"),
+                                     package = "readepi"),
     data_source        = "https://play.dhis2.org/dev",
     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
     organisation_unit  = "DiszpKrYNg8",

@@ -27,7 +27,6 @@ args_list <- fingertips_get_args(
     indicator_id = 90362,
     area_type_id = 202
   )
-)
 }
 }
 \keyword{internal}

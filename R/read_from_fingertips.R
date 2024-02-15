@@ -20,6 +20,8 @@
 #' @return a `list` of 1 element of type `data.frame`. This contains the
 #'    imported dataset of interest.
 #'
+#' @keywords internal
+#'
 #' @examples
 #' \dontrun{
 #'   data <- read_from_fingertips(indicator_id = 90362, area_type_id = 202)

@@ -24,4 +24,15 @@ data with the fields of interest and its associated metadata.
 \description{
 Subset fields from a REDCap project
 }
+\examples{
+\dontrun{
+  result <- redcap_read_fields(
+    base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
+    token       = "9A81268476645C4E5F03428B8AC3AA7B",
+    fields      = c("record_id", "name_first", "age", "bmi"),
+    id_position = 1L
+  )
+}
+
+}
 \keyword{internal}

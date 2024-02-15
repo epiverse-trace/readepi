@@ -24,11 +24,13 @@ Visualize the first 5 rows of the data from a table
 }
 \examples{
 \dontrun{
-visualise_table(
-  data_source      = "mysql-rfam-public.ebi.ac.uk",
-  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-  from             = "author",
-  driver_name      = ""
-)
+  result <- visualise_table(
+    data_source      = "mysql-rfam-public.ebi.ac.uk",
+    credentials_file = system.file("extdata", "test.ini",
+                                   package = "readepi"),
+    from             = "author",
+    driver_name      = ""
+  )
 }
+
 }

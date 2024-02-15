@@ -22,4 +22,14 @@ data and its associated metadata.
 \description{
 Read all rows and columns from redcap
 }
+\examples{
+\dontrun{
+  result <- redcap_read_data(
+    base_url    = "https://bbmc.ouhsc.edu/redcap/api/",
+    token       = "9A81268476645C4E5F03428B8AC3AA7B",
+    id_position = 1L
+  )
+}
+
+}
 \keyword{internal}

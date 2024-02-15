@@ -16,6 +16,7 @@
 #' @param ... additional arguments passed to the `readepi()` function. These are
 #'    enumerated and described in the vignette.
 #'
+#' @returns a `list` of 1 or several object(s) of type `data frame`.
 #' @examples
 #' # reading from a MySQL server
 #' \dontrun{
