@@ -30,6 +30,10 @@ test_that("readepi works as expected when reading from Fingertips", {
     id_col_name    = "AreaCode"
   )
   expect_type(data, "list")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data[["data"]], class = "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
     indicator_id = 90362L,
@@ -40,6 +44,10 @@ test_that("readepi works as expected when reading from Fingertips", {
     id_col_name  = NULL
   )
   expect_type(data, "list")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data[["data"]], class = "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
     indicator_id   = 90362L,
@@ -51,6 +59,10 @@ test_that("readepi works as expected when reading from Fingertips", {
     id_col_name    = NULL
   )
   expect_type(data, "list")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data[["data"]], class = "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
     area_type_id   = 202L,
@@ -61,9 +73,10 @@ test_that("readepi works as expected when reading from Fingertips", {
     id_col_name    = NULL
   )
   expect_type(data, "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
-  expect_s3_class(data[["data"]], "data.frame")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data[["data"]], class = "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
     area_type_id = 202L,
@@ -74,6 +87,10 @@ test_that("readepi works as expected when reading from Fingertips", {
     id_col_name  = NULL
   )
   expect_type(data, "list")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data[["data"]], class = "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
     area_type_id = 202L,
@@ -84,6 +101,10 @@ test_that("readepi works as expected when reading from Fingertips", {
     id_col_name  = NULL
   )
   expect_type(data, "list")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data[["data"]], class = "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
     area_type_id = 202L,
@@ -94,6 +115,10 @@ test_that("readepi works as expected when reading from Fingertips", {
     id_col_name  = NULL
   )
   expect_type(data, "list")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data[["data"]], class = "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
     area_type_id = 202L,
@@ -104,6 +129,10 @@ test_that("readepi works as expected when reading from Fingertips", {
     id_col_name  = NULL
   )
   expect_type(data, "list")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
+  expect_s3_class(data[["data"]], class = "data.frame")
+  expect_identical(data[["metadata"]], NA)
 })
 
 test_that("readepi works as expected when reading from DBMS", {
