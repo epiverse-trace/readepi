@@ -15,9 +15,10 @@ test_that("read_from_dhis2 works as expected", {
     id_col_name        = "dataElement"
   )
   expect_type(data, "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
   expect_s3_class(data[["data"]], class = "data.frame")
+  expect_identical(data[["metadata"]], NA)
 })
 
 test_that("read_from_dhis2 works as expected when subsetting on columns and
@@ -39,9 +40,10 @@ test_that("read_from_dhis2 works as expected when subsetting on columns and
               id_col_name        = "dataElement"
             )
             expect_type(data, "list")
-            expect_length(data, 1L)
-            expect_named(data, "data")
+            expect_length(data, 2L)
+            expect_named(data, c("data", "metadata"))
             expect_s3_class(data[["data"]], class = "data.frame")
+            expect_identical(data[["metadata"]], NA)
           })
 
 test_that("read_from_dhis2 fails with a wrong URL", {

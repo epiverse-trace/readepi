@@ -11,9 +11,10 @@ test_that("read_from_fingertips works", {
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
   expect_s3_class(data[["data"]], "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
@@ -24,9 +25,10 @@ test_that("read_from_fingertips works", {
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
   expect_s3_class(data[["data"]], "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- read_from_fingertips(
     indicator_id = c(90362L, 90283L), indicator_name = NULL,
@@ -37,9 +39,10 @@ test_that("read_from_fingertips works", {
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
   expect_s3_class(data[["data"]], "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
@@ -50,9 +53,10 @@ test_that("read_from_fingertips works", {
     id_position = NULL, id_col_name = "AreaCode"
   )
   expect_type(data, type = "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
   expect_s3_class(data[["data"]], "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
@@ -63,9 +67,10 @@ test_that("read_from_fingertips works", {
     id_position = NULL, id_col_name = NULL
   )
   expect_type(data, type = "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
   expect_s3_class(data[["data"]], "data.frame")
+  expect_identical(data[["metadata"]], NA)
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
@@ -77,9 +82,10 @@ test_that("read_from_fingertips works", {
     id_position = NULL, id_col_name = "AreaCode"
   )
   expect_type(data, type = "list")
-  expect_length(data, 1L)
-  expect_named(data, "data")
+  expect_length(data, 2L)
+  expect_named(data, c("data", "metadata"))
   expect_s3_class(data[["data"]], "data.frame")
+  expect_identical(data[["metadata"]], NA)
 })
 
 
