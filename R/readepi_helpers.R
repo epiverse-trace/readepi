@@ -144,7 +144,7 @@ url_check <- function(base_url) {
                               null.ok = FALSE)
   regex  <- "^(https?://)?(www\\.)?([a-z0-9]([a-z0-9]|(\\-[a-z0-9]))*\\.)+[a-z]+$" # nolint: line_length_linter
   domain <- strsplit(gsub("^(https?://)?(www\\.)?", "", base_url),
-                     "/")[[c(1L, 1L)]]
+                     "/")[[c(1L, 1L)]] # nolint: fixed_regex_linter
   stopifnot("Incorrect domain name in provided URL!" = grepl(regex, domain))
   return(invisible(TRUE))
 }
