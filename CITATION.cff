@@ -113,6 +113,9 @@ references:
   - family-names: Fox
     given-names: Sebastian
     email: sebsfox@gmail.com
+  - family-names: Nanayakkara
+    given-names: Hadley
+    email: hadley.nanayakkara@dhsc.gov.uk
   - family-names: Flowers
     given-names: Julian
   year: '2024'
