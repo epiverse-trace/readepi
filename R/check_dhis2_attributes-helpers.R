@@ -35,7 +35,6 @@ dhis2_make_api_request <- function(base_url,
     which,
     "?fields=id,name,shortName&paging=false"
   )
-  # response <- httr::GET(url, httr::authenticate(user_name, password))
   req <- httr2::request(url) %>%
     httr2::req_auth_basic(user_name, password) %>%
     httr2::req_perform()
