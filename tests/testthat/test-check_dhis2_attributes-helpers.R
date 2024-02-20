@@ -10,8 +10,9 @@ httptest::with_mock_api({
       which     = "dataElements"
     )
     expect_type(response, "list")
-    expect_length(response, 5L)
+    expect_length(response, 7L)
     expect_identical(response[["status_code"]], 200L)
+    expect_identical(response[["method"]], "GET")
   })
 
   test_that("dhis2_get_relevant_attributes works as expected with valid
