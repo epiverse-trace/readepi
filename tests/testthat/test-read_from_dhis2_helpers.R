@@ -178,3 +178,15 @@ test_that("dhis2_subset_records works as expected", {
   expect_identical(test[["start_date"]], "2014")
   expect_identical(test[["end_date"]], "2023")
 })
+
+test_that("dhis2_make_query_params works as expected", {
+  params <- dhis2_make_query_params(
+    dataset    = "pBOMPrpg1QX",
+    org_unit   = "DiszpKrYNg8",
+    start_date = "2014",
+    end_date   = "2023"
+  )
+  expect_type(params, "list")
+  expect_length(params, 4L)
+  expect_named(params, c("dataSet", "orgUnit", "startDate", "endDate"))
+})

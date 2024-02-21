@@ -169,41 +169,39 @@ dhis2_get_attributes_from_user <- function(args_list) {
   )
 }
 
-#' Make full URL from request attributes
+#' Make request query parameters
 #'
-#' @param base_url the web address of the server the user wishes to log in to
 #' @param dataset a vector or a list of comma-separated data set identifiers
 #' @param org_unit a vector or a list of comma-separated organisation
 #'    unit identifiers
 #' @param start_date the start date for the time span of the values to export
 #' @param end_date the end date for the time span of the values to export
 #'
-#' @return a character string with the full URL to be used in the API request
+#' @return a list of the request query parameters that will be used in the API
+#'    request.
 #' @keywords internal
 #'
-dhis2_make_request_url <- function(base_url,
-                                   dataset,
-                                   org_unit,
-                                   start_date = NULL,
-                                   end_date   = NULL) {
+dhis2_make_query_params <- function(dataset,
+                                    org_unit,
+                                    start_date = NULL,
+                                    end_date   = NULL) {
   if (is.character(dataset)) {
     dataset  <- unlist(strsplit(dataset, ",", fixed = TRUE))
   }
   if (is.character(org_unit)) {
     org_unit <- unlist(strsplit(org_unit, ",", fixed = TRUE))
   }
-  dataset    <- glue::glue_collapse(dataset, sep = "%2C")
-  dataset    <- glue::glue("?dataSet=", dataset, sep = "")
-  org_unit   <- glue::glue_collapse(org_unit, sep = "%2C")
-  org_unit   <- glue::glue("&orgUnit=", org_unit, sep = "")
-  url        <- glue::glue(base_url, dataset, org_unit, sep = "")
+
+  params     <- list(
+    dataSet    = dataset,
+    orgUnit   = org_unit
+  )
+
   if (!is.null(start_date)) {
-    start_date <- glue::glue("&startDate=", start_date, sep = "")
-    url        <- glue::glue(url, start_date, sep = "")
+    params[["startDate"]] = start_date
   }
   if (!is.null(end_date)) {
-    end_date   <- glue::glue("&endDate=", end_date, sep = "")
-    url        <- glue::glue(url, end_date, sep = "")
+    params[["endDate"]] = end_date
   }
-  url
+  return(params)
 }
