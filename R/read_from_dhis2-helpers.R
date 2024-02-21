@@ -193,15 +193,15 @@ dhis2_make_query_params <- function(dataset,
   }
 
   params     <- list(
-    dataSet    = dataset,
-    orgUnit   = org_unit
+    dataSet = dataset,
+    orgUnit = org_unit
   )
 
   if (!is.null(start_date)) {
-    params[["startDate"]] = start_date
+    params[["startDate"]] <- start_date
   }
   if (!is.null(end_date)) {
-    params[["endDate"]] = end_date
+    params[["endDate"]]   <- end_date
   }
   return(params)
 }
