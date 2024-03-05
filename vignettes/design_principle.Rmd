@@ -1,0 +1,91 @@
+---
+title: "Package Design vignette for {readepi}"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Package Design vignette for {readepi}}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>"
+)
+```
+
+## Concept and motivation
+In this document we outline the design decisions that will guide the development strategies of the {readepi} R package, as well as some of the reasoning, and possible pros and cons of each decision.
+
+Import data "from whatever source of it" into `R` environment is the first step in the workflows of outbreak analysis. Epidemiological data are often stored in files of different formats, public repositories, relational database management systems (RDBMS), and health information systems (HIS) wrapped with specific application program interfaces (APIs).  such, we thought of a centralized tool that will provide users with the possibility of importing data from various .
+
+
+
+There are several R packages designed to access data from specific HIS. They are usually tied to a single HIS and can't be used to query others. {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to fetch data from [Fingertips](https://fingertips.phe.org.uk/), [REDCap](https://projectredcap.org/software/), [goData](https://www.who.int/tools/godata), and [Global.Health](https://global.health/) respectively. In these packages, the API end points are accessed differently. This introduces the challenge of having a unified framework for importing data from these HIS into R.
+
+To address this challenge, PIs of the [Epiverse-TRACE](https://data.org/initiatives/epiverse/) came with a list of potential data sources for which we aim at building a tool to make requests and fetch the data of interest in the same way. The data sources include: distributed health information systems, and public databases as shown in the figure below.
+
+![readepi roadmap](../man/figures/roadmap-readepi.drawio.png)
+
+## Scope
+
+The {readepi} package intends to import data from two common sources of institutional health-related data: health information systems (HIS) wrapped with specific program interfaces (APIs) and relational database management systems (RDBMS) that run on specific servers. Each source has its own import function, `read_from_api()` for HIS and `read_from_server()` for RDBMS. There is also an auxiliary function, `get_metadata()`, that retrieves metadata from a specified API and offers interoperability with the [{cleanepi} R package](https://epiverse-trace.github.io/cleanepi/).     
+The current version of {readepi} supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), Fingertips, GoData, and Globaldothealth, as well as RDBMS such as MS SQL, MS ACCESS, SQlite, MYSQL, and PostgreSQL. 
+
+![readepi design diagram](../man/figures/readepi_design_diagram.drawio.svg)
+
+
+## Output
+
+The two `read_from_*()` functions return a `list` object containing one or more `data frames`. Each `data frame` corresponds to the data from a specified table or file. The `get_metadata()` function returns a data dictionary containing information about the data structure. 
+
+## Design decisions
+
+The aim of {readepi} is to simplify and standardize the process of fetching health data from APIs and servers. We ambition to make it requires minimal information to access and pull the data of interest from the target source.  
+
+1. The `read_from_api()` function takes only two arguments to import data from an API: an object of class **credential** and an object of class **api**.
+
+The **credential** object is a list-like object that stores the information required to access the API. Its main attributes are:
+    * `base_url`: the link to the API,
+    * `user_name`: the user name, and
+    * `password`: the user's password or API token.
+
+The **api** object is also a list-like object that provides information about the API. It has 2 main attributes:
+    * `name`: the API name
+    * `attributes`: the attributes needed to access the data of interest
+Note that the API's attributes can vary depending on the API, for example, it can be dataElements or dataSets or a combination of both for DHIS2. 
+Both the API name and attributes are needed to build the API endpoint.
+
+2. The `read_from_server()` function also accepts two arguments: an object of the **credential** class, which is the same as for `read_from_api()`, and an object of class **server**, which includes information about the servers. Specifically, the attributes for the **server** object are:
+    * `name`: the name of the server type,
+    * `src`: the name of the desired table or an SQL query, and
+    * `condition`: when provided, this will serve for subsetting purpose. This is a `list` of two elements: fields and values.
+
+3. The `get_metadata()` function takes two arguments: a **credential** object and an **api** object. Both are defined in the paragraphs above. 
+
+## Dependencies
+
+The `read_from_api()` will rely mainly on 2 packages:
+
+  [{httr2}](https://CRAN.R-project.org/package=httr2),
+  [{dplyr}](https://CRAN.R-project.org/package=dplyr)
+
+The `read_from_server()` will rely mainly on 2 packages:
+
+  [{DBI}](https://CRAN.R-project.org/package=DBI),
+  [{pool}](https://CRAN.R-project.org/package=pool)
+
+It also has a system dependency for OS-X and Linux users. This will be described in details in the vignette.
+
+Both functions will require all other packages that needed in the package development process including:
+
+  [{checkmate}](https://CRAN.R-project.org/package=checkmate),
+  [{httptest}](https://CRAN.R-project.org/package=httptest),
+  [{bookdown}](https://CRAN.R-project.org/package=bookdown),
+  [{rmarkdown}](https://CRAN.R-project.org/package=rmarkdown),
+  [{testthat}](https://CRAN.R-project.org/package=testthat) (>= 3.0.0),
+  [{knitr}](https://CRAN.R-project.org/package=knitr)
+
+## Contribute
+
+There are no special requirements to contributing to {readepi}, please follow the [package contributing guide](https://github.com/epiverse-trace/.github/blob/main/CONTRIBUTING.md).
