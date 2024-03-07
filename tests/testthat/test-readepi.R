@@ -19,7 +19,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   testthat::skip_if_offline()
   data <- readepi(
     indicator_id   = 90362L,
-    area_type_id   = 202L,
+    area_type_id   = 102L,
     indicator_name = "Healthy life expectancy at birth",
     domain_id      = 1000049L,
     domain_name    = "A. Overarching indicators",
@@ -37,7 +37,7 @@ test_that("readepi works as expected when reading from Fingertips", {
 
   data <- readepi(
     indicator_id = 90362L,
-    area_type_id = 202L,
+    area_type_id = 102L,
     records      = NULL,
     fields       = NULL,
     id_position  = NULL,
@@ -51,7 +51,7 @@ test_that("readepi works as expected when reading from Fingertips", {
 
   data <- readepi(
     indicator_id   = 90362L,
-    area_type_id   = 202L,
+    area_type_id   = 102L,
     indicator_name = "Healthy life expectancy at birth",
     records        = NULL,
     fields         = NULL,
@@ -65,7 +65,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
-    area_type_id   = 202L,
+    area_type_id   = 102L,
     indicator_name = "Healthy life expectancy at birth",
     records        = NULL,
     fields         = NULL,
@@ -79,7 +79,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
-    area_type_id = 202L,
+    area_type_id = 102L,
     domain_name  = "A. Overarching indicators",
     records      = NULL,
     fields       = NULL,
@@ -93,7 +93,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
-    area_type_id = 202L,
+    area_type_id = 102L,
     domain_id    = 1000049L,
     records      = NULL,
     fields       = NULL,
@@ -107,7 +107,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
-    area_type_id = 202L,
+    area_type_id = 102L,
     profile_id   = 19L,
     records      = NULL,
     fields       = NULL,
@@ -121,7 +121,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
-    area_type_id = 202L,
+    area_type_id = 102L,
     profile_name = "Public Health Outcomes Framework",
     records      = NULL,
     fields       = NULL,
@@ -474,7 +474,7 @@ test_that("readepi fails as expected when reading from Fingertips", {
   expect_error(
     readepi(
       indicator_id   = NA,
-      area_type_id   = 202L,
+      area_type_id   = 102L,
       indicator_name = "Healthy life expectancy at birth",
       domain_id      = 1000049L,
       domain_name    = "A. Overarching indicators",
@@ -491,7 +491,7 @@ test_that("readepi fails as expected when reading from Fingertips", {
   expect_error(
     readepi(
       indicator_id   = 90362L,
-      area_type_id   = 202L,
+      area_type_id   = 102L,
       indicator_name = NA,
       domain_id      = 1000049L,
       domain_name    = "A. Overarching indicators",
@@ -525,7 +525,7 @@ test_that("readepi fails as expected when reading from Fingertips", {
   expect_error(
     readepi(
       indicator_id   = 90362L,
-      area_type_id   = 202L,
+      area_type_id   = 102L,
       indicator_name = "Healthy life expectancy at birth",
       domain_id      = NA,
       domain_name    = "A. Overarching indicators",
@@ -541,7 +541,7 @@ test_that("readepi fails as expected when reading from Fingertips", {
   expect_error(
     readepi(
       indicator_id   = 90362L,
-      area_type_id   = 202L,
+      area_type_id   = 102L,
       indicator_name = "Healthy life expectancy at birth",
       domain_id      = 1000049L,
       domain_name    = NA,
@@ -558,7 +558,7 @@ test_that("readepi fails as expected when reading from Fingertips", {
   expect_error(
     readepi(
       indicator_id   = 90362L,
-      area_type_id   = 202L,
+      area_type_id   = 102L,
       indicator_name = "Healthy life expectancy at birth",
       domain_id      = 1000049L,
       domain_name    = "A. Overarching indicators",
@@ -574,7 +574,7 @@ test_that("readepi fails as expected when reading from Fingertips", {
   expect_error(
     readepi(
       indicator_id   = 90362L,
-      area_type_id   = 202L,
+      area_type_id   = 102L,
       indicator_name = "Healthy life expectancy at birth",
       domain_id      = 1000049L,
       domain_name    = "A. Overarching indicators",

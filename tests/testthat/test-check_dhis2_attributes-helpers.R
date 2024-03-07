@@ -18,55 +18,63 @@ httptest::with_mock_api({
   test_that("dhis2_get_relevant_attributes works as expected with valid
             dataSets", {
               result <- dhis2_get_relevant_attributes(
-                attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
                 base_url     = file.path("https:/", "play.dhis2.org", "dev"),
                 user_name    = "admin",
                 password     = "district",
+                attribute_id = c("pBOMPrpg1QX", "BfMAe6Itzgt"),
                 which        = "dataSets"
               )
               expect_type(result, "list")
+              expect_length(result, 2L)
               expect_identical(result[["dataset"]], "pBOMPrpg1QX,BfMAe6Itzgt")
               expect_s3_class(result[["data_sets"]], "data.frame")
+              expect_named(result[["data_sets"]], c("name", "shortName", "id"))
             })
 
   test_that("dhis2_get_relevant_attributes works as expected with valid
             dataElements", {
               result <- dhis2_get_relevant_attributes(
-                attribute_id = "FTRrcoaog83",
                 base_url     = file.path("https:/", "play.dhis2.org", "dev"),
                 user_name    = "admin",
                 password     = "district",
+                attribute_id = "FTRrcoaog83",
                 which        = "dataElements"
               )
               expect_s3_class(result, "data.frame")
+              expect_named(result, c("name", "shortName", "id"))
             })
 
   test_that("dhis2_get_relevant_attributes works as expected with valid
             organisationUnits", {
               result <- dhis2_get_relevant_attributes(
-                attribute_id = "Rp268JB6Ne4",
                 base_url     = file.path("https:/", "play.dhis2.org", "dev"),
                 user_name    = "admin",
                 password     = "district",
+                attribute_id = "Rp268JB6Ne4",
                 which        = "organisationUnits"
               )
               expect_type(result, "list")
+              expect_length(result, 2L)
               expect_identical(result[["organisation_unit"]], "Rp268JB6Ne4")
               expect_s3_class(result[["org_units"]], "data.frame")
+              expect_named(result[["org_units"]], c("name", "shortName", "id"))
             })
 
   test_that("dhis2_get_relevant_attributes works as expected with valid
             dataElementGroups", {
               result <- dhis2_get_relevant_attributes(
-                attribute_id = "oDkJh5Ddh7d",
                 base_url     = file.path("https:/", "play.dhis2.org", "dev"),
                 user_name    = "admin",
                 password     = "district",
+                attribute_id = "oDkJh5Ddh7d",
                 which        = "dataElementGroups"
               )
               expect_type(result, "list")
+              expect_length(result, 2L)
               expect_identical(result[["data_element_group"]], "oDkJh5Ddh7d")
               expect_s3_class(result[["data_elt_groups"]], "data.frame")
+              expect_named(result[["data_elt_groups"]],
+                           c("name", "shortName", "id"))
             })
 
   test_that("dhis2_get_attributes works as expected", {
@@ -103,7 +111,7 @@ test_that("the API request fails with an incorrect attribute", {
   testthat::skip_if_not_installed("httptest")
   expect_error(
     dhis2_make_api_request(
-      base_url  = file.path("test", "play.dhis2.org", "dev"),
+      base_url  = file.path("https:/", "play.dhis2.org", "dev"),
       user_name = "admin",
       password  = "district",
       which     = "test"
@@ -136,7 +144,8 @@ test_that("dhis2_get_relevant_attributes fails as expected", {
       which        = "test"
     ),
     regexp = cat("The expected values for the 'which' argument are:
-          'dataSets, 'organisationUnits', 'dataElementGroups', 'dataElements'")
+                 'dataSets, 'organisationUnits', 'dataElementGroups',
+                 'dataElements', 'organisationUnitGroups'")
   )
 
   expect_error(
@@ -152,7 +161,7 @@ test_that("dhis2_get_relevant_attributes fails as expected", {
 
   expect_warning(
     dhis2_get_relevant_attributes(
-      attribute_id = "pBOMPrpg1QX, test",
+      attribute_id = c("pBOMPrpg1QX", "test"),
       base_url     = file.path("https:/", "play.dhis2.org", "dev"),
       user_name    = "admin",
       password     = "district",
