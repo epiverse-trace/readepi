@@ -69,7 +69,7 @@ read_from_dhis2 <- function(base_url,
   # split the query parameters if they are passed as a list of comma-separated
   # elements
   query_parameters <- lapply(
-    sapply(unlist(query_parameters), strsplit, ",", fixed = TRUE),
+    sapply(unlist(query_parameters), strsplit, ",", fixed = TRUE), # nolint: undesirable_function_linter
     trimws
   )
 
