@@ -44,17 +44,16 @@ dhis2_login <- function(base_url,
 #' \dontrun{
 #' results <- dhis2_subset_fields(
 #'   data = readepi(
-#'     credentials_file   = system.file("extdata", "test.ini",
+#'     credentials_file = system.file("extdata", "test.ini",
 #'                                      package = "readepi"),
-#'     data_source        = "https://play.dhis2.org/dev",
-#'     dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-#'     organisation_unit  = "DiszpKrYNg8",
-#'     data_element_group = NULL,
-#'     start_date         = "2014",
-#'     end_date           = "2023",
-#'     fields             = c("dataElement", "period", "value")
+#'     data_source      = "https://play.dhis2.org/dev",
+#'     query_parameters = list(
+#'         dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
+#'         orgUnit   = "DiszpKrYNg8",
+#'         startDate = "2014",
+#'         endDate   = "2023")
 #'   )$data,
-#'   fields               = c("dataElement", "period", "value")
+#'   fields             = c("dataElement", "period", "value")
 #' )
 #' }
 #' @keywords internal
@@ -97,17 +96,17 @@ dhis2_subset_fields <- function(data,
 #' \dontrun{
 #' result <- dhis2_subset_records(
 #'   data = readepi(
-#'     credentials_file   = system.file("extdata", "test.ini",
-#'                                      package = "readepi"),
-#'     data_source        = "https://play.dhis2.org/dev",
-#'     dataset            = "pBOMPrpg1QX",
-#'     organisation_unit  = "DiszpKrYNg8",
-#'     data_element_group = NULL,
-#'     start_date         = "2014",
-#'     end_date           = "2023"
+#'     credentials_file = system.file("extdata", "test.ini",
+#'                                    package = "readepi"),
+#'     data_source      = "https://play.dhis2.org/dev",
+#'     query_parameters = list(
+#'         dataSet   = "pBOMPrpg1QX",
+#'         orgUnit   = "DiszpKrYNg8",
+#'         startDate = "2014",
+#'         endDate   = "2023")
 #'   )$data,
-#'   records              = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
-#'   id_col_name          = "dataElement"
+#'   records            = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+#'   id_col_name        = "dataElement"
 #' )
 #' }
 #' @keywords internal
@@ -135,73 +134,19 @@ dhis2_subset_records <- function(data,
   data
 }
 
-#' Get the DHIS2 attributes from the user
+#' Get the DHIS2 query parameters from the user
 #'
 #' @param args_list a `list` of parameters provided by the user
 #'
-#' @return an object of type `list` with the values for the DHIS2 attributes.
+#' @return an object of type `list` with the values for the DHIS2 query
+#'    parameters or NULL if they were not specified (i.e. not reading from
+#'    DHIS2)
 #' @keywords internal
 #'
-dhis2_get_attributes_from_user <- function(args_list) {
-  dataset <- organisation_unit <- data_element_group <- start_date <-
-    end_date <- NULL
-  if ("dataset" %in% names(args_list)) {
-    dataset            <- args_list[["dataset"]]
+dhis2_get_query_params <- function(args_list) {
+  query_parameters <- NULL
+  if ("query_parameters" %in% names(args_list)) {
+    query_parameters <- args_list[["query_parameters"]]
   }
-  if ("organisation_unit" %in% names(args_list)) {
-    organisation_unit  <- args_list[["organisation_unit"]]
-  }
-  if ("data_element_group" %in% names(args_list)) {
-    data_element_group <- args_list[["data_element_group"]]
-  }
-  if ("start_date" %in% names(args_list)) {
-    start_date         <- args_list[["start_date"]]
-  }
-  if ("end_date" %in% names(args_list)) {
-    end_date           <- args_list[["end_date"]]
-  }
-  list(
-    dataset            = dataset,
-    organisation_unit  = organisation_unit,
-    data_element_group = data_element_group,
-    start_date         = start_date,
-    end_date           = end_date
-  )
-}
-
-#' Make request query parameters
-#'
-#' @param dataset a vector or a list of comma-separated data set identifiers
-#' @param org_unit a vector or a list of comma-separated organisation
-#'    unit identifiers
-#' @param start_date the start date for the time span of the values to export
-#' @param end_date the end date for the time span of the values to export
-#'
-#' @return a list of the request query parameters that will be used in the API
-#'    request.
-#' @keywords internal
-#'
-dhis2_make_query_params <- function(dataset,
-                                    org_unit,
-                                    start_date = NULL,
-                                    end_date   = NULL) {
-  if (is.character(dataset)) {
-    dataset  <- unlist(strsplit(dataset, ",", fixed = TRUE))
-  }
-  if (is.character(org_unit)) {
-    org_unit <- unlist(strsplit(org_unit, ",", fixed = TRUE))
-  }
-
-  params     <- list(
-    dataSet = dataset,
-    orgUnit = org_unit
-  )
-
-  if (!is.null(start_date)) {
-    params[["startDate"]] <- start_date
-  }
-  if (!is.null(end_date)) {
-    params[["endDate"]]   <- end_date
-  }
-  return(params)
+  return(query_parameters)
 }

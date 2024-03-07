@@ -4,14 +4,7 @@
 \alias{dhis2_check_attributes}
 \title{Check the DHIS2 attributes for data import}
 \usage{
-dhis2_check_attributes(
-  base_url,
-  user_name,
-  password,
-  dataset,
-  organisation_unit = NULL,
-  data_element_group = NULL
-)
+dhis2_check_attributes(base_url, user_name, password, query_parameters)
 }
 \arguments{
 \item{base_url}{the web address of the server the user wishes to log in to}
@@ -20,28 +13,24 @@ dhis2_check_attributes(
 
 \item{password}{the user's password}
 
-\item{dataset}{the dataSets identifiers}
-
-\item{organisation_unit}{the organisationUnits identifiers}
-
-\item{data_element_group}{the dataElementGroups identifiers}
+\item{query_parameters}{a list with the parameters that will be used to
+determine which data is returned by the query}
 }
 \value{
-a list of 7 elements of type \code{character}.
+a list of 9 elements of type \code{character}.
 }
 \description{
 Check the DHIS2 attributes for data import
 }
 \examples{
 \dontrun{
-attributes <- dhis2_check_attributes(
-  base_url            = "https://play.dhis2.org/dev",
-  user_name           = "admin",
-  password            = "district",
-  dataset             = "pBOMPrpg1QX",
-  organisation_unit   = "DiszpKrYNg8",
-  data_element_group  = NULL
-)
+  attributes <- dhis2_check_attributes(
+    base_url         = "https://play.dhis2.org/dev",
+    user_name        = "admin",
+    password         = "district",
+    query_parameters = list(dataSet = "pBOMPrpg1QX",
+                            orgUnit = "DiszpKrYNg8")
+  )
 }
 
 }

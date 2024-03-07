@@ -19,10 +19,10 @@ dhis2_get_relevant_attributes(
 
 \item{password}{the user's password}
 
-\item{attribute_id}{a comma-separated list of DHIS2 attribute ids. The ids
-could be those of a dataSet or an organisationUnit.}
+\item{attribute_id}{a vector of DHIS2 attribute ids. The ids
+could be those of a dataSet or an orgUnit.}
 
-\item{which}{the target DHIS2 attribute name}
+\item{which}{the target DHIS2 end point}
 }
 \value{
 a \code{list} of 2 elements: a \code{character} string with the target
@@ -38,7 +38,7 @@ result <- dhis2_get_relevant_attributes(
   base_url     = "https://play.dhis2.org/dev/",
   user_name    = "admin",
   password     = "district",
-  attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
+  attribute_id = c("pBOMPrpg1QX", "BfMAe6Itzgt"),
   which        = "dataSets"
 )
 }
