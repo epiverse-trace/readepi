@@ -370,7 +370,7 @@ fingertips_get_id_from_profile <- function(metadata =
 #' res <- fingertips_subset_rows(
 #'   data = readepi(
 #'     profile_id   = 19,
-#'     area_type_id = 202
+#'     area_type_id = 6
 #'   )$data,
 #'   records        = c("E92000001", "E12000002", "E12000009"),
 #'   id_col_name    = "AreaCode"
@@ -412,7 +412,7 @@ fingertips_subset_rows <- function(data,
 #' res <- fingertips_subset_columns(
 #'   data = readepi(
 #'     profile_id   = 19,
-#'     area_type_id = 202
+#'     area_type_id = 6
 #'   )$data,
 #'   fields         = c("IndicatorID", "AreaCode", "Age", "Value")
 #' )

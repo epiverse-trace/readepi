@@ -26,7 +26,7 @@ Subset columns when reading from Fingertips
 res <- fingertips_subset_columns(
   data = readepi(
     profile_id   = 19,
-    area_type_id = 202
+    area_type_id = 6
   )$data,
   fields         = c("IndicatorID", "AreaCode", "Age", "Value")
 )
