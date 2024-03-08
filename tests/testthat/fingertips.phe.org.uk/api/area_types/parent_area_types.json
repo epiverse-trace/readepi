@@ -1355,34 +1355,6 @@
         "CanBeDisplayedOnMap": true,
         "ParentAreaTypes": [
             {
-                "Id": 46,
-                "Name": "E39, former sub-region, former Local area teams",
-                "Short": "NHS region - local office",
-                "Class": null,
-                "Sequence": 0,
-                "CanBeDisplayedOnMap": true,
-                "ParentAreaTypes": [
-                    {
-                        "Id": 15,
-                        "Name": "England",
-                        "Short": "England",
-                        "Class": null,
-                        "Sequence": 0,
-                        "CanBeDisplayedOnMap": false,
-                        "ParentAreaTypes": [
-                            {
-                                "Id": 159,
-                                "Name": "United Kingdom",
-                                "Short": "UK",
-                                "Class": null,
-                                "Sequence": 0,
-                                "CanBeDisplayedOnMap": false
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
                 "Id": 15,
                 "Name": "England",
                 "Short": "England",
@@ -1495,34 +1467,6 @@
         "CanBeDisplayedOnMap": true,
         "ParentAreaTypes": [
             {
-                "Id": 46,
-                "Name": "E39, former sub-region, former Local area teams",
-                "Short": "NHS region - local office",
-                "Class": null,
-                "Sequence": 0,
-                "CanBeDisplayedOnMap": true,
-                "ParentAreaTypes": [
-                    {
-                        "Id": 15,
-                        "Name": "England",
-                        "Short": "England",
-                        "Class": null,
-                        "Sequence": 0,
-                        "CanBeDisplayedOnMap": false,
-                        "ParentAreaTypes": [
-                            {
-                                "Id": 159,
-                                "Name": "United Kingdom",
-                                "Short": "UK",
-                                "Class": null,
-                                "Sequence": 0,
-                                "CanBeDisplayedOnMap": false
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
                 "Id": 222,
                 "Name": "NHS regions (43 + 44)",
                 "Short": "NHS regions (pre ICB)",
@@ -1602,34 +1546,6 @@
         "Id": 205,
         "Name": "Local Maternity System",
         "Short": "Local Maternity System",
-        "Class": null,
-        "Sequence": 0,
-        "CanBeDisplayedOnMap": false,
-        "ParentAreaTypes": [
-            {
-                "Id": 15,
-                "Name": "England",
-                "Short": "England",
-                "Class": null,
-                "Sequence": 0,
-                "CanBeDisplayedOnMap": false,
-                "ParentAreaTypes": [
-                    {
-                        "Id": 159,
-                        "Name": "United Kingdom",
-                        "Short": "UK",
-                        "Class": null,
-                        "Sequence": 0,
-                        "CanBeDisplayedOnMap": false
-                    }
-                ]
-            }
-        ]
-    },
-    {
-        "Id": 130,
-        "Name": "Breast Screening Service",
-        "Short": "Breast Screening Service",
         "Class": null,
         "Sequence": 0,
         "CanBeDisplayedOnMap": false,
@@ -2054,8 +1970,8 @@
         "ParentAreaTypes": [
             {
                 "Id": 204,
-                "Name": "Primary Care Network (v. 27/04/23)",
-                "Short": "PCNs (v. 27/04/23)",
+                "Name": "Primary Care Network (v. 27/10/23)",
+                "Short": "PCNs (v. 27/10/23)",
                 "Class": null,
                 "Sequence": 0,
                 "CanBeDisplayedOnMap": false,
@@ -2664,34 +2580,6 @@
                 "CanBeDisplayedOnMap": true,
                 "ParentAreaTypes": [
                     {
-                        "Id": 46,
-                        "Name": "E39, former sub-region, former Local area teams",
-                        "Short": "NHS region - local office",
-                        "Class": null,
-                        "Sequence": 0,
-                        "CanBeDisplayedOnMap": true,
-                        "ParentAreaTypes": [
-                            {
-                                "Id": 15,
-                                "Name": "England",
-                                "Short": "England",
-                                "Class": null,
-                                "Sequence": 0,
-                                "CanBeDisplayedOnMap": false,
-                                "ParentAreaTypes": [
-                                    {
-                                        "Id": 159,
-                                        "Name": "United Kingdom",
-                                        "Short": "UK",
-                                        "Class": null,
-                                        "Sequence": 0,
-                                        "CanBeDisplayedOnMap": false
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
                         "Id": 15,
                         "Name": "England",
                         "Short": "England",
@@ -2850,6 +2738,14 @@
                         "CanBeDisplayedOnMap": false
                     }
                 ]
+            },
+            {
+                "Id": 158,
+                "Name": "Hospital trust type",
+                "Short": "Trust type",
+                "Class": null,
+                "Sequence": 0,
+                "CanBeDisplayedOnMap": false
             }
         ]
     },
@@ -3168,34 +3064,6 @@
                 ]
             },
             {
-                "Id": 46,
-                "Name": "E39, former sub-region, former Local area teams",
-                "Short": "NHS region - local office",
-                "Class": null,
-                "Sequence": 0,
-                "CanBeDisplayedOnMap": true,
-                "ParentAreaTypes": [
-                    {
-                        "Id": 15,
-                        "Name": "England",
-                        "Short": "England",
-                        "Class": null,
-                        "Sequence": 0,
-                        "CanBeDisplayedOnMap": false,
-                        "ParentAreaTypes": [
-                            {
-                                "Id": 159,
-                                "Name": "United Kingdom",
-                                "Short": "UK",
-                                "Class": null,
-                                "Sequence": 0,
-                                "CanBeDisplayedOnMap": false
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
                 "Id": 15,
                 "Name": "England",
                 "Short": "England",
@@ -3362,8 +3230,8 @@
     },
     {
         "Id": 204,
-        "Name": "Primary Care Network (v. 27/04/23)",
-        "Short": "PCNs (v. 27/04/23)",
+        "Name": "Primary Care Network (v. 27/10/23)",
+        "Short": "PCNs (v. 27/10/23)",
         "Class": null,
         "Sequence": 0,
         "CanBeDisplayedOnMap": false,
@@ -3797,34 +3665,6 @@
                 "Id": 222,
                 "Name": "NHS regions (43 + 44)",
                 "Short": "NHS regions (pre ICB)",
-                "Class": null,
-                "Sequence": 0,
-                "CanBeDisplayedOnMap": true,
-                "ParentAreaTypes": [
-                    {
-                        "Id": 15,
-                        "Name": "England",
-                        "Short": "England",
-                        "Class": null,
-                        "Sequence": 0,
-                        "CanBeDisplayedOnMap": false,
-                        "ParentAreaTypes": [
-                            {
-                                "Id": 159,
-                                "Name": "United Kingdom",
-                                "Short": "UK",
-                                "Class": null,
-                                "Sequence": 0,
-                                "CanBeDisplayedOnMap": false
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "Id": 46,
-                "Name": "E39, former sub-region, former Local area teams",
-                "Short": "NHS region - local office",
                 "Class": null,
                 "Sequence": 0,
                 "CanBeDisplayedOnMap": true,

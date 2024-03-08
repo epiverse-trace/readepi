@@ -4,7 +4,7 @@ test_that("fingertips_subset_rows works as expected", {
   data <- readepi(
     data_source  = NULL,
     profile_id   = 19L,
-    area_type_id = 102L
+    area_type_id = 6L
   )[["data"]]
   res <- fingertips_subset_rows(
     data        = data,
@@ -25,7 +25,7 @@ test_that("fingertips_subset_rows fails as expected", {
   data <- readepi(
     data_source  = NULL,
     profile_id   = 19L,
-    area_type_id = 102L
+    area_type_id = 6L
   )[["data"]]
   expect_warning(
     fingertips_subset_rows(
@@ -42,7 +42,7 @@ test_that("fingertips_subset_columns works as expected", {
   testthat::skip_if_offline()
   data <- readepi(
     data_source  = NULL, profile_id = 19L,
-    area_type_id = 102L
+    area_type_id = 6L
   )[["data"]]
   res <- fingertips_subset_columns(
     data   = data,
@@ -58,7 +58,7 @@ test_that("fingertips_subset_columns fails as expected", {
   testthat::skip_if_offline()
   data <- readepi(
     data_source  = NULL, profile_id = 19L,
-    area_type_id = 102L
+    area_type_id = 6L
   )[["data"]]
   expect_error(
     fingertips_subset_columns(
@@ -182,7 +182,7 @@ httptest::with_mock_api({
     expect_length(indicator_id, 42L)
   })
 
-  test_that("fingertips_get_id_from_dm_id works as expected", {
+  test_that("fingertips_get_id_from_dm_id fails as expected", {
     testthat::skip_on_cran()
     testthat::skip_if_offline()
     expect_error(

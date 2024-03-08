@@ -4,7 +4,7 @@ test_that("read_from_fingertips works", {
   testthat::skip_if_offline()
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = "Healthy life expectancy at birth",
-    area_type_id = 102L, parent_area_type_id = 6L,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = 19L, profile_name = "Public Health Outcomes Framework",
     domain_id = 1000049L, domain_name = "A. Overarching indicators",
     fields = NULL, records = NULL,
@@ -18,7 +18,7 @@ test_that("read_from_fingertips works", {
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
-    area_type_id = 102L, parent_area_type_id = NULL,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = NULL,
@@ -32,7 +32,7 @@ test_that("read_from_fingertips works", {
 
   data <- read_from_fingertips(
     indicator_id = c(90362L, 90283L), indicator_name = NULL,
-    area_type_id = 102L, parent_area_type_id = NULL,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = NULL,
@@ -46,7 +46,7 @@ test_that("read_from_fingertips works", {
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
-    area_type_id = 102L, parent_area_type_id = NULL,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = c("E92000001", "E12000002"),
@@ -60,7 +60,7 @@ test_that("read_from_fingertips works", {
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
-    area_type_id = 102L, parent_area_type_id = NULL,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = c("IndicatorID", "AreaCode", "Age", "Value"), records = NULL,
@@ -74,7 +74,7 @@ test_that("read_from_fingertips works", {
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
-    area_type_id = 102L, parent_area_type_id = NULL,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = c("IndicatorID", "AreaCode", "Age", "Value"),

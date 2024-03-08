@@ -1,0 +1,341 @@
+Indicator ID,Indicator Name,Parent Code,Parent Name,Area Code,Area Name,Area Type,Sex,Age,Category Type,Category,Time period,Value,Lower CI 95.0 limit,Upper CI 95.0 limit,Lower CI 99.8 limit,Upper CI 99.8 limit,Count,Denominator,Value note,Recent Trend,Compared to England value or percentiles,Compared to percentiles,Time period Sortable,New data,Compared to goal,Time period range
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,,,2009 - 11,9.93695,9.82805,10.04584,,,,,,,Not compared,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,,,2009 - 11,10.6391,10.52498,10.75322,,,,,,,Not compared,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2009 - 11,9.93695,9.82805,10.04584,,,,,,,Similar,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2009 - 11,10.6391,10.52498,10.75322,,,,,,,Similar,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2009 - 11,8.42497,8.06226,8.78767,,,,,,,Worse,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2009 - 11,8.95614,8.69498,9.21731,,,,,,,Worse,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2009 - 11,9.1543,8.84048,9.46812,,,,,,,Worse,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2009 - 11,9.59462,9.21441,9.97482,,,,,,,Similar,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2009 - 11,9.8093,9.49837,10.12022,,,,,,,Similar,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2009 - 11,10.6521,10.30204,11.00217,,,,,,,Better,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2009 - 11,9.44791,9.10377,9.79205,,,,,,,Worse,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2009 - 11,10.88045,10.58724,11.17365,,,,,,,Better,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2009 - 11,10.99032,10.67122,11.30943,,,,,,,Better,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2009 - 11,8.76648,8.38924,9.14372,,,,,,,Worse,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2009 - 11,9.6548,9.38387,9.92573,,,,,,,Worse,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2009 - 11,9.50872,9.17981,9.83762,,,,,,,Worse,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2009 - 11,10.41382,10.00497,10.82267,,,,,,,Similar,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2009 - 11,9.99495,9.65956,10.33034,,,,,,,Worse,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2009 - 11,11.58201,11.21055,11.95347,,,,,,,Better,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2009 - 11,10.18055,9.8221,10.53899,,,,,,,Worse,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2009 - 11,12.23407,11.9367,12.53145,,,,,,,Better,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2009 - 11,11.74805,11.41395,12.08216,,,,,,,Better,Not compared,20090000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,,,2010 - 12,9.98505,9.87124,10.09886,,,,,,,Not compared,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,,,2010 - 12,10.73955,10.61856,10.86053,,,,,,,Not compared,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2010 - 12,9.98505,9.87124,10.09886,,,,,,,Similar,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2010 - 12,10.73955,10.61856,10.86053,,,,,,,Similar,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2010 - 12,8.41943,8.04729,8.79156,,,,,,,Worse,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2010 - 12,8.98308,8.70682,9.25935,,,,,,,Worse,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2010 - 12,8.93707,8.60933,9.26482,,,,,,,Worse,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2010 - 12,9.98966,9.58757,10.39175,,,,,,,Similar,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2010 - 12,9.59252,9.26375,9.92128,,,,,,,Worse,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2010 - 12,10.6493,10.28359,11.01501,,,,,,,Better,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2010 - 12,9.61783,9.26318,9.97248,,,,,,,Worse,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2010 - 12,11.05796,10.75669,11.35923,,,,,,,Better,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2010 - 12,11.04606,10.71595,11.37616,,,,,,,Better,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2010 - 12,9.15432,8.76063,9.548,,,,,,,Worse,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2010 - 12,9.72059,9.42982,10.01136,,,,,,,Worse,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2010 - 12,9.75016,9.4031,10.09722,,,,,,,Worse,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2010 - 12,10.49603,10.06852,10.92354,,,,,,,Similar,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2010 - 12,10.18015,9.82645,10.53386,,,,,,,Worse,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2010 - 12,11.74398,11.348,12.13997,,,,,,,Better,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2010 - 12,10.13373,9.75867,10.5088,,,,,,,Worse,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2010 - 12,12.19597,11.88136,12.51059,,,,,,,Better,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2010 - 12,11.81587,11.46428,12.16746,,,,,,,Better,Not compared,20100000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,,,2011 - 13,10.14349,10.02515,10.26183,,,,,,,Not compared,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,,,2011 - 13,10.56155,10.43393,10.68916,,,,,,,Not compared,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2011 - 13,10.14349,10.02515,10.26183,,,,,,,Similar,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2011 - 13,10.56155,10.43393,10.68916,,,,,,,Similar,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2011 - 13,8.13384,7.74677,8.5209,,,,,,,Worse,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2011 - 13,9.5646,9.27972,9.84947,,,,,,,Worse,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2011 - 13,9.23854,8.89374,9.58334,,,,,,,Worse,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2011 - 13,9.63874,9.22007,10.05741,,,,,,,Worse,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2011 - 13,9.80856,9.45757,10.15956,,,,,,,Similar,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2011 - 13,10.55014,10.17393,10.92636,,,,,,,Better,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2011 - 13,9.89034,9.52842,10.25227,,,,,,,Similar,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2011 - 13,11.15604,10.84612,11.46596,,,,,,,Better,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2011 - 13,11.30078,10.96372,11.63785,,,,,,,Better,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2011 - 13,9.04469,8.63339,9.456,,,,,,,Worse,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2011 - 13,9.95267,9.64515,10.26019,,,,,,,Worse,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2011 - 13,9.63091,9.26001,10.00181,,,,,,,Worse,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2011 - 13,10.26553,9.82117,10.70989,,,,,,,Similar,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2011 - 13,10.16031,9.7818,10.53882,,,,,,,Worse,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2011 - 13,11.06223,10.65585,11.46862,,,,,,,Better,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2011 - 13,10.23403,9.84812,10.61993,,,,,,,Similar,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2011 - 13,11.86176,11.52506,12.19846,,,,,,,Better,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2011 - 13,11.54369,11.17964,11.90774,,,,,,,Better,Not compared,20110000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,,,2012 - 14,10.27006,10.1495,10.39062,,,,,,,Not compared,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,,,2012 - 14,10.65937,10.52897,10.78977,,,,,,,Not compared,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2012 - 14,10.27006,10.1495,10.39062,,,,,,,Similar,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2012 - 14,10.65937,10.52897,10.78977,,,,,,,Similar,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2012 - 14,8.40603,8.00801,8.80404,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2012 - 14,9.48764,9.20081,9.77448,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2012 - 14,9.64213,9.28963,9.99463,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2012 - 14,9.55866,9.12104,9.99627,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2012 - 14,9.80423,9.4523,10.15617,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2012 - 14,10.70996,10.32859,11.09132,,,,,,,Better,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2012 - 14,10.1663,9.79289,10.53971,,,,,,,Similar,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2012 - 14,11.48043,11.167,11.79387,,,,,,,Better,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2012 - 14,11.12461,10.78958,11.45964,,,,,,,Better,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2012 - 14,8.92704,8.51056,9.34352,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2012 - 14,9.86602,9.55627,10.17577,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2012 - 14,9.9219,9.5412,10.30261,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2012 - 14,10.01039,9.53236,10.48842,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2012 - 14,10.18135,9.79972,10.56298,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2012 - 14,11.20386,10.8055,11.60221,,,,,,,Better,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2012 - 14,10.15383,9.75072,10.55694,,,,,,,Worse,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2012 - 14,12.36415,12.01834,12.70997,,,,,,,Better,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2012 - 14,11.53189,11.16182,11.90196,,,,,,,Better,Not compared,20120000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,,,2013 - 15,10.30815,10.1858,10.4305,,,,,,,Not compared,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,,,2013 - 15,10.84821,10.71354,10.98287,,,,,,,Not compared,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2013 - 15,10.30815,10.1858,10.4305,,,,,,,Similar,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2013 - 15,10.84821,10.71354,10.98287,,,,,,,Similar,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2013 - 15,8.59306,8.17518,9.01095,,,,,,,Worse,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2013 - 15,9.47678,9.17976,9.77381,,,,,,,Worse,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2013 - 15,9.54491,9.19256,9.89726,,,,,,,Worse,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2013 - 15,9.70121,9.27022,10.13219,,,,,,,Worse,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2013 - 15,9.77995,9.42792,10.13198,,,,,,,Worse,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2013 - 15,10.59775,10.21748,10.97801,,,,,,,Similar,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2013 - 15,10.20705,9.82523,10.58886,,,,,,,Similar,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2013 - 15,11.66222,11.34297,11.98148,,,,,,,Better,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2013 - 15,11.31324,10.96745,11.65903,,,,,,,Better,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2013 - 15,9.07906,8.66253,9.49558,,,,,,,Worse,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2013 - 15,10.14105,9.82082,10.46127,,,,,,,Worse,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2013 - 15,10.23589,9.84981,10.62198,,,,,,,Worse,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2013 - 15,10.37357,9.89232,10.85481,,,,,,,Similar,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2013 - 15,10.14925,9.76404,10.53446,,,,,,,Worse,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2013 - 15,11.51415,11.08917,11.93913,,,,,,,Better,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2013 - 15,10.46135,10.04798,10.87472,,,,,,,Similar,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2013 - 15,12.12233,11.75679,12.48788,,,,,,,Better,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2013 - 15,12.01858,11.6445,12.39265,,,,,,,Better,Not compared,20130000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,,,2014 - 16,10.28824,10.16525,10.41123,,,,,,,Not compared,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,,,2014 - 16,10.90113,10.76458,11.03768,,,,,,,Not compared,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2014 - 16,10.28824,10.16525,10.41123,,,,,,,Similar,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2014 - 16,10.90113,10.76458,11.03768,,,,,,,Similar,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2014 - 16,8.47295,8.04996,8.89594,,,,,,,Worse,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2014 - 16,9.7092,9.4148,10.00361,,,,,,,Worse,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2014 - 16,9.59702,9.25473,9.93931,,,,,,,Worse,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2014 - 16,9.71333,9.29123,10.13544,,,,,,,Worse,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2014 - 16,9.84009,9.48584,10.19434,,,,,,,Worse,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2014 - 16,10.51602,10.14253,10.88951,,,,,,,Similar,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2014 - 16,9.78201,9.37536,10.18865,,,,,,,Worse,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2014 - 16,11.67808,11.34725,12.00891,,,,,,,Better,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2014 - 16,11.29047,10.94247,11.63846,,,,,,,Better,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2014 - 16,9.46802,9.04149,9.89455,,,,,,,Worse,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2014 - 16,10.324,9.99901,10.64899,,,,,,,Worse,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2014 - 16,9.8363,9.45639,10.21622,,,,,,,Worse,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2014 - 16,10.54077,10.05984,11.0217,,,,,,,Similar,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2014 - 16,10.3135,9.92297,10.70402,,,,,,,Worse,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2014 - 16,11.16729,10.75224,11.58233,,,,,,,Similar,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2014 - 16,10.6148,10.18237,11.04724,,,,,,,Similar,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2014 - 16,12.27813,11.90708,12.64917,,,,,,,Better,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2014 - 16,12.17133,11.77768,12.56498,,,,,,,Better,Not compared,20140000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,,,2015 - 17,10.43553,10.31309,10.55798,,,,,,,Not compared,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,,,2015 - 17,10.91068,10.7756,11.04576,,,,,,,Not compared,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2015 - 17,10.43553,10.31309,10.55798,,,,,,,Similar,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2015 - 17,10.91068,10.7756,11.04576,,,,,,,Similar,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2015 - 17,8.79994,8.39438,9.20549,,,,,,,Worse,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2015 - 17,9.89766,9.60339,10.19193,,,,,,,Worse,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2015 - 17,9.91249,9.56721,10.25777,,,,,,,Worse,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2015 - 17,9.70014,9.2779,10.12238,,,,,,,Worse,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2015 - 17,9.77703,9.4242,10.12985,,,,,,,Worse,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2015 - 17,10.7132,10.3416,11.0848,,,,,,,Similar,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2015 - 17,10.1301,9.70524,10.55497,,,,,,,Similar,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2015 - 17,11.73293,11.41374,12.05213,,,,,,,Better,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2015 - 17,11.29337,10.95214,11.6346,,,,,,,Better,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2015 - 17,9.09868,8.6949,9.50247,,,,,,,Worse,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2015 - 17,10.3688,10.04461,10.69299,,,,,,,Worse,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2015 - 17,10.11852,9.74957,10.48748,,,,,,,Worse,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2015 - 17,10.28036,9.81164,10.74908,,,,,,,Worse,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2015 - 17,10.16176,9.77597,10.54756,,,,,,,Worse,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2015 - 17,11.26657,10.85851,11.67463,,,,,,,Similar,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2015 - 17,10.82765,10.37122,11.28409,,,,,,,Similar,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2015 - 17,12.33009,11.96668,12.6935,,,,,,,Better,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2015 - 17,12.08726,11.69941,12.47511,,,,,,,Better,Not compared,20150000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,,,2016 - 18,10.57911,10.45741,10.70082,,,,,,,Not compared,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2016 - 18,5.97334,5.60245,6.34423,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2016 - 18,7.10601,6.71527,7.49674,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2016 - 18,8.96724,8.57462,9.35987,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2016 - 18,9.65059,9.24392,10.05726,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2016 - 18,10.7474,10.37149,11.12332,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2016 - 18,10.91094,10.53608,11.2858,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2016 - 18,11.2409,10.86011,11.62169,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2016 - 18,12.01653,11.63193,12.40112,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2016 - 18,12.24473,11.87101,12.61845,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2016 - 18,13.54918,13.15621,13.94215,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,,,2016 - 18,11.08947,10.95391,11.22503,,,,,,,Not compared,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2016 - 18,6.77641,6.35642,7.1964,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2016 - 18,7.96501,7.54315,8.38687,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2016 - 18,8.98828,8.55539,9.42116,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2016 - 18,9.83365,9.39235,10.27496,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2016 - 18,11.13194,10.68923,11.57465,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2016 - 18,11.80657,11.39459,12.21854,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2016 - 18,12.24755,11.83102,12.66409,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2016 - 18,12.41489,11.98481,12.84497,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2016 - 18,13.02887,12.6153,13.44244,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2016 - 18,13.8993,13.45353,14.34508,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2016 - 18,10.57911,10.45741,10.70082,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2016 - 18,5.97334,5.60245,6.34423,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2016 - 18,7.10601,6.71527,7.49674,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2016 - 18,8.96724,8.57462,9.35987,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2016 - 18,9.65059,9.24392,10.05726,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2016 - 18,10.7474,10.37149,11.12332,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2016 - 18,10.91094,10.53608,11.2858,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2016 - 18,11.2409,10.86011,11.62169,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2016 - 18,12.01653,11.63193,12.40112,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2016 - 18,12.24473,11.87101,12.61845,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2016 - 18,13.54918,13.15621,13.94215,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2016 - 18,11.08947,10.95391,11.22503,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2016 - 18,6.77641,6.35642,7.1964,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2016 - 18,7.96501,7.54315,8.38687,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2016 - 18,8.98828,8.55539,9.42116,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2016 - 18,9.83365,9.39235,10.27496,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2016 - 18,11.13194,10.68923,11.57465,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2016 - 18,11.80657,11.39459,12.21854,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2016 - 18,12.24755,11.83102,12.66409,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2016 - 18,12.41489,11.98481,12.84497,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2016 - 18,13.02887,12.6153,13.44244,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2016 - 18,13.8993,13.45353,14.34508,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2016 - 18,8.94884,8.54687,9.35081,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2016 - 18,10.06783,9.78119,10.35447,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2016 - 18,10.07964,9.74162,10.41766,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2016 - 18,10.25802,9.83339,10.68264,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2016 - 18,9.87555,9.52728,10.22383,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2016 - 18,10.61467,10.24041,10.98894,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2016 - 18,10.33302,9.90903,10.757,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2016 - 18,11.58337,11.26113,11.90561,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2016 - 18,11.68292,11.34616,12.01969,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2016 - 18,9.07563,8.66399,9.48728,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2016 - 18,10.52863,10.21464,10.84262,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2016 - 18,10.58979,10.20895,10.97062,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2016 - 18,10.52356,10.04644,11.00068,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2016 - 18,10.04532,9.65478,10.43586,,,,,,,Worse,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2016 - 18,11.46094,11.04717,11.87472,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2016 - 18,10.70289,10.2521,11.15368,,,,,,,Similar,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2016 - 18,12.67149,12.30385,13.03913,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2016 - 18,12.27946,11.90229,12.65662,,,,,,,Better,Not compared,20160000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,,,2017 - 19,10.55,10.43,10.68,,,,,,,Not compared,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2017 - 19,6.05,5.67,6.42,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2017 - 19,7.08,6.68,7.47,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2017 - 19,8.31,7.9,8.73,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2017 - 19,9.73,9.33,10.14,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2017 - 19,10.58,10.19,10.97,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2017 - 19,10.65,10.26,11.03,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2017 - 19,11.8,11.42,12.19,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2017 - 19,11.63,11.25,12.01,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2017 - 19,12.5,12.12,12.88,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2017 - 19,13.7,13.31,14.1,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,,,2017 - 19,11.07,10.94,11.21,,,,,,,Not compared,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2017 - 19,6.7,6.3,7.1,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2017 - 19,7.87,7.45,8.28,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2017 - 19,9.13,8.69,9.58,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2017 - 19,10.7,10.25,11.15,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2017 - 19,11.09,10.66,11.53,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2017 - 19,11.55,11.12,11.98,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2017 - 19,12.08,11.66,12.49,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2017 - 19,12.27,11.84,12.69,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2017 - 19,12.49,12.08,12.9,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2017 - 19,14.55,14.1,15.01,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2017 - 19,10.55,10.43,10.68,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2017 - 19,6.05,5.67,6.42,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2017 - 19,7.08,6.68,7.47,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2017 - 19,8.31,7.9,8.73,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2017 - 19,9.73,9.33,10.14,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2017 - 19,10.58,10.19,10.97,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2017 - 19,10.65,10.26,11.03,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2017 - 19,11.8,11.42,12.19,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2017 - 19,11.63,11.25,12.01,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2017 - 19,12.5,12.12,12.88,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2017 - 19,13.7,13.31,14.1,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2017 - 19,11.07,10.94,11.21,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2017 - 19,6.7,6.3,7.1,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2017 - 19,7.87,7.45,8.28,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2017 - 19,9.13,8.69,9.58,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2017 - 19,10.7,10.25,11.15,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2017 - 19,11.09,10.66,11.53,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2017 - 19,11.55,11.12,11.98,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2017 - 19,12.08,11.66,12.49,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2017 - 19,12.27,11.84,12.69,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2017 - 19,12.49,12.08,12.9,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2017 - 19,14.55,14.1,15.01,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2017 - 19,9.06,8.67,9.46,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2017 - 19,9.98,9.68,10.27,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2017 - 19,9.88,9.54,10.22,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2017 - 19,10.33,9.9,10.76,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2017 - 19,9.98,9.63,10.32,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2017 - 19,10.85,10.46,11.24,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2017 - 19,9.7,9.27,10.13,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2017 - 19,11.53,11.19,11.86,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2017 - 19,11.95,11.61,12.28,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2017 - 19,9.34,8.93,9.76,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2017 - 19,10.52,10.2,10.84,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2017 - 19,10.72,10.34,11.1,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2017 - 19,10.6,10.12,11.08,,,,,,,Similar,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2017 - 19,10.4,10.02,10.79,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2017 - 19,11.64,11.21,12.07,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2017 - 19,10.41,9.96,10.86,,,,,,,Worse,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2017 - 19,12.34,11.98,12.71,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2017 - 19,12.17,11.8,12.54,,,,,,,Better,Not compared,20170000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,,,2018 - 20,10.51,10.38,10.64,,,,,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2018 - 20,6.6,6.2,7.1,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2018 - 20,7.5,7,7.9,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2018 - 20,8.2,7.7,8.6,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2018 - 20,9.6,9.2,10,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2018 - 20,10.7,10.3,11.1,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2018 - 20,10.9,10.5,11.3,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2018 - 20,11.3,10.9,11.7,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2018 - 20,11.7,11.3,12.1,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2018 - 20,12.4,12,12.8,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2018 - 20,13.5,13.2,13.9,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,,,2018 - 20,11.34,11.2,11.49,,,,,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2018 - 20,7.1,6.6,7.5,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2018 - 20,8.2,7.7,8.7,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2018 - 20,9.2,8.7,9.7,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2018 - 20,10.4,9.9,10.9,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2018 - 20,11.6,11.1,12,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2018 - 20,11.8,11.4,12.3,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2018 - 20,12.5,12,12.9,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2018 - 20,13.1,12.7,13.5,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2018 - 20,13.2,12.7,13.6,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2018 - 20,14.3,13.9,14.7,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2018 - 20,10.51,10.38,10.64,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2018 - 20,6.6,6.2,7.1,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2018 - 20,7.5,7,7.9,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2018 - 20,8.2,7.7,8.6,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2018 - 20,9.6,9.2,10,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2018 - 20,10.7,10.3,11.1,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2018 - 20,10.9,10.5,11.3,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2018 - 20,11.3,10.9,11.7,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2018 - 20,11.7,11.3,12.1,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2018 - 20,12.4,12,12.8,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2018 - 20,13.5,13.2,13.9,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2018 - 20,11.34,11.2,11.49,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Most deprived decile,2018 - 20,7.1,6.6,7.5,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second most deprived decile,2018 - 20,8.2,7.7,8.7,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third more deprived decile,2018 - 20,9.2,8.7,9.7,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth more deprived decile,2018 - 20,10.4,9.9,10.9,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth more deprived decile,2018 - 20,11.6,11.1,12,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fifth less deprived decile,2018 - 20,11.8,11.4,12.3,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Fourth less deprived decile,2018 - 20,12.5,12,12.9,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Third less deprived decile,2018 - 20,13.1,12.7,13.5,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Second least deprived decile,2018 - 20,13.2,12.7,13.6,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles in England (IMD2019),Least deprived decile,2018 - 20,14.3,13.9,14.7,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2018 - 20,9.16,8.75,9.58,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2018 - 20,9.78,9.48,10.09,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2018 - 20,9.8,9.43,10.16,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2018 - 20,9.67,9.24,10.1,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2018 - 20,10.16,9.78,10.53,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2018 - 20,11.14,10.73,11.55,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2018 - 20,10.31,9.82,10.8,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2018 - 20,11.57,11.22,11.92,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2018 - 20,11.58,11.24,11.93,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2018 - 20,9.81,9.37,10.26,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2018 - 20,10.82,10.5,11.15,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2018 - 20,10.55,10.16,10.95,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2018 - 20,10.38,9.9,10.86,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2018 - 20,10.87,10.46,11.28,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2018 - 20,12.29,11.84,12.75,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2018 - 20,11.15,10.58,11.71,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2018 - 20,12.36,11.99,12.74,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+93505,Healthy life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2018 - 20,12.53,12.15,12.91,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y

@@ -1,0 +1,199 @@
+Indicator ID,Indicator Name,Parent Code,Parent Name,Area Code,Area Name,Area Type,Sex,Age,Category Type,Category,Time period,Value,Lower CI 95.0 limit,Upper CI 95.0 limit,Lower CI 99.8 limit,Upper CI 99.8 limit,Count,Denominator,Value note,Recent Trend,Compared to England value or percentiles,Compared to percentiles,Time period Sortable,New data,Compared to goal,Time period range
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Male,65,,,2010 - 12,4.6,4.5,4.7,,,,11722843,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Female,65,,,2010 - 12,4,3.9,4.1,,,,14626947,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2010 - 12,4.6,4.5,4.7,,,,11722843,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2010 - 12,4,3.9,4.1,,,,14626947,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2010 - 12,5.7,5.4,6,,,,604146,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2010 - 12,5.9,5.7,6.1,,,,1578240,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2010 - 12,4.8,4.6,5.1,,,,1174269,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2010 - 12,4.5,4.2,4.7,,,,1063176,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2010 - 12,4.5,4.3,4.7,,,,1285132,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2010 - 12,3.4,3.2,3.6,,,,1402642,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2010 - 12,4.2,4,4.5,,,,1203352,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2010 - 12,3.8,3.6,4,,,,2003786,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2010 - 12,3.1,2.9,3.3,,,,1408100,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2010 - 12,4.9,4.6,5.2,,,,762500,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2010 - 12,5.4,5.2,5.6,,,,1983548,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2010 - 12,4.1,3.9,4.4,,,,1486252,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2010 - 12,3.8,3.6,4.1,,,,1290469,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2010 - 12,3.9,3.7,4.2,,,,1587625,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2010 - 12,3,2.8,3.2,,,,1719640,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2010 - 12,3.3,3,3.5,,,,1541209,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2010 - 12,2.9,2.8,3.1,,,,2511111,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2010 - 12,2.7,2.5,2.9,,,,1744593,,,Not compared,Not compared,20100000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Male,65,,,2011 - 13,4.7,4.6,4.7,,,,12120448,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Female,65,,,2011 - 13,4.1,4,4.2,,,,14970906,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2011 - 13,4.7,4.6,4.7,,,,12120448,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2011 - 13,4.1,4,4.2,,,,14970906,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2011 - 13,5.7,5.4,6,,,,623754,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2011 - 13,5.9,5.7,6.1,,,,1630504,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2011 - 13,4.9,4.7,5.2,,,,1211996,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2011 - 13,4.5,4.2,4.7,,,,1101825,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2011 - 13,4.5,4.3,4.8,,,,1323826,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2011 - 13,3.5,3.3,3.8,,,,1454683,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2011 - 13,4.2,4,4.5,,,,1236606,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2011 - 13,3.9,3.7,4.1,,,,2079123,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2011 - 13,3.4,3.1,3.6,,,,1458131,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2011 - 13,5.3,5,5.6,,,,777676,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2011 - 13,5.6,5.4,5.8,,,,2023194,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2011 - 13,4.3,4.1,4.5,,,,1517720,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2011 - 13,4,3.7,4.2,,,,1325149,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2011 - 13,4,3.8,4.3,,,,1620061,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2011 - 13,3.2,3,3.4,,,,1768917,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2011 - 13,3.2,3,3.4,,,,1570907,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2011 - 13,3.1,3,3.3,,,,2579276,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2011 - 13,2.8,2.6,3,,,,1788006,,,Not compared,Not compared,20110000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Male,65,,,2012 - 14,4.7,4.6,4.8,,,,12545707,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Female,65,,,2012 - 14,4.2,4.1,4.2,,,,15353688,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2012 - 14,4.7,4.6,4.8,,,,12545707,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2012 - 14,4.2,4.1,4.2,,,,15353688,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2012 - 14,5.5,5.2,5.8,,,,645261,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2012 - 14,5.9,5.7,6.1,,,,1686930,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2012 - 14,5,4.8,5.2,,,,1253440,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2012 - 14,4.4,4.2,4.7,,,,1142943,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2012 - 14,4.7,4.5,4.9,,,,1364598,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2012 - 14,3.5,3.3,3.7,,,,1509235,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2012 - 14,4.4,4.2,4.7,,,,1273876,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2012 - 14,3.9,3.7,4,,,,2158180,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2012 - 14,3.5,3.3,3.7,,,,1511244,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2012 - 14,5.3,5,5.6,,,,795155,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2012 - 14,5.7,5.5,5.9,,,,2068255,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2012 - 14,4.5,4.3,4.7,,,,1552703,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2012 - 14,4.2,3.9,4.4,,,,1363536,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2012 - 14,4.1,3.9,4.3,,,,1655889,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2012 - 14,3.1,2.9,3.4,,,,1822354,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2012 - 14,3.1,2.9,3.3,,,,1606095,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2012 - 14,3.1,3,3.3,,,,2653575,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2012 - 14,2.8,2.6,3,,,,1836126,,,Not compared,Not compared,20120000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Male,65,,,2013 - 15,4.7,4.7,4.8,,,,12893770,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Female,65,,,2013 - 15,4.3,4.2,4.4,,,,15660689,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2013 - 15,4.7,4.7,4.8,,,,12893770,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2013 - 15,4.3,4.2,4.4,,,,15660689,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2013 - 15,5.8,5.5,6.1,,,,662450,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2013 - 15,5.9,5.7,6.1,,,,1732342,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2013 - 15,5,4.8,5.3,,,,1287185,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2013 - 15,4.6,4.4,4.8,,,,1177539,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2013 - 15,4.8,4.5,5,,,,1397760,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2013 - 15,3.6,3.4,3.8,,,,1553506,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2013 - 15,4.3,4.1,4.5,,,,1306479,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2013 - 15,3.9,3.8,4.1,,,,2221044,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2013 - 15,3.6,3.4,3.8,,,,1555465,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2013 - 15,5.7,5.4,6,,,,808563,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2013 - 15,5.9,5.7,6.1,,,,2102498,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2013 - 15,4.7,4.5,4.9,,,,1580001,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2013 - 15,4.5,4.2,4.7,,,,1395287,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2013 - 15,4.3,4.1,4.5,,,,1684815,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2013 - 15,3.1,2.9,3.3,,,,1864038,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2013 - 15,3.2,3,3.4,,,,1637201,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2013 - 15,3.2,3,3.4,,,,2712744,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2013 - 15,2.9,2.7,3.1,,,,1875542,,,Not compared,Not compared,20130000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Male,65,,,2014 - 16,4.8,4.8,4.9,,,,13199349,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Female,65,,,2014 - 16,4.4,4.4,4.5,,,,15932772,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2014 - 16,4.8,4.8,4.9,,,,13199349,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2014 - 16,4.4,4.4,4.5,,,,15932772,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2014 - 16,5.9,5.6,6.2,,,,677459,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2014 - 16,6.1,5.9,6.3,,,,1771846,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2014 - 16,5.1,4.9,5.3,,,,1316849,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2014 - 16,4.7,4.5,4.9,,,,1209007,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2014 - 16,4.9,4.7,5.1,,,,1426901,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2014 - 16,3.8,3.6,4,,,,1590951,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2014 - 16,4.3,4.1,4.6,,,,1337128,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2014 - 16,4,3.9,4.2,,,,2274729,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2014 - 16,3.6,3.4,3.8,,,,1594479,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2014 - 16,5.9,5.6,6.2,,,,820881,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2014 - 16,6.1,5.9,6.3,,,,2132308,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2014 - 16,4.9,4.7,5.1,,,,1603850,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2014 - 16,4.5,4.3,4.8,,,,1423275,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2014 - 16,4.4,4.2,4.6,,,,1710281,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2014 - 16,3.2,3,3.4,,,,1899727,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2014 - 16,3.2,3,3.4,,,,1666873,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2014 - 16,3.3,3.2,3.5,,,,2764520,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2014 - 16,3,2.8,3.2,,,,1911057,,,Not compared,Not compared,20140000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Male,65,,,2015 - 17,4.9,4.8,5,,,,13462143,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Female,65,,,2015 - 17,4.5,4.5,4.6,,,,16162781,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2015 - 17,4.9,4.8,5,,,,13462143,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2015 - 17,4.5,4.5,4.6,,,,16162781,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2015 - 17,6.3,6,6.6,,,,690327,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2015 - 17,6.1,5.9,6.3,,,,1804973,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2015 - 17,5.1,4.9,5.3,,,,1342171,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2015 - 17,4.8,4.5,5,,,,1237319,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2015 - 17,4.9,4.7,5.1,,,,1451865,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2015 - 17,4,3.8,4.2,,,,1621880,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2015 - 17,4.3,4,4.5,,,,1365340,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2015 - 17,4.2,4,4.4,,,,2319301,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2015 - 17,3.6,3.4,3.8,,,,1628967,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2015 - 17,6.2,5.9,6.5,,,,831373,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2015 - 17,6.1,5.9,6.2,,,,2156103,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2015 - 17,5.2,4.9,5.4,,,,1623623,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2015 - 17,4.5,4.3,4.7,,,,1447242,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2015 - 17,4.6,4.4,4.8,,,,1731423,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2015 - 17,3.5,3.3,3.7,,,,1929115,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2015 - 17,3.3,3.1,3.6,,,,1695234,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2015 - 17,3.4,3.3,3.6,,,,2806888,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2015 - 17,3.2,3,3.4,,,,1941780,,,Not compared,Not compared,20150000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Male,65,,,2016 - 18,5,4.9,5,,,,13709637,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Female,65,,,2016 - 18,4.6,4.5,4.7,,,,16382968,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2016 - 18,5,4.9,5,,,,13709637,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2016 - 18,4.6,4.5,4.7,,,,16382968,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2016 - 18,6.4,6.1,6.7,,,,703028,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2016 - 18,6.2,6,6.4,,,,1835820,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2016 - 18,5.2,5,5.4,,,,1366033,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2016 - 18,4.6,4.3,4.8,,,,1263847,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2016 - 18,5.1,4.9,5.3,,,,1475144,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2016 - 18,4.2,4,4.4,,,,1649276,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2016 - 18,4.5,4.2,4.7,,,,1394297,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2016 - 18,4.2,4,4.4,,,,2361274,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2016 - 18,3.5,3.3,3.7,,,,1660918,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2016 - 18,6.1,5.8,6.4,,,,841810,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2016 - 18,6,5.8,6.2,,,,2178430,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2016 - 18,5.3,5,5.5,,,,1642377,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2016 - 18,4.3,4.1,4.5,,,,1470268,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2016 - 18,4.5,4.3,4.8,,,,1751419,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2016 - 18,3.7,3.5,3.9,,,,1956117,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2016 - 18,3.5,3.2,3.7,,,,1724511,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2016 - 18,3.5,3.3,3.7,,,,2846926,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2016 - 18,3.2,3,3.4,,,,1971110,,,Not compared,Not compared,20160000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Male,65,,,2017 - 19,4.9,4.9,5,,,,13954368,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Female,65,,,2017 - 19,4.7,4.6,4.8,,,,16609112,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2017 - 19,4.9,4.9,5,,,,13954368,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2017 - 19,4.7,4.6,4.8,,,,16609112,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2017 - 19,6.4,6.1,6.7,,,,716294,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2017 - 19,6,5.8,6.2,,,,1866208,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2017 - 19,5.2,5,5.4,,,,1390168,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2017 - 19,4.7,4.5,5,,,,1288990,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2017 - 19,5.1,4.9,5.3,,,,1498621,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2017 - 19,4.2,4,4.4,,,,1675808,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2017 - 19,4.5,4.2,4.7,,,,1423986,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2017 - 19,4.1,4,4.3,,,,2401955,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2017 - 19,3.6,3.4,3.8,,,,1692338,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2017 - 19,6.2,5.9,6.5,,,,852989,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2017 - 19,6.2,6,6.4,,,,2201236,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2017 - 19,5.2,5,5.4,,,,1661632,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2017 - 19,4.4,4.2,4.7,,,,1493528,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2017 - 19,4.6,4.4,4.8,,,,1771733,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2017 - 19,3.8,3.6,4,,,,1983334,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2017 - 19,3.4,3.2,3.7,,,,1755903,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2017 - 19,3.6,3.5,3.8,,,,2886792,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2017 - 19,3.2,3,3.4,,,,2001965,,,Not compared,Not compared,20170000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Male,65,,,2018 - 20,5.2,5.1,5.3,,,,14176359,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,,,E92000001,England,England,Female,65,,,2018 - 20,4.8,4.8,4.9,,,,16820629,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2018 - 20,5.2,5.1,5.3,,,,14176359,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2018 - 20,4.8,4.8,4.9,,,,16820629,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2018 - 20,6.5,6.2,6.8,,,,728485,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2018 - 20,6.2,6,6.4,,,,1892430,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2018 - 20,5.5,5.3,5.7,,,,1412022,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2018 - 20,5,4.7,5.2,,,,1311341,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2018 - 20,5.4,5.2,5.6,,,,1518405,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2018 - 20,4.3,4.1,4.5,,,,1699368,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2018 - 20,4.8,4.5,5,,,,1452751,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2018 - 20,4.3,4.1,4.4,,,,2440037,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2018 - 20,3.5,3.3,3.7,,,,1721520,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2018 - 20,6.3,6,6.6,,,,863526,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2018 - 20,6.4,6.2,6.6,,,,2221702,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2018 - 20,5.3,5.1,5.6,,,,1679405,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2018 - 20,4.7,4.5,5,,,,1514439,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2018 - 20,4.9,4.7,5.1,,,,1789194,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2018 - 20,3.8,3.6,4,,,,2008875,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2018 - 20,3.6,3.4,3.9,,,,1786430,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2018 - 20,3.6,3.4,3.8,,,,2924948,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+93190,Inequality in life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2018 - 20,3.1,2.9,3.3,,,,2032110,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
