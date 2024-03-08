@@ -19,7 +19,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   testthat::skip_if_offline()
   data <- readepi(
     indicator_id   = 90362L,
-    area_type_id   = 102L,
+    area_type_id   = 6L,
     indicator_name = "Healthy life expectancy at birth",
     domain_id      = 1000049L,
     domain_name    = "A. Overarching indicators",
@@ -37,7 +37,7 @@ test_that("readepi works as expected when reading from Fingertips", {
 
   data <- readepi(
     indicator_id = 90362L,
-    area_type_id = 102L,
+    area_type_id = 6L,
     records      = NULL,
     fields       = NULL,
     id_position  = NULL,
@@ -51,7 +51,7 @@ test_that("readepi works as expected when reading from Fingertips", {
 
   data <- readepi(
     indicator_id   = 90362L,
-    area_type_id   = 102L,
+    area_type_id   = 6L,
     indicator_name = "Healthy life expectancy at birth",
     records        = NULL,
     fields         = NULL,
@@ -65,7 +65,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
-    area_type_id   = 102L,
+    area_type_id   = 6L,
     indicator_name = "Healthy life expectancy at birth",
     records        = NULL,
     fields         = NULL,
@@ -79,7 +79,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
-    area_type_id = 102L,
+    area_type_id = 6L,
     domain_name  = "A. Overarching indicators",
     records      = NULL,
     fields       = NULL,
@@ -107,7 +107,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
-    area_type_id = 102L,
+    area_type_id = 6L,
     profile_id   = 19L,
     records      = NULL,
     fields       = NULL,
@@ -121,7 +121,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
-    area_type_id = 102L,
+    area_type_id = 6L,
     profile_name = "Public Health Outcomes Framework",
     records      = NULL,
     fields       = NULL,
@@ -155,13 +155,13 @@ test_that("readepi fails as expected when reading from DHIS2", {
   testthat::skip_if_offline()
   expect_error(
     readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = NULL,
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = "DiszpKrYNg8",
-      data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
+      data_source      = "https://play.dhis2.org/dev",
+      credentials_file = NULL,
+      query_parameters = list(dataSet   = "pBOMPrpg1QX",
+                              orgUnit   = "DiszpKrYNg8",
+                              startDate = "2014",
+                              endDate   = "202L3")
+
     ),
     regexp = cat("Assertion on',credentials_file,'failed: Must be specified.")
   )
@@ -173,114 +173,13 @@ test_that("readepi fails as expected when reading from DHIS2", {
                                          package = "readepi"),
                              system.file("extdata", "fake_test.ini",
                                          package = "readepi")),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = "DiszpKrYNg8",
-      data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
+      query_parameters = list(dataSet   = "pBOMPrpg1QX",
+                              orgUnit   = "DiszpKrYNg8",
+                              startDate = "2014",
+                              endDate   = "202L3")
     ),
     regexp = cat("Assertion on',credentials_file,'failed: Must be of type
                  character with length 1.")
-  )
-
-  expect_error(
-    readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = NA,
-      organisation_unit  = "DiszpKrYNg8",
-      data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
-    ),
-    regexp = cat("Assertion on',dataset,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset = NULL,
-      organisation_unit  = "DiszpKrYNg8",
-      data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
-    ),
-    regexp = cat("Assertion on',dataset,'failed: Must be specified.")
-  )
-
-  expect_error(
-    readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = NA,
-      data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
-    ),
-    regexp = cat("Assertion on',organisation_unit,'failed: Missing value
-                 not allowed.")
-  )
-
-  expect_error(
-    readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = NULL,
-      data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = "202L3"
-    ),
-    regexp = cat("Assertion on',organisation_unit,'failed: Must be specified.")
-  )
-
-  expect_error(
-    readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = "DiszpKrYNg8",
-      data_element_group = NA,
-      start_date         = "2014",
-      end_date           = "202L3"
-    ),
-    regexp = cat("Assertion on',data_element_group,'failed: Missing value
-                 not allowed.")
-  )
-
-  expect_error(
-    readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = "DiszpKrYNg8",
-      data_element_group = NULL,
-      start_date         = NA,
-      end_date           = "202L3"
-    ),
-    regexp = cat("Assertion on',start_date,'failed: Missing value not allowed.")
-  )
-
-  expect_error(
-    readepi(
-      data_source        = "https://play.dhis2.org/dev",
-      credentials_file   = system.file("extdata", "test.ini",
-                                       package = "readepi"),
-      dataset            = "pBOMPrpg1QX",
-      organisation_unit  = "DiszpKrYNg8",
-      data_element_group = NULL,
-      start_date         = "2014",
-      end_date           = NA
-    ),
-    regexp = cat("Assertion on',end_date,'failed: Missing value not allowed.")
   )
 })
 
