@@ -4,7 +4,7 @@ test_that("read_from_fingertips works", {
   testthat::skip_if_offline()
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = "Healthy life expectancy at birth",
-    area_type_id = 202L, parent_area_type_id = 6L,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = 19L, profile_name = "Public Health Outcomes Framework",
     domain_id = 1000049L, domain_name = "A. Overarching indicators",
     fields = NULL, records = NULL,
@@ -18,7 +18,7 @@ test_that("read_from_fingertips works", {
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
-    area_type_id = 202L, parent_area_type_id = NULL,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = NULL,
@@ -32,7 +32,7 @@ test_that("read_from_fingertips works", {
 
   data <- read_from_fingertips(
     indicator_id = c(90362L, 90283L), indicator_name = NULL,
-    area_type_id = 202L, parent_area_type_id = NULL,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = NULL,
@@ -46,7 +46,7 @@ test_that("read_from_fingertips works", {
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
-    area_type_id = 202L, parent_area_type_id = NULL,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = NULL, records = c("E92000001", "E12000002"),
@@ -60,7 +60,7 @@ test_that("read_from_fingertips works", {
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
-    area_type_id = 202L, parent_area_type_id = NULL,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = c("IndicatorID", "AreaCode", "Age", "Value"), records = NULL,
@@ -74,7 +74,7 @@ test_that("read_from_fingertips works", {
 
   data <- read_from_fingertips(
     indicator_id = 90362L, indicator_name = NULL,
-    area_type_id = 202L, parent_area_type_id = NULL,
+    area_type_id = 6L, parent_area_type_id = NULL,
     profile_id = NULL, profile_name = NULL,
     domain_id = NULL, domain_name = NULL,
     fields = c("IndicatorID", "AreaCode", "Age", "Value"),
@@ -95,7 +95,7 @@ test_that("read_from_fingertips fails with bad indicator ID", {
   expect_error(
     read_from_fingertips(
       indicator_id = NA, indicator_name = NULL,
-      area_type_id = 202L, parent_area_type_id = NULL,
+      area_type_id = 102L, parent_area_type_id = NULL,
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -112,7 +112,7 @@ test_that("read_from_fingertips fails with bad indicator name", {
   expect_error(
     read_from_fingertips(
       indicator_id = 90362L, indicator_name = NA,
-      area_type_id = 202L, parent_area_type_id = NULL,
+      area_type_id = 102L, parent_area_type_id = NULL,
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -146,7 +146,7 @@ test_that("read_from_fingertips fails with bad parent area type ID", {
   expect_error(
     read_from_fingertips(
       indicator_id = 90362L, indicator_name = NULL,
-      area_type_id = 202L, parent_area_type_id = NA,
+      area_type_id = 102L, parent_area_type_id = NA,
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -163,7 +163,7 @@ test_that("read_from_fingertips fails with bad profile ID", {
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
-      area_type_id = 202L, parent_area_type_id = NULL,
+      area_type_id = 102L, parent_area_type_id = NULL,
       profile_id = NA, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -176,7 +176,7 @@ test_that("read_from_fingertips fails with bad profile ID", {
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
-      area_type_id = 202L, parent_area_type_id = NULL,
+      area_type_id = 102L, parent_area_type_id = NULL,
       profile_id = "19", profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -192,7 +192,7 @@ test_that("read_from_fingertips fails with bad profile name", {
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
-      area_type_id = 202L, parent_area_type_id = NULL,
+      area_type_id = 102L, parent_area_type_id = NULL,
       profile_id = NULL, profile_name = NA,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -209,7 +209,7 @@ test_that("read_from_fingertips fails with bad domain ID", {
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
-      area_type_id = 202L, parent_area_type_id = NULL,
+      area_type_id = 102L, parent_area_type_id = NULL,
       profile_id = NULL, profile_name = NULL,
       domain_id = NA, domain_name = NULL,
       fields = NULL, records = NULL,
@@ -222,7 +222,7 @@ test_that("read_from_fingertips fails with bad domain ID", {
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
-      area_type_id = 202L, parent_area_type_id = NULL,
+      area_type_id = 102L, parent_area_type_id = NULL,
       profile_id = NULL, profile_name = NULL,
       domain_id = "1000041", domain_name = NULL,
       fields = NULL, records = NULL,
@@ -238,7 +238,7 @@ test_that("read_from_fingertips fails with bad domain name", {
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
-      area_type_id = 202L, parent_area_type_id = NULL,
+      area_type_id = 102L, parent_area_type_id = NULL,
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NA,
       fields = NULL, records = NULL,
@@ -255,7 +255,7 @@ test_that("read_from_fingertips fails with bad records", {
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
-      area_type_id = 202L, parent_area_type_id = NULL,
+      area_type_id = 102L, parent_area_type_id = NULL,
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NULL, records = NA,
@@ -271,7 +271,7 @@ test_that("read_from_fingertips fails with bad fields", {
   expect_error(
     read_from_fingertips(
       indicator_id = 10301L, indicator_name = NULL,
-      area_type_id = 202L, parent_area_type_id = NULL,
+      area_type_id = 102L, parent_area_type_id = NULL,
       profile_id = NULL, profile_name = NULL,
       domain_id = NULL, domain_name = NULL,
       fields = NA, records = NULL,

@@ -1,0 +1,3 @@
+Indicator ID,Indicator Name,Parent Code,Parent Name,Area Code,Area Name,Area Type,Sex,Age,Category Type,Category,Time period,Value,Lower CI 95.0 limit,Upper CI 95.0 limit,Lower CI 99.8 limit,Upper CI 99.8 limit,Count,Denominator,Value note,Recent Trend,Compared to England value or percentiles,Compared to percentiles,Time period Sortable,New data,Compared to goal,Time period range
+91872,Deprivation score (IMD 2015),,,E92000001,England,England,Persons,All ages,,,2015,21.7776074153916,,,,,,,,Cannot be calculated,Not compared,Not compared,20150000,,,1y
+91872,Deprivation score (IMD 2015),E92000001,England,E92000001,England,England,Persons,All ages,,,2015,21.7776074153916,,,,,,,,Cannot be calculated,Not compared,Not compared,20150000,,,1y

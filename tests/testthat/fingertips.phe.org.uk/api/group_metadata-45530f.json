@@ -1,0 +1,37 @@
+[
+    {
+        "Id": 1938133375,
+        "Name": "Outpatients",
+        "Sequence": 1,
+        "ProfileId": 165,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133392,
+        "Name": "Procedures",
+        "Sequence": 2,
+        "ProfileId": 165,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133391,
+        "Name": "Sight loss outcomes",
+        "Sequence": 3,
+        "ProfileId": 165,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133390,
+        "Name": "Risk factors",
+        "Sequence": 4,
+        "ProfileId": 165,
+        "DataAvailable": null
+    },
+    {
+        "Id": 1938133420,
+        "Name": "All indicators",
+        "Sequence": 5,
+        "ProfileId": 165,
+        "DataAvailable": null
+    }
+]

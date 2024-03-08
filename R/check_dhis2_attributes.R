@@ -3,22 +3,20 @@
 #' @param base_url the web address of the server the user wishes to log in to
 #' @param user_name the user name
 #' @param password the user's password
-#' @param dataset the dataSets identifiers
-#' @param organisation_unit the organisationUnits identifiers
-#' @param data_element_group the dataElementGroups identifiers
+#' @param query_parameters a list with the parameters that will be used to
+#'    determine which data is returned by the query
 #'
-#' @return a list of 7 elements of type `character`.
+#' @return a list of 9 elements of type `character`.
 #'
 #' @examples
 #' \dontrun{
-#' attributes <- dhis2_check_attributes(
-#'   base_url            = "https://play.dhis2.org/dev/",
-#'   user_name           = "admin",
-#'   password            = "district",
-#'   dataset             = "pBOMPrpg1QX",
-#'   organisation_unit   = "DiszpKrYNg8",
-#'   data_element_group  = NULL
-#' )
+#'   attributes <- dhis2_check_attributes(
+#'     base_url         = "https://play.dhis2.org/dev",
+#'     user_name        = "admin",
+#'     password         = "district",
+#'     query_parameters = list(dataSet = "pBOMPrpg1QX",
+#'                             orgUnit = "DiszpKrYNg8")
+#'   )
 #' }
 #'
 #' @keywords internal
@@ -26,16 +24,14 @@
 dhis2_check_attributes <- function(base_url,
                                    user_name,
                                    password,
-                                   dataset,
-                                   organisation_unit  = NULL,
-                                   data_element_group = NULL) {
+                                   query_parameters) {
   # get the relevant dataset
-  if (!is.null(dataset)) {
+  if ("dataSet" %in% names(query_parameters)) {
     tmp_res   <- dhis2_get_relevant_attributes(
       base_url     = base_url,
       user_name    = user_name,
       password     = password,
-      attribute_id = dataset,
+      attribute_id = query_parameters[["dataSet"]],
       which        = "dataSets"
     )
     dataset   <- tmp_res[["dataset"]]
@@ -44,13 +40,28 @@ dhis2_check_attributes <- function(base_url,
     dataset   <- data_sets <- NULL
   }
 
+  # get the relevant data element groups
+  if ("dataElementGroup" %in% names(query_parameters)) {
+    tmp_res <- dhis2_get_relevant_attributes(
+      base_url     = base_url,
+      user_name    = user_name,
+      password     = password,
+      attribute_id = query_parameters[["dataElementGroup"]],
+      which        = "dataElementGroups"
+    )
+    data_element_group <- tmp_res[["data_element_group"]]
+    data_elt_groups    <- tmp_res[["data_elt_groups"]]
+  } else {
+    data_element_group <- data_elt_groups <- NULL
+  }
+
   # get the relevant organisation units
-  if (!is.null(organisation_unit)) {
+  if ("orgUnit" %in% names(query_parameters)) {
     tmp_res   <- dhis2_get_relevant_attributes(
       base_url     = base_url,
       user_name    = user_name,
       password     = password,
-      attribute_id = organisation_unit,
+      attribute_id = query_parameters[["orgUnit"]],
       which        = "organisationUnits"
     )
     organisation_unit <- tmp_res[["organisation_unit"]]
@@ -59,19 +70,19 @@ dhis2_check_attributes <- function(base_url,
     organisation_unit <- org_units <- NULL
   }
 
-  # get the relevant data element groups
-  if (!is.null(data_element_group)) {
-    tmp_res <- dhis2_get_relevant_attributes(
+  # get the relevant organisation units
+  if ("orgUnitGroup" %in% names(query_parameters)) {
+    tmp_res   <- dhis2_get_relevant_attributes(
       base_url     = base_url,
       user_name    = user_name,
       password     = password,
-      attribute_id = data_element_group,
-      which        = "dataElementGroups"
+      attribute_id = query_parameters[["orgUnitGroup"]],
+      which        = "organisationUnitGroups"
     )
-    data_element_group <- tmp_res[["data_element_group"]]
-    data_elt_groups    <- tmp_res[["data_elt_groups"]]
+    organisation_unit_group <- tmp_res[["organisation_unit_group"]]
+    org_units_groups        <- tmp_res[["org_units_groups"]]
   } else {
-    data_element_group <- data_elt_groups <- NULL
+    organisation_unit_group <- org_units_groups <- NULL
   }
 
   # get the data element
@@ -90,6 +101,8 @@ dhis2_check_attributes <- function(base_url,
     org_units_details           = org_units,
     data_element_group          = data_element_group,
     data_element_groups_details = data_elt_groups,
+    organisation_unit_group     = organisation_unit_group,
+    org_units_groups            = org_units_groups,
     data_elements               = data_elements
   )
 }

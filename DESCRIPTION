@@ -29,7 +29,7 @@ Imports:
     dplyr,
     fingertipsR (>= 1.0.10.9001),
     glue,
-    httr,
+    httr2,
     magrittr,
     odbc,
     pool,

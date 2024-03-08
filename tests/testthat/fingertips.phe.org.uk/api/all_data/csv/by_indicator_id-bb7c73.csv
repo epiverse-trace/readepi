@@ -1,0 +1,807 @@
+Indicator ID,Indicator Name,Parent Code,Parent Name,Area Code,Area Name,Area Type,Sex,Age,Category Type,Category,Time period,Value,Lower CI 95.0 limit,Upper CI 95.0 limit,Lower CI 99.8 limit,Upper CI 99.8 limit,Count,Denominator,Value note,Recent Trend,Compared to England value or percentiles,Compared to percentiles,Time period Sortable,New data,Compared to goal,Time period range
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2018,18.8,18.76,18.83,,,,,,,Not compared,Not compared,20180000,,,1y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2018,21.12,21.09,21.15,,,,,,,Not compared,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2018,18.8,18.76,18.83,,,,,,,Similar,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2018,21.12,21.09,21.15,,,,,,,Similar,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2018,18.03,17.89,18.17,,,,,,,Worse,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2018,18.2,18.11,18.29,,,,,,,Worse,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2018,18.31,18.2,18.41,,,,,,,Worse,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2018,18.59,18.48,18.7,,,,,,,Worse,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2018,18.55,18.44,18.65,,,,,,,Worse,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2018,19.1,19,19.2,,,,,,,Better,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2018,19,18.88,19.11,,,,,,,Better,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2018,19.4,19.32,19.49,,,,,,,Better,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2018,19.33,19.23,19.42,,,,,,,Better,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2018,20.09,19.94,20.23,,,,,,,Worse,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2018,20.32,20.23,20.41,,,,,,,Worse,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2018,20.53,20.43,20.63,,,,,,,Worse,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2018,20.86,20.75,20.97,,,,,,,Worse,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2018,20.87,20.77,20.97,,,,,,,Worse,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2018,21.39,21.29,21.49,,,,,,,Better,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2018,21.77,21.65,21.88,,,,,,,Better,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2018,21.79,21.71,21.87,,,,,,,Better,Not compared,20180000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2018,21.73,21.64,21.83,,,,,,,Better,Not compared,20180000,,,1y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2019,19.06,19.03,19.1,,,,,,,Not compared,Not compared,20190000,,,1y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2019,21.48,21.45,21.52,,,,,,,Not compared,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2019,19.06,19.03,19.1,,,,,,,Similar,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2019,21.48,21.45,21.52,,,,,,,Similar,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2019,18.22,18.07,18.36,,,,,,,Worse,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2019,18.29,18.2,18.39,,,,,,,Worse,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2019,18.49,18.39,18.6,,,,,,,Worse,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2019,18.93,18.82,19.04,,,,,,,Worse,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2019,18.9,18.8,19.01,,,,,,,Worse,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2019,19.46,19.36,19.56,,,,,,,Better,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2019,19.39,19.27,19.5,,,,,,,Better,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2019,19.65,19.56,19.73,,,,,,,Better,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2019,19.62,19.52,19.72,,,,,,,Better,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2019,20.36,20.21,20.51,,,,,,,Worse,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2019,20.6,20.51,20.69,,,,,,,Worse,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2019,20.84,20.73,20.94,,,,,,,Worse,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2019,21.16,21.05,21.27,,,,,,,Worse,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2019,21.3,21.19,21.4,,,,,,,Worse,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2019,21.77,21.68,21.87,,,,,,,Better,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2019,22.21,22.09,22.33,,,,,,,Better,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2019,22.16,22.07,22.24,,,,,,,Better,Not compared,20190000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2019,22.18,22.08,22.28,,,,,,,Better,Not compared,20190000,,,1y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2020,17.98,17.95,18.01,,,,,,,Not compared,Not compared,20200000,,,1y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2020,20.57,20.54,20.61,,,,,,,Not compared,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2020,17.98,17.95,18.01,,,,,,,Similar,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2020,20.57,20.54,20.61,,,,,,,Similar,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2020,17.18,17.05,17.31,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2020,17.07,16.98,17.15,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2020,17.44,17.34,17.53,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2020,17.8,17.69,17.9,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2020,17.52,17.43,17.61,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2020,18.54,18.44,18.63,,,,,,,Better,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2020,17.6,17.5,17.7,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2020,18.78,18.71,18.86,,,,,,,Better,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2020,19.15,19.05,19.24,,,,,,,Better,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2020,19.52,19.38,19.65,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2020,19.52,19.44,19.6,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2020,19.97,19.88,20.07,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2020,20.36,20.26,20.46,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2020,20.18,20.08,20.27,,,,,,,Worse,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2020,21.07,20.98,21.17,,,,,,,Better,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2020,20.83,20.73,20.94,,,,,,,Better,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2020,21.34,21.26,21.42,,,,,,,Better,Not compared,20200000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2020,21.61,21.52,21.71,,,,,,,Better,Not compared,20200000,,,1y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2021,18.43,18.39,18.46,,,,,,,Not compared,Not compared,20210000,,,1y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2021,20.96,20.93,21,,,,,,,Not compared,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2021,18.43,18.39,18.46,,,,,,,Similar,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2021,20.96,20.93,21,,,,,,,Similar,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2021,17.78,17.63,17.92,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2021,17.73,17.64,17.81,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2021,18.21,18.1,18.31,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2021,18.25,18.14,18.36,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2021,18.1,18,18.2,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2021,18.76,18.67,18.86,,,,,,,Better,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2021,18.2,18.1,18.31,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2021,18.96,18.88,19.04,,,,,,,Better,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2021,19.26,19.17,19.36,,,,,,,Better,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2021,20.04,19.89,20.18,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2021,20.2,20.11,20.29,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2021,20.56,20.45,20.66,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2021,20.68,20.57,20.79,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2021,20.67,20.57,20.77,,,,,,,Worse,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2021,21.22,21.13,21.32,,,,,,,Better,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2021,21.17,21.06,21.28,,,,,,,Better,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2021,21.61,21.53,21.69,,,,,,,Better,Not compared,20210000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2021,21.76,21.66,21.85,,,,,,,Better,Not compared,20210000,,,1y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2022,18.73,18.7,18.76,,,,,,,Not compared,Not compared,20220000,,,1y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2022,21.19,21.16,21.23,,,,,,,Not compared,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2022,18.73,18.7,18.76,,,,,,,Similar,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2022,21.19,21.16,21.23,,,,,,,Similar,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2022,17.91,17.77,18.04,,,,,,,Worse,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2022,17.92,17.83,18,,,,,,,Worse,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2022,18.21,18.1,18.31,,,,,,,Worse,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2022,18.58,18.47,18.68,,,,,,,Worse,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2022,18.45,18.35,18.55,,,,,,,Worse,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2022,19.14,19.05,19.24,,,,,,,Better,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2022,19.15,19.04,19.26,,,,,,,Better,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2022,19.41,19.32,19.49,,,,,,,Better,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2022,19.23,19.13,19.32,,,,,,,Better,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2022,20.27,20.13,20.42,,,,,,,Worse,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2022,20.27,20.18,20.36,,,,,,,Worse,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2022,20.54,20.44,20.65,,,,,,,Worse,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2022,20.84,20.74,20.95,,,,,,,Worse,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2022,20.98,20.88,21.08,,,,,,,Worse,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2022,21.59,21.49,21.69,,,,,,,Better,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2022,21.95,21.84,22.07,,,,,,,Better,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2022,21.86,21.78,21.94,,,,,,,Better,Not compared,20220000,,,1y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2022,21.77,21.67,21.86,,,,,,,Better,Not compared,20220000,,,1y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2001 - 03,16.28028,16.25992,16.30063,,,,,,,Not compared,Not compared,20010000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2001 - 03,19.23027,19.21039,19.25015,,,,,,,Not compared,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2001 - 03,16.28028,16.25992,16.30063,,,,,,,Similar,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2001 - 03,19.23027,19.21039,19.25015,,,,,,,Similar,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2001 - 03,15.2483,15.16443,15.33217,,,,,,,Worse,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2001 - 03,15.47008,15.41706,15.5231,,,,,,,Worse,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2001 - 03,15.90722,15.84461,15.96983,,,,,,,Worse,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2001 - 03,16.18119,16.11392,16.24845,,,,,,,Worse,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2001 - 03,15.95801,15.89717,16.01885,,,,,,,Worse,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2001 - 03,16.83903,16.77904,16.89903,,,,,,,Better,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2001 - 03,16.33238,16.26916,16.3956,,,,,,,Similar,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2001 - 03,16.91671,16.86554,16.96787,,,,,,,Better,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2001 - 03,17.04276,16.98227,17.10324,,,,,,,Better,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2001 - 03,18.24737,18.16456,18.33018,,,,,,,Worse,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2001 - 03,18.3903,18.33864,18.44195,,,,,,,Worse,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2001 - 03,18.92961,18.86772,18.99151,,,,,,,Worse,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2001 - 03,19.08622,19.01859,19.15385,,,,,,,Worse,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2001 - 03,19.02443,18.96439,19.08448,,,,,,,Worse,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2001 - 03,19.62387,19.56477,19.68297,,,,,,,Better,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2001 - 03,19.4019,19.34131,19.46248,,,,,,,Better,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2001 - 03,19.82964,19.78057,19.8787,,,,,,,Better,Not compared,20010000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2001 - 03,19.97336,19.91457,20.03214,,,,,,,Better,Not compared,20010000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2002 - 04,16.49601,16.4755,16.51652,,,,,,,Not compared,Not compared,20020000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2002 - 04,19.37349,19.35354,19.39343,,,,,,,Not compared,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2002 - 04,16.49601,16.4755,16.51652,,,,,,,Similar,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2002 - 04,19.37349,19.35354,19.39343,,,,,,,Similar,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2002 - 04,15.46327,15.37854,15.548,,,,,,,Worse,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2002 - 04,15.68233,15.62893,15.73573,,,,,,,Worse,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2002 - 04,16.10063,16.03768,16.16358,,,,,,,Worse,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2002 - 04,16.40438,16.33638,16.47239,,,,,,,Worse,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2002 - 04,16.17675,16.11554,16.23795,,,,,,,Worse,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2002 - 04,17.03558,16.97539,17.09578,,,,,,,Better,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2002 - 04,16.58922,16.52465,16.6538,,,,,,,Better,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2002 - 04,17.10832,17.05698,17.15966,,,,,,,Better,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2002 - 04,17.28375,17.22282,17.34467,,,,,,,Better,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2002 - 04,18.35304,18.26995,18.43613,,,,,,,Worse,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2002 - 04,18.53373,18.48173,18.58572,,,,,,,Worse,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2002 - 04,19.0432,18.98161,19.10478,,,,,,,Worse,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2002 - 04,19.22278,19.15496,19.2906,,,,,,,Worse,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2002 - 04,19.16087,19.10068,19.22107,,,,,,,Worse,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2002 - 04,19.78826,19.72915,19.84737,,,,,,,Better,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2002 - 04,19.55762,19.49656,19.61869,,,,,,,Better,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2002 - 04,19.98557,19.93623,20.03491,,,,,,,Better,Not compared,20020000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2002 - 04,20.11881,20.05984,20.17779,,,,,,,Better,Not compared,20020000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2003 - 05,16.76069,16.73995,16.78143,,,,,,,Not compared,Not compared,20030000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2003 - 05,19.55274,19.53266,19.57282,,,,,,,Not compared,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2003 - 05,16.76069,16.73995,16.78143,,,,,,,Similar,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2003 - 05,19.55274,19.53266,19.57282,,,,,,,Similar,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2003 - 05,15.72077,15.63476,15.80678,,,,,,,Worse,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2003 - 05,15.9475,15.89345,16.00156,,,,,,,Worse,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2003 - 05,16.38145,16.31771,16.44518,,,,,,,Worse,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2003 - 05,16.6536,16.58472,16.72249,,,,,,,Worse,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2003 - 05,16.40881,16.34713,16.4705,,,,,,,Worse,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2003 - 05,17.30724,17.24634,17.36814,,,,,,,Better,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2003 - 05,16.85901,16.79372,16.9243,,,,,,,Better,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2003 - 05,17.41289,17.36093,17.46486,,,,,,,Better,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2003 - 05,17.5015,17.44026,17.56273,,,,,,,Better,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2003 - 05,18.47008,18.38681,18.55335,,,,,,,Worse,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2003 - 05,18.74094,18.68843,18.79346,,,,,,,Worse,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2003 - 05,19.2209,19.15898,19.28283,,,,,,,Worse,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2003 - 05,19.38283,19.31502,19.45063,,,,,,,Worse,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2003 - 05,19.32989,19.2694,19.39038,,,,,,,Worse,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2003 - 05,19.99312,19.93377,20.05247,,,,,,,Better,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2003 - 05,19.7641,19.70219,19.82601,,,,,,,Better,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2003 - 05,20.13294,20.0833,20.18257,,,,,,,Better,Not compared,20030000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2003 - 05,20.30663,20.24712,20.36613,,,,,,,Better,Not compared,20030000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2004 - 06,17.07406,17.05294,17.09517,,,,,,,Not compared,Not compared,20040000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2004 - 06,19.85969,19.83921,19.88018,,,,,,,Not compared,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2004 - 06,17.07406,17.05294,17.09517,,,,,,,Similar,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2004 - 06,19.85969,19.83921,19.88018,,,,,,,Similar,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2004 - 06,16.06365,15.97586,16.15144,,,,,,,Worse,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2004 - 06,16.24487,16.18995,16.2998,,,,,,,Worse,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2004 - 06,16.65703,16.59234,16.72173,,,,,,,Worse,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2004 - 06,16.97638,16.9069,17.04587,,,,,,,Worse,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2004 - 06,16.7152,16.65247,16.77794,,,,,,,Worse,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2004 - 06,17.55796,17.49642,17.61951,,,,,,,Better,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2004 - 06,17.22539,17.15802,17.29276,,,,,,,Better,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2004 - 06,17.74983,17.69686,17.8028,,,,,,,Better,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2004 - 06,17.82347,17.76084,17.88611,,,,,,,Better,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2004 - 06,18.706,18.62106,18.79095,,,,,,,Worse,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2004 - 06,19.06061,19.00699,19.11422,,,,,,,Worse,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2004 - 06,19.49913,19.43599,19.56227,,,,,,,Worse,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2004 - 06,19.65061,19.58194,19.71928,,,,,,,Worse,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2004 - 06,19.63884,19.57709,19.70059,,,,,,,Worse,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2004 - 06,20.25713,20.19676,20.31749,,,,,,,Better,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2004 - 06,20.18138,20.11741,20.24536,,,,,,,Better,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2004 - 06,20.40637,20.35591,20.45682,,,,,,,Better,Not compared,20040000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2004 - 06,20.67233,20.61155,20.73311,,,,,,,Better,Not compared,20040000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2005 - 07,17.3179,17.29666,17.33915,,,,,,,Not compared,Not compared,20050000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2005 - 07,20.0286,20.00805,20.04916,,,,,,,Not compared,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2005 - 07,17.3179,17.29666,17.33915,,,,,,,Similar,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2005 - 07,20.0286,20.00805,20.04916,,,,,,,Similar,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2005 - 07,16.35892,16.27053,16.44731,,,,,,,Worse,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2005 - 07,16.46374,16.40863,16.51886,,,,,,,Worse,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2005 - 07,16.93114,16.86591,16.99637,,,,,,,Worse,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2005 - 07,17.16955,17.10015,17.23896,,,,,,,Worse,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2005 - 07,16.94229,16.87912,17.00546,,,,,,,Worse,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2005 - 07,17.82019,17.75815,17.88223,,,,,,,Better,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2005 - 07,17.49578,17.42724,17.56433,,,,,,,Better,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2005 - 07,18.02538,17.97195,18.0788,,,,,,,Better,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2005 - 07,18.00684,17.9443,18.06937,,,,,,,Better,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2005 - 07,18.89394,18.80887,18.97902,,,,,,,Worse,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2005 - 07,19.18677,19.13307,19.24046,,,,,,,Worse,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2005 - 07,19.58295,19.5198,19.6461,,,,,,,Worse,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2005 - 07,19.85945,19.79055,19.92834,,,,,,,Worse,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2005 - 07,19.79782,19.73587,19.85977,,,,,,,Worse,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2005 - 07,20.44118,20.38061,20.50174,,,,,,,Better,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2005 - 07,20.44036,20.37524,20.50547,,,,,,,Better,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2005 - 07,20.59209,20.54143,20.64276,,,,,,,Better,Not compared,20050000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2005 - 07,20.82266,20.76203,20.88328,,,,,,,Better,Not compared,20050000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2006 - 08,17.51405,17.4928,17.53529,,,,,,,Not compared,Not compared,20060000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2006 - 08,20.15842,20.13791,20.17893,,,,,,,Not compared,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2006 - 08,17.51405,17.4928,17.53529,,,,,,,Similar,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2006 - 08,20.15842,20.13791,20.17893,,,,,,,Similar,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2006 - 08,16.50314,16.41501,16.59128,,,,,,,Worse,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2006 - 08,16.66331,16.60797,16.71864,,,,,,,Worse,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2006 - 08,17.0691,17.00393,17.13426,,,,,,,Worse,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2006 - 08,17.32573,17.25663,17.39482,,,,,,,Worse,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2006 - 08,17.18203,17.11876,17.24531,,,,,,,Worse,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2006 - 08,18.0218,17.95995,18.08365,,,,,,,Better,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2006 - 08,17.72564,17.65643,17.79484,,,,,,,Better,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2006 - 08,18.2425,18.18915,18.29584,,,,,,,Better,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2006 - 08,18.19284,18.13051,18.25517,,,,,,,Better,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2006 - 08,19.05954,18.97422,19.14486,,,,,,,Worse,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2006 - 08,19.24168,19.18841,19.29494,,,,,,,Worse,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2006 - 08,19.67587,19.61284,19.73889,,,,,,,Worse,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2006 - 08,20.01201,19.94333,20.08069,,,,,,,Worse,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2006 - 08,19.91876,19.85683,19.9807,,,,,,,Worse,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2006 - 08,20.56284,20.50237,20.62331,,,,,,,Better,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2006 - 08,20.62091,20.55557,20.68625,,,,,,,Better,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2006 - 08,20.77115,20.72053,20.82178,,,,,,,Better,Not compared,20060000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2006 - 08,20.94806,20.88777,21.00835,,,,,,,Better,Not compared,20060000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2007 - 09,17.73757,17.71627,17.75887,,,,,,,Not compared,Not compared,20070000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2007 - 09,20.34523,20.32467,20.36579,,,,,,,Not compared,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2007 - 09,17.73757,17.71627,17.75887,,,,,,,Similar,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2007 - 09,20.34523,20.32467,20.36579,,,,,,,Similar,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2007 - 09,16.75984,16.67121,16.84847,,,,,,,Worse,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2007 - 09,16.86724,16.81164,16.92284,,,,,,,Worse,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2007 - 09,17.25378,17.18836,17.3192,,,,,,,Worse,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2007 - 09,17.58655,17.51653,17.65658,,,,,,,Worse,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2007 - 09,17.44665,17.38323,17.51007,,,,,,,Worse,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2007 - 09,18.28098,18.21873,18.34323,,,,,,,Better,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2007 - 09,17.94324,17.87362,18.01286,,,,,,,Better,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2007 - 09,18.44352,18.39014,18.49691,,,,,,,Better,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2007 - 09,18.38035,18.31872,18.44198,,,,,,,Better,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2007 - 09,19.2451,19.15945,19.33075,,,,,,,Worse,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2007 - 09,19.38156,19.32807,19.43505,,,,,,,Worse,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2007 - 09,19.83416,19.77125,19.89707,,,,,,,Worse,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2007 - 09,20.21077,20.14191,20.27964,,,,,,,Worse,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2007 - 09,20.17323,20.11095,20.2355,,,,,,,Worse,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2007 - 09,20.76328,20.70276,20.8238,,,,,,,Better,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2007 - 09,20.8273,20.76129,20.89331,,,,,,,Better,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2007 - 09,20.99923,20.94838,21.05008,,,,,,,Better,Not compared,20070000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2007 - 09,21.04884,20.98889,21.10878,,,,,,,Better,Not compared,20070000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2008 - 10,17.95823,17.93686,17.9796,,,,,,,Not compared,Not compared,20080000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2008 - 10,20.54476,20.52411,20.5654,,,,,,,Not compared,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2008 - 10,17.95823,17.93686,17.9796,,,,,,,Similar,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2008 - 10,20.54476,20.52411,20.5654,,,,,,,Similar,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2008 - 10,17.0001,16.91055,17.08965,,,,,,,Worse,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2008 - 10,17.11921,17.06297,17.17544,,,,,,,Worse,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2008 - 10,17.44969,17.38402,17.51536,,,,,,,Worse,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2008 - 10,17.77545,17.7052,17.84571,,,,,,,Worse,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2008 - 10,17.72028,17.65671,17.78386,,,,,,,Worse,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2008 - 10,18.45784,18.39587,18.5198,,,,,,,Better,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2008 - 10,18.22301,18.15279,18.29323,,,,,,,Better,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2008 - 10,18.63584,18.58257,18.68911,,,,,,,Better,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2008 - 10,18.56603,18.50423,18.62783,,,,,,,Better,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2008 - 10,19.48513,19.3988,19.57145,,,,,,,Worse,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2008 - 10,19.61466,19.56056,19.66876,,,,,,,Worse,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2008 - 10,20.06354,19.99993,20.12714,,,,,,,Worse,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2008 - 10,20.41407,20.34512,20.48303,,,,,,,Worse,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2008 - 10,20.41168,20.34896,20.4744,,,,,,,Worse,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2008 - 10,20.94236,20.88185,21.00287,,,,,,,Better,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2008 - 10,21.00803,20.94157,21.07448,,,,,,,Better,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2008 - 10,21.1595,21.10882,21.21018,,,,,,,Better,Not compared,20080000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2008 - 10,21.19234,21.13237,21.25231,,,,,,,Better,Not compared,20080000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2009 - 11,18.24865,18.22704,18.27026,,,,,,,Not compared,Not compared,20090000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2009 - 11,20.8504,20.82937,20.87144,,,,,,,Not compared,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2009 - 11,18.24865,18.22704,18.27026,,,,,,,Similar,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2009 - 11,20.8504,20.82937,20.87144,,,,,,,Similar,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2009 - 11,17.36572,17.27474,17.45669,,,,,,,Worse,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2009 - 11,17.43427,17.37715,17.49138,,,,,,,Worse,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2009 - 11,17.69778,17.63171,17.76385,,,,,,,Worse,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2009 - 11,18.04807,17.97716,18.11898,,,,,,,Worse,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2009 - 11,18.07423,18.00956,18.1389,,,,,,,Worse,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2009 - 11,18.75202,18.68937,18.81467,,,,,,,Better,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2009 - 11,18.53821,18.46686,18.60955,,,,,,,Better,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2009 - 11,18.87021,18.81668,18.92374,,,,,,,Better,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2009 - 11,18.82146,18.7589,18.88403,,,,,,,Better,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2009 - 11,19.79584,19.70737,19.8843,,,,,,,Worse,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2009 - 11,19.94723,19.89169,20.00277,,,,,,,Worse,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2009 - 11,20.31966,20.25513,20.38419,,,,,,,Worse,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2009 - 11,20.72969,20.65947,20.79992,,,,,,,Worse,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2009 - 11,20.76688,20.70269,20.83107,,,,,,,Worse,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2009 - 11,21.26155,21.20003,21.32307,,,,,,,Better,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2009 - 11,21.3578,21.28953,21.42608,,,,,,,Better,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2009 - 11,21.43296,21.38161,21.48431,,,,,,,Better,Not compared,20090000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2009 - 11,21.43469,21.3739,21.49549,,,,,,,Better,Not compared,20090000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2010 - 12,18.41,18.39,18.43,,,,,,,Not compared,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,15.66,15.59,15.73,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,16.48,16.41,16.55,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,17.19,17.12,17.26,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,17.88,17.82,17.95,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,18.31,18.25,18.38,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,18.71,18.65,18.77,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,19.07,19.01,19.13,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,19.39,19.33,19.45,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,19.75,19.69,19.82,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.43,20.36,20.5,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2010 - 12,20.94,20.92,20.96,,,,,,,Not compared,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,18.61,18.54,18.68,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,19.35,19.28,19.42,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,19.91,19.84,19.98,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,20.57,20.5,20.64,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,20.85,20.79,20.91,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,21.17,21.11,21.23,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,21.46,21.4,21.52,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,21.71,21.65,21.78,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,22.08,22.02,22.14,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,22.84,22.77,22.9,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2010 - 12,18.41,18.39,18.43,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,15.66,15.59,15.73,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,16.48,16.41,16.55,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,17.19,17.12,17.26,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,17.88,17.82,17.95,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,18.31,18.25,18.38,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,18.71,18.65,18.77,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,19.07,19.01,19.13,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,19.39,19.33,19.45,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,19.75,19.69,19.82,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.43,20.36,20.5,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2010 - 12,20.94,20.92,20.96,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,18.61,18.54,18.68,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,19.35,19.28,19.42,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,19.91,19.84,19.98,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,20.57,20.5,20.64,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,20.85,20.79,20.91,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,21.17,21.11,21.23,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,21.46,21.4,21.52,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,21.71,21.65,21.78,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,22.08,22.02,22.14,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,22.84,22.77,22.9,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2010 - 12,17.51,17.42,17.6,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,14.75,14.47,15.03,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,15.77,15.48,16.05,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,16.1,15.83,16.37,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,16.18,15.91,16.45,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,17.46,17.18,17.75,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,17.71,17.44,17.98,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,18.22,17.93,18.5,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,18.85,18.57,19.13,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,19.44,19.15,19.73,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.24,19.93,20.54,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2010 - 12,17.65,17.59,17.7,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,14.89,14.7,15.07,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,15.43,15.25,15.61,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,15.7,15.52,15.88,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,16.67,16.49,16.85,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,17.07,16.9,17.24,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,17.96,17.79,18.13,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,18.52,18.34,18.69,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,19.02,18.85,19.18,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,19.46,19.29,19.64,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.25,20.07,20.44,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2010 - 12,17.85,17.79,17.92,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,15.28,15.06,15.5,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,16.11,15.89,16.33,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,16.1,15.9,16.31,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,17.1,16.9,17.31,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,17.71,17.5,17.91,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,18.08,17.89,18.27,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,18.64,18.45,18.84,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,18.74,18.55,18.94,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,19.28,19.09,19.48,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.03,19.83,20.23,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2010 - 12,18.21,18.14,18.28,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,15.71,15.47,15.95,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,16.4,16.17,16.63,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,17.06,16.83,17.28,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,17.54,17.33,17.75,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,18,17.79,18.2,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,18.48,18.28,18.68,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,18.83,18.62,19.04,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,19.32,19.1,19.54,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,19.65,19.43,19.86,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.17,19.93,20.41,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2010 - 12,18.24,18.18,18.31,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,15.87,15.63,16.1,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,16.46,16.24,16.68,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,16.82,16.61,17.03,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,17.11,16.91,17.31,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,18.35,18.15,18.54,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,18.42,18.23,18.61,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,18.75,18.57,18.93,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,19.05,18.87,19.24,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,19.74,19.55,19.93,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.22,20.01,20.43,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2010 - 12,18.91,18.85,18.97,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,16.76,16.55,16.97,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,17.73,17.52,17.93,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,18.34,18.15,18.53,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,18.36,18.18,18.54,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,19.02,18.84,19.2,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,19.23,19.04,19.41,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,19.25,19.06,19.44,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,19.55,19.35,19.75,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,20.03,19.83,20.24,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.59,20.38,20.79,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2010 - 12,18.7,18.63,18.77,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,16.54,16.32,16.77,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,17.41,17.16,17.65,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,17.61,17.37,17.85,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,17.74,17.52,17.97,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,18.17,17.94,18.39,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,18.99,18.76,19.21,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,18.88,18.68,19.09,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,19.85,19.63,20.06,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,19.94,19.74,20.15,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.53,20.33,20.73,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2010 - 12,19,18.95,19.05,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,16.61,16.43,16.8,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,17.51,17.33,17.68,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,17.9,17.74,18.06,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,18.77,18.6,18.93,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,18.91,18.76,19.07,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,19.41,19.25,19.57,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,19.68,19.52,19.84,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,19.73,19.57,19.88,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,20.04,19.88,20.2,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.76,20.58,20.93,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2010 - 12,18.98,18.92,19.04,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,16.55,16.33,16.76,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,17.95,17.74,18.15,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,18.6,18.4,18.79,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,18.76,18.57,18.95,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,18.76,18.58,18.94,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,19.39,19.21,19.57,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,19.32,19.13,19.51,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,19.54,19.35,19.73,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,19.66,19.47,19.85,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,20.71,20.5,20.92,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2010 - 12,19.87,19.78,19.96,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,17.46,17.17,17.75,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,18.7,18.4,18.99,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,18.7,18.43,18.96,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,18.81,18.55,19.08,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,19.25,18.99,19.52,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,20.11,19.84,20.38,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,20.67,20.39,20.94,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,21.05,20.78,21.32,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,21.2,20.94,21.46,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,22.58,22.28,22.88,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2010 - 12,20.06,20,20.11,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,17.58,17.39,17.77,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,18.12,17.94,18.31,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,18.59,18.41,18.77,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,19.07,18.89,19.25,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,19.4,19.23,19.57,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,20.19,20.03,20.36,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,20.94,20.77,21.11,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,21.46,21.29,21.63,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,21.66,21.5,21.83,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,22.59,22.41,22.77,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2010 - 12,20.38,20.31,20.44,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,18,17.78,18.23,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,18.92,18.7,19.14,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,19.08,18.88,19.29,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,19.96,19.75,20.17,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,20.39,20.19,20.59,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,20.56,20.38,20.74,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,20.98,20.79,21.17,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,20.76,20.58,20.94,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,21.55,21.36,21.74,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,22.53,22.33,22.72,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2010 - 12,20.82,20.75,20.89,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,19.11,18.86,19.37,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,19.41,19.18,19.65,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,19.91,19.69,20.14,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,20.04,19.83,20.26,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,20.59,20.39,20.8,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,21.06,20.86,21.26,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,21.22,21.01,21.42,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,21.67,21.45,21.88,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,22.02,21.81,22.24,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,22.94,22.68,23.2,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2010 - 12,20.87,20.81,20.94,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,18.96,18.72,19.19,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,19.58,19.36,19.81,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,19.37,19.17,19.57,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,20.13,19.92,20.33,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,21.11,20.9,21.31,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,21.01,20.82,21.19,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,21.19,21.01,21.37,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,21.37,21.19,21.54,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,21.87,21.68,22.06,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,23.21,22.99,23.43,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2010 - 12,21.35,21.29,21.41,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,19.79,19.58,20.01,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,20.55,20.34,20.75,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,20.79,20.61,20.98,,,,,,,Similar,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,20.75,20.57,20.93,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,21.16,20.98,21.34,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,21.48,21.3,21.66,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,21.55,21.36,21.73,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,22.08,21.89,22.27,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,22.54,22.34,22.74,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,22.94,22.74,23.14,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2010 - 12,21.47,21.4,21.54,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,19.9,19.68,20.12,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,20.38,20.14,20.62,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,20.61,20.37,20.84,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,20.69,20.48,20.9,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,21.18,20.96,21.4,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,21.73,21.51,21.95,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,21.61,21.41,21.8,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,22.23,22.03,22.44,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,22.41,22.22,22.6,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,22.95,22.76,23.15,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2010 - 12,21.5,21.45,21.55,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,19.67,19.49,19.85,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,20.37,20.2,20.54,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,20.54,20.38,20.69,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,21.48,21.32,21.64,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,21.57,21.42,21.73,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,21.87,21.72,22.02,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,21.73,21.58,21.88,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,22.05,21.9,22.19,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,22.31,22.16,22.47,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,22.94,22.77,23.1,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2010 - 12,21.55,21.49,21.61,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Most deprived decile,2010 - 12,19.5,19.29,19.72,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second most deprived decile,2010 - 12,20.63,20.43,20.84,,,,,,,Worse,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third more deprived decile,2010 - 12,21.32,21.14,21.51,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth more deprived decile,2010 - 12,21.38,21.19,21.57,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth more deprived decile,2010 - 12,21.36,21.18,21.54,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fifth less deprived decile,2010 - 12,21.75,21.57,21.93,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Fourth less deprived decile,2010 - 12,21.96,21.78,22.15,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Third less deprived decile,2010 - 12,21.9,21.72,22.08,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Second least deprived decile,2010 - 12,22.13,21.96,22.31,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,LSOA11 deprivation deciles within area (IMD  trend),Least deprived decile,2010 - 12,23.15,22.94,23.35,,,,,,,Better,Not compared,20100000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2011 - 13,18.53,18.51,18.55,,,,,,,Not compared,Not compared,20110000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2011 - 13,21.01,20.99,21.03,,,,,,,Not compared,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2011 - 13,18.53,18.51,18.55,,,,,,,Similar,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2011 - 13,21.01,20.99,21.03,,,,,,,Similar,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2011 - 13,17.71,17.62,17.79,,,,,,,Worse,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2011 - 13,17.79,17.74,17.85,,,,,,,Worse,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2011 - 13,17.94,17.87,18,,,,,,,Worse,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2011 - 13,18.35,18.28,18.42,,,,,,,Worse,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2011 - 13,18.3,18.23,18.36,,,,,,,Worse,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2011 - 13,19.05,18.99,19.11,,,,,,,Better,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2011 - 13,18.82,18.75,18.89,,,,,,,Better,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2011 - 13,19.11,19.06,19.16,,,,,,,Better,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2011 - 13,19.06,19,19.12,,,,,,,Better,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2011 - 13,19.89,19.8,19.97,,,,,,,Worse,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2011 - 13,20.11,20.06,20.17,,,,,,,Worse,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2011 - 13,20.42,20.36,20.49,,,,,,,Worse,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2011 - 13,20.88,20.81,20.95,,,,,,,Worse,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2011 - 13,20.93,20.87,20.99,,,,,,,Worse,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2011 - 13,21.44,21.38,21.5,,,,,,,Better,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2011 - 13,21.62,21.55,21.69,,,,,,,Better,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2011 - 13,21.58,21.53,21.63,,,,,,,Better,Not compared,20110000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2011 - 13,21.58,21.52,21.64,,,,,,,Better,Not compared,20110000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2012 - 14,18.62,18.6,18.65,,,,,,,Not compared,Not compared,20120000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2012 - 14,21.08,21.06,21.1,,,,,,,Not compared,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2012 - 14,18.62,18.6,18.65,,,,,,,Similar,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2012 - 14,21.08,21.06,21.1,,,,,,,Similar,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2012 - 14,17.76,17.67,17.85,,,,,,,Worse,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2012 - 14,17.87,17.82,17.93,,,,,,,Worse,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2012 - 14,18.09,18.02,18.15,,,,,,,Worse,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2012 - 14,18.48,18.41,18.55,,,,,,,Worse,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2012 - 14,18.37,18.31,18.43,,,,,,,Worse,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2012 - 14,19.17,19.11,19.23,,,,,,,Better,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2012 - 14,18.92,18.85,18.99,,,,,,,Better,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2012 - 14,19.18,19.13,19.23,,,,,,,Better,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2012 - 14,19.17,19.11,19.23,,,,,,,Better,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2012 - 14,19.96,19.87,20.04,,,,,,,Worse,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2012 - 14,20.19,20.14,20.24,,,,,,,Worse,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2012 - 14,20.49,20.43,20.56,,,,,,,Worse,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2012 - 14,20.95,20.88,21.02,,,,,,,Worse,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2012 - 14,20.98,20.92,21.04,,,,,,,Worse,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2012 - 14,21.47,21.41,21.53,,,,,,,Better,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2012 - 14,21.65,21.59,21.72,,,,,,,Better,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2012 - 14,21.66,21.61,21.71,,,,,,,Better,Not compared,20120000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2012 - 14,21.69,21.63,21.74,,,,,,,Better,Not compared,20120000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2013 - 15,18.64,18.62,18.66,,,,,,,Not compared,Not compared,20130000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2013 - 15,21.05,21.03,21.07,,,,,,,Not compared,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2013 - 15,18.64,18.62,18.66,,,,,,,Similar,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2013 - 15,21.05,21.03,21.07,,,,,,,Similar,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2013 - 15,17.78,17.69,17.86,,,,,,,Worse,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2013 - 15,17.9,17.85,17.96,,,,,,,Worse,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2013 - 15,18.13,18.07,18.2,,,,,,,Worse,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2013 - 15,18.49,18.42,18.55,,,,,,,Worse,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2013 - 15,18.38,18.32,18.44,,,,,,,Worse,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2013 - 15,19.15,19.1,19.21,,,,,,,Better,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2013 - 15,18.91,18.84,18.98,,,,,,,Better,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2013 - 15,19.2,19.15,19.25,,,,,,,Better,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2013 - 15,19.19,19.13,19.25,,,,,,,Better,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2013 - 15,19.93,19.84,20.01,,,,,,,Worse,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2013 - 15,20.18,20.12,20.23,,,,,,,Worse,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2013 - 15,20.5,20.44,20.56,,,,,,,Worse,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2013 - 15,20.87,20.8,20.93,,,,,,,Worse,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2013 - 15,20.91,20.85,20.97,,,,,,,Worse,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2013 - 15,21.45,21.4,21.51,,,,,,,Better,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2013 - 15,21.62,21.55,21.68,,,,,,,Better,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2013 - 15,21.65,21.6,21.7,,,,,,,Better,Not compared,20130000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2013 - 15,21.63,21.58,21.69,,,,,,,Better,Not compared,20130000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2014 - 16,18.7,18.68,18.72,,,,,,,Not compared,Not compared,20140000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2014 - 16,21.09,21.07,21.11,,,,,,,Not compared,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2014 - 16,18.7,18.68,18.72,,,,,,,Similar,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2014 - 16,21.09,21.07,21.11,,,,,,,Similar,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2014 - 16,17.74,17.66,17.83,,,,,,,Worse,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2014 - 16,17.96,17.91,18.01,,,,,,,Worse,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2014 - 16,18.18,18.12,18.24,,,,,,,Worse,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2014 - 16,18.56,18.5,18.63,,,,,,,Worse,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2014 - 16,18.48,18.42,18.54,,,,,,,Worse,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2014 - 16,19.19,19.13,19.25,,,,,,,Better,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2014 - 16,18.98,18.91,19.04,,,,,,,Better,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2014 - 16,19.27,19.22,19.32,,,,,,,Better,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2014 - 16,19.23,19.18,19.29,,,,,,,Better,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2014 - 16,19.96,19.88,20.04,,,,,,,Worse,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2014 - 16,20.22,20.16,20.27,,,,,,,Worse,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2014 - 16,20.57,20.5,20.63,,,,,,,Worse,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2014 - 16,20.89,20.82,20.95,,,,,,,Worse,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2014 - 16,21,20.94,21.06,,,,,,,Worse,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2014 - 16,21.47,21.41,21.52,,,,,,,Better,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2014 - 16,21.67,21.61,21.74,,,,,,,Better,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2014 - 16,21.69,21.64,21.74,,,,,,,Better,Not compared,20140000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2014 - 16,21.64,21.58,21.7,,,,,,,Better,Not compared,20140000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2015 - 17,18.69,18.67,18.71,,,,,,,Not compared,Not compared,20150000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2015 - 17,21.03,21.01,21.05,,,,,,,Not compared,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2015 - 17,18.69,18.67,18.71,,,,,,,Similar,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2015 - 17,21.03,21.01,21.05,,,,,,,Similar,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2015 - 17,17.83,17.75,17.92,,,,,,,Worse,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2015 - 17,17.99,17.94,18.04,,,,,,,Worse,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2015 - 17,18.16,18.1,18.22,,,,,,,Worse,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2015 - 17,18.55,18.49,18.62,,,,,,,Worse,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2015 - 17,18.45,18.39,18.51,,,,,,,Worse,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2015 - 17,19.11,19.05,19.16,,,,,,,Better,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2015 - 17,18.97,18.9,19.04,,,,,,,Better,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2015 - 17,19.27,19.22,19.32,,,,,,,Better,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2015 - 17,19.22,19.17,19.28,,,,,,,Better,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2015 - 17,19.89,19.81,19.98,,,,,,,Worse,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2015 - 17,20.19,20.14,20.25,,,,,,,Worse,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2015 - 17,20.52,20.46,20.58,,,,,,,Worse,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2015 - 17,20.77,20.71,20.83,,,,,,,Worse,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2015 - 17,20.92,20.87,20.98,,,,,,,Worse,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2015 - 17,21.39,21.34,21.45,,,,,,,Better,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2015 - 17,21.7,21.64,21.77,,,,,,,Better,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2015 - 17,21.64,21.6,21.69,,,,,,,Better,Not compared,20150000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2015 - 17,21.53,21.48,21.59,,,,,,,Better,Not compared,20150000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2016 - 18,18.76,18.74,18.78,,,,,,,Not compared,Not compared,20160000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2016 - 18,21.11,21.1,21.13,,,,,,,Not compared,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2016 - 18,18.76,18.74,18.78,,,,,,,Similar,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2016 - 18,21.11,21.1,21.13,,,,,,,Similar,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2016 - 18,17.95,17.87,18.03,,,,,,,Worse,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2016 - 18,18.09,18.04,18.15,,,,,,,Worse,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2016 - 18,18.23,18.17,18.29,,,,,,,Worse,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2016 - 18,18.6,18.54,18.67,,,,,,,Worse,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2016 - 18,18.51,18.45,18.57,,,,,,,Worse,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2016 - 18,19.13,19.08,19.19,,,,,,,Better,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2016 - 18,19.07,19,19.13,,,,,,,Better,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2016 - 18,19.36,19.31,19.41,,,,,,,Better,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2016 - 18,19.28,19.22,19.33,,,,,,,Better,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2016 - 18,20.02,19.94,20.1,,,,,,,Worse,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2016 - 18,20.28,20.23,20.34,,,,,,,Worse,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2016 - 18,20.55,20.49,20.61,,,,,,,Worse,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2016 - 18,20.88,20.82,20.94,,,,,,,Worse,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2016 - 18,20.97,20.91,21.03,,,,,,,Worse,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2016 - 18,21.43,21.37,21.49,,,,,,,Better,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2016 - 18,21.82,21.75,21.89,,,,,,,Better,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2016 - 18,21.74,21.69,21.79,,,,,,,Better,Not compared,20160000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2016 - 18,21.63,21.57,21.68,,,,,,,Better,Not compared,20160000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2017 - 19,18.87,18.85,18.89,,,,,,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Second most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Third more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fourth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fifth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fifth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fourth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Third less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Second least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Second most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Third more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fourth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fifth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fifth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fourth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Third less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Second least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2017 - 19,21.23,21.22,21.25,,,,,,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Second most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Third more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fourth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fifth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fifth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fourth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Third less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Second least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Second most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Third more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fourth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fifth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fifth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fourth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Third less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Second least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2017 - 19,18.87,18.85,18.89,,,,,,,Similar,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Second most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Third more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fourth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fifth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fifth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fourth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Third less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Second least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Second most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Third more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fourth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fifth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fifth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fourth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Third less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Second least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2017 - 19,21.23,21.22,21.25,,,,,,,Similar,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Second most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Third more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fourth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fifth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fifth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Fourth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Third less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Second least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"County & UA deprivation deciles in England (IMD2019, 4/19 and 4/20 geog.)",Least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Second most deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Third more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fourth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fifth more deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fifth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Fourth less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Third less deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Second least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,"District & UA deprivation deciles in England (IMD2019, 4/20 geog.)",Least deprived decile (IMD2019),2017 - 19,,,,,,,,Value missing in source data,,Not compared,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2017 - 19,18.1,18.01,18.18,,,,,,,Worse,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2017 - 19,18.2,18.14,18.25,,,,,,,Worse,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2017 - 19,18.34,18.28,18.41,,,,,,,Worse,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2017 - 19,18.7,18.64,18.76,,,,,,,Worse,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2017 - 19,18.65,18.59,18.71,,,,,,,Worse,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2017 - 19,19.22,19.16,19.28,,,,,,,Better,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2017 - 19,19.16,19.09,19.22,,,,,,,Better,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2017 - 19,19.45,19.41,19.5,,,,,,,Better,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2017 - 19,19.43,19.37,19.48,,,,,,,Better,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2017 - 19,20.14,20.06,20.22,,,,,,,Worse,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2017 - 19,20.41,20.36,20.46,,,,,,,Worse,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2017 - 19,20.64,20.58,20.7,,,,,,,Worse,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2017 - 19,20.95,20.89,21.01,,,,,,,Worse,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2017 - 19,21.03,20.97,21.09,,,,,,,Worse,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2017 - 19,21.52,21.47,21.58,,,,,,,Better,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2017 - 19,21.94,21.87,22,,,,,,,Better,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2017 - 19,21.89,21.84,21.94,,,,,,,Better,Not compared,20170000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2017 - 19,21.84,21.78,21.9,,,,,,,Better,Not compared,20170000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Male,65,,,2018 - 20,18.59,18.57,18.61,,,,,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+91102,Life expectancy at 65,,,E92000001,England,England,Female,65,,,2018 - 20,21.04,21.02,21.06,,,,,,Cannot be calculated,Not compared,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Male,65,,,2018 - 20,18.59,18.57,18.61,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E92000001,England,England,Female,65,,,2018 - 20,21.04,21.02,21.06,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Male,65,,,2018 - 20,17.78,17.7,17.86,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Male,65,,,2018 - 20,17.82,17.77,17.87,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Male,65,,,2018 - 20,18.05,17.99,18.11,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Male,65,,,2018 - 20,18.41,18.35,18.48,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Male,65,,,2018 - 20,18.29,18.23,18.34,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Male,65,,,2018 - 20,19.02,18.96,19.07,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Male,65,,,2018 - 20,18.61,18.55,18.67,,,,,,Cannot be calculated,Similar,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Male,65,,,2018 - 20,19.26,19.21,19.31,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Male,65,,,2018 - 20,19.36,19.3,19.41,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000001,North East region,Region,Female,65,,,2018 - 20,19.97,19.89,20.05,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000002,North West region,Region,Female,65,,,2018 - 20,20.13,20.07,20.18,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000003,Yorkshire and the Humber region,Region,Female,65,,,2018 - 20,20.43,20.37,20.49,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000004,East Midlands region,Region,Female,65,,,2018 - 20,20.78,20.72,20.84,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000005,West Midlands region,Region,Female,65,,,2018 - 20,20.76,20.7,20.82,,,,,,Cannot be calculated,Worse,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000006,East of England region,Region,Female,65,,,2018 - 20,21.4,21.35,21.46,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000007,London region,Region,Female,65,,,2018 - 20,21.57,21.51,21.63,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000008,South East region,Region,Female,65,,,2018 - 20,21.75,21.7,21.8,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y
+91102,Life expectancy at 65,E92000001,England,E12000009,South West region,Region,Female,65,,,2018 - 20,21.84,21.78,21.89,,,,,,Cannot be calculated,Better,Not compared,20180000,,,3y

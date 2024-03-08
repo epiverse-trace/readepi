@@ -25,7 +25,7 @@ Subset records when reading from Fingertips
 res <- fingertips_subset_rows(
   data = readepi(
     profile_id   = 19,
-    area_type_id = 202
+    area_type_id = 6
   )$data,
   records        = c("E92000001", "E12000002", "E12000009"),
   id_col_name    = "AreaCode"
