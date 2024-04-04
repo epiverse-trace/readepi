@@ -93,7 +93,7 @@ test_that("readepi works as expected when reading from Fingertips", {
   expect_identical(data[["metadata"]], NA)
 
   data <- readepi(
-    area_type_id = 102L,
+    area_type_id = 6L,
     domain_id    = 1000049L,
     records      = NULL,
     fields       = NULL,
