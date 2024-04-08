@@ -18,7 +18,7 @@
 #' @examples
 #' \dontrun{
 #'   response <- dhis2_make_api_request(
-#'     base_url  = file.path("https:/", "play.dhis2.org", "dev"),
+#'     base_url  = file.path("https:/", "play.dhis2.org", "demo"),
 #'     user_name = "admin",
 #'     password  = "district",
 #'     which     = "dataElements"
@@ -28,12 +28,11 @@
 dhis2_make_api_request <- function(base_url,
                                    user_name,
                                    password,
-                                   which     = "dataElements") {
+                                   which = "dataElements") {
   url <- file.path(
     base_url,
     "api",
-    which,
-    "?fields=id,name,shortName&paging=false"
+    glue::glue(which, "?fields=id,name,shortName&paging=false")
   )
   req <- httr2::request(url) %>%
     httr2::req_auth_basic(user_name, password) %>%
@@ -57,7 +56,7 @@ dhis2_make_api_request <- function(base_url,
 #' @examples
 #' \dontrun{
 #' result <- dhis2_get_relevant_attributes(
-#'   base_url     = "https://play.dhis2.org/dev/",
+#'   base_url     = "https://play.dhis2.org/demo",
 #'   user_name    = "admin",
 #'   password     = "district",
 #'   attribute_id = c("pBOMPrpg1QX", "BfMAe6Itzgt"),
@@ -128,7 +127,7 @@ dhis2_get_relevant_attributes <- function(base_url,
 #' @examples
 #' \dontrun{
 #' datasets <- dhis2_get_attributes(
-#'   base_url  = "https://play.dhis2.org/dev/",
+#'   base_url  = "https://play.dhis2.org/demo/",
 #'   user_name = "admin",
 #'   password  = "district",
 #'   which     = "dataSets"

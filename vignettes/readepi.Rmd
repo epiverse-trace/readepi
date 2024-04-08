@@ -428,35 +428,35 @@ data_element_groups <- dhis2_get_attributes(
   which     = "dataElementGroups"
 )
 
-# READING THE DATASET ID `pBOMPrpg1QX`
+# READING THE DATASET ID `BfMAe6Itzgt`
 dat <- readepi(
   data_source        = "https://play.dhis2.org/dev",
   credentials_file   = credentials_file,
-  dataset            = "pBOMPrpg1QX",
-  organisation_unit  = "DiszpKrYNg8",
+  dataset            = "BfMAe6Itzgt",
+  organisation_unit  = "Umh4HKqqFp6",
   data_element_group = NULL,
   start_date         = "2014",
   end_date           = "2023"
 )
 
-# READING DATA FROM 2 DATASETS `pBOMPrpg1QX`
+# READING DATA FROM 2 DATASETS `BfMAe6Itzgt`
 dat <- readepi(
   data_source        = "https://play.dhis2.org/dev",
   credentials_file   = credentials_file,
-  dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-  organisation_unit  = "DiszpKrYNg8",
+  dataset            = "BfMAe6Itzgt,BfMAe6Itzgt",
+  organisation_unit  = "Umh4HKqqFp6",
   data_element_group = NULL,
   start_date         = "2014",
   end_date           = "2023"
 )
 
-# READING SPECIFIC DATA ELEMENTS FROM THE DATASET ID `pBOMPrpg1QX`
+# READING SPECIFIC DATA ELEMENTS FROM THE DATASET ID `BfMAe6Itzgt`
 data_elts <- c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea")
 dat <- readepi(
   data_source        = "https://play.dhis2.org/dev",
   credentials_file   = credentials_file,
-  dataset            = "pBOMPrpg1QX",
-  organisation_unit  = "DiszpKrYNg8",
+  dataset            = "BfMAe6Itzgt",
+  organisation_unit  = "Umh4HKqqFp6",
   data_element_group = NULL,
   start_date         = "2014",
   end_date           = "2023",
@@ -468,8 +468,8 @@ dat <- readepi(
 dat <- readepi(
   data_source        = "https://play.dhis2.org/dev",
   credentials_file   = credentials_file,
-  dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-  organisation_unit  = "DiszpKrYNg8",
+  dataset            = "BfMAe6Itzgt,BfMAe6Itzgt",
+  organisation_unit  = "Umh4HKqqFp6",
   data_element_group = NULL,
   start_date         = "2014",
   end_date           = "2023",

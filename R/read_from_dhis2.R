@@ -34,11 +34,11 @@
 #' @examples
 #' \dontrun{
 #' data <- read_from_dhis2(
-#'   base_url         = "https://play.dhis2.org/dev",
+#'   base_url         = "https://play.dhis2.org/demo",
 #'   user_name        = "admin",
 #'   password         = "district",
-#'   query_parameters = list(dataSet   = "pBOMPrpg1QX",
-#'                           orgUnit   = "DiszpKrYNg8",
+#'   query_parameters = list(dataSet   = "BfMAe6Itzgt",
+#'                           orgUnit   = "Umh4HKqqFp6",
 #'                           startDate = "2014",
 #'                           endDate   = "2023"),
 #'   records          = NULL,
@@ -81,7 +81,7 @@ read_from_dhis2 <- function(base_url,
   # The new implementation should have an argument to let the user define the
   # endpoint.
   # This one is static and only account for dataSets provided by the user
-  url    <- file.path(base_url, "api", "dataValueSets")
+  url    <- file.path(base_url, "api", "dataValueSets.json")
 
   # fetching the data of interest
   data   <- httr2::request(url) |>

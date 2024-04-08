@@ -2,11 +2,11 @@ test_that("read_from_dhis2 works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   data <- read_from_dhis2(
-    base_url         = file.path("https:/", "play.dhis2.org", "dev"),
+    base_url         = file.path("https:/", "play.dhis2.org", "demo"),
     user_name        = "admin",
     password         = "district",
-    query_parameters = list(dataSet   = "pBOMPrpg1QX",
-                            orgUnit   = "DiszpKrYNg8",
+    query_parameters = list(dataSet   = "BfMAe6Itzgt",
+                            orgUnit   = "Umh4HKqqFp6",
                             startDate = "2014",
                             endDate   = "2023"),
     records          = NULL,
@@ -25,14 +25,14 @@ test_that("read_from_dhis2 works as expected when subsetting on columns and
             testthat::skip_on_cran()
             testthat::skip_if_offline()
             data <- read_from_dhis2(
-              base_url         = file.path("https:/", "play.dhis2.org", "dev"),
+              base_url         = file.path("https:/", "play.dhis2.org", "demo"),
               user_name        = "admin",
               password         = "district",
-              query_parameters = list(dataSet   = "pBOMPrpg1QX",
-                                      orgUnit   = "DiszpKrYNg8",
+              query_parameters = list(dataSet   = "BfMAe6Itzgt", #"BfMAe6Itzgt",
+                                      orgUnit   = "Umh4HKqqFp6", #"Umh4HKqqFp6",
                                       startDate = "2014",
                                       endDate   = "2023"),
-              records          = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+              records          = c("pikOziyCXbM", "x3Do5e7g4Qo", "ldGXl6SEdqf"),
               fields           = c("dataElement", "period", "value"),
               id_col_name      = "dataElement"
             )
@@ -51,8 +51,8 @@ test_that("read_from_dhis2 fails with a wrong URL", {
       base_url         = NULL,
       user_name        = "admin",
       password         = "district",
-      query_parameters = list(dataSet   = "pBOMPrpg1QX",
-                              orgUnit   = "DiszpKrYNg8",
+      query_parameters = list(dataSet   = "BfMAe6Itzgt",
+                              orgUnit   = "Umh4HKqqFp6",
                               startDate = "2014",
                               endDate   = "2023"),
       records          = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
@@ -67,11 +67,11 @@ test_that("read_from_dhis2 fails with a wrong URL", {
       base_url         = NA,
       user_name        = "admin",
       password         = "district",
-      query_parameters = list(dataSet   = "pBOMPrpg1QX",
-                              orgUnit   = "DiszpKrYNg8",
+      query_parameters = list(dataSet   = "BfMAe6Itzgt",
+                              orgUnit   = "Umh4HKqqFp6",
                               startDate = "2014",
                               endDate   = "2023"),
-      records          = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+      records          = c("pikOziyCXbM", "x3Do5e7g4Qo", "ldGXl6SEdqf"),
       fields           = c("dataElement", "period", "value"),
       id_col_name      = "dataElement"
     ),
@@ -82,16 +82,16 @@ test_that("read_from_dhis2 fails with a wrong URL", {
   expect_error(
     read_from_dhis2(
       base_url = c(
-        file.path("https:/", "play.dhis2.org", "dev"),
-        file.path("https:/", "play.dhis2.org", "dev")
+        file.path("https:/", "play.dhis2.org", "demo"),
+        file.path("https:/", "play.dhis2.org", "demo")
       ),
       user_name        = "admin",
       password         = "district",
-      query_parameters = list(dataSet   = "pBOMPrpg1QX",
-                              orgUnit   = "DiszpKrYNg8",
+      query_parameters = list(dataSet   = "BfMAe6Itzgt",
+                              orgUnit   = "Umh4HKqqFp6",
                               startDate = "2014",
                               endDate   = "2023"),
-      records          = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+      records          = c("pikOziyCXbM", "x3Do5e7g4Qo", "ldGXl6SEdqf"),
       fields           = c("dataElement", "period", "value"),
       id_col_name      = "dataElement"
     ),
@@ -105,14 +105,14 @@ test_that("read_from_dhis2 fails with a wrong user_name", {
   testthat::skip_if_offline()
   expect_error(
     read_from_dhis2(
-      base_url         = file.path("https:/", "play.dhis2.org", "dev"),
+      base_url         = file.path("https:/", "play.dhis2.org", "demo"),
       user_name        = NULL,
       password         = "district",
-      query_parameters = list(dataSet   = "pBOMPrpg1QX",
-                              orgUnit   = "DiszpKrYNg8",
+      query_parameters = list(dataSet   = "BfMAe6Itzgt",
+                              orgUnit   = "Umh4HKqqFp6",
                               startDate = "2014",
                               endDate   = "2023"),
-      records          = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+      records          = c("pikOziyCXbM", "x3Do5e7g4Qo", "ldGXl6SEdqf"),
       fields           = c("dataElement", "period", "value"),
       id_col_name      = "dataElement"
     ),

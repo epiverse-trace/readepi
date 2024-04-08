@@ -58,11 +58,11 @@ Import data form DHIS2
 \examples{
 \dontrun{
 data <- read_from_dhis2(
-  base_url         = "https://play.dhis2.org/dev",
+  base_url         = "https://play.dhis2.org/demo",
   user_name        = "admin",
   password         = "district",
-  query_parameters = list(dataSet   = "pBOMPrpg1QX",
-                          orgUnit   = "DiszpKrYNg8",
+  query_parameters = list(dataSet   = "BfMAe6Itzgt",
+                          orgUnit   = "Umh4HKqqFp6",
                           startDate = "2014",
                           endDate   = "2023"),
   records          = NULL,

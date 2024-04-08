@@ -17,7 +17,7 @@
 #' @examples
 #' \dontrun{
 #'   dhis2_login(
-#'     base_url  = file.path("https:/", "play.dhis2.org", "dev"),
+#'     base_url  = file.path("https:/", "play.dhis2.org", "demo"),
 #'     user_name = "admin",
 #'     password  = "district"
 #'   )
@@ -46,7 +46,7 @@ dhis2_login <- function(base_url,
 #'   data = readepi(
 #'     credentials_file = system.file("extdata", "test.ini",
 #'                                      package = "readepi"),
-#'     data_source      = "https://play.dhis2.org/dev",
+#'     data_source      = "https://play.dhis2.org/demo",
 #'     query_parameters = list(
 #'         dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
 #'         orgUnit   = "DiszpKrYNg8",
@@ -98,7 +98,7 @@ dhis2_subset_fields <- function(data,
 #'   data = readepi(
 #'     credentials_file = system.file("extdata", "test.ini",
 #'                                    package = "readepi"),
-#'     data_source      = "https://play.dhis2.org/dev",
+#'     data_source      = "https://play.dhis2.org/demo",
 #'     query_parameters = list(
 #'         dataSet   = "pBOMPrpg1QX",
 #'         orgUnit   = "DiszpKrYNg8",

@@ -35,7 +35,7 @@ Get the relevant dataset
 \examples{
 \dontrun{
 result <- dhis2_get_relevant_attributes(
-  base_url     = "https://play.dhis2.org/dev/",
+  base_url     = "https://play.dhis2.org/demo",
   user_name    = "admin",
   password     = "district",
   attribute_id = c("pBOMPrpg1QX", "BfMAe6Itzgt"),

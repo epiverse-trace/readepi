@@ -5,11 +5,12 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org", "dev"),
+                base_url        = file.path("https:/", "play.dhis2.org",
+                                            "demo"),
                 user_name        = "admin",
                 password         = "district",
-                query_parameters = list(dataSet          = "pBOMPrpg1QX",
-                                        orgUnit          = "DiszpKrYNg8",
+                query_parameters = list(dataSet          = "BfMAe6Itzgt",
+                                        orgUnit          = "Umh4HKqqFp6",
                                         dataElementGroup = "oDkJh5Ddh7d")
               )
               expect_type(attributes, "list")
@@ -21,11 +22,11 @@ httptest::with_mock_api({
                 "org_units_groups", "data_elements"
               ))
               expect_type(attributes[["dataset"]], "character")
-              expect_identical(attributes[["dataset"]], "pBOMPrpg1QX")
+              expect_identical(attributes[["dataset"]], "BfMAe6Itzgt")
               expect_s3_class(attributes[["dataset_details"]],
                               class = "data.frame")
               expect_type(attributes[["organisation_unit"]], "character")
-              expect_identical(attributes[["organisation_unit"]], "DiszpKrYNg8")
+              expect_identical(attributes[["organisation_unit"]], "Umh4HKqqFp6")
               expect_s3_class(attributes[["org_units_details"]],
                               class = "data.frame")
               expect_s3_class(attributes[["data_elements"]],
@@ -45,10 +46,11 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org", "dev"),
+                base_url        = file.path("https:/", "play.dhis2.org",
+                                            "demo"),
                 user_name        = "admin",
                 password         = "district",
-                query_parameters = list(dataSet = "pBOMPrpg1QX")
+                query_parameters = list(dataSet = "BfMAe6Itzgt")
               )
               expect_type(attributes, "list")
               expect_length(attributes, 9L)
@@ -61,7 +63,7 @@ httptest::with_mock_api({
                                          "org_units_groups",
                                          "data_elements"))
               expect_type(attributes[["dataset"]], "character")
-              expect_identical(attributes[["dataset"]], "pBOMPrpg1QX")
+              expect_identical(attributes[["dataset"]], "BfMAe6Itzgt")
               expect_s3_class(attributes[["dataset_details"]],
                               class = "data.frame")
               expect_s3_class(attributes[["data_elements"]],
@@ -79,10 +81,11 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org", "dev"),
+                base_url        = file.path("https:/", "play.dhis2.org",
+                                            "demo"),
                 user_name        = "admin",
                 password         = "district",
-                query_parameters = list(orgUnit = "DiszpKrYNg8")
+                query_parameters = list(orgUnit = "Umh4HKqqFp6")
               )
               expect_type(attributes, "list")
               expect_length(attributes, 9L)
@@ -95,7 +98,7 @@ httptest::with_mock_api({
                                          "org_units_groups",
                                          "data_elements"))
               expect_type(attributes[["organisation_unit"]], "character")
-              expect_identical(attributes[["organisation_unit"]], "DiszpKrYNg8")
+              expect_identical(attributes[["organisation_unit"]], "Umh4HKqqFp6")
               expect_s3_class(attributes[["org_units_details"]],
                               class = "data.frame")
               expect_s3_class(attributes[["data_elements"]],
@@ -113,7 +116,8 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org", "dev"),
+                base_url        = file.path("https:/", "play.dhis2.org",
+                                            "demo"),
                 user_name        = "admin",
                 password         = "district",
                 query_parameters = list(dataElementGroup = "oDkJh5Ddh7d")
@@ -150,11 +154,12 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org", "dev"),
+                base_url        = file.path("https:/", "play.dhis2.org",
+                                            "demo"),
                 user_name        = "admin",
                 password         = "district",
-                query_parameters = list(dataSet = "pBOMPrpg1QX",
-                                        orgUnit = "DiszpKrYNg8")
+                query_parameters = list(dataSet = "BfMAe6Itzgt",
+                                        orgUnit = "Umh4HKqqFp6")
               )
               expect_type(attributes, "list")
               expect_length(attributes, 9L)
@@ -167,11 +172,11 @@ httptest::with_mock_api({
                                          "org_units_groups",
                                          "data_elements"))
               expect_type(attributes[["dataset"]], "character")
-              expect_identical(attributes[["dataset"]], "pBOMPrpg1QX")
+              expect_identical(attributes[["dataset"]], "BfMAe6Itzgt")
               expect_s3_class(attributes[["dataset_details"]],
                               class = "data.frame")
               expect_type(attributes[["organisation_unit"]], "character")
-              expect_identical(attributes[["organisation_unit"]], "DiszpKrYNg8")
+              expect_identical(attributes[["organisation_unit"]], "Umh4HKqqFp6")
               expect_s3_class(attributes[["org_units_details"]],
                               class = "data.frame")
               expect_s3_class(attributes[["data_elements"]],
@@ -187,10 +192,11 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org", "dev"),
+                base_url        = file.path("https:/", "play.dhis2.org",
+                                            "demo"),
                 user_name        = "admin",
                 password         = "district",
-                query_parameters = list(dataSet          = "pBOMPrpg1QX",
+                query_parameters = list(dataSet          = "BfMAe6Itzgt",
                                         dataElementGroup = "oDkJh5Ddh7d")
               )
               expect_type(attributes, "list")
@@ -204,7 +210,7 @@ httptest::with_mock_api({
                                          "org_units_groups",
                                          "data_elements"))
               expect_type(attributes[["dataset"]], "character")
-              expect_identical(attributes[["dataset"]], "pBOMPrpg1QX")
+              expect_identical(attributes[["dataset"]], "BfMAe6Itzgt")
               expect_s3_class(attributes[["dataset_details"]],
                               class = "data.frame")
               expect_null(attributes[["organisation_unit"]])
@@ -227,10 +233,11 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org", "dev"),
+                base_url        = file.path("https:/", "play.dhis2.org",
+                                            "demo"),
                 user_name        = "admin",
                 password         = "district",
-                query_parameters = list(orgUnit          = "DiszpKrYNg8",
+                query_parameters = list(orgUnit          = "Umh4HKqqFp6",
                                         dataElementGroup = "oDkJh5Ddh7d")
               )
               expect_type(attributes, "list")
@@ -248,7 +255,7 @@ httptest::with_mock_api({
               expect_null(attributes[["organisation_unit_group"]])
               expect_null(attributes[["org_units_groups"]])
               expect_type(attributes[["organisation_unit"]], "character")
-              expect_identical(attributes[["organisation_unit"]], "DiszpKrYNg8")
+              expect_identical(attributes[["organisation_unit"]], "Umh4HKqqFp6")
               expect_s3_class(attributes[["org_units_details"]],
                               class = "data.frame")
               expect_s3_class(attributes[["data_elements"]],
@@ -267,7 +274,8 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org", "dev"),
+                base_url        = file.path("https:/", "play.dhis2.org",
+                                            "demo"),
                 user_name        = "admin",
                 password         = "district",
                 query_parameters = NULL

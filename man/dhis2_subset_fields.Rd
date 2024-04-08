@@ -24,7 +24,7 @@ results <- dhis2_subset_fields(
   data = readepi(
     credentials_file = system.file("extdata", "test.ini",
                                      package = "readepi"),
-    data_source      = "https://play.dhis2.org/dev",
+    data_source      = "https://play.dhis2.org/demo",
     query_parameters = list(
         dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
         orgUnit   = "DiszpKrYNg8",
