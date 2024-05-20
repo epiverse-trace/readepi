@@ -15,71 +15,90 @@ knitr::opts_chunk$set(
 ```
 
 ## Concept and motivation
-In this document we outline the design decisions that will guide the development strategies of the {readepi} R package, as well as some of the reasoning, and possible pros and cons of each decision.
 
-Import data "from whatever source of it" into `R` environment is the first step in the workflows of outbreak analysis. Epidemiological data are often stored in files of different formats, public repositories, relational database management systems (RDBMS), and health information systems (HIS) wrapped with specific application program interfaces (APIs).  such, we thought of a centralized tool that will provide users with the possibility of importing data from various .
+This document outlines the design decisions that is guiding the development strategies of the {readepi} R package, the reasoning behind them, as well as the possible pros and cons of each decision.
 
+Importing data from “whatever source of it” into `R` environment is the first step in the workflows of outbreak analysis. Epidemiological data are often stored in files of different formats. The most popular among those formats being: ‘.txt’, ‘.tab’, ‘.csv’, ‘.xlxs’, etc.
 
+Many R packages have been developed over the time to facilitate the importation of data stored in such files into R. We recommend the [{rio}](http://gesistsa.github.io/rio/) package for importing data that relatively of small size and the [{data.table}](https://cran.r-project.org/web/packages/data.table/vignettes/) package for large files.
 
-There are several R packages designed to access data from specific HIS. They are usually tied to a single HIS and can't be used to query others. {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to fetch data from [Fingertips](https://fingertips.phe.org.uk/), [REDCap](https://projectredcap.org/software/), [goData](https://www.who.int/tools/godata), and [Global.Health](https://global.health/) respectively. In these packages, the API end points are accessed differently. This introduces the challenge of having a unified framework for importing data from these HIS into R.
+To enable easy and real time access of the data, most organisations in the world are now storing this data in public repositories, relational database management systems (RDBMS), and health information systems (HIS) wrapped with specific application program interfaces (APIs). As such, we aim at building a centralized tool that will provide users with the possibility of importing data from various HIS and RDBMS.
 
-To address this challenge, PIs of the [Epiverse-TRACE](https://data.org/initiatives/epiverse/) came with a list of potential data sources for which we aim at building a tool to make requests and fetch the data of interest in the same way. The data sources include: distributed health information systems, and public databases as shown in the figure below.
+Our first attempt consisted in using the currently available R packages designed to access data from specific HIS. These packages are usually tied to a single HIS and can't be used to query others. {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to fetch data from [Fingertips](https://fingertips.phe.org.uk/), [REDCap](https://projectredcap.org/software/), [goData](https://www.who.int/tools/godata), and [Global.Health](https://global.health/) respectively. In version **0.0.1** of the {readepi} package, when a user is requesting data from a specific HIS, its correspondent package is called internally. 
 
-![readepi roadmap](../man/figures/roadmap-readepi.drawio.png)
+As each packages was designed to target a specific HIS, this approach increases our dependency to many other packages and introduces the challenge of having a unified framework for importing data from multiple HIS.
+
+To address this challenge, PIs of the [Epiverse-TRACE](https://data.org/initiatives/epiverse/) came with a list of potential data sources for which we aim at building a tool to request and fetch the data of interest from multiple source in the same way. The data sources include: distributed health information systems, and public databases as shown in the figure below.
+
+![readepi roadmap](../man/figures/roadmap_readepi.drawio.svg)
 
 ## Scope
 
-The {readepi} package intends to import data from two common sources of institutional health-related data: health information systems (HIS) wrapped with specific program interfaces (APIs) and relational database management systems (RDBMS) that run on specific servers. Each source has its own import function, `read_from_api()` for HIS and `read_from_server()` for RDBMS. There is also an auxiliary function, `get_metadata()`, that retrieves metadata from a specified API and offers interoperability with the [{cleanepi} R package](https://epiverse-trace.github.io/cleanepi/).     
-The current version of {readepi} supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), Fingertips, GoData, and Globaldothealth, as well as RDBMS such as MS SQL, MS ACCESS, SQlite, MYSQL, and PostgreSQL. 
+The {readepi} package intends to import data from two common sources of institutional health-related data: health information systems (HIS) wrapped with specific Application programming interfaces (APIs) and relational database management systems (RDBMS) that run on specific servers.
+Each source type will have its own import function, `read_from_api()` for HIS and `read_from_server()` for RDBMS.
+There are also two auxiliary functions:
 
-![readepi design diagram](../man/figures/readepi_design_diagram.drawio.svg)
+* `get_metadata()`, will be used to retrieve the metadata from a specified API and offers interoperability with the [{cleanepi}](https://epiverse-trace.github.io/cleanepi/) R package.
+* `authenticate()`: used to authenticate a user (check who the user is) and check whether the user is authorized to access the requested database or API. This internal function is fundamental for the success of data import.
+
+The previous version of {readepi} (0.0.1) supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), and Fingertips as well as RDBMS such as MS SQL, SQLite, MYSQL, and PostgreSQL. 
+
+Going forward, the `read_from_api()` function will also allow data import from GoData, Globaldothealth, and SORMAS. Similar updates will be performed on the `read_from_server()` function to account for RDBMS such as MS ACCESS, and SQlite.
+
+![readepi design diagram](../man/figures/design_vignette_diagram.drawio.svg)
 
 
 ## Output
 
-The two `read_from_*()` functions return a `list` object containing one or more `data frames`. Each `data frame` corresponds to the data from a specified table or file. The `get_metadata()` function returns a data dictionary containing information about the data structure. 
+The two `read_from_*()` functions return a `list` object containing one or more `data frames`. Each `data frame` corresponds to the data from a specified table/source.
+The `get_metadata()` function returns a data dictionary containing information about the data structure. 
 
 ## Design decisions
 
-The aim of {readepi} is to simplify and standardize the process of fetching health data from APIs and servers. We ambition to make it requires minimal information to access and pull the data of interest from the target source.  
+The aim of {readepi} is to simplify and standardize the process of fetching health data from APIs and servers. We ambition to make it requires minimal arguments to access and pull the data of interest from the target source.
 
-1. The `read_from_api()` function takes only two arguments to import data from an API: an object of class **credential** and an object of class **api**.
+Both the `read_from_api()` and `read_from_server()` require the following parameters to authenticate the user:
 
-The **credential** object is a list-like object that stores the information required to access the API. Its main attributes are:
-    * `base_url`: the link to the API,
-    * `user_name`: the user name, and
-    * `password`: the user's password or API token.
+* `base_url`: the URL to the HIS of interest (required).
+* `name`: the name of the HIS of interest (required). The current version of the package will cover the following RDBMS - “MS SQL”, “MySQL”, “PostgreSQL”, “SQLite”, “MS ACCESS” - and APIs - “REDCap”, “DHIS2”, “ODK”, “Fingertips”, “goData”, “SORMAS” -.
+* `user_name`: the user name (optional).
+* `password`: the user's password (optional).
+* `token/key`: the API token (optional). This is for API authentication only.
+* `api_token_name`: the name used when saving the API token in your system environment (optional). This is for API authentication only.
+* `driver_name`: the driver name (optional). This is for DBMS authentication only.
+* `database_name`: the database name (optional). This is for DBMS authentication only.
+* `port`: the port ID (optional). This is for DBMS authentication only.
 
-The **api** object is also a list-like object that provides information about the API. It has 2 main attributes:
-    * `name`: the API name
-    * `attributes`: the attributes needed to access the data of interest
-Note that the API's attributes can vary depending on the API, for example, it can be dataElements or dataSets or a combination of both for DHIS2. 
-Both the API name and attributes are needed to build the API endpoint.
+These parameters are the inputs for the internal `authenticate()` function. Each of the two main functions has few specific additional arguments.
 
-2. The `read_from_server()` function also accepts two arguments: an object of the **credential** class, which is the same as for `read_from_api()`, and an object of class **server**, which includes information about the servers. Specifically, the attributes for the **server** object are:
-    * `name`: the name of the server type,
-    * `src`: the name of the desired table or an SQL query, and
-    * `condition`: when provided, this will serve for subsetting purpose. This is a `list` of two elements: fields and values.
+The `read_from_api()` function takes
+    1. `end_point`: a `string` with the name of (or the path to) the target endpoint.
+    2. `query_parameters`: a `list` of named vectors. This important argument is where the **query parameters** are defined.
+The elements of this list can vary depending on the API that is been queried. We strongly recommend reading the vignette on the [query_parameters](./query_parameters.Rmd).
 
-3. The `get_metadata()` function takes two arguments: a **credential** object and an **api** object. Both are defined in the paragraphs above. It returns a list of one or multiple data frame(s) with the details about the structure of the data. The output from this function can be used to construct the data dictionary needed for the dictionary-based cleaning function in {cleanepi}.
+The `read_from_server()` function also accepts two additional arguments:
+    1. `src`: the name of the target table or an SQL query, and
+    2. `query_parameters`: when provided, it will serve for subsetting purpose. This is a `list` of two elements: fields (a vector of the fields of interest) and values (a vector of values from the specified fields or a logical expression).
+
+The `get_metadata()` function takes the relevant arguments from the one specified above, and returns a list of one or multiple data frame(s) with the details about the structure of the data. The output from this function can be used to construct the data dictionary needed for the dictionary-based cleaning function in {cleanepi}.
 
 ## Dependencies
 
 The `read_from_api()` will rely mainly on 2 packages:
 
-  [{httr2}](https://CRAN.R-project.org/package=httr2),
-  [{dplyr}](https://CRAN.R-project.org/package=dplyr)
+  [{httr2}](https://CRAN.R-project.org/package=httr2): this will serve in constructing and performing the API requests,
+  [{dplyr}](https://CRAN.R-project.org/package=dplyr): will be used for its data wrangling functionalities.
 
-The `read_from_server()` will rely mainly on 2 packages:
+The `read_from_server()` will rely mainly on the packages below:
 
-  [{DBI}](https://CRAN.R-project.org/package=DBI),
-  [{pool}](https://CRAN.R-project.org/package=pool),
-  [{odbc}](https://CRAN.R-project.org/package=odbc),
-  [{RMySQL}](https://CRAN.R-project.org/package=RMySQL)
+  [{DBI}](https://CRAN.R-project.org/package=DBI): for its functionalities to connect, and fetch data from a table in a database,
+  [{pool}](https://CRAN.R-project.org/package=pool): for its ability to handle multiple connection,
+  [{odbc}](https://CRAN.R-project.org/package=odbc): for its drivers required to fetch data from several DBMS,
+  [{RMySQL}](https://CRAN.R-project.org/package=RMySQL): for its drivers to fetch data from MySQL databases.
 
 It also has a system dependency for OS-X and Linux users. This will be described in details in the vignette.
 
-Both functions will require all other packages that needed in the package development process including:
+Both functions will require all other packages that are needed in the package development process including:
 
   [{checkmate}](https://CRAN.R-project.org/package=checkmate),
   [{httptest2}](https://CRAN.R-project.org/package=httptest2),
