@@ -5,7 +5,8 @@ httptest::with_mock_api({
   test_that("dhis2_login works as expected", {
     expect_message(
       dhis2_login(
-        base_url  = file.path("https:/", "play.dhis2.org", "demo"),
+        base_url  = file.path("https:/", "play.im.dhis2.org",
+                              "stable-2-40-3-1"),
         user_name = "admin",
         password  = "district"
       ),
@@ -20,7 +21,7 @@ test_that("dhis2_login fails as expected", {
   testthat::skip_if_not_installed("httptest")
   expect_error(
     dhis2_login(
-      base_url  = file.path("test", "play.dhis2.org", "demo"),
+      base_url  = file.path("test", "play.im.dhis2.org", "stable-2-40-3-1"),
       user_name = "admin",
       password  = "district"
     ),
@@ -33,7 +34,7 @@ test_that("dhis2_subset_fields works as expected", {
   testthat::skip_if_offline()
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    data_source      = "https://play.dhis2.org/demo",
+    data_source = file.path("https:/", "play.im.dhis2.org", "stable-2-40-3-1"),
     query_parameters = list(dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
                             orgUnit   = "DiszpKrYNg8",
                             startDate = "2014",
@@ -51,7 +52,8 @@ test_that("dhis2_subset_fields fails as expected", {
   testthat::skip_if_offline()
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    data_source      = "https://play.dhis2.org/demo",
+    data_source      = file.path("https:/", "play.im.dhis2.org",
+                                 "stable-2-40-3-1"),
     query_parameters = list(dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
                             orgUnit   = "DiszpKrYNg8",
                             startDate = "2014",
@@ -69,7 +71,8 @@ test_that("dhis2_subset_records works as expected", {
   testthat::skip_if_offline()
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    data_source      = "https://play.dhis2.org/demo",
+    data_source      = file.path("https:/", "play.im.dhis2.org",
+                                 "stable-2-40-3-1"),
     query_parameters = list(dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
                             orgUnit   = "DiszpKrYNg8",
                             startDate = "2014",
@@ -88,7 +91,8 @@ test_that("dhis2_subset_records fails as expected", {
   testthat::skip_if_offline()
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    data_source      = "https://play.dhis2.org/demo",
+    data_source      = file.path("https:/", "play.im.dhis2.org",
+                                 "stable-2-40-3-1"),
     query_parameters = list(dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
                             orgUnit   = "DiszpKrYNg8",
                             startDate = "2014",
@@ -113,7 +117,8 @@ test_that("dhis2_subset_fields sends a warning when the provided field is not
             data <- readepi(
               credentials_file = system.file("extdata", "test.ini",
                                              package = "readepi"),
-              data_source      = "https://play.dhis2.org/demo",
+              data_source      = file.path("https:/", "play.im.dhis2.org",
+                                           "stable-2-40-3-1"),
               query_parameters = list(dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
                                       orgUnit   = "DiszpKrYNg8",
                                       startDate = "2014",
@@ -137,7 +142,8 @@ test_that("dhis2_subset_records sends a warning when the provided record is not
             data <- readepi(
               credentials_file = system.file("extdata", "test.ini",
                                              package = "readepi"),
-              data_source      = "https://play.dhis2.org/demo",
+              data_source      = file.path("https:/", "play.im.dhis2.org",
+                                           "stable-2-40-3-1"),
               query_parameters = list(dataSet   = "BfMAe6Itzgt",
                                       orgUnit   = "DiszpKrYNg8",
                                       startDate = "2014",

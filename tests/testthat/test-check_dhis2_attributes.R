@@ -5,8 +5,8 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org",
-                                            "demo"),
+                base_url        = file.path("https:/", "play.im.dhis2.org",
+                                            "stable-2-40-3-1"),
                 user_name        = "admin",
                 password         = "district",
                 query_parameters = list(dataSet          = "BfMAe6Itzgt",
@@ -46,8 +46,8 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org",
-                                            "demo"),
+                base_url        = file.path("https:/", "play.im.dhis2.org",
+                                            "stable-2-40-3-1"),
                 user_name        = "admin",
                 password         = "district",
                 query_parameters = list(dataSet = "BfMAe6Itzgt")
@@ -81,8 +81,8 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org",
-                                            "demo"),
+                base_url        = file.path("https:/", "play.im.dhis2.org",
+                                            "stable-2-40-3-1"),
                 user_name        = "admin",
                 password         = "district",
                 query_parameters = list(orgUnit = "Umh4HKqqFp6")
@@ -116,8 +116,8 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org",
-                                            "demo"),
+                base_url        = file.path("https:/", "play.im.dhis2.org",
+                                            "stable-2-40-3-1"),
                 user_name        = "admin",
                 password         = "district",
                 query_parameters = list(dataElementGroup = "oDkJh5Ddh7d")
@@ -154,8 +154,8 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org",
-                                            "demo"),
+                base_url        = file.path("https:/", "play.im.dhis2.org",
+                                            "stable-2-40-3-1"),
                 user_name        = "admin",
                 password         = "district",
                 query_parameters = list(dataSet = "BfMAe6Itzgt",
@@ -192,8 +192,8 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org",
-                                            "demo"),
+                base_url        = file.path("https:/", "play.im.dhis2.org",
+                                            "stable-2-40-3-1"),
                 user_name        = "admin",
                 password         = "district",
                 query_parameters = list(dataSet          = "BfMAe6Itzgt",
@@ -233,8 +233,8 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org",
-                                            "demo"),
+                base_url        = file.path("https:/", "play.im.dhis2.org",
+                                            "stable-2-40-3-1"),
                 user_name        = "admin",
                 password         = "district",
                 query_parameters = list(orgUnit          = "Umh4HKqqFp6",
@@ -274,8 +274,8 @@ httptest::with_mock_api({
               testthat::skip_on_cran()
               testthat::skip_if_offline()
               attributes <- dhis2_check_attributes(
-                base_url        = file.path("https:/", "play.dhis2.org",
-                                            "demo"),
+                base_url        = file.path("https:/", "play.im.dhis2.org",
+                                            "stable-2-40-3-1"),
                 user_name        = "admin",
                 password         = "district",
                 query_parameters = NULL
