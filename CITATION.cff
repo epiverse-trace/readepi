@@ -1,8 +1,13 @@
-# -----------------------------------------------------------
-# CITATION file created with {cffr} R package, v0.5.0
+# --------------------------------------------
+# CITATION file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
+<<<<<<< HEAD
 # -----------------------------------------------------------
 
+=======
+# --------------------------------------------
+
+>>>>>>> 31ab126 (Update CITATION.cff)
 cff-version: 1.2.0
 message: 'To cite package "readepi" in publications use:'
 type: software
@@ -139,6 +144,7 @@ references:
   title: httr2
   abstract: 'httr2: Perform HTTP Requests and Process the Responses'
   notes: Imports
+<<<<<<< HEAD
   url: https://httr2.r-lib.org
   repository: https://CRAN.R-project.org/package=httr2
   authors:
@@ -146,6 +152,14 @@ references:
     given-names: Hadley
     email: hadley@rstudio.com
   year: '2023'
+=======
+  url: https://httr.r-lib.org/
+  repository: https://CRAN.R-project.org/package=httr
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2024'
 - type: software
   title: magrittr
   abstract: 'magrittr: A Forward-Pipe Operator for R'
@@ -164,7 +178,7 @@ references:
   title: odbc
   abstract: 'odbc: Connect to ODBC Compatible Databases (using the DBI Interface)'
   notes: Imports
-  url: https://r-dbi.github.io/odbc/
+  url: https://odbc.r-dbi.org
   repository: https://CRAN.R-project.org/package=odbc
   authors:
   - family-names: Hester
@@ -223,6 +237,21 @@ references:
     email: hadley@rstudio.com
   - family-names: Horner
     given-names: Jeffrey
+  year: '2024'
+- type: software
+  title: xml2
+  abstract: 'xml2: Parse XML'
+  notes: Imports
+  url: https://xml2.r-lib.org/
+  repository: https://CRAN.R-project.org/package=xml2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Ooms
+    given-names: Jeroen
   year: '2024'
 - type: software
   title: httptest
@@ -306,3 +335,4 @@ references:
 identifiers:
 - type: url
   value: https://github.com/epiverse-trace/readepi/
+
