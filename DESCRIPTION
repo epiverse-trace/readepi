@@ -34,7 +34,8 @@ Imports:
     odbc,
     pool,
     REDCapR,
-    RMySQL
+    RMySQL,
+    xml2
 Suggests: 
     httptest,
     knitr,
