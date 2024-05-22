@@ -39,7 +39,7 @@ Each source type will have its own import function, `read_from_api()` for HIS an
 There are also two auxiliary functions:
 
 * `get_metadata()`, will be used to retrieve the metadata from a specified API and offers interoperability with the [{cleanepi}](https://epiverse-trace.github.io/cleanepi/) R package.
-* `authenticate()`: used to authenticate a user (check who the user is) and check whether the user is authorized to access the requested database or API. This internal function is fundamental for the success of data import.
+* `authenticate()`: used to authenticate a user (check who the user is) and check whether the user is authorized to access the requested database or API. This function is fundamental for the success of data import.
 
 The previous version of {readepi} (0.0.1) supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), and Fingertips as well as RDBMS such as MS SQL, SQLite, MYSQL, and PostgreSQL. 
 
@@ -57,7 +57,7 @@ The `get_metadata()` function returns a data dictionary containing information a
 
 The aim of {readepi} is to simplify and standardize the process of fetching health data from APIs and servers. We ambition to make it requires minimal arguments to access and pull the data of interest from the target source.
 
-Both the `read_from_api()` and `read_from_server()` require the following parameters to authenticate the user:
+The `authenticate()` function requires the following parameters to authenticate the user:
 
 * `base_url`: the URL to the HIS of interest (required).
 * `name`: the name of the HIS of interest (required). The current version of the package will cover the following RDBMS - “MS SQL”, “MySQL”, “PostgreSQL”, “SQLite”, “MS ACCESS” - and APIs - “REDCap”, “DHIS2”, “ODK”, “Fingertips”, “goData”, “SORMAS” -.
@@ -69,7 +69,7 @@ Both the `read_from_api()` and `read_from_server()` require the following parame
 * `database_name`: the database name (optional). This is for DBMS authentication only.
 * `port`: the port ID (optional). This is for DBMS authentication only.
 
-These parameters are the inputs for the internal `authenticate()` function. Each of the two main functions has few specific additional arguments.
+We will ensure that once an argument is provided for the authentication, it is easily retrieved from the connection object, and used in the 2 main functions, hence preventing from been supplied in another request.
 
 The `read_from_api()` function takes
     1. `end_point`: a `string` with the name of (or the path to) the target endpoint.
