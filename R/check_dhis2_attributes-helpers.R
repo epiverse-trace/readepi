@@ -18,7 +18,7 @@
 #' @examples
 #' \dontrun{
 #'   response <- dhis2_make_api_request(
-#'     base_url  = file.path("https:/", "play.dhis2.org", "dev"),
+#'     base_url  = file.path("https:/", "play.dhis2.org", "demo"),
 #'     user_name = "admin",
 #'     password  = "district",
 #'     which     = "dataElements"
@@ -28,15 +28,16 @@
 dhis2_make_api_request <- function(base_url,
                                    user_name,
                                    password,
-                                   which     = "dataElements") {
+                                   which = "dataElements") {
   url <- file.path(
     base_url,
     "api",
-    which,
-    "?fields=id,name,shortName&paging=false"
+    glue::glue(which, "?fields=id,name,shortName&paging=false")
   )
-  response <- httr::GET(url, httr::authenticate(user_name, password))
-  response
+  req <- httr2::request(url) %>%
+    httr2::req_auth_basic(user_name, password) %>%
+    httr2::req_perform()
+  req
 }
 
 #' Get the relevant dataset
@@ -44,9 +45,9 @@ dhis2_make_api_request <- function(base_url,
 #' @param base_url the web address of the server the user wishes to log in to
 #' @param user_name the user name
 #' @param password the user's password
-#' @param attribute_id a comma-separated list of DHIS2 attribute ids. The ids
-#'    could be those of a dataSet or an organisationUnit.
-#' @param which the target DHIS2 attribute name
+#' @param attribute_id a vector of DHIS2 attribute ids. The ids
+#'    could be those of a dataSet or an orgUnit.
+#' @param which the target DHIS2 end point
 #'
 #' @return a `list` of 2 elements: a `character` string with the target
 #'    attributes ID(s) and a `data.frame` that contains the data of interest
@@ -55,10 +56,10 @@ dhis2_make_api_request <- function(base_url,
 #' @examples
 #' \dontrun{
 #' result <- dhis2_get_relevant_attributes(
-#'   base_url     = "https://play.dhis2.org/dev/",
+#'   base_url     = "https://play.dhis2.org/demo",
 #'   user_name    = "admin",
 #'   password     = "district",
-#'   attribute_id = "pBOMPrpg1QX,BfMAe6Itzgt",
+#'   attribute_id = c("pBOMPrpg1QX", "BfMAe6Itzgt"),
 #'   which        = "dataSets"
 #' )
 #' }
@@ -71,23 +72,22 @@ dhis2_get_relevant_attributes <- function(base_url,
   checkmate::assert_character(which,
                               len = 1L, any.missing = FALSE,
                               null.ok = FALSE)
-  checkmate::assert_character(attribute_id,
-                              len = 1L, any.missing = FALSE,
-                              null.ok = TRUE)
-  checkmate::check_choice(which, c("dataSets", "organisationUnits",
-                                   "dataElementGroups", "dataElements"))
-  if (is.character(attribute_id)) {
-    attribute_id <- unlist(strsplit(attribute_id, ",", fixed = TRUE))
-  }
+  checkmate::assert_vector(attribute_id,
+                           min.len = 1L, any.missing = FALSE,
+                           null.ok = TRUE)
+  checkmate::check_choice(which, c("dataSets", "dataElementGroups",
+                                   "organisationUnits",
+                                   "organisationUnitGroups", "dataElements"))
+
   response   <- dhis2_make_api_request(base_url, user_name, password, which)
-  content    <- httr::content(response, as = "parsed")
+  content    <- httr2::resp_body_json(response)
   attributes <- content %>% dplyr::bind_rows()
   if (which != "dataElements") {
     idx <- which(attribute_id %in% attributes[["id"]])
     if (length(idx) == 0L) {
-      stop("Provided attribute ids not found!\n
-      Use readepi:::dhis2_make_api_request() function to view the list of
-      available attributes")
+      stop("Provided attribute ids not found!",
+           "Use readepi:::dhis2_make_api_request() function to view the list",
+           "of available attributes")
     }
     if (length(idx) < length(attribute_id)) {
       warning(
@@ -100,13 +100,15 @@ dhis2_get_relevant_attributes <- function(base_url,
 
   res <- switch(
     which,
-    dataSets          = list(dataset   = attribute_id,
-                             data_sets = attributes),
-    organisationUnits = list(organisation_unit = attribute_id,
-                             org_units         = attributes),
-    dataElementGroups = list(data_element_group = attribute_id,
-                             data_elt_groups    = attributes),
-    dataElements      = attributes
+    dataSets               = list(dataset   = attribute_id,
+                                  data_sets = attributes),
+    dataElementGroups      = list(data_element_group = attribute_id,
+                                  data_elt_groups    = attributes),
+    organisationUnits      = list(organisation_unit = attribute_id,
+                                  org_units         = attributes),
+    organisationUnitGroups = list(organisation_unit_group = attribute_id,
+                                  org_units_groups        = attributes),
+    dataElements           = attributes
   )
   res
 }
@@ -125,7 +127,7 @@ dhis2_get_relevant_attributes <- function(base_url,
 #' @examples
 #' \dontrun{
 #' datasets <- dhis2_get_attributes(
-#'   base_url  = "https://play.dhis2.org/dev/",
+#'   base_url  = "https://play.dhis2.org/demo/",
 #'   user_name = "admin",
 #'   password  = "district",
 #'   which     = "dataSets"
@@ -148,7 +150,7 @@ dhis2_get_attributes <- function(base_url,
   checkmate::check_choice(which, c("dataSets", "organisationUnits",
                                    "dataElementGroups", "dataElements"))
   response   <- dhis2_make_api_request(base_url, user_name, password, which)
-  content    <- httr::content(response, as = "parsed")
+  content    <- httr2::resp_body_json(response)
   attributes <- content %>% dplyr::bind_rows()
   attributes
 }

@@ -90,7 +90,7 @@ readepi <- function(data_source = NULL,
     if ("driver_name" %in% names(args_list)) {
       driver_name  <- args_list[["driver_name"]]
     }
-    tmp_attributes <- dhis2_get_attributes_from_user(args_list)
+    query_parameters <- dhis2_get_query_params(args_list)
     credentials    <- read_credentials(args_list[["credentials_file"]],
                                        data_source)
     base_url       <- credentials[["host"]]
@@ -129,11 +129,7 @@ readepi <- function(data_source = NULL,
         base_url           = base_url,
         user_name          = user_name,
         password           = password,
-        dataset            = tmp_attributes[["dataset"]],
-        organisation_unit  = tmp_attributes[["organisation_unit"]],
-        data_element_group = tmp_attributes[["data_element_group"]],
-        start_date         = tmp_attributes[["start_date"]],
-        end_date           = tmp_attributes[["end_date"]],
+        query_parameters = query_parameters,
         records            = records,
         fields             = fields,
         id_col_name        = id_col_name

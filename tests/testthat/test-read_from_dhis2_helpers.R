@@ -5,7 +5,8 @@ httptest::with_mock_api({
   test_that("dhis2_login works as expected", {
     expect_message(
       dhis2_login(
-        base_url  = file.path("https:/", "play.dhis2.org", "dev"),
+        base_url  = file.path("https:/", "play.im.dhis2.org",
+                              "stable-2-40-3-1"),
         user_name = "admin",
         password  = "district"
       ),
@@ -20,7 +21,7 @@ test_that("dhis2_login fails as expected", {
   testthat::skip_if_not_installed("httptest")
   expect_error(
     dhis2_login(
-      base_url  = file.path("test", "play.dhis2.org", "dev"),
+      base_url  = file.path("test", "play.im.dhis2.org", "stable-2-40-3-1"),
       user_name = "admin",
       password  = "district"
     ),
@@ -32,14 +33,12 @@ test_that("dhis2_subset_fields works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   data <- readepi(
-    credentials_file   = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-    data_source        = "https://play.dhis2.org/dev",
-    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit  = "DiszpKrYNg8",
-    data_element_group = NULL,
-    start_date         = "2014",
-    end_date           = "2023"
+    credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+    data_source = file.path("https:/", "play.im.dhis2.org", "stable-2-40-3-1"),
+    query_parameters = list(dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
+                            orgUnit   = "DiszpKrYNg8",
+                            startDate = "2014",
+                            endDate   = "2023")
   )[["data"]]
   results <- dhis2_subset_fields(data = data,
                                  fields = c("dataElement", "period", "value"))
@@ -53,12 +52,12 @@ test_that("dhis2_subset_fields fails as expected", {
   testthat::skip_if_offline()
   data <- readepi(
     credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-    data_source        = "https://play.dhis2.org/dev",
-    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit  = "DiszpKrYNg8",
-    data_element_group = NULL,
-    start_date         = "2014",
-    end_date           = "2023"
+    data_source      = file.path("https:/", "play.im.dhis2.org",
+                                 "stable-2-40-3-1"),
+    query_parameters = list(dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
+                            orgUnit   = "DiszpKrYNg8",
+                            startDate = "2014",
+                            endDate   = "2023")
   )[["data"]]
   expect_error(
     dhis2_subset_fields(data = data, fields = c(1L, 2L, 3L)),
@@ -71,18 +70,17 @@ test_that("dhis2_subset_records works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   data <- readepi(
-    credentials_file   = system.file("extdata", "test.ini",
-                                     package = "readepi"),
-    data_source        = "https://play.dhis2.org/dev",
-    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit  = "DiszpKrYNg8",
-    data_element_group = NULL,
-    start_date         = "2014",
-    end_date           = "2023"
+    credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+    data_source      = file.path("https:/", "play.im.dhis2.org",
+                                 "stable-2-40-3-1"),
+    query_parameters = list(dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
+                            orgUnit   = "DiszpKrYNg8",
+                            startDate = "2014",
+                            endDate   = "2023")
   )[["data"]]
   result <- dhis2_subset_records(
     data        = data,
-    records     = c("FTRrcoaog83", "eY5ehpbEsB7", "Ix2HsbDMLea"),
+    records     = c("vI2csg55S9C", "O05mAByOgAv", "pikOziyCXbM"),
     id_col_name = "dataElement"
   )
   expect_s3_class(result, "data.frame")
@@ -92,14 +90,13 @@ test_that("dhis2_subset_records fails as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   data <- readepi(
-    credentials_file = system.file("extdata", "test.ini",
-                                   package = "readepi"),
-    data_source        = "https://play.dhis2.org/dev",
-    dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-    organisation_unit  = "DiszpKrYNg8",
-    data_element_group = NULL,
-    start_date         = "2014",
-    end_date           = "2023"
+    credentials_file = system.file("extdata", "test.ini", package = "readepi"),
+    data_source      = file.path("https:/", "play.im.dhis2.org",
+                                 "stable-2-40-3-1"),
+    query_parameters = list(dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
+                            orgUnit   = "DiszpKrYNg8",
+                            startDate = "2014",
+                            endDate   = "2023")
   )[["data"]]
 
   expect_error(
@@ -118,14 +115,14 @@ test_that("dhis2_subset_fields sends a warning when the provided field is not
             testthat::skip_on_cran()
             testthat::skip_if_offline()
             data <- readepi(
-              credentials_file  = system.file("extdata", "test.ini",
-                                              package = "readepi"),
-              data_source        = "https://play.dhis2.org/dev",
-              dataset            = "pBOMPrpg1QX,BfMAe6Itzgt",
-              organisation_unit  = "DiszpKrYNg8",
-              data_element_group = NULL,
-              start_date         = "2014",
-              end_date           = "2023"
+              credentials_file = system.file("extdata", "test.ini",
+                                             package = "readepi"),
+              data_source      = file.path("https:/", "play.im.dhis2.org",
+                                           "stable-2-40-3-1"),
+              query_parameters = list(dataSet   = "pBOMPrpg1QX,BfMAe6Itzgt",
+                                      orgUnit   = "DiszpKrYNg8",
+                                      startDate = "2014",
+                                      endDate   = "2023")
             )[["data"]]
 
             expect_warning(
@@ -145,36 +142,35 @@ test_that("dhis2_subset_records sends a warning when the provided record is not
             data <- readepi(
               credentials_file = system.file("extdata", "test.ini",
                                              package = "readepi"),
-              data_source        = "https://play.dhis2.org/dev",
-              dataset            = "pBOMPrpg1QX",
-              organisation_unit  = "DiszpKrYNg8",
-              data_element_group = NULL,
-              start_date         = "2014",
-              end_date           = "2023"
+              data_source      = file.path("https:/", "play.im.dhis2.org",
+                                           "stable-2-40-3-1"),
+              query_parameters = list(dataSet   = "BfMAe6Itzgt",
+                                      orgUnit   = "DiszpKrYNg8",
+                                      startDate = "2014",
+                                      endDate   = "2023")
             )[["data"]]
 
             expect_warning(dhis2_subset_records(data        = data,
-                                                records     = c("FTRrcoaog83",
-                                                                "eY5ehpbEsB7",
+                                                records     = c("fClA2Erf6IO",
+                                                                "s46m5MS0hxu",
                                                                 "test"),
                                                 id_col_name = "dataElement"),
                            regexp = cat("Assertion on',records,'failed: 'test' is not a valid record.")) # nolint: line_length_linter
           })
 
 test_that("dhis2_subset_records works as expected", {
-  test <- dhis2_get_attributes_from_user(
-    args_list = list(dataset    = "pBOMPrpg1QX",
-                     start_date = "2014",
-                     end_date   = "2023")
+  query_parameters <- list(dataSet   = "pBOMPrpg1QX",
+                           orgUnit   = "DiszpKrYNg8",
+                           startDate = "2014",
+                           endDate   = "2023")
+  test <- dhis2_get_query_params(
+    args_list = list(query_parameters = query_parameters)
   )
   expect_type(test, "list")
-  expect_length(test, 5)
-  expect_named(test, expected = c("dataset", "organisation_unit",
-                                  "data_element_group", "start_date",
-                                  "end_date"))
-  expect_null(test[["organisation_unit"]])
-  expect_null(test[["data_element_group"]])
-  expect_identical(test[["dataset"]], "pBOMPrpg1QX")
-  expect_identical(test[["start_date"]], "2014")
-  expect_identical(test[["end_date"]], "2023")
+  expect_length(test, 4L)
+  expect_named(test, expected = c("dataSet", "orgUnit", "startDate", "endDate"))
+  expect_identical(test[["dataSet"]], "pBOMPrpg1QX")
+  expect_identical(test[["orgUnit"]], "DiszpKrYNg8")
+  expect_identical(test[["startDate"]], "2014")
+  expect_identical(test[["endDate"]], "2023")
 })

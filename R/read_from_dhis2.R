@@ -3,13 +3,24 @@
 #' @param base_url the web address of the server the user wishes to log in to
 #' @param user_name the user name
 #' @param password the user password
-#' @param dataset a vector or a list of comma-separated data set identifiers
-#' @param organisation_unit a vector or a list of comma-separated organisation
-#'    unit identifiers
-#' @param data_element_group a vector or a list of comma-separated data element
-#'    group identifiers
-#' @param start_date the start date for the time span of the values to export
-#' @param end_date the end date for the time span of the values to export
+#' @param query_parameters a list with the parameters that will be used to
+#'    determine which data is returned by the query. The possible values are:
+#'    \enumerate{
+#'        \item dataSet: a vector or a list of comma-separated data set
+#'            identifiers (required)
+#'        \item dataElementGroup: a vector or a list of comma-separated data
+#'            element group identifiers. This is not needed when the 'dataSet'
+#'            is provided
+#'        \item orgUnit: a vector or a list of comma-separated organisation
+#'            unit identifiers (required)
+#'        \item orgUnitGroup: a vector or a list of comma-separated organisation
+#'            unit group identifiers. This is not needed when the 'orgUnit'
+#'            is provided
+#'        \item startDate: the start date for the time span of the values to
+#'            export (required)
+#'        \item startDate: the end date for the time span of the values to
+#'            export (required)
+#'    }
 #' @param records a vector or a comma-separated string of subset of subject IDs.
 #'    When specified, only the records that correspond to these subjects will be
 #'    imported.
@@ -23,30 +34,25 @@
 #' @examples
 #' \dontrun{
 #' data <- read_from_dhis2(
-#'   base_url           = "https://play.dhis2.org/dev",
-#'   user_name          = "admin",
-#'   password           = "district",
-#'   dataset            = "pBOMPrpg1QX",
-#'   organisation_unit  = "DiszpKrYNg8",
-#'   data_element_group = "oDkJh5Ddh7d",
-#'   start_date         = "2014",
-#'   end_date           = "2023",
-#'   records            = NULL,
-#'   fields             = NULL,
-#'   id_col_name        = "dataElement"
+#'   base_url         = "https://play.dhis2.org/demo",
+#'   user_name        = "admin",
+#'   password         = "district",
+#'   query_parameters = list(dataSet   = "BfMAe6Itzgt",
+#'                           orgUnit   = "Umh4HKqqFp6",
+#'                           startDate = "2014",
+#'                           endDate   = "2023"),
+#'   records          = NULL,
+#'   fields           = NULL,
+#'   id_col_name      = "dataElement"
 #' )
 #' }
 read_from_dhis2 <- function(base_url,
                             user_name,
                             password,
-                            dataset,
-                            organisation_unit,
-                            data_element_group,
-                            start_date         = "2014",
-                            end_date           = "2023",
-                            records            = NULL,
-                            fields             = NULL,
-                            id_col_name        = "dataElement") {
+                            query_parameters,
+                            records     = NULL,
+                            fields      = NULL,
+                            id_col_name = "dataElement") {
   url_check(base_url)
   checkmate::assert_character(user_name,
                               len = 1L, null.ok = FALSE,
@@ -54,47 +60,36 @@ read_from_dhis2 <- function(base_url,
   checkmate::assert_character(password,
                               len = 1L, null.ok = FALSE,
                               any.missing = FALSE)
-  checkmate::assert_vector(dataset,
-                           any.missing = FALSE, min.len = 1L,
-                           null.ok = FALSE, unique = TRUE)
-  checkmate::assert_vector(organisation_unit,
-                           any.missing = FALSE, min.len = 1L,
-                           null.ok = FALSE, unique = TRUE)
-  checkmate::assert_vector(data_element_group,
-                           any.missing = FALSE, min.len = 0L,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(start_date,
-                           any.missing = FALSE, min.len = 0L,
-                           null.ok = TRUE, unique = TRUE)
-  checkmate::assert_vector(end_date,
-                           any.missing = FALSE, min.len = 0L,
-                           null.ok = TRUE, unique = TRUE)
+  checkmate::assert_list(query_parameters, min.len = 1L, null.ok = FALSE,
+                         any.missing = FALSE)
 
   # checking user credentials
   dhis2_login(base_url, user_name, password)
 
-  # checking the attribute details
-  attributes <- dhis2_check_attributes(
-    base_url,
-    user_name,
-    password,
-    dataset,
-    organisation_unit,
-    data_element_group
+  # split the query parameters if they are passed as a list of comma-separated
+  # elements
+  query_parameters <- lapply(
+    sapply(unlist(query_parameters), strsplit, ",", fixed = TRUE), # nolint: undesirable_function_linter
+    trimws
   )
 
-  # fetching data
-  data <- httr::GET(
-    file.path(base_url, "api", "dataValueSets"),
-    httr::authenticate(user_name, password),
-    query = list(
-      dataSet   = attributes[["dataset"]],
-      orgUnit   = attributes[["organisation_unit"]],
-      startDate = start_date,
-      endDate   = end_date
-    )
-  ) %>%
-    httr::content() %>%
+  # checking the attribute details
+  attributes <- dhis2_check_attributes(base_url, user_name, password,
+                                       query_parameters)
+
+  # defining the endpoint: we need a better way of choosing the API endpoint.
+  # The new implementation should have an argument to let the user define the
+  # endpoint.
+  # This one is static and only account for dataSets provided by the user
+  url    <- file.path(base_url, "api", "dataValueSets.json")
+
+  # fetching the data of interest
+  data   <- httr2::request(url) %>%
+    httr2::req_auth_basic(user_name, password) %>%
+    httr2::req_method("GET") %>%
+    httr2::req_url_query(!!!query_parameters, .multi = "explode") %>%
+    httr2::req_perform() %>%
+    httr2::resp_body_json() %>%
     dplyr::bind_rows()
 
   # add the variable names

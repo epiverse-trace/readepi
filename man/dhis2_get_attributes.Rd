@@ -25,7 +25,7 @@ Get the target DHIS2 attribute identifiers and names
 \examples{
 \dontrun{
 datasets <- dhis2_get_attributes(
-  base_url  = "https://play.dhis2.org/dev/",
+  base_url  = "https://play.dhis2.org/demo/",
   user_name = "admin",
   password  = "district",
   which     = "dataSets"

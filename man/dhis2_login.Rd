@@ -27,7 +27,7 @@ an error message.
 \examples{
 \dontrun{
   dhis2_login(
-    base_url  = file.path("https:/", "play.dhis2.org", "dev"),
+    base_url  = file.path("https:/", "play.dhis2.org", "demo"),
     user_name = "admin",
     password  = "district"
   )

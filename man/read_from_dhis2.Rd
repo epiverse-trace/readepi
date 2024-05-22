@@ -8,11 +8,7 @@ read_from_dhis2(
   base_url,
   user_name,
   password,
-  dataset,
-  organisation_unit,
-  data_element_group,
-  start_date = "2014",
-  end_date = "2023",
+  query_parameters,
   records = NULL,
   fields = NULL,
   id_col_name = "dataElement"
@@ -25,17 +21,24 @@ read_from_dhis2(
 
 \item{password}{the user password}
 
-\item{dataset}{a vector or a list of comma-separated data set identifiers}
-
-\item{organisation_unit}{a vector or a list of comma-separated organisation
-unit identifiers}
-
-\item{data_element_group}{a vector or a list of comma-separated data element
-group identifiers}
-
-\item{start_date}{the start date for the time span of the values to export}
-
-\item{end_date}{the end date for the time span of the values to export}
+\item{query_parameters}{a list with the parameters that will be used to
+determine which data is returned by the query. The possible values are:
+\enumerate{
+\item dataSet: a vector or a list of comma-separated data set
+identifiers (required)
+\item dataElementGroup: a vector or a list of comma-separated data
+element group identifiers. This is not needed when the 'dataSet'
+is provided
+\item orgUnit: a vector or a list of comma-separated organisation
+unit identifiers (required)
+\item orgUnitGroup: a vector or a list of comma-separated organisation
+unit group identifiers. This is not needed when the 'orgUnit'
+is provided
+\item startDate: the start date for the time span of the values to
+export (required)
+\item startDate: the end date for the time span of the values to
+export (required)
+}}
 
 \item{records}{a vector or a comma-separated string of subset of subject IDs.
 When specified, only the records that correspond to these subjects will be
@@ -55,17 +58,16 @@ Import data form DHIS2
 \examples{
 \dontrun{
 data <- read_from_dhis2(
-  base_url           = "https://play.dhis2.org/dev",
-  user_name          = "admin",
-  password           = "district",
-  dataset            = "pBOMPrpg1QX",
-  organisation_unit  = "DiszpKrYNg8",
-  data_element_group = "oDkJh5Ddh7d",
-  start_date         = "2014",
-  end_date           = "2023",
-  records            = NULL,
-  fields             = NULL,
-  id_col_name        = "dataElement"
+  base_url         = "https://play.dhis2.org/demo",
+  user_name        = "admin",
+  password         = "district",
+  query_parameters = list(dataSet   = "BfMAe6Itzgt",
+                          orgUnit   = "Umh4HKqqFp6",
+                          startDate = "2014",
+                          endDate   = "2023"),
+  records          = NULL,
+  fields           = NULL,
+  id_col_name      = "dataElement"
 )
 }
 }
