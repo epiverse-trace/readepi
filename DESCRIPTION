@@ -37,6 +37,7 @@ Imports:
     RMySQL,
     xml2
 Suggests: 
+    DiagrammeR,
     httptest,
     knitr,
     rmarkdown,
