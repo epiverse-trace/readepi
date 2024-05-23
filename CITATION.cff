@@ -240,6 +240,21 @@ references:
     given-names: Jeroen
   year: '2024'
 - type: software
+  title: DiagrammeR
+  abstract: 'DiagrammeR: Graph/Network Visualization'
+  notes: Suggests
+  url: https://rich-iannone.github.io/DiagrammeR/
+  repository: https://CRAN.R-project.org/package=DiagrammeR
+  authors:
+  - family-names: Iannone
+    given-names: Richard
+    email: riannone@me.com
+    orcid: https://orcid.org/0000-0003-3925-190X
+  - family-names: Roy
+    given-names: Olivier
+    email: olivierroy71@hotmail.com
+  year: '2024'
+- type: software
   title: httptest
   abstract: 'httptest: A Test Environment for HTTP Requests'
   notes: Suggests
