@@ -28,11 +28,11 @@ Importing data from “whatever source of it” into `R` environment is the firs
 
 Many R packages have been developed over the years to facilitate the importation of data stored in such files. We recommend the [{rio}](http://gesistsa.github.io/rio/) package for importing data that are relatively of small size and the [{data.table}](https://cran.r-project.org/web/packages/data.table/vignettes/) package for large files.
 
-To enable easy and real time access of well structured data, most organisations in the world are now storing their data in public repositories, relational database management systems (RDBMS), and health information systems (HIS) wrapped with specific Application Programning Interfaces (APIs). As such, we aim at building a centralized tool that will provide users with the possibility of importing data from various HIS and RDBMS.
+To enable easy and real time access of well structured data, most organisations in the world are now storing their data in public repositories, relational database management systems (RDBMS), and health information systems (HIS) wrapped with specific Application Programming Interfaces (APIs). As such, we aim at building a centralized tool that will provide users with the possibility of importing data from various HIS and RDBMS.
 
 Our first attempt consisted in using the currently available R packages designed to access data from specific HIS. These packages are usually tied to a single HIS and can't be used to query others. {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to fetch data from [Fingertips](https://fingertips.phe.org.uk/), [REDCap](https://projectredcap.org/software/), [goData](https://www.who.int/tools/godata), and [Global.Health](https://global.health/) respectively. In version **0.0.1** of the {readepi} package, when a user is requesting data from a specific HIS, its correspondent package is called internally. 
 
-As each packages was designed to target a specific HIS, this approach increases our dependency to many other packages and introduces the challenge of having a unified framework for importing data from multiple HIS.
+As each package was designed to target a specific HIS, this approach increases our dependency to many other packages and introduces the challenge of having a unified framework for importing data from multiple HIS.
 
 To address this challenge, PIs of the [Epiverse-TRACE](https://data.org/initiatives/epiverse/) came with a list of potential data sources for which we aim at building a tool to request and fetch the data of interest from multiple source in the same way. The data sources include: distributed health information systems, and public databases as shown in the figure below.
 
@@ -43,13 +43,13 @@ To address this challenge, PIs of the [Epiverse-TRACE](https://data.org/initiati
 The {readepi} package intends to import data from two common sources of institutional health-related data: health information systems (HIS) wrapped with specific Application programming interfaces (APIs) and relational database management systems (RDBMS) that run on specific servers.
 
 Importing data from any of these sources requires the user to have the right access. The user is also expected to provide the relevant query parameters to fetch the target data.
-Hence, the {readepi} package is structured around one main function (`read()`) and two auxiliary functions (`authenticate()` and `get_metadata()`).
+Hence, the {readepi} package is structured around one main function (`read_epidata()`) and two auxiliary functions (`authenticate()` and `get_metadata()`).
 
 The previous version of {readepi} (`0.0.1`) supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), and Fingertips as well as RDBMS such as MS SQL, SQLite, MYSQL, and PostgreSQL. 
 
-In the next versions, the `read()` function will also allow data import from HIS like GoData, Globaldothealth, and SORMAS. It will also include functionalities for importing data from RDBMS such as MS ACCESS, and SQlite.
+In the next versions, the `read_epidata()` function will also allow data import from HIS like GoData, Globaldothealth, and SORMAS. It will also include functionalities for importing data from RDBMS such as MS ACCESS, and SQlite.
 
-<!-- ![readepi design diagram](../man/figures/design_vignette_diagram.drawio.svg) -->
+![readepi design diagram](../man/figures/readepi_design_diagram.drawio.svg)
 
 
 ## Output
@@ -60,7 +60,7 @@ The `authenticate()` function returns a connection object that is used in the qu
 
 ## Design decisions
 
-The aim of {readepi} is to simplify and standardize the process of fetching health data from APIs and servers. We ambition to make it requires minimal arguments to access and pull the data of interest from the target source.
+The aim of {readepi} is to simplify and standardize the process of fetching health data from APIs and servers. We ambition to make it require minimal arguments to access and pull the data of interest from the target source.
 
 * `authenticate()`: a function used to authenticate a user (check who the user is) and check whether the user is authorized to access the requested database or API. This function is fundamental to establish the connection to the source, ensuring the success of data import.
 
@@ -124,7 +124,7 @@ DiagrammeR::grViz("digraph{
 }")
 ```
 
-* `read()`: this is the main function of the package. It can be used to read from both HIS and RDBMS.
+* `read_epidata()`: this is the main function of the package. It can be used to read from both HIS and RDBMS.
 
 ```{r read, fig.align='center', echo=FALSE}
 DiagrammeR::grViz("digraph{
@@ -148,12 +148,12 @@ DiagrammeR::grViz("digraph{
 }")
 ```
 
-An internal function (`read_*` where `*` is the source name) is designed for fetching data from a specific HIS. This implementation will make it possible to perform updates on a speicific function, while conserving the remaining structures (easy maintenance).
+An internal function (`read_*` where `*` is the source name) is designed for fetching data from a specific HIS. This implementation will make it possible to perform updates on a specific function, while conserving the remaining structures (easy maintenance).
 
 ```{r fig.align='center', echo=FALSE}
 DiagrammeR::DiagrammeR("
 graph TB
-    A[read]
+    A[read_epidata]
     A --> B(read_rdbms)
     A --> D(read_redcap)
     A --> E(read_dhis2)
@@ -168,9 +168,9 @@ For HIS, the elements of this list can vary depending on the API that is been qu
 
 ## Dependencies
 
-* The `read()` will rely mainly on 2 packages:
+* The `read_epidata()` will rely mainly on 2 packages:
 
-  [{httr2}](https://CRAN.R-project.org/package=httr2) or [{data.tab}](https://CRAN.R-project.org/package=data.table): this will serve in constructing and performing the API requests,
+  [{httr2}](https://CRAN.R-project.org/package=httr2) or [{data.table}](https://CRAN.R-project.org/package=data.table): this will serve in constructing and performing the API requests,
   [{dplyr}](https://CRAN.R-project.org/package=dplyr): will be used for its data wrangling functionalities.
 
 * The `read_from_server()` will rely mainly on the packages below:
