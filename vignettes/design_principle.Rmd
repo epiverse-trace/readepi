@@ -165,6 +165,23 @@ graph TB
 Note that, when reading from RDBMS, the `query` argument could be an SQL query or a list with a vector of table names, fields and rows to subset on.
 For HIS, the elements of this list can vary depending on the API that is been queried. We strongly recommend reading the vignette on the [query_parameters](./query_parameters.Rmd) for more details.
 
+## Mitigate API security risks
+
+To prevent from APIs security risks and issues, we will ensure that our API requests follow the practices listed below:
+
+1. Identify API gateway (centralized point of entry) and send authentication requests to this gateway
+2. Make sure users access only the data they are allowed to:
+    * use OAuth or token-based authentication if possible
+    * determine the data a user can have access to. Send a meaningful error message when a user attempts to access unauthorized data.
+3. Make sure API key is not sent as part of the URL to avoid it been copied from the proxy logs or other places
+4. Control the number of requests that can be sent in a time period, and the number of pages that to be returned in the API response.
+5. Prevent from sending/receiving malicious data:
+    * use parameterized query
+    * validate and sanitize inputs
+6. Continuously maintain our hard-coded resources:
+    * regularly review and decommission unused APIs
+    * maintain and update list of all endpoints
+
 
 ## Dependencies
 
