@@ -8,7 +8,7 @@ message: 'To cite package "readepi" in publications use:'
 type: software
 license: MIT
 title: 'readepi: Read Data from Health Information Systems'
-version: 0.0.1
+version: 0.1.0
 abstract: Data import from several health information systems ('HIS'). The current
   version of the package covers 'HIS' such as 'MS SQL', 'MySQL', and 'PostGRESQL'
   servers, 'REDCap', 'DHIS2' and 'Fingertips'.
@@ -223,21 +223,6 @@ references:
     email: hadley@rstudio.com
   - family-names: Horner
     given-names: Jeffrey
-  year: '2024'
-- type: software
-  title: xml2
-  abstract: 'xml2: Parse XML'
-  notes: Imports
-  url: https://xml2.r-lib.org/
-  repository: https://CRAN.R-project.org/package=xml2
-  authors:
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@posit.co
-  - family-names: Hester
-    given-names: Jim
-  - family-names: Ooms
-    given-names: Jeroen
   year: '2024'
 - type: software
   title: DiagrammeR
