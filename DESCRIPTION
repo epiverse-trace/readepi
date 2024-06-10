@@ -1,6 +1,6 @@
 Package: readepi
 Title: Read Data from Health Information Systems
-Version: 0.0.1
+Version: 0.1.0
 Authors@R: c(
     person("Karim", "Mané", , "karim.mane@lshtm.ac.uk", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-9892-2999")),
@@ -36,8 +36,7 @@ Imports:
     odbc,
     pool,
     REDCapR,
-    RMySQL,
-    xml2
+    RMySQL
 Suggests: 
     DiagrammeR,
     httptest,
