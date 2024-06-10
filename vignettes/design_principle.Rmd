@@ -30,7 +30,7 @@ Many R packages have been developed over the years to facilitate the importation
 
 To enable easy and real time access of well structured data, most organisations in the world are now storing their data in public repositories, relational database management systems (RDBMS), and health information systems (HIS) wrapped with specific Application Programming Interfaces (APIs). As such, we aim at building a centralized tool that will provide users with the possibility of importing data from various HIS and RDBMS.
 
-Our first attempt consisted in using the currently available R packages designed to access data from specific HIS. These packages are usually tied to a single HIS and can't be used to query others. {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to fetch data from [Fingertips](https://fingertips.phe.org.uk/), [REDCap](https://projectredcap.org/software/), [goData](https://www.who.int/tools/godata), and [Global.Health](https://global.health/) respectively. In version **0.0.1** of the {readepi} package, when a user is requesting data from a specific HIS, its correspondent package is called internally. 
+Our first attempt consisted in using the currently available R packages designed to access data from specific HIS. These packages are usually tied to a single HIS and can't be used to query others. {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to fetch data from [Fingertips](https://fingertips.phe.org.uk/), [REDCap](https://projectredcap.org/software/), [goData](https://www.who.int/tools/godata), and [Global.Health](https://global.health/) respectively. In version **0.1.0** of the {readepi} package, when a user is requesting data from a specific HIS, its correspondent package is called internally. 
 
 As each package was designed to target a specific HIS, this approach increases our dependency to many other packages and introduces the challenge of having a unified framework for importing data from multiple HIS.
 
@@ -45,16 +45,16 @@ The {readepi} package intends to import data from two common sources of institut
 Importing data from any of these sources requires the user to have the right access. The user is also expected to provide the relevant query parameters to fetch the target data.
 Hence, the {readepi} package is structured around one main function (`read_epidata()`) and two auxiliary functions (`authenticate()` and `get_metadata()`).
 
-The previous version of {readepi} (`0.0.1`) supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), and Fingertips as well as RDBMS such as MS SQL, SQLite, MYSQL, and PostgreSQL. 
+The previous version of {readepi} (`0.1.0`) supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), and Fingertips as well as RDBMS such as MS SQL, SQLite, MYSQL, and PostgreSQL. 
 
-In the next versions, the `read_epidata()` function will also allow data import from HIS like GoData, Globaldothealth, and SORMAS. It will also include functionalities for importing data from RDBMS such as MS ACCESS, and SQlite.
+In the next versions, the `read_epidata()` function will also allow data import from HIS like GoData, Globaldothealth, SORMAS, and ODK. It will also include functionalities for importing data from RDBMS such as MS ACCESS, and SQlite.
 
 ![readepi design diagram](../man/figures/readepi_design_diagram.drawio.svg)
 
 
 ## Output
 
-The `read()` functions return a `list` object containing one or more `data frames`. Each `data frame` corresponds to the data from a specified source.
+The `read_epidata()` functions return a `list` object containing one or more `data frames`. Each `data frame` corresponds to the data from a specified source.
 The `get_metadata()` function returns a data dictionary containing information about the data structure.
 The `authenticate()` function returns a connection object that is used in the query request.
 
@@ -159,10 +159,12 @@ graph TB
     A --> E(read_dhis2)
     A --> F(read_fingertips)
     A --> G(read_sormas)
+    A --> H(read_ODK)
+    A --> I(read_godata)
 ")
 ```
 
-Note that, when reading from RDBMS, the `query` argument could be an SQL query or a list with a vector of table names, fields and rows to subset on.
+Note that, when reading from RDBMS, the `query` argument could be an [SQL query]{.underline} or a [list with a vector of table names, fields and rows to subset on]{.underline}.
 For HIS, the elements of this list can vary depending on the API that is been queried. We strongly recommend reading the vignette on the [query_parameters](./query_parameters.Rmd) for more details.
 
 ## Mitigate API security risks
