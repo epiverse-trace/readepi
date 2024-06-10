@@ -2,8 +2,7 @@ test_that("read_from_dhis2 works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
   data <- read_from_dhis2(
-    base_url         = file.path("https:/", "play.im.dhis2.org",
-                                 "stable-2-40-3-1"),
+    base_url         = file.path("https:/", "play.im.dhis2.org", "dev"),
     user_name        = "admin",
     password         = "district",
     query_parameters = list(dataSet   = "BfMAe6Itzgt",
@@ -27,11 +26,11 @@ test_that("read_from_dhis2 works as expected when subsetting on columns and
             testthat::skip_if_offline()
             data <- read_from_dhis2(
               base_url         = file.path("https:/", "play.im.dhis2.org",
-                                           "stable-2-40-3-1"),
+                                           "dev"),
               user_name        = "admin",
               password         = "district",
-              query_parameters = list(dataSet   = "BfMAe6Itzgt", #"BfMAe6Itzgt",
-                                      orgUnit   = "Umh4HKqqFp6", #"Umh4HKqqFp6",
+              query_parameters = list(dataSet   = "BfMAe6Itzgt",
+                                      orgUnit   = "Umh4HKqqFp6",
                                       startDate = "2014",
                                       endDate   = "2023"),
               records          = c("pikOziyCXbM", "x3Do5e7g4Qo", "ldGXl6SEdqf"),
@@ -84,8 +83,8 @@ test_that("read_from_dhis2 fails with a wrong URL", {
   expect_error(
     read_from_dhis2(
       base_url = c(
-        file.path("https:/", "play.im.dhis2.org", "stable-2-40-3-1"),
-        file.path("https:/", "play.im.dhis2.org", "stable-2-40-3-1")
+        file.path("https:/", "play.im.dhis2.org", "dev"),
+        file.path("https:/", "play.im.dhis2.org", "dev")
       ),
       user_name        = "admin",
       password         = "district",
@@ -107,8 +106,7 @@ test_that("read_from_dhis2 fails with a wrong user_name", {
   testthat::skip_if_offline()
   expect_error(
     read_from_dhis2(
-      base_url         = file.path("https:/", "play.im.dhis2.org",
-                                   "stable-2-40-3-1"),
+      base_url         = file.path("https:/", "play.im.dhis2.org", "dev"),
       user_name        = NULL,
       password         = "district",
       query_parameters = list(dataSet   = "BfMAe6Itzgt",
