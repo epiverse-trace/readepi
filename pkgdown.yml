@@ -1,9 +1,9 @@
 pandoc: 3.1.11
-pkgdown: 2.0.9.9000
-pkgdown_sha: 573fee6905c58cb77cb97d28679fc6678bb9e2a2
+pkgdown: 2.0.9
+pkgdown_sha: ~
 articles:
   readepi: readepi.html
-last_built: 2024-05-22T00:09Z
+last_built: 2024-06-10T11:47Z
 urls:
   reference: https://epiverse-trace.github.io/readepi/reference
   article: https://epiverse-trace.github.io/readepi/articles
