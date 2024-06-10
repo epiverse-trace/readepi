@@ -2,8 +2,9 @@ pandoc: 3.1.11
 pkgdown: 2.0.9
 pkgdown_sha: ~
 articles:
+  design_principle: design_principle.html
   readepi: readepi.html
-last_built: 2024-06-10T11:47Z
+last_built: 2024-06-10T12:11Z
 urls:
   reference: https://epiverse-trace.github.io/readepi/reference
   article: https://epiverse-trace.github.io/readepi/articles
