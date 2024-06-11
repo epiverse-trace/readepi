@@ -39,7 +39,7 @@
     <a href="https://epiverse-trace.github.io/" class="external-link"><img src="https://epiverse-trace.github.io/blueprints/logo_white.svg" id="logo" alt="Epiverse-TRACE"></a>
     <a class="navbar-brand me-2" href="../index.html">readepi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -292,18 +292,14 @@ SQL servers.</li>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># DISPLAY THE STRUCTURE OF THE TEMPLATE CREDENTIALS FILE</span></span>
 <span><span class="fu"><a href="../reference/show_example_file.html">show_example_file</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="co">#&gt;   user_name                         password</span></span>
-<span><span class="co">#&gt; 1     admin                         district</span></span>
-<span><span class="co">#&gt; 2    rfamro                                 </span></span>
-<span><span class="co">#&gt; 3     kmane 9A81268476645C4E5F03428B8AC3AA7B</span></span>
-<span><span class="co">#&gt;                                   host_name project_id</span></span>
-<span><span class="co">#&gt; 1 https://play.im.dhis2.org/stable-2-40-3-1 DHIS2_DEMO</span></span>
-<span><span class="co">#&gt; 2               mysql-rfam-public.ebi.ac.uk       Rfam</span></span>
-<span><span class="co">#&gt; 3        https://bbmc.ouhsc.edu/redcap/api/    SD_DATA</span></span>
-<span><span class="co">#&gt;                            comment   dbms port</span></span>
-<span><span class="co">#&gt; 1      this is a test DHIS2 server  DHIS2   NA</span></span>
-<span><span class="co">#&gt; 2      this is a test MySQL server  MySQL 4497</span></span>
-<span><span class="co">#&gt; 3 testing access to REDCap project REDCap   NA</span></span></code></pre></div>
+<span><span class="co">#&gt;   user_name                         password                          host_name</span></span>
+<span><span class="co">#&gt; 1     admin                         district      https://play.im.dhis2.org/dev</span></span>
+<span><span class="co">#&gt; 2    rfamro                                         mysql-rfam-public.ebi.ac.uk</span></span>
+<span><span class="co">#&gt; 3     kmane 9A81268476645C4E5F03428B8AC3AA7B https://bbmc.ouhsc.edu/redcap/api/</span></span>
+<span><span class="co">#&gt;   project_id                          comment   dbms port</span></span>
+<span><span class="co">#&gt; 1 DHIS2_DEMO      this is a test DHIS2 server  DHIS2   NA</span></span>
+<span><span class="co">#&gt; 2       Rfam      this is a test MySQL server  MySQL 4497</span></span>
+<span><span class="co">#&gt; 3    SD_DATA testing access to REDCap project REDCap   NA</span></span></code></pre></div>
 </div>
 </div>
 <div class="section level3">

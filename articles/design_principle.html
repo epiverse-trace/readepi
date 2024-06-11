@@ -39,7 +39,7 @@
     <a href="https://epiverse-trace.github.io/" class="external-link"><img src="https://epiverse-trace.github.io/blueprints/logo_white.svg" id="logo" alt="Epiverse-TRACE"></a>
     <a class="navbar-brand me-2" href="../index.html">readepi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -131,7 +131,7 @@ usually tied to a single HIS and can’t be used to query others.
 {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to
 fetch data from <a href="https://fingertips.phe.org.uk/" class="external-link">Fingertips</a>,
 <a href="https://projectredcap.org/software/" class="external-link">REDCap</a>, <a href="https://www.who.int/tools/godata" class="external-link">goData</a>, and <a href="https://global.health/" class="external-link">Global.Health</a> respectively. In version
-<strong>0.0.1</strong> of the {readepi} package, when a user is
+<strong>0.1.0</strong> of the {readepi} package, when a user is
 requesting data from a specific HIS, its correspondent package is called
 internally.</p>
 <p>As each package was designed to target a specific HIS, this approach
@@ -161,13 +161,13 @@ query parameters to fetch the target data. Hence, the {readepi} package
 is structured around one main function (<code>read_epidata()</code>) and
 two auxiliary functions (<code>authenticate()</code> and
 <code>get_metadata()</code>).</p>
-<p>The previous version of {readepi} (<code>0.0.1</code>) supports
+<p>The previous version of {readepi} (<code>0.1.0</code>) supports
 importing data from HIS APIs such as REDCap (Research Electronic Data
 Capture), DHIS2 (District Health Information System 2), and Fingertips
 as well as RDBMS such as MS SQL, SQLite, MYSQL, and PostgreSQL.</p>
 <p>In the next versions, the <code>read_epidata()</code> function will
-also allow data import from HIS like GoData, Globaldothealth, and
-SORMAS. It will also include functionalities for importing data from
+also allow data import from HIS like GoData, Globaldothealth, SORMAS,
+and ODK. It will also include functionalities for importing data from
 RDBMS such as MS ACCESS, and SQlite.</p>
 <div class="float">
 <img src="../reference/figures/readepi_design_diagram.drawio.svg" alt="readepi design diagram"><div class="figcaption">readepi design diagram</div>
@@ -176,8 +176,8 @@ RDBMS such as MS ACCESS, and SQlite.</p>
 <div class="section level2">
 <h2 id="output">Output<a class="anchor" aria-label="anchor" href="#output"></a>
 </h2>
-<p>The <code>read()</code> functions return a <code>list</code> object
-containing one or more <code>data frames</code>. Each
+<p>The <code>read_epidata()</code> functions return a <code>list</code>
+object containing one or more <code>data frames</code>. Each
 <code>data frame</code> corresponds to the data from a specified source.
 The <code>get_metadata()</code> function returns a data dictionary
 containing information about the data structure. The
@@ -231,12 +231,11 @@ implementation will make it possible to perform updates on a specific
 function, while conserving the remaining structures (easy
 maintenance).</p>
 <div class="DiagrammeR html-widget html-fill-item" id="htmlwidget-febe03efa1a2d8d52a86" style="width:768px;height:474.660074165637px;"></div>
-<script type="application/json" data-for="htmlwidget-febe03efa1a2d8d52a86">{"x":{"diagram":"\ngraph TB\n    A[read_epidata]\n    A --> B(read_rdbms)\n    A --> D(read_redcap)\n    A --> E(read_dhis2)\n    A --> F(read_fingertips)\n    A --> G(read_sormas)\n"},"evals":[],"jsHooks":[]}</script><p>Note that, when reading from RDBMS, the <code>query</code> argument
-could be an SQL query or a list with a vector of table names, fields and
-rows to subset on. For HIS, the elements of this list can vary depending
-on the API that is been queried. We strongly recommend reading the
-vignette on the <a href="./query_parameters.Rmd">query_parameters</a>
-for more details.</p>
+<script type="application/json" data-for="htmlwidget-febe03efa1a2d8d52a86">{"x":{"diagram":"\ngraph TB\n    A[read_epidata]\n    A --> B(read_rdbms)\n    A --> D(read_redcap)\n    A --> E(read_dhis2)\n    A --> F(read_fingertips)\n    A --> G(read_sormas)\n    A --> H(read_ODK)\n    A --> I(read_godata)\n"},"evals":[],"jsHooks":[]}</script><p>Note that, when reading from RDBMS, the <code>query</code> argument
+could be an <u>SQL query</u> or a <u>list with a vector of table names,
+fields and rows to subset on</u>. For HIS, the elements of this list can
+vary depending on the API that is been queried. We strongly recommend
+reading the vignette on the <a href="./query_parameters.Rmd">query_parameters</a> for more details.</p>
 </div>
 <div class="section level2">
 <h2 id="mitigate-api-security-risks">Mitigate API security risks<a class="anchor" aria-label="anchor" href="#mitigate-api-security-risks"></a>
