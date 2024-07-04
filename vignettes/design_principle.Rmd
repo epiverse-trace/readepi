@@ -22,6 +22,7 @@ knitr::opts_chunk$set(
 
 ## Concept and motivation
 
+::: {style="text-align: justify;"}
 This document outlines the design decisions that is guiding the development strategies of the {readepi} R package, the reasoning behind them, as well as the possible pros and cons of each decision.
 
 Importing data from “whatever source of it” into `R` environment is the first step in many workflows of outbreak analysis. Epidemiological data are often stored in files of different formats. The most popular among those formats being: ‘.txt’, ‘.tab’, ‘.csv’, ‘.xlxs’, etc.
@@ -35,36 +36,43 @@ Our first attempt consisted in using the currently available R packages designed
 As each package was designed to target a specific HIS, this approach increases our dependency to many other packages and introduces the challenge of having a unified framework for importing data from multiple HIS.
 
 To address this challenge, PIs of the [Epiverse-TRACE](https://data.org/initiatives/epiverse/) came with a list of potential data sources for which we aim at building a tool to request and fetch the data of interest from multiple source in the same way. The data sources include: distributed health information systems, and public databases as shown in the figure below.
+:::
 
 ![readepi roadmap](../man/figures/roadmap_readepi.drawio.svg)
 
 ## Scope
 
+::: {style="text-align: justify;"}
 The {readepi} package intends to import data from two common sources of institutional health-related data: health information systems (HIS) wrapped with specific Application programming interfaces (APIs) and relational database management systems (RDBMS) that run on specific servers.
 
 Importing data from any of these sources requires the user to have the right access. The user is also expected to provide the relevant query parameters to fetch the target data.
 Hence, the {readepi} package is structured around one main function (`read_epidata()`) and two auxiliary functions (`authenticate()` and `get_metadata()`).
 
-The previous version of {readepi} (`0.1.0`) supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), and Fingertips as well as RDBMS such as MS SQL, SQLite, MYSQL, and PostgreSQL. 
+The previous version of {readepi} (`0.1.0`) supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), and Fingertips as well as RDBMS such as MS SQL, SQLite, MYSQL, and PostgreSQL.
 
-In the next versions, the `read_epidata()` function will also allow data import from HIS like GoData, Globaldothealth, SORMAS, and ODK. It will also include functionalities for importing data from RDBMS such as MS ACCESS, and SQlite.
+In the next versions, the `read_epidata()` function will also allow data import from HIS like <span style="color: orange;">GoData, Globaldothealth, SORMAS, and ODK</span>. It will also include functionalities for importing data from RDBMS such as <span style="color: orange;">MS ACCESS, and SQlite</span>.
+:::
 
 ![readepi design diagram](../man/figures/readepi_design_diagram.drawio.svg)
 
 
 ## Output
 
+::: {style="text-align: justify;"}
 The `read_epidata()` functions return a `list` object containing one or more `data frames`. Each `data frame` corresponds to the data from a specified source.
 The `get_metadata()` function returns a data dictionary containing information about the data structure.
 The `authenticate()` function returns a connection object that is used in the query request.
+:::
 
 ## Design decisions
 
+::: {style="text-align: justify;"}
 The aim of {readepi} is to simplify and standardize the process of fetching health data from APIs and servers. We ambition to make it require minimal arguments to access and pull the data of interest from the target source.
 
 * `authenticate()`: a function used to authenticate a user (check who the user is) and check whether the user is authorized to access the requested database or API. This function is fundamental to establish the connection to the source, ensuring the success of data import.
 
 We will ensure that once an argument is provided for the authentication, it is easily retrieved from the connection object, and used in the 2 other functions, hence preventing from been supplied again in another request.
+:::
 
 ```{r authenticate, fig.align='center', echo=FALSE}
 DiagrammeR::grViz("digraph{
@@ -94,13 +102,14 @@ DiagrammeR::grViz("digraph{
 
 ```
 
+::: {style="text-align: justify;"}
 The `type` argument refers to the name of the data source of interest. The current version of the package will cover the followings:
 
     i) RDBMS: “MS SQL”, “MySQL”, “PostgreSQL”, “SQLite”, “MS ACCESS”,
     ii) APIs: “REDCap”, “DHIS2”, “ODK”, “Fingertips”, “goData”, “SORMAS”
 
-
 * `get_metadata()`: will be used to retrieve the data schema (table list + data dictionary) from a database or the data dictionary from an endpoint of the target API. It offers interoperability with the `clean_based_on_dictionay()` function of the [{cleanepi}](https://epiverse-trace.github.io/cleanepi/) R package.
+:::
 
 ```{r get_metadata, fig.align='center', echo=FALSE}
 DiagrammeR::grViz("digraph{
@@ -139,7 +148,7 @@ DiagrammeR::grViz("digraph{
         style = rounded
         bgcolor = LightBlue
     
-        label = 'read()'
+        label = 'read_epidata()'
         node[shape = rectangle, fillcolor = LemonChiffon, margin = 0.25]
         A[label = 'conn: the connection object made from authenticate()']
         B[label = 'endpoint: the path to the target endpoint (APIs only)']
@@ -148,7 +157,9 @@ DiagrammeR::grViz("digraph{
 }")
 ```
 
+::: {style="text-align: justify;"}
 An internal function (`read_*` where `*` is the source name) is designed for fetching data from a specific HIS. This implementation will make it possible to perform updates on a specific function, while conserving the remaining structures (easy maintenance).
+:::
 
 ```{r fig.align='center', echo=FALSE}
 DiagrammeR::DiagrammeR("
@@ -164,8 +175,10 @@ graph TB
 ")
 ```
 
+::: {style="text-align: justify;"}
 Note that, when reading from RDBMS, the `query` argument could be an [SQL query]{.underline} or a [list with a vector of table names, fields and rows to subset on]{.underline}.
 For HIS, the elements of this list can vary depending on the API that is been queried. We strongly recommend reading the vignette on the [query_parameters](./query_parameters.Rmd) for more details.
+:::
 
 ## Mitigate API security risks
 
@@ -183,7 +196,6 @@ To prevent from APIs security risks and issues, we will ensure that our API requ
 6. Continuously maintain our hard-coded resources:
     * regularly review and decommission unused APIs
     * maintain and update list of all endpoints
-
 
 ## Dependencies
 
