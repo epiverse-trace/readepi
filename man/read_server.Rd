@@ -4,32 +4,25 @@
 \alias{read_server}
 \title{Read data from database management systems (DBMS).}
 \usage{
-read_server(connexion, query, endpoint = NULL)
+read_server(conn, query)
 }
 \arguments{
-\item{name}{the name of the database management system}
-
-\item{credentials}{an object of class credentials}
-
-\item{server}{an object of class server}
-
-\item{filter}{a \code{list} that is used to specify the data source and filtration
-conditions. It should contain the following elements:
+\item{query}{An SQL query or a list with the following elements:
 \enumerate{
-\item src: the name of the target table(s) or an SQL query
-\item fields: a vector of the name of the columns that will be used to
-subset the data. Default is \code{NULL}.
-\item values: a vector with the values of interest from the column
-specified specified in the fields argument.
-This should be of the same length as 'fields'. Default is \code{NULL}.
-\item target_columns: a vector of column names. When specified, only
-those columns will be returned. Default is "all".
+\item table: a string with the table name
+\item select: a vector of column names. When specified, only
+those columns will be returned. Default is \code{NULL}.
+\item filter: an expression or a vector of values used to filter the
+rows from the table of interest. This should be of the same length
+as the value for the 'select'. Default is \code{NULL}.
 }}
+
+\item{con}{The connection object obtained from the \code{authenticate()}
+function.}
 }
 \value{
-a \code{list} of 1 or several objects of type \code{data.frame}. The number of
-elements in the list depends on the number of tables from which the
-data is fetched.
+A \code{data.frame} with the requested data as specified in the \code{query}
+argument.
 }
 \description{
 The function assumes the user has read access to the database.
@@ -42,21 +35,19 @@ how to install the driver.
 \dontrun{
   # establish the connection to the database
   conn <- authenticate(
-    name          = "MySQL",
-    base_url      = "mysql-rfam-public.ebi.ac.uk",
+    from          = "mysql-rfam-public.ebi.ac.uk",
+    type          = "MySQL",
     user_name     = "rfamro",
     password      = "",
     driver_name   = "",
-    database_name = "Rfam",
+    db_name       = "Rfam",
     port          = 4497
   )
 
   # import data from the 'author' table
   data <- read_from_server(
-    connexion = conn,
-    src       = "author",
-    filter    = NULL,
-    select    = NULL
+    conn  = conn,
+    query = list(table = "author", select = NULL, filter = NULL)
   )
 }
 }

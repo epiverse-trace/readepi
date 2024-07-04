@@ -7,17 +7,17 @@
 server_make_subsetting_query(filter, target_columns, equivalence_table, table)
 }
 \arguments{
-\item{filter}{an expression that will be used to subset on rows}
+\item{filter}{An expression that will be used to subset on rows}
 
-\item{target_columns}{a comma-separated list of column names to be returned}
+\item{target_columns}{A comma-separated list of column names to be returned}
 
-\item{equivalence_table}{a table with the common R operators and their
+\item{equivalence_table}{A table with the common R operators and their
 equivalent SQL operator}
 
-\item{table}{the name of the table of interest}
+\item{table}{The name of the table of interest}
 }
 \value{
-a string with the SQL query made from the input arguments
+A string with the SQL query made from the input arguments
 }
 \description{
 Create a subsetting query
