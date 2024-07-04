@@ -7,13 +7,13 @@
 server_make_sql_expression(filter, equivalence_table)
 }
 \arguments{
-\item{filter}{a string with the R expression}
+\item{filter}{A string with the R expression}
 
-\item{equivalence_table}{a data frame with the common R logical operators
+\item{equivalence_table}{A data frame with the common R logical operators
 and their correspondent SQL operators}
 }
 \value{
-a string of SQL expression
+A string of SQL expression
 }
 \description{
 Convert R expression into SQL expression

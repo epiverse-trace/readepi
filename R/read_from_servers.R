@@ -6,213 +6,118 @@
 #'    For more details, see the [vignette](../vignettes/install_drivers.Rmd) on
 #'    how to install the driver.
 #'
-#' @param conn The connection object generated from the `authenticate()`
+#' @param con The connection object obtained from the `authenticate()`
 #'    function.
 #' @param query An SQL query or a list with the following elements:
 #'    \enumerate{
-#'      \item tables: a vector of table name(s)
+#'      \item table: a string with the table name
 #'      \item select: a vector of column names. When specified, only
-#'          those columns will be returned. Default is "all".
+#'          those columns will be returned. Default is `NULL`.
 #'      \item filter: an expression or a vector of values used to filter the
-#'          rows from the tables of interest. This should be of the same length
-#'          as 'select'. Default is `NULL`.
+#'          rows from the table of interest. This should be of the same length
+#'          as the value for the 'select'. Default is `NULL`.
 #'    }
 #'
-#' @returns a `list` of 1 or several objects of type `data.frame`. The number of
-#'    elements in the list depends on the number of tables from which the
-#'    data is fetched.
+#' @returns A `data.frame` with the requested data as specified in the `query`
+#'    argument.
 #' @examples
 #' \dontrun{
 #'   # establish the connection to the database
 #'   conn <- authenticate(
-#'     name          = "MySQL",
-#'     base_url      = "mysql-rfam-public.ebi.ac.uk",
+#'     from          = "mysql-rfam-public.ebi.ac.uk",
+#'     type          = "MySQL",
 #'     user_name     = "rfamro",
 #'     password      = "",
 #'     driver_name   = "",
-#'     database_name = "Rfam",
+#'     db_name       = "Rfam",
 #'     port          = 4497
 #'   )
 #'
-#'   # import data from the 'author' table
-#'   data <- read_from_server(
-#'     connexion = conn,
-#'     src       = "author",
-#'     filter    = NULL,
-#'     select    = NULL
+#'   # import data where query parameters are specified as a list
+#'   authors_list <- read_server(
+#'     conn  = conn,
+#'     query = list(table = "author", select = NULL, filter = NULL)
+#'   )
+#'
+#'   # import data where query parameters is within an SQL query
+#'   authors_list <- read_server(
+#'     conn  = conn,
+#'     query = "select * from author"
 #'   )
 #' }
-#' @importFrom magrittr %>%
 #' @export
-read_server <- function(connexion,
-                        query,
-                        endpoint = NULL) {
-  if (!checkmate::testCharacter(filter, null.ok = TRUE, any.missing = FALSE)) {
-    checkmate::assert_numeric(filter, finite = TRUE, null.ok = TRUE,
-                              any.missing = FALSE)
-  }
-  checkmate::assert_vector(select, min.len = 0L, null.ok = TRUE,
-                           any.missing = FALSE)
-  checkmate::assert_vector(src, any.missing = FALSE, null.ok = FALSE,
-                           min.len = 1L)
-
-  # listing the names of the tables present in the database
-  tables     <- DBI::dbListTables(conn = connexion)
-
-  # separate the SQL queries from non SQL queries
-  attributes <- server_find_table_and_query(src    = src,
-                                            tables = tables)
-  queries    <- attributes[["queries"]]
-  table_name <- attributes[["tables"]]
-
-  # fetch data from queries
-  if (length(queries) > 0L) {
-    final_result <- server_fetch_data_from_query(src       = queries,
-                                                 tables    = tables,
-                                                 connexion = connexion)
+read_server <- function(conn, query) {
+  stopifnot("Invalid connection object!" = inherits(conn, "Pool"))
+  if (!checkmate::test_character(query, len = 1L, null.ok = FALSE)) {
+    checkmate::assert_list(query, min.len = 1L)
+    checkmate::assert_vector(query[["select"]], min.len = 0L, null.ok = TRUE,
+                             any.missing = FALSE)
+    if (!checkmate::test_character(query[["filter"]], null.ok = TRUE,
+                                   any.missing = FALSE)) {
+      checkmate::assert_vector(query[["filter"]], null.ok = TRUE,
+                                any.missing = FALSE)
+    }
+    checkmate::assert_character(query[["table"]], len = 1L, null.ok = FALSE,
+                                any.missing = FALSE)
   }
 
-  # fetch data from tables
-  if (length(src) > 0L) {
-    final_result <- server_fetch_data_from_table(table_name = table_name,
-                                                 connexion  = connexion,
-                                                 filter     = filter,
-                                                 select     = select)
+  # When the query parameter is a list, the below function will be used
+  # construct the SQL query to be used to fetch the data from the specified
+  # table
+  if (is.list(query)) {
+    query <- server_make_query(
+      table_name = query[["table"]],
+      connexion  = conn,
+      filter     = query[["filter"]],
+      select     = query[["select"]]
+    )
   }
+
+  # fetch the data using the SQL query
+  final_data <- server_fetch_data(connexion = conn, query = query)
 
   # return the datasets of interest
-  return(final_result)
+  return(final_data)
 }
 
-
-#' Identify queries or tables names from the user supplied string
+#' Make SQL query from the list of query parameters
 #'
-#' @param src the user supplied string. This is usually an SQL query or a table
-#'    name or a combination of both.
-#' @param tables the list of all tables in the database
-#'
-#' @return a list with the identified queries and tables
-#' @keywords internal
-#'
-server_find_table_and_query <- function(src,
-                                        tables) {
-  # detect the SQL queries
-  # We assume that a query will contain at least 'select' and 'from' or both of
-  # them
-  queries <- table_names <- NULL
-  for (s in src) {
-    if (grepl("select", s, fixed = TRUE) || grepl("from", s, fixed = TRUE)) {
-      queries <- c(queries, s)
-    } else {
-      if (s %in% tables) {
-        table_names <- c(table_names, s)
-      }
-    }
-  }
-  list(
-    queries = queries,
-    tables  = table_names
-  )
-}
-
-
-#' Fetch data from server using an SQL query
-#'
-#' @param src the SQL query
-#' @param tables the list of tables from the database
-#' @param connexion the connexion object generated from the `authenticate()`
+#' @param table_name The name of the table in the server
+#' @param connexion A connection object created from the `authenticate()`
 #'    function
+#' @param filter A vector or a comma-separated string of subset of subject IDs
+#' @param select A vector of column names
 #'
-#' @return a `list` of 1 or more objects of type `data.frame` containing each
-#'    the data fetched from a specific table.
-#'
+#' @return A string with the constructed SQL query from the provided query
+#'    parameter.
 #' @examples
-#' result <- server_fetch_data_from_query(
-#'   src       = "select author_id, name, last_name from author",
-#'   tables    = c("family_author", "author"),
-#'   connexion = connexion
-#' )
-#' @keywords internal
-#'
-server_fetch_data_from_query <- function(src,
-                                         tables,
-                                         connexion) {
-  checkmate::assert_vector(tables,
-                           any.missing = FALSE, min.len = 1L,
-                           null.ok = FALSE, unique = TRUE)
-
-  result  <- list()
-  for (query in src) {
-    table <- sql_identify_table_name(query, tables)
-    stopifnot("Could not detect table name from the query" = !is.null(table))
-    result[[table]] <- DBI::dbGetQuery(connexion, src)
-  }
-  pool::poolClose(connexion)
-  result
-}
-
-#' Detect table names from an SQL query
-#'
-#' @param query the SQL query
-#' @param tables the list of all tables from the database
-#'
-#' @return a `character` with the identified tables name(s) from the SQL query
-#'
-#' @examples
-#' \dontrun{
-#' table_name <- sql_identify_table_name(
-#'   query  = "select * from author",
-#'   tables = c("family_author", "author", "test")
-#' )
-#' }
-#' @keywords internal
-#'
-sql_identify_table_name <- function(query,
-                                    tables) {
-  checkmate::assert_character(query,
-                              any.missing = FALSE, len = 1L,
-                              null.ok = FALSE)
-  checkmate::assert_vector(tables,
-                           any.missing = FALSE, min.len = 1L,
-                           null.ok = FALSE, unique = TRUE)
-  table_name <- NULL
-  query      <- unlist(strsplit(query, " ", fixed = TRUE))
-  table_name <- query[which(query %in% tables)]
-  table_name <- ifelse(length(table_name) == 1L, table_name,
-                       glue::glue_collapse(table_name, sep = "_"))
-  return(table_name)
-}
-
-
-#' Fetch data from a server using the table name(s)
-#'
-#' @param table_name the name of the table in the server
-#' @param connexion a connexion object created from the `authenticate()`
-#'    function
-#' @param filter a vector or a comma-separated string of subset of subject IDs
-#' @param select a vector of column names
-#'
-#' @return a `data.frame` with the data from the corresponding table name
-#' @examples
-#' \dontrun{
-#'   result <- server_fetch_data_from_table(
-#'     table_names = "author",
-#'     connexion   = connexion,
-#'     filter      = filter,
-#'     select      = select
+#' # establish the connection
+#' \donttest{
+#'   # establish the connection to the database
+#'   conn <- authenticate(
+#'     from          = "mysql-rfam-public.ebi.ac.uk",
+#'     type          = "MySQL",
+#'     user_name     = "rfamro",
+#'     password      = "",
+#'     driver_name   = "",
+#'     db_name       = "Rfam",
+#'     port          = 4497
 #'   )
 #' }
+#' result <- server_make_query(
+#'   table_name = "author",
+#'   connexion  = conn,
+#'   filter     = filter,
+#'   select     = select
+#' )
 #' @keywords internal
 #'
-server_fetch_data_from_table <- function(table_name,
-                                         connexion,
-                                         filter,
-                                         select) {
-  checkmate::assert_character(table_name, any.missing = FALSE, min.len = 1L,
-                              null.ok = FALSE, unique = TRUE)
-  message("\nFetching data from: ", table_name)
+server_make_query <- function(table_name,
+                              connexion,
+                              filter,
+                              select) {
   if (is.null(filter) && is.null(select)) {
-    # subset all rows and all/specified columns
+    # subset all rows and all columns
     query          <- sprintf("select * from %s", table_name)
   } else if (!is.null(select) && is.null(filter)) {
     # subset all rows and specified columns
@@ -226,18 +131,17 @@ server_fetch_data_from_table <- function(table_name,
     query <- server_make_subsetting_query(filter, target_columns,
                                           equivalence_table, table_name)
   }
-  result  <- server_fetch_data(connexion, query)
 
-  return(result)
+  return(query)
 }
 
 #' Convert R expression into SQL expression
 #'
-#' @param equivalence_table a data frame with the common R logical operators
+#' @param equivalence_table A data frame with the common R logical operators
 #'    and their correspondent SQL operators
-#' @param filter a string with the R expression
+#' @param filter A string with the R expression
 #'
-#' @return a string of SQL expression
+#' @return A string of SQL expression
 #' @keywords internal
 #'
 server_make_sql_expression <- function(filter, equivalence_table) {
@@ -252,13 +156,13 @@ server_make_sql_expression <- function(filter, equivalence_table) {
 
 #' Create a subsetting query
 #'
-#' @param filter an expression that will be used to subset on rows
-#' @param target_columns a comma-separated list of column names to be returned
-#' @param equivalence_table a table with the common R operators and their
+#' @param filter An expression that will be used to subset on rows
+#' @param target_columns A comma-separated list of column names to be returned
+#' @param equivalence_table A table with the common R operators and their
 #'    equivalent SQL operator
-#' @param table the name of the table of interest
+#' @param table The name of the table of interest
 #'
-#' @return a string with the SQL query made from the input arguments
+#' @return A string with the SQL query made from the input arguments
 #' @keywords internal
 #'
 server_make_subsetting_query <- function(filter, target_columns,
@@ -290,10 +194,10 @@ equivalence_table <- data.frame(cbind(
 
 #' Fetch all or specific rows and columns from a table
 #'
-#' @inheritParams read_from_servers
-#' @param query the SQL query
+#' @inheritParams read_server
+#' @param query A string with the SQL query
 #'
-#' @return a data frame with the data of interest
+#' @return A data frame with the data of interest
 #' @keywords internal
 #'
 server_fetch_data <- function(connexion,

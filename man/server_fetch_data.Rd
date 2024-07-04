@@ -7,10 +7,10 @@
 server_fetch_data(connexion, query)
 }
 \arguments{
-\item{query}{the SQL query}
+\item{query}{A string with the SQL query}
 }
 \value{
-a data frame with the data of interest
+A data frame with the data of interest
 }
 \description{
 Fetch all or specific rows and columns from a table
