@@ -47,7 +47,6 @@
 #' }
 #' @export
 read_server <- function(conn, query) {
-  stopifnot("Invalid connection object!" = inherits(conn, "Pool"))
   if (!checkmate::test_character(query, len = 1L, null.ok = FALSE)) {
     checkmate::assert_list(query, min.len = 1L)
     checkmate::assert_vector(query[["select"]], min.len = 0L, null.ok = TRUE,
@@ -60,6 +59,21 @@ read_server <- function(conn, query) {
     checkmate::assert_character(query[["table"]], len = 1L, null.ok = FALSE,
                                 any.missing = FALSE)
   }
+
+  ## re-login if the connection has been closed from previous query
+  if (exists("conn") && !conn[["valid"]]) {
+    connection_params <- attr(conn, "credentials")
+    conn              <- authenticate(
+      from          = connection_params[["host"]],
+      type          = connection_params[["type"]],
+      user_name     = connection_params[["user"]],
+      password      = connection_params[["password"]],
+      driver_name   = connection_params[["driver"]],
+      db_name       = connection_params[["db_name"]],
+      port          = connection_params[["port"]]
+    )
+  }
+  stopifnot("Invalid connection object!" = inherits(conn, "Pool"))
 
   # When the query parameter is a list, the below function will be used
   # construct the SQL query to be used to fetch the data from the specified
