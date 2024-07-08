@@ -288,3 +288,4 @@ Additionally, the development of the package necessitates the inclusion of other
 ## Contribute
 
 There are no special requirements to contributing to {readepi}, please follow the [package contributing guide](https://github.com/epiverse-trace/.github/blob/main/CONTRIBUTING.md).
+
