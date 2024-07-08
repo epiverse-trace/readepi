@@ -238,20 +238,28 @@ For HIS, the elements of this list can vary depending on the API that is been qu
 
 ## Mitigate API security risks
 
-To prevent from APIs security risks and issues, we will ensure that our API requests follow the practices listed below:
 
-1. Identify API gateway (centralized point of entry) and send authentication requests to this gateway
-2. Make sure users access only the data they are allowed to:
-    * use OAuth or token-based authentication if possible
-    * determine the data a user can have access to. Send a meaningful error message when a user attempts to access unauthorized data.
-3. Make sure API key is not sent as part of the URL to avoid it been copied from the proxy logs or other places
-4. Control the number of requests that can be sent in a time period, and the number of pages that to be returned in the API response.
-5. Prevent from sending/receiving malicious data:
-    * use parameterized query
-    * validate and sanitize inputs
-6. Continuously maintain our hard-coded resources:
-    * regularly review and decommission unused APIs
-    * maintain and update list of all endpoints
+To mitigate API security risks, we implement the following best practices:
+
+1. Utilize an API gateway as a centralized entry point and direct all 
+authentication requests through this gateway.
+2. Ensure users only access authorized data:
+   - Prefer OAuth or token-based authentication, whenever possible
+   - Implement access controls to enforce data restrictions and provide 
+   meaningful error messages for unauthorized access attempts.
+3. Avoid including API keys in URLs to prevent exposure in proxy logs or 
+other places.
+4. Implement rate limiting to control the number of requests per time period 
+and the size of API responses.
+5. Mitigate risks of malicious data:
+   - Use parameterized queries to prevent SQL injection.
+   - Validate and sanitize input data to prevent cross-site scripting (XSS) 
+   and other attacks.
+6. Maintain robust security measures:
+   - Regularly review and decommission unused APIs.
+   - Maintain an updated list of all endpoints to ensure security and 
+   operational integrity.
+
 
 ## Dependencies
 
