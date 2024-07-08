@@ -52,7 +52,8 @@
 authenticate <- function(from,
                          type        = c("MS SQL", "MySQL", "PostgreSQL",
                                          "SQLite", "REDCap", "DHIS2", "ODK",
-                                         "Fingertips", "goData", "SORMAS"),
+                                         "Fingertips", "goData", "SORMAS",
+                                         "Globaldothealth"),
                          user_name   = NULL,
                          password    = NULL,
                          driver_name = NULL,
@@ -100,16 +101,18 @@ authenticate <- function(from,
       SQLite     = pool::dbPool(drv    = RSQLite::SQLite(),
                                 dbname = db_name)
     )
-    ## If the credentials are needed to fetch the data, uncomment this
-    # attr(con, "credentials") <- list(
-    #   user     = user_name,
-    #   password = password,
-    #   host     = from,
-    #   db_name  = db_name,
-    #   driver   = driver_name,
-    #   port     = port
-    # )
-    message("\nLogged in successfully!")
+
+    ## Saving the credentials as attributes of the output object. They will be
+    ## used to establish the connection in a subsequent query.
+    attr(con, "credentials") <- list(
+      user     = user_name,
+      password = password,
+      host     = from,
+      db_name  = db_name,
+      driver   = driver_name,
+      port     = port,
+      type     = type
+    )
     return(invisible(con))
   } else {
     if (!is.null(password)) {
