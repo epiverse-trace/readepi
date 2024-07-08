@@ -135,12 +135,12 @@ server_make_query <- function(table_name,
     query          <- sprintf("select * from %s", table_name)
   } else if (!is.null(select) && is.null(filter)) {
     # subset all rows and specified columns
-    target_columns <- paste(select, collapse = ", ")
+    target_columns <- paste(select, collapse = ", ") # nolint: paste_linter
     query          <- sprintf("select %s from %s", target_columns, table_name)
   } else {
     # subset specified rows and all columns
     target_columns <- ifelse(!is.null(select),
-                             paste(select, collapse = ", "),
+                             paste(select, collapse = ", "), # nolint: paste_linter
                              "*")
     query <- server_make_subsetting_query(filter, target_columns,
                                           equivalence_table, table_name)
