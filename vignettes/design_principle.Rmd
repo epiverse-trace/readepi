@@ -99,11 +99,19 @@ The `authenticate()` function returns a connection object that is used in the qu
 ## Design decisions
 
 ::: {style="text-align: justify;"}
-The aim of {readepi} is to simplify and standardize the process of fetching health data from APIs and servers. We ambition to make it require minimal arguments to access and pull the data of interest from the target source.
+The aim of {readepi} is to simplify and standardize the process of fetching 
+health data from APIs and servers. We strive to make it easy for users, 
+requiring minimal arguments to access and retrieve the data of interest from 
+the target source.
 
-* `authenticate()`: a function used to authenticate a user (check who the user is) and check whether the user is authorized to access the requested database or API. This function is fundamental to establish the connection to the source, ensuring the success of data import.
+* `authenticate()`:  This function verifies the user's identity and determines 
+if they are authorized to access the requested database or API. Establishing 
+this connection is crucial for ensuring successful data import.
 
-We will ensure that once an argument is provided for the authentication, it is easily retrieved from the connection object, and used in the 2 other functions, hence preventing from been supplied again in another request.
+Once authentication credentials are provided, they are securely stored within 
+the connection object. This prevents the need to re-supply them for subsequent 
+requests to other functions. The Figure below lists the arguments needed to 
+call the `authenticate()` function.
 :::
 
 ```{r authenticate, fig.align='center', echo=FALSE}
@@ -135,12 +143,22 @@ DiagrammeR::grViz("digraph{
 ```
 
 ::: {style="text-align: justify;"}
-The `type` argument refers to the name of the data source of interest. The current version of the package will cover the followings:
+The `type` argument refers to the name of the data source of interest. The 
+current version of the package  covers the following types:
 
-    i) RDBMS: “MS SQL”, “MySQL”, “PostgreSQL”, “SQLite”, “MS ACCESS”,
-    ii) APIs: “REDCap”, “DHIS2”, “ODK”, “Fingertips”, “goData”, “SORMAS”
+    i) RDBMS: “MS SQL”, “MySQL”, “PostgreSQL”, “SQLite”
+    ii) APIs: “REDCap”, “DHIS2”,  “Fingertips”.
 
-* `get_metadata()`: will be used to retrieve the data schema (table list + data dictionary) from a database or the data dictionary from an endpoint of the target API. It offers interoperability with the `clean_based_on_dictionay()` function of the [{cleanepi}](https://epiverse-trace.github.io/cleanepi/) R package.
+Here's a refined version of your description:
+
+---
+
+**`get_metadata()`**: This function retrieves the data schema, including the 
+list of tables and data dictionary, from a database or the data dictionary 
+from an API endpoint. It ensures compatibility with the 
+`clean_based_on_dictionary()` function of the 
+[{cleanepi}](https://epiverse-trace.github.io/cleanepi/) R package for 
+ data cleaning and standardization processes.
 :::
 
 ```{r get_metadata, fig.align='center', echo=FALSE}
@@ -165,7 +183,8 @@ DiagrammeR::grViz("digraph{
 }")
 ```
 
-* `read_epidata()`: this is the main function of the package. It can be used to read from both HIS and RDBMS.
+* `read_epidata()`: this is the main function of the package. 
+It can be used to read from both HIS and RDBMS as shown in the below figure.
 
 ```{r read, fig.align='center', echo=FALSE}
 DiagrammeR::grViz("digraph{
@@ -190,7 +209,12 @@ DiagrammeR::grViz("digraph{
 ```
 
 ::: {style="text-align: justify;"}
-An internal function (`read_*` where `*` is the source name) is designed for fetching data from a specific HIS. This implementation will make it possible to perform updates on a specific function, while conserving the remaining structures (easy maintenance).
+
+Calling `read_epidata()` will invoke an internal function (`read_*`, 
+where `*` represents the source name) that is dedicated 
+to fetching data from specific HIS sources. This design allows for targeted 
+updates to individual functions while maintaining the overall structure, 
+ensuring ease of maintenance.
 :::
 
 ```{r fig.align='center', echo=FALSE}
