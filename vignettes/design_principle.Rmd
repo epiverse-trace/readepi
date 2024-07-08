@@ -186,6 +186,11 @@ DiagrammeR::grViz("digraph{
 * `read_epidata()`: this is the main function of the package. 
 It can be used to read from both HIS and RDBMS as shown in the below figure.
 
+    * When reading from RDBMS:
+        1. the value for the `type` argument is expected to be one of: "MS SQL", "MySQL", "PostgreSQL", or "SQLite".
+        2. When the query parameters are provided as a `list`, they will be used to form the appropriate SQL query internally. That resulting SQL query is the one that is executed by the internal function `read_rdbms()`.
+                                         
+
 ```{r read, fig.align='center', echo=FALSE}
 DiagrammeR::grViz("digraph{
  
@@ -228,6 +233,7 @@ graph TB
     A --> G(read_sormas)
     A --> H(read_ODK)
     A --> I(read_godata)
+    A --> J(read_globaldothealth)
 ")
 ```
 
