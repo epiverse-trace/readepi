@@ -23,19 +23,41 @@ knitr::opts_chunk$set(
 ## Concept and motivation
 
 ::: {style="text-align: justify;"}
-This document outlines the design decisions that is guiding the development strategies of the {readepi} R package, the reasoning behind them, as well as the possible pros and cons of each decision.
 
-Importing data from “whatever source of it” into `R` environment is the first step in many workflows of outbreak analysis. Epidemiological data are often stored in files of different formats. The most popular among those formats being: ‘.txt’, ‘.tab’, ‘.csv’, ‘.xlxs’, etc.
+This document outlines the design decisions guiding the development strategies 
+of the `{readepi}` R package, the reasoning behind them, as well as the 
+possible pros and cons of each decision.
 
-Many R packages have been developed over the years to facilitate the importation of data stored in such files. We recommend the [{rio}](http://gesistsa.github.io/rio/) package for importing data that are relatively of small size and the [{data.table}](https://cran.r-project.org/web/packages/data.table/vignettes/) package for large files.
+Importing data from various sources into the R environment is the first step 
+in the workflow of outbreak analysis. Health data are often stored in 
+individual files of different formats, in relational database management 
+systems (RDBMS), and more importantly, many health organizations store their 
+data in health information systems (HIS) wrapped underhood of a specific 
+Application Programming Interfaces (APIs).
 
-To enable easy and real time access of well structured data, most organisations in the world are now storing their data in public repositories, relational database management systems (RDBMS), and health information systems (HIS) wrapped with specific Application Programming Interfaces (APIs). As such, we aim at building a centralized tool that will provide users with the possibility of importing data from various HIS and RDBMS.
+Many R packages have been developed over the years to read data stored in a 
+file or in a directory containing multiple files. We recommend the 
+[{rio}](http://gesistsa.github.io/rio/) package for importing data 
+that are relatively small in size and the 
+[{data.table}](https://cran.r-project.org/web/packages/data.table/vignettes/) 
+package for large files. For retrieving data from RDBMS, we recommend the 
+[{DBI}](https://dbi.r-dbi.org/) package.
 
-Our first attempt consisted in using the currently available R packages designed to access data from specific HIS. These packages are usually tied to a single HIS and can't be used to query others. {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to fetch data from [Fingertips](https://fingertips.phe.org.uk/), [REDCap](https://projectredcap.org/software/), [goData](https://www.who.int/tools/godata), and [Global.Health](https://global.health/) respectively. In version **0.1.0** of the {readepi} package, when a user is requesting data from a specific HIS, its correspondent package is called internally. 
+There are several R packages for reading data from HIS such as {fingertipsR}, 
+{REDCapR}, {godataR}, and {globaldothealth}, which are used to fetch data from 
+[Fingertips](https://fingertips.phe.org.uk/), 
+[REDCap](https://projectredcap.org/software/), 
+[Go.Data](https://www.who.int/tools/godata), and 
+[Global.Health](https://global.health/) respectively. However, these packages 
+are usually designed to read from specific HIS and can't be used to query 
+others. This increases the dependency on many other packages and introduces 
+the challenge of having a unified framework for importing data from multiple 
+HIS. As such, we propose `{readepi}`, a centralized tool that will provide 
+users with the capability of importing data from various HIS and RDBMS.
 
-As each package was designed to target a specific HIS, this approach increases our dependency to many other packages and introduces the challenge of having a unified framework for importing data from multiple HIS.
-
-To address this challenge, PIs of the [Epiverse-TRACE](https://data.org/initiatives/epiverse/) came with a list of potential data sources for which we aim at building a tool to request and fetch the data of interest from multiple source in the same way. The data sources include: distributed health information systems, and public databases as shown in the figure below.
+`{readepi}` can import data from several potential sources in the same way. The
+ data sources include distributed health information systems and public 
+ databases as shown in the figure below.
 :::
 
 ![readepi roadmap](../man/figures/roadmap_readepi.drawio.svg)
