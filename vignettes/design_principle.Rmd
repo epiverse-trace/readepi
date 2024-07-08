@@ -263,28 +263,27 @@ and the size of API responses.
 
 ## Dependencies
 
-* The `read_epidata()` will rely mainly on 2 packages:
 
-  [{httr2}](https://CRAN.R-project.org/package=httr2) or [{data.table}](https://CRAN.R-project.org/package=data.table): this will serve in constructing and performing the API requests,
-  [{dplyr}](https://CRAN.R-project.org/package=dplyr): will be used for its data wrangling functionalities.
 
-* The `read_from_server()` will rely mainly on the packages below:
+* The `read_epidata()` function relies primarily on two packages:
+  - [{httr2}](https://CRAN.R-project.org/package=httr2) or [{data.table}](https://CRAN.R-project.org/package=data.table): These are used to construct and execute API requests.
+  - [{dplyr}](https://CRAN.R-project.org/package=dplyr): Utilized for its data manipulation capabilities.
 
-  [{DBI}](https://CRAN.R-project.org/package=DBI): for its functionalities to connect, and fetch data from a table in a database,
-  [{pool}](https://CRAN.R-project.org/package=pool): for its ability to handle multiple connection,
-  [{odbc}](https://CRAN.R-project.org/package=odbc): for its drivers required to fetch data from several DBMS,
-  [{RMySQL}](https://CRAN.R-project.org/package=RMySQL): for its drivers to fetch data from MySQL databases.
+* The `read_from_server()` function depends on the following packages:
+  - [{DBI}](https://CRAN.R-project.org/package=DBI): Used for database connectivity and querying.
+  - [{pool}](https://CRAN.R-project.org/package=pool): Provides functionality for managing multiple database connections.
+  - [{odbc}](https://CRAN.R-project.org/package=odbc): Supplies drivers required for accessing various DBMS.
+  - [{RMySQL}](https://CRAN.R-project.org/package=RMySQL): Specifically used for MySQL database connectivity.
 
-It also has a system dependency for OS-X and Linux users. This will be described in details in the vignette.
+These functions also require system dependencies for OS-X and Linux systems, detailed in the vignette.
 
-Both functions will require all other packages that are needed in the package development process including:
-
-  [{checkmate}](https://CRAN.R-project.org/package=checkmate),
-  [{httptest2}](https://CRAN.R-project.org/package=httptest2),
-  [{bookdown}](https://CRAN.R-project.org/package=bookdown),
-  [{rmarkdown}](https://CRAN.R-project.org/package=rmarkdown),
-  [{testthat}](https://CRAN.R-project.org/package=testthat) (>= 3.0.0),
-  [{knitr}](https://CRAN.R-project.org/package=knitr)
+Additionally, the development of the package necessitates the inclusion of other required packages:
+- [{checkmate}](https://CRAN.R-project.org/package=checkmate)
+- [{httptest2}](https://CRAN.R-project.org/package=httptest2)
+- [{bookdown}](https://CRAN.R-project.org/package=bookdown)
+- [{rmarkdown}](https://CRAN.R-project.org/package=rmarkdown)
+- [{testthat}](https://CRAN.R-project.org/package=testthat) (>= 3.0.0)
+- [{knitr}](https://CRAN.R-project.org/package=knitr)
 
 ## Contribute
 
