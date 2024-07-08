@@ -65,14 +65,24 @@ users with the capability of importing data from various HIS and RDBMS.
 ## Scope
 
 ::: {style="text-align: justify;"}
-The {readepi} package intends to import data from two common sources of institutional health-related data: health information systems (HIS) wrapped with specific Application programming interfaces (APIs) and relational database management systems (RDBMS) that run on specific servers.
 
-Importing data from any of these sources requires the user to have the right access. The user is also expected to provide the relevant query parameters to fetch the target data.
-Hence, the {readepi} package is structured around one main function (`read_epidata()`) and two auxiliary functions (`authenticate()` and `get_metadata()`).
+The `{readepi}` package is designed to import data from two common sources of 
+institutional health-related data: HIS wrapped with specific APIs and 
+RDBMS that run on specific servers.
 
-The previous version of {readepi} (`0.1.0`) supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), and Fingertips as well as RDBMS such as MS SQL, SQLite, MYSQL, and PostgreSQL.
+To import data from these sources, users must have the appropriate access and
+provide relevant query parameters to fetch the target data. Thus, the 
+`{readepi}` package is structured around one main function, `read_epidata()`,
+ and two auxiliary functions, `authenticate()` and `get_metadata()`.
 
-In the next versions, the `read_epidata()` function will also allow data import from HIS like <span style="color: orange;">GoData, Globaldothealth, SORMAS, and ODK</span>. It will also include functionalities for importing data from RDBMS such as <span style="color: orange;">MS ACCESS, and SQlite</span>.
+The current version of `{readepi}` supports importing data from HIS APIs such 
+as REDCap, DHIS2, and Fingertips, as well as RDBMS like MS SQL, SQLite, MySQL, 
+and PostgreSQL.
+
+In the future, we plan to include features for reading data from additional 
+HISs like GoData, Globaldothealth, SORMAS, and ODK, as well as RDBMS such as 
+MS Access.
+
 :::
 
 ![readepi design diagram](../man/figures/readepi_design_diagram.drawio.svg)
