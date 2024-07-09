@@ -1,5 +1,5 @@
 ---
-title: "Package Design vignette for {readepi}"
+title: "Package design vignette for {readepi}"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Package Design vignette for {readepi}}
