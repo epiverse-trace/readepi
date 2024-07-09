@@ -225,6 +225,24 @@ references:
     given-names: Jeffrey
   year: '2024'
 - type: software
+  title: RSQLite
+  abstract: 'RSQLite: SQLite Interface for R'
+  notes: Imports
+  url: https://rsqlite.r-dbi.org
+  repository: https://CRAN.R-project.org/package=RSQLite
+  authors:
+  - family-names: Müller
+    given-names: Kirill
+    email: kirill@cynkra.com
+    orcid: https://orcid.org/0000-0002-1416-3412
+  - family-names: Wickham
+    given-names: Hadley
+  - family-names: James
+    given-names: David A.
+  - family-names: Falcon
+    given-names: Seth
+  year: '2024'
+- type: software
   title: DiagrammeR
   abstract: 'DiagrammeR: Graph/Network Visualization'
   notes: Suggests
