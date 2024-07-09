@@ -36,7 +36,8 @@ Imports:
     odbc,
     pool,
     REDCapR,
-    RMySQL
+    RMySQL,
+    RSQLite
 Suggests: 
     DiagrammeR,
     httptest,
