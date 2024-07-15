@@ -14,4 +14,42 @@ knitr::opts_chunk$set(
 )
 ```
 
+# Introduction
+
+For a succesful API or database request, users are required to provide details about where the data can be found and which data they want the reading function to return. These information are generally designated as **query paramaters** and can vary depending on the type of HIS.
+In the sections below, we will describe the query parameters and define how to use them when fetching data from our target HIS.
+
+## RDBMS query parameters
+
+Following a succesful authentication using the `authenticate()` function, the connection with the database is established. Users can now determine the name of the table, in the database, where the dataset of interest is stored. They can also inform the reading function about what entries and/or fields they are mainly interested in. These information are passed to the `read_epidata()` through its `query_params` argument. In the current version of the package, the `query_params` can be either:
+
+1. An **SQL query**, or
+2. A **list** with the following elements:
+  * table: a string with the table name
+  * select: a vector of column names. When specified, only those columns will be returned. Default is
+  `NULL`.
+  * filter: an expression or a vector of values used to filter the rows from the table of interest. This should be of the same length as the value for the 'select'. Default is `NULL`.
+
+### Examples
+
+Say our connection object is `conn` and we are aiming to fetch data from the `author` table. Suppose that table contains a articles first author details. From that table, we are only interest in return author's name, surname and orcid for the first ten authors. The `query_params` argument will look like below:
+
+```{r eval=FALSE}
+## AS A LIST
+read_epidata(conn         = conn,
+             query_params = list(
+              table  = "author",
+              select = c("name", "surname", "orcid"),
+              filter = 1:10
+             ))
+
+## AS AN SQL QUERY - FOR MySQL server
+read_epidata(conn         = conn,
+             query_params = "SELECT name, surname, orcid FROM author LIMIT 10")
+```
+
+Note that the syntax in the SQL query depends on the server type. The example above is tailored for a  MySQL server. If you wish to explore the syntax for other server types, see [here](https://www.w3schools.com/sqL/) for more details.
+
+## APIs query parameters
+
 
