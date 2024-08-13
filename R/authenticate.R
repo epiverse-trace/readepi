@@ -11,7 +11,7 @@
 #'    covers the following HIS: "MS SQL", "MySQL", "PostgreSQL", "SQLite",
 #'    "REDCap", "DHIS2", "ODK", "Fingertips", "goData".
 #' @param user_name The user name (optional).
-#' @param password The user's password or API token or key (optional). When the
+#' @param password The user's password or personal access token (PAT) or key (optional). When the
 #'    password is set to `NULL`, the user will be prompt to enter the password,
 #'    hence minimizing the exposition of your full credentials.
 #' @param driver_name The driver name (optional). This is only needed for
@@ -119,6 +119,8 @@ authenticate <- function(from,
       warning("We recommend using 'password = NULL' and enter the password ",
               "in the prompt.", call. = FALSE)
     }
+    # TO DO: the condition around the number of characters in the token is not
+    # valid for DHIS2 PAT (it's 48 characters) and bearer token (36)
     if (grep("[:alnum:]", password) && nchar(password) == 32L) {
       # when this condition is met, the password corresponds to the token
       response <- httr2::request(from) |>
