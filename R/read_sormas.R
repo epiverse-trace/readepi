@@ -30,7 +30,7 @@
 #'     since = 0 # cases from this date to now will be fetched
 #'   )
 #' )
-#'
+#' @importFrom magrittr %>%
 read_sormas <- function(user_name, password, query_parameters) {
   cli::cli_progress_step("Importing cases data from SORMAS...",
                          msg_done = "Successfully imported cases from SORMAS.",
