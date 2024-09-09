@@ -45,13 +45,17 @@ sormas_get_diseases <- function(user_name, password) {
     "all",
     0
   )
-  resp <- httr2::request(url) |>
-    httr2::req_auth_basic(user_name, password) |>
-    httr2::req_perform() |>
+  resp <- httr2::request(url) %>%
+    httr2::req_auth_basic(user_name, password) %>%
+    httr2::req_perform() %>%
     httr2::resp_body_json()
-  content <- lapply(resp, function(x) {unlist(x)})
+  content <- lapply(resp, unlist)
   disease_names <- suppressMessages(dplyr::bind_rows(content))
+
+  # only return columns with the disease names and whether a disease is active
+  # or not
+  target_columns <- c("disease", "active")
   disease_names <- disease_names %>%
-    dplyr::select(c(disease, active))
+    dplyr::select(dplyr::all_of(target_columns))
   return(disease_names)
 }

@@ -1,4 +1,3 @@
-
 #' Establish a connection to a HIS of interest.
 #'
 #' The current version of the package supports basic authentication (using the
@@ -11,9 +10,10 @@
 #'    covers the following HIS: "MS SQL", "MySQL", "PostgreSQL", "SQLite",
 #'    "REDCap", "DHIS2", "ODK", "Fingertips", "goData".
 #' @param user_name The user name (optional).
-#' @param password The user's password or personal access token (PAT) or key (optional). When the
-#'    password is set to `NULL`, the user will be prompt to enter the password,
-#'    hence minimizing the exposition of your full credentials.
+#' @param password The user's password or personal access token (PAT) or key
+#'    (optional). When the password is set to `NULL`, the user will be prompt to
+#'    enter the password, hence minimizing the exposition of your full
+#'    credentials.
 #' @param driver_name The driver name (optional). This is only needed for
 #'    connecting to RDBMS only.
 #' @param db_name The database name (optional). This is only needed for

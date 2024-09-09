@@ -25,9 +25,10 @@ covers the following HIS: "MS SQL", "MySQL", "PostgreSQL", "SQLite",
 
 \item{user_name}{The user name (optional).}
 
-\item{password}{The user's password or personal access token (PAT) or key (optional). When the
-password is set to \code{NULL}, the user will be prompt to enter the password,
-hence minimizing the exposition of your full credentials.}
+\item{password}{The user's password or personal access token (PAT) or key
+(optional). When the password is set to \code{NULL}, the user will be prompt to
+enter the password, hence minimizing the exposition of your full
+credentials.}
 
 \item{driver_name}{The driver name (optional). This is only needed for
 connecting to RDBMS only.}
