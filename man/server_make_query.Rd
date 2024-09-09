@@ -23,25 +23,4 @@ parameter.
 \description{
 Make SQL query from the list of query parameters
 }
-\examples{
-# establish the connection
-\donttest{
-  # establish the connection to the database
-  conn <- authenticate(
-    from          = "mysql-rfam-public.ebi.ac.uk",
-    type          = "MySQL",
-    user_name     = "rfamro",
-    password      = "",
-    driver_name   = "",
-    db_name       = "Rfam",
-    port          = 4497
-  )
-}
-result <- server_make_query(
-  table_name = "author",
-  connexion  = conn,
-  filter     = filter,
-  select     = select
-)
-}
 \keyword{internal}
