@@ -7,7 +7,7 @@
 authenticate(
   from,
   type = c("MS SQL", "MySQL", "PostgreSQL", "SQLite", "REDCap", "DHIS2", "ODK",
-    "Fingertips", "goData", "SORMAS"),
+    "Fingertips", "goData", "SORMAS", "Globaldothealth"),
   user_name = NULL,
   password = NULL,
   driver_name = NULL,
@@ -25,7 +25,7 @@ covers the following HIS: "MS SQL", "MySQL", "PostgreSQL", "SQLite",
 
 \item{user_name}{The user name (optional).}
 
-\item{password}{The user's password or API token or key (optional). When the
+\item{password}{The user's password or personal access token (PAT) or key (optional). When the
 password is set to \code{NULL}, the user will be prompt to enter the password,
 hence minimizing the exposition of your full credentials.}
 
