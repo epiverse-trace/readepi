@@ -6,8 +6,7 @@
 \usage{
 authenticate(
   from,
-  type = c("MS SQL", "MySQL", "PostgreSQL", "SQLite", "REDCap", "DHIS2", "ODK",
-    "Fingertips", "goData", "SORMAS", "Globaldothealth"),
+  type = NULL,
   user_name = NULL,
   password = NULL,
   driver_name = NULL,
@@ -19,9 +18,9 @@ authenticate(
 \item{from}{The URL to the HIS of interest. For APIs, this must include both
 the base URL and the endpoint (required).}
 
-\item{type}{The source name (required). The current version of the package
-covers the following HIS: "MS SQL", "MySQL", "PostgreSQL", "SQLite",
-"REDCap", "DHIS2", "ODK", "Fingertips", "goData".}
+\item{type}{The source name (optional). This is only needed when importing
+data from RDBMS. The current version of the package covers the following
+types: "SQLServer", "MySQL", "PostgreSQL", "SQLite".}
 
 \item{user_name}{The user name (optional).}
 
@@ -64,12 +63,10 @@ bearer token)
 # connect to the test DHIS2 server
 \dontrun{
   conn <- authenticate(
-    base_url  = file.path("https:/", "play.dhis2.org", "dev", "api", "me"),
+    from  = file.path("https:/", "play.dhis2.org", "dev", "api", "me"),
     user_name = "admin",
     password  = NULL
   )
 }
 
-# TO DO: investigate the authentication endpoint for the API of the other
-# HIS'.
 }

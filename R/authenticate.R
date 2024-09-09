@@ -6,9 +6,9 @@
 #'
 #' @param from The URL to the HIS of interest. For APIs, this must include both
 #'    the base URL and the endpoint (required).
-#' @param type The source name (required). The current version of the package
-#'    covers the following HIS: "MS SQL", "MySQL", "PostgreSQL", "SQLite",
-#'    "REDCap", "DHIS2", "ODK", "Fingertips", "goData".
+#' @param type The source name (optional). This is only needed when importing
+#'    data from RDBMS. The current version of the package covers the following
+#'    types: "SQLServer", "MySQL", "PostgreSQL", "SQLite".
 #' @param user_name The user name (optional).
 #' @param password The user's password or personal access token (PAT) or key
 #'    (optional). When the password is set to `NULL`, the user will be prompt to
@@ -41,19 +41,14 @@
 #' # connect to the test DHIS2 server
 #' \dontrun{
 #'   conn <- authenticate(
-#'     base_url  = file.path("https:/", "play.dhis2.org", "dev", "api", "me"),
+#'     from  = file.path("https:/", "play.dhis2.org", "dev", "api", "me"),
 #'     user_name = "admin",
 #'     password  = NULL
 #'   )
 #' }
 #'
-#' # TO DO: investigate the authentication endpoint for the API of the other
-#' # HIS'.
 authenticate <- function(from,
-                         type        = c("MS SQL", "MySQL", "PostgreSQL",
-                                         "SQLite", "REDCap", "DHIS2", "ODK",
-                                         "Fingertips", "goData", "SORMAS",
-                                         "Globaldothealth"),
+                         type        = NULL,
                          user_name   = NULL,
                          password    = NULL,
                          driver_name = NULL,
@@ -62,7 +57,10 @@ authenticate <- function(from,
 
   checkmate::assert_character(from, null.ok = FALSE, any.missing = FALSE,
                               min.len = 1L)
-  type <- match.arg(type)
+  checkmate::assert_choice(type,
+                           choices = c("MS SQL", "MySQL", "PostgreSQL",
+                                       "SQLite", "REDCap", "DHIS2"),
+                           null.ok = TRUE)
   checkmate::assert_character(user_name, null.ok = TRUE, any.missing = FALSE,
                               min.len = 0L)
   checkmate::assert_character(password, null.ok = TRUE, any.missing = FALSE,
@@ -75,7 +73,7 @@ authenticate <- function(from,
                             min.len = 0L)
   url_check(from)
   if (!is.null(db_name) && !is.null(port)) {
-    con <- switch(
+    conn <- switch(
       type,
       SQLServer  = pool::dbPool(odbc::odbc(),
                                 driver   = driver_name,
@@ -104,7 +102,7 @@ authenticate <- function(from,
 
     ## Saving the credentials as attributes of the output object. They will be
     ## used to establish the connection in a subsequent query.
-    attr(con, "credentials") <- list(
+    attr(conn, "credentials") <- list(
       user     = user_name,
       password = password,
       host     = from,
@@ -113,23 +111,21 @@ authenticate <- function(from,
       port     = port,
       type     = type
     )
-    return(invisible(con))
   } else {
-    if (!is.null(password)) {
-      warning("We recommend using 'password = NULL' and enter the password ",
-              "in the prompt.", call. = FALSE)
-    }
-    # TO DO: the condition around the number of characters in the token is not
-    # valid for DHIS2 PAT (it's 48 characters) and bearer token (36)
-    if (grep("[:alnum:]", password) && nchar(password) == 32L) {
-      # when this condition is met, the password corresponds to the token
-      response <- httr2::request(from) |>
-        httr2::req_auth_bearer_token(token = password)
-    } else {
-      response <- httr2::request(from) |>
+    # Entering this branch means, data is fetched from an API. We will determine
+    # the authentication method based on which arguments are provided.
+
+    # basic authentication requires a user name and password
+    if (all(!is.null(user_name) && !is.null(password))) {
+      conn <- httr2::request(from) |>
         httr2::req_auth_basic(username = user_name, password = password)
     }
-    message("\nLogged in successfully!")
-    return(invisible(response))
+
+    # bearer token authentication requires a token but not a user name
+    if (all(!is.null(password) && is.null(user_name))) {
+      conn <- httr2::request(from) |>
+        httr2::req_auth_bearer_token(token = password)
+    }
   }
+  return(invisible(conn))
 }

@@ -91,9 +91,16 @@ read_sormas <- function(user_name, password, query_parameters) {
     # Replace this with 0 to fetch all cases.
   )
 
+  # authenticate the user
+  # TO DO: account for other types of authentications
+  authentication_response <- authenticate(
+    from = url,
+    user_name = user_name,
+    password = password
+  )
+
   # perform the request and store the data from the 'cases' endpoint in 'dat'
-  resp <- httr2::request(url) %>%
-    httr2::req_auth_basic(user_name, password) %>%
+  resp <- authentication_response %>%
     httr2::req_perform() %>%
     httr2::resp_body_json()
 
@@ -137,8 +144,13 @@ read_sormas <- function(user_name, password, query_parameters) {
     query_parameters[["since"]]
   )
 
-  resp <- httr2::request(url) %>%
-    httr2::req_auth_basic(user_name, password) %>%
+  authentication_response <- authenticate(
+    from = url,
+    user_name = user_name,
+    password = password
+  )
+
+  resp <- authentication_response %>%
     httr2::req_perform() %>%
     httr2::resp_body_json()
   content <- lapply(resp, unlist)
@@ -202,8 +214,13 @@ read_sormas <- function(user_name, password, query_parameters) {
     query_parameters[["since"]]
   )
 
-  resp <- httr2::request(url) %>%
-    httr2::req_auth_basic(user_name, password) %>%
+  authentication_response <- authenticate(
+    from = url,
+    user_name = user_name,
+    password = password
+  )
+
+  resp <- authentication_response %>%
     httr2::req_perform() %>%
     httr2::resp_body_json()
   content <- lapply(resp, unlist)
