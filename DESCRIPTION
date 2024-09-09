@@ -27,11 +27,13 @@ URL: https://epiverse-trace.github.io/readepi/,
 BugReports: https://github.com/epiverse-trace/readepi/issues
 Imports: 
     checkmate,
+    cli,
     DBI,
     dplyr,
     fingertipsR (>= 1.0.10.9001),
     glue,
     httr2,
+    lubridate,
     magrittr,
     odbc,
     pool,

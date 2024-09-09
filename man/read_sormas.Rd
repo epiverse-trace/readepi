@@ -43,5 +43,4 @@ covid_cases <- read_sormas(
     since = 0 # cases from this date to now will be fetched
   )
 )
-
 }
