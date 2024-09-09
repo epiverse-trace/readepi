@@ -44,12 +44,11 @@ read_sormas <- function(user_name, password, query_parameters) {
                            null.ok = FALSE, any.missing = FALSE)
   checkmate::assert_character(query_parameters[["uuid"]], len = 1L,
                               any.missing = FALSE, null.ok = FALSE)
-  if (!checkmate::test_numeric(query_parameters[["since"]])) {
-    if (lubridate::is.Date(query_parameters[["since"]])) {
-      query_parameters[["since"]] <- as.numeric(
-        as.POSIXct(query_parameters[["since"]])
-      )
-    }
+  if (!checkmate::test_numeric(query_parameters[["since"]]) &&
+      lubridate::is.Date(query_parameters[["since"]])) {
+    query_parameters[["since"]] <- as.numeric(
+      as.POSIXct(query_parameters[["since"]])
+    )
   }
 
   # check if the specified disease is accounted for in SORMAS
@@ -80,7 +79,7 @@ read_sormas <- function(user_name, password, query_parameters) {
 
   # the base url to the test server
   # TODO: replace with the base url of the live server
-  base_url = "https://demo.sormas.org/sormas-rest"
+  base_url <- "https://demo.sormas.org/sormas-rest"
 
   # construct the URL
   url <- file.path(
@@ -93,13 +92,13 @@ read_sormas <- function(user_name, password, query_parameters) {
   )
 
   # perform the request and store the data from the 'cases' endpoint in 'dat'
-  resp <- httr2::request(url) |>
-    httr2::req_auth_basic(user_name, password) |>
-    httr2::req_perform() |>
+  resp <- httr2::request(url) %>%
+    httr2::req_auth_basic(user_name, password) %>%
+    httr2::req_perform() %>%
     httr2::resp_body_json()
 
   # unnest the request response and convert it into data frame
-  content <- lapply(resp, function(x) {unlist(x)})
+  content <- lapply(resp, unlist)
   dat <- suppressMessages(dplyr::bind_rows(content))
 
   # retain only cases infected with the disease of interest
@@ -138,11 +137,11 @@ read_sormas <- function(user_name, password, query_parameters) {
     query_parameters[["since"]]
   )
 
-  resp <- httr2::request(url) |>
-    httr2::req_auth_basic(user_name, password) |>
-    httr2::req_perform() |>
+  resp <- httr2::request(url) %>%
+    httr2::req_auth_basic(user_name, password) %>%
+    httr2::req_perform() %>%
     httr2::resp_body_json()
-  content <- lapply(resp, function(x) {unlist(x)})
+  content <- lapply(resp, unlist)
   person_data <- suppressMessages(dplyr::bind_rows(content))
 
   # keep only persons with a corresponding uuid from the cases data frame
@@ -153,9 +152,9 @@ read_sormas <- function(user_name, password, query_parameters) {
 
   # get the date of birth. We are not using the age given it comes into
   # different units. The age can be derived from the date of birth columns
-  birth_day_cols <- c("birthdateYYYY" , "birthdateMM" , "birthdateDD")
+  birth_day_cols <- c("birthdateYYYY", "birthdateMM", "birthdateDD")
   person_data[["date_of_birth"]] <- as.Date(apply(
-    person_data[ , birth_day_cols] , 1 , paste , collapse = "-"
+    person_data[, birth_day_cols], 1, paste, collapse = "-"
   ))
 
   # get the case_name, sex, country, city, latitude, longitude from the
@@ -174,20 +173,21 @@ read_sormas <- function(user_name, password, query_parameters) {
     outcome = dat[["outcome"]],
     date_outcome = as.Date(
       as.POSIXct(as.numeric(dat[["outcomeDate"]]),
-      origin = '1970-01-01')
+      origin = "1970-01-01")
     ),
     date_onset = as.Date(as.POSIXct(
       as.numeric(dat[["symptoms.onsetDate"]]),
-      origin = '1970-01-01')
+      origin = "1970-01-01")
     ),
     date_admission = as.Date(
       as.POSIXct(as.numeric(dat[["hospitalization.admissionDate"]]),
-                 origin = '1970-01-01')
+                 origin = "1970-01-01")
     ),
     country = person_data[["address.country.caption"]],
     city = person_data[["address.city"]],
     lat = person_data[["address.latitude"]],
-    long = person_data[["address.longitude"]]
+    long = person_data[["address.longitude"]],
+    stringsAsFactors = FALSE
   )
 
   # fetch all contacts details from the 'contacts' endpoint where we can extract
@@ -202,11 +202,11 @@ read_sormas <- function(user_name, password, query_parameters) {
     query_parameters[["since"]]
   )
 
-  resp <- httr2::request(url) |>
-    httr2::req_auth_basic(user_name, password) |>
-    httr2::req_perform() |>
+  resp <- httr2::request(url) %>%
+    httr2::req_auth_basic(user_name, password) %>%
+    httr2::req_perform() %>%
     httr2::resp_body_json()
-  content <- lapply(resp, function(x) {unlist(x)})
+  content <- lapply(resp, unlist)
   contact_data <- suppressMessages(dplyr::bind_rows(content))
   idx <- match(dat[["uuid"]], contact_data[["caze.uuid"]])
   date_last_contact <- contact_data[["lastContactDate"]][idx]
@@ -215,7 +215,7 @@ read_sormas <- function(user_name, password, query_parameters) {
   )
   final_data[["date_last_contact"]] <- as.Date(
     as.POSIXct(as.numeric(date_last_contact),
-               origin = '1970-01-01')
+               origin = "1970-01-01")
   )
 
   # 'firstContactDate' might not be part of columns from the contact data frame
@@ -227,15 +227,9 @@ read_sormas <- function(user_name, password, query_parameters) {
     )
     final_data[["date_first_contact"]] <- as.Date(
       as.POSIXct(as.numeric(date_first_contact),
-                 origin = '1970-01-01')
+                 origin = "1970-01-01")
     )
   }
 
   return(final_data)
 }
-
-
-
-
-
-
