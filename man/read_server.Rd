@@ -44,10 +44,16 @@ how to install the driver.
     port          = 4497
   )
 
-  # import data from the 'author' table
-  data <- read_from_server(
+  # import data where query parameters are specified as a list
+  authors_list <- read_server(
     conn  = conn,
     query = list(table = "author", select = NULL, filter = NULL)
+  )
+
+  # import data where query parameters is within an SQL query
+  authors_list <- read_server(
+    conn  = conn,
+    query = "select * from author"
   )
 }
 }
