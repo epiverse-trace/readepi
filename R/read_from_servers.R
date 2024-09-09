@@ -6,7 +6,7 @@
 #'    For more details, see the [vignette](../vignettes/install_drivers.Rmd) on
 #'    how to install the driver.
 #'
-#' @param con The connection object obtained from the `authenticate()`
+#' @param conn The connection object obtained from the `authenticate()`
 #'    function.
 #' @param query An SQL query or a list with the following elements:
 #'    \enumerate{
@@ -104,26 +104,6 @@ read_server <- function(conn, query) {
 #'
 #' @return A string with the constructed SQL query from the provided query
 #'    parameter.
-#' @examples
-#' # establish the connection
-#' \donttest{
-#'   # establish the connection to the database
-#'   conn <- authenticate(
-#'     from          = "mysql-rfam-public.ebi.ac.uk",
-#'     type          = "MySQL",
-#'     user_name     = "rfamro",
-#'     password      = "",
-#'     driver_name   = "",
-#'     db_name       = "Rfam",
-#'     port          = 4497
-#'   )
-#' }
-#' result <- server_make_query(
-#'   table_name = "author",
-#'   connexion  = conn,
-#'   filter     = filter,
-#'   select     = select
-#' )
 #' @keywords internal
 #'
 server_make_query <- function(table_name,

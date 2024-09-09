@@ -7,6 +7,9 @@
 read_server(conn, query)
 }
 \arguments{
+\item{conn}{The connection object obtained from the \code{authenticate()}
+function.}
+
 \item{query}{An SQL query or a list with the following elements:
 \enumerate{
 \item table: a string with the table name
@@ -16,9 +19,6 @@ those columns will be returned. Default is \code{NULL}.
 rows from the table of interest. This should be of the same length
 as the value for the 'select'. Default is \code{NULL}.
 }}
-
-\item{con}{The connection object obtained from the \code{authenticate()}
-function.}
 }
 \value{
 A \code{data.frame} with the requested data as specified in the \code{query}
