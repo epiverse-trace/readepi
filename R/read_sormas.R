@@ -173,6 +173,7 @@ read_sormas <- function(user_name, password, query_parameters) {
   # persons details.
   # 'case_name' is the combination of the first and the last names
   final_data <- data.frame(
+    case_uuid = dat[["person.uuid"]],
     case_name = paste(person_data[["firstName"]], person_data[["lastName"]],
                       sep = " "),
     sex = person_data[["sex"]],
@@ -225,7 +226,7 @@ read_sormas <- function(user_name, password, query_parameters) {
     httr2::resp_body_json()
   content <- lapply(resp, unlist)
   contact_data <- suppressMessages(dplyr::bind_rows(content))
-  idx <- match(dat[["uuid"]], contact_data[["caze.uuid"]])
+  idx <- match(final_data[["case_uuid"]], contact_data[["caze.uuid"]])
   date_last_contact <- contact_data[["lastContactDate"]][idx]
   date_last_contact <- substr(
     date_last_contact, 1, nchar(date_last_contact) - 3
@@ -247,6 +248,30 @@ read_sormas <- function(user_name, password, query_parameters) {
                  origin = "1970-01-01")
     )
   }
+
+  # fetch the pathogen test details. We will extract the the Ct values from this
+  # endpoint.
+  url <- file.path(
+    base_url,
+    "pathogentests",
+    query_parameters[["uuid"]],
+    query_parameters[["since"]]
+  )
+
+  authentication_response <- authenticate(
+    from = url,
+    user_name = user_name,
+    password = password
+  )
+
+  resp <- authentication_response %>%
+    httr2::req_perform() %>%
+    httr2::resp_body_json()
+  content <- lapply(resp, unlist)
+  pathogen_tests_data <- suppressMessages(dplyr::bind_rows(content))
+  idx <- match(final_data[["case_uuid"]], pathogen_tests_data[["uuid"]])
+  # TODO: determine the difference between cq and ct values
+  final_data[["cq_values"]] <- pathogen_tests_data[["cqValue"]][idx]
 
   return(final_data)
 }
