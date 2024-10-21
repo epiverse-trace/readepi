@@ -24,13 +24,20 @@
 #' covid_cases <- read_sormas(
 #'   user_name = "SurvSup",
 #'   password = "Lk5R7JXeZSEc",
-#'   query_parameters <- list(
+#'   query_parameters = list(
 #'     disease = "coronavirus",
 #'     uuid = "all", # could take a vector of uuids
 #'     since = 0 # cases from this date to now will be fetched
 #'   )
 #' )
 #' @importFrom magrittr %>%
+#'
+#' @details
+#' The function returns the following columns by default: \code{case_uuid,
+#' sex, date_of_birth, case_origin, country, city, lat, long, case_status,
+#' date_onset, date_admission, date_last_contact, date_first_contact, outcome,
+#' date_outcome, Ct_values}.
+#'
 read_sormas <- function(user_name, password, query_parameters) {
   cli::cli_progress_step("Importing cases data from SORMAS...",
                          msg_done = "Successfully imported cases from SORMAS.",
@@ -49,6 +56,42 @@ read_sormas <- function(user_name, password, query_parameters) {
     query_parameters[["since"]] <- as.numeric(
       as.POSIXct(query_parameters[["since"]])
     )
+  }
+
+  # This variable stores the name of the columns that will be returned by the
+  # function if the "extra_columns" argument is set to NULL.
+  # It will also be used to reorder the final output.
+  default_returned_columns <- c(
+    "case_uuid", "country", "city", "lat", "long", "gender", "date_of_birth",
+    "case_origin",  "case_status", "date_onset", "date_admission",
+    "date_last_contact", "date_first_contact", "outcome", "date_outcome",
+    "Ct_values"
+  )
+
+  # When some extra columns are required by the user, we will:
+  # 1. check if they are not part of the default columns
+  # 2. check which endpoint contains each of the extra columns from the data
+  # dictionary. The identified endpoints will be queried to fetch the
+  # corresponding data.
+  if (!is.null(query_parameters[["extra_columns"]])) {
+    # identify the extra columns not part of the default columns
+    extra_columns <- query_parameters[["extra_columns"]]
+    idx <- which(!(extra_columns %in% default_returned_columns))
+    extra_columns <- extra_columns[idx]
+    if (length(extra_columns) > 0) {
+      default_returned_columns <- c(default_returned_columns, extra_columns)
+
+      # download the data dictionary and api specification files
+      # they will be used to look for which endpoints contain the extra columns
+      download_folder <- download_api_docs(
+        his = "sormas"
+      )
+      data_dictionary <- file.path(download_folder, "dictionary.xlsx")
+      api_specification <- file.path(download_folder, "api_specification.json")
+
+      # TODO: identify the endpoints that contain the extra column (return a
+      # data frame of 2 columns: columns - endpoint)
+    }
   }
 
   # check if the specified disease is accounted for in SORMAS
@@ -173,16 +216,12 @@ read_sormas <- function(user_name, password, query_parameters) {
   # persons details.
   # 'case_name' is the combination of the first and the last names
   final_data <- data.frame(
-    case_uuid = dat[["person.uuid"]],
-    case_name = paste(person_data[["firstName"]], person_data[["lastName"]],
-                      sep = " "),
+    case_uuid = dat[["uuid"]],
+    person_uuid = dat[["person.uuid"]],
     sex = person_data[["sex"]],
     date_of_birth = person_data[["date_of_birth"]],
     case_origin = dat[["caseOrigin"]],
-    case_type = dat[["caseClassification"]],
-    case_epi_confirmation = dat[["epidemiologicalConfirmation"]],
-    case_lab_confirmation = dat[["laboratoryDiagnosticConfirmation"]],
-    case_clinical_confirmation = dat[["clinicalConfirmation"]],
+    case_status = dat[["caseClassification"]],
     outcome = dat[["outcome"]],
     date_outcome = as.Date(
       as.POSIXct(as.numeric(dat[["outcomeDate"]]),
@@ -249,8 +288,10 @@ read_sormas <- function(user_name, password, query_parameters) {
     )
   }
 
-  # fetch the pathogen test details. We will extract the the Ct values from this
-  # endpoint.
+  # Add the Ct (cycle threshold) values from the lab test
+  # Pathogen tests are linked with sample. The sample then is connected to a
+  # case. From the pathogen test data, we can extract the Ct values and the
+  # associated sample case uuids.
   url <- file.path(
     base_url,
     "pathogentests",
@@ -269,9 +310,9 @@ read_sormas <- function(user_name, password, query_parameters) {
     httr2::resp_body_json()
   content <- lapply(resp, unlist)
   pathogen_tests_data <- suppressMessages(dplyr::bind_rows(content))
-  idx <- match(final_data[["case_uuid"]], pathogen_tests_data[["uuid"]])
-  # TODO: determine the difference between cq and ct values
-  final_data[["cq_values"]] <- pathogen_tests_data[["cqValue"]][idx]
+  idx <- match(final_data[["case_uuid"]],
+               pathogen_tests_data[["sample.associatedCaseUuid"]])
+  final_data[["Ct_values"]] <- pathogen_tests_data[["cqValue"]][idx]
 
   return(final_data)
 }
