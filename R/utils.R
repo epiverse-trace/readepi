@@ -59,3 +59,143 @@ sormas_get_diseases <- function(user_name, password) {
     dplyr::select(dplyr::all_of(target_columns))
   return(disease_names)
 }
+
+
+#' Download the data dictionary and API specification files of a given the
+#' health information system.
+#'
+#' @param his The name of the health information system of interest
+#' @param path The path to the directory where the downloaded files will be
+#'    stored.
+#'
+#' @return Invisibly returns the path to the folder where the files are stored.
+#'    When \code{path = NULL}, the files will be stored in the R temporary
+#'    folder as: \code{dictionary.xlsx} and \code{api_specification.json}
+#'    respectively.
+#' @export
+#'
+#' @examples
+#' # download the SORMAS data dictionary and API specification to the temporary
+#' # R folder
+#' download_folder <- download_api_docs(his = "sormas")
+download_api_docs <- function(his, path = NULL) {
+  checkmate::assert_character(his, len = 1, any.missing = FALSE,
+                              null.ok = FALSE)
+  # Every HIS has a URL from where the dictionary can be retrieved. We make sure
+  # to have the URL for each API.
+  dictionary_url <- switch(his,
+    sormas = paste0(
+      "https://raw.githubusercontent.com/sormas-foundation/SORMAS-Project/",
+      "development/sormas-api/src/main/resources/doc/",
+      "SORMAS_Data_Dictionary.xlsx"
+    )
+  )
+
+  # The data dictionary and api specification will be stored in a temporary
+  # directory if the user has not provided a path
+  if (is.null(path)) {
+    path <- tempdir()
+  }
+  file_extension <- strsplit(basename(dictionary_url), split = "\\.")[[1]]
+  dictionary <- file.path(
+    path,
+    paste("dictionary", file_extension[-1], sep = ".")
+  )
+  if (file.exists(dictionary)) {
+    unlink(dictionary)
+  }
+
+  download.file(
+    dictionary_url,
+    destfile = dictionary,
+    method = "curl",
+    quiet = TRUE
+  )
+
+  # Every API is documented automatically through the OpenAPI specification
+  # file. This file provides the actual names of the endpoints that needs to be
+  # used when sending a request. We download this file to match it with the data
+  # dictionary to get actual endpoint names.
+  api_specification_url <- switch(
+    his,
+    sormas = paste0(
+      "https://raw.githubusercontent.com/SORMAS-Foundation/SORMAS-Project/refs/",
+      "heads/development/sormas-rest/swagger.json"
+    )
+  )
+  api_specification <- file.path(path, "api_specification.json")
+  if (file.exists(api_specification)) {
+    unlink(api_specification)
+  }
+
+  download.file(
+    api_specification_url,
+    destfile = api_specification,
+    method = "curl",
+    quiet = TRUE
+  )
+
+  return(invisible(path))
+}
+
+#' Get the list of available endpoints from an API from the API specification
+#' documentation.
+#'
+#' @param his A character that represents the name of the health information
+#'    system.
+#'
+#' @return A vector of the endpoints found from the API specification document.
+#' @export
+#'
+#' @examples
+#' # get the list of endpoints from SORMAS
+#' sormas_endpoints <- get_endpoints(his = "sormas")
+#'
+get_endpoints <- function(his) {
+  checkmate::assert_character(his, len = 1, null.ok = FALSE,
+                              any.missing = FALSE)
+  # For a given HIS, we can download both the data dictionary and api
+  # specification files. We can get the endpoints and their corresponding sheet
+  # from these two files
+  download_folder <- download_api_docs(his)
+  api_specification <- file.path(download_folder, "api_specification.json")
+
+  # Read the JSON file to get the endpoints
+  api_specification_data <- jsonlite::read_json(
+    api_specification,
+    eval.expr = FALSE
+  )
+  split_path <- function(x) {
+      unlist(strsplit(x, "/", fixed = TRUE))[[2]]
+  }
+  endpoints <- as.character(
+    lapply(names(api_specification_data[["paths"]]), split_path)
+  )
+  return(endpoints)
+}
+
+get_fields <- function(his, endpoint) {
+
+  # For a given HIS, we can download both the data dictionary and api
+  # specification files. We can get the endpoints and their corresponding sheet
+  # from these two files
+  download_folder <- download_api_docs(his)
+  data_dictionary <- file.path(download_folder, "dictionary.xlsx")
+
+  #  Every sheet from the dictionary file contains information about the data
+  #  found in the corresponding endpoint. We extract the name of these sheets
+  #  and match them to the endpoints.
+  sheet_names <- tolower(readxl::excel_sheets(path = data_dictionary))
+  match_dict_specs <- function(sheet_name, endpoints) {
+    patterns <- paste(c(sheet_name, gsub(" ", "", sheet_name)), collapse = "|")
+    idx <- grep(patterns, endpoints)
+    if (length(idx) == 0) {
+      x <- c(sheet_name, NA)
+    } else {
+      x <- c(sheet_name, toString(endpoints[idx]))
+    }
+    return(x)
+  }
+  res <- lapply(sheet_names, match_dict_specs, endpoints)
+  res <- data.frame(matrix(unlist(res), nrow = length(l), byrow = TRUE))
+}

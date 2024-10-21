@@ -32,7 +32,7 @@ Importing data from various sources into the R environment is the first step
 in the workflow of outbreak analysis. Health data are often stored in 
 individual files of different formats, in relational database management 
 systems (RDBMS), and more importantly, many health organizations store their 
-data in health information systems (HIS) wrapped underhood of a specific 
+data in health information systems (HIS) wrapped under hood of a specific 
 Application Programming Interfaces (APIs).
 
 Many R packages have been developed over the years to read data stored in a 
