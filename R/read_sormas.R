@@ -135,7 +135,7 @@ read_sormas <- function(user_name, password, query_parameters) {
   )
 
   # authenticate the user
-  # TO DO: account for other types of authentications
+  # TODO: account for other types of authentications
   authentication_response <- authenticate(
     from = url,
     user_name = user_name,

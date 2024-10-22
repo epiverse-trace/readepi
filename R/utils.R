@@ -171,9 +171,25 @@ get_endpoints <- function(his) {
   endpoints <- as.character(
     lapply(names(api_specification_data[["paths"]]), split_path)
   )
-  return(endpoints)
+  return(unique(endpoints))
 }
 
+#' Get the field names from an endpoint
+#'
+#' @param his A character with the name of the HIS
+#' @param endpoint A character with the name of the target endpoint from which
+#'    you want to get the field names.
+#'
+#' @return A vector of characters representing all the fields found within the
+#'    specified endpoint.
+#' @export
+#'
+#' @examples
+#' # get all field from the 'persons' endpoint in 'SORMAS'
+#' fields <- get_fields(
+#'   his = "sormas",
+#'   endpoint = "persons"
+#' )
 get_fields <- function(his, endpoint) {
 
   # For a given HIS, we can download both the data dictionary and api
@@ -182,20 +198,58 @@ get_fields <- function(his, endpoint) {
   download_folder <- download_api_docs(his)
   data_dictionary <- file.path(download_folder, "dictionary.xlsx")
 
-  #  Every sheet from the dictionary file contains information about the data
-  #  found in the corresponding endpoint. We extract the name of these sheets
-  #  and match them to the endpoints.
-  sheet_names <- tolower(readxl::excel_sheets(path = data_dictionary))
-  match_dict_specs <- function(sheet_name, endpoints) {
-    patterns <- paste(c(sheet_name, gsub(" ", "", sheet_name)), collapse = "|")
-    idx <- grep(patterns, endpoints)
-    if (length(idx) == 0) {
-      x <- c(sheet_name, NA)
-    } else {
-      x <- c(sheet_name, toString(endpoints[idx]))
-    }
-    return(x)
+  # Every sheet from the dictionary file contains information about the data
+  # found in the corresponding endpoint. We extract the name of these sheets
+  # and match them to the endpoints.
+  sheet_names <- readxl::excel_sheets(path = data_dictionary)
+  patterns <- paste(
+    c(tolower(sheet_names), gsub(" ", "", tolower(sheet_names))),
+    collapse = "|"
+  )
+  idx <- grep(patterns, endpoint)
+
+  # stop the process if there is no match between the endpoint and sheet names
+  if (length(idx) == 0) {
+    cli::cli_abort(c(
+      x = "Specified endpoint does not have a matching sheet name from the \\\
+        data dictionary.",
+      i = "Use {.code get_endpoints()} to see the list of available endpoints \\\
+        from your system of interest."
+    ))
   }
-  res <- lapply(sheet_names, match_dict_specs, endpoints)
-  res <- data.frame(matrix(unlist(res), nrow = length(l), byrow = TRUE))
+
+  # continue with the identified sheet name
+  sheet_name <- sheet_names[idx]
+  fields <- readxl::read_xlsx(path = data_dictionary, sheet = sheet_name)
+
+  # the data dictionary has multiple sections separated by empty lines. The
+  # first section has the field names. The remaining sections contain the
+  # field's descriptions. We will only return the field names from the first
+  # section.
+  # get the line number that separates the fields and their corresponding
+  # data dictionary
+  idx <- which(rowSums(is.na(fields)) == ncol(fields))[1]
+
+  # only consider the field names - no need for the dictionaries
+  fields <- fields[1:(idx - 1), ]
+  fields <- fields[["Field"]]
+  cli::cli_alert_success(
+    "Matching sheet name for {.code {endpoint}} is {.code {sheet_name}}. It \\\
+    contains {.code {length(fields)}} fields."
+  )
+  return(fields)
 }
+
+# match_dict_specs <- function(sheet_name, endpoint) {
+#   patterns <- paste(c(sheet_name, gsub(" ", "", sheet_name)), collapse = "|")
+#   idx <- grep(patterns, endpoint)
+#   if (length(idx) == 0) {
+#     x <- c(sheet_name, NA)
+#   } else {
+#     x <- c(sheet_name, toString(endpoint[idx]))
+#   }
+#   return(x)
+# }
+# res <- lapply(sheet_names, match_dict_specs, endpoint)
+# res <- data.frame(matrix(unlist(res), nrow = length(res), byrow = TRUE))
+# names(res) <- c("sheet_name", "endpoint")
