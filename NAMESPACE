@@ -2,7 +2,10 @@
 
 export(authenticate)
 export(dhis2_get_attributes)
+export(download_api_docs)
 export(get_disease_names)
+export(get_endpoints)
+export(get_fields)
 export(read_server)
 export(read_sormas)
 export(readepi)

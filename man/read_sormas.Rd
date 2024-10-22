@@ -32,12 +32,18 @@ A data frame with the case data of the specified disease.
 Import data from SORMAS (Surveillance, Outbreak Response Management and
 Analysis System)
 }
+\details{
+The function returns the following columns by default: \code{case_uuid,
+sex, date_of_birth, case_origin, country, city, lat, long, case_status,
+date_onset, date_admission, date_last_contact, date_first_contact, outcome,
+date_outcome, Ct_values}.
+}
 \examples{
 # fetch all COVID (coronavirus) cases from the first date
 covid_cases <- read_sormas(
   user_name = "SurvSup",
   password = "Lk5R7JXeZSEc",
-  query_parameters <- list(
+  query_parameters = list(
     disease = "coronavirus",
     uuid = "all", # could take a vector of uuids
     since = 0 # cases from this date to now will be fetched
