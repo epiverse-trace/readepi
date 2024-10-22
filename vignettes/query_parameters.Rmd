@@ -1,0 +1,106 @@
+---
+title: "query_parameters"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{query_parameters}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Introduction
+
+For a succesful API or database request, users are required to provide details about where the data can be found and which data they want the reading function to return. These information are generally designated as **query paramaters** and can vary depending on the type of HIS.
+In the sections below, we will describe the query parameters and define how to use them when fetching data from our target HIS.
+
+## RDBMS query parameters
+
+Following a succesful authentication using the `authenticate()` function, the connection with the database is established. Users can now determine the name of the table, in the database, where the dataset of interest is stored. They can also inform the reading function about what entries and/or fields they are mainly interested in. These information are passed to the `read_epidata()` through its `query_params` argument. In the current version of the package, the `query_params` can be either:
+
+1. An **SQL query**, or
+2. A **list** with the following elements:
+  * table: a string with the table name
+  * select: a vector of column names. When specified, only those columns will be returned. Default is
+  `NULL`.
+  * filter: an expression or a vector of values used to filter the rows from the table of interest. This should be of the same length as the value for the 'select'. Default is `NULL`.
+
+### Examples
+
+Say our connection object is `conn` and we are aiming to fetch data from the `author` table. Suppose that table contains a articles first author details. From that table, we are only interest in return author's name, surname and orcid for the first ten authors. The `query_params` argument will look like below:
+
+```{r eval=FALSE}
+## AS A LIST
+read_epidata(conn         = conn,
+             query_params = list(
+              table  = "author",
+              select = c("name", "surname", "orcid"),
+              filter = 1:10
+             ))
+
+## AS AN SQL QUERY - FOR MySQL server
+read_epidata(conn         = conn,
+             query_params = "SELECT name, surname, orcid FROM author LIMIT 10")
+```
+
+Note that the syntax in the SQL query depends on the server type. The example above is tailored for a  MySQL server. If you wish to explore the syntax for other server types, see [here](https://www.w3schools.com/sqL/) for more details.
+
+## APIs query parameters
+
+### SORMAS
+
+SORMAS (Surveillance Outbreak Response Management and Analysis System) aims at optimizing **the processes** used in monitoring the spread of infectious diseases and responding to outbreak situations.
+
+what are these processes?
+
+```{bash eval=FALSE, include=FALSE}
+# copy the content of this file: /Users/karimmane/Documents/Karim/LSHTM/TRACE_dev/deploy\ 2/openapi/sormas-rest.yaml
+
+# paste it in https://editor.swagger.io/ to visualize the ReST API documentation
+```
+
+access to the SORMAS data
+
+Questions:
+
+1. How does OIDC/OAUTH2/Bearer authentication work?
+2. what is the difference between clinical, laboratory and epidemiological
+   confirmations? Which one defines whether a person is infected or not?
+3. Is directionality captured in contact tracing? i.e can I generate 'from' and
+  'to' columns from the contact data?
+4. 'lastContactDate' is captured in the contact data, but not 'firstContactDate'
+   Is this correct? or I am missing something?
+5. How to fetch multiple cases using a vector of cases (without having to fetch all     cases and subset the ones of interest)?
+6. What is the base URL to the live server? can we have a user to test our
+   functionality.
+7. From what endpoint can I get the Ct (viral load/shedding) values of infected         cases?
+8. Currently logging multiple times. Can a user have access a endpoit and not have access to another? for example: can a user have access to cases data but not the persons or contact data?
+
+TODO:
+
+1. automate the process of fetching the list of disease name from sormas (done)
+2. automate the process of fetching the data dictionary from sormas and extract
+    the relevant part for the final data
+3. complete the request queries with more details
+4. replace with the base url of the live server
+5. If access is given to a user across all endpoints, we could just authenticate once and use that object in other requests.
+
+
+
+External Visit API:
+
+* uses basic auth
+* only users with the role REST_EXTERNAL_VISITS_USER are authorised
+* enable communication between SORMAS and other symptom journals
+* Visits hold information about symptoms at a specific time point
+    * Visits can be created for cases and contacts
+* ??? need clarification around **person, cases, contacts** in the visits API
+
+
+
+

@@ -1,5 +1,5 @@
 ---
-title: "Package Design vignette for {readepi}"
+title: "Package design vignette for {readepi}"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{Package Design vignette for {readepi}}
@@ -22,49 +22,97 @@ knitr::opts_chunk$set(
 
 ## Concept and motivation
 
-This document outlines the design decisions that is guiding the development strategies of the {readepi} R package, the reasoning behind them, as well as the possible pros and cons of each decision.
+::: {style="text-align: justify;"}
 
-Importing data from “whatever source of it” into `R` environment is the first step in many workflows of outbreak analysis. Epidemiological data are often stored in files of different formats. The most popular among those formats being: ‘.txt’, ‘.tab’, ‘.csv’, ‘.xlxs’, etc.
+This document outlines the design decisions guiding the development strategies 
+of the `{readepi}` R package, the reasoning behind them, as well as the 
+possible pros and cons of each decision.
 
-Many R packages have been developed over the years to facilitate the importation of data stored in such files. We recommend the [{rio}](http://gesistsa.github.io/rio/) package for importing data that are relatively of small size and the [{data.table}](https://cran.r-project.org/web/packages/data.table/vignettes/) package for large files.
+Importing data from various sources into the R environment is the first step 
+in the workflow of outbreak analysis. Health data are often stored in 
+individual files of different formats, in relational database management 
+systems (RDBMS), and more importantly, many health organizations store their 
+data in health information systems (HIS) wrapped under hood of a specific 
+Application Programming Interfaces (APIs).
 
-To enable easy and real time access of well structured data, most organisations in the world are now storing their data in public repositories, relational database management systems (RDBMS), and health information systems (HIS) wrapped with specific Application Programming Interfaces (APIs). As such, we aim at building a centralized tool that will provide users with the possibility of importing data from various HIS and RDBMS.
+Many R packages have been developed over the years to read data stored in a 
+file or in a directory containing multiple files. We recommend the 
+[{rio}](http://gesistsa.github.io/rio/) package for importing data 
+that are relatively small in size and the 
+[{data.table}](https://cran.r-project.org/web/packages/data.table/vignettes/) 
+package for large files. For retrieving data from RDBMS, we recommend the 
+[{DBI}](https://dbi.r-dbi.org/) package.
 
-Our first attempt consisted in using the currently available R packages designed to access data from specific HIS. These packages are usually tied to a single HIS and can't be used to query others. {fingertipsR}, {REDCapR}, {godataR}, {globaldothealth} can be used to fetch data from [Fingertips](https://fingertips.phe.org.uk/), [REDCap](https://projectredcap.org/software/), [goData](https://www.who.int/tools/godata), and [Global.Health](https://global.health/) respectively. In version **0.1.0** of the {readepi} package, when a user is requesting data from a specific HIS, its correspondent package is called internally. 
+There are several R packages for reading data from HIS such as {fingertipsR}, 
+{REDCapR}, {godataR}, and {globaldothealth}, which are used to fetch data from 
+[Fingertips](https://fingertips.phe.org.uk/), 
+[REDCap](https://projectredcap.org/software/), 
+[Go.Data](https://www.who.int/tools/godata), and 
+[Global.Health](https://global.health/) respectively. However, these packages 
+are usually designed to read from specific HIS and can't be used to query 
+others. This increases the dependency on many other packages and introduces 
+the challenge of having a unified framework for importing data from multiple 
+HIS. As such, we propose `{readepi}`, a centralized tool that will provide 
+users with the capability of importing data from various HIS and RDBMS.
 
-As each package was designed to target a specific HIS, this approach increases our dependency to many other packages and introduces the challenge of having a unified framework for importing data from multiple HIS.
-
-To address this challenge, PIs of the [Epiverse-TRACE](https://data.org/initiatives/epiverse/) came with a list of potential data sources for which we aim at building a tool to request and fetch the data of interest from multiple source in the same way. The data sources include: distributed health information systems, and public databases as shown in the figure below.
+`{readepi}` can import data from several potential sources in the same way. The
+ data sources include distributed health information systems and public 
+ databases as shown in the figure below.
+:::
 
 ![readepi roadmap](../man/figures/roadmap_readepi.drawio.svg)
 
 ## Scope
 
-The {readepi} package intends to import data from two common sources of institutional health-related data: health information systems (HIS) wrapped with specific Application programming interfaces (APIs) and relational database management systems (RDBMS) that run on specific servers.
+::: {style="text-align: justify;"}
 
-Importing data from any of these sources requires the user to have the right access. The user is also expected to provide the relevant query parameters to fetch the target data.
-Hence, the {readepi} package is structured around one main function (`read_epidata()`) and two auxiliary functions (`authenticate()` and `get_metadata()`).
+The `{readepi}` package is designed to import data from two common sources of 
+institutional health-related data: HIS wrapped with specific APIs and 
+RDBMS that run on specific servers.
 
-The previous version of {readepi} (`0.1.0`) supports importing data from HIS APIs such as REDCap (Research Electronic Data Capture), DHIS2 (District Health Information System 2), and Fingertips as well as RDBMS such as MS SQL, SQLite, MYSQL, and PostgreSQL. 
+To import data from these sources, users must have the appropriate access and
+provide relevant query parameters to fetch the target data. Thus, the 
+`{readepi}` package is structured around one main function, `read_epidata()`,
+ and two auxiliary functions, `authenticate()` and `get_metadata()`.
 
-In the next versions, the `read_epidata()` function will also allow data import from HIS like GoData, Globaldothealth, SORMAS, and ODK. It will also include functionalities for importing data from RDBMS such as MS ACCESS, and SQlite.
+The current version of `{readepi}` supports importing data from HIS APIs such 
+as REDCap, DHIS2, and Fingertips, as well as RDBMS like MS SQL, SQLite, MySQL, 
+and PostgreSQL.
+
+In the future, we plan to include features for reading data from additional 
+HISs like GoData, Globaldothealth, SORMAS, and ODK, as well as RDBMS such as 
+MS Access.
+
+:::
 
 ![readepi design diagram](../man/figures/readepi_design_diagram.drawio.svg)
 
 
 ## Output
 
+::: {style="text-align: justify;"}
 The `read_epidata()` functions return a `list` object containing one or more `data frames`. Each `data frame` corresponds to the data from a specified source.
 The `get_metadata()` function returns a data dictionary containing information about the data structure.
 The `authenticate()` function returns a connection object that is used in the query request.
+:::
 
 ## Design decisions
 
-The aim of {readepi} is to simplify and standardize the process of fetching health data from APIs and servers. We ambition to make it require minimal arguments to access and pull the data of interest from the target source.
+::: {style="text-align: justify;"}
+The aim of {readepi} is to simplify and standardize the process of fetching 
+health data from APIs and servers. We strive to make it easy for users, 
+requiring minimal arguments to access and retrieve the data of interest from 
+the target source.
 
-* `authenticate()`: a function used to authenticate a user (check who the user is) and check whether the user is authorized to access the requested database or API. This function is fundamental to establish the connection to the source, ensuring the success of data import.
+* `authenticate()`:  This function verifies the user's identity and determines 
+if they are authorized to access the requested database or API. Establishing 
+this connection is crucial for ensuring successful data import.
 
-We will ensure that once an argument is provided for the authentication, it is easily retrieved from the connection object, and used in the 2 other functions, hence preventing from been supplied again in another request.
+Once authentication credentials are provided, they are securely stored within 
+the connection object. This prevents the need to re-supply them for subsequent 
+requests to other functions. The Figure below lists the arguments needed to 
+call the `authenticate()` function.
+:::
 
 ```{r authenticate, fig.align='center', echo=FALSE}
 DiagrammeR::grViz("digraph{
@@ -94,13 +142,24 @@ DiagrammeR::grViz("digraph{
 
 ```
 
-The `type` argument refers to the name of the data source of interest. The current version of the package will cover the followings:
+::: {style="text-align: justify;"}
+The `type` argument refers to the name of the data source of interest. The 
+current version of the package  covers the following types:
 
-    i) RDBMS: “MS SQL”, “MySQL”, “PostgreSQL”, “SQLite”, “MS ACCESS”,
-    ii) APIs: “REDCap”, “DHIS2”, “ODK”, “Fingertips”, “goData”, “SORMAS”
+    i) RDBMS: “MS SQL”, “MySQL”, “PostgreSQL”, “SQLite”
+    ii) APIs: “REDCap”, “DHIS2”,  “Fingertips”.
 
+Here's a refined version of your description:
 
-* `get_metadata()`: will be used to retrieve the data schema (table list + data dictionary) from a database or the data dictionary from an endpoint of the target API. It offers interoperability with the `clean_based_on_dictionay()` function of the [{cleanepi}](https://epiverse-trace.github.io/cleanepi/) R package.
+---
+
+**`get_metadata()`**: This function retrieves the data schema, including the 
+list of tables and data dictionary, from a database or the data dictionary 
+from an API endpoint. It ensures compatibility with the 
+`clean_based_on_dictionary()` function of the 
+[{cleanepi}](https://epiverse-trace.github.io/cleanepi/) R package for 
+ data cleaning and standardization processes.
+:::
 
 ```{r get_metadata, fig.align='center', echo=FALSE}
 DiagrammeR::grViz("digraph{
@@ -124,7 +183,13 @@ DiagrammeR::grViz("digraph{
 }")
 ```
 
-* `read_epidata()`: this is the main function of the package. It can be used to read from both HIS and RDBMS.
+* `read_epidata()`: this is the main function of the package. 
+It can be used to read from both HIS and RDBMS as shown in the below figure.
+
+    * When reading from RDBMS:
+        1. the value for the `type` argument is expected to be one of: "MS SQL", "MySQL", "PostgreSQL", or "SQLite".
+        2. When the query parameters are provided as a `list`, they will be used to form the appropriate SQL query internally. That resulting SQL query is the one that is executed by the internal function `read_rdbms()`.
+                                         
 
 ```{r read, fig.align='center', echo=FALSE}
 DiagrammeR::grViz("digraph{
@@ -139,7 +204,7 @@ DiagrammeR::grViz("digraph{
         style = rounded
         bgcolor = LightBlue
     
-        label = 'read()'
+        label = 'read_epidata()'
         node[shape = rectangle, fillcolor = LemonChiffon, margin = 0.25]
         A[label = 'conn: the connection object made from authenticate()']
         B[label = 'endpoint: the path to the target endpoint (APIs only)']
@@ -148,7 +213,14 @@ DiagrammeR::grViz("digraph{
 }")
 ```
 
-An internal function (`read_*` where `*` is the source name) is designed for fetching data from a specific HIS. This implementation will make it possible to perform updates on a specific function, while conserving the remaining structures (easy maintenance).
+::: {style="text-align: justify;"}
+
+Calling `read_epidata()` will invoke an internal function (`read_*`, 
+where `*` represents the source name) that is dedicated 
+to fetching data from specific HIS sources. This design allows for targeted 
+updates to individual functions while maintaining the overall structure, 
+ensuring ease of maintenance.
+:::
 
 ```{r fig.align='center', echo=FALSE}
 DiagrammeR::DiagrammeR("
@@ -161,55 +233,65 @@ graph TB
     A --> G(read_sormas)
     A --> H(read_ODK)
     A --> I(read_godata)
+    A --> J(read_globaldothealth)
 ")
 ```
 
+::: {style="text-align: justify;"}
 Note that, when reading from RDBMS, the `query` argument could be an [SQL query]{.underline} or a [list with a vector of table names, fields and rows to subset on]{.underline}.
 For HIS, the elements of this list can vary depending on the API that is been queried. We strongly recommend reading the vignette on the [query_parameters](./query_parameters.Rmd) for more details.
+:::
 
 ## Mitigate API security risks
 
-To prevent from APIs security risks and issues, we will ensure that our API requests follow the practices listed below:
 
-1. Identify API gateway (centralized point of entry) and send authentication requests to this gateway
-2. Make sure users access only the data they are allowed to:
-    * use OAuth or token-based authentication if possible
-    * determine the data a user can have access to. Send a meaningful error message when a user attempts to access unauthorized data.
-3. Make sure API key is not sent as part of the URL to avoid it been copied from the proxy logs or other places
-4. Control the number of requests that can be sent in a time period, and the number of pages that to be returned in the API response.
-5. Prevent from sending/receiving malicious data:
-    * use parameterized query
-    * validate and sanitize inputs
-6. Continuously maintain our hard-coded resources:
-    * regularly review and decommission unused APIs
-    * maintain and update list of all endpoints
+To mitigate API security risks, we implement the following best practices:
+
+1. Utilize an API gateway as a centralized entry point and direct all 
+authentication requests through this gateway.
+2. Ensure users only access authorized data:
+   - Prefer OAuth or token-based authentication, whenever possible
+   - Implement access controls to enforce data restrictions and provide 
+   meaningful error messages for unauthorized access attempts.
+3. Avoid including API keys in URLs to prevent exposure in proxy logs or 
+other places.
+4. Implement rate limiting to control the number of requests per time period 
+and the size of API responses.
+5. Mitigate risks of malicious data:
+   - Use parameterized queries to prevent SQL injection.
+   - Validate and sanitize input data to prevent cross-site scripting (XSS) 
+   and other attacks.
+6. Maintain robust security measures:
+   - Regularly review and decommission unused APIs.
+   - Maintain an updated list of all endpoints to ensure security and 
+   operational integrity.
 
 
 ## Dependencies
 
-* The `read_epidata()` will rely mainly on 2 packages:
 
-  [{httr2}](https://CRAN.R-project.org/package=httr2) or [{data.table}](https://CRAN.R-project.org/package=data.table): this will serve in constructing and performing the API requests,
-  [{dplyr}](https://CRAN.R-project.org/package=dplyr): will be used for its data wrangling functionalities.
 
-* The `read_from_server()` will rely mainly on the packages below:
+* The `read_epidata()` function relies primarily on two packages:
+  - [{httr2}](https://CRAN.R-project.org/package=httr2) or [{data.table}](https://CRAN.R-project.org/package=data.table): These are used to construct and execute API requests.
+  - [{dplyr}](https://CRAN.R-project.org/package=dplyr): Utilized for its data manipulation capabilities.
 
-  [{DBI}](https://CRAN.R-project.org/package=DBI): for its functionalities to connect, and fetch data from a table in a database,
-  [{pool}](https://CRAN.R-project.org/package=pool): for its ability to handle multiple connection,
-  [{odbc}](https://CRAN.R-project.org/package=odbc): for its drivers required to fetch data from several DBMS,
-  [{RMySQL}](https://CRAN.R-project.org/package=RMySQL): for its drivers to fetch data from MySQL databases.
+* The `read_from_server()` function depends on the following packages:
+  - [{DBI}](https://CRAN.R-project.org/package=DBI): Used for database connectivity and querying.
+  - [{pool}](https://CRAN.R-project.org/package=pool): Provides functionality for managing multiple database connections.
+  - [{odbc}](https://CRAN.R-project.org/package=odbc): Supplies drivers required for accessing various DBMS.
+  - [{RMySQL}](https://CRAN.R-project.org/package=RMySQL): Specifically used for MySQL database connectivity.
 
-It also has a system dependency for OS-X and Linux users. This will be described in details in the vignette.
+These functions also require system dependencies for OS-X and Linux systems, detailed in the vignette.
 
-Both functions will require all other packages that are needed in the package development process including:
-
-  [{checkmate}](https://CRAN.R-project.org/package=checkmate),
-  [{httptest2}](https://CRAN.R-project.org/package=httptest2),
-  [{bookdown}](https://CRAN.R-project.org/package=bookdown),
-  [{rmarkdown}](https://CRAN.R-project.org/package=rmarkdown),
-  [{testthat}](https://CRAN.R-project.org/package=testthat) (>= 3.0.0),
-  [{knitr}](https://CRAN.R-project.org/package=knitr)
+Additionally, the development of the package necessitates the inclusion of other required packages:
+- [{checkmate}](https://CRAN.R-project.org/package=checkmate)
+- [{httptest2}](https://CRAN.R-project.org/package=httptest2)
+- [{bookdown}](https://CRAN.R-project.org/package=bookdown)
+- [{rmarkdown}](https://CRAN.R-project.org/package=rmarkdown)
+- [{testthat}](https://CRAN.R-project.org/package=testthat) (>= 3.0.0)
+- [{knitr}](https://CRAN.R-project.org/package=knitr)
 
 ## Contribute
 
 There are no special requirements to contributing to {readepi}, please follow the [package contributing guide](https://github.com/epiverse-trace/.github/blob/main/CONTRIBUTING.md).
+
