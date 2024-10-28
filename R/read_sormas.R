@@ -1,66 +1,84 @@
 #' Import data from SORMAS (Surveillance, Outbreak Response Management and
 #' Analysis System)
 #'
+#' The function returns the following columns by default: \code{case_uuid,
+#' sex, date_of_birth, case_origin, country, city, lat, long, case_status,
+#' date_onset, date_admission, date_last_contact, date_first_contact, outcome,
+#' date_outcome, Ct_values}. When needed, extra columns can be specified using
+#' the \code{extra_columns} argument.
+#'
 #' @param user_name The user name
 #' @param password The user's password
-#' @param query_parameters A list with the query parameters. Possible values
-#'    are:
-#'    \enumerate{
-#'        \item disease: a character with the target disease name (required).
-#'        \item uuid: a character with the target case id. Default is "all" to
-#'            fetch all cases of the specified disease (required).
-#'        \item since: a numeric used to specify the target date. Only cases
-#'            reported from this date till now will be returned (required).
-#'            Default is 0 to fetch cases from the first date.
-#'            When a Date value is provided instead of a numeric value, this
-#'            will be converted internally.
+#' @param disease A character with the target disease name.
+#' @param filter A list with the parameters needed to filter on rows. When
+#'    specified, only records that meet these conditions will be returned.
+#'    Default is \code{NULL}. Possible values are:
+#'    \describe{
+#'        \item{since:}{a \code{numeric} or \code{Date} used to specify the
+#'            target date. Only cases reported from this date till now will be
+#'            returned. The conversion between numeric to Date will be performed
+#'            internally based on the requirement of the target HIS.}
+#'        \item{sex:}{a \code{character} used to specify the gender of
+#'            interest.}
+#'        \item{country:}{a \code{vector} used to specify the countries of
+#'            interest.}
+#'        \item{city:}{a \code{vector} used to specify the cities of interest.}
+#'        \item{outcome:}{a \code{vector} used to specify the outcomes of
+#'            interest.}
 #'    }
+#'    Note that users can defined other filters than the defaults, provided that
+#'    those columns will be part of the imported dataset.
+#' @param extra_columns A vector used to specify the names of the additional
+#'    columns to return. Default is \code{NULL}.
 #'
 #' @return A data frame with the case data of the specified disease.
 #' @export
 #'
 #' @examples
-#' # fetch all COVID (coronavirus) cases from the first date
+#' # fetch all COVID (coronavirus) cases from the test SORMAS instance
 #' covid_cases <- read_sormas(
 #'   user_name = "SurvSup",
 #'   password = "Lk5R7JXeZSEc",
-#'   query_parameters = list(
-#'     disease = "coronavirus",
-#'     uuid = "all", # could take a vector of uuids
-#'     since = 0 # cases from this date to now will be fetched
-#'   )
+#'   disease = "coronavirus",
+#'   filter = NULL,
+#'   extra_columns = NULL
 #' )
 #' @importFrom magrittr %>%
 #'
-#' @details
-#' The function returns the following columns by default: \code{case_uuid,
-#' sex, date_of_birth, case_origin, country, city, lat, long, case_status,
-#' date_onset, date_admission, date_last_contact, date_first_contact, outcome,
-#' date_outcome, Ct_values}.
-#'
-read_sormas <- function(user_name, password, query_parameters) {
+read_sormas <- function(user_name,
+                        password,
+                        disease,
+                        filter = NULL,
+                        extra_columns = NULL) {
   cli::cli_progress_step("Importing cases data from SORMAS...",
                          msg_done = "Successfully imported cases from SORMAS.",
                          spinner = TRUE)
+  checkmate::assert_vector(
+    disease, min.len = 1L, null.ok = FALSE, any.missing = FALSE
+  )
+  checkmate::assert_character(
+    filter, len = 1, null.ok = TRUE, any.missing = FALSE
+  )
+  checkmate::assert_vector(
+    extra_columns, null.ok = TRUE, any.missing = FALSE
+  )
 
-  checkmate::assert_list(query_parameters, any.missing = FALSE, len = 3L,
-                         null.ok = FALSE)
-  checkmate::check_subset(query_parameters,
-                          choices = c("disease", "uuid", "since"))
-  checkmate::assert_vector(query_parameters[["disease"]], min.len = 1L,
-                           null.ok = FALSE, any.missing = FALSE)
-  checkmate::assert_character(query_parameters[["uuid"]], len = 1L,
-                              any.missing = FALSE, null.ok = FALSE)
-  if (!checkmate::test_numeric(query_parameters[["since"]]) &&
-      lubridate::is.Date(query_parameters[["since"]])) {
-    query_parameters[["since"]] <- as.numeric(
-      as.POSIXct(query_parameters[["since"]])
-    )
-  }
+  # The filters might depend on the API. The get_filters() functions is used to
+  # construct the required filters for the HIS of interest.
+  # TODO: get other opinions about the default columns on which to filter:
+  # sex, country, city, outcome
+  filters <- get_filters(his = "sormas", filter = filter)
+  since <- filters[["since"]]
+  sex <- filters[["sex"]]
+  country <- filters[["country"]]
+  city <- filters[["city"]]
+  outcome <- filters[["outcome"]]
+
 
   # This variable stores the name of the columns that will be returned by the
   # function if the "extra_columns" argument is set to NULL.
-  # It will also be used to reorder the final output.
+  # It will also be used to reorder the final output such that the extra columns
+  # will be the last columns.
   default_returned_columns <- c(
     "case_uuid", "country", "city", "lat", "long", "gender", "date_of_birth",
     "case_origin",  "case_status", "date_onset", "date_admission",
@@ -73,9 +91,8 @@ read_sormas <- function(user_name, password, query_parameters) {
   # 2. check which endpoint contains each of the extra columns from the data
   # dictionary. The identified endpoints will be queried to fetch the
   # corresponding data.
-  if (!is.null(query_parameters[["extra_columns"]])) {
+  if (!is.null(extra_columns)) {
     # identify the extra columns not part of the default columns
-    extra_columns <- query_parameters[["extra_columns"]]
     idx <- which(!(extra_columns %in% default_returned_columns))
     extra_columns <- extra_columns[idx]
     if (length(extra_columns) > 0) {
@@ -95,7 +112,7 @@ read_sormas <- function(user_name, password, query_parameters) {
   }
 
   # check if the specified disease is accounted for in SORMAS
-  disease <- tolower(query_parameters[["disease"]])
+  disease <- tolower(disease)
   sormas_diseases <- get_disease_names(
     from = "sormas",
     user_name = user_name,
@@ -128,8 +145,8 @@ read_sormas <- function(user_name, password, query_parameters) {
   url <- file.path(
     base_url,
     "cases",
-    query_parameters[["uuid"]],
-    query_parameters[["since"]] # this is the date of interest. Remove the last
+    "all",
+    since # this is the date of interest. Remove the last
     #3 digits and use as.POSIXlt() to convert into Date.
     # Replace this with 0 to fetch all cases.
   )
@@ -183,8 +200,8 @@ read_sormas <- function(user_name, password, query_parameters) {
   url <- file.path(
     base_url,
     "persons",
-    query_parameters[["uuid"]],
-    query_parameters[["since"]]
+    "all",
+    since
   )
 
   authentication_response <- authenticate(
@@ -250,8 +267,8 @@ read_sormas <- function(user_name, password, query_parameters) {
   url <- file.path(
     base_url,
     "contacts",
-    query_parameters[["uuid"]],
-    query_parameters[["since"]]
+    "all",
+    since
   )
 
   authentication_response <- authenticate(
@@ -295,8 +312,8 @@ read_sormas <- function(user_name, password, query_parameters) {
   url <- file.path(
     base_url,
     "pathogentests",
-    query_parameters[["uuid"]],
-    query_parameters[["since"]]
+    "all",
+    since
   )
 
   authentication_response <- authenticate(
