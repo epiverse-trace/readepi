@@ -31,34 +31,7 @@ get_disease_names <- function(from, user_name, password) {
   return(disease_names)
 }
 
-#' Get list of disease names from SORMAS
-#'
-#' @inheritParams get_disease_names
-#'
-#' @return A vector of the list of disease names in SORMAS
-#' @keywords internal
-#'
-sormas_get_diseases <- function(user_name, password) {
-  url <- file.path(
-    "https://demo.sormas.org/sormas-rest",
-    "diseaseconfigurations",
-    "all",
-    0
-  )
-  resp <- httr2::request(url) %>%
-    httr2::req_auth_basic(user_name, password) %>%
-    httr2::req_perform() %>%
-    httr2::resp_body_json()
-  content <- lapply(resp, unlist)
-  disease_names <- suppressMessages(dplyr::bind_rows(content))
 
-  # only return columns with the disease names and whether a disease is active
-  # or not
-  target_columns <- c("disease", "active")
-  disease_names <- disease_names %>%
-    dplyr::select(dplyr::all_of(target_columns))
-  return(disease_names)
-}
 
 
 #' Download the data dictionary and API specification files of a given the
@@ -253,3 +226,60 @@ get_fields <- function(his, endpoint) {
 # res <- lapply(sheet_names, match_dict_specs, endpoint)
 # res <- data.frame(matrix(unlist(res), nrow = length(res), byrow = TRUE))
 # names(res) <- c("sheet_name", "endpoint")
+
+
+#' Construct the list of parameters used to subset rows for the imported data
+#' from the user-provided filters.
+#'
+#' @param his A character with the name of the target HIS
+#' @param filter A list with the filters to apply on the imported data
+#'
+#' @return An updated list of filters with the user-specified parameters.
+#' @keywords internal
+#'
+get_filters <- function(his, filter) {
+  # TODO: determine the default columns on which to filter on: sex, country,
+  # city, outcome
+  filters <- switch(
+    his,
+    sormas = sormas_get_filters(filter)
+  )
+
+  return(filters)
+}
+
+#' Return the default list of data filtration options.
+#'
+#' @return A list with the pre-defined data filtration options.
+#' @keywords internal
+#'
+get_default_filters <- function() {
+  return(
+    list(
+      since = NULL,
+      sex = NULL,
+      country = NULL,
+      city = NULL,
+      outcome = NULL
+    )
+  )
+}
+
+#' Update the data filtration options with the user-specified values.
+#'
+#' @param defaults A list with the default data filtration options
+#' @param filters A list with the data filtration options defined by the user
+#' @param strict A boolean used to specify whether to not allow for other data
+#'    filtration options than the defaults. Default is \code{TRUE}.
+#'
+#' @return A list with the updated data filtration options.
+#' @keywords internal
+#'
+modify_default_filters <- function(defaults, filters, strict = TRUE) {
+  extra <- setdiff(names(filters), names(defaults))
+  if (strict && (length(extra) > 0L)) {
+    stop("Additional invalid options: ", toString(extra))
+  }
+  # keep.null is needed here
+  return(utils::modifyList(defaults, filters, keep.null = TRUE))
+}

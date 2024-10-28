@@ -5,48 +5,54 @@
 \title{Import data from SORMAS (Surveillance, Outbreak Response Management and
 Analysis System)}
 \usage{
-read_sormas(user_name, password, query_parameters)
+read_sormas(user_name, password, disease, filter = NULL, extra_columns = NULL)
 }
 \arguments{
 \item{user_name}{The user name}
 
 \item{password}{The user's password}
 
-\item{query_parameters}{A list with the query parameters. Possible values
-are:
-\enumerate{
-\item disease: a character with the target disease name (required).
-\item uuid: a character with the target case id. Default is "all" to
-fetch all cases of the specified disease (required).
-\item since: a numeric used to specify the target date. Only cases
-reported from this date till now will be returned (required).
-Default is 0 to fetch cases from the first date.
-When a Date value is provided instead of a numeric value, this
-will be converted internally.
-}}
+\item{disease}{A character with the target disease name.}
+
+\item{filter}{A list with the parameters needed to filter on rows. When
+specified, only records that meet these conditions will be returned.
+Default is \code{NULL}. Possible values are:
+\describe{
+\item{since:}{a \code{numeric} or \code{Date} used to specify the
+target date. Only cases reported from this date till now will be
+returned. The conversion between numeric to Date will be performed
+internally based on the requirement of the target HIS.}
+\item{sex:}{a \code{character} used to specify the gender of
+interest.}
+\item{country:}{a \code{vector} used to specify the countries of
+interest.}
+\item{city:}{a \code{vector} used to specify the cities of interest.}
+\item{outcome:}{a \code{vector} used to specify the outcomes of
+interest.}
+}
+Note that users can defined other filters than the defaults, provided that
+those columns will be part of the imported dataset.}
+
+\item{extra_columns}{A vector used to specify the names of the additional
+columns to return. Default is \code{NULL}.}
 }
 \value{
 A data frame with the case data of the specified disease.
 }
 \description{
-Import data from SORMAS (Surveillance, Outbreak Response Management and
-Analysis System)
-}
-\details{
 The function returns the following columns by default: \code{case_uuid,
 sex, date_of_birth, case_origin, country, city, lat, long, case_status,
 date_onset, date_admission, date_last_contact, date_first_contact, outcome,
-date_outcome, Ct_values}.
+date_outcome, Ct_values}. When needed, extra columns can be specified using
+the \code{extra_columns} argument.
 }
 \examples{
-# fetch all COVID (coronavirus) cases from the first date
+# fetch all COVID (coronavirus) cases from the test SORMAS instance
 covid_cases <- read_sormas(
   user_name = "SurvSup",
   password = "Lk5R7JXeZSEc",
-  query_parameters = list(
-    disease = "coronavirus",
-    uuid = "all", # could take a vector of uuids
-    since = 0 # cases from this date to now will be fetched
-  )
+  disease = "coronavirus",
+  filter = NULL,
+  extra_columns = NULL
 )
 }
