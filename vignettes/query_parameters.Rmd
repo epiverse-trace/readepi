@@ -52,6 +52,8 @@ Note that the syntax in the SQL query depends on the server type. The example ab
 
 ## APIs query parameters
 
+
+
 ### SORMAS
 
 SORMAS (Surveillance Outbreak Response Management and Analysis System) aims at optimizing **the processes** used in monitoring the spread of infectious diseases and responding to outbreak situations.
@@ -63,32 +65,6 @@ what are these processes?
 
 # paste it in https://editor.swagger.io/ to visualize the ReST API documentation
 ```
-
-access to the SORMAS data
-
-Questions:
-
-1. How does OIDC/OAUTH2/Bearer authentication work?
-2. what is the difference between clinical, laboratory and epidemiological
-   confirmations? Which one defines whether a person is infected or not?
-3. Is directionality captured in contact tracing? i.e can I generate 'from' and
-  'to' columns from the contact data?
-4. 'lastContactDate' is captured in the contact data, but not 'firstContactDate'
-   Is this correct? or I am missing something?
-5. How to fetch multiple cases using a vector of cases (without having to fetch all     cases and subset the ones of interest)?
-6. What is the base URL to the live server? can we have a user to test our
-   functionality.
-7. From what endpoint can I get the Ct (viral load/shedding) values of infected         cases?
-8. Currently logging multiple times. Can a user have access a endpoit and not have access to another? for example: can a user have access to cases data but not the persons or contact data?
-
-TODO:
-
-1. automate the process of fetching the list of disease name from sormas (done)
-2. automate the process of fetching the data dictionary from sormas and extract
-    the relevant part for the final data
-3. complete the request queries with more details
-4. replace with the base url of the live server
-5. If access is given to a user across all endpoints, we could just authenticate once and use that object in other requests.
 
 
 
