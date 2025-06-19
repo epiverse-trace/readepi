@@ -213,19 +213,37 @@ get_fields <- function(his, endpoint) {
   return(fields)
 }
 
-# match_dict_specs <- function(sheet_name, endpoint) {
-#   patterns <- paste(c(sheet_name, gsub(" ", "", sheet_name)), collapse = "|")
-#   idx <- grep(patterns, endpoint)
-#   if (length(idx) == 0) {
-#     x <- c(sheet_name, NA)
-#   } else {
-#     x <- c(sheet_name, toString(endpoint[idx]))
-#   }
-#   return(x)
-# }
-# res <- lapply(sheet_names, match_dict_specs, endpoint)
-# res <- data.frame(matrix(unlist(res), nrow = length(res), byrow = TRUE))
-# names(res) <- c("sheet_name", "endpoint")
+#' Match form names to endpoint names
+#'
+#' @param sheet_name A vector with the form names
+#' @param endpoint A vector with the endpoint names
+#'
+#' @return A data frame with two columns with the correspondence between form
+#'    names and endpoints.
+#' @keywords internal
+#'
+#' @examples
+#' download_folder <- download_api_docs(his)
+#' data_dictionary <- file.path(download_folder, "dictionary.xlsx")
+#' sheet_names <- readxl::excel_sheets(path = data_dictionary)
+#' endpoints <- get_endpoints(his = "sormas")
+#' res <- lapply(sheet_names, match_forms_to_endpoints, endpoints)
+#' res <- data.frame(matrix(unlist(res), nrow = length(res), byrow = TRUE))
+#' names(res) <- c("sheet_name", "endpoint")
+#'
+match_forms_to_endpoints <- function(sheet_name, endpoint) {
+  patterns <- paste(
+    c(tolower(sheet_name), gsub(" ", "", tolower(sheet_name))),
+    collapse = "|"
+  )
+  idx <- grep(patterns, endpoint)
+  if (length(idx) == 0) {
+    x <- c(sheet_name, NA)
+  } else {
+    x <- c(sheet_name, toString(endpoint[idx]))
+  }
+  return(x)
+}
 
 
 #' Construct the list of parameters used to subset rows for the imported data
