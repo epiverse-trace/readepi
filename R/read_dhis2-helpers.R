@@ -677,6 +677,3 @@ get_tracked_entities <- function(login, target_entities, org_units) {
   return(tracked_entities)
 }
 
-
-
-
