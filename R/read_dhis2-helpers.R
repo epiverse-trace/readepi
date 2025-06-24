@@ -222,9 +222,11 @@ remove_list <- function(x) {
   return(Filter(Negate(is.list), x))
 }
 
-get_org_unit_as_df <- function(login) {
+get_org_unit_as_df <- function(login, org_units) {
   # get all org units
-  org_units <- get_organisation_units(login)
+  if (is.null(org_units)) {
+    org_units <- get_organisation_units(login)
+  }
   longer_names <- org_units |>
     dplyr::select(dplyr::ends_with("_name")) |>
     tidyr::pivot_longer(
@@ -246,11 +248,12 @@ get_org_unit_as_df <- function(login) {
 
 #' org_unit_id <- check_org_unit(
 #'   login = login,
-#'   org_unit = "Freetown"
+#'   org_unit = "Freetown",
+#'   org_units = org_units
 #' )
-check_org_unit <- function(login, org_unit) {
+check_org_unit <- function(login, org_unit, org_units) {
   # get all org units
-  tmp_org_units <- org_unit_as_df(login)
+  tmp_org_units <- get_org_unit_as_df(login, org_units)
 
   # if the provided organisation unit is a correct ID, return it
   if (org_unit %in% tmp_org_units[["org_unit_ids"]]) {
@@ -339,7 +342,7 @@ get_program_stages <- function(login, program = NULL) {
   base_url <- gsub("/api/me", "", login[["url"]])
 
   program_stages <- vector("list", length = nrow(programs))
-  for (i in seq_along(nrow(programs))) {
+  for (i in seq_len(nrow(programs))) {
     program_id <- programs[["id"]][i]
     program_name <- programs[["displayName"]][i]
 
@@ -400,6 +403,7 @@ get_enrollments <- function(login, program, org_unit) {
   # construct the URL to a specific program
   url <- paste0(
     file.path(base_url, "api", "tracker", "enrollments"),
+    # file.path(base_url, "api", "enrollments"),
     query_parameters
   )
 
@@ -429,26 +433,28 @@ get_enrollments <- function(login, program, org_unit) {
 #' )
 #' program <- "IpHINAT79UW"
 #' org_unit <- "DiszpKrYNg8"
-#' all_data_elements <- get_data_elements(login = login)
-#' org_units <- get_org_unit_as_df(login = login)
+#' data_elements <- get_data_elements(login = login)
+#' org_units <- get_organisation_units(login = login)
+#' org_units <- get_org_unit_as_df(login = login, org_units)
 #' program_stages <- get_program_stages(login, program)
 #'
 #' events <- get_event_data(login, program, org_unit)
-get_event_data <- function(login, program, org_unit, all_data_elements,
-                           org_units, program_stages) {
+get_event_data <- function(login, program, org_unit, data_elements,
+                           org_units, programs, program_stages) {
   # check whether the provided program and organisation unit exist
   program <- check_program(login, program)
-  org_unit <- check_org_unit(login, org_unit)
+  org_unit <- check_org_unit(login, org_unit, org_units = org_units)
 
-  if (is.null(all_data_elements)) {
-    all_data_elements <- get_data_elements(login = login)
+  if (is.null(data_elements)) {
+    data_elements <- get_data_elements(login = login)
   }
-  if (is.null(org_units)) {
-    org_units <- get_org_unit_as_df(login = login)
-  }
+  # if (is.null(org_units)) {
+  #   org_units <- get_org_unit_as_df(login = login, org_units = org_units)
+  # }
   if (is.null(program_stages)) {
     program_stages <- get_program_stages(login, program)
   }
+  org_units <- get_org_unit_as_df(login = login, org_units = org_units)
 
   # get the base URL the login object
   base_url <- gsub("/api/me", "", login[["url"]])
@@ -462,6 +468,7 @@ get_event_data <- function(login, program, org_unit, all_data_elements,
   # construct the URL to a specific program
   url <- paste0(
     file.path(base_url, "api", "tracker", "events"),
+    # file.path(base_url, "api", "events"),
     query_parameters
   )
 
@@ -491,18 +498,18 @@ get_event_data <- function(login, program, org_unit, all_data_elements,
   # Extract the data values elements from the events list
   data_values_list <- purrr::map(events, ~ .x$dataValues)
 
-  data_elements <- lapply(data_values_list, function(group) {
+  target_data_elements <- lapply(data_values_list, function(group) {
     sapply(group, function(x) x$dataElement)
   })
 
   # Flatten the list of data element
-  data_elements <- unique(unlist(data_elements))
+  target_data_elements <- unique(unlist(target_data_elements))
 
   # construct the data frame that will contain the event data
   event_data <- as.data.frame(
-    matrix(nrow = length(events), ncol = length(data_elements))
+    matrix(nrow = length(events), ncol = length(target_data_elements))
   )
-  names(event_data) <- data_elements
+  names(event_data) <- target_data_elements
 
   # loop through the dataValues list to get the data elements and values for
   # every event entry
@@ -521,30 +528,29 @@ get_event_data <- function(login, program, org_unit, all_data_elements,
 
 
     # fill the event data frame at the corresponding line and columns
-    idx <- match(target_data_elements, data_elements)
+    idx <- match(target_data_elements, names(event_data))
     event_data[i, idx] <- target_data_values
   }
 
   # get the data elements and rename the columns of the event_data using the
   # data element names
-  idx <- match(names(event_data), all_data_elements[["id"]])
-  names(event_data) <- all_data_elements[["name"]][idx]
+  idx <- match(names(event_data), data_elements[["id"]])
+  names(event_data) <- data_elements[["name"]][idx]
 
   # combine the event attributes and their data
   event_data <- cbind(event_attributes, event_data)
 
   # replace the program id by the program name
-  idx <- which(event_data$program == program)
-  m <- match(program, program_stages$program_id)
-  event_data$program[idx] <- program_stages$program_name[m]
+  idx <- match(event_data[["program"]], programs[["id"]])
+  event_data[["program"]] <- programs[["displayName"]][idx]
 
   # replace the program stage ids by the program stage names
-  idx <- match(event_data$program_stage, program_stages$program_stage_id)
-  event_data$program_stage <- program_stages$program_stage_name[idx]
+  idx <- match(event_data[["program_stage"]], program_stages[["program_stage_id"]])
+  event_data[["program_stage"]] <- program_stages[["program_stage_name"]][idx]
 
   # replace the organisation unit ids by their names
-  idx <- match(event_data$org_unit, org_units$org_unit_ids)
-  event_data$org_unit <- org_units$org_unit_names[idx]
+  idx <- match(event_data[["org_unit"]], org_units[["org_unit_ids"]])
+  event_data[["org_unit"]] <- org_units[["org_unit_names"]][idx]
 
 
   return(event_data)
@@ -577,9 +583,19 @@ get_one_entity_data <- function(x, login) {
   return(response)
 }
 
+# function to get the attribute names and ids of the tracked entities
+# Use this function to get the ids and names of the features collected about each tracked entities. The ids and names will be used to update the list of query parameters
+get_entity_attributes <- function(x) {
+  tmp <- x$attributes %>%
+    dplyr::bind_rows()
+  display_names <- tmp$displayName
+  attribute_names <- data.frame(id = tmp$attribute, name = tmp$displayName)
+  return(attribute_names)
+}
+
 # get the tracked entities
 # target_entities <- paste(unique(event_data$tracked_entity), collapse = ",")
-# tracked_entities <- get_tracked_entities(login, target_entities)
+# tracked_entities <- get_tracked_entities(login, target_entities, org_units)
 get_tracked_entities <- function(login, target_entities, org_units) {
   # get the base URL from the login object
   base_url <- gsub("/api/me", "", login[["url"]])
@@ -594,7 +610,7 @@ get_tracked_entities <- function(login, target_entities, org_units) {
     query_parameters
   )
 
-  # response <- lapply(target_entities, get_one_entity_data, login, base_url)
+  # response <- lapply(target_entities, get_one_entity_data, login)
 
   # querying the track entities endpoint
   response <- login[["request"]] |>
@@ -605,6 +621,8 @@ get_tracked_entities <- function(login, target_entities, org_units) {
     httr2::resp_body_json()
 
   tracked_entities <- response[["trackedEntities"]]
+  # stop and send a message if no tracked entity was found
+  stopifnot("No tracked entity was found" = !length(tracked_entities) == 0)
 
   entity_attributes <- purrr::map(
     tracked_entities, ~ c(tracked_entity = .x$trackedEntity,
@@ -614,10 +632,15 @@ get_tracked_entities <- function(login, target_entities, org_units) {
     dplyr::bind_rows()
 
   # get the attribute names and ids
-  attributes_names <- dplyr::bind_rows(
-    purrr::map(tracked_entities, get_entity_attributes)
+  attributes_names <- suppressWarnings(
+    dplyr::bind_rows(purrr::map(tracked_entities, get_entity_attributes))
   ) |>
     dplyr::distinct()
+
+  # send a message when no tracked entity has an attribute
+  if (nrow(attributes_names) == 0) {
+    warning("No attribute found across all tracked entities.")
+  }
 
   # get the list of all attributes
   all_attributes <- purrr::map(tracked_entities, ~ .x$attributes)
@@ -647,6 +670,7 @@ get_tracked_entities <- function(login, target_entities, org_units) {
   tracked_entities <- cbind(entity_attributes, entity_data)
 
   # replace the org unit id with the org unit name
+  org_units <- get_org_unit_as_df(login = login, org_units = org_units)
   idx <- match(tracked_entities[["org_unit"]], org_units[["org_unit_ids"]])
   tracked_entities[["org_unit"]] <- org_units[["org_unit_names"]][idx]
 
@@ -654,12 +678,5 @@ get_tracked_entities <- function(login, target_entities, org_units) {
 }
 
 
-# finally join the event data with the tracked entity data based on the tracked
-# entity IDs and their organisation unit
-final_result <- tracked_entities |>
-  dplyr::left_join(
-    event_data,
-    by = c("tracked_entity", "org_unit"),
-    relationship = "many-to-many"
-  )
+
 
