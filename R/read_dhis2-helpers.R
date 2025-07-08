@@ -28,27 +28,33 @@ dhis2_login <- function(base_url,
 
 #' Extract DHSI2 aggregated and tracked programs
 #'
-#' The function first fetches all programs from the DHIS2 instance and returns
-#' ones with type "aggregate", it then makes a second API call to retrieve only
-#' tracker programs (those with `programType = WITH_REGISTRATION`) and annotate
-#' them accordingly
+#' The function first fetches all programs from the DHIS2 Aggregate system,
+#' then retrieves the ones from the Tracker system.
 #'
 #' @param login A httr2 request object preconfigured for authentication
-#' conveying the base url, user name, and password.
+#'    conveying the base url, user name, and password.
 #'
-#' @returns A data frame of programs with columns: program ID, program name,
-#' and program type: either "aggregate" or "tracker"
+#' @returns A data frame with the following columns: the program ID, the program
+#'    name, and the program type specifying whether the program is part of the
+#'    Aggregate or Tracker system.
+#'
 #' @export
+#' @examples
+#' # establish the connexion to the system
+#' login <- dhis2_login(
+#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
+#'   user_name = "admin",
+#'   password = "district"
+#' )
 #'
-#' @example
-#' login <- dhis2_login(base_url, user_name, password)
+#' # fetching the programs
 #' programs <- get_programs(login)
 #'
 get_programs <- function(login) {
   # get the base URL the login object
   base_url <- gsub("/api/me", "", login[["url"]])
 
-  # construct the URL to a specific program
+  # construct the URL to target the program endpoint
   url <- paste0(
     file.path(base_url, "api", "programs"),
     "?fields=id,displayName&paging=false"
@@ -86,20 +92,28 @@ get_programs <- function(login) {
 #' Retrieve DHS2 data elements
 #'
 #' @param login A httr2 request object preconfigured for authentication
-#' conveying the base url, user name, and password.
+#'    conveying the base url, user name, and password.
 #'
-#' @returns A data frame with columns: ID and name of the data elements.
+#' @returns A data frame with the following two columns: the data elements IDs
+#'    and their corresponding names.
 #' @export
 #'
 #' @examples
-#' login <- dhis2_login(base_url, user_name, password)
+#' # establish the connexion to the system
+#' login <- dhis2_login(
+#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
+#'   user_name = "admin",
+#'   password = "district"
+#' )
+#'
+#' # retrieve the data elements
 #' data_elements <- get_data_elements(login)
 #'
 get_data_elements <- function(login) {
   # get the base URL from the login object
   base_url <- gsub("/api/me", "", login[["url"]])
 
-  # construct the URL to a specific program
+  # construct the URL to target the dataElements endpoint
   url <- paste0(
     file.path(base_url, "api", "dataElements"),
     "?fields=id,name&paging=false"
@@ -116,27 +130,35 @@ get_data_elements <- function(login) {
   return(data_elements)
 }
 
-#' Extract the DHSI2 organization unit's name, ID, and hierarchical level.
+#' Extract the DHSI2 organization unit's hierarchical levels.
 #'
 #' The level is a numerical number, with 1 referring to the "Country",
-#' 2 "Region", and the deepest level denotes the health care reporting unit.
+#' 2 "Region", and so on to the deepest level denoting the health care
+#' reporting unit.
 #'
 #' @param login A httr2 request object preconfigured for authentication
 #' conveying the base url, user name, and password.
 #'
 #' @return A data frame with three columns containing the organization unit's
-#' name, ID, and hierarchical level.
-#' @export
+#'    names, IDs, and their hierarchical levels.
+#' @keywords internal
 #'
 #' @examples
-#' login <- dhis2_login(base_url, user_name, password)
+#' # establish the connexion to the system
+#' login <- dhis2_login(
+#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
+#'   user_name = "admin",
+#'   password = "district"
+#' )
+#'
+#' # get the organisation unit levels
 #' org_unit_levels <- get_org_unit_levels(login)
 #'
 get_org_unit_levels <- function(login) {
   # get the base URL the login object
   base_url <- gsub("/api/me", "", login[["url"]])
 
-  # construct the URL to a specific program
+  # construct the URL to target the organisationUnitLevels
   url <- paste0(
     file.path(base_url, "api", "organisationUnitLevels"),
     "?paging=false&fields=level,name,id"
@@ -156,25 +178,32 @@ get_org_unit_levels <- function(login) {
 }
 
 
-#' Retrieve all organization units, along with their IDs, names, parent IDs,
+#' Retrieve The DHIS2 organization units, along with their IDs, names, parent IDs,
 #' and levels.
 #'
 #' @param login A httr2 request object preconfigured for authentication
 #' conveying the base url, user name, and password.
 #'
-#' @return A data frame of organization units with fields: id, name, parent$id,
-#' and level.
-#' @export
+#' @return A data frame of organization units with the following fields:
+#'    organisation unit id and name, as well as the corresponding parent
+#'    organisation unit id, and level.
+#' @keywords internal
 #' @examples
+#' # establish the connection to the system
+#' login <- dhis2_login(
+#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
+#'   user_name = "admin",
+#'   password = "district"
+#' )
 #'
-#' login <- dhis2_login(base_url, user_name, password)
+#' # fetch the organisation units
 #' org_units <- get_org_units(login)
 #'
 get_org_units <- function(login) {
   # get the base URL the login object
   base_url <- gsub("/api/me", "", login[["url"]])
 
-  # construct the URL to a specific program
+  # construct the URL to target the organisationUnits endpoint
   url <- paste0(
     file.path(base_url, "api", "organisationUnits"),
     "?paging=false&fields=id,name,parent[id],level"
@@ -192,46 +221,51 @@ get_org_units <- function(login) {
 
 }
 
-#' Construct organizational unit hierarchies
+#' Retrieve the DHIS2 organization units
 #'
 #' Retrieves all organisational reporting units and their levels,
 #' then builds a hierarchy for each unit by tracing its ancestries from
 #' the deepest level up to the root.
 #'
-#' 1. Fetches all organisation units via `get_org_units()`,
-#' 2. Fetches all organisational unit levels via `get_org_unit_levels()`,
+#' @details
+#' 1. Fetches all organisation units via the `get_org_units()` function,
+#' 2. Fetches all organisational unit levels via the `get_org_unit_levels()`
+#'    function,
 #' 3. Filters for organisational units at the deepest level,
 #' 4. Traces the parent hierarchy of each deepest unit up to the root,
 #' 5. Constructs a tabular structure where each row is a full lineage.
 #'
 #' @param login A httr2 request object preconfigured for authentication
-#' conveying the base url, user name, and password.
-#' @param org_units A list of all organization units returned
-#' by `fetch_org_units`.
-#' @param level_name_map A named vector mapping level numbers to
-#' human-readable names.
+#'    conveying the base url, user name, and password.
 #'
 #' @return A data frame where each row represents a full hierarchy for the
-#' last-level unit by keeping the hierarchical organizational unit's name and ID
-#' at each level, using the official level names provided by the
-#' DHIS2 instance like "Country Name", "Country ID", etc.
+#'    last-level unit by keeping the hierarchical organizational unit's name and
+#'    ID at each level, using the official level names provided by the DHIS2
+#'    instance like "Country Name", "Country ID", etc.
 #'
 #' @export
 #'
 #' @examples
-#' login <- dhis2_login(base_url, user_name, password)
-#' df <- get_organisation_units(login)
+#' # establish the connexion to the system
+#' login <- dhis2_login(
+#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
+#'   user_name = "admin",
+#'   password = "district"
+#' )
+#'
+#' # fetch the organisation units
+#' org_units <- get_organisation_units(login)
 #'
 get_organisation_units <- function(login) {
+  # get all organisation units and their levels
   org_units <- get_org_units(login)
   org_unit_levels <- get_org_unit_levels(login)
+
   # get the org units ids and the maximum organisation unit level
   org_unit_ids <- org_units[["id"]]
   max_level <- max(org_unit_levels[["level"]])
-  org_units_of_interest <- org_units |>
-    dplyr::filter(level == max_level)
-  # rows <- apply(org_units_of_interest, 1, trace_hierarchy)
-  rows <- vector(mode = "list", length = nrow(org_units_of_interest))
+  org_units_of_interest <- org_units |> dplyr::filter(level == max_level)
+  result <- vector(mode = "list", length = nrow(org_units_of_interest))
   for (i in seq_len(nrow(org_units_of_interest))) {
     current <- org_units_of_interest[i, ]
     level <- current[["level"]]
@@ -247,12 +281,12 @@ get_organisation_units <- function(login) {
         break
       }
     }
-    rows[[paste0("test_", i)]] <- hierarchy
+    result[[paste0("test_", i)]] <- hierarchy
   }
-  rows <- data.frame(t(rows |> dplyr::bind_rows()))
+  result <- data.frame(t(result |> dplyr::bind_rows()))
 
   # in case of an empty line, remove it
-  rows <- Filter(Negate(is.null), rows)
+  result <- Filter(Negate(is.null), result)
 
   # use human-readable names as column headers
   test_fn <- function(i, org_unit_levels) {
@@ -263,50 +297,51 @@ get_organisation_units <- function(login) {
     )
   }
   col_names <- unlist(lapply(1:max_level, test_fn, org_unit_levels))
-  names(rows) <- col_names
-  return(rows)
+  names(result) <- col_names
+  return(result)
 }
 
-#' function to filter out all element of type list from a list object
-#' in this particular case, it is used to filter out the 'createdBy' and
-#' 'updatedBy' elements of the returned enrollment.
+#' Filter out all element of type list from a list object
 #'
 #' @param x A list object
-#'
+#' @keywords internal
 remove_list <- function(x) {
   # filter out list elements from a given enrollment
-  # this will remove the 'createdBy' and 'updatedBy' elements of the list
   return(Filter(Negate(is.list), x))
 }
 
 #' Get organization units as a long data frame
 #'
-#' This function reshapes organisation unit data into a long-format data frame
-#' containing unit names, levels, and IDs. If `org_units` is not provided,
-#' the function fetches all organization units using
-#' the `get_organisation_units()` function. It then reshapes the data by
-#' pivoting the name and ID columns into a long format
-#' using `tidyr::pivot_longer()`.
+#' This function reshapes the organisation unit data from a large to a
+#' long-format data frame containing unit names, levels, and IDs.
 #'
 #' @param login A httr2 request object preconfigured for authentication
 #' carrying the base url, user name, and password.
-#' @param org_units Optional. A data frame of organisation units returned by
-#' `get_organisation_units`.
+#' @param org_units A data frame of organisation units returned by the
+#'    `get_organisation_units()` function. If `org_units` is not provided, the
+#'    function calls `get_organisation_units()` to fetch all organisation units.
 #'
-#' @returns A data frame with three columns:
-#' - `levels` the level of the organization unit (1,2,3, etc.)
-#' - `or_unit_names` the names of the organization units
-#' - `org_unit_ids` the IDs of the organization units
+#' @returns A data frame with the following three columns:
+#'    - `levels` the level of the organization unit (1,2,3, etc.)
+#'    - `org_unit_names` the names of the organization units
+#'    - `org_unit_ids` the IDs of the organization units
 #'
 #' @export
 #'
 #' @examples
-#' login <- dhis2_login(base_url, user_name, password)
+#' # establish the connection to the system
+#' login <- dhis2_login(
+#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
+#'   user_name = "admin",
+#'   password = "district"
+#' )
+#'
+#' # get the organisation units data frame in large format
 #' org_units <- get_organisation_units(login)
-#' df <- get_organisation_unit_as_df(login, org_units)
+#' long_org_units <- get_org_units_as_long(login, org_units)
 #'
 
-get_org_unit_as_df <- function(login, org_units) {
+get_org_units_as_long <- function(login, org_units = NULL) {
   # get all org units
   if (is.null(org_units)) {
     org_units <- get_organisation_units(login)
@@ -330,23 +365,18 @@ get_org_unit_as_df <- function(login, org_units) {
   return(tmp_org_units)
 }
 
-#' Validate and retrieve organization unit ID.
+#' Validate and retrieve organisation unit ID.
 #'
-#' Checks whether a given organisation unit identifier or name is valid
-#' within a DHIS2 instance. If a name is provided, the corresponding
-#' organisation unit ID is returned.
-#'
-#' This function uses `org_unit_as_df` to get the long-format data frame of
-#' all organisation units. It first checks if the input matches any organisation
-#' unit ID. If not, it checks whether it matches any unit name.
-#' If the name is valid, the corresponding ID is returned.
-#' Otherwise, an informative error message is shown.
+#' Check whether a given organisation unit identifier or name is valid
+#' within a DHIS2 instance. If a valid name is provided, the corresponding
+#' organisation unit ID is returned. Otherwise, an informative error message is
+#' thrown.
 #'
 #' @param login A httr2 request object preconfigured for authentication
-#' carrying the base url, user name, and password.
-#' @param org_unit A character denoting the name of the organization unit.
-#' @param org_units Optional. A data frame of organisation units,
-#' as returned by `get_organisation_units`.
+#'    carrying the base url, user name, and password.
+#' @param org_unit A character denoting the name or id of the organisation unit
+#' @param org_units An optional data frame of organisation units as returned by
+#'    the `get_organisation_units()` function.
 #' @return The provided organization ID if it exists; otherwise, an error is
 #' thrown and the function that lists all available org units is provided.
 #'
@@ -356,7 +386,7 @@ get_org_unit_as_df <- function(login, org_units) {
 #'
 check_org_unit <- function(login, org_unit, org_units) {
   # get all org units
-  tmp_org_units <- get_org_unit_as_df(login, org_units)
+  tmp_org_units <- get_org_unit_as_long(login, org_units)
 
   # if the provided organisation unit is a correct ID, return it
   if (org_unit %in% tmp_org_units[["org_unit_ids"]]) {
@@ -589,7 +619,7 @@ get_enrollments <- function(login, program, org_unit) {
 #' using the `get_data_elements` function. If `NULL`, the function will fetch
 #' all data elements.
 #' @param org_units A data frame of organisation units, typically retrieved
-#' using the `get_org_unit_as_df` function.
+#' using the `get_org_unit_as_long` function.
 #' @param programs A data frame of programs, used to map program IDs to names.
 #' @param program_stages A data frame of program stages, used to map stage
 #' IDs to stage names.
@@ -608,7 +638,7 @@ get_enrollments <- function(login, program, org_unit) {
 #' org_unit <- "DiszpKrYNg8"
 #' data_elements <- get_data_elements(login = login)
 #' org_units <- get_organisation_units(login = login)
-#' org_units <- get_org_unit_as_df(login = login, org_units)
+#' org_units <- get_org_unit_as_long(login = login, org_units)
 #' programs <- get_programs(login)
 #' program_stages <- get_program_stages(login, program)
 #'
@@ -625,26 +655,27 @@ get_event_data <- function(login, program, org_unit, data_elements,
     data_elements <- get_data_elements(login = login)
   }
   # if (is.null(org_units)) {
-  #   org_units <- get_org_unit_as_df(login = login, org_units = org_units)
+  #   org_units <- get_org_unit_as_long(login = login, org_units = org_units)
   # }
   if (is.null(program_stages)) {
     program_stages <- get_program_stages(login, program)
   }
-  org_units <- get_org_unit_as_df(login = login, org_units = org_units)
+  org_units <- get_org_unit_as_long(login = login, org_units = org_units)
 
   # get the base URL the login object
   base_url <- gsub("/api/me", "", login[["url"]])
 
   # construct the query parameter as a string
   query_parameters <- sprintf(
-    "?orgUnit=%s&program=%s&paging=false",
+    "?orgUnit=%s&program=%s&paging=false", #&program=%s&paging=false
     org_unit, program
   )
 
   # construct the URL to a specific program
+  "/api/tracker/events?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc"
   url <- paste0(
-    file.path(base_url, "api", "tracker", "events"),
-    # file.path(base_url, "api", "events"),
+    # file.path(base_url, "api", "tracker", "events"),
+    file.path(base_url, "api", "events"),
     query_parameters
   )
 
@@ -782,7 +813,7 @@ get_entity_attributes <- function(x) {
 #' carrying the base url, user name, and password.
 #' @param target_entities A character vector of tracked entity IDs to retrieve.
 #' @param org_units A data frame of organisation units, typically retrieved
-#' using the `get_org_unit_as_df` function.
+#' using the `get_org_unit_as_long` function.
 #'
 #' @return A data frame where each row corresponds to a tracked entity
 #' and includes:
@@ -868,7 +899,7 @@ get_tracked_entities <- function(login, target_entities, org_units) {
   tracked_entities <- cbind(entity_attributes, entity_data)
 
   # replace the org unit id with the org unit name
-  org_units <- get_org_unit_as_df(login = login, org_units = org_units)
+  org_units <- get_org_unit_as_long(login = login, org_units = org_units)
   idx <- match(tracked_entities[["org_unit"]], org_units[["org_unit_ids"]])
   tracked_entities[["org_unit"]] <- org_units[["org_unit_names"]][idx]
 
