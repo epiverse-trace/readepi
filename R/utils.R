@@ -1,3 +1,204 @@
+
+
+perform_replacement <- function(string, equivalence_table, to) {
+  # detect the logical operators from the expression before the split
+  r_operators <- names(
+    unlist(sapply(equivalence_table[["r"]], grep, string, fixed = TRUE))
+  )
+  r_operators <- r_operators[!r_operators %in% c("|", "&")]
+
+  # get the indices of the detected logical operators and
+  # get their correspondent operator from the specified language or system
+  idx <- which(equivalence_table[["r"]] %in% r_operators)
+  target_operators <- equivalence_table[[to]][idx]
+
+  # replace the R operators with the corresponding ones
+  # TODO: fix the issue with handling the '%in%' operator
+  for (operator in seq_along(r_operators)) {
+    string <- gsub(
+      r_operators[operator],
+      target_operators[operator],
+      string,
+      fixed = TRUE
+    )
+  }
+
+  # trim the white space
+  string <- gsub("[[:blank:]]", "", string)
+
+  return(string)
+}
+
+handle_in <- function(x) {
+  splits <- unlist(strsplit(x, "%in%", fixed = TRUE))
+  x <- splits[2]
+
+  x <- gsub("\\'|\\)|c\\(", "", x)
+  x <- gsub(",", ";", x)
+  x <- gsub("[[:blank:]]", "", x)
+  return(paste(splits[1], "%in%", x))
+}
+
+r_to_dhis2 <- function(var, equivalence_table) {
+  # replace 'TRUE' and 'FALSE' by 'true' and 'false' respectively
+  var <- gsub("TRUE", "true", var, fixed = TRUE)
+  var <- gsub("FALSE", "false", var, fixed = TRUE)
+
+  # replace '&&' and '||' by '&' and '|' respectively
+  var <- gsub("&&", "&", var, fixed = TRUE)
+  var <- gsub("||", "|", var, fixed = TRUE)
+
+  # split by '&' or '|'
+  splits <- unlist(strsplit(var, "&|\\|", perl = TRUE))
+
+  # identify the splits that contains '%in%'
+  idx <- which(grepl("%in%", splits, fixed = TRUE))
+  if (length(idx) > 0) {
+    splits[idx] <- as.character(vapply(splits[idx], handle_in, character(1)))
+  }
+
+  # perform operator replacement
+  splits <- as.character(
+    vapply(
+      splits,
+      FUN = perform_replacement,
+      character(1),
+      equivalence_table,
+      to = "dhis2"
+    )
+  )
+
+  splits <- paste0("filter=", splits)
+
+  return(splits)
+}
+
+
+#' Convert R expression into SQL expression
+#'
+#' @param equivalence_table A data frame with the common R logical operators
+#'    and their correspondent SQL operators
+#' @param filter A string with the R expression
+#'
+#' @return A string of SQL expression
+#' @keywords internal
+#'
+r_to_sql <- function(filter, equivalence_table) {
+  for (i in seq_len(nrow(equivalence_table))) {
+    if (grepl(equivalence_table[["r"]][i], filter)) {
+      filter <- gsub(equivalence_table[["r"]][i], equivalence_table[["sql"]][i],
+                     filter, fixed = TRUE)
+    }
+  }
+  return(filter)
+}
+
+#' var <- "gender == Male && age > 5"
+#' var_dhis2 <- transform_filter(var, equivalence_table, to = "dhis2")
+#'
+transform_filter <- function(var, equivalence_table, to = "dhis2") {
+  # function to detect and replace R operators with their corresponding
+  # operators from the language or system specified in 'to'
+  # 'var' is the R expression
+  # 'equivalence_table' is the equivalence table
+  # 'to' is the name of the system or language
+
+  #
+  var <- switch(to,
+                dhis2 = r_to_dhis2(var, equivalence_table),
+                sql = r_to_sql(var, equivalence_table)
+  )
+
+  return(paste(var, collapse = "&"))
+}
+
+
+#' function to transform the value of the field option from the query parameters
+#' query the ids, types, and some attributes of all tracked entities associated with the given organisation unit and program ids
+#' query_parameters <- list(
+#' paging = "true",
+#'  # page = 1,
+#'  pageSize = 50,
+#'  order = "createdAt:desc",
+#'  program = "IpHINAT79UW",
+#'  orgUnit = "DiszpKrYNg8",
+#'  orgUnitMode = "SELECTED",
+#'  fields = c("trackedEntity", "trackedEntityType", "Gender", "First name",
+#'             "Last name")
+#')
+#' query_parameters <- transform_fields(query_parameters, attributes_names)
+transform_fields <- function(query_parameters, entity_attribute_names) {
+  # NOTE: the `entity_attribute_names` argument is the data frame with the attribute names and ids made from the `get_entity_attributes()` function
+  # NOTE: the `fields` of interest should be provided as a vector of fields
+
+  # no need to modify the query parameter if the 'fields' of interest are not provided
+  if (!("fields" %in% names(query_parameters))) {
+    return(query_parameters)
+  }
+
+  # match the entity names to the provided field names
+  fields <- query_parameters[["fields"]]
+  idx <- fields %in% entity_attribute_names[["name"]]
+
+  # when no attribute name is specified in 'fields', return the initial query parameters
+  if (sum(!idx) == length(fields)) {
+    query_parameters[["fields"]] <- paste(fields, collapse = ",")
+    return(query_parameters)
+  }
+
+  # when 'fields' contains both metadata and attributes names, transform it
+  if (sum(idx) == length(fields)) {
+    new_fields <- sprintf("attributes[%s]", paste(fields, collapse = ","))
+  } else {
+    new_fields <- paste(fields[!idx], collapse = ",")
+    entity_attributes <- sprintf(
+      "attributes[%s]", paste(fields[idx], collapse = ",")
+    )
+    new_fields <- paste(new_fields, entity_attributes, sep = ",")
+  }
+  query_parameters[["fields"]] <- new_fields
+
+  return(query_parameters)
+}
+
+
+# function to replace the attribute names by the attribute ids
+replace_name_by_id <- function(expression, attributes_names) {
+  # expression here is an atomic expression (Gender:EQ:Male)
+  # attributes_names is the data frame with attribute names and ids
+
+  # match the attribute name used in the expression to the list of attribute
+  # names and get the index of the matching name
+  idx <- which(unlist(
+    lapply(attributes_names[["name"]], grepl, expression)
+  ))
+
+  # return an error if there is no match or multiple match
+  if (length(idx) == 0 || length(idx) > 1) {
+    stop("Incorrect attribute name provided.")
+  }
+
+  ## replace attribute name by id
+  name <- attributes_names[["name"]][idx]
+  id <- attributes_names[["id"]][idx]
+  new_expression <- gsub(name, id, expression, fixed = TRUE)
+
+  # trim white spaces from the input expression
+  new_expression <- gsub(" ", "", new_expression, fixed = TRUE)
+
+  return(new_expression)
+}
+
+# create the lookup table for operators
+equivalence_table <- data.frame(cbind(
+  r = c("==", ">=", ">", "<=", "<", "%in%", "!=", "&&", "||", "&", "|"),
+  sql = c("=", ">=", ">", "<=", "<", "in", "<>", "and", "or", "and", "or"),
+  dhis2 = c(":EQ:", ":GE:", ":GT:", ":LE:", ":LT:", ":IN:", ":NE:", "&", "|",
+            "&", "|")
+))
+
+
+
 #' Get the list of disease names for which cases data is available in a
 #' given health information system (HIS).
 #'
