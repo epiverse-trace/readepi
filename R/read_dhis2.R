@@ -1,15 +1,15 @@
 # for the DHIS2 test server
-base_url <- "https://play.im.dhis2.org/stable-2-42-0"
-user_name <- "admin"
-password <- "district"
-org_unit <- "DiszpKrYNg8"
-program <- "qDkgAbB5Jlk"
-
-login <- dhis2_login(
-  base_url = base_url,
-  user_name = user_name,
-  password = password
-)
+# base_url <- "https://play.im.dhis2.org/stable-2-42-0"
+# user_name <- "admin"
+# password <- "district"
+# org_unit <- "DiszpKrYNg8"
+# program <- "qDkgAbB5Jlk"
+#
+# login <- dhis2_login(
+#   base_url = base_url,
+#   user_name = user_name,
+#   password = password
+# )
 # base_url <- "https:/smc.moh.gm/staging"
 # user_name <- "karim"
 # password <- "Gambia@123"
@@ -17,11 +17,11 @@ login <- dhis2_login(
 
 
 
-#' Title
+#' Import data from DHIS2
 #'
-#' @param login
-#' @param org_unit
-#' @param program
+#' @param login The login object
+#' @param org_unit A character with the organisation unit ID or name
+#' @param program A character with the program ID or name
 #'
 #' @returns
 #' @export

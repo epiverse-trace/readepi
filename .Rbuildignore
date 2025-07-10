@@ -15,3 +15,4 @@
 ^revdep$
 ^CITATION\.cff$
 ^README_files
+^data-raw$
