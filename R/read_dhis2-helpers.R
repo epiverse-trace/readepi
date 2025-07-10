@@ -11,7 +11,7 @@
 #'
 #' @examples
 #' login <- dhis2_login(
-#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
+#'   base_url = "https://play.im.dhis2.org/stable-2-42-1",
 #'   user_name = "admin",
 #'   password = "district"
 #' )
@@ -128,6 +128,41 @@ get_data_elements <- function(login) {
     dplyr::bind_rows()
 
   return(data_elements)
+}
+
+
+#' Return the organisation units in a long data frame
+#'
+#' @param login The login object
+#' @param org_units A data frame of all the organisation units obtained from the
+#'    `get_organisation_units()` function.
+#'
+#' @returns A data with three columns corresponding to the organisation unit
+#'    names, IDs, and levels
+#'
+#' @keywords internal
+get_org_unit_as_long <- function(login, org_units = "NULL") {
+  # get all org units
+  if (is.null(org_units)) {
+    org_units <- get_organisation_units(login)
+  }
+  longer_names <- org_units |>
+    dplyr::select(dplyr::ends_with("_name")) |>
+    tidyr::pivot_longer(
+      cols = dplyr::ends_with("_name")
+    )
+  names(longer_names) <- c("levels", "org_unit_names")
+
+  # pivot longer on ids to get all the organisation unit ids
+  longer_ids <- org_units |>
+    dplyr::select(dplyr::ends_with("_id")) |>
+    tidyr::pivot_longer(
+      cols = dplyr::ends_with("_id")
+    )
+  tmp_org_units <- cbind(longer_names, longer_ids[["value"]])
+  names(tmp_org_units)[[3]] <- "org_unit_ids"
+
+  return(tmp_org_units)
 }
 
 #' Extract the DHSI2 organization unit's hierarchical levels.

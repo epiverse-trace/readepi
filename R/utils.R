@@ -1,16 +1,16 @@
 
 
-perform_replacement <- function(string, equivalence_table, to) {
+perform_replacement <- function(string, to) {
   # detect the logical operators from the expression before the split
   r_operators <- names(
-    unlist(sapply(equivalence_table[["r"]], grep, string, fixed = TRUE))
+    unlist(sapply(lookup_table[["r"]], grep, string, fixed = TRUE))
   )
   r_operators <- r_operators[!r_operators %in% c("|", "&")]
 
   # get the indices of the detected logical operators and
   # get their correspondent operator from the specified language or system
-  idx <- which(equivalence_table[["r"]] %in% r_operators)
-  target_operators <- equivalence_table[[to]][idx]
+  idx <- which(lookup_table[["r"]] %in% r_operators)
+  target_operators <- lookup_table[[to]][idx]
 
   # replace the R operators with the corresponding ones
   # TODO: fix the issue with handling the '%in%' operator
@@ -39,7 +39,8 @@ handle_in <- function(x) {
   return(paste(splits[1], "%in%", x))
 }
 
-r_to_dhis2 <- function(var, equivalence_table) {
+#' var <- "oZg33kd9taw==Male&&qrur9Dvnyt5>5"
+r_to_dhis2 <- function(var) {
   # replace 'TRUE' and 'FALSE' by 'true' and 'false' respectively
   var <- gsub("TRUE", "true", var, fixed = TRUE)
   var <- gsub("FALSE", "false", var, fixed = TRUE)
@@ -58,12 +59,11 @@ r_to_dhis2 <- function(var, equivalence_table) {
   }
 
   # perform operator replacement
-  splits <- as.character(
+  results <- as.character(
     vapply(
-      splits,
+      splits[1],
       FUN = perform_replacement,
       character(1),
-      equivalence_table,
       to = "dhis2"
     )
   )
@@ -76,39 +76,61 @@ r_to_dhis2 <- function(var, equivalence_table) {
 
 #' Convert R expression into SQL expression
 #'
-#' @param equivalence_table A data frame with the common R logical operators
-#'    and their correspondent SQL operators
 #' @param filter A string with the R expression
 #'
 #' @return A string of SQL expression
 #' @keywords internal
 #'
-r_to_sql <- function(filter, equivalence_table) {
-  for (i in seq_len(nrow(equivalence_table))) {
-    if (grepl(equivalence_table[["r"]][i], filter)) {
-      filter <- gsub(equivalence_table[["r"]][i], equivalence_table[["sql"]][i],
+r_to_sql <- function(filter) {
+  for (i in seq_len(nrow(lookup_table))) {
+    if (grepl(lookup_table[["r"]][i], filter)) {
+      filter <- gsub(lookup_table[["r"]][i], lookup_table[["sql"]][i],
                      filter, fixed = TRUE)
     }
   }
   return(filter)
 }
 
-#' var <- "gender == Male && age > 5"
-#' var_dhis2 <- transform_filter(var, equivalence_table, to = "dhis2")
+#' function to detect and replace R operators with their corresponding
+# operators from the language or system specified in 'to'
+# 'var' is the R expression
+# 'lookup_table' is the equivalence table
+# 'to' is the name of the system or language
+#' expression <- "Gender == Male && Age_in_years > 5"
+#' expression_dhis2 <- transform_filter(
+#'   login = login,
+#'   expression = expression,
+#'   to = "dhis2"
+#' )
 #'
-transform_filter <- function(var, equivalence_table, to = "dhis2") {
-  # function to detect and replace R operators with their corresponding
-  # operators from the language or system specified in 'to'
-  # 'var' is the R expression
-  # 'equivalence_table' is the equivalence table
-  # 'to' is the name of the system or language
+transform_filter <- function(login, expression, to = "dhis2") {
+  # replace the data element and org unit names by their IDs in the expression
+  # we create a lookup table of 2 columns: name and id made from the data
+  # elements and the org units
+  data_elements <- get_data_elements(login = login)
+  org_units <- get_organisation_units(login)
+  org_units <- get_org_unit_as_long(login = login, org_units = org_units)
+  org_units <- org_units |>
+    dplyr::select(org_unit_names, org_unit_ids) |>
+    cleanepi::standardize_column_names(
+      rename = c(name = "org_unit_names", id = "org_unit_ids")
+    )
+  lookup_table <- rbind(org_units, data_elements)
 
-  #
-  var <- switch(to,
-                dhis2 = r_to_dhis2(var, equivalence_table),
-                sql = r_to_sql(var, equivalence_table)
+  # replace the variable names by their IDs in the provided expression
+  new_expression <- replace_name_by_id(
+    expression = expression,
+    attributes_names = lookup_table
   )
 
+  # replace the R operator with DHIS or SQL operators
+  new_expression <- switch(
+    to,
+    dhis2 = r_to_dhis2(new_expression),
+    sql = r_to_sql(new_expression)
+  )
+
+  # return the new DHIS2 expression
   return(paste(var, collapse = "&"))
 }
 
@@ -169,33 +191,36 @@ replace_name_by_id <- function(expression, attributes_names) {
 
   # match the attribute name used in the expression to the list of attribute
   # names and get the index of the matching name
+
   idx <- which(unlist(
-    lapply(attributes_names[["name"]], grepl, expression)
+    lapply(attributes_names[["name"]], grepl, expression, fixed = TRUE)
   ))
 
   # return an error if there is no match or multiple match
-  if (length(idx) == 0 || length(idx) > 1) {
+  if (length(idx) == 0) {
     stop("Incorrect attribute name provided.")
   }
 
   ## replace attribute name by id
   name <- attributes_names[["name"]][idx]
   id <- attributes_names[["id"]][idx]
-  new_expression <- gsub(name, id, expression, fixed = TRUE)
+  names(id) <- name
+
+  ## create a named vector of patterns and replacements
+  replacements_values <- id
+
+  ## Replace multiple strings using Reduce
+  new_expression <- Reduce(
+    function(x, y) gsub(y[1], y[2], x),
+    Map(c, name, replacements_values),
+    expression
+  )
 
   # trim white spaces from the input expression
   new_expression <- gsub(" ", "", new_expression, fixed = TRUE)
 
   return(new_expression)
 }
-
-# create the lookup table for operators
-equivalence_table <- data.frame(cbind(
-  r = c("==", ">=", ">", "<=", "<", "%in%", "!=", "&&", "||", "&", "|"),
-  sql = c("=", ">=", ">", "<=", "<", "in", "<>", "and", "or", "and", "or"),
-  dhis2 = c(":EQ:", ":GE:", ":GT:", ":LE:", ":LT:", ":IN:", ":NE:", "&", "|",
-            "&", "|")
-))
 
 
 
