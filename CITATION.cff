@@ -64,7 +64,7 @@ references:
     given-names: Michel
     email: michellang@gmail.com
     orcid: https://orcid.org/0000-0001-9754-0393
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.checkmate
 - type: software
   title: cli
@@ -75,8 +75,8 @@ references:
   authors:
   - family-names: Csárdi
     given-names: Gábor
-    email: csardi.gabor@gmail.com
-  year: '2024'
+    email: gabor@posit.co
+  year: '2025'
   doi: 10.32614/CRAN.package.cli
 - type: software
   title: DBI
@@ -92,7 +92,7 @@ references:
     given-names: Kirill
     email: kirill@cynkra.com
     orcid: https://orcid.org/0000-0002-1416-3412
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.DBI
 - type: software
   title: dplyr
@@ -117,7 +117,7 @@ references:
     given-names: Davis
     email: davis@posit.co
     orcid: https://orcid.org/0000-0003-4777-038X
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.dplyr
 - type: software
   title: fingertipsR
@@ -136,7 +136,7 @@ references:
     email: hadley.nanayakkara@dhsc.gov.uk
   - family-names: Flowers
     given-names: Julian
-  year: '2024'
+  year: '2025'
   version: '>= 1.0.10.9001'
 - type: software
   title: glue
@@ -152,7 +152,7 @@ references:
     given-names: Jennifer
     email: jenny@posit.co
     orcid: https://orcid.org/0000-0002-6983-2759
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.glue
 - type: software
   title: httr2
@@ -164,7 +164,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.httr2
 - type: software
   title: lubridate
@@ -180,7 +180,7 @@ references:
     given-names: Garrett
   - family-names: Wickham
     given-names: Hadley
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.lubridate
 - type: software
   title: magrittr
@@ -195,7 +195,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@rstudio.com
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.magrittr
 - type: software
   title: odbc
@@ -211,13 +211,13 @@ references:
     email: hadley@posit.co
   - family-names: Gjoneski
     given-names: Oliver
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.odbc
 - type: software
   title: pool
   abstract: 'pool: Object Pooling'
   notes: Imports
-  url: http://rstudio.github.io/pool/
+  url: https://rstudio.github.io/pool/
   repository: https://CRAN.R-project.org/package=pool
   authors:
   - family-names: Cheng
@@ -228,7 +228,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.pool
 - type: software
   title: REDCapR
@@ -241,7 +241,7 @@ references:
     given-names: Will
     email: wibeasley@hotmail.com
     orcid: https://orcid.org/0000-0002-5613-5006
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.REDCapR
 - type: software
   title: RMySQL
@@ -252,7 +252,7 @@ references:
   authors:
   - family-names: Ooms
     given-names: Jeroen
-    email: jeroen@berkeley.edu
+    email: jeroenooms@gmail.com
     orcid: https://orcid.org/0000-0002-4035-0289
   - family-names: James
     given-names: David
@@ -263,7 +263,7 @@ references:
     email: hadley@rstudio.com
   - family-names: Horner
     given-names: Jeffrey
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.RMySQL
 - type: software
   title: RSQLite
@@ -282,7 +282,7 @@ references:
     given-names: David A.
   - family-names: Falcon
     given-names: Seth
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.RSQLite
 - type: software
   title: DiagrammeR
@@ -298,7 +298,7 @@ references:
   - family-names: Roy
     given-names: Olivier
     email: olivierroy71@hotmail.com
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.DiagrammeR
 - type: software
   title: httptest
@@ -311,7 +311,7 @@ references:
     given-names: Neal
     email: neal.p.richardson@gmail.com
     orcid: https://orcid.org/0009-0002-7992-3520
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.httptest
 - type: software
   title: knitr
@@ -324,7 +324,7 @@ references:
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.knitr
 - type: software
   title: rmarkdown
@@ -368,7 +368,7 @@ references:
     given-names: Richard
     email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
   title: testthat
@@ -380,7 +380,18 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2024'
+  year: '2025'
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
+- type: software
+  title: 'R: A Language and Environment for Statistical Computing'
+  notes: Depends
+  url: https://www.R-project.org/
+  authors:
+  - name: R Core Team
+  institution:
+    name: R Foundation for Statistical Computing
+    address: Vienna, Austria
+  year: '2025'
+  version: '>= 3.5'
 
