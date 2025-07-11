@@ -419,7 +419,10 @@ get_org_units_as_long <- function(login, org_units = NULL) {
 #' login <- dhis2_login(base_url, user_name, password)
 #' org_unit_id <- check_org_unit(login = login, org_unit = "Freetown")
 #'
-check_org_unit <- function(login, org_unit, org_units) {
+check_org_unit <- function(login, org_unit, org_units = NULL) {
+  if (is.null(org_units)) {
+    org_units <- get_organisation_units(login = login)
+  }
   # get all org units
   tmp_org_units <- get_org_unit_as_long(login, org_units)
 
@@ -599,10 +602,13 @@ get_program_stages <- function(login, program = NULL) {
 #' )
 #' @export
 #'
-get_enrollments <- function(login, program, org_unit) {
+get_enrollments <- function(login, program, org_unit, org_units = NULL) {
+  if (is.null(org_units)) {
+    org_units <- get_organisation_units(login = login)
+  }
   # check whether the provided program and organisation unit exist
   program <- check_program(login, program)
-  org_unit <- check_org_unit(login, org_unit)
+  org_unit <- check_org_unit(login, org_unit = org_unit, org_units = org_units)
 
   # get the base URL the login object
   base_url <- gsub("/api/me", "", login[["url"]])
