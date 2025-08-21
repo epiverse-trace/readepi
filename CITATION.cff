@@ -7,14 +7,16 @@ cff-version: 1.2.0
 message: 'To cite package "readepi" in publications use:'
 type: software
 license: MIT
-title: 'readepi: Read Data from Health Information Systems'
+title: 'readepi: Read Data from Relational Database Management Systems and Health
+  Information Systems'
 version: 0.1.0
 identifiers:
 - type: url
   value: https://github.com/epiverse-trace/readepi/
-abstract: Data import from several health information systems ('HIS'). The current
-  version of the package covers 'HIS' such as 'MS SQL', 'MySQL', and 'PostGRESQL'
-  servers, 'REDCap', 'DHIS2' and 'Fingertips'.
+abstract: Data import from several Relational Database Management Systems (RDBMS)
+  and Health Information Systems ('HIS'). The current version of the package covers
+  RDBMS such as'MS SQL', 'MySQL', 'PostGRESQL', and 'SQLite', and two HIS ('DHIS2'
+  and 'SORMAS').
 authors:
 - family-names: Mané
   given-names: Karim
@@ -120,41 +122,6 @@ references:
   year: '2025'
   doi: 10.32614/CRAN.package.dplyr
 - type: software
-  title: fingertipsR
-  abstract: 'fingertipsR: Fingertips Data for Public Health'
-  notes: Imports
-  url: https://fingertips.phe.org.uk
-  authors:
-  - family-names: Westermann
-    given-names: Annabel
-    email: annabel.westermann@dhsc.gov.uk
-  - family-names: Fox
-    given-names: Sebastian
-    email: sebsfox@gmail.com
-  - family-names: Nanayakkara
-    given-names: Hadley
-    email: hadley.nanayakkara@dhsc.gov.uk
-  - family-names: Flowers
-    given-names: Julian
-  year: '2025'
-  version: '>= 1.0.10.9001'
-- type: software
-  title: glue
-  abstract: 'glue: Interpreted String Literals'
-  notes: Imports
-  url: https://glue.tidyverse.org/
-  repository: https://CRAN.R-project.org/package=glue
-  authors:
-  - family-names: Hester
-    given-names: Jim
-    orcid: https://orcid.org/0000-0002-2739-7082
-  - family-names: Bryan
-    given-names: Jennifer
-    email: jenny@posit.co
-    orcid: https://orcid.org/0000-0002-6983-2759
-  year: '2025'
-  doi: 10.32614/CRAN.package.glue
-- type: software
   title: httr2
   abstract: 'httr2: Perform HTTP Requests and Process the Responses'
   notes: Imports
@@ -182,21 +149,6 @@ references:
     given-names: Hadley
   year: '2025'
   doi: 10.32614/CRAN.package.lubridate
-- type: software
-  title: magrittr
-  abstract: 'magrittr: A Forward-Pipe Operator for R'
-  notes: Imports
-  url: https://magrittr.tidyverse.org
-  repository: https://CRAN.R-project.org/package=magrittr
-  authors:
-  - family-names: Bache
-    given-names: Stefan Milton
-    email: stefan@stefanbache.dk
-  - family-names: Wickham
-    given-names: Hadley
-    email: hadley@rstudio.com
-  year: '2025'
-  doi: 10.32614/CRAN.package.magrittr
 - type: software
   title: odbc
   abstract: 'odbc: Connect to ODBC Compatible Databases (using the DBI Interface)'
@@ -230,19 +182,6 @@ references:
     email: hadley@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.pool
-- type: software
-  title: REDCapR
-  abstract: 'REDCapR: Interaction Between R and REDCap'
-  notes: Imports
-  url: https://ouhscbbmc.github.io/REDCapR/
-  repository: https://CRAN.R-project.org/package=REDCapR
-  authors:
-  - family-names: Beasley
-    given-names: Will
-    email: wibeasley@hotmail.com
-    orcid: https://orcid.org/0000-0002-5613-5006
-  year: '2025'
-  doi: 10.32614/CRAN.package.REDCapR
 - type: software
   title: RMySQL
   abstract: 'RMySQL: Database Interface and ''MySQL'' Driver for R'
