@@ -1,6 +1,7 @@
 test_that("read_rdbms works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
+  testthat::skip_on_ci()
 
   # authenticate the user
   rdbms_login <- login(
