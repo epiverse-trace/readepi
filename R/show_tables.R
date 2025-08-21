@@ -1,67 +1,45 @@
 #' Display the list of tables in a database
 #'
-#' @param data_source the URL of the server of interest
-#' @param credentials_file the path to the file with the user-specific
-#'    credential details for the projects of interest. See the help of
-#'    the `readepi` function for more details.
-#' @param driver_name the name of the MS driver. use `odbc::odbcListDrivers()`
-#'    to display the list of installed drivers
+#' @inheritParams read_rdbms
 #' @examples
 #' \dontrun{
-#' show_tables(
-#'   data_source      = "mysql-rfam-public.ebi.ac.uk",
-#'   credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-#'   driver_name      = ""
-#' )
+#' # connect to the test MySQL server
+#'   login <- login(
+#'     from        = "mysql-rfam-public.ebi.ac.uk",
+#'     type        = "MySQL",
+#'     user_name   = "rfamro",
+#'     password    = "",
+#'     driver_name = "",
+#'     db_name     = "Rfam",
+#'     port        = 4497
+#'   )
+#'
+#' # display the list of available tables from this database
+#' tables <- show_tables(login = login)
 #' }
 #' @returns a `character` that contains the list of all tables found
 #'     in the specified database.
 #' @export
 #'
-show_tables <- function(data_source,
-                        driver_name,
-                        credentials_file = NULL) {
-  # checking input parameters
-  checkmate::assert_character(credentials_file, null.ok = TRUE, len = 1L)
-  if (is.null(credentials_file)) {
-    message("The test credential file looks like below:\n")
-    credentials_file <- system.file("extdata", "test.ini", package = "readepi")
+show_tables <- function(login) {
+  ## re-login if the connection has been closed from previous query
+  tmp_login <- as.list(login)
+  if (exists("login") && !tmp_login[["valid"]]) {
+    connection_params <- attr(login, "credentials")
+    login <- login(
+      from = connection_params[["host"]],
+      type = connection_params[["type"]],
+      user_name = connection_params[["user"]],
+      password = connection_params[["password"]],
+      driver_name = connection_params[["driver"]],
+      db_name = connection_params[["db_name"]],
+      port = connection_params[["port"]]
+    )
   }
-  checkmate::assert_file_exists(credentials_file)
-  checkmate::assert_character(data_source, null.ok = FALSE, len = 1L,
-                              any.missing = FALSE)
-
-  # reading the credentials from the credential file
-  stopifnot(file.exists(credentials_file))
-  credentials <- read_credentials(credentials_file, data_source)
-
-  # establishing the connection to the server
-  con <- switch(
-    credentials[["dbms"]],
-    SQLServer = DBI::dbConnect(odbc::odbc(),
-                               driver   = driver_name,
-                               server   = credentials[["host"]],
-                               database = credentials[["project"]],
-                               uid      = credentials[["user"]],
-                               pwd      = credentials[["pwd"]],
-                               port     = as.numeric(credentials[["port"]])),
-    MySQL = DBI::dbConnect(RMySQL::MySQL(),
-                           driver   = driver_name,
-                           host     = credentials[["host"]],
-                           dbname   = credentials[["project"]],
-                           user     = credentials[["user"]],
-                           password = credentials[["pwd"]],
-                           port     = as.numeric(credentials[["port"]])),
-    PostgreSQL = DBI::dbConnect(odbc::odbc(),
-                                driver   = driver_name,
-                                host     = credentials[["host"]],
-                                database = credentials[["project"]],
-                                uid      = credentials[["user"]],
-                                pwd      = credentials[["pwd"]],
-                                port     = as.numeric(credentials[["port"]]))
-  )
+  stopifnot("Invalid connection object!" = inherits(login, "Pool"))
 
   # listing the names of the tables present in the database
-  tables <- DBI::dbListTables(conn = con)
-  tables
+  tables <- DBI::dbListTables(conn = login)
+
+  return(tables)
 }

@@ -4,17 +4,10 @@
 \alias{show_tables}
 \title{Display the list of tables in a database}
 \usage{
-show_tables(data_source, driver_name, credentials_file = NULL)
+show_tables(login)
 }
 \arguments{
-\item{data_source}{the URL of the server of interest}
-
-\item{driver_name}{the name of the MS driver. use \code{odbc::odbcListDrivers()}
-to display the list of installed drivers}
-
-\item{credentials_file}{the path to the file with the user-specific
-credential details for the projects of interest. See the help of
-the \code{readepi} function for more details.}
+\item{login}{The connection object obtained from the \code{login()} function.}
 }
 \value{
 a \code{character} that contains the list of all tables found
@@ -25,10 +18,18 @@ Display the list of tables in a database
 }
 \examples{
 \dontrun{
-show_tables(
-  data_source      = "mysql-rfam-public.ebi.ac.uk",
-  credentials_file = system.file("extdata", "test.ini", package = "readepi"),
-  driver_name      = ""
-)
+# connect to the test MySQL server
+  login <- login(
+    from        = "mysql-rfam-public.ebi.ac.uk",
+    type        = "MySQL",
+    user_name   = "rfamro",
+    password    = "",
+    driver_name = "",
+    db_name     = "Rfam",
+    port        = 4497
+  )
+
+# display the list of available tables from this database
+tables <- show_tables(login = login)
 }
 }
