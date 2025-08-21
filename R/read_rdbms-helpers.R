@@ -1,6 +1,6 @@
 #' Make an SQL query from a list of query parameters
 #'
-#' @param login A connection object created from the `login()` function
+#' @inheritParams read_rdbms
 #' @param table_name The name of the table in the server
 #'    function
 #' @param filter A vector or a comma-separated string of subset of subject IDs
@@ -19,15 +19,20 @@ server_make_query <- function(table_name,
     query <- sprintf("select * from %s", table_name)
   } else if (!is.null(select) && is.null(filter)) {
     # subset all rows and specified columns
-    target_columns <- paste(select, collapse = ", ") # nolint: paste_linter
+    select <- fields_check(fields = select, table_name = table_name,
+                           login = login)
+    target_columns <- toString(select)
     query <- sprintf("select %s from %s", target_columns, table_name)
   } else {
+    select <- fields_check(fields = select, table_name = table_name,
+                           login = login)
     # subset specified rows and all columns
     target_columns <- ifelse(
       !is.null(select),
-      paste(select, collapse = ", "), # nolint: paste_linter
+      toString(select),
       "*"
     )
+    query_check(query = filter, login = login, table_name = table_name)
     query <- server_make_subsetting_query(
       filter, target_columns, table_name
     )
@@ -73,9 +78,9 @@ server_make_subsetting_query <- function(filter, target_columns, table) {
 #' @keywords internal
 #'
 server_make_sql_expression <- function(filter) {
-  for (i in seq_len(nrow(equivalence_table))) {
-    if (grepl(equivalence_table[["r"]][i], filter)) {
-      filter <- gsub(equivalence_table[["r"]][i], equivalence_table[["sql"]][i],
+  for (i in seq_len(nrow(lookup_table))) {
+    if (grepl(lookup_table[["r"]][i], filter)) {
+      filter <- gsub(lookup_table[["r"]][i], lookup_table[["sql"]][i],
                      filter, fixed = TRUE)
     }
   }
@@ -116,4 +121,72 @@ url_check <- function(base_url) {
                      "/", fixed = TRUE)[[c(1L, 1L)]]
   stopifnot("Incorrect domain name in provided URL!" = grepl(regex, domain))
   return(invisible(TRUE))
+}
+
+
+#' Check whether the user-provided query is valid
+#'
+#' We define a query as valid when it contains either one of the column names of
+#' the table being queried and/or one of the `R` operators provided in the
+#' `lookup_table` object of the package.
+#'
+#' @inheritParams read_rdbms
+#' @param query An R expression that will be converted into an SQL query
+#' @param table_name A character with the table name
+#'
+#' @returns Invisibly returns `TRUE` if the query is valid; throws an error
+#'    otherwise.
+#' @keywords internal
+#'
+query_check <- function(query, login, table_name) {
+  # fetch only the first row of the table and extract the column names
+  cols_name_query <- sprintf("select * from %s", table_name)
+  res <- DBI::dbGetQuery(login, cols_name_query, n = 1)
+  col_names <- names(res)
+
+  # check whether the query contains either the column names of the table and/or
+  # the R operators in 'lookup_table'
+  cols_are_in_query <- unlist(lapply(col_names, grepl, query, fixed = TRUE))
+  operators_are_in_query <- unlist(lapply(lookup_table[["r"]], grepl, query, fixed = TRUE))
+  sum_checks <- sum(cols_are_in_query) + sum(operators_are_in_query)
+  if (sum_checks == 0) {
+    stop("You provided an incorrect SQL query.")
+  }
+
+  return(invisible(TRUE))
+}
+
+
+#' Check whether the user-specified fields are valid
+#'
+#' A valid field is the one that corresponds to a column name of the specified
+#' table.
+#'
+#' @inheritParams read_rdbms
+#' @param fields A character vector of column names
+#' @param table_name A character with the table name
+#'
+#' @returns A character vector with the valid fields
+#' @keywords internal
+#'
+fields_check <- function(fields, table_name, login) {
+  # fetch only the first row of the table and extract the column names
+  cols_name_query <- sprintf("select * from %s", table_name)
+  res <- DBI::dbGetQuery(login, cols_name_query, n = 1)
+
+  if (is.character(fields)) {
+    fields <- unlist(strsplit(fields, ",", fixed = TRUE))
+  }
+
+  verdict <- fields %in% names(res)
+  if (sum(verdict) == 0) {
+    stop("Incorrect column names provided in 'fields' argument.")
+  }
+
+  if (any(!verdict)) {
+    warning("Cannot find the following field names: ", fields[which(!verdict)],
+            " in table ", table_name, ".")
+    fields <- fields[-which(!verdict)]
+  }
+  return(fields)
 }

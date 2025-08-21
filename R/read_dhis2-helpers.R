@@ -424,7 +424,7 @@ check_program <- function(login, program) {
   # send a message if there are some programs that were not found
   if (anyNA(idx)) {
     not_avail <- program[is.na(idx)]
-    message("Could not find the following programs: ", toString(not_avail))
+    warning("Could not find the following programs: ", toString(not_avail))
   }
 
   # if not, get the corresponding program IDs.

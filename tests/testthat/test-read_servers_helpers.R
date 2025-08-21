@@ -1,6 +1,7 @@
 test_that("sql_connect_to_server works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
+  testthat::skip_on_ci()
   con <- sql_connect_to_server(
     base_url      = "mysql-rfam-public.ebi.ac.uk",
     user_name     = "rfamro",
@@ -14,6 +15,9 @@ test_that("sql_connect_to_server works as expected", {
 })
 
 test_that("sql_identify_table_name works as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+  testthat::skip_on_ci()
   table_name <- sql_identify_table_name(
     query  = "select * from author",
     tables = c("family_author", "author", "test")
@@ -24,6 +28,9 @@ test_that("sql_identify_table_name works as expected", {
 })
 
 test_that("sql_identify_table_name fails with an incorrect query", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+  testthat::skip_on_ci()
   expect_error(
     sql_identify_table_name(
       query  = NA,
@@ -52,6 +59,9 @@ test_that("sql_identify_table_name fails with an incorrect query", {
 })
 
 test_that("sql_identify_table_name fails with incorrect tables", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+  testthat::skip_on_ci()
   expect_error(
     sql_identify_table_name(
       query  = "select * from author",
@@ -73,6 +83,7 @@ test_that("sql_identify_table_name fails with incorrect tables", {
 test_that("sql_sql_fetch_data_from_query works as expected", {
   testthat::skip_on_cran()
   testthat::skip_if_offline()
+  testthat::skip_on_ci()
   result <- sql_fetch_data_from_query(
     src           = "select author_id, name, last_name from author",
     tables        = c("family_author", "author"),

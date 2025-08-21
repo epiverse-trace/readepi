@@ -1,3 +1,89 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
+test_that("login get_org_unit_as_long with a non-data frame object", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+  testthat::skip_on_ci()
+  dhis2_login <- login(
+    from = "https://smc.moh.gm/dhis",
+    user_name = "test",
+    password = "Gambia@123"
+  )
+  expect_error(
+    get_org_unit_as_long(
+      login = dhis2_login,
+      org_units = "bad_org_unit_structure"
+    ),
+    regexp = cat("Value for 'org_units' argument must be a data frame-like
+                 object")
+  )
+
+  expect_error(
+    get_org_unit_as_long(
+      login = dhis2_login,
+      org_units = 10
+    ),
+    regexp = cat("Value for 'org_units' argument must be a data frame-like
+                 object")
+  )
+
+  expect_error(
+    get_org_unit_as_long(
+      login = dhis2_login,
+      org_units = TRUE
+    ),
+    regexp = cat("Value for 'org_units' argument must be a data frame-like
+                 object")
+  )
+})
+
+
+test_that("login check_program fails as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+  testthat::skip_on_ci()
+
+  dhis2_login <- login(
+    from = "https://smc.moh.gm/dhis",
+    user_name = "test",
+    password = "Gambia@123"
+  )
+  programs <- get_programs(login = dhis2_login)
+  program_name <- "fake_program"
+  program_id <- "E5IUQuHgXXX"
+
+  expect_error(
+    check_program(
+      login = dhis2_login,
+      program = program_name
+    ),
+    regexp = cat("You provided an incorrect program IDs or names.")
+  )
+
+  expect_error(
+    check_program(
+      login = dhis2_login,
+      program = program_id
+    ),
+    regexp = cat("You provided an incorrect program IDs or names.")
+  )
+
+  program_id <- c("E5IUQuHg3Mg", "E5IUQuHgXXX")
+  expect_warning(
+    check_program(
+      login = dhis2_login,
+      program = program_id
+    ),
+    regexp = cat("Could not find the following programs: E5IUQuHgXXX")
+  )
+})
+
+test_that("login get_program_stages fails as expected", {
+  testthat::skip_on_cran()
+  testthat::skip_if_offline()
+  testthat::skip_on_ci()
+
+  expect_error(
+    get_programs(login = dhis2_login),
+    regexp = cat("Value for 'org_units' argument must be a data frame-like
+                 object")
+  )
 })
