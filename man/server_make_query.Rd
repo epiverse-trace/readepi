@@ -10,7 +10,7 @@ server_make_query(table_name, login, filter, select)
 \item{table_name}{The name of the table in the server
 function}
 
-\item{login}{A connection object created from the \code{login()} function}
+\item{login}{The connection object obtained from the \code{login()} function.}
 
 \item{filter}{A vector or a comma-separated string of subset of subject IDs}
 

@@ -39,6 +39,7 @@ read_sormas <- function(base_url, user_name, password, disease, since = NULL) {
   checkmate::assert_character(
     password, len = 1, null.ok = FALSE, any.missing = FALSE
   )
+  url_check(base_url)
 
   # check and convert the value of 'since'
   if (is.null(since)) {
