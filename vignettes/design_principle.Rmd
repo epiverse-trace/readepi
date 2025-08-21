@@ -55,9 +55,9 @@ the challenge of having a unified framework for importing data from multiple
 HIS. As such, we propose `{readepi}`, a centralized tool that will provide 
 users with the capability of importing data from various HIS and RDBMS.
 
-`{readepi}` can import data from several potential sources in the same way. The
- data sources include distributed health information systems and public 
- databases as shown in the figure below.
+`{readepi}` aims at importing data from several potential sources in the same
+way. The data sources include distributed health information systems and public
+databases as shown in the figure below.
 :::
 
 ![readepi roadmap](../man/figures/roadmap_readepi.drawio.svg)
@@ -70,51 +70,46 @@ The `{readepi}` package is designed to import data from two common sources of
 institutional health-related data: HIS wrapped with specific APIs and 
 RDBMS that run on specific servers.
 
-To import data from these sources, users must have the appropriate access and
-provide relevant query parameters to fetch the target data. Thus, the 
-`{readepi}` package is structured around one main function, `read_epidata()`,
- and two auxiliary functions, `authenticate()` and `get_metadata()`.
+To import data from these sources, users must be granted with read access and
+provide the relevant query parameters to fetch the target data.
+The current version of `{readepi}` supports importing data from:
+  * HISs: [DHIS2](https://dhis2.org/) and [SORMAS](https://sormas.org/),
+  * RDBMS: MS SQL, SQLite, MySQL, and PostgreSQL.
 
-The current version of `{readepi}` supports importing data from HIS APIs such 
-as REDCap, DHIS2, and Fingertips, as well as RDBMS like MS SQL, SQLite, MySQL, 
-and PostgreSQL.
-
-In the future, we plan to include features for reading data from additional 
-HISs like GoData, Globaldothealth, SORMAS, and ODK, as well as RDBMS such as 
-MS Access.
+In next releases, we plan to include features for reading data from additional 
+HISs like GoData, Globaldothealth, and ODK, as well as RDBMS such as MS Access.
 
 :::
 
-![readepi design diagram](../man/figures/readepi_design_diagram.drawio.svg)
+![readepi design diagram](../man/figures/readepi_design_diagram_v-0.1.0.drawio.svg)
 
 
 ## Output
 
 ::: {style="text-align: justify;"}
-The `read_epidata()` functions return a `list` object containing one or more `data frames`. Each `data frame` corresponds to the data from a specified source.
-The `get_metadata()` function returns a data dictionary containing information about the data structure.
-The `authenticate()` function returns a connection object that is used in the query request.
+The main functions of the {readepi} package return a `data frame` object that
+contains the data fetched from the target source with the specified request parameters.
+The `login()` function returns a connection object that is used in the subsequent queries.
 :::
 
 ## Design decisions
 
 ::: {style="text-align: justify;"}
-The aim of {readepi} is to simplify and standardize the process of fetching 
-health data from APIs and servers. We strive to make it easy for users, 
-requiring minimal arguments to access and retrieve the data of interest from 
-the target source.
+The aim of {readepi} is to simplify and standardize the process of fetching data from APIs and servers. We strive to make this easy for users by limiting the number of required arguments to access and retrieve the data of interest from 
+the target source. As such, the package is structured around few main functions (`read_dhis2()`, `read_sormas()`), and one auxiliary functions (`login()`).
 
-* `authenticate()`:  This function verifies the user's identity and determines 
-if they are authorized to access the requested database or API. Establishing 
-this connection is crucial for ensuring successful data import.
+### Authentication
+
+The `login()` function is used to establish the connection with the data source. It verifies the user's identity and determines if they are authorized to access the requested database or API. Establishing this connection is crucial for ensuring successful data import. However, the authentication is not required
+when importing data from SORMAS.
 
 Once authentication credentials are provided, they are securely stored within 
 the connection object. This prevents the need to re-supply them for subsequent 
-requests to other functions. The Figure below lists the arguments needed to 
-call the `authenticate()` function.
+requests in other functions. The Figure below lists the arguments needed to 
+call the `login()` function.
 :::
 
-```{r authenticate, fig.align='center', echo=FALSE}
+```{r login, fig.align='center', echo=FALSE}
 DiagrammeR::grViz("digraph{
  
       graph[rankdir = LR]
@@ -127,7 +122,7 @@ DiagrammeR::grViz("digraph{
         style = rounded
         bgcolor = LightBlue
     
-        label = 'authenticate()'
+        label = 'Arguments for login() function'
         node[shape = rectangle, fillcolor = LemonChiffon, margin = 0.25]
         A[label = 'type: the source name']
         B[label = 'from: the URL, or IP address, or hostname']
@@ -144,144 +139,54 @@ DiagrammeR::grViz("digraph{
 
 ::: {style="text-align: justify;"}
 The `type` argument refers to the name of the data source of interest. The 
-current version of the package  covers the following types:
+current version of the package covers the following types:
 
     i) RDBMS: “MS SQL”, “MySQL”, “PostgreSQL”, “SQLite”
-    ii) APIs: “REDCap”, “DHIS2”,  “Fingertips”.
-
-Here's a refined version of your description:
-
----
-
-**`get_metadata()`**: This function retrieves the data schema, including the 
-list of tables and data dictionary, from a database or the data dictionary 
-from an API endpoint. It ensures compatibility with the 
-`clean_based_on_dictionary()` function of the 
-[{cleanepi}](https://epiverse-trace.github.io/cleanepi/) R package for 
- data cleaning and standardization processes.
+    ii) APIs: “DHIS2”.
 :::
 
-```{r get_metadata, fig.align='center', echo=FALSE}
-DiagrammeR::grViz("digraph{
- 
-      graph[rankdir = LR]
-  
-      node[shape = rectangle, style = filled, fontname = Courier,
-      align = center]
-  
-      subgraph cluster_0 {
-        graph[shape = rectangle]
-        style = rounded
-        bgcolor = LightBlue
-    
-        label = 'get_metadata()'
-        node[shape = rectangle, fillcolor = LemonChiffon, margin = 0.25]
-        A[label = 'conn: the connection object made from authenticate()']
-        B[label = 'endpoint: the path to the target endpoint (APIs only)']
-        C[label = 'query: a list with the query parameters']
-      }
-}")
-```
+### Data import
 
-* `read_epidata()`: this is the main function of the package. 
-It can be used to read from both HIS and RDBMS as shown in the below figure.
+You can use one of the functions below depending on the data source.
 
-    * When reading from RDBMS:
-        1. the value for the `type` argument is expected to be one of: "MS SQL", "MySQL", "PostgreSQL", or "SQLite".
-        2. When the query parameters are provided as a `list`, they will be used to form the appropriate SQL query internally. That resulting SQL query is the one that is executed by the internal function `read_rdbms()`.
-                                         
-
-```{r read, fig.align='center', echo=FALSE}
-DiagrammeR::grViz("digraph{
- 
-      graph[rankdir = LR]
-  
-      node[shape = rectangle, style = filled, fontname = Courier,
-      align = center]
-  
-      subgraph cluster_0 {
-        graph[shape = rectangle]
-        style = rounded
-        bgcolor = LightBlue
-    
-        label = 'read_epidata()'
-        node[shape = rectangle, fillcolor = LemonChiffon, margin = 0.25]
-        A[label = 'conn: the connection object made from authenticate()']
-        B[label = 'endpoint: the path to the target endpoint (APIs only)']
-        C[label = 'query: a list with the query parameters']
-      }
-}")
-```
-
-::: {style="text-align: justify;"}
-
-Calling `read_epidata()` will invoke an internal function (`read_*`, 
-where `*` represents the source name) that is dedicated 
-to fetching data from specific HIS sources. This design allows for targeted 
-updates to individual functions while maintaining the overall structure, 
-ensuring ease of maintenance.
-:::
-
-```{r fig.align='center', echo=FALSE}
-DiagrammeR::DiagrammeR("
-graph TB
-    A[read_epidata]
-    A --> B(read_rdbms)
-    A --> D(read_redcap)
-    A --> E(read_dhis2)
-    A --> F(read_fingertips)
-    A --> G(read_sormas)
-    A --> H(read_ODK)
-    A --> I(read_godata)
-    A --> J(read_globaldothealth)
-")
-```
+* `read_rdbms()`: for importing data from RDBMS. It takes the following arguments:
+  * **login**: A `Pool` object obtained from the `login()` function
+  * **query**: A string with an SQL query or a list of parameters. When the
+  query parameters are provided as a list, they will be used to form the
+  appropriate SQL query internally. The resulting SQL query will then be
+  executed by the `read_rdbms()`.
+* `read_dhis2()`: for importing data from DHIS2. This function expect the following arguments:
+  * **login**: A `httr2_response` object returned by the `login()` function
+  * **org_unit**: A character with the organisation unit ID or name
+  * **program**: A character with the program ID or name
+* `read_sormas()`: for importing data from SORMAS. It takes the following arguments:
+  * **base_url**: A character with the base URL to the target SORMAS system
+  * **user_name**: A character with the user name credential
+  * **password**: A character with the password credential
+  * **disease**: A character vector with the names of the diseases of interest.
+  Users can get the list of all diseases which data is available on their SORMAS
+  system using the `sormas_get_diseases()` function.
 
 ::: {style="text-align: justify;"}
 Note that, when reading from RDBMS, the `query` argument could be an [SQL query]{.underline} or a [list with a vector of table names, fields and rows to subset on]{.underline}.
-For HIS, the elements of this list can vary depending on the API that is been queried. We strongly recommend reading the vignette on the [query_parameters](./query_parameters.Rmd) for more details.
+For HIS, we strongly recommend reading the vignette on the [query_parameters](./query_parameters.Rmd) for more details about the request
+parameters that are supported in the current version of the package.
 :::
-
-## Mitigate API security risks
-
-
-To mitigate API security risks, we implement the following best practices:
-
-1. Utilize an API gateway as a centralized entry point and direct all 
-authentication requests through this gateway.
-2. Ensure users only access authorized data:
-   - Prefer OAuth or token-based authentication, whenever possible
-   - Implement access controls to enforce data restrictions and provide 
-   meaningful error messages for unauthorized access attempts.
-3. Avoid including API keys in URLs to prevent exposure in proxy logs or 
-other places.
-4. Implement rate limiting to control the number of requests per time period 
-and the size of API responses.
-5. Mitigate risks of malicious data:
-   - Use parameterized queries to prevent SQL injection.
-   - Validate and sanitize input data to prevent cross-site scripting (XSS) 
-   and other attacks.
-6. Maintain robust security measures:
-   - Regularly review and decommission unused APIs.
-   - Maintain an updated list of all endpoints to ensure security and 
-   operational integrity.
 
 
 ## Dependencies
 
-
-
-* The `read_epidata()` function relies primarily on two packages:
+* The main and internal functions of the package rely primarily on three packages:
   - [{httr2}](https://CRAN.R-project.org/package=httr2) or [{data.table}](https://CRAN.R-project.org/package=data.table): These are used to construct and execute API requests.
   - [{dplyr}](https://CRAN.R-project.org/package=dplyr): Utilized for its data manipulation capabilities.
 
-* The `read_from_server()` function depends on the following packages:
+* The `read_rdbms()` function depends on the following packages:
   - [{DBI}](https://CRAN.R-project.org/package=DBI): Used for database connectivity and querying.
   - [{pool}](https://CRAN.R-project.org/package=pool): Provides functionality for managing multiple database connections.
   - [{odbc}](https://CRAN.R-project.org/package=odbc): Supplies drivers required for accessing various DBMS.
   - [{RMySQL}](https://CRAN.R-project.org/package=RMySQL): Specifically used for MySQL database connectivity.
 
-These functions also require system dependencies for OS-X and Linux systems, detailed in the vignette.
+These functions also require system dependencies for OS-X and Linux systems, detailed in the [install drivers vignette](./install_drivers.Rmd) vignette.
 
 Additionally, the development of the package necessitates the inclusion of other required packages:
 - [{checkmate}](https://CRAN.R-project.org/package=checkmate)
@@ -290,6 +195,8 @@ Additionally, the development of the package necessitates the inclusion of other
 - [{rmarkdown}](https://CRAN.R-project.org/package=rmarkdown)
 - [{testthat}](https://CRAN.R-project.org/package=testthat) (>= 3.0.0)
 - [{knitr}](https://CRAN.R-project.org/package=knitr)
+- [{cli}](https://CRAN.R-project.org/package=cli)
+- [{DiagrammeR}](https://CRAN.R-project.org/package=DiagrammeR)
 
 ## Contribute
 

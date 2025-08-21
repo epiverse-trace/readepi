@@ -2,57 +2,37 @@
 % Please edit documentation in R/read_sormas.R
 \name{read_sormas}
 \alias{read_sormas}
-\title{Import data from SORMAS (Surveillance, Outbreak Response Management and
-Analysis System)}
+\title{Import data from SORMAS}
 \usage{
-read_sormas(user_name, password, disease, filter = NULL, extra_columns = NULL)
+read_sormas(base_url, user_name, password, disease, since = NULL)
 }
 \arguments{
-\item{user_name}{The user name}
+\item{base_url}{A character with the base URL to SORMAS system of interest}
 
-\item{password}{The user's password}
+\item{user_name}{A character with the user name}
 
-\item{disease}{A character with the target disease name.}
+\item{password}{A character with the user's password}
 
-\item{filter}{A list with the parameters needed to filter on rows. When
-specified, only records that meet these conditions will be returned.
-Default is \code{NULL}. Possible values are:
-\describe{
-\item{since:}{a \code{numeric} or \code{Date} used to specify the
-target date. Only cases reported from this date till now will be
-returned. The conversion between numeric to Date will be performed
-internally based on the requirement of the target HIS.}
-\item{sex:}{a \code{character} used to specify the gender of
-interest.}
-\item{country:}{a \code{vector} used to specify the countries of
-interest.}
-\item{city:}{a \code{vector} used to specify the cities of interest.}
-\item{outcome:}{a \code{vector} used to specify the outcomes of
-interest.}
-}
-Note that users can defined other filters than the defaults, provided that
-those columns will be part of the imported dataset.}
+\item{disease}{A character with the target disease name}
 
-\item{extra_columns}{A vector used to specify the names of the additional
-columns to return. Default is \code{NULL}.}
+\item{since}{A Date value in ISO8601 format (YYYY-mm-dd). Default is \code{NULL}.}
 }
 \value{
 A data frame with the case data of the specified disease.
 }
 \description{
-The function returns the following columns by default: \code{case_uuid,
-sex, date_of_birth, case_origin, country, city, lat, long, case_status,
-date_onset, date_admission, date_last_contact, date_first_contact, outcome,
-date_outcome, Ct_values}. When needed, extra columns can be specified using
-the \code{extra_columns} argument.
+The function returns the following columns by default: \code{case_id,
+person_id, sex, date_of_birth, case_origin, country, city, lat, long,
+case_status, date_onset, date_admission, date_last_contact,
+date_first_contact, outcome, date_outcome, Ct_values}.
 }
 \examples{
 # fetch all COVID (coronavirus) cases from the test SORMAS instance
 covid_cases <- read_sormas(
+  base_url = "https://demo.sormas.org/sormas-rest",
   user_name = "SurvSup",
   password = "Lk5R7JXeZSEc",
   disease = "coronavirus",
-  filter = NULL,
-  extra_columns = NULL
 )
+
 }

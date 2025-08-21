@@ -2,19 +2,28 @@
 % Please edit documentation in R/read_sormas-helpers.R
 \name{sormas_get_diseases}
 \alias{sormas_get_diseases}
-\title{Get list of disease names from SORMAS}
+\title{Get the list of disease names from SORMAS}
 \usage{
-sormas_get_diseases(user_name, password)
+sormas_get_diseases(base_url, user_name, password)
 }
 \arguments{
-\item{user_name}{The user name}
+\item{base_url}{A character with the base URL to SORMAS system of interest}
 
-\item{password}{The user's password}
+\item{user_name}{A character with the user name}
+
+\item{password}{A character with the user's password}
 }
 \value{
 A vector of the list of disease names in SORMAS
 }
 \description{
-Get list of disease names from SORMAS
+Get the list of disease names from SORMAS
 }
-\keyword{internal}
+\examples{
+disease_names <- sormas_get_diseases(
+  base_url = "https://demo.sormas.org/sormas-rest",
+  user_name = "SurvSup",
+  password = "Lk5R7JXeZSEc"
+)
+
+}

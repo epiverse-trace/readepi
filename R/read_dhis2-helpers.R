@@ -1,3 +1,33 @@
+#' Get DHIS2 API version
+#'
+#' @inheritParams read_dhis2
+#'
+#' @returns A numeric with minor version of the API
+#' @export
+#'
+#' @examples
+#' # login to the DHIS2 instance
+#' login <- dhis2_login(
+#'   base_url = "https://smc.moh.gm/dhis",
+#'   user_name = "test",
+#'   password = "Gambia@123"
+#' )
+#'
+#' # get the API version
+#' api_version <- get_api_version(login = login)
+get_api_version <- function(login) {
+  base_url <- gsub("/api/me", "", login[["url"]])
+  url <- paste0(file.path(base_url, "api", "system", "info"))
+  api_version <- login[["request"]] |>
+    httr2::req_url(url) |>
+    httr2::req_method("GET") |>
+    httr2::req_perform() |>
+    httr2::resp_body_json()
+
+  minor <- unlist(strsplit(api_version[["version"]], ".", fixed = TRUE))[[2]]
+  return(as.numeric(minor))
+}
+
 
 #' Establish connection to the DHIS2 instance
 #'
@@ -26,13 +56,12 @@ dhis2_login <- function(base_url,
   return(invisible(resp))
 }
 
-#' Extract DHSI2 aggregated and tracked programs
+#' get all programs from a given specific DHIS2 instance
 #'
 #' The function first fetches all programs from the DHIS2 Aggregate system,
-#' then retrieves the ones from the Tracker system.
+#' then distinguish the Tracker and Aggregate programs.
 #'
-#' @param login A httr2 request object preconfigured for authentication
-#'    conveying the base url, user name, and password.
+#' @inheritParams read_dhis2
 #'
 #' @returns A data frame with the following columns: the program ID, the program
 #'    name, and the program type specifying whether the program is part of the
@@ -40,14 +69,14 @@ dhis2_login <- function(base_url,
 #'
 #' @export
 #' @examples
-#' # establish the connexion to the system
+#' # establish the connection to the system
 #' login <- dhis2_login(
 #'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
 #'   user_name = "admin",
 #'   password = "district"
 #' )
 #'
-#' # fetching the programs
+#' # fetch the programs
 #' programs <- get_programs(login)
 #'
 get_programs <- function(login) {
@@ -89,10 +118,9 @@ get_programs <- function(login) {
   return(all_programs)
 }
 
-#' Retrieve DHS2 data elements
+#' Get all data elements from a specific DHIS2 instance
 #'
-#' @param login A httr2 request object preconfigured for authentication
-#'    conveying the base url, user name, and password.
+#' @inheritParams read_dhis2
 #'
 #' @returns A data frame with the following two columns: the data elements IDs
 #'    and their corresponding names.
@@ -120,28 +148,28 @@ get_data_elements <- function(login) {
   )
 
   # modify the request URL and perform the request
-  data_elements <- login[["request"]] %>%
-    httr2::req_url(url) %>%
-    httr2::req_method("GET") %>%
-    httr2::req_perform() %>%
-    httr2::resp_body_json() %>%
+  data_elements <- login[["request"]] |>
+    httr2::req_url(url) |>
+    httr2::req_method("GET") |>
+    httr2::req_perform() |>
+    httr2::resp_body_json() |>
     dplyr::bind_rows()
 
   return(data_elements)
 }
 
 
-#' Return the organisation units in a long data frame
+#' Transform the organisation units data frame from large to long format
 #'
 #' @param login The login object
 #' @param org_units A data frame of all the organisation units obtained from the
-#'    `get_organisation_units()` function.
+#'    `get_organisation_units()` function. Default is `NULL`.
 #'
 #' @returns A data with three columns corresponding to the organisation unit
 #'    names, IDs, and levels
 #'
 #' @keywords internal
-get_org_unit_as_long <- function(login, org_units = "NULL") {
+get_org_unit_as_long <- function(login, org_units = NULL) {
   # get all org units
   if (is.null(org_units)) {
     org_units <- get_organisation_units(login)
@@ -171,23 +199,11 @@ get_org_unit_as_long <- function(login, org_units = "NULL") {
 #' 2 "Region", and so on to the deepest level denoting the health care
 #' reporting unit.
 #'
-#' @param login A httr2 request object preconfigured for authentication
-#' conveying the base url, user name, and password.
+#' @inheritParams read_dhis2
 #'
 #' @return A data frame with three columns containing the organization unit's
 #'    names, IDs, and their hierarchical levels.
 #' @keywords internal
-#'
-#' @examples
-#' # establish the connexion to the system
-#' login <- dhis2_login(
-#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
-#'   user_name = "admin",
-#'   password = "district"
-#' )
-#'
-#' # get the organisation unit levels
-#' org_unit_levels <- get_org_unit_levels(login)
 #'
 get_org_unit_levels <- function(login) {
   # get the base URL the login object
@@ -200,10 +216,10 @@ get_org_unit_levels <- function(login) {
   )
 
   # update the URL and perform the query
-  levels <- login[["request"]] %>%
-    httr2::req_url(url) %>%
-    httr2::req_method("GET") %>%
-    httr2::req_perform() %>%
+  levels <- login[["request"]] |>
+    httr2::req_url(url) |>
+    httr2::req_method("GET") |>
+    httr2::req_perform() |>
     httr2::resp_body_json()
 
   # combine the response as a data frame
@@ -213,26 +229,15 @@ get_org_unit_levels <- function(login) {
 }
 
 
-#' Retrieve The DHIS2 organization units, along with their IDs, names, parent IDs,
-#' and levels.
+#' Retrieve The DHIS2 organization units, along with their IDs, names,
+#' parent IDs, and levels.
 #'
-#' @param login A httr2 request object preconfigured for authentication
-#' conveying the base url, user name, and password.
+#' @inheritParams read_dhis2
 #'
-#' @return A data frame of organization units with the following fields:
+#' @returns A data frame of organization units with the following fields:
 #'    organisation unit id and name, as well as the corresponding parent
 #'    organisation unit id, and level.
 #' @keywords internal
-#' @examples
-#' # establish the connection to the system
-#' login <- dhis2_login(
-#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
-#'   user_name = "admin",
-#'   password = "district"
-#' )
-#'
-#' # fetch the organisation units
-#' org_units <- get_org_units(login)
 #'
 get_org_units <- function(login) {
   # get the base URL the login object
@@ -256,7 +261,7 @@ get_org_units <- function(login) {
 
 }
 
-#' Retrieve the DHIS2 organization units
+#' Get the organization units from a specific DHIS2 instance
 #'
 #' Retrieves all organisational reporting units and their levels,
 #' then builds a hierarchy for each unit by tracing its ancestries from
@@ -270,8 +275,7 @@ get_org_units <- function(login) {
 #' 4. Traces the parent hierarchy of each deepest unit up to the root,
 #' 5. Constructs a tabular structure where each row is a full lineage.
 #'
-#' @param login A httr2 request object preconfigured for authentication
-#'    conveying the base url, user name, and password.
+#' @inheritParams read_dhis2
 #'
 #' @return A data frame where each row represents a full hierarchy for the
 #'    last-level unit by keeping the hierarchical organizational unit's name and
@@ -281,7 +285,7 @@ get_org_units <- function(login) {
 #' @export
 #'
 #' @examples
-#' # establish the connexion to the system
+#' # establish the connection to the system
 #' login <- dhis2_login(
 #'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
 #'   user_name = "admin",
@@ -304,7 +308,7 @@ get_organisation_units <- function(login) {
   for (i in seq_len(nrow(org_units_of_interest))) {
     current <- org_units_of_interest[i, ]
     level <- current[["level"]]
-    hierarchy <- rep("", level * 2)  # Each level: name + ID
+    hierarchy <- rep("", level * 2)
     while (!is.null(current)) {
       idx <- (current[["level"]] - 1) * 2
       hierarchy[idx + 1] <- current[["name"]]
@@ -336,71 +340,8 @@ get_organisation_units <- function(login) {
   return(result)
 }
 
-#' Filter out all element of type list from a list object
-#'
-#' @param x A list object
-#' @keywords internal
-remove_list <- function(x) {
-  # filter out list elements from a given enrollment
-  return(Filter(Negate(is.list), x))
-}
 
-#' Get organization units as a long data frame
-#'
-#' This function reshapes the organisation unit data from a large to a
-#' long-format data frame containing unit names, levels, and IDs.
-#'
-#' @param login A httr2 request object preconfigured for authentication
-#' carrying the base url, user name, and password.
-#' @param org_units A data frame of organisation units returned by the
-#'    `get_organisation_units()` function. If `org_units` is not provided, the
-#'    function calls `get_organisation_units()` to fetch all organisation units.
-#'
-#' @returns A data frame with the following three columns:
-#'    - `levels` the level of the organization unit (1,2,3, etc.)
-#'    - `org_unit_names` the names of the organization units
-#'    - `org_unit_ids` the IDs of the organization units
-#'
-#' @export
-#'
-#' @examples
-#' # establish the connection to the system
-#' login <- dhis2_login(
-#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
-#'   user_name = "admin",
-#'   password = "district"
-#' )
-#'
-#' # get the organisation units data frame in large format
-#' org_units <- get_organisation_units(login)
-#' long_org_units <- get_org_units_as_long(login, org_units)
-#'
-
-get_org_units_as_long <- function(login, org_units = NULL) {
-  # get all org units
-  if (is.null(org_units)) {
-    org_units <- get_organisation_units(login)
-  }
-  longer_names <- org_units |>
-    dplyr::select(dplyr::ends_with("_name")) |>
-    tidyr::pivot_longer(
-      cols = dplyr::ends_with("_name")
-    )
-  names(longer_names) <- c("levels", "org_unit_names")
-
-  # pivot longer on ids to get all the organisation unit ids
-  longer_ids <- org_units |>
-    dplyr::select(dplyr::ends_with("_id")) |>
-    tidyr::pivot_longer(
-      cols = dplyr::ends_with("_id")
-    )
-  tmp_org_units <- cbind(longer_names, longer_ids[["value"]])
-  names(tmp_org_units)[[3]] <- "org_unit_ids"
-
-  return(tmp_org_units)
-}
-
-#' Validate and retrieve organisation unit ID.
+#' Validate user-specified organisation unit ID or name.
 #'
 #' Check whether a given organisation unit identifier or name is valid
 #' within a DHIS2 instance. If a valid name is provided, the corresponding
@@ -415,7 +356,7 @@ get_org_units_as_long <- function(login, org_units = NULL) {
 #' @return The provided organization ID if it exists; otherwise, an error is
 #' thrown and the function that lists all available org units is provided.
 #'
-#' @example
+#' @examples
 #' login <- dhis2_login(base_url, user_name, password)
 #' org_unit_id <- check_org_unit(login = login, org_unit = "Freetown")
 #'
@@ -424,7 +365,7 @@ check_org_unit <- function(login, org_unit, org_units = NULL) {
     org_units <- get_organisation_units(login = login)
   }
   # get all org units
-  tmp_org_units <- get_org_unit_as_long(login, org_units)
+  tmp_org_units <- get_org_unit_as_long(login, org_units = org_units)
 
   # if the provided organisation unit is a correct ID, return it
   if (org_unit %in% tmp_org_units[["org_unit_ids"]]) {
@@ -457,11 +398,11 @@ check_org_unit <- function(login, org_unit, org_units = NULL) {
 #' carrying the base url, user name, and password.
 #' @param program A character of the program name to be validated
 #'
-#' @example
+#' @examples
 #' login <- dhis2_login(base_url, user_name, password)
 #' program_id <- check_program(
-#' login = login,
-#' program = "Malaria focus investigation"
+#'   login = login,
+#'   program = "Malaria focus investigation"
 #' )
 #'
 #'
@@ -498,30 +439,33 @@ check_program <- function(login, program) {
 #' are not found, the function displays a message and proceeds with
 #' the valid ones.
 #'
-#' @param login A httr2 request object preconfigured for authentication
-#' carrying the base url, user name, and password.
-#' @param program A character vector of program ids for which we want to return
-#' the program stages.
-#' @return A data frame with the following columns:
-#' 1. `program_id`: the unique ID of the program
-#' 2. `program_name`: the displayed name of the program
-#' 3. `program_stage_name`: the name of each stage associate with the program
-#' 4. `program_stage_id`: the ID of each program stage
-#' @example
-#' login = <- dhis2_login(base_url, user_name, password)
+#' @inheritParams read_dhis2
+#' @inheritParams get_event_data
+#' @returns A data frame with the following columns:
+#'    1. `program_id`: the unique ID of the program
+#'    2. `program_name`: the displayed name of the program
+#'    3. `program_stage_name`: the name of each stage associate with the program
+#'    4. `program_stage_id`: the ID of each program stage
+#' @examples
+#' # establish the connection to the DHIS2 instance
+#' login <- dhis2_login(
+#'   base_url = "https://smc.moh.gm/dhis",
+#'   user_name = "test",
+#'   password = "Gambia@123"
+#' )
+#'
+#' # get the list of all program stages from the DHIS2 instance
 #' all_program_stages <- get_program_stages(
 #'   login = login,
-#'   program = NULL
+#'   program = "E5IUQuHg3Mg",
+#'   programs = NULL
 #' )
 #' @export
-
-get_program_stages <- function(login, program = NULL) {
-  # 'login' is the authentication object
-  # 'program' is a vector of program ids for which we want to return the
-  # program stages
+get_program_stages <- function(login, programs = NULL, program = NULL) {
   # get all the programs and match the ids with the provided ones
-  message("getting all programs...")
-  programs <- get_programs(login)
+  if (is.null(programs)) {
+    programs <- get_programs(login)
+  }
 
   # check if the provided program IDs actually exist in the system
   if (!is.null(program)) {
@@ -558,11 +502,11 @@ get_program_stages <- function(login, program = NULL) {
     )
 
     # modify the request URL and perform the request
-    program_stage <- login[["request"]] %>%
-      httr2::req_url(url) %>%
-      httr2::req_method("GET") %>%
-      httr2::req_perform() %>%
-      httr2::resp_body_json() %>%
+    program_stage <- login[["request"]] |>
+      httr2::req_url(url) |>
+      httr2::req_method("GET") |>
+      httr2::req_perform() |>
+      httr2::resp_body_json() |>
       dplyr::bind_rows()
 
     # rename the output data frame
@@ -580,328 +524,255 @@ get_program_stages <- function(login, program = NULL) {
 }
 
 
-#' Get enrollments from DHSI2
-#'
-#' Retrieve enrollments records for a specific program and organization unit.
-#'
-#' @param login A httr2 request object preconfigured for authentication
-#' carrying the base url, user name, and password.
-#' @param program A character of program ID or name. It will be validated
-#' using the `check_program` function.
-#' @param org_unit A character of organisation unit ID or name.
-#' It will be validated using the `check_org_unit` function.
-#' @return A data frame with enrollment information retrieved from DHIS2
-#'
-
-#' @example
-#' login = <- dhis2_login(base_url, user_name, password)
-#' enrollments <- get_enrollments(
-#'   login = login,
-#'   org_unit = "DiszpKrYNg8",
-#'   program = "M3xtLkYBlKI"
-#' )
-#' @export
-#'
-get_enrollments <- function(login, program, org_unit, org_units = NULL) {
-  if (is.null(org_units)) {
-    org_units <- get_organisation_units(login = login)
-  }
-  # check whether the provided program and organisation unit exist
-  program <- check_program(login, program)
-  org_unit <- check_org_unit(login, org_unit = org_unit, org_units = org_units)
-
-  # get the base URL the login object
-  base_url <- gsub("/api/me", "", login[["url"]])
-
-  # construct the query parameter as a string
-  query_parameters <- sprintf(
-    "?orgUnit=%s&program=%s&paging=false",
-    org_unit, program
+# function to get the attribute names and ids of the tracked entities
+# Use this function to get the ids and names of the features collected about
+# each tracked entities. The ids and names will be used to update the list
+# of query parameters
+get_entity_attributes <- function(x) {
+  tmp <- x[["attributes"]] |>
+    dplyr::bind_rows()
+  display_names <- tmp[["displayName"]]
+  attribute_names <- data.frame(
+    id = tmp[["attribute"]],
+    name = tmp[["displayName"]]
   )
-
-  # construct the URL to a specific program
-  url <- paste0(
-    file.path(base_url, "api", "tracker", "enrollments"),
-    # file.path(base_url, "api", "enrollments"),
-    query_parameters
-  )
-
-  # modify the request URL send the request to fetch all enrollments at the
-  # specified organisation unit and program ids
-  response <- login[["request"]] %>%
-    httr2::req_url(url) %>%
-    httr2::req_method("GET") %>%
-    httr2::req_perform() %>%
-    httr2::resp_body_json()
-
-  # apply the filtration function above and
-  # combine the enrollment information as a data frame
-  enrollments <- dplyr::bind_rows(
-    purrr::map(response[["enrollments"]], remove_list)
-  )
-
-  return(enrollments)
+  return(attribute_names)
 }
 
-#' Get event data from DHIS2 tracker
-#'
-#' Retrieves event-level data for a given program and organisation unit.
-#' The function also replaces the IDs of data elements, organisation units,
-#' program stages, and programs by their corresponding real names for more
-#' readable output.
-#'
-#' @param login A httr2 request object preconfigured for authentication
-#' carrying the base url, user name, and password.
-#' @param program A character of program ID or name to retrieve events for.
-#' It is validated through the `check_program` function.
-#' @param org_unit A character of organisation unit ID or name.
-#' It is validated by the `check_org_unit` function.
-#' @param data_elements A data frame of data elements, typically retrieved
-#' using the `get_data_elements` function. If `NULL`, the function will fetch
-#' all data elements.
-#' @param org_units A data frame of organisation units, typically retrieved
-#' using the `get_org_unit_as_long` function.
-#' @param programs A data frame of programs, used to map program IDs to names.
-#' @param program_stages A data frame of program stages, used to map stage
-#' IDs to stage names.
-#'
-#' @return A data frame with event-level data, including metadata (event ID,
-#'  status, program, stage, enrollment, tracked entity, and organisation unit)
-#'  and data element values as columns.
-#'
-#' @example
-#' login <- dhis2_login(
-#'   base_url = "https://cbs.apps.moh.gm/dhis/dhis-web-tracker-capture",
-#'   user_name = "kebba.jobarteh",
-#'   password = "Cbs@2025"
-#' )
-#' program <- "IpHINAT79UW"
-#' org_unit <- "DiszpKrYNg8"
-#' data_elements <- get_data_elements(login = login)
-#' org_units <- get_organisation_units(login = login)
-#' org_units <- get_org_unit_as_long(login = login, org_units)
-#' programs <- get_programs(login)
-#' program_stages <- get_program_stages(login, program)
-#'
-#' events <- get_event_data(login, program, org_unit, data_elements, org_units,
-#' programs, program_stages)
-#'
-get_event_data <- function(login, program, org_unit, data_elements,
-                           org_units, programs, program_stages) {
-  # check whether the provided program and organisation unit exist
-  program <- check_program(login, program)
-  org_unit <- check_org_unit(login, org_unit, org_units = org_units)
 
-  if (is.null(data_elements)) {
-    data_elements <- get_data_elements(login = login)
-  }
-  # if (is.null(org_units)) {
-  #   org_units <- get_org_unit_as_long(login = login, org_units = org_units)
-  # }
-  if (is.null(program_stages)) {
-    program_stages <- get_program_stages(login, program)
-  }
-  org_units <- get_org_unit_as_long(login = login, org_units = org_units)
 
-  # get the base URL the login object
+
+#' Get event data from the newer DHIS2 versions (version >= 2.41)
+#'
+#' @inheritParams read_dhis2
+#' @param api_version A numeric with the API version returned by the
+#'    `get_api_version()` function
+#' @param data_elements A data frame with the data element IDs and names
+#'    obtained from the `get_data_elements()` function
+#' @param programs A data frame with the program IDs and names obtained from the
+#'    `get_programs()` function
+#' @param program_stages A data frame with the program stages IDs and names
+#'    obtained from the `get_program_stages()` function
+#' @param org_units A data frame with the organisation units IDs and names
+#'    obtained from the `get_organisation_units()` function
+#'
+#' @returns A data frame with the data elements obtained from each event
+#' @keywords internal
+#'
+get_event_data <- function(login, api_version, org_unit, program, data_elements,
+                           programs, program_stages, org_units) {
+  checkmate::assert_numeric(api_version, lower = 22, upper = 42,
+                            any.missing = FALSE, len = 1, null.ok = FALSE)
+
+  # get the request parameters
+  request_params <- get_request_params(api_version)
+
+  # construct the URL to target the events endpoint based on the API version
   base_url <- gsub("/api/me", "", login[["url"]])
-
-  # construct the query parameter as a string
-  query_parameters <- sprintf(
-    "?orgUnit=%s&program=%s&paging=false", #&program=%s&paging=false
-    org_unit, program
-  )
-
-  # construct the URL to a specific program
-  "/api/tracker/events?orgUnit=DiszpKrYNg8&program=eBAyeGv0exc"
   url <- paste0(
-    # file.path(base_url, "api", "tracker", "events"),
-    file.path(base_url, "api", "events"),
-    query_parameters
+    file.path(base_url, "api", request_params[["e_endpoint"]]),
+    sprintf(
+      "?%s=%s&program=%s&%s&%s=SELECTED",
+      request_params[["e_orgunit"]], org_unit, program,
+      request_params[["paging"]], request_params[["e_oumode"]]
+    )
   )
 
-  # modify the request URL and send the request to fetch all events at the
-  # specified organisation unit and program ids
-  response <- login[["request"]] %>%
-    httr2::req_url(url) %>%
-    httr2::req_method("GET") %>%
-    httr2::req_perform() %>%
+  # submit a request to fetch the event data
+  response <- login[["request"]] |>
+    httr2::req_url(url) |>
+    httr2::req_method("GET") |>
+    httr2::req_perform() |>
     httr2::resp_body_json()
-  events <- response[["events"]]
 
-  # send a message if no event was found
-  if (length(events) == 0) {
-    stop("No events found from the specified program and organisation unit.")
-  }
-
-  # extract the relevant information from the events object
-  # Extract names and ages using map
-  event_attributes <- purrr::map(
-    events, ~ c(event_id = .x$event, status = .x$status, program = .x$program,
-                program_stage = .x$programStage, enrollment = .x$enrollment,
-                tracked_entity = .x$trackedEntity, org_unit = .x$orgUnit)
+  # get the list of all retrieved events and
+  # extract the event metadata
+  all_events <- response[[request_params[["e_response"]]]]
+  event_metadata <- purrr::map(
+    all_events, ~ c(event = .x[["event"]],
+                    tracked_entity = .x[["trackedEntity"]],
+                    enrollment = .x[["enrollment"]],
+                    org_unit = .x[["orgUnit"]],
+                    program = .x[["program"]],
+                    program_stage = .x[["programStage"]],
+                    event_date = .x[["occurredAt"]]) # TODO: ask Yankuba about this
   ) |>
     dplyr::bind_rows()
 
-  # Extract the data values elements from the events list
-  data_values_list <- purrr::map(events, ~ .x$dataValues)
+  # get the list of all data values from each event
+  data_values_list <- purrr::map(all_events, ~ .x[["dataValues"]])
 
+  # get the data elements recorded from all events
   target_data_elements <- lapply(data_values_list, function(group) {
-    sapply(group, function(x) x$dataElement)
+    sapply(group, function(x) x[["dataElement"]])
   })
 
-  # Flatten the list of data element
+  # Flatten the list of data elements
   target_data_elements <- unique(unlist(target_data_elements))
 
   # construct the data frame that will contain the event data
   event_data <- as.data.frame(
-    matrix(nrow = length(events), ncol = length(target_data_elements))
+    matrix(nrow = length(all_events), ncol = length(target_data_elements))
   )
   names(event_data) <- target_data_elements
 
-  # loop through the dataValues list to get the data elements and values for
-  # every event entry
+  # loop through the list of data values to get the data elements and their
+  # values for every event entry
   for (i in seq_along(data_values_list)) {
-    # skip when there is no data values a given event
+    # skip when there is no data values for a given event
     if (length(data_values_list[[i]]) == 0) {
       next
     }
 
     # get the data elements and their values from a given event
     target <- data_values_list[[i]]
-    target_data_elements <- unlist(purrr::map(target, ~ .x$dataElement))
+    target_data_elements <- unlist(purrr::map(target, ~ .x[["dataElement"]]))
     target_data_values <- unlist(
-      purrr::map(target, ~ ifelse("value" %in% names(.x), .x$value, NA))
+      purrr::map(target, ~ ifelse("value" %in% names(.x), .x[["value"]], NA))
     )
 
-
-    # fill the event data frame at the corresponding line and columns
+    # fill in the event data frame at the corresponding line and columns
     idx <- match(target_data_elements, names(event_data))
     event_data[i, idx] <- target_data_values
   }
 
-  # get the data elements and rename the columns of the event_data using the
-  # data element names
+  # rename the columns of the event_data using their data element names
   idx <- match(names(event_data), data_elements[["id"]])
   names(event_data) <- data_elements[["name"]][idx]
 
-  # combine the event attributes and their data
-  event_data <- cbind(event_attributes, event_data)
+  # combine the event data and their attributes
+  events <- cbind(event_metadata, event_data)
 
   # replace the program id by the program name
-  idx <- match(event_data[["program"]], programs[["id"]])
-  event_data[["program"]] <- programs[["displayName"]][idx]
+  idx <- match(events[["program"]], programs[["id"]])
+  events[["program"]] <- programs[["displayName"]][idx]
 
   # replace the program stage ids by the program stage names
-  idx <- match(event_data[["program_stage"]], program_stages[["program_stage_id"]])
-  event_data[["program_stage"]] <- program_stages[["program_stage_name"]][idx]
+  idx <- match(events[["program_stage"]], program_stages[["program_stage_id"]])
+  events[["program_stage"]] <- program_stages[["program_stage_name"]][idx]
 
   # replace the organisation unit ids by their names
-  idx <- match(event_data[["org_unit"]], org_units[["org_unit_ids"]])
-  event_data[["org_unit"]] <- org_units[["org_unit_names"]][idx]
+  org_units <- get_org_unit_as_long(login = login, org_units = org_units)
+  idx <- match(events[["org_unit"]], org_units[["org_unit_ids"]])
+  events[["org_unit"]] <- org_units[["org_unit_names"]][idx]
 
-
-  return(event_data)
+  return(events)
 }
 
-get_one_entity_data <- function(x, login) {
+
+#' Get tracked entity attributes, their corresponding IDs and event IDs
+#'
+#' @inheritParams read_dhis2
+#' @param api_version A numeric with the API version obtained from the
+#'    `get_api_version()` function
+#' @param org_units A data frame with all organisation units from target DHIS2
+#'    instance. This is the output from the `get_organisation_units()` function
+#'
+#' @returns A data frame with the tracked entity attributes alongside their
+#'    events and tracked entity IDs
+#' @export
+#'
+#' @examples
+#' # login to the DHIS2 instance
+#' login <- dhis2_login(
+#'   base_url = "https://smc.moh.gm/dhis",
+#'   user_name = "test",
+#'   password = "Gambia@123"
+#' )
+#'
+#' # set the program and org unit IDs
+#' program <- "E5IUQuHg3Mg"
+#' org_unit <- "GcLhRNAFppR"
+#'
+#' # get the api version
+#' api_version <- get_api_version(login)
+#'
+#' # get all the organisation units from the DHIS2 instance
+#' org_units <- get_organisation_units(login = login)
+#'
+#' # get the tracked entity attributes
+#' tracked_entity_attributes <- get_tracked_entities(
+#'   login = login,
+#'   api_version = api_version,
+#'   org_unit = org_unit,
+#'   program = program,
+#'   org_units = org_units
+#' )
+get_tracked_entities <- function(login, api_version, org_unit, program,
+                                 org_units) {
+  checkmate::assert_numeric(api_version, lower = 22, upper = 42,
+                            any.missing = FALSE, len = 1, null.ok = FALSE)
+
+  # get the request parameters
+  request_params <- get_request_params(api_version)
+
+  # construct the URL to target the events endpoint based on the API version
   base_url <- gsub("/api/me", "", login[["url"]])
+  fields <- sprintf(
+    "%s,orgUnit,attributes,enrollments[events[event]]",
+    request_params[["te_teid"]]
+  )
   url <- paste0(
-    file.path(base_url, "api", "tracker", "trackedEntities", x)
+    file.path(base_url, "api", request_params[["te_endpoint"]]),
+    sprintf(
+      "?%s=%s&program=%s&%s&fields=%s&%s=SELECTED",
+      request_params[["te_orgunit"]], org_unit, program,
+      request_params[["paging"]], fields, request_params[["te_oumode"]]
+    )
   )
 
-  query_parameters <- sprintf(
-    "?trackedEntities=%s", #&orgUnit=%s&paging=false
-    x
-  )
-
-  url <- paste0(
-    file.path(base_url, "api", "tracker", "trackedEntities"),
-    query_parameters
-  )
-
-
+  # query the track entity endpoint
   response <- login[["request"]] |>
     httr2::req_url(url) |>
     httr2::req_method("GET") |>
-    # httr2::req_timeout(120) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
 
-  return(response)
-}
+  # get the list of tracked entity data
+  tracked_entities <- response[[request_params[["te_response"]]]]
 
-# function to get the attribute names and ids of the tracked entities
-# Use this function to get the ids and names of the features collected about
-# each tracked entities. The ids and names will be used to update the list
-# of query parameters
-get_entity_attributes <- function(x) {
-  tmp <- x$attributes %>%
-    dplyr::bind_rows()
-  display_names <- tmp$displayName
-  attribute_names <- data.frame(id = tmp$attribute, name = tmp$displayName)
-  return(attribute_names)
-}
-
-#' Get metadata and attributes associated with tracked entities
-#'
-#' The function retrieves metadata and attributes for the supplied tracked
-#' entities. It also replaces organisation unit IDs with their corresponding
-#' names. It returns a unified data frame. Warnings are issued if no attributes
-#' are found for the entities.
-#'
-#' @param login A httr2 request object preconfigured for authentication
-#' carrying the base url, user name, and password.
-#' @param target_entities A character vector of tracked entity IDs to retrieve.
-#' @param org_units A data frame of organisation units, typically retrieved
-#' using the `get_org_unit_as_long` function.
-#'
-#' @return A data frame where each row corresponds to a tracked entity
-#' and includes:
-#' - `Metadata`: tracked entity ID, type, organisation unit name
-#' - `Attributes`: columns named using attribute display names
-#'
-#' @Exemple
-#' login = <- dhis2_login(base_url, user_name, password)
-#' target_entities <- paste(unique(event_data$tracked_entity), collapse = ",")
-#' tracked_entities <- get_tracked_entities(login, target_entities, org_units)
-#'
-get_tracked_entities <- function(login, target_entities, org_units) {
-  # get the base URL from the login object
-  base_url <- gsub("/api/me", "", login[["url"]])
-
-  # construct the URL to a specific program
-  query_parameters <- sprintf(
-    "?trackedEntities=%s", #&orgUnit=%s&paging=false
-    target_entities
-  )
-  url <- paste0(
-    file.path(base_url, "api", "tracker", "trackedEntities"),
-    query_parameters
-  )
-
-  # response <- lapply(target_entities, get_one_entity_data, login)
-
-  # querying the track entities endpoint
-  response <- login[["request"]] |>
-    httr2::req_url(url) |>
-    httr2::req_method("GET") |>
-    # httr2::req_timeout(120) |>
-    httr2::req_perform() |>
-    httr2::resp_body_json()
-
-  tracked_entities <- response[["trackedEntities"]]
   # stop and send a message if no tracked entity was found
   stopifnot("No tracked entity was found" = !length(tracked_entities) == 0)
 
-  entity_attributes <- purrr::map(
-    tracked_entities, ~ c(tracked_entity = .x$trackedEntity,
-                          tracked_entity_type = .x$trackedEntityType,
-                          org_unit = .x$orgUnit)
+  # get the tracked entity attributes
+  entity_attributes <- get_entity_data(
+    login, api_version, tracked_entities, org_units
+  )
+
+  # get the event IDs
+  event_ids <- lapply(tracked_entities, get_event_ids)
+  names(event_ids) <- entity_attributes[["tracked_entity"]]
+  event_ids <- suppressWarnings(stack(event_ids))
+  names(event_ids) <- c("event", "tracked_entity")
+
+  # merge event IDs with entity attributes
+  tracked_entities_data <- event_ids |>
+    dplyr::left_join(
+      entity_attributes,
+      by = "tracked_entity",
+      relationship = "many-to-many"
+    )
+
+  return(tracked_entities_data)
+}
+
+
+#' Get tracked entity attributes
+#'
+#' @inheritParams get_tracked_entities
+#'
+#' @returns A data frame with the tracked entity attributes
+#' @keywords internal
+#'
+get_entity_data <- function(login, api_version, tracked_entities, org_units) {
+  entity_metadata <- purrr::map(
+    tracked_entities, ~ c(tracked_entity = .x[["trackedEntity"]],
+                          tracked_entity_type = .x[["trackedEntityType"]],
+                          org_unit = .x[["orgUnit"]])
   ) |>
     dplyr::bind_rows()
 
-  # get the attribute names and ids
+  # get the tracked entity attribute names and ids
   attributes_names <- suppressWarnings(
     dplyr::bind_rows(purrr::map(tracked_entities, get_entity_attributes))
   ) |>
@@ -912,17 +783,17 @@ get_tracked_entities <- function(login, target_entities, org_units) {
     warning("No attribute found across all tracked entities.")
   }
 
-  # get the list of all attributes
-  all_attributes <- purrr::map(tracked_entities, ~ .x$attributes)
+  # access the list of all tracked entity attributes
+  all_attributes <- purrr::map(tracked_entities, ~ .x[["attributes"]])
 
-  # construct the data frame that will contain the event data
+  # construct the data frame that will contain the tracked entity attribute data
   entity_data <- as.data.frame(
     matrix(nrow = length(tracked_entities), ncol = nrow(attributes_names))
   )
   names(entity_data) <- attributes_names[["name"]]
 
-  # loop through the tracked entity list to get the data elements and values for
-  # every entry
+  # loop through the tracked entity list of attributes to get the data elements
+  # and values for every entry
   for (i in seq_along(all_attributes)) {
     # skip when there is no data values a given event
     if (length(all_attributes[[i]]) == 0) {
@@ -937,7 +808,7 @@ get_tracked_entities <- function(login, target_entities, org_units) {
   }
 
   # combine the entity attributes with the entity data
-  tracked_entities <- cbind(entity_attributes, entity_data)
+  tracked_entities <- cbind(entity_metadata, entity_data)
 
   # replace the org unit id with the org unit name
   org_units <- get_org_unit_as_long(login = login, org_units = org_units)
@@ -945,5 +816,103 @@ get_tracked_entities <- function(login, target_entities, org_units) {
   tracked_entities[["org_unit"]] <- org_units[["org_unit_names"]][idx]
 
   return(tracked_entities)
+}
+
+#' Get event IDs for specific tracked entity
+#'
+#' @param tracked_entity A list with tracked entity data
+#'
+#' @returns A data frame of event IDs associated with the specific tracked
+#'    entity
+#' @keywords internal
+#'
+get_event_ids <- function(tracked_entity) {
+  # fetch the event information from the enrollment element of the list,
+  # and the event from that object
+  enrollments <- tracked_entity[["enrollments"]]
+  events <- enrollments[[1]][["events"]]
+  if (length(events) == 0) {
+    return(NULL)
+  }
+  event_ids <- dplyr::bind_rows(purrr::map(events, ~ c(event = .x[["event"]])))
+  return(event_ids[["event"]])
+}
+
+
+#' Get the request query parameters for a specific API version
+#'
+#' @param api_version A numeric with the API version
+#'
+#' @returns A data frame with single row containing the query parameters needed
+#'    to submit a request
+#' @keywords internal
+#'
+get_request_params <- function(api_version) {
+  # get the target data set
+  req_params <- dplyr::case_when(
+    api_version <= 37 ~ request_parameters[1, -1],
+    38 <= api_version & api_version <= 40 ~ request_parameters[2, -1],
+    api_version >= 41 ~ request_parameters[3, -1]
+  )
+  return(req_params)
+}
+
+
+#' Get organisation units that are associated with a given program
+#'
+#' @inheritParams read_dhis2
+#' @inheritParams get_tracked_entities
+#'
+#' @returns A data frame with the organisation units associated with the
+#'    provided program
+#' @export
+#'
+#' @examples
+#' # login to the DHIS2 instance
+#' login <- dhis2_login(
+#'   base_url = "https://smc.moh.gm/dhis",
+#'   user_name = "test",
+#'   password = "Gambia@123"
+#' )
+#'
+#' # fetch the organisation units
+#' org_units <- get_organisation_units(login)
+#'
+#' # get the organisation units associated with the following program
+#' 'E5IUQuHg3Mg'
+#' target_org_units <- get_program_org_units(
+#'   login = login,
+#'   program = "E5IUQuHg3Mg",
+#'   org_units = org_units
+#' )
+get_program_org_units <- function(login, program, org_units = NULL) {
+  # construct the URL to target the programs endpoint
+  base_url <- gsub("/api/me", "", login[["url"]])
+  url <- paste0(
+    file.path(base_url, "api", "programs", "orgUnits"),
+    sprintf("?programs=%s", program)
+  )
+
+  # query the programs endpoint
+  response <- login[["request"]] |>
+    httr2::req_url(url) |>
+    httr2::req_method("GET") |>
+    httr2::req_perform() |>
+    httr2::resp_body_json()
+
+  target_org_units <- data.frame(
+    org_unit_ids = unlist(response[[program]]),
+    stringsAsFactors = FALSE
+  )
+
+  # convert the org units into long format
+  if (is.null(org_units)) {
+    org_units <- get_organisation_units(login = login)
+  }
+  tmp_org_units <- get_org_unit_as_long(login = login, org_units = org_units)
+  target_org_units <- target_org_units |>
+    dplyr::left_join(tmp_org_units, by = "org_unit_ids")
+
+  return(target_org_units)
 }
 

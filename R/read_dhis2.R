@@ -1,41 +1,49 @@
-# for the DHIS2 test server
-# base_url <- "https://play.im.dhis2.org/stable-2-42-0"
-# user_name <- "admin"
-# password <- "district"
-# org_unit <- "DiszpKrYNg8"
-# program <- "qDkgAbB5Jlk"
-#
-# login <- dhis2_login(
-#   base_url = base_url,
-#   user_name = user_name,
-#   password = password
-# )
-# base_url <- "https:/smc.moh.gm/staging"
-# user_name <- "karim"
-# password <- "Gambia@123"
-
-
-
-
 #' Import data from DHIS2
 #'
-#' @param login The login object
+#' @param login A httr2_response object returned by the `dhis2_login()` function
 #' @param org_unit A character with the organisation unit ID or name
 #' @param program A character with the program ID or name
 #'
-#' @returns
+#' @returns A data frame that contains both the tracked entity attributes and
+#'    their event data.
 #' @export
 #'
 #' @examples
-#' security/login.action
-#' login <- dhis2_login(
-#'   base_url = "https://smc.moh.gm/dhis",
+#' # login to the DHIS2 instance
+#' login <- login(
+#'   from = "https://smc.moh.gm/dhis",
 #'   user_name = "test",
 #'   password = "Gambia@123"
 #' )
 #' program = "E5IUQuHg3Mg"
-#' org_unit = "jvQPTsCLwPh"
+#' org_unit = "GcLhRNAFppR"
+#' data <- read_dhis2(
+#'   login = login,
+#'   org_unit = org_unit,
+#'   program = program
+#' )
+#'
+#' # fetch data from the test DHIS2 instance
+#' login <- login(
+#'   from = "https://play.im.dhis2.org/stable-2-42-1",
+#'   user_name = "admin",
+#'   password = "district"
+#' )
+#' org_unit <- "DiszpKrYNg8"
+#' program <- "IpHINAT79UW"
+#'
+#' data <- read_dhis2(
+#'   login = login,
+#'   org_unit = org_unit,
+#'   program = program
+#' )
 read_dhis2 <- function(login, org_unit, program) {
+  checkmate::assert_class(login, classes = "httr2_response", null.ok = FALSE)
+  checkmate::assert_character(org_unit, any.missing = FALSE, null.ok = FALSE)
+  checkmate::assert_character(program, any.missing = FALSE, null.ok = FALSE)
+
+  # get the api_version
+  api_version <- get_api_version(login = login)
 
   # get the data elements
   message("Getting the data elements")
@@ -49,39 +57,51 @@ read_dhis2 <- function(login, org_unit, program) {
   message("Getting the programs")
   programs <- get_programs(login = login)
 
+  # convert program names into program ID when necessary
+  program <- check_program(
+    login = login,
+    program = program
+  )
+
   # get program stages
   message("Getting the program stages")
-  program_stages <- get_program_stages(login = login, program = program)
+  program_stages <- get_program_stages(
+    login = login,
+    programs = programs,
+    program = program
+  )
 
-  # get enrollments
-  # message("Getting the enrollments")
-  # enrollments <- get_enrollments(
-  #   login = login,
-  #   program = program,
-  #   org_unit = org_unit
-  # )
+  # check if the provided organisation unit is associated with the provided
+  # program. Send an error message if not.
+  target_org_units <- get_program_org_units(
+    login = login,
+    program = program,
+    org_units = org_units
+  )
+
+  # convert organisation unit name into organisation unit ID when necessary
+  org_unit <- check_org_unit(login = login, org_unit = org_unit)
+
+  # get the tracked entities attributes
+  message("Getting the tracked entity attributes")
+  tracked_entities <- get_tracked_entities(
+    login = login,
+    api_version = api_version,
+    org_unit = org_unit,
+    program = program,
+    org_units = org_units
+  )
 
   # get event data
   message("Getting the events")
   events <- get_event_data(
     login = login,
+    api_version = api_version,
     org_unit = org_unit,
     program = program,
-    org_units = org_units,
     data_elements = data_elements,
     programs = programs,
-    program_stages = program_stages
-  )
-
-  # get the tracked entities
-  message("Getting the tracked entities")
-  target_entities <- paste(
-    unique(events[["tracked_entity"]]),
-    collapse = ","
-  )
-  tracked_entities <- get_tracked_entities(
-    login = login,
-    target_entities = target_entities,
+    program_stages = program_stages,
     org_units = org_units
   )
 
@@ -90,7 +110,7 @@ read_dhis2 <- function(login, org_unit, program) {
   final_result <- tracked_entities |>
     dplyr::left_join(
       events,
-      by = c("tracked_entity", "org_unit"),
+      by = c("tracked_entity", "event", "org_unit"),
       relationship = "many-to-many"
     )
 
