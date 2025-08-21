@@ -1,9 +1,12 @@
 Package: readepi
-Title: Read Data from Health Information Systems
+Title: Read Data from Relational Database Management Systems and Health
+    Information Systems
 Version: 0.1.0
 Authors@R: c(
     person("Karim", "Mané", , "karim.mane@lshtm.ac.uk", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-9892-2999")),
+    person("Emmanuel", "Kabuga", , "kabuga@aims.ac.za", role = c("ctb"),
+           comment = c(ORCID = "0009-0006-2291-709X")),
     person("Bubacarr", "Bah", , "Bubacarr.Bah1@lshtm.ac.uk", role = "ctb",
            comment = c(ORCID = "0000-0003-3318-6668")),
     person("Bankolé", "Ahadzie", , "Bankole.Ahadzie@lshtm.ac.uk", role = "ctb"),
@@ -18,9 +21,10 @@ Authors@R: c(
     person("London School of Hygiene and Tropical Medicine, LSHTM", role = "cph"),
     person("data.org", role = "fnd")
   )
-Description: Data import from several health information systems ('HIS').
-    The current version of the package covers 'HIS' such as 'MS SQL',
-    'MySQL', and 'PostGRESQL' servers, 'REDCap', 'DHIS2' and 'Fingertips'.
+Description: Data import from several Relational Database Management Systems
+    (RDBMS) and Health Information Systems ('HIS').
+    The current version of the package covers RDBMS such as'MS SQL',
+    'MySQL', 'PostGRESQL', and 'SQLite', and two HIS ('DHIS2' and 'SORMAS').
 License: MIT + file LICENSE
 URL: https://epiverse-trace.github.io/readepi/,
     https://github.com/epiverse-trace/readepi/
@@ -30,14 +34,10 @@ Imports:
     cli,
     DBI,
     dplyr,
-    fingertipsR (>= 1.0.10.9001),
-    glue,
     httr2,
     lubridate,
-    magrittr,
     odbc,
     pool,
-    REDCapR,
     RMySQL,
     RSQLite
 Suggests: 
