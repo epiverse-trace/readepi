@@ -110,11 +110,15 @@ login <- function(from,
       port = port,
       type = type
     )
-    message("\nLogged in successfully!")
+    cli::cli_alert_success("Logged in successfully!")
   } else {
     # Entering this branch means, data is fetched from an API. We will determine
     # the authentication method based on which arguments are provided.
-    stopifnot("'user_name' must be provided." = !is.null(user_name))
+    if (is.null(user_name)) {
+      cli::cli_abort(c(
+        x = "{.strong user_name} must be provided."
+      ))
+    }
     conn <- dhis2_login(
       base_url = from,
       user_name = user_name,

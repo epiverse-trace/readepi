@@ -30,9 +30,6 @@
 #' (2025-NA-01) or date (2025-12-NA), or a combination of two missing elements.
 #'
 read_sormas <- function(base_url, user_name, password, disease, since = 0) {
-  cli::cli_progress_step("Importing cases data from SORMAS...",
-                         msg_done = "Successfully imported cases from SORMAS.",
-                         spinner = TRUE)
   checkmate::assert_vector(
     disease, min.len = 1L, null.ok = FALSE, any.missing = FALSE
   )
@@ -58,6 +55,7 @@ read_sormas <- function(base_url, user_name, password, disease, since = 0) {
   since <- as.numeric(as.POSIXct(since, origin = "1970-01-01"))
 
   # check if the specified disease is accounted for in SORMAS
+  cli::cli_progress_step("Checking whether the disease names are correct.")
   disease <- tolower(disease)
   sormas_diseases <- sormas_get_diseases(
     base_url = base_url,
@@ -83,11 +81,13 @@ read_sormas <- function(base_url, user_name, password, disease, since = 0) {
   }
   disease <- disease[!is.na(verdict)]
 
+  cli::cli_progress_step("Getting clinical data")
   # send a query to fetch the data from the cases endpoint
   cases_data <- sormas_get_cases_data(
     base_url, user_name, password, disease, since
   )
 
+  cli::cli_progress_step("Getting socio-demographic data")
   # get the persons data
   persons_data <- sormas_get_persons_data(base_url, user_name, password, since)
 
@@ -98,6 +98,7 @@ read_sormas <- function(base_url, user_name, password, disease, since = 0) {
     persons_data, by = "case_id", relationship = "many-to-many"
   )
 
+  cli::cli_progress_step("Getting contact data")
   # fetch all contacts details from the 'contacts' endpoint where we can extract
   # contact tracing data such as 'date_first_contact', 'date_last_contact'.
   # the case and contact data will be merged based on their 'uuid' column
@@ -105,6 +106,7 @@ read_sormas <- function(base_url, user_name, password, disease, since = 0) {
   contact_data <- sormas_get_contact_data(base_url, user_name, password, since)
   final_data <- final_data |> dplyr::left_join(contact_data, by = "case_id")
 
+  cli::cli_progress_step("Getting laboratory tests data")
   # Add the Ct (cycle threshold) values from the lab test
   # Pathogen tests are linked with sample. The sample then is connected to a
   # case. From the pathogen test data, we can extract the Ct values and the

@@ -36,7 +36,13 @@ show_tables <- function(login) {
       port = connection_params[["port"]]
     )
   }
-  stopifnot("Invalid connection object!" = inherits(login, "Pool"))
+  if (!inherits(login, "Pool")) {
+    cli::cli_abort(c(
+      x = "Invalid connection object!",
+      i = "Use the {.fn login} function to establish the connection to the \\
+           database."
+    ))
+  }
 
   # listing the names of the tables present in the database
   tables <- DBI::dbListTables(conn = login)

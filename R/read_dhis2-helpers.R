@@ -52,7 +52,7 @@ dhis2_login <- function(base_url,
   resp <- httr2::request(url) |>
     httr2::req_auth_basic(user_name, password) |>
     httr2::req_perform()
-  message("\nLogged in successfully!")
+  cli::cli_alert_success("Logged in successfully!")
   return(invisible(resp))
 }
 
@@ -382,9 +382,11 @@ check_org_unit <- function(login, org_unit, org_units = NULL) {
   # If no, return an error that the provided organisation unit is incorrect
   # and give the name of the function to be used for getting the available
   # organisation units
-  message("You provided an incorrect organisation unit ID or name")
-  stop("Use the `get_organisation_units()` function to get the list of all
-       available organisation units.")
+  cli::cli_abort(c(
+    x = "You provided an incorrect organisation unit ID or name.",
+    i = "Use the {.fn get_organisation_units} function to get the list of all \\
+         available organisation units."
+  ))
 }
 
 #' Validate and retrieve program IDs
@@ -416,15 +418,23 @@ check_program <- function(login, program) {
     # if not, check if the specified programs are part of the program names. If
     # yes, get the corresponding program ID.
     idx <- match(program, programs[["displayName"]])
-    stopifnot("You provided an incorrect program IDs or names.
-    Use the `get_programs()` function to get the available programs." =
-                !all(is.na(idx)))
+    if (all(is.na(idx))) {
+      cli::cli_abort(c(
+        x = "You provided {cli::qty(length(idx))} {?an/} incorrect program \\
+             ID{?s} or name{?s}.",
+        i = "Use the {.fn get_programs} function to get the list of all \\
+             available programs."
+      ))
+    }
   }
 
   # send a message if there are some programs that were not found
   if (anyNA(idx)) {
     not_avail <- program[is.na(idx)]
-    warning("Could not find the following programs: ", toString(not_avail))
+    cli::cli_alert_warning(
+      "Could not find the following {cli::qty(length(not_avail))}\\
+       program{?s}: {.strong {toString(not_avail)}}"
+    )
   }
 
   # if not, get the corresponding program IDs.
@@ -472,13 +482,21 @@ get_program_stages <- function(login, programs = NULL, program = NULL) {
     idx <- match(program, programs[["id"]])
     if (all(is.na(idx))) {
       idx <- match(program, programs[["displayName"]])
-      stopifnot("You provided incorrect program IDs" = !all(is.na(idx)))
+      if (all(is.na(idx))) {
+        cli::cli_abort(c(
+          x = "You provided {cli::qty(sum(is.na(idx)))} {?an/} incorrect \\
+               program ID{?s}"
+        ))
+      }
     }
 
     # send a message if there are some programs that were not found
     if (anyNA(idx)) {
       not_avail <- program[is.na(idx)]
-      message("Could not find the following programs: ", toString(not_avail))
+      cli::cli_alert_warning(
+        "Could not find the following {cli::qty(length(not_avail))}\\
+         program{?s}: {.strong {toString(not_avail)}}"
+      )
     }
 
     # only keep the programs that match the ones found in the system
@@ -780,7 +798,7 @@ get_entity_data <- function(login, api_version, tracked_entities, org_units) {
 
   # send a message when no tracked entity has an attribute
   if (nrow(attributes_names) == 0) {
-    warning("No attribute found across all tracked entities.")
+    cli::cli_alert_warning("No attribute found across all tracked entities.")
   }
 
   # access the list of all tracked entity attributes
