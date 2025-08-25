@@ -1,19 +1,19 @@
+testthat::skip_on_cran()
+testthat::skip_if_offline()
+testthat::skip_on_ci()
+
+# authenticate the user
+rdbms_login <- login(
+  from = "mysql-rfam-public.ebi.ac.uk",
+  type = "MySQL",
+  user_name = "rfamro",
+  password = "",
+  driver_name = "",
+  db_name = "Rfam",
+  port = 4497
+)
+
 test_that("read_rdbms works as expected", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
-  testthat::skip_on_ci()
-
-  # authenticate the user
-  rdbms_login <- login(
-    from = "mysql-rfam-public.ebi.ac.uk",
-    type = "MySQL",
-    user_name = "rfamro",
-    password = "",
-    driver_name = "",
-    db_name = "Rfam",
-    port = 4497
-  )
-
   # read data from a table where the name is specified in a list of query
   # parameters
   authors_list <- read_rdbms(

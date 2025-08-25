@@ -1,6 +1,8 @@
+testthat::skip_on_cran()
+testthat::skip_if_offline()
+testthat::skip_on_ci()
+
 test_that("login works as expected when connecting to a MySQL server", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
   rdbms_login <- login(
     from = "mysql-rfam-public.ebi.ac.uk",
     type = "MySQL",
@@ -20,8 +22,6 @@ test_that("login works as expected when connecting to a MySQL server", {
 })
 
 test_that("login fails with a wrong URL", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
   expect_error(
     login(
       from = "fake-url",
@@ -32,7 +32,7 @@ test_that("login fails with a wrong URL", {
       db_name = "Rfam",
       port = 4497
     ),
-    regexp = cat("Incorrect domain name in provided URL!")
+    regexp = cat("Incorrect domain name in the provided URL!")
   )
 
   expect_error(
@@ -52,8 +52,6 @@ test_that("login fails with a wrong URL", {
 
 
 test_that("login works as expected when connecting to DHIS2", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
   dhis2_login <- login(
     from = "https://smc.moh.gm/dhis",
     user_name = "test",
@@ -64,21 +62,17 @@ test_that("login works as expected when connecting to DHIS2", {
 })
 
 test_that("login fails with a wrong URL for DHIS2", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
   expect_error(
     login(
       from = "fake-url",
       user_name = "test",
       password = "Gambia@123"
     ),
-    regexp = cat("Incorrect domain name in provided URL!")
+    regexp = cat("Incorrect domain name in the provided URL!")
   )
 })
 
 test_that("login fails if username is not provided", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
   expect_error(
     login(
       from = "https://smc.moh.gm/dhis",

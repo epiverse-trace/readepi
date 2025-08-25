@@ -1,8 +1,8 @@
-test_that("read_sormas works as expected", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
-  testthat::skip_on_ci()
+testthat::skip_on_cran()
+testthat::skip_if_offline()
+testthat::skip_on_ci()
 
+test_that("read_sormas works as expected", {
   covid_cases <- read_sormas(
     base_url = "https://demo.sormas.org/sormas-rest",
     user_name = "SurvSup",
@@ -39,10 +39,6 @@ test_that("read_sormas works as expected", {
 
 
 test_that("read_sormas fails as expected", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
-  testthat::skip_on_ci()
-
   # test that it fails when 'since' is incorrect
   expect_error(
     read_sormas(
