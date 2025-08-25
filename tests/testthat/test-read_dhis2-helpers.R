@@ -1,7 +1,8 @@
-test_that("login get_org_unit_as_long with a non-data frame object", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
-  testthat::skip_on_ci()
+testthat::skip_on_cran()
+testthat::skip_if_offline()
+testthat::skip_on_ci()
+
+test_that("get_org_unit_as_long with a non-data frame object", {
   dhis2_login <- login(
     from = "https://smc.moh.gm/dhis",
     user_name = "test",
@@ -36,11 +37,7 @@ test_that("login get_org_unit_as_long with a non-data frame object", {
 })
 
 
-test_that("login check_program fails as expected", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
-  testthat::skip_on_ci()
-
+test_that("check_program fails as expected", {
   dhis2_login <- login(
     from = "https://smc.moh.gm/dhis",
     user_name = "test",
@@ -55,7 +52,7 @@ test_that("login check_program fails as expected", {
       login = dhis2_login,
       program = program_name
     ),
-    regexp = cat("You provided an incorrect program IDs or names.")
+    regexp = cat("You provided an incorrect program ID or name.")
   )
 
   expect_error(
@@ -63,24 +60,20 @@ test_that("login check_program fails as expected", {
       login = dhis2_login,
       program = program_id
     ),
-    regexp = cat("You provided an incorrect program IDs or names.")
+    regexp = cat("You provided an incorrect program ID or name.")
   )
 
   program_id <- c("E5IUQuHg3Mg", "E5IUQuHgXXX")
-  expect_warning(
+  expect_message(
     check_program(
       login = dhis2_login,
       program = program_id
     ),
-    regexp = cat("Could not find the following programs: E5IUQuHgXXX")
+    regexp = cat("Could not find the following program: E5IUQuHgXXX")
   )
 })
 
-test_that("login get_program_stages fails as expected", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
-  testthat::skip_on_ci()
-
+test_that("get_program_stages fails as expected", {
   expect_error(
     get_programs(login = dhis2_login),
     regexp = cat("Value for 'org_units' argument must be a data frame-like

@@ -1,7 +1,8 @@
-test_that("read_from_dhis2 works as expected", {
-  testthat::skip_on_cran()
-  testthat::skip_if_offline()
+testthat::skip_on_cran()
+testthat::skip_if_offline()
+testthat::skip_on_ci()
 
+test_that("read_dhis2 works as expected", {
   # establish the connection to the system
   dhis2_login <- login(
     from = "https://smc.moh.gm/dhis",
@@ -34,4 +35,18 @@ test_that("read_from_dhis2 works as expected", {
   )
   expect_s3_class(data, "data.frame")
   expect_identical(dim(data), c(1116L, 69L))
+})
+
+test_that("read_dhis2 fails as expected", {
+  expect_error(
+    program <-
+    read_dhis2(
+      login = dhis2_login,
+      org_unit = "I0v1SmdpPzT",
+      program = "Child Registration & Treatment "
+    ),
+    regexp = cat(
+      "The specified organisation unit does not run the program E5IUQuHg3Mg"
+    )
+  )
 })
