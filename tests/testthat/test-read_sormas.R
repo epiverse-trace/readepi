@@ -64,7 +64,7 @@ test_that("read_sormas fails as expected", {
       disease = "covid19",
       since = 0
     ),
-    regexp = cat("Incorrect disease name(s) supplied!")
+    regexp = cat("Incorrect disease name supplied!")
   )
 
   # test that it throws a warning when one 'disease' names is incorrect

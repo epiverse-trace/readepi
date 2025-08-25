@@ -73,7 +73,7 @@ sormas_get_cases_data <- function(base_url, user_name, password, disease,
   if (sum(idx) == 0L) {
     cli::cli_abort(c(
       x = "No cases found for the supplied disease.",
-      i = "Please run {.code sormas_get_diseases()} to check if you provided \\
+      i = "Please run {.fn sormas_get_diseases} to check if you provided \\
            the correct disease name."
     ))
   }
