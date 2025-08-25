@@ -22,7 +22,7 @@
 #' @examples
 #' \dontrun{
 #'   # establish the connection to the database
-#'   login <- login(
+#'   rdbms_login <- login(
 #'     from = "mysql-rfam-public.ebi.ac.uk",
 #'     type = "MySQL",
 #'     user_name = "rfamro",
@@ -34,13 +34,13 @@
 #'
 #'   # import data where query parameters are specified as a list
 #'   authors_list <- read_rdbms(
-#'     login = login,
+#'     login = rdbms_login,
 #'     query = list(table = "author", fields = NULL, filter = NULL)
 #'   )
 #'
 #'   # import data where query parameters is within an SQL query
 #'   authors_list <- read_rdbms(
-#'     login = login,
+#'     login = rdbms_login,
 #'     query = "select * from author"
 #'   )
 #' }
@@ -60,7 +60,8 @@ read_rdbms <- function(login, query) {
   }
 
   ## re-login if the connection has been closed from previous query
-  if (exists("login") && !login[["valid"]]) {
+  tmp_login <- as.list(login)
+  if (exists("login") && !tmp_login[["valid"]]) {
     connection_params <- attr(login, "credentials")
     login <- login(
       from = connection_params[["host"]],
@@ -72,7 +73,13 @@ read_rdbms <- function(login, query) {
       port = connection_params[["port"]]
     )
   }
-  stopifnot("Invalid connection object!" = inherits(login, "Pool"))
+  if (!inherits(login, "Pool")) {
+    cli::cli_abort(c(
+      x = "Invalid connection object!",
+      i = "Use the {.fn login} function to establish the connection to the \\
+           database."
+    ))
+  }
 
   # When the query parameter is a list, the below function will be used
   # construct the SQL query to be used to fetch the data from the specified

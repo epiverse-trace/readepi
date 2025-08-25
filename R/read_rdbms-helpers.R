@@ -119,7 +119,11 @@ url_check <- function(base_url) {
   regex  <- "^(https?://)?(www\\.)?([a-z0-9]([a-z0-9]|(\\-[a-z0-9]))*\\.)+[a-z]+$" # nolint: line_length_linter
   domain <- strsplit(gsub("^(https?://)?(www\\.)?", "", base_url),
                      "/", fixed = TRUE)[[c(1L, 1L)]]
-  stopifnot("Incorrect domain name in provided URL!" = grepl(regex, domain))
+  if (!grepl(regex, domain)) {
+    cli::cli_abort(c(
+      x = "Incorrect domain name in the provided URL!"
+    ))
+  }
   return(invisible(TRUE))
 }
 
@@ -150,7 +154,9 @@ query_check <- function(query, login, table_name) {
   operators_are_in_query <- unlist(lapply(lookup_table[["r"]], grepl, query, fixed = TRUE))
   sum_checks <- sum(cols_are_in_query) + sum(operators_are_in_query)
   if (sum_checks == 0) {
-    stop("You provided an incorrect SQL query.")
+    cli::cli_abort(c(
+      x = "You provided an incorrect SQL query."
+    ))
   }
 
   return(invisible(TRUE))
@@ -180,13 +186,20 @@ fields_check <- function(fields, table_name, login) {
 
   verdict <- fields %in% names(res)
   if (sum(verdict) == 0) {
-    stop("Incorrect column names provided in 'fields' argument.")
+    cli::cli_abort(c(
+      x = "Incorrect column {cli::qty(length(verdict))} name{?s} provided in \\
+           'fields' argument."
+    ))
   }
 
   if (any(!verdict)) {
-    warning("Cannot find the following field names: ", fields[which(!verdict)],
-            " in table ", table_name, ".")
-    fields <- fields[-which(!verdict)]
+    idx <- which(!verdict)
+    cli::cli_alert_warning(
+      "Cannot find the following field {cli::qty(length(fields[idx]))}\\
+      name{?s}: {.field {toString(fields[idx])}} in table \\
+      {.strong {table_name}}"
+    )
+    fields <- fields[-idx]
   }
   return(fields)
 }
