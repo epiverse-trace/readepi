@@ -15,7 +15,8 @@ sormas_get_cases_data(base_url, user_name, password, disease, since)
 
 \item{disease}{A character with the target disease name}
 
-\item{since}{A Date value in ISO8601 format (YYYY-mm-dd). Default is \code{NULL}.}
+\item{since}{A Date value in ISO8601 format (YYYY-mm-dd). Default is \code{0} i.e.
+to fetch all cases from the beginning of data collection.}
 }
 \value{
 A data frame with the following eight columns: 'case_id',

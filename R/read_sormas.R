@@ -1,15 +1,16 @@
 #' Import data from SORMAS
 #'
 #' The function returns the following columns by default: \code{case_id,
-#' person_id, sex, date_of_birth, case_origin, country, city, lat, long,
-#' case_status, date_onset, date_admission, date_last_contact,
-#' date_first_contact, outcome, date_outcome, Ct_values}.
+#' person_id, sex, date_of_birth, case_origin, country, city, latitude,
+#' longitude, case_status, date_onset, date_admission, outcome, date_outcome,
+#' contact_id, date_last_contact, date_first_contact, Ct_values}.
 #'
 #' @param base_url A character with the base URL to SORMAS system of interest
 #' @param user_name A character with the user name
 #' @param password A character with the user's password
 #' @param disease A character with the target disease name
-#' @param since A Date value in ISO8601 format (YYYY-mm-dd). Default is `NULL`.
+#' @param since A Date value in ISO8601 format (YYYY-mm-dd). Default is `0` i.e.
+#'    to fetch all cases from the beginning of data collection.
 #'
 #' @return A data frame with the case data of the specified disease.
 #' @export
@@ -20,10 +21,15 @@
 #'   base_url = "https://demo.sormas.org/sormas-rest",
 #'   user_name = "SurvSup",
 #'   password = "Lk5R7JXeZSEc",
-#'   disease = "coronavirus",
+#'   disease = "coronavirus"
 #' )
 #'
-read_sormas <- function(base_url, user_name, password, disease, since = NULL) {
+#' @details
+#' Note that the some values in the `date_of_birth` column of the output object
+#' might not have some missing elements such a missing year (NA-12-26), month
+#' (2025-NA-01) or date (2025-12-NA), or a combination of two missing elements.
+#'
+read_sormas <- function(base_url, user_name, password, disease, since = 0) {
   cli::cli_progress_step("Importing cases data from SORMAS...",
                          msg_done = "Successfully imported cases from SORMAS.",
                          spinner = TRUE)
@@ -42,18 +48,14 @@ read_sormas <- function(base_url, user_name, password, disease, since = NULL) {
   url_check(base_url)
 
   # check and convert the value of 'since'
-  if (is.null(since)) {
-    since <- 0
-  } else {
-    if (!inherits(since, "Date")) {
-      cli::cli_abort(c(
-        x = "Incorrect value for {.emph since} argument!",
-        i = "The value for {.emph since} argument must be of type \\
-            {.cls Date} in {.strong ISO8601} format."
-      ))
-    }
-    since <- as.numeric(as.POSIXct(since, origin = "1970-01-01"))
+  if (since != 0 && !inherits(since, "Date")) {
+    cli::cli_abort(c(
+      x = "Incorrect value for {.emph since} argument!",
+      i = "The value for {.emph since} argument must be of type \\
+          {.cls Date} in {.strong ISO8601} format."
+    ))
   }
+  since <- as.numeric(as.POSIXct(since, origin = "1970-01-01"))
 
   # check if the specified disease is accounted for in SORMAS
   disease <- tolower(disease)
@@ -74,7 +76,7 @@ read_sormas <- function(base_url, user_name, password, disease, since = NULL) {
     if (anyNA(verdict)) {
       cli::cli_alert_warning(
         "{.code {disease[is.na(verdict)]}} not found in disease list. Please \\
-        use {.code sormas_get_diseases()} function to see the full list of \\
+        use {.fn sormas_get_diseases} function to see the full list of \\
         disease names."
       )
     }

@@ -194,8 +194,8 @@ sormas_get_persons_data <- function(base_url, user_name, password, since) {
   } else {
     if (anyNA(idx)) {
       cli::cli_alert_warning(
-        "{.field {cols_from_persons[is.na(idx)]}} not found for cases with the \\
-        specified diseases."
+        "{.field {cols_from_persons[is.na(idx)]}} not found for cases with \\
+        the specified diseases."
       )
     }
   }
