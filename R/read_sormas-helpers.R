@@ -337,10 +337,6 @@ sormas_get_pathogen_data <- function(base_url, user_name, password, since) {
 #' # download and save the data dictionary in the default R temporary directory
 #' path_to_dictionary <- sormas_get_data_dictionary()
 #'
-#' # download and save the data dictionary in your current directory
-#' path_to_dictionary <- sormas_get_data_dictionary(
-#'   path = getwd()
-#' )
 sormas_get_data_dictionary <- function(path = tempdir(), overwrite = TRUE) {
   checkmate::assert_character(path, len = 1, any.missing = FALSE,
                               null.ok = FALSE)
@@ -363,7 +359,7 @@ sormas_get_data_dictionary <- function(path = tempdir(), overwrite = TRUE) {
     unlink(dictionary)
   }
 
-  download.file(
+  utils::download.file(
     dictionary_url,
     destfile = dictionary,
     method = "curl",
@@ -384,13 +380,10 @@ sormas_get_data_dictionary <- function(path = tempdir(), overwrite = TRUE) {
 #'
 #' @examples
 #' # save the SORMAS API specification into the temporary R folder
-#' path_api_specs <- download_api_docs()
-#'
-#' # save the SORMAS API specification into the current working directory
-#' path_api_specs <- download_api_docs(path = getwd())
+#' path_api_specs <- sormas_get_api_specification()
 #'
 sormas_get_api_specification <- function(path = tempdir(), overwrite = TRUE) {
-  # Every API is documented automatically through the OpenAPI specification
+  # Every API is documented automatically through the Open API specification
   # file. This file provides the actual names of the endpoints that needs to be
   # used when sending a request. We download this file to match it with the data
   # dictionary to get actual endpoint names.
@@ -403,7 +396,7 @@ sormas_get_api_specification <- function(path = tempdir(), overwrite = TRUE) {
     unlink(api_specification)
   }
 
-  download.file(
+  utils::download.file(
     api_specification_url,
     destfile = api_specification,
     method = "curl",

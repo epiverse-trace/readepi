@@ -19,9 +19,9 @@ Get all data elements from a specific DHIS2 instance
 \examples{
 # establish the connexion to the system
 login <- dhis2_login(
-  base_url = "https://play.im.dhis2.org/stable-2-42-0",
-  user_name = "admin",
-  password = "district"
+  base_url = "https://smc.moh.gm/dhis",
+  user_name = "test",
+  password = "Gambia@123"
 )
 
 # retrieve the data elements

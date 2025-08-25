@@ -45,8 +45,6 @@ server_make_query <- function(table_name,
 #'
 #' @param filter An expression that will be used to subset on rows
 #' @param target_columns A comma-separated list of column names to be returned
-#' @param equivalence_table A table with the common R operators and their
-#'    equivalent SQL operator
 #' @param table The name of the table of interest
 #'
 #' @return A string with the SQL query made from the input arguments
@@ -151,7 +149,8 @@ query_check <- function(query, login, table_name) {
   # check whether the query contains either the column names of the table and/or
   # the R operators in 'lookup_table'
   cols_are_in_query <- unlist(lapply(col_names, grepl, query, fixed = TRUE))
-  operators_are_in_query <- unlist(lapply(lookup_table[["r"]], grepl, query, fixed = TRUE))
+  operators_are_in_query <- unlist(lapply(readepi::lookup_table[["r"]], grepl,
+                                          query, fixed = TRUE))
   sum_checks <- sum(cols_are_in_query) + sum(operators_are_in_query)
   if (sum_checks == 0) {
     cli::cli_abort(c(
