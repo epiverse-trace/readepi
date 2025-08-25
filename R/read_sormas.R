@@ -68,14 +68,14 @@ read_sormas <- function(base_url, user_name, password, disease, since = 0) {
   verdict <- match(disease, sormas_diseases[["disease"]])
   if (all(is.na(verdict))) {
     cli::cli_abort(c(
-      x = "Incorrect disease name(s) supplied!",
-      i = "Please run {.code sormas_get_diseases()} to see the full list of \\
+      x = "Incorrect disease {cli::qty(length(verdict))} name{?s} supplied!",
+      i = "Please run {.fn sormas_get_diseases} to see the full list of \\
            available disease names."
     ))
   } else {
     if (anyNA(verdict)) {
       cli::cli_alert_warning(
-        "{.code {disease[is.na(verdict)]}} not found in disease list. Please \\
+        "{.strong {disease[is.na(verdict)]}} not found in disease list. Please \\
         use {.fn sormas_get_diseases} function to see the full list of \\
         disease names."
       )
