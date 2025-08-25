@@ -33,7 +33,7 @@ how to install the driver.
 \examples{
 \dontrun{
   # establish the connection to the database
-  login <- login(
+  rdbms_login <- login(
     from = "mysql-rfam-public.ebi.ac.uk",
     type = "MySQL",
     user_name = "rfamro",
@@ -45,13 +45,13 @@ how to install the driver.
 
   # import data where query parameters are specified as a list
   authors_list <- read_rdbms(
-    login = login,
+    login = rdbms_login,
     query = list(table = "author", fields = NULL, filter = NULL)
   )
 
   # import data where query parameters is within an SQL query
   authors_list <- read_rdbms(
-    login = login,
+    login = rdbms_login,
     query = "select * from author"
   )
 }

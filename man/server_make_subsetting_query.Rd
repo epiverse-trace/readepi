@@ -12,9 +12,6 @@ server_make_subsetting_query(filter, target_columns, table)
 \item{target_columns}{A comma-separated list of column names to be returned}
 
 \item{table}{The name of the table of interest}
-
-\item{equivalence_table}{A table with the common R operators and their
-equivalent SQL operator}
 }
 \value{
 A string with the SQL query made from the input arguments
