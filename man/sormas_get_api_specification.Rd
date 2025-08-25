@@ -24,9 +24,9 @@ Download the API specification file from SORMAS
 }
 \examples{
 # save the SORMAS API specification into the temporary R folder
-path_api_specs <- download_api_docs()
+path_api_specs <- sormas_get_api_specification()
 
 # save the SORMAS API specification into the current working directory
-path_api_specs <- download_api_docs(path = getwd())
+path_api_specs <- sormas_get_api_specification(path = getwd())
 
 }
