@@ -16,8 +16,10 @@ carrying the base url, user name, and password.}
 the \code{get_organisation_units()} function.}
 }
 \value{
-The provided organization ID if it exists; otherwise, an error is
-thrown and the function that lists all available org units is provided.
+The organisation unit ID if the provided organisation unit ID or
+name exists; otherwise, an error is thrown with a suggestion to use the
+function that lists all available organisation units from the target DHIS2
+instance.
 }
 \description{
 Check whether a given organisation unit identifier or name is valid
@@ -25,8 +27,4 @@ within a DHIS2 instance. If a valid name is provided, the corresponding
 organisation unit ID is returned. Otherwise, an informative error message is
 thrown.
 }
-\examples{
-login <- dhis2_login(base_url, user_name, password)
-org_unit_id <- check_org_unit(login = login, org_unit = "Freetown")
-
-}
+\keyword{internal}

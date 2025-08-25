@@ -71,9 +71,9 @@ dhis2_login <- function(base_url,
 #' @examples
 #' # establish the connection to the system
 #' login <- dhis2_login(
-#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
-#'   user_name = "admin",
-#'   password = "district"
+#'   base_url = "https://smc.moh.gm/dhis",
+#'   user_name = "test",
+#'   password = "Gambia@123"
 #' )
 #'
 #' # fetch the programs
@@ -129,9 +129,9 @@ get_programs <- function(login) {
 #' @examples
 #' # establish the connexion to the system
 #' login <- dhis2_login(
-#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
-#'   user_name = "admin",
-#'   password = "district"
+#'   base_url = "https://smc.moh.gm/dhis",
+#'   user_name = "test",
+#'   password = "Gambia@123"
 #' )
 #'
 #' # retrieve the data elements
@@ -287,9 +287,9 @@ get_org_units <- function(login) {
 #' @examples
 #' # establish the connection to the system
 #' login <- dhis2_login(
-#'   base_url = "https://play.im.dhis2.org/stable-2-42-0",
-#'   user_name = "admin",
-#'   password = "district"
+#'   base_url = "https://smc.moh.gm/dhis",
+#'   user_name = "test",
+#'   password = "Gambia@123"
 #' )
 #'
 #' # fetch the organisation units
@@ -353,12 +353,12 @@ get_organisation_units <- function(login) {
 #' @param org_unit A character denoting the name or id of the organisation unit
 #' @param org_units An optional data frame of organisation units as returned by
 #'    the `get_organisation_units()` function.
-#' @return The provided organization ID if it exists; otherwise, an error is
-#' thrown and the function that lists all available org units is provided.
+#' @returns The organisation unit ID if the provided organisation unit ID or
+#' name exists; otherwise, an error is thrown with a suggestion to use the
+#' function that lists all available organisation units from the target DHIS2
+#' instance.
 #'
-#' @examples
-#' login <- dhis2_login(base_url, user_name, password)
-#' org_unit_id <- check_org_unit(login = login, org_unit = "Freetown")
+#' @keywords internal
 #'
 check_org_unit <- function(login, org_unit, org_units = NULL) {
   if (is.null(org_units)) {
@@ -400,13 +400,11 @@ check_org_unit <- function(login, org_unit, org_units = NULL) {
 #' carrying the base url, user name, and password.
 #' @param program A character of the program name to be validated
 #'
-#' @examples
-#' login <- dhis2_login(base_url, user_name, password)
-#' program_id <- check_program(
-#'   login = login,
-#'   program = "Malaria focus investigation"
-#' )
+#' @returns The program ID if the provide program name or ID exists; otherwise,
+#' an error is thrown with a suggestion to use the function that lists all
+#' available programs from the target DHIS2 instance.
 #'
+#' @keywords internal
 #'
 check_program <- function(login, program) {
   # get all programs
@@ -760,7 +758,7 @@ get_tracked_entities <- function(login, api_version, org_unit, program,
   # get the event IDs
   event_ids <- lapply(tracked_entities, get_event_ids)
   names(event_ids) <- entity_attributes[["tracked_entity"]]
-  event_ids <- suppressWarnings(stack(event_ids))
+  event_ids <- suppressWarnings(utils::stack(event_ids))
   names(event_ids) <- c("event", "tracked_entity")
 
   # merge event IDs with entity attributes
