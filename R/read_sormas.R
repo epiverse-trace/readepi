@@ -70,14 +70,13 @@ read_sormas <- function(base_url, user_name, password, disease, since = 0) {
       i = "Please run {.fn sormas_get_diseases} to see the full list of \\
            available disease names."
     ))
-  } else {
-    if (anyNA(verdict)) {
-      cli::cli_alert_warning(
-        "{.strong {disease[is.na(verdict)]}} not found in disease list. Please \\
-        use {.fn sormas_get_diseases} function to see the full list of \\
-        disease names."
-      )
-    }
+  }
+  if (anyNA(verdict)) {
+    cli::cli_alert_warning(
+      "{.strong {disease[is.na(verdict)]}} not found in disease list. Please \\
+      use {.fn sormas_get_diseases} function to see the full list of \\
+      disease names."
+    )
   }
   disease <- disease[!is.na(verdict)]
 

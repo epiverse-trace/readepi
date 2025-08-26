@@ -52,11 +52,11 @@ server_make_query <- function(table_name,
 #'
 server_make_subsetting_query <- function(filter, target_columns, table) {
   if (is.numeric(filter)) {
-    start <- min(filter) - 1L
-    how_many_from_start <- max(filter) - min(filter) + 1L
+    from <- min(filter) - 1L
+    to <- max(filter) - min(filter) + 1L
     query <- sprintf(
       "select %s from %s limit %d, %d",
-      target_columns, table, start, how_many_from_start
+      target_columns, table, from, to
     )
   } else {
     filter <- server_make_sql_expression(filter)
@@ -76,10 +76,13 @@ server_make_subsetting_query <- function(filter, target_columns, table) {
 #' @keywords internal
 #'
 server_make_sql_expression <- function(filter) {
-  for (i in seq_len(nrow(lookup_table))) {
-    if (grepl(lookup_table[["r"]][i], filter)) {
-      filter <- gsub(lookup_table[["r"]][i], lookup_table[["sql"]][i],
-                     filter, fixed = TRUE)
+  for (i in seq_len(nrow(readepi::lookup_table))) {
+    if (grepl(readepi::lookup_table[["r"]][i], filter)) {
+      filter <- gsub(
+        readepi::lookup_table[["r"]][i],
+        readepi::lookup_table[["sql"]][i],
+        filter, fixed = TRUE
+      )
     }
   }
   return(filter)
@@ -191,7 +194,7 @@ fields_check <- function(fields, table_name, login) {
     ))
   }
 
-  if (any(!verdict)) {
+  if (!all(verdict)) {
     idx <- which(!verdict)
     cli::cli_alert_warning(
       "Cannot find the following field {cli::qty(length(fields[idx]))}\\

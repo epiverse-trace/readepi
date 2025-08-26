@@ -97,13 +97,15 @@ login <- login(
 tables <- show_tables(login = login)
 head(tables)
 
-# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL QUERY
+# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL
+# QUERY
 dat <- read_rdbms(
   login = login,
   query = "select * from author"
 )
 
-# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY PARAMETERS ARE SPECIFIED AS A LIST
+# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY
+# PARAMETERS ARE SPECIFIED AS A LIST
 dat <- read_rdbms(
   login = login,
   query = list(table = "author", fields = NULL, filter = NULL)
@@ -306,12 +308,24 @@ path_to_dictionary
 A call of the `read_sormas()` function looks like below.
 
 ```{r eval=TRUE}
-# FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE
+# FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE FROM THE
+# BEGINNING OF DATA COLLECTION
 covid_cases <- read_sormas(
   base_url = "https://demo.sormas.org/sormas-rest",
   user_name = "SurvSup",
   password = "Lk5R7JXeZSEc",
   disease = "coronavirus",
+  since = 0
+)
+
+# FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE SINCE
+# JUNE 01, 2025
+covid_cases <- read_sormas(
+  base_url = "https://demo.sormas.org/sormas-rest",
+  user_name = "SurvSup",
+  password = "Lk5R7JXeZSEc",
+  disease = "coronavirus",
+  since = as.Date("2025-06-01")
 )
 ```
 
