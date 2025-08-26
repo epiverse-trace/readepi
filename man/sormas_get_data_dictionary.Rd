@@ -26,8 +26,4 @@ Download SORMAS data dictionary
 # download and save the data dictionary in the default R temporary directory
 path_to_dictionary <- sormas_get_data_dictionary()
 
-# download and save the data dictionary in your current directory
-path_to_dictionary <- sormas_get_data_dictionary(
-  path = getwd()
-)
 }

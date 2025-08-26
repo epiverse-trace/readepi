@@ -16,10 +16,10 @@
 #' # get the API version
 #' api_version <- get_api_version(login = login)
 get_api_version <- function(login) {
-  base_url <- gsub("/api/me", "", login[["url"]])
-  url <- paste0(file.path(base_url, "api", "system", "info"))
+  base_url <- gsub("/api/me", "", login[["url"]], fixed = TRUE) # nolint: absolute_path_linter
+  target_url <- paste0(file.path(base_url, "api", "system", "info"))
   api_version <- login[["request"]] |>
-    httr2::req_url(url) |>
+    httr2::req_url(target_url) |>
     httr2::req_method("GET") |>
     httr2::req_perform() |>
     httr2::resp_body_json()
@@ -48,8 +48,8 @@ get_api_version <- function(login) {
 dhis2_login <- function(base_url,
                         user_name,
                         password) {
-  url <- file.path(base_url, "api", "me")
-  resp <- httr2::request(url) |>
+  target_url <- file.path(base_url, "api", "me")
+  resp <- httr2::request(target_url) |>
     httr2::req_auth_basic(user_name, password) |>
     httr2::req_perform()
   cli::cli_alert_success("Logged in successfully!")
@@ -81,17 +81,17 @@ dhis2_login <- function(base_url,
 #'
 get_programs <- function(login) {
   # get the base URL the login object
-  base_url <- gsub("/api/me", "", login[["url"]])
+  base_url <- gsub("/api/me", "", login[["url"]], fixed = TRUE) # nolint: absolute_path_linter
 
   # construct the URL to target the program endpoint
-  url <- paste0(
+  target_url <- paste0(
     file.path(base_url, "api", "programs"),
     "?fields=id,displayName&paging=false"
   )
 
   # modify the request URL and perform the request to get all programs
   all_programs <- login[["request"]] |>
-    httr2::req_url(url) |>
+    httr2::req_url(target_url) |>
     httr2::req_method("GET") |>
     httr2::req_perform() |>
     httr2::resp_body_json() |>
@@ -101,11 +101,11 @@ get_programs <- function(login) {
   all_programs[["type"]] <- "aggregate"
 
   # identify the programs registered in the Tracker
-  url <- paste0(url, "&filter=programType:eq:WITH_REGISTRATION")
+  target_url <- paste0(target_url, "&filter=programType:eq:WITH_REGISTRATION")
 
   # perform the request to fetch the programs
   tracker_programs <- login[["request"]] |>
-    httr2::req_url(url) |>
+    httr2::req_url(target_url) |>
     httr2::req_method("GET") |>
     httr2::req_perform() |>
     httr2::resp_body_json() |>
@@ -139,17 +139,17 @@ get_programs <- function(login) {
 #'
 get_data_elements <- function(login) {
   # get the base URL from the login object
-  base_url <- gsub("/api/me", "", login[["url"]])
+  base_url <- gsub("/api/me", "", login[["url"]], fixed = TRUE) # nolint: absolute_path_linter
 
   # construct the URL to target the dataElements endpoint
-  url <- paste0(
+  target_url <- paste0(
     file.path(base_url, "api", "dataElements"),
     "?fields=id,name&paging=false"
   )
 
   # modify the request URL and perform the request
   data_elements <- login[["request"]] |>
-    httr2::req_url(url) |>
+    httr2::req_url(target_url) |>
     httr2::req_method("GET") |>
     httr2::req_perform() |>
     httr2::resp_body_json() |>
@@ -207,25 +207,25 @@ get_org_unit_as_long <- function(login, org_units = NULL) {
 #'
 get_org_unit_levels <- function(login) {
   # get the base URL the login object
-  base_url <- gsub("/api/me", "", login[["url"]])
+  base_url <- gsub("/api/me", "", login[["url"]], fixed = TRUE) # nolint: absolute_path_linter
 
   # construct the URL to target the organisationUnitLevels
-  url <- paste0(
+  target_url <- paste0(
     file.path(base_url, "api", "organisationUnitLevels"),
     "?paging=false&fields=level,name,id"
   )
 
   # update the URL and perform the query
-  levels <- login[["request"]] |>
-    httr2::req_url(url) |>
+  org_unit_levels <- login[["request"]] |>
+    httr2::req_url(target_url) |>
     httr2::req_method("GET") |>
     httr2::req_perform() |>
     httr2::resp_body_json()
 
   # combine the response as a data frame
-  levels <- dplyr::bind_rows(levels)
+  org_unit_levels <- dplyr::bind_rows(org_unit_levels)
 
-  return(levels)
+  return(org_unit_levels)
 }
 
 
@@ -241,24 +241,24 @@ get_org_unit_levels <- function(login) {
 #'
 get_org_units <- function(login) {
   # get the base URL the login object
-  base_url <- gsub("/api/me", "", login[["url"]])
+  base_url <- gsub("/api/me", "", login[["url"]], fixed = TRUE) # nolint: absolute_path_linter
 
   # construct the URL to target the organisationUnits endpoint
-  url <- paste0(
+  target_url <- paste0(
     file.path(base_url, "api", "organisationUnits"),
     "?paging=false&fields=id,name,parent[id],level"
   )
 
   # update the URL and perform the query
   response <- login[["request"]] |>
-    httr2::req_url(url) |>
+    httr2::req_url(target_url) |>
     httr2::req_method("GET") |>
     httr2::req_perform() |>
     httr2::resp_body_json()
 
   # combine the response as a data frame
   org_units <- dplyr::bind_rows(response)
-
+  return(org_units)
 }
 
 #' Get the organization units from a specific DHIS2 instance
@@ -296,12 +296,12 @@ get_org_units <- function(login) {
 #' org_units <- get_organisation_units(login)
 #'
 get_organisation_units <- function(login) {
+  id <- NULL
   # get all organisation units and their levels
   org_units <- get_org_units(login)
   org_unit_levels <- get_org_unit_levels(login)
 
   # get the org units ids and the maximum organisation unit level
-  org_unit_ids <- org_units[["id"]]
   max_level <- max(org_unit_levels[["level"]])
   org_units_of_interest <- org_units |> dplyr::filter(level == max_level)
   result <- vector(mode = "list", length = nrow(org_units_of_interest))
@@ -315,7 +315,7 @@ get_organisation_units <- function(login) {
       hierarchy[idx + 2] <- current[["id"]]
       parent_id <- current[["parent"]][["id"]]
       if (!is.null(parent_id) && parent_id %in% org_units[["id"]]) {
-        current <- org_units |> dplyr::filter(id == parent_id)
+        current <- org_units |> dplyr::filter(id == parent_id) # nolint: object_usage_linter
       } else {
         break
       }
@@ -367,26 +367,23 @@ check_org_unit <- function(login, org_unit, org_units = NULL) {
   # get all org units
   tmp_org_units <- get_org_unit_as_long(login, org_units = org_units)
 
-  # if the provided organisation unit is a correct ID, return it
-  if (org_unit %in% tmp_org_units[["org_unit_ids"]]) {
-    return(org_unit)
+  if (!(org_unit %in% tmp_org_units[["org_unit_ids"]])) {
+    if (org_unit %in% tmp_org_units[["org_unit_names"]]) {
+      idx <- which(tmp_org_units[["org_unit_names"]] == org_unit)
+      org_unit <- unique(tmp_org_units[["org_unit_ids"]][idx])
+    } else {
+      # If no, return an error that the provided organisation unit is incorrect
+      # and give the name of the function to be used for getting the available
+      # organisation units
+      cli::cli_abort(c(
+        x = "You provided an incorrect organisation unit ID or name.",
+        i = "Use the {.fn get_organisation_units} function to get the list of \\
+             all available organisation units."
+      ))
+    }
   }
 
-  # if not, check if it is an organisation unit name. If yes, get the
-  # organisation unit ID.
-  if (org_unit %in% tmp_org_units[["org_unit_names"]]) {
-    idx <- which(tmp_org_units[["org_unit_names"]] == org_unit)
-    return(unique(tmp_org_units[["org_unit_ids"]][idx]))
-  }
-
-  # If no, return an error that the provided organisation unit is incorrect
-  # and give the name of the function to be used for getting the available
-  # organisation units
-  cli::cli_abort(c(
-    x = "You provided an incorrect organisation unit ID or name.",
-    i = "Use the {.fn get_organisation_units} function to get the list of all \\
-         available organisation units."
-  ))
+  return(org_unit)
 }
 
 #' Validate and retrieve program IDs
@@ -428,7 +425,7 @@ check_program <- function(login, program) {
 
   # send a message if there are some programs that were not found
   if (anyNA(idx)) {
-    not_avail <- program[is.na(idx)]
+    not_avail <- program[is.na(idx)] # nolint: object_usage_linter
     cli::cli_alert_warning(
       "Could not find the following {cli::qty(length(not_avail))}\\
        program{?s}: {.strong {toString(not_avail)}}"
@@ -490,7 +487,7 @@ get_program_stages <- function(login, programs = NULL, program = NULL) {
 
     # send a message if there are some programs that were not found
     if (anyNA(idx)) {
-      not_avail <- program[is.na(idx)]
+      not_avail <- program[is.na(idx)] # nolint: object_usage_linter
       cli::cli_alert_warning(
         "Could not find the following {cli::qty(length(not_avail))}\\
          program{?s}: {.strong {toString(not_avail)}}"
@@ -504,7 +501,7 @@ get_program_stages <- function(login, programs = NULL, program = NULL) {
 
 
   # get the base URL the login object
-  base_url <- gsub("/api/me", "", login[["url"]])
+  base_url <- gsub("/api/me", "", login[["url"]], fixed = TRUE) # nolint: absolute_path_linter
 
   program_stages <- vector("list", length = nrow(programs))
   for (i in seq_len(nrow(programs))) {
@@ -512,14 +509,14 @@ get_program_stages <- function(login, programs = NULL, program = NULL) {
     program_name <- programs[["displayName"]][i]
 
     # construct the URL to a specific program
-    url <- paste0(
+    target_url <- paste0(
       file.path(base_url, "api", "programs", program_id),
       "?fields=programStages[id,name]&paging=false"
     )
 
     # modify the request URL and perform the request
     program_stage <- login[["request"]] |>
-      httr2::req_url(url) |>
+      httr2::req_url(target_url) |>
       httr2::req_method("GET") |>
       httr2::req_perform() |>
       httr2::resp_body_json() |>
@@ -529,8 +526,8 @@ get_program_stages <- function(login, programs = NULL, program = NULL) {
     names(program_stage) <- c("program_stage_name", "program_stage_id")
 
     program_stages[[i]] <- data.frame(cbind(
-      "program_id" = program_id,
-      "program_name" = program_name,
+      program_id = program_id,
+      program_name = program_name,
       program_stage
     ))
   }
@@ -539,15 +536,21 @@ get_program_stages <- function(login, programs = NULL, program = NULL) {
   return(program_stages)
 }
 
-
-# function to get the attribute names and ids of the tracked entities
-# Use this function to get the ids and names of the features collected about
-# each tracked entities. The ids and names will be used to update the list
-# of query parameters
+#' Get the attribute names and ids of the tracked entities
+#'
+#' Use this function to get the ids and names of the features collected about
+#' each tracked entities. The ids and names will be used to update the list
+#' of query parameters.
+#'
+#' @param x A list with the tracked entity attributes
+#'
+#' @returns A data frame with two columns representing the tracked entity
+#'    attributes IDs and display names.
+#' @keywords internal
+#'
 get_entity_attributes <- function(x) {
   tmp <- x[["attributes"]] |>
     dplyr::bind_rows()
-  display_names <- tmp[["displayName"]]
   attribute_names <- data.frame(
     id = tmp[["attribute"]],
     name = tmp[["displayName"]]
@@ -584,8 +587,8 @@ get_event_data <- function(login, api_version, org_unit, program, data_elements,
   request_params <- get_request_params(api_version)
 
   # construct the URL to target the events endpoint based on the API version
-  base_url <- gsub("/api/me", "", login[["url"]])
-  url <- paste0(
+  base_url <- gsub("/api/me", "", login[["url"]], fixed = TRUE) # nolint: absolute_path_linter
+  target_url <- paste0(
     file.path(base_url, "api", request_params[["e_endpoint"]]),
     sprintf(
       "?%s=%s&program=%s&%s&%s=SELECTED",
@@ -596,7 +599,7 @@ get_event_data <- function(login, api_version, org_unit, program, data_elements,
 
   # submit a request to fetch the event data
   response <- login[["request"]] |>
-    httr2::req_url(url) |>
+    httr2::req_url(target_url) |>
     httr2::req_method("GET") |>
     httr2::req_perform() |>
     httr2::resp_body_json()
@@ -611,7 +614,7 @@ get_event_data <- function(login, api_version, org_unit, program, data_elements,
                     org_unit = .x[["orgUnit"]],
                     program = .x[["program"]],
                     program_stage = .x[["programStage"]],
-                    event_date = .x[["occurredAt"]]) # TODO: ask Yankuba about this
+                    event_date = .x[["occurredAt"]])
   ) |>
     dplyr::bind_rows()
 
@@ -620,7 +623,7 @@ get_event_data <- function(login, api_version, org_unit, program, data_elements,
 
   # get the data elements recorded from all events
   target_data_elements <- lapply(data_values_list, function(group) {
-    sapply(group, function(x) x[["dataElement"]])
+    sapply(group, function(x) x[["dataElement"]]) # nolint: undesirable_function_linter
   })
 
   # Flatten the list of data elements
@@ -723,12 +726,12 @@ get_tracked_entities <- function(login, api_version, org_unit, program,
   request_params <- get_request_params(api_version)
 
   # construct the URL to target the events endpoint based on the API version
-  base_url <- gsub("/api/me", "", login[["url"]])
+  base_url <- gsub("/api/me", "", login[["url"]], fixed = TRUE) # nolint: absolute_path_linter
   fields <- sprintf(
     "%s,orgUnit,attributes,enrollments[events[event]]",
     request_params[["te_teid"]]
   )
-  url <- paste0(
+  target_url <- paste0(
     file.path(base_url, "api", request_params[["te_endpoint"]]),
     sprintf(
       "?%s=%s&program=%s&%s&fields=%s&%s=SELECTED",
@@ -739,7 +742,7 @@ get_tracked_entities <- function(login, api_version, org_unit, program,
 
   # query the track entity endpoint
   response <- login[["request"]] |>
-    httr2::req_url(url) |>
+    httr2::req_url(target_url) |>
     httr2::req_method("GET") |>
     httr2::req_perform() |>
     httr2::resp_body_json()
@@ -748,7 +751,11 @@ get_tracked_entities <- function(login, api_version, org_unit, program,
   tracked_entities <- response[[request_params[["te_response"]]]]
 
   # stop and send a message if no tracked entity was found
-  stopifnot("No tracked entity was found" = !length(tracked_entities) == 0)
+  if (length(tracked_entities) == 0) {
+    cli::cli_abort(
+      x = "No tracked entity was found."
+    )
+  }
 
   # get the tracked entity attributes
   entity_attributes <- get_entity_data(
@@ -903,15 +910,15 @@ get_request_params <- function(api_version) {
 #' )
 get_program_org_units <- function(login, program, org_units = NULL) {
   # construct the URL to target the programs endpoint
-  base_url <- gsub("/api/me", "", login[["url"]])
-  url <- paste0(
+  base_url <- gsub("/api/me", "", login[["url"]], fixed = TRUE) # nolint: absolute_path_linter
+  target_url <- paste0(
     file.path(base_url, "api", "programs", "orgUnits"),
     sprintf("?programs=%s", program)
   )
 
   # query the programs endpoint
   response <- login[["request"]] |>
-    httr2::req_url(url) |>
+    httr2::req_url(target_url) |>
     httr2::req_method("GET") |>
     httr2::req_perform() |>
     httr2::resp_body_json()
@@ -931,4 +938,3 @@ get_program_org_units <- function(login, program, org_units = NULL) {
 
   return(target_org_units)
 }
-

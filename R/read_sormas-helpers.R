@@ -12,13 +12,13 @@
 #' )
 #'
 sormas_get_diseases <- function(base_url, user_name, password) {
-  url <- file.path(
+  target_url <- file.path(
     base_url,
     "diseaseconfigurations",
     "all",
     0
   )
-  resp <- httr2::request(url) |>
+  resp <- httr2::request(target_url) |>
     httr2::req_auth_basic(user_name, password) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
@@ -48,7 +48,7 @@ sormas_get_cases_data <- function(base_url, user_name, password, disease,
                                   since) {
   # Target the 'cases' endpoint to fetch all cases
   # construct the URL
-  url <- file.path(
+  target_url <- file.path(
     base_url,
     "cases",
     "all",
@@ -58,7 +58,7 @@ sormas_get_cases_data <- function(base_url, user_name, password, disease,
   )
 
   # perform the request and store the data from the 'cases' endpoint in 'dat'
-  resp <- httr2::request(url) |>
+  resp <- httr2::request(target_url) |>
     httr2::req_auth_basic(user_name, password) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
@@ -96,13 +96,12 @@ sormas_get_cases_data <- function(base_url, user_name, password, disease,
     cli::cli_abort(c(
       x = "Cannot find the columns of interest from the {.emph cases} endpoint."
     ))
-  } else {
-    if (anyNA(idx)) {
-      cli::cli_alert_warning(
-        "{.field {cols_from_cases[is.na(idx)]}} not found for cases with the \\
-        specified diseases."
-      )
-    }
+  }
+  if (anyNA(idx)) {
+    cli::cli_alert_warning(
+      "{.field {cols_from_cases[is.na(idx)]}} not found for cases with the \\
+      specified diseases."
+    )
   }
   cols_from_cases <- cols_from_cases[!is.na(idx)]
   dat <- dat |>
@@ -131,7 +130,7 @@ sormas_get_persons_data <- function(base_url, user_name, password, since) {
   # the 'uuid' column in 'dat' corresponds to the 'uuid' column in the
   # 'person_data'. By matching the two, we can fetch cases socio-demographic
   # data.
-  url <- file.path(
+  target_url <- file.path(
     base_url,
     "persons",
     "all",
@@ -139,7 +138,7 @@ sormas_get_persons_data <- function(base_url, user_name, password, since) {
   )
 
   # send the request to get the persons data
-  resp <- httr2::request(url) |>
+  resp <- httr2::request(target_url) |>
     httr2::req_auth_basic(user_name, password) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
@@ -191,13 +190,12 @@ sormas_get_persons_data <- function(base_url, user_name, password, since) {
     cli::cli_abort(c(
       x = "Cannot find the columns of interest from the {.emph cases} endpoint."
     ))
-  } else {
-    if (anyNA(idx)) {
-      cli::cli_alert_warning(
-        "{.field {cols_from_persons[is.na(idx)]}} not found for cases with \\
-        the specified diseases."
-      )
-    }
+  }
+  if (anyNA(idx)) {
+    cli::cli_alert_warning(
+      "{.field {cols_from_persons[is.na(idx)]}} not found for cases with \\
+      the specified diseases."
+    )
   }
   cols_from_persons <- cols_from_persons[!is.na(idx)]
   person_data <- person_data |>
@@ -246,7 +244,7 @@ convert_to_date <- function(data, target_columns) {
 #'
 sormas_get_contact_data <- function(base_url, user_name, password, since) {
   # build the URL to the 'contacts' endpoint
-  url <- file.path(
+  target_url <- file.path(
     base_url,
     "contacts",
     "all",
@@ -254,7 +252,7 @@ sormas_get_contact_data <- function(base_url, user_name, password, since) {
   )
 
   # send the request to get the contact data
-  resp <- httr2::request(url) |>
+  resp <- httr2::request(target_url) |>
     httr2::req_auth_basic(user_name, password) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
@@ -298,7 +296,7 @@ sormas_get_contact_data <- function(base_url, user_name, password, since) {
 #'
 sormas_get_pathogen_data <- function(base_url, user_name, password, since) {
   # build the URL to target the 'pathogentests' endpoint
-  url <- file.path(
+  target_url <- file.path(
     base_url,
     "pathogentests",
     "all",
@@ -306,7 +304,7 @@ sormas_get_pathogen_data <- function(base_url, user_name, password, since) {
   )
 
   # send the request to get the pathogentests data
-  resp <- httr2::request(url) |>
+  resp <- httr2::request(target_url) |>
     httr2::req_auth_basic(user_name, password) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
@@ -344,13 +342,15 @@ sormas_get_data_dictionary <- function(path = tempdir(), overwrite = TRUE) {
   # to have the URL for each API.
   dictionary_url <- paste0(
     "https://raw.githubusercontent.com/sormas-foundation/SORMAS-Project/",
-    "development/sormas-api/src/main/resources/doc/",
+    "development/sormas-api/src/main/resources/doc/", # nolint: nonportable_path_linter
     "SORMAS_Data_Dictionary.xlsx"
   )
 
   # The data dictionary and api specification will be stored in a temporary
   # directory if the user has not provided a path
-  file_extension <- strsplit(basename(dictionary_url), split = "\\.")[[1]]
+  file_extension <- strsplit(
+    basename(dictionary_url), split = "\\.", fixed = TRUE
+  )[[1]]
   dictionary <- file.path(
     path,
     paste("dictionary", file_extension[-1], sep = ".")
@@ -389,7 +389,7 @@ sormas_get_api_specification <- function(path = tempdir(), overwrite = TRUE) {
   # dictionary to get actual endpoint names.
   api_specification_url <- paste0(
     "https://raw.githubusercontent.com/SORMAS-Foundation/SORMAS-Project/refs/",
-    "heads/development/sormas-rest/swagger.json"
+    "heads/development/sormas-rest/swagger.json" # nolint: nonportable_path_linter
   )
   api_specification <- file.path(path, "api_specification.json")
   if (file.exists(api_specification)) {
