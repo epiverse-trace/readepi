@@ -1,8 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file. -->
+
 <!-- The code to render this README is stored in .github/workflows/render-readme.yaml -->
+
 <!-- Variables marked with double curly braces will be transformed beforehand: -->
+
 <!-- `packagename` is extracted from the DESCRIPTION file -->
+
 <!-- `gh_repo` is extracted via a special environment variable in GitHub Actions -->
 
 # readepi: Read data from health information systems <img src="man/figures/logo.svg" align="right" width="130"/>
@@ -24,18 +28,14 @@ database management systems (RDBMS).
 **{readepi}** currently supports reading data from the followings:
 
 - RDBMS (Relational Database Management Systems) such as MS SQL, MySQL,
-  and PostgreSQL 
-- [REDCap](https://projectredcap.org/software/): Research Electronic
-  Data Capture - a secure web application for building and managing
-  online surveys and databases  
+  PostgreSQL, and SQLite 
 - [DHIS2](https://dhis2.org/about/): an open source and web-based
   platform for managing health information  
-- [Fingertips](https://fingertips.phe.org.uk/): a repository of public
-  health indicators in England
+- [SORMAS](https://sormas.org/): a eHealth system for monitoring the
+  spread of infectious diseases and responding to outbreak situations
 
-**{readepi}** returns a list object containing one or more data frames.
-**{readepi}** also has a number of auxiliary functions that allow
-importing a subset of the original dataset.
+**{readepi}** returns a data frame with the data from the specified
+system.
 
 **{readepi}** is developed by
 [Epiverse-TRACE](https://data.org/initiatives/epiverse/) team at the
@@ -56,86 +56,106 @@ library(readepi)
 
 ## Quick start
 
-The main function in **{readepi}** is `readepi()`. It reads data from a
-specified source. The `readepi()` function accepts a user-supplied
-string (the API’s URL) as argument. Other specific arguments can be
-provided depending on the data source (see the **vignette** for more
-details). The examples below show how to use the `readepi()` function to
-import data from a variety of sources.
+**{readepi}** currently has three main functions that read data from a
+specified source. While the arguments to these functions are generally
+similar, some are specific to their data source (see the **vignette**
+for more details). The examples below show how to use the package
+functionalities to import data from a variety of sources.
 
-### Reading data from RDBMS and HIS
+### Reading data from RDBMS
 
-The `readepi()` function can import data from a variety of RDBMS,
-including MS SQL, MySQL, and PostgreSQL. Reading data from a RDBMS
-requires the following:
+The `read_rdbms()` function is used to import data from a variety of
+RDBMS, including MS SQL, MySQL, PostgreSQL, and SQLite. Reading data
+from a RDBMS requires:
 
-1.  A MS SQL driver that is compatible with the version of DBMS of
-    interest. The **vignette** describes how to install the appropriate
-    driver for each database management system.  
-2.  Valid Credentials to access the server. The user credential details
-    are expected to be stored in a file that will be supplied as an
-    argument of the `readepi()` function. Use the `show_example_file()`
-    function to visualize the structure of the template credential file.
+- A MS SQL driver that is compatible with the version of DBMS of
+  interest. The [install drivers
+  vignette](./vignettes/install_drivers.Rmd) vignette describes how to
+  install the appropriate driver for each database management system.
 
-Users can read data from a RDBMS by providing the details of the tables
-of interest or an SQL query (for more information, see the
+Users can read data from a RDBMS by providing a list with the query
+parameters of interest or an SQL query (for more information, see the
 **vignette**).
 
 ``` r
-# DEFINE THE PATH TO THE CREDENTIAL FILE
-credentials_file <- system.file("extdata", "test.ini", package = "readepi")
-
-# DISPLAY THE STRUCTUTRE OF THE TEMPLATE CREDENTIAL FILE
-show_example_file()
-
-# READING FILE FROM A PROJECT IN A REDCap DATABASE
-dat <- readepi(
-  data_source      = "https://bbmc.ouhsc.edu/redcap/api/",
-  credentials_file = credentials_file
-)
-project_data     <- dat$data # accessing the actual data
-project_metadeta <- dat$metadata # accessing the metadata associated with project
-
-# VIEWING THE LIST OF ALL TABLES IN A MySQL DATABASE
-show_tables(
-  data_source      = "mysql-rfam-public.ebi.ac.uk",
-  credentials_file = credentials_file,
-  driver_name      = "" # note that this example MySQL server does not require a driver
+# CONNECT TO THE TEST MYSQL SERVER
+login <- login(
+  from = "mysql-rfam-public.ebi.ac.uk",
+  type = "MySQL",
+  user_name = "rfamro",
+  password = "",
+  driver_name = "",
+  db_name = "Rfam",
+  port = 4497
 )
 
-# VISUAIZE FIRST 5 ROWS OF THE TABLE 'AUTHOR'
-visualise_table(
-  data_source      = "mysql-rfam-public.ebi.ac.uk",
-  credentials_file = credentials_file,
-  from             = "author", # this is the table name
-  driver_name      = ""
+# DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST
+tables <- show_tables(login = login)
+
+# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL QUERY
+dat <- read_rdbms(
+  login = login,
+  query = "select * from author"
 )
 
-# READING ALL FILEDS AND RECORDS FROM A MySQL SERVER
-dat <- readepi(
-  data_source      = "mysql-rfam-public.ebi.ac.uk",
-  credentials_file = credentials_file,
-  from             = "author", # this is the table name
-  driver_name      = ""
+# SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
+dat <- read_rdbms(
+    login = login,
+    query = "select author.author_id, author.name,
+  family_author.author_id from author left join family_author on
+  author.author_id = family_author.author_id"
 )
 
-# READING DATA FROM DHIS2
-dat <- readepi(
-  data_source        = "https://play.dhis2.org/dev",
-  credentials_file   = credentials_file,
-  dataset            = "BfMAe6Itzgt",
-  organisation_unit  = "Umh4HKqqFp6",
-  data_element_group = NULL,
-  start_date         = "2014",
-  end_date           = "2023"
+# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY PARAMETERS ARE SPECIFIED AS A LIST
+dat <- read_rdbms(
+  login = login,
+  query = list(table = "author", fields = NULL, filter = NULL)
 )
+```
 
-# READING DATA FROM THE FINGERTIPS REPOSITORY
-dat <- readepi(
-  indicator_id        = 90362,
-  area_type_id        = 202,
-  parent_area_type_id = 6 # optional
+### Reading data from DHIS2
+
+``` r
+# CONNECT TO A DHIS2 INSTANCE
+login <- login(
+  from = "https://smc.moh.gm/dhis",
+  user_name = "test",
+  password = "Gambia@123"
 )
+#> ✔ Logged in successfully!
+
+# IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
+data <- read_dhis2(
+  login = login,
+  org_unit = "GcLhRNAFppR",
+  program = "E5IUQuHg3Mg"
+)
+#> ℹ Checking whether the API version is accounted for
+#> ✔ Checking whether the API version is accounted for [214ms]
+#> ℹ Getting the data elements✔ Getting the data elements [320ms]
+#> ℹ Getting organisation units✔ Getting organisation units [3.9s]
+#> ℹ Getting the programs✔ Getting the programs [770ms]
+#> ℹ Getting the program stages✔ Getting the program stages [861ms]
+#> ℹ Getting the tracked entity attributes✔ Getting the tracked entity attributes [4.5s]
+#> ℹ Getting the event data✔ Getting the event data [17.3s]
+```
+
+### Reading data from SORMAS
+
+``` r
+# FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE
+covid_cases <- read_sormas(
+  base_url = "https://demo.sormas.org/sormas-rest",
+  user_name = "SurvSup",
+  password = "Lk5R7JXeZSEc",
+  disease = "coronavirus",
+)
+#> ℹ Checking whether the disease names are correct.✔ Checking whether the disease names are correct. [579ms]
+#> ℹ Getting clinical data                        ! outcomeDate not found for cases with the specified diseases.
+#> ℹ Getting clinical data✔ Getting clinical data [372ms]
+#> ℹ Getting socio-demographic data✔ Getting socio-demographic data [7.8s]
+#> ℹ Getting contact data✔ Getting contact data [168ms]
+#> ℹ Getting laboratory tests data✔ Getting laboratory tests data [332ms]
 ```
 
 ## Package Vignettes
@@ -156,10 +176,10 @@ browseVignettes("readepi")
 
 ### Lifecycle
 
-This package is currently a *maturing*, as defined by the [RECON
-software lifecycle](https://www.reconverse.org/lifecycle.html). This
-means that it can be used in production with the understanding that the
-interface may still undergo minor changes.
+This package is currently *maturing*, as defined by the [RECON software
+lifecycle](https://www.reconverse.org/lifecycle.html). This means that
+it can be used in production with the understanding that the interface
+may still undergo minor changes.
 
 ### Contributions
 

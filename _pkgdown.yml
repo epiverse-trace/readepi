@@ -2,6 +2,9 @@ url: https://epiverse-trace.github.io/readepi
 template:
   package: epiversetheme
 
+development:
+  mode: auto
+
 reference:
 - title: Exported functions
   desc: "`{readepi}` functions available to end-users"
@@ -12,23 +15,30 @@ reference:
   desc: "`{readepi}` functions for internal use"
 - subtitle: Shared helpers
 - contents:
-  - read_credentials
+  - url_check
 
-- subtitle: Fingertips
+- subtitle: SORMAS
 - contents:
-  - starts_with("fingertips_", internal = TRUE)
-  - ends_with("fingertips", internal = TRUE)
-
-- subtitle: REDCap
-- contents:
-  - starts_with("redcap_", internal = TRUE)
-  - read_from_redcap
+  - starts_with("sormas_", internal = TRUE)
+  - convert_to_date
 
 - subtitle: DHIS2
 - contents:
-  - starts_with("dhis2_", internal = TRUE)
-  - read_from_dhis2
+  - get_org_unit_as_long
+  - get_org_unit_levels
+  - get_org_units
+  - check_org_unit
+  - check_program
+  - get_entity_attributes
+  - get_event_data
+  - get_entity_data
+  - get_event_ids
+  - get_request_params
+  -
 
-- subtitle: RDMS
+- subtitle: RDBMS
 - contents:
-  - starts_with("sql_", internal = TRUE)
+  - starts_with("server_", internal = TRUE)
+  - query_check
+  - fields_check
+  -
