@@ -873,9 +873,9 @@ get_event_ids <- function(tracked_entity) {
 get_request_params <- function(api_version) {
   # get the target data set
   req_params <- dplyr::case_when(
-    api_version <= 37 ~ request_parameters[1, -1],
-    38 <= api_version & api_version <= 40 ~ request_parameters[2, -1],
-    api_version >= 41 ~ request_parameters[3, -1]
+    api_version <= 37 ~ readepi::request_parameters[1, -1],
+    38 <= api_version & api_version <= 40 ~ readepi::request_parameters[2, -1],
+    api_version >= 41 ~ readepi::request_parameters[3, -1]
   )
   return(req_params)
 }
