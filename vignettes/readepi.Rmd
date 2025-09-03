@@ -9,15 +9,15 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
-```{r, include = FALSE} 
+```{r, include = FALSE}
 knitr::opts_chunk[["set"]](collapse = TRUE, comment = "#>", eval = FALSE,
                            fig.width = 7L, fig.height = 7L, message = FALSE,
                            fig.align = "center", warning = FALSE, dpi = 300L)
 ```
 
-# Overview 
+# Overview
 
-Health-related data in general, and epidemiological data in particular, are stored in files, relation database management systems (RDBMS), or health information systems (HIS). Each category includes numerous options, such as various file formats, RDBMS types, and HIS APIs. Importing data from such repositories involve the usage of different format-specific functions or API-specific packages, which is an exhausting task for end users. 
+Health-related data in general, and epidemiological data in particular, are stored in files, relation database management systems (RDBMS), or health information systems (HIS). Each category includes numerous options, such as various file formats, RDBMS types, and HIS APIs. Importing data from such repositories involve the usage of different format-specific functions or API-specific packages, which is an exhausting task for end users.
 
 The main objective of the **{readepi}** package is to simplify the process of reading health-related data from diverse sources, allowing the user to focus more on downstream analysis tasks.
 
@@ -30,22 +30,21 @@ library(readepi)
 
 ## Need for MS drivers
 
-Users who are using an operating system other than Microsoft need to have the appropriate MS driver installed into their system. The driver installation process is documented in details in the [install drivers vignette](./install_drivers.Rmd) vignette.
+Users of operating systems other than Microsoft need to have the appropriate MS driver installed into their system. The driver installation process is documented in details in the [install drivers vignette](./install_drivers.Rmd) vignette.
 
 ## Authentication
 
 To read data from RDBMS and HIS, the user is expected to have, at least, read access to the system. To establish the connection to their system, users can call the `login()` function with the following arguments:
 
-* `from`: The URL to the system of interest. For APIs, this must be its base URL (required)
-* `type`: The source name (optional). This is only required when importing data from RDBMS. The current version of the package covers the following RDBMS types: "MS SQL", "MySQL", "PostgreSQL", "SQLite".
-* `user_name`: The user name (optional)
-* `password`: The user's password (optional). When the password is not provided (set to NULL), the user will be prompt to enter the password, hence minimizing the exposition of your full credentials.
-* `driver_name`: The driver name (optional). This is only needed for connecting to RDBMS only.
-* `db_name`: The database name (optional). This is only needed for connecting to RDBMS only.
-* `port`: The port ID (optional). This is only needed for connecting to RDBMS only.
+-   `from`: The URL to the system of interest. For APIs, this must be the base URL (required).
+-   `type`: The source name (optional). This is only required when importing data from RDBMS. The current version of the package covers the following RDBMS types: "MS SQL", "MySQL", "PostgreSQL", "SQLite".
+-   `user_name`: The user name (optional).
+-   `password`: The user's password (optional). When the password is not provided (set to NULL), the user will be prompt to enter the password.
+-   `driver_name`: The driver name (optional). This is only needed for connecting to RDBMS only.
+-   `db_name`: The database name (optional). This is only needed for connecting to RDBMS only.
+-   `port`: The port ID (optional). This is only needed for connecting to RDBMS only.
 
 \textcolor{red}{Note that, the `login()` function should not be used when importing data from SORMAS. Users must provide the authentication parameters directly to the corresponding main function that will be described below.}
-
 
 ```{r}
 # CONNECT TO THE A DHIS2 INSTANCE
@@ -67,19 +66,15 @@ login <- login(
 )
 ```
 
-## Reading data from RDBMS 
+## Reading data from RDBMS
 
-Health related research data are usually stored in either relational databases or non-SQL databases. For example, at [MRCG@LSHTM](https://www.lshtm.ac.uk/research/units/mrc-gambia), projects data are stored in relational databases. A SQL-based database is run under a specific sever. The current version of the **{readepi}** package provides a function (`read_rdbms()`) for reading data from MS SQL, MySQL, PostgreSQL, and SQLite.
-The `read_rdbms()` function takes the following arguments:
+Health related research data are usually stored in either relational databases or non-SQL databases. For example, at [MRCG\@LSHTM](https://www.lshtm.ac.uk/research/units/mrc-gambia), projects data are stored in relational databases. A SQL-based database is run under a specific sever. The current version of the **{readepi}** package provides a function (`read_rdbms()`) for reading data from MS SQL, MySQL, PostgreSQL, and SQLite. The `read_rdbms()` function takes the following arguments:
 
-* `login`: the connection object obtained from the `login()` function
-* `query`: An SQL query or a list with the following elements:
-  1. table: a string with the table name
-  2. fields: a vector of column names. When specified, only those columns will
-  be returned. Default is `NULL`.
-  3. filter: an expression or a vector of values used to filter the rows from
-  the table of interest. This should be of the same length as the value for the
-  'select'. Default is `NULL`.
+-   `login`: The connection object obtained from the `login()` function
+-   `query`: An SQL query or a list with the following elements:
+    1.  table: a string with the table name.
+    2.  fields: a vector of column names. When specified, only those columns will be returned. Default is `NULL`.
+    3.  filter: an expression or a vector of values used to filter the rows from the table of interest. This should be of the same length as the value for the 'select'. Default is `NULL`.
 
 ```{r eval=TRUE}
 # CONNECT TO THE TEST MYSQL SERVER
@@ -134,18 +129,17 @@ dat |>
 
 The current version of **{readepi}** supports reading data from two common HIS: [DHIS2](https://dhis2.org/), and [SORMAS](https://sormas.org/).
 
-
 ## Importing data from DHIS2
 
-The [District Health Information Software (DHIS2)](https://dhis2.org/about/) is an open source software that has transformed global health information management. The `read_dhis2()` function can be used to import data from [DHIS2 Tracker](https://dhis2.org/tracker-in-action/) instances through their API with following arguments:
+The [District Health Information Software (DHIS2)](https://dhis2.org/about/) is an open source software used by many health institutions to store, manage and analyze various types of health data. The `read_dhis2()` function can be used to import data from [DHIS2 Tracker](https://dhis2.org/tracker-in-action/) instances through their API with following arguments:
 
-* `login`: A `httr2_response` object returned by the `login()` function
-* `org_unit`: A character with the organisation unit ID or name
-* `program`: A character with the program ID or name
+-   `login`: A `httr2_response` object returned by the `login()` function
+-   `org_unit`: A character with the organisation unit ID or name
+-   `program`: A character with the program ID or name
 
-It is important to note that the request parameters used in the internal functions of the package vary depending on the API version. Currently, we accounted for versions from **2.22** to **2.42**, which the current version of the DHIS2 test instance. Newer versions (**> 2.42**) might require a different syntax for the request parameters depending on how they are defined by the DHIS2 developers. This can result in the failure of the `read_dhis2()` function when importing data from those newer versions. An issue can be raised [here](https://github.com/epiverse-trace/readepi/issues) to make the developers of the package aware of this problem.
+It is important to note that the request parameters used in the internal functions of the package vary depending on the API version. Currently, {readepi} accounts for versions from **2.22** to **2.42**. The later is the current version of the DHIS2 test instance. Newer versions (**\> 2.42**) might require a different syntax for the request parameters depending on how they are defined by the DHIS2 developers. This can result in the failure of the `read_dhis2()` function when importing data from those newer versions. An issue can be raised [here](https://github.com/epiverse-trace/readepi/issues) to make the developers of the package aware of this problem.
 
-In the current version, the `login()` function only supports basic authentication i.e., using the user name and password. An example of how to establish a connection to a DHIS2 instance is shown below.
+In the current version, the `login()` function only supports basic authentication, i.e., using the user name and password. An example of how to establish a connection to a DHIS2 instance is shown below.
 
 ```{r eval=TRUE}
 # CONNECT TO A DHIS2 INSTANCE
@@ -277,15 +271,15 @@ data[1:50, 1:15] |>
 
 The [Surveillance Outbreak Response Management and Analysis System (SORMAS)](https://sormas.org/) is an open source eHealth system that optimises the processes used in monitoring the spread of infectious diseases and responding to outbreak situations. The `read_sormas()` function can be used to import data from SORMAS through its API.
 
-It is important to note that in the current version, the `read_sormas()` function returns data for the following columns: **case_id, person_id, sex, date_of_birth, case_origin, country, city, lat, long, case_status, date_onset, date_admission, date_last_contact, date_first_contact, outcome, date_outcome, Ct_values**.
+In the current version, the `read_sormas()` function returns data for the following columns: **case_id, person_id, sex, date_of_birth, case_origin, country, city, lat, long, case_status, date_onset, date_admission, date_last_contact, date_first_contact, outcome, date_outcome, Ct_values**.
 
-It is also important to note that SORMAS does not support basic authentication i.e., the authentication details are directly provided to the `read_sormas()` function without a prior call of the `login()` function. Hence, the function takes the following arguments:
+It is important to note that SORMAS does not support basic authentication i.e., the authentication details are directly provided to the `read_sormas()` function without a prior call of the `login()` function. Hence, the function takes the following arguments:
 
-* `base_url`: A character with the base URL to the target SORMAS system
-* `user_name`: A character with the user name credential
-* `password`: A character with the password credential
-* `disease`: A character vector with the names of the diseases of interest.
-  
+-   `base_url`: A character with the base URL to the target SORMAS system
+-   `user_name`: A character with the user name credential
+-   `password`: A character with the password credential
+-   `disease`: A character vector with the names of the diseases of interest.
+
 Users can get the list of all diseases available on their SORMAS system using the `sormas_get_diseases()` function.
 
 ```{r eval=TRUE}
@@ -338,5 +332,3 @@ covid_cases[, 1:15] |>
                          extra_css = NULL,
                          fixed_thead = TRUE)
 ```
-
-
