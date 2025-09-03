@@ -16,7 +16,7 @@ Aggregate or Tracker system.
 }
 \description{
 The function first fetches all programs from the DHIS2 Aggregate system,
-then distinguish the Tracker and Aggregate programs.
+then distinguishes the Tracker and Aggregate programs.
 }
 \examples{
 # establish the connection to the system

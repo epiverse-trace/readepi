@@ -1,8 +1,8 @@
-#' Get the list of disease names from SORMAS
+#' Get the list of disease names from a SORMAS instance
 #'
 #' @inheritParams read_sormas
 #'
-#' @return A vector of the list of disease names in SORMAS
+#' @return A vector of the list of disease names in a SORMAS instance
 #' @export
 #' @examples
 #' disease_names <- sormas_get_diseases(
@@ -34,7 +34,7 @@ sormas_get_diseases <- function(base_url, user_name, password) {
 }
 
 
-#' Get cases data from a target SORMAS instance
+#' Get case data from a SORMAS instance
 #'
 #' @inheritParams read_sormas
 #'
@@ -117,7 +117,7 @@ sormas_get_cases_data <- function(base_url, user_name, password, disease,
 }
 
 
-#' Get personal data of cases from SORMAS
+#' Get personal data of cases from a SORMAS instance
 #'
 #' @inheritParams read_sormas
 #'

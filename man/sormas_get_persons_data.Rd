@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_sormas-helpers.R
 \name{sormas_get_persons_data}
 \alias{sormas_get_persons_data}
-\title{Get personal data of cases from SORMAS}
+\title{Get personal data of cases from a SORMAS instance}
 \usage{
 sormas_get_persons_data(base_url, user_name, password, since)
 }
@@ -21,6 +21,6 @@ A data frame with the following eight columns: 'case_id',
 'sex', 'date_of_birth', 'country', 'city', 'latitude', 'longitude'
 }
 \description{
-Get personal data of cases from SORMAS
+Get personal data of cases from a SORMAS instance
 }
 \keyword{internal}

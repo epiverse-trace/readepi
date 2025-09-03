@@ -1,8 +1,8 @@
-#' Establish a connection to a HIS of interest.
+#' Establish a connection to the HIS of interest.
 #'
 #' The current version of the package supports basic authentication (using the
 #' username and password) and personal authentication key (using API key and
-#' bearer token)
+#' bearer token).
 #'
 #' @param from The URL to the HIS of interest. For APIs, this must be the base
 #'    URL (required).
@@ -11,8 +11,8 @@
 #'    RDBMS types: "MS SQL", "MySQL", "PostgreSQL", "SQLite".
 #' @param user_name The user name (optional).
 #' @param password The user's password (optional). When the password is not
-#'    provided (set to `NULL`), the user will be prompt to enter the password,
-#'    hence minimizing the exposition of your full credentials.
+#'    provided (set to `NULL`), the user will be prompt to enter the password.
+#'
 #' @param driver_name The driver name (optional). This is only needed for
 #'    connecting to RDBMS only.
 #' @param db_name The database name (optional). This is only needed for
@@ -37,7 +37,7 @@
 #'   )
 #' }
 #'
-#' # connect to the a DHIS2 instance
+#' # connect to a DHIS2 instance
 #' \dontrun{
 #'   login <- login(
 #'     from = "https://smc.moh.gm/dhis",

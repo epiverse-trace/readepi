@@ -29,7 +29,7 @@ get_api_version <- function(login) {
 }
 
 
-#' Establish connection to the DHIS2 instance
+#' Establish connection to a DHIS2 instance
 #'
 #' @param base_url A character with the base URL of the target DHIS2 instance
 #' @param user_name A character with the user name
@@ -59,7 +59,7 @@ dhis2_login <- function(base_url,
 #' get all programs from a given specific DHIS2 instance
 #'
 #' The function first fetches all programs from the DHIS2 Aggregate system,
-#' then distinguish the Tracker and Aggregate programs.
+#' then distinguishes the Tracker and Aggregate programs.
 #'
 #' @inheritParams read_dhis2
 #'
@@ -229,7 +229,7 @@ get_org_unit_levels <- function(login) {
 }
 
 
-#' Retrieve The DHIS2 organization units, along with their IDs, names,
+#' Retrieve  DHIS2 organization units, along with their IDs, names,
 #' parent IDs, and levels.
 #'
 #' @inheritParams read_dhis2
