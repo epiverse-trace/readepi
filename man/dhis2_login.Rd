@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_dhis2-helpers.R
 \name{dhis2_login}
 \alias{dhis2_login}
-\title{Establish connection to the DHIS2 instance}
+\title{Establish connection to a DHIS2 instance}
 \usage{
 dhis2_login(base_url, user_name, password)
 }
@@ -18,7 +18,7 @@ An \code{httr2_response} object if the connection was successfully
 established
 }
 \description{
-Establish connection to the DHIS2 instance
+Establish connection to a DHIS2 instance
 }
 \examples{
 login <- dhis2_login(

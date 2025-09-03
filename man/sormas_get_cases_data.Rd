@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_sormas-helpers.R
 \name{sormas_get_cases_data}
 \alias{sormas_get_cases_data}
-\title{Get cases data from a target SORMAS instance}
+\title{Get case data from a SORMAS instance}
 \usage{
 sormas_get_cases_data(base_url, user_name, password, disease, since)
 }
@@ -25,6 +25,6 @@ A data frame with the following eight columns: 'case_id',
 'date_outcome' will not be returned.
 }
 \description{
-Get cases data from a target SORMAS instance
+Get case data from a SORMAS instance
 }
 \keyword{internal}

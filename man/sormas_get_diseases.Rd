@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_sormas-helpers.R
 \name{sormas_get_diseases}
 \alias{sormas_get_diseases}
-\title{Get the list of disease names from SORMAS}
+\title{Get the list of disease names from a SORMAS instance}
 \usage{
 sormas_get_diseases(base_url, user_name, password)
 }
@@ -14,10 +14,10 @@ sormas_get_diseases(base_url, user_name, password)
 \item{password}{A character with the user's password}
 }
 \value{
-A vector of the list of disease names in SORMAS
+A vector of the list of disease names in a SORMAS instance
 }
 \description{
-Get the list of disease names from SORMAS
+Get the list of disease names from a SORMAS instance
 }
 \examples{
 disease_names <- sormas_get_diseases(

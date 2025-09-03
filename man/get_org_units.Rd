@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_dhis2-helpers.R
 \name{get_org_units}
 \alias{get_org_units}
-\title{Retrieve The DHIS2 organization units, along with their IDs, names,
+\title{Retrieve  DHIS2 organization units, along with their IDs, names,
 parent IDs, and levels.}
 \usage{
 get_org_units(login)
@@ -16,7 +16,7 @@ organisation unit id and name, as well as the corresponding parent
 organisation unit id, and level.
 }
 \description{
-Retrieve The DHIS2 organization units, along with their IDs, names,
+Retrieve  DHIS2 organization units, along with their IDs, names,
 parent IDs, and levels.
 }
 \keyword{internal}

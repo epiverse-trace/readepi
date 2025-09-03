@@ -2,7 +2,7 @@
 % Please edit documentation in R/authenticate.R
 \name{login}
 \alias{login}
-\title{Establish a connection to a HIS of interest.}
+\title{Establish a connection to the HIS of interest.}
 \usage{
 login(
   from,
@@ -25,8 +25,7 @@ RDBMS types: "MS SQL", "MySQL", "PostgreSQL", "SQLite".}
 \item{user_name}{The user name (optional).}
 
 \item{password}{The user's password (optional). When the password is not
-provided (set to \code{NULL}), the user will be prompt to enter the password,
-hence minimizing the exposition of your full credentials.}
+provided (set to \code{NULL}), the user will be prompt to enter the password.}
 
 \item{driver_name}{The driver name (optional). This is only needed for
 connecting to RDBMS only.}
@@ -43,7 +42,7 @@ A connection object
 \description{
 The current version of the package supports basic authentication (using the
 username and password) and personal authentication key (using API key and
-bearer token)
+bearer token).
 }
 \examples{
 # connect to the test MySQL server
@@ -59,7 +58,7 @@ bearer token)
   )
 }
 
-# connect to the a DHIS2 instance
+# connect to a DHIS2 instance
 \dontrun{
   login <- login(
     from = "https://smc.moh.gm/dhis",
