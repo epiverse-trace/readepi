@@ -14,14 +14,13 @@ knitr::opts_chunk$set(
 )
 ```
 
-
 ## MS SQL drivers for OSX-based systems
 
-When reading data from Microsoft SQL (MS SQL) server, users of Unix-based systems need to install a MS ODBC driver that is compatible with the version of their target server. For example, ***ODBC Driver 17***  is compatible with  ***SQL server 2019, version 15.0***.
+When reading data from Microsoft SQL (MS SQL) server, users of Unix-based systems need to install a MS ODBC driver that is compatible with the version of their target server. For example, ***ODBC Driver 17*** is compatible with ***SQL server 2019, version 15.0***.
 
-After choosing the appropriate driver, open the terminal, and run these instructions to install the MS SQL ODBC driver on Mac.  
- 
-1. installation of MS SQL driver 17 on Mac
+After choosing the appropriate driver, open the terminal, and run these instructions to install the MS SQL ODBC driver on Mac.
+
+1.  installation of MS SQL driver 17 on Mac
 
 ```{bash eval=FALSE}
 driver=17
@@ -33,7 +32,7 @@ brew install mssql-tools
 ODBCSYSINI=/
 ```
 
-2. installation of MS SQL driver 13.1 on Mac
+2.  installation of MS SQL driver 13.1 on Mac
 
 ```{bash eval=FALSE}
 brew install unixodbc
@@ -46,9 +45,9 @@ ODBCSYSINI=/
 
 ## MS SQL drivers for Linux-based systems
 
-Note that this requires **Ubuntu 16.04 and above**. Choose the appropriate driver, open the terminal and type the instructions below: 
+Note that this requires **Ubuntu 16.04 and above**. Choose the appropriate driver, open the terminal and type the instructions below:
 
-1. installation of MS SQL driver version 17 on `Ubuntu`
+1.  installation of MS SQL driver version 17 on `Ubuntu`
 
 ```{bash eval=FALSE}
 driver=17
@@ -65,7 +64,7 @@ source ~/.bashrc
 sudo apt-get install -y unixodbc-dev
 ```
 
-2. installation of MS SQL driver version 13.1 on `Ubuntu`
+2.  installation of MS SQL driver version 13.1 on `Ubuntu`
 
 ```{bash eval=FALSE}
 sudo su
@@ -80,14 +79,14 @@ source ~/.bashrc
 sudo apt-get install unixodbc-dev
 ```
 
-3. installation of MS SQL driver on other Linux distributions 
+3.  installation of MS SQL driver on other Linux distributions
 
-To install an MS SQL driver for other Linux distributions, such as Debian and Fedora, click [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline) and follow the instructions. After the  installation, check the installed drivers using:      
+To install an MS SQL driver for other Linux distributions, such as Debian and Fedora, click [here](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server?view=sql-server-ver15&tabs=ubuntu18-install%2Cubuntu17-install%2Cubuntu16-install%2Cubuntu16-13-install%2Crhel7-offline) and follow the instructions. After the installation, check the installed drivers using:
 
 ```{r eval=FALSE}
 odbc::odbcListDrivers()
 ```
 
-If this command  does not return the list of installed drivers or if you are facing issues during the driver installation process, consult [the odbc github page](https://github.com/r-dbi/odbc#installation) or the [MS documentation on this topic](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15). 
+If this command does not return the list of installed drivers or if you are facing issues during the driver installation process, consult [the odbc github page](https://github.com/r-dbi/odbc#installation) or the [MS documentation on this topic](https://learn.microsoft.com/en-us/sql/connect/odbc/linux-mac/install-microsoft-odbc-driver-sql-server-macos?view=sql-server-ver15).
 
 It is also important to view the data stored in the MS SQL server. For that purpose, we recommend you to install a graphical user interface (GUI) such as `Azure Data Studio`.
