@@ -21,9 +21,9 @@ Authors@R: c(
     person("London School of Hygiene and Tropical Medicine, LSHTM", role = "cph"),
     person("data.org", role = "fnd")
   )
-Description: Data import from several Relational Database Management Systems
+Description:  Import Data from  Relational Database Management Systems
     (RDBMS) and Health Information Systems ('HIS').
-    The current version of the package covers RDBMS such as'MS SQL',
+    The current version of the package supports importing data from RDBMS such as'MS SQL',
     'MySQL', 'PostGRESQL', and 'SQLite', and two HIS ('DHIS2' and 'SORMAS').
 License: MIT + file LICENSE
 URL: https://epiverse-trace.github.io/readepi/,
