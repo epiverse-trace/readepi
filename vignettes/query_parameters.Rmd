@@ -16,20 +16,18 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-For a successful API or database request, users are required to provide details about where the data can be found and which data they want the reading function to return. The later information is generally designated as **query paramaters** and can vary depending on the type of HIS.
-In the sections below, we will describe the query parameters and define how to use them when fetching data from our target HIS.
+For a successful API or database request, users are required to provide details about where the data can be found and which data they want the reading function to return. These information is generally designated as **query paramaters** and can vary depending on the type of HIS. In the sections below, we will describe the query parameters and define how to use them when fetching data from our target HIS.
 
 ## RDBMS query parameters
 
-Following a successful authentication using the `login()` function, the connection with the database is established. Users can now determine the name of the table, in the database, where the dataset of interest is stored. They can also inform the reading function about what entries and/or fields they are mainly interested in. These pieces of information are passed to the `read_rdbms()` through its `query` argument. In the current version of the package, the `query` can be either:
+Following a successful authentication using the `login()` function, the connection with the database is established. Users can then determine the name of the table in the database, where the dataset of interest is stored. They can also inform the reading function about what entries and/or fields they are mainly interested in. These pieces of information are passed to the `read_rdbms()` via the `query` argument. In the current version of the package, the `query` can be either:
 
-1. An **SQL query** where the parameters are embedded within an SQL request, or
-2. A **list** with the following elements:
-  * `table`: a string with the table name
-  * `fields`: a vector of column names. When specified, only those columns will
-  be returned. Default is `NULL`.
-  * `filter`: an expression or a vector of values used to filter the rows from
-  the table of interest. Default is `NULL`.
+1.  An **SQL query** where the parameters are embedded within an SQL request, or
+2.  A **list** with the following elements:
+
+-   `table`: a string with the table name.
+-   `fields`: a vector of column names. When specified, only those columns will be returned. Default is `NULL`.
+-   `filter`: an expression or a vector of values used to filter the rows from the table of interest. Default is `NULL`.
 
 ### Examples
 
@@ -73,12 +71,6 @@ readepi::request_parameters |>
 
 In the current implementation of the package, the `read_sormas()` and its surrogate functions use the following basic query parameters with their default values:
 
-* `disease`: a character with the name of the disease of interest. Use the `sormas_get_diseases()` function to get the list of all available diseases.
-* `filter`: an expression used to filter on rows. The current version uses the
-default value: **all**, i.e., returning all rows.
-* `since`: a value of type Date in ISO8601 format (YYYY-mm-dd). The current version uses the default value: **NULL**, i.e., returning all rows since the beginning of data collection.
-
-
-
-
-
+-   `disease`: a character with the name of the disease of interest. Use the `sormas_get_diseases()` function to get the list of all available diseases.
+-   `filter`: an expression used to filter on rows. The current version uses the default value: **all**, i.e., returning all rows.
+-   `since`: a value of type Date in ISO8601 format (YYYY-mm-dd). The current version uses the default value: **NULL**, i.e., returning all rows since the beginning of data collection.
