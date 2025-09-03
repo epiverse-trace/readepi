@@ -13,10 +13,10 @@ version: 0.1.0
 identifiers:
 - type: url
   value: https://github.com/epiverse-trace/readepi/
-abstract: Data import from several Relational Database Management Systems (RDBMS)
-  and Health Information Systems ('HIS'). The current version of the package covers
-  RDBMS such as'MS SQL', 'MySQL', 'PostGRESQL', and 'SQLite', and two HIS ('DHIS2'
-  and 'SORMAS').
+abstract: Import Data from Relational Database Management Systems (RDBMS) and Health
+  Information Systems ('HIS'). The current version of the package supports importing
+  data from RDBMS such as'MS SQL', 'MySQL', 'PostGRESQL', and 'SQLite', and two HIS
+  ('DHIS2' and 'SORMAS').
 authors:
 - family-names: Mané
   given-names: Karim
@@ -147,6 +147,9 @@ references:
     email: hadley@posit.co
   - family-names: Gjoneski
     given-names: Oliver
+  - family-names: Couch
+    given-names: Simon
+    email: simon.couch@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.odbc
 - type: software
