@@ -41,7 +41,8 @@ Imports:
     RMySQL,
     RSQLite,
     tidyr
-Suggests: 
+Suggests:
+    cyclocomp,
     DiagrammeR,
     httptest,
     kableExtra,
