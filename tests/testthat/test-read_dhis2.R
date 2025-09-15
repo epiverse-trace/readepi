@@ -21,7 +21,7 @@ test_that("read_dhis2 works as expected", {
     program = program
   )
   expect_s3_class(data, "data.frame")
-  expect_identical(dim(data), c(1116L, 69L))
+  expect_identical(dim(data), c(1116L, 70L))
 
   # use the program and organisation unit names
   program <- "Child Registration & Treatment "
@@ -34,7 +34,7 @@ test_that("read_dhis2 works as expected", {
     program = program
   )
   expect_s3_class(data, "data.frame")
-  expect_identical(dim(data), c(1116L, 69L))
+  expect_identical(dim(data), c(1116L, 70L))
 })
 
 test_that("read_dhis2 fails as expected", {
