@@ -34,11 +34,9 @@ reference:
   - get_entity_data
   - get_event_ids
   - get_request_params
-  -
 
 - subtitle: RDBMS
 - contents:
   - starts_with("server_", internal = TRUE)
   - query_check
   - fields_check
-  -
