@@ -7,14 +7,15 @@
 #'
 #' @examples
 #' # login to the DHIS2 instance
-#' login <- dhis2_login(
-#'   base_url = "https://smc.moh.gm/dhis",
+#' dhis2_login <- login(
+#'   type = "dhis2",
+#'   from = "https://smc.moh.gm/dhis",
 #'   user_name = "test",
 #'   password = "Gambia@123"
 #' )
 #'
 #' # get the API version
-#' api_version <- get_api_version(login = login)
+#' api_version <- get_api_version(login = dhis2_login)
 get_api_version <- function(login) {
   base_url <- gsub("/api/me", "", login[["url"]], fixed = TRUE) # nolint: absolute_path_linter
   target_url <- paste0(file.path(base_url, "api", "system", "info"))
@@ -40,7 +41,7 @@ get_api_version <- function(login) {
 #' @export
 #'
 #' @examples
-#' login <- dhis2_login(
+#' dhis2_log <- dhis2_login(
 #'   base_url = "https://play.im.dhis2.org/stable-2-42-1",
 #'   user_name = "admin",
 #'   password = "district"
@@ -70,14 +71,15 @@ dhis2_login <- function(base_url,
 #' @export
 #' @examples
 #' # establish the connection to the system
-#' login <- dhis2_login(
-#'   base_url = "https://smc.moh.gm/dhis",
+#' dhis2_login <- login(
+#'   type = "dhis2",
+#'   from = "https://smc.moh.gm/dhis",
 #'   user_name = "test",
 #'   password = "Gambia@123"
 #' )
 #'
 #' # fetch the programs
-#' programs <- get_programs(login)
+#' programs <- get_programs(login = dhis2_login)
 #'
 get_programs <- function(login) {
   # get the base URL the login object
@@ -127,15 +129,16 @@ get_programs <- function(login) {
 #' @export
 #'
 #' @examples
-#' # establish the connexion to the system
-#' login <- dhis2_login(
-#'   base_url = "https://smc.moh.gm/dhis",
+#' # establish the connection to the system
+#' dhis2_login <- login(
+#'   type = "dhis2",
+#'   from = "https://smc.moh.gm/dhis",
 #'   user_name = "test",
 #'   password = "Gambia@123"
 #' )
 #'
 #' # retrieve the data elements
-#' data_elements <- get_data_elements(login)
+#' data_elements <- get_data_elements(login = dhis2_login)
 #'
 get_data_elements <- function(login) {
   # get the base URL from the login object
@@ -286,14 +289,15 @@ get_org_units <- function(login) {
 #'
 #' @examples
 #' # establish the connection to the system
-#' login <- dhis2_login(
-#'   base_url = "https://smc.moh.gm/dhis",
+#' dhis2_login <- login(
+#'   type = "dhis2",
+#'   from = "https://smc.moh.gm/dhis",
 #'   user_name = "test",
 #'   password = "Gambia@123"
 #' )
 #'
 #' # fetch the organisation units
-#' org_units <- get_organisation_units(login)
+#' org_units <- get_organisation_units(login = dhis2_login)
 #'
 get_organisation_units <- function(login) {
   id <- NULL
@@ -453,15 +457,16 @@ check_program <- function(login, program) {
 #'    4. `program_stage_id`: the ID of each program stage
 #' @examples
 #' # establish the connection to the DHIS2 instance
-#' login <- dhis2_login(
-#'   base_url = "https://smc.moh.gm/dhis",
+#' dhis2_login <- login(
+#'   type = "dhis2",
+#'   from = "https://smc.moh.gm/dhis",
 #'   user_name = "test",
 #'   password = "Gambia@123"
 #' )
 #'
 #' # get the list of all program stages from the DHIS2 instance
 #' all_program_stages <- get_program_stages(
-#'   login = login,
+#'   login = dhis2_login,
 #'   program = "E5IUQuHg3Mg",
 #'   programs = NULL
 #' )
@@ -693,8 +698,9 @@ get_event_data <- function(login, api_version, org_unit, program, data_elements,
 #'
 #' @examples
 #' # login to the DHIS2 instance
-#' login <- dhis2_login(
-#'   base_url = "https://smc.moh.gm/dhis",
+#' dhis2_login <- login(
+#'   type = "dhis2",
+#'   from = "https://smc.moh.gm/dhis",
 #'   user_name = "test",
 #'   password = "Gambia@123"
 #' )
@@ -704,14 +710,14 @@ get_event_data <- function(login, api_version, org_unit, program, data_elements,
 #' org_unit <- "GcLhRNAFppR"
 #'
 #' # get the api version
-#' api_version <- get_api_version(login)
+#' api_version <- get_api_version(login = dhis2_login)
 #'
 #' # get all the organisation units from the DHIS2 instance
-#' org_units <- get_organisation_units(login = login)
+#' org_units <- get_organisation_units(login = dhis2_login)
 #'
 #' # get the tracked entity attributes
 #' tracked_entity_attributes <- get_tracked_entities(
-#'   login = login,
+#'   login = dhis2_login,
 #'   api_version = api_version,
 #'   org_unit = org_unit,
 #'   program = program,
@@ -892,19 +898,20 @@ get_request_params <- function(api_version) {
 #'
 #' @examples
 #' # login to the DHIS2 instance
-#' login <- dhis2_login(
-#'   base_url = "https://smc.moh.gm/dhis",
+#' dhis2_login <- login(
+#'   type = "dhis2",
+#'   from = "https://smc.moh.gm/dhis",
 #'   user_name = "test",
 #'   password = "Gambia@123"
 #' )
 #'
 #' # fetch the organisation units
-#' org_units <- get_organisation_units(login)
+#' org_units <- get_organisation_units(login = dhis2_login)
 #'
 #' # get the organisation units associated with the following program
 #' 'E5IUQuHg3Mg'
 #' target_org_units <- get_program_org_units(
-#'   login = login,
+#'   login = dhis2_login,
 #'   program = "E5IUQuHg3Mg",
 #'   org_units = org_units
 #' )

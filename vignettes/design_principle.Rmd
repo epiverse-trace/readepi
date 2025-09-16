@@ -113,8 +113,9 @@ package is structured around few main functions: `read_dhis2()`,
 The `login()` function is used to establish connection with the data
 source. It verifies the user's identity and determines if they are
 authorized to access the requested database or API. Establishing this
-connection is crucial for ensuring successful data import. However, the
-authentication is not required when importing data from SORMAS.
+connection is crucial for ensuring successful data import. However, the basic
+authentication does not work for SORMAS. To maintain the design of the package
+across all HIS, the login function returns a <list> object when importing data from SORMAS.
 
 Once authentication credentials are provided, they are securely stored
 within the connection object. This prevents the need to re-supply them
@@ -154,8 +155,8 @@ The `type` argument refers to the name of the data source of interest.
 The current version of the package covers the following types:
 
 ```         
-i) RDBMS: “MS SQL”, “MySQL”, “PostgreSQL”, “SQLite”
-ii) APIs: “DHIS2”.
+i) RDBMS: “ms sql”, “mysql”, “postgresql”, “sqlite”
+ii) APIs: “dhis2”, “sormas”
 ```
 :::
 
@@ -178,14 +179,12 @@ You can use one of the functions below depending on the data source.
     -   **program**: A character with the program ID or name
 -   `read_sormas()`: for importing data from SORMAS. It takes the
     following arguments:
-    -   **base_url**: A character with the base URL to the target SORMAS
-        system
-    -   **user_name**: A character with the user name credential
-    -   **password**: A character with the password credential
+    -   **login**: A `list` object returned by the `login()`
     -   **disease**: A character vector with the names of the diseases
         of interest. Users can get the list of all diseases which data
         is available on their SORMAS system using the
         `sormas_get_diseases()` function.
+    -   **since**: A Date value in ISO8601 format (YYYY-mm-dd).
 
 ::: {style="text-align: justify;"}
 Note that, when reading from RDBMS, the `query` argument could be an
@@ -228,7 +227,8 @@ of other required packages: -
 [{testthat}](https://CRAN.R-project.org/package=testthat) (\>= 3.0.0) -
 [{knitr}](https://CRAN.R-project.org/package=knitr) -
 [{cli}](https://CRAN.R-project.org/package=cli) -
-[{DiagrammeR}](https://CRAN.R-project.org/package=DiagrammeR)
+[{DiagrammeR}](https://CRAN.R-project.org/package=DiagrammeR) -
+[{cyclocomp}](https://CRAN.R-project.org/package=cyclocomp)
 
 ## Contribute
 

@@ -6,9 +6,9 @@
 #'
 #' @param from The URL to the HIS of interest. For APIs, this must be the base
 #'    URL (required).
-#' @param type The source name (optional). This is only required when importing
-#'    data from RDBMS. The current version of the package covers the following
-#'    RDBMS types: "MS SQL", "MySQL", "PostgreSQL", "SQLite".
+#' @param type The source name (required). The current version of the package
+#'    covers the following RDBMS and HIS types: "ms sql", "mysql", "postgresql",
+#'    "sqlite", "dhis2", and "sormas".
 #' @param user_name The user name (optional).
 #' @param password The user's password (optional). When the password is not
 #'    provided (set to `NULL`), the user will be prompt to enter the password.
@@ -28,7 +28,7 @@
 #' \dontrun{
 #'   login <- login(
 #'     from = "mysql-rfam-public.ebi.ac.uk",
-#'     type = "MySQL",
+#'     type = "mysql",
 #'     user_name = "rfamro",
 #'     password = "",
 #'     driver_name = "",
@@ -39,15 +39,26 @@
 #'
 #' # connect to a DHIS2 instance
 #' \dontrun{
-#'   login <- login(
+#'   dhi2s_login <- login(
+#'     type = "dhis2",
 #'     from = "https://smc.moh.gm/dhis",
 #'     user_name = "test",
 #'     password = "Gambia@123"
 #'   )
 #' }
 #'
+#' # connect to SORMAS
+#' \dontrun{
+#'   sormas_login <- login(
+#'     type = "sormas",
+#'     from = "https://demo.sormas.org/sormas-rest",
+#'     user_name = "SurvSup",
+#'     password = "Lk5R7JXeZSEc"
+#'   )
+#' }
+#'
 login <- function(from,
-                  type = NULL,
+                  type,
                   user_name = NULL,
                   password = NULL,
                   driver_name = NULL,
@@ -56,10 +67,11 @@ login <- function(from,
 
   checkmate::assert_character(from, null.ok = FALSE, any.missing = FALSE,
                               len = 1L)
+  type <- tolower(type)
   checkmate::assert_choice(type,
-                           choices = c("MS SQL", "MySQL", "PostgreSQL",
-                                       "SQLite", "DHIS2"),
-                           null.ok = TRUE)
+                           choices = c("ms sql", "mysql", "postgresql",
+                                       "sqlite", "dhis2", "sormas"),
+                           null.ok = FALSE)
   checkmate::assert_character(user_name, null.ok = TRUE, any.missing = FALSE,
                               min.len = 0L)
   checkmate::assert_character(password, null.ok = TRUE, any.missing = FALSE,
@@ -71,34 +83,33 @@ login <- function(from,
   checkmate::assert_numeric(port, null.ok = TRUE, any.missing = FALSE,
                             min.len = 0L)
   url_check(from)
-  if (!is.null(db_name) && !is.null(port)) {
+  if (type %in% c("ms sql", "mysql", "postgresql", "sqlite")) {
     conn <- switch(
       type,
-      "MS SQL" = pool::dbPool(odbc::odbc(),
+      "ms sql" = pool::dbPool(odbc::odbc(),
                               driver = driver_name,
                               server = from,
                               database = db_name,
                               uid = user_name,
                               pwd = password,
                               port = port),
-      PostgreSQL = pool::dbPool(odbc::odbc(),
+      postgresql = pool::dbPool(odbc::odbc(),
                                 driver = driver_name,
                                 host = from,
                                 database = db_name,
                                 uid = user_name,
                                 pwd = password,
                                 port = port),
-      MySQL = pool::dbPool(drv = RMySQL::MySQL(),
+      mysql = pool::dbPool(drv = RMySQL::MySQL(),
                            driver = driver_name,
                            host = from,
                            dbname = db_name,
                            username = user_name,
                            password = password,
                            port = port),
-      SQLite = pool::dbPool(drv = RSQLite::SQLite(),
+      sqlite = pool::dbPool(drv = RSQLite::SQLite(),
                             dbname = db_name)
     )
-
     ## Saving the credentials as attributes of the output object. They will be
     ## used to establish the connection in a subsequent query.
     attr(conn, "credentials") <- list(
@@ -119,10 +130,17 @@ login <- function(from,
         x = "{.strong user_name} must be provided."
       ))
     }
-    conn <- dhis2_login(
-      base_url = from,
-      user_name = user_name,
-      password = password
+    conn <- switch(type,
+      dhis2 = dhis2_login(
+        base_url = from,
+        user_name = user_name,
+        password = password
+      ),
+      sormas = list(
+        base_url = from,
+        user_name = user_name,
+        password = password
+      )
     )
 
   }

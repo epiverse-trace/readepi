@@ -5,6 +5,7 @@ testthat::skip_on_ci()
 test_that("read_dhis2 works as expected", {
   # establish the connection to the system
   dhis2_login <- login(
+    type = "dhis2",
     from = "https://smc.moh.gm/dhis",
     user_name = "test",
     password = "Gambia@123"

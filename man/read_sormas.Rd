@@ -4,14 +4,10 @@
 \alias{read_sormas}
 \title{Import data from SORMAS}
 \usage{
-read_sormas(base_url, user_name, password, disease, since = 0)
+read_sormas(login, disease, since = 0)
 }
 \arguments{
-\item{base_url}{A character with the base URL to SORMAS system of interest}
-
-\item{user_name}{A character with the user name}
-
-\item{password}{A character with the user's password}
+\item{login}{A list with the user's authentication details}
 
 \item{disease}{A character with the target disease name}
 
@@ -33,11 +29,16 @@ might not have some missing elements such a missing year (NA-12-26), month
 (2025-NA-01) or date (2025-12-NA), or a combination of two missing elements.
 }
 \examples{
+# establish the connection to the SORMAS system
+sormas_login <- login(
+  type = "sormas",
+  from = "https://demo.sormas.org/sormas-rest",
+  user_name = "SurvSup",
+  password = "Lk5R7JXeZSEc"
+)
 # fetch all COVID (coronavirus) cases from the test SORMAS instance
 covid_cases <- read_sormas(
-  base_url = "https://demo.sormas.org/sormas-rest",
-  user_name = "SurvSup",
-  password = "Lk5R7JXeZSEc",
+  login = sormas_login,
   disease = "coronavirus"
 )
 

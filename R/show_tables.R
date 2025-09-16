@@ -4,9 +4,9 @@
 #' @examples
 #' \dontrun{
 #' # connect to the test MySQL server
-#'   login <- login(
+#'   rdbms_login <- login(
 #'     from        = "mysql-rfam-public.ebi.ac.uk",
-#'     type        = "MySQL",
+#'     type        = "mysql",
 #'     user_name   = "rfamro",
 #'     password    = "",
 #'     driver_name = "",
@@ -15,7 +15,7 @@
 #'   )
 #'
 #' # display the list of available tables from this database
-#' tables <- show_tables(login = login)
+#' tables <- show_tables(login = rdbms_login)
 #' }
 #' @returns a `character` that contains the list of all tables found
 #'     in the specified database.

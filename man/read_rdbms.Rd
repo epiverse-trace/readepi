@@ -35,7 +35,7 @@ how to install the driver.
   # establish the connection to the database
   rdbms_login <- login(
     from = "mysql-rfam-public.ebi.ac.uk",
-    type = "MySQL",
+    type = "mysql",
     user_name = "rfamro",
     password = "",
     driver_name = "",

@@ -6,7 +6,7 @@
 \usage{
 login(
   from,
-  type = NULL,
+  type,
   user_name = NULL,
   password = NULL,
   driver_name = NULL,
@@ -18,9 +18,9 @@ login(
 \item{from}{The URL to the HIS of interest. For APIs, this must be the base
 URL (required).}
 
-\item{type}{The source name (optional). This is only required when importing
-data from RDBMS. The current version of the package covers the following
-RDBMS types: "MS SQL", "MySQL", "PostgreSQL", "SQLite".}
+\item{type}{The source name (required). The current version of the package
+covers the following RDBMS and HIS types: "ms sql", "mysql", "postgresql",
+"sqlite", "dhis2", and "sormas".}
 
 \item{user_name}{The user name (optional).}
 
@@ -49,7 +49,7 @@ bearer token).
 \dontrun{
   login <- login(
     from = "mysql-rfam-public.ebi.ac.uk",
-    type = "MySQL",
+    type = "mysql",
     user_name = "rfamro",
     password = "",
     driver_name = "",
@@ -60,10 +60,21 @@ bearer token).
 
 # connect to a DHIS2 instance
 \dontrun{
-  login <- login(
+  dhi2s_login <- login(
+    type = "dhis2",
     from = "https://smc.moh.gm/dhis",
     user_name = "test",
     password = "Gambia@123"
+  )
+}
+
+# connect to SORMAS
+\dontrun{
+  sormas_login <- login(
+    type = "sormas",
+    from = "https://demo.sormas.org/sormas-rest",
+    user_name = "SurvSup",
+    password = "Lk5R7JXeZSEc"
   )
 }
 

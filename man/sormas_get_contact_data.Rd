@@ -4,14 +4,10 @@
 \alias{sormas_get_contact_data}
 \title{Get contact data from SORMAS}
 \usage{
-sormas_get_contact_data(base_url, user_name, password, since)
+sormas_get_contact_data(login, since)
 }
 \arguments{
-\item{base_url}{A character with the base URL to SORMAS system of interest}
-
-\item{user_name}{A character with the user name}
-
-\item{password}{A character with the user's password}
+\item{login}{A list with the user's authentication details}
 
 \item{since}{A Date value in ISO8601 format (YYYY-mm-dd). Default is \code{0} i.e.
 to fetch all cases from the beginning of data collection.}

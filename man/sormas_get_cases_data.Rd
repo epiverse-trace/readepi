@@ -4,14 +4,10 @@
 \alias{sormas_get_cases_data}
 \title{Get case data from a SORMAS instance}
 \usage{
-sormas_get_cases_data(base_url, user_name, password, disease, since)
+sormas_get_cases_data(login, disease, since)
 }
 \arguments{
-\item{base_url}{A character with the base URL to SORMAS system of interest}
-
-\item{user_name}{A character with the user name}
-
-\item{password}{A character with the user's password}
+\item{login}{A list with the user's authentication details}
 
 \item{disease}{A character with the target disease name}
 

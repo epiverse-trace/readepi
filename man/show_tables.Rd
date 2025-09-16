@@ -19,9 +19,9 @@ Display the list of tables in a database
 \examples{
 \dontrun{
 # connect to the test MySQL server
-  login <- login(
+  rdbms_login <- login(
     from        = "mysql-rfam-public.ebi.ac.uk",
-    type        = "MySQL",
+    type        = "mysql",
     user_name   = "rfamro",
     password    = "",
     driver_name = "",
@@ -30,6 +30,6 @@ Display the list of tables in a database
   )
 
 # display the list of available tables from this database
-tables <- show_tables(login = login)
+tables <- show_tables(login = rdbms_login)
 }
 }

@@ -2,11 +2,17 @@ testthat::skip_on_cran()
 testthat::skip_if_offline()
 testthat::skip_on_ci()
 
+# establish the connection to the SORMAS system
+sormas_login <- login(
+  type = "sormas",
+  from = "https://demo.sormas.org/sormas-rest",
+  user_name = "SurvSup",
+  password = "Lk5R7JXeZSEc"
+)
+
 test_that("read_sormas works as expected", {
   covid_cases <- read_sormas(
-    base_url = "https://demo.sormas.org/sormas-rest",
-    user_name = "SurvSup",
-    password = "Lk5R7JXeZSEc",
+    login = sormas_login,
     disease = "coronavirus"
   )
   expect_s3_class(covid_cases, "data.frame")
@@ -20,9 +26,7 @@ test_that("read_sormas works as expected", {
   ))
 
   covid_cases <- read_sormas(
-    base_url = "https://demo.sormas.org/sormas-rest",
-    user_name = "SurvSup",
-    password = "Lk5R7JXeZSEc",
+    login = sormas_login,
     disease = "coronavirus",
     since = as.Date("2025-06-01")
   )
@@ -42,9 +46,7 @@ test_that("read_sormas fails as expected", {
   # test that it fails when 'since' is incorrect
   expect_error(
     read_sormas(
-      base_url = "https://demo.sormas.org/sormas-rest",
-      user_name = "SurvSup",
-      password = "Lk5R7JXeZSEc",
+      login = sormas_login,
       disease = "coronavirus",
       since = "25/08/2025"
     ),
@@ -54,9 +56,7 @@ test_that("read_sormas fails as expected", {
   # test that it fails when 'disease' is incorrect
   expect_error(
     read_sormas(
-      base_url = "https://demo.sormas.org/sormas-rest",
-      user_name = "SurvSup",
-      password = "Lk5R7JXeZSEc",
+      login = sormas_login,
       disease = "covid19",
       since = 0
     ),
@@ -66,9 +66,7 @@ test_that("read_sormas fails as expected", {
   # test that it throws a warning when one 'disease' names is incorrect
   expect_message(
     read_sormas(
-      base_url = "https://demo.sormas.org/sormas-rest",
-      user_name = "SurvSup",
-      password = "Lk5R7JXeZSEc",
+      login = sormas_login,
       disease = c("coronavirus", "fake-disease"),
       since = 0
     ),

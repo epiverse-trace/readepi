@@ -5,21 +5,26 @@
 #' @return A vector of the list of disease names in a SORMAS instance
 #' @export
 #' @examples
-#' disease_names <- sormas_get_diseases(
-#'   base_url = "https://demo.sormas.org/sormas-rest",
+#' # establish the connection to the SORMAS system
+#' sormas_login <- login(
+#'   type = "sormas",
+#'   from = "https://demo.sormas.org/sormas-rest",
 #'   user_name = "SurvSup",
 #'   password = "Lk5R7JXeZSEc"
 #' )
+#' disease_names <- sormas_get_diseases(
+#'   login = sormas_login
+#' )
 #'
-sormas_get_diseases <- function(base_url, user_name, password) {
+sormas_get_diseases <- function(login) {
   target_url <- file.path(
-    base_url,
+    login[["base_url"]],
     "diseaseconfigurations",
     "all",
     0
   )
   resp <- httr2::request(target_url) |>
-    httr2::req_auth_basic(user_name, password) |>
+    httr2::req_auth_basic(login[["user_name"]], login[["password"]]) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
   content <- lapply(resp, unlist)
@@ -44,12 +49,11 @@ sormas_get_diseases <- function(base_url, user_name, password) {
 #'    'date_outcome' will not be returned.
 #' @keywords internal
 #'
-sormas_get_cases_data <- function(base_url, user_name, password, disease,
-                                  since) {
+sormas_get_cases_data <- function(login, disease, since) {
   # Target the 'cases' endpoint to fetch all cases
   # construct the URL
   target_url <- file.path(
-    base_url,
+    login[["base_url"]],
     "cases",
     "all",
     since # this is the date of interest. Remove the last
@@ -59,7 +63,7 @@ sormas_get_cases_data <- function(base_url, user_name, password, disease,
 
   # perform the request and store the data from the 'cases' endpoint in 'dat'
   resp <- httr2::request(target_url) |>
-    httr2::req_auth_basic(user_name, password) |>
+    httr2::req_auth_basic(login[["user_name"]], login[["password"]]) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
 
@@ -125,13 +129,13 @@ sormas_get_cases_data <- function(base_url, user_name, password, disease,
 #'    'sex', 'date_of_birth', 'country', 'city', 'latitude', 'longitude'
 #' @keywords internal
 #'
-sormas_get_persons_data <- function(base_url, user_name, password, since) {
+sormas_get_persons_data <- function(login, since) {
   # fetch all person's details from the 'persons' endpoint
   # the 'uuid' column in 'dat' corresponds to the 'uuid' column in the
   # 'person_data'. By matching the two, we can fetch cases socio-demographic
   # data.
   target_url <- file.path(
-    base_url,
+    login[["base_url"]],
     "persons",
     "all",
     since
@@ -139,7 +143,7 @@ sormas_get_persons_data <- function(base_url, user_name, password, since) {
 
   # send the request to get the persons data
   resp <- httr2::request(target_url) |>
-    httr2::req_auth_basic(user_name, password) |>
+    httr2::req_auth_basic(login[["user_name"]], login[["password"]]) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
   content <- lapply(resp, unlist)
@@ -242,10 +246,10 @@ convert_to_date <- function(data, target_columns) {
 #'    available, 'date_last_contact' will not be returned
 #' @keywords internal
 #'
-sormas_get_contact_data <- function(base_url, user_name, password, since) {
+sormas_get_contact_data <- function(login, since) {
   # build the URL to the 'contacts' endpoint
   target_url <- file.path(
-    base_url,
+    login[["base_url"]],
     "contacts",
     "all",
     since
@@ -253,7 +257,7 @@ sormas_get_contact_data <- function(base_url, user_name, password, since) {
 
   # send the request to get the contact data
   resp <- httr2::request(target_url) |>
-    httr2::req_auth_basic(user_name, password) |>
+    httr2::req_auth_basic(login[["user_name"]], login[["password"]]) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
   content <- lapply(resp, unlist)
@@ -294,10 +298,10 @@ sormas_get_contact_data <- function(base_url, user_name, password, since) {
 #' @returns A data frame with the following two columns: 'case_id', 'Ct_values'
 #' @keywords internal
 #'
-sormas_get_pathogen_data <- function(base_url, user_name, password, since) {
+sormas_get_pathogen_data <- function(login, since) {
   # build the URL to target the 'pathogentests' endpoint
   target_url <- file.path(
-    base_url,
+    login[["base_url"]],
     "pathogentests",
     "all",
     since
@@ -305,7 +309,7 @@ sormas_get_pathogen_data <- function(base_url, user_name, password, since) {
 
   # send the request to get the pathogentests data
   resp <- httr2::request(target_url) |>
-    httr2::req_auth_basic(user_name, password) |>
+    httr2::req_auth_basic(login[["user_name"]], login[["password"]]) |>
     httr2::req_perform() |>
     httr2::resp_body_json()
   content <- lapply(resp, unlist)

@@ -5,7 +5,7 @@ testthat::skip_on_ci()
 test_that("login works as expected when connecting to a MySQL server", {
   rdbms_login <- login(
     from = "mysql-rfam-public.ebi.ac.uk",
-    type = "MySQL",
+    type = "mysql",
     user_name = "rfamro",
     password = "",
     driver_name = "",
@@ -25,7 +25,7 @@ test_that("login fails with a wrong URL", {
   expect_error(
     login(
       from = "fake-url",
-      type = "MySQL",
+      type = "mysql",
       user_name = "rfamro",
       password = "",
       driver_name = "",
@@ -38,7 +38,7 @@ test_that("login fails with a wrong URL", {
   expect_error(
     login(
       from = c("mysql-rfam-public.ebi.ac.uk", "fake-url"),
-      type = "MySQL",
+      type = "mysql",
       user_name = "rfamro",
       password = "",
       driver_name = "",
@@ -53,6 +53,7 @@ test_that("login fails with a wrong URL", {
 
 test_that("login works as expected when connecting to DHIS2", {
   dhis2_login <- login(
+    type = "dhis2",
     from = "https://smc.moh.gm/dhis",
     user_name = "test",
     password = "Gambia@123"
@@ -64,6 +65,7 @@ test_that("login works as expected when connecting to DHIS2", {
 test_that("login fails with a wrong URL for DHIS2", {
   expect_error(
     login(
+      type = "dhis2",
       from = "fake-url",
       user_name = "test",
       password = "Gambia@123"
@@ -75,10 +77,22 @@ test_that("login fails with a wrong URL for DHIS2", {
 test_that("login fails if username is not provided", {
   expect_error(
     login(
+      type = "dhis2",
       from = "https://smc.moh.gm/dhis",
       user_name = NULL,
       password = "Gambia@123"
     ),
     regexp = cat("Assertion on',user_name,'failed: user_name must be provided.")
   )
+})
+
+test_that("login works as expected when connecting to SORMAS", {
+  sormas_login <- login(
+    type = "sormas",
+    from = "https://demo.sormas.org/sormas-rest",
+    user_name = "SurvSup",
+    password = "Lk5R7JXeZSEc"
+  )
+  expect_true(inherits(sormas_login, "list"))
+  expect_identical(names(sormas_login), c("base_url", "user_name", "password"))
 })
