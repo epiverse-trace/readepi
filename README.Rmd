@@ -102,7 +102,7 @@ dat <- readepi::read_rdbms(
 
 ### Reading data from DHIS2
 
-```{r}
+```{r eval=FALSE}
 # CONNECT TO A DHIS2 INSTANCE
 dhis2_login <- readepi::login(
   type = "dhis2",
@@ -121,7 +121,7 @@ data <- readepi::read_dhis2(
 
 ### Reading data from SORMAS
 
-```{r}
+```{r eval=FALSE}
 # CONNECT TO THE SORMAS SYSTEM
 sormas_login <- readepi::login(
   type = "sormas",
