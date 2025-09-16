@@ -123,7 +123,6 @@ dhis2_login <- readepi::login(
   user_name = "test",
   password = "Gambia@123"
 )
-#> ✔ Logged in successfully!
 
 # IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
 data <- readepi::read_dhis2(
@@ -131,14 +130,6 @@ data <- readepi::read_dhis2(
   org_unit = "GcLhRNAFppR",
   program = "E5IUQuHg3Mg"
 )
-#> ℹ Checking whether the API version is accounted for
-#> ✔ Checking whether the API version is accounted for [181ms]
-#> ℹ Getting the data elements✔ Getting the data elements [214ms]
-#> ℹ Getting organisation units✔ Getting organisation units [3.9s]
-#> ℹ Getting the programs✔ Getting the programs [721ms]
-#> ℹ Getting the program stages✔ Getting the program stages [442ms]
-#> ℹ Getting the tracked entity attributes✔ Getting the tracked entity attributes [2.2s]
-#> ℹ Getting the event data✔ Getting the event data [11.1s]
 ```
 
 ### Reading data from SORMAS
@@ -157,12 +148,6 @@ covid_cases <- readepi::read_sormas(
   login = sormas_login,
   disease = "coronavirus",
 )
-#> ℹ Checking whether the disease names are correct.✔ Checking whether the disease names are correct. [614ms]
-#> ℹ Getting clinical data                        ! outcomeDate not found for cases with the specified diseases.
-#> ℹ Getting clinical data✔ Getting clinical data [403ms]
-#> ℹ Getting socio-demographic data✔ Getting socio-demographic data [8.6s]
-#> ℹ Getting contact data✔ Getting contact data [382ms]
-#> ℹ Getting laboratory tests data✔ Getting laboratory tests data [202ms]
 ```
 
 ## Package Vignettes
