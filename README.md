@@ -79,7 +79,7 @@ parameters of interest or an SQL query (for more information, see the
 
 ``` r
 # CONNECT TO THE TEST MYSQL SERVER
-rdbms_login <- login(
+rdbms_login <- readepi::login(
   from = "mysql-rfam-public.ebi.ac.uk",
   type = "mysql",
   user_name = "rfamro",
@@ -90,16 +90,16 @@ rdbms_login <- login(
 )
 
 # DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST
-tables <- show_tables(login = rdbms_login)
+tables <- readepi::show_tables(login = rdbms_login)
 
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL QUERY
-dat <- read_rdbms(
+dat <- readepi::read_rdbms(
   login = rdbms_login,
   query = "select * from author"
 )
 
 # SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
-dat <- read_rdbms(
+dat <- readepi::read_rdbms(
     login = rdbms_login,
     query = "select author.author_id, author.name,
   family_author.author_id from author left join family_author on
@@ -107,7 +107,7 @@ dat <- read_rdbms(
 )
 
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY PARAMETERS ARE SPECIFIED AS A LIST
-dat <- read_rdbms(
+dat <- readepi::read_rdbms(
   login = rdbms_login,
   query = list(table = "author", fields = NULL, filter = NULL)
 )
@@ -117,7 +117,7 @@ dat <- read_rdbms(
 
 ``` r
 # CONNECT TO A DHIS2 INSTANCE
-dhis2_login <- login(
+dhis2_login <- readepi::login(
   type = "dhis2",
   from = "https://smc.moh.gm/dhis",
   user_name = "test",
@@ -126,26 +126,26 @@ dhis2_login <- login(
 #> ✔ Logged in successfully!
 
 # IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
-data <- read_dhis2(
+data <- readepi::read_dhis2(
   login = dhis2_login,
   org_unit = "GcLhRNAFppR",
   program = "E5IUQuHg3Mg"
 )
 #> ℹ Checking whether the API version is accounted for
-#> ✔ Checking whether the API version is accounted for [228ms]
-#> ℹ Getting the data elements✔ Getting the data elements [239ms]
-#> ℹ Getting organisation units✔ Getting organisation units [4s]
-#> ℹ Getting the programs✔ Getting the programs [723ms]
-#> ℹ Getting the program stages✔ Getting the program stages [472ms]
+#> ✔ Checking whether the API version is accounted for [181ms]
+#> ℹ Getting the data elements✔ Getting the data elements [214ms]
+#> ℹ Getting organisation units✔ Getting organisation units [3.9s]
+#> ℹ Getting the programs✔ Getting the programs [721ms]
+#> ℹ Getting the program stages✔ Getting the program stages [442ms]
 #> ℹ Getting the tracked entity attributes✔ Getting the tracked entity attributes [2.2s]
-#> ℹ Getting the event data✔ Getting the event data [9.8s]
+#> ℹ Getting the event data✔ Getting the event data [11.1s]
 ```
 
 ### Reading data from SORMAS
 
 ``` r
 # CONNECT TO THE SORMAS SYSTEM
-sormas_login <- login(
+sormas_login <- readepi::login(
   type = "sormas",
   from = "https://demo.sormas.org/sormas-rest",
   user_name = "SurvSup",
@@ -153,16 +153,16 @@ sormas_login <- login(
 )
 
 # FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE
-covid_cases <- read_sormas(
+covid_cases <- readepi::read_sormas(
   login = sormas_login,
   disease = "coronavirus",
 )
-#> ℹ Checking whether the disease names are correct.✔ Checking whether the disease names are correct. [598ms]
+#> ℹ Checking whether the disease names are correct.✔ Checking whether the disease names are correct. [614ms]
 #> ℹ Getting clinical data                        ! outcomeDate not found for cases with the specified diseases.
-#> ℹ Getting clinical data✔ Getting clinical data [418ms]
-#> ℹ Getting socio-demographic data✔ Getting socio-demographic data [8.9s]
-#> ℹ Getting contact data✔ Getting contact data [437ms]
-#> ℹ Getting laboratory tests data✔ Getting laboratory tests data [219ms]
+#> ℹ Getting clinical data✔ Getting clinical data [403ms]
+#> ℹ Getting socio-demographic data✔ Getting socio-demographic data [8.6s]
+#> ℹ Getting contact data✔ Getting contact data [382ms]
+#> ℹ Getting laboratory tests data✔ Getting laboratory tests data [202ms]
 ```
 
 ## Package Vignettes
