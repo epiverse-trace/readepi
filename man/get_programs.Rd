@@ -20,13 +20,14 @@ then distinguishes the Tracker and Aggregate programs.
 }
 \examples{
 # establish the connection to the system
-login <- dhis2_login(
-  base_url = "https://smc.moh.gm/dhis",
+dhis2_login <- login(
+  type = "dhis2",
+  from = "https://smc.moh.gm/dhis",
   user_name = "test",
   password = "Gambia@123"
 )
 
 # fetch the programs
-programs <- get_programs(login)
+programs <- get_programs(login = dhis2_login)
 
 }

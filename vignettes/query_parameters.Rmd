@@ -31,12 +31,12 @@ Following a successful authentication using the `login()` function, the connecti
 
 ### Examples
 
-Say our connection object is `conn` and we are aiming to fetch data from the `author` table. Suppose that table contains article first author's details. From that table, we are only interest in return author's name, surname and orcid for the first ten authors. The value of the `query` argument will look like below:
+Say our connection object is `rdbms_login` and we are aiming to fetch data from the `author` table. Suppose that table contains article first author's details. From that table, we are only interest in return author's name, surname and orcid for the first ten authors. The value of the `query` argument will look like below:
 
 ```{r eval=FALSE}
 ## AS A LIST
 read_rdbms(
-  login = login,
+  login = rdbms_login,
   query = list(
     table  = "author",
     fields = c("name", "last_name", "orcid"),
@@ -46,7 +46,7 @@ read_rdbms(
 
 ## AS AN SQL QUERY - FOR MySQL server
 read_rdbms(
-  login = login,
+  login = rdbms_login,
   query = "SELECT name, last_name, orcid FROM author LIMIT 10"
 )
 ```

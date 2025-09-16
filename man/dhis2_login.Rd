@@ -21,7 +21,7 @@ established
 Establish connection to a DHIS2 instance
 }
 \examples{
-login <- dhis2_login(
+dhis2_log <- dhis2_login(
   base_url = "https://play.im.dhis2.org/stable-2-42-1",
   user_name = "admin",
   password = "district"

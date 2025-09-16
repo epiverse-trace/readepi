@@ -4,7 +4,7 @@ testthat::skip_on_ci()
 
 rdbms_login <- login(
   from = "mysql-rfam-public.ebi.ac.uk",
-  type = "MySQL",
+  type = "mysql",
   user_name = "rfamro",
   password = "",
   driver_name = "",

@@ -37,32 +37,39 @@ Users of operating systems other than Microsoft need to have the appropriate MS 
 To read data from RDBMS and HIS, the user is expected to have, at least, read access to the system. To establish the connection to their system, users can call the `login()` function with the following arguments:
 
 -   `from`: The URL to the system of interest. For APIs, this must be the base URL (required).
--   `type`: The source name (optional). This is only required when importing data from RDBMS. The current version of the package covers the following RDBMS types: "MS SQL", "MySQL", "PostgreSQL", "SQLite".
+-   `type`: The source name (required). The current version of the package covers the following RDBMS and HIS types: "ms sql", "mysql", "postgresql", "sqlite", "dhis2", "sormas".
 -   `user_name`: The user name (optional).
 -   `password`: The user's password (optional). When the password is not provided (set to NULL), the user will be prompt to enter the password.
 -   `driver_name`: The driver name (optional). This is only needed for connecting to RDBMS only.
 -   `db_name`: The database name (optional). This is only needed for connecting to RDBMS only.
 -   `port`: The port ID (optional). This is only needed for connecting to RDBMS only.
 
-\textcolor{red}{Note that, the `login()` function should not be used when importing data from SORMAS. Users must provide the authentication parameters directly to the corresponding main function that will be described below.}
-
 ```{r}
-# CONNECT TO THE A DHIS2 INSTANCE
-login <- login(
+# CONNECT TO A DHIS2 INSTANCE
+dhis2_login <- login(
+  type = "dhis2",
   from  = "https://smc.moh.gm/dhis",
   user_name = "test",
   password  = "Gambia@123"
 )
 
 # CONNECT TO THE TEST MYSQL SERVER
-login <- login(
+rdbms_login <- login(
+  type = "mysql",
   from = "mysql-rfam-public.ebi.ac.uk",
-  type = "MySQL",
   user_name = "rfamro",
   password = "",
   driver_name = "",
   db_name = "Rfam",
   port = 4497
+)
+
+# CONNECT TO A SORMAS SYSTEM
+dhis2_login <- login(
+  type = "sormas",
+  from  = "https://demo.sormas.org/sormas-rest",
+  user_name = "SurvSup",
+  password  = "Lk5R7JXeZSEc"
 )
 ```
 
@@ -78,9 +85,9 @@ Health related research data are usually stored in either relational databases o
 
 ```{r eval=TRUE}
 # CONNECT TO THE TEST MYSQL SERVER
-login <- login(
+rdbms_login <- login(
+  type = "mysql",
   from = "mysql-rfam-public.ebi.ac.uk",
-  type = "MySQL",
   user_name = "rfamro",
   password = "",
   driver_name = "",
@@ -89,26 +96,26 @@ login <- login(
 )
 
 # DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST
-tables <- show_tables(login = login)
+tables <- show_tables(login = rdbms_login)
 head(tables)
 
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL
 # QUERY
 dat <- read_rdbms(
-  login = login,
+  login = rdbms_login,
   query = "select * from author"
 )
 
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY
 # PARAMETERS ARE SPECIFIED AS A LIST
 dat <- read_rdbms(
-  login = login,
+  login = rdbms_login,
   query = list(table = "author", fields = NULL, filter = NULL)
 )
 
 # SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
 dat <- read_rdbms(
-    login = login,
+    login = rdbms_login,
     query = "select author.author_id, author.name,
   family_author.author_id from author left join family_author on
   author.author_id = family_author.author_id"
@@ -144,6 +151,7 @@ In the current version, the `login()` function only supports basic authenticatio
 ```{r eval=TRUE}
 # CONNECT TO A DHIS2 INSTANCE
 dhis2_login <- login(
+  type = "dhis2",
   from = "https://smc.moh.gm/dhis",
   user_name = "test",
   password = "Gambia@123"
@@ -283,11 +291,17 @@ It is important to note that SORMAS does not support basic authentication i.e., 
 Users can get the list of all diseases available on their SORMAS system using the `sormas_get_diseases()` function.
 
 ```{r eval=TRUE}
-# GET THE LIST OF ALL AVAILABLE DISEASES IN THE TEST SORMAS SYSTEM
-disease_names <- sormas_get_diseases(
-  base_url = "https://demo.sormas.org/sormas-rest",
+# ESTABLISH THE CONNECTION TO THE SORMAS SYSTEM
+sormas_login <- login(
+  type = "sormas",
+  from = "https://demo.sormas.org/sormas-rest",
   user_name = "SurvSup",
   password = "Lk5R7JXeZSEc"
+)
+
+# GET THE LIST OF ALL AVAILABLE DISEASES IN THE TEST SORMAS SYSTEM
+disease_names <- sormas_get_diseases(
+  login = sormas_login
 )
 ```
 
@@ -305,9 +319,7 @@ A call of the `read_sormas()` function looks like below.
 # FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE FROM THE
 # BEGINNING OF DATA COLLECTION
 covid_cases <- read_sormas(
-  base_url = "https://demo.sormas.org/sormas-rest",
-  user_name = "SurvSup",
-  password = "Lk5R7JXeZSEc",
+  login = sormas_login,
   disease = "coronavirus",
   since = 0
 )
@@ -315,9 +327,7 @@ covid_cases <- read_sormas(
 # FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE SINCE
 # JUNE 01, 2025
 covid_cases <- read_sormas(
-  base_url = "https://demo.sormas.org/sormas-rest",
-  user_name = "SurvSup",
-  password = "Lk5R7JXeZSEc",
+  login = sormas_login,
   disease = "coronavirus",
   since = as.Date("2025-06-01")
 )

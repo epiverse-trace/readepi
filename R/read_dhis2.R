@@ -11,6 +11,7 @@
 #' @examples
 #' # login to the DHIS2 instance
 #' dhis2_login <- login(
+#'   type = "dhis2",
 #'   from = "https://smc.moh.gm/dhis",
 #'   user_name = "test",
 #'   password = "Gambia@123"
@@ -25,6 +26,7 @@
 #'
 #' # fetch data from the test DHIS2 instance
 #' dhis2_login <- login(
+#'   type = "dhis2",
 #'   from = "https://play.im.dhis2.org/stable-2-42-1",
 #'   user_name = "admin",
 #'   password = "district"

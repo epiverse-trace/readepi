@@ -4,14 +4,10 @@
 \alias{sormas_get_diseases}
 \title{Get the list of disease names from a SORMAS instance}
 \usage{
-sormas_get_diseases(base_url, user_name, password)
+sormas_get_diseases(login)
 }
 \arguments{
-\item{base_url}{A character with the base URL to SORMAS system of interest}
-
-\item{user_name}{A character with the user name}
-
-\item{password}{A character with the user's password}
+\item{login}{A list with the user's authentication details}
 }
 \value{
 A vector of the list of disease names in a SORMAS instance
@@ -20,10 +16,15 @@ A vector of the list of disease names in a SORMAS instance
 Get the list of disease names from a SORMAS instance
 }
 \examples{
-disease_names <- sormas_get_diseases(
-  base_url = "https://demo.sormas.org/sormas-rest",
+# establish the connection to the SORMAS system
+sormas_login <- login(
+  type = "sormas",
+  from = "https://demo.sormas.org/sormas-rest",
   user_name = "SurvSup",
   password = "Lk5R7JXeZSEc"
+)
+disease_names <- sormas_get_diseases(
+  login = sormas_login
 )
 
 }

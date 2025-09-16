@@ -79,9 +79,9 @@ parameters of interest or an SQL query (for more information, see the
 
 ``` r
 # CONNECT TO THE TEST MYSQL SERVER
-login <- login(
+rdbms_login <- login(
   from = "mysql-rfam-public.ebi.ac.uk",
-  type = "MySQL",
+  type = "mysql",
   user_name = "rfamro",
   password = "",
   driver_name = "",
@@ -90,17 +90,17 @@ login <- login(
 )
 
 # DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST
-tables <- show_tables(login = login)
+tables <- show_tables(login = rdbms_login)
 
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL QUERY
 dat <- read_rdbms(
-  login = login,
+  login = rdbms_login,
   query = "select * from author"
 )
 
 # SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
 dat <- read_rdbms(
-    login = login,
+    login = rdbms_login,
     query = "select author.author_id, author.name,
   family_author.author_id from author left join family_author on
   author.author_id = family_author.author_id"
@@ -108,7 +108,7 @@ dat <- read_rdbms(
 
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY PARAMETERS ARE SPECIFIED AS A LIST
 dat <- read_rdbms(
-  login = login,
+  login = rdbms_login,
   query = list(table = "author", fields = NULL, filter = NULL)
 )
 ```
@@ -117,7 +117,8 @@ dat <- read_rdbms(
 
 ``` r
 # CONNECT TO A DHIS2 INSTANCE
-login <- login(
+dhis2_login <- login(
+  type = "dhis2",
   from = "https://smc.moh.gm/dhis",
   user_name = "test",
   password = "Gambia@123"
@@ -126,36 +127,42 @@ login <- login(
 
 # IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
 data <- read_dhis2(
-  login = login,
+  login = dhis2_login,
   org_unit = "GcLhRNAFppR",
   program = "E5IUQuHg3Mg"
 )
 #> ℹ Checking whether the API version is accounted for
-#> ✔ Checking whether the API version is accounted for [214ms]
-#> ℹ Getting the data elements✔ Getting the data elements [320ms]
-#> ℹ Getting organisation units✔ Getting organisation units [3.9s]
-#> ℹ Getting the programs✔ Getting the programs [770ms]
-#> ℹ Getting the program stages✔ Getting the program stages [861ms]
-#> ℹ Getting the tracked entity attributes✔ Getting the tracked entity attributes [4.5s]
-#> ℹ Getting the event data✔ Getting the event data [17.3s]
+#> ✔ Checking whether the API version is accounted for [228ms]
+#> ℹ Getting the data elements✔ Getting the data elements [239ms]
+#> ℹ Getting organisation units✔ Getting organisation units [4s]
+#> ℹ Getting the programs✔ Getting the programs [723ms]
+#> ℹ Getting the program stages✔ Getting the program stages [472ms]
+#> ℹ Getting the tracked entity attributes✔ Getting the tracked entity attributes [2.2s]
+#> ℹ Getting the event data✔ Getting the event data [9.8s]
 ```
 
 ### Reading data from SORMAS
 
 ``` r
+# CONNECT TO THE SORMAS SYSTEM
+sormas_login <- login(
+  type = "sormas",
+  from = "https://demo.sormas.org/sormas-rest",
+  user_name = "SurvSup",
+  password = "Lk5R7JXeZSEc"
+)
+
 # FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE
 covid_cases <- read_sormas(
-  base_url = "https://demo.sormas.org/sormas-rest",
-  user_name = "SurvSup",
-  password = "Lk5R7JXeZSEc",
+  login = sormas_login,
   disease = "coronavirus",
 )
-#> ℹ Checking whether the disease names are correct.✔ Checking whether the disease names are correct. [579ms]
+#> ℹ Checking whether the disease names are correct.✔ Checking whether the disease names are correct. [598ms]
 #> ℹ Getting clinical data                        ! outcomeDate not found for cases with the specified diseases.
-#> ℹ Getting clinical data✔ Getting clinical data [372ms]
-#> ℹ Getting socio-demographic data✔ Getting socio-demographic data [7.8s]
-#> ℹ Getting contact data✔ Getting contact data [168ms]
-#> ℹ Getting laboratory tests data✔ Getting laboratory tests data [332ms]
+#> ℹ Getting clinical data✔ Getting clinical data [418ms]
+#> ℹ Getting socio-demographic data✔ Getting socio-demographic data [8.9s]
+#> ℹ Getting contact data✔ Getting contact data [437ms]
+#> ℹ Getting laboratory tests data✔ Getting laboratory tests data [219ms]
 ```
 
 ## Package Vignettes

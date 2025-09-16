@@ -5,9 +5,7 @@
 #' longitude, case_status, date_onset, date_admission, outcome, date_outcome,
 #' contact_id, date_last_contact, date_first_contact, Ct_values}.
 #'
-#' @param base_url A character with the base URL to SORMAS system of interest
-#' @param user_name A character with the user name
-#' @param password A character with the user's password
+#' @param login A list with the user's authentication details
 #' @param disease A character with the target disease name
 #' @param since A Date value in ISO8601 format (YYYY-mm-dd). Default is `0` i.e.
 #'    to fetch all cases from the beginning of data collection.
@@ -16,11 +14,16 @@
 #' @export
 #'
 #' @examples
+#' # establish the connection to the SORMAS system
+#' sormas_login <- login(
+#'   type = "sormas",
+#'   from = "https://demo.sormas.org/sormas-rest",
+#'   user_name = "SurvSup",
+#'   password = "Lk5R7JXeZSEc"
+#' )
 #' # fetch all COVID (coronavirus) cases from the test SORMAS instance
 #' covid_cases <- read_sormas(
-#'   base_url = "https://demo.sormas.org/sormas-rest",
-#'   user_name = "SurvSup",
-#'   password = "Lk5R7JXeZSEc",
+#'   login = sormas_login,
 #'   disease = "coronavirus"
 #' )
 #'
@@ -29,20 +32,19 @@
 #' might not have some missing elements such a missing year (NA-12-26), month
 #' (2025-NA-01) or date (2025-12-NA), or a combination of two missing elements.
 #'
-read_sormas <- function(base_url, user_name, password, disease, since = 0) {
+read_sormas <- function(login, disease, since = 0) {
   checkmate::assert_vector(
     disease, min.len = 1L, null.ok = FALSE, any.missing = FALSE
   )
-  checkmate::assert_character(
-    base_url, len = 1, null.ok = FALSE, any.missing = FALSE
+  checkmate::assert_list(
+    login, any.missing = FALSE, types = "character",
+    null.ok = FALSE, len = 3
   )
-  checkmate::assert_character(
-    user_name, len = 1, null.ok = FALSE, any.missing = FALSE
+  checkmate::assert_named(
+    login, type = "named",
+    .var.name = c("base_url", "user_name", "password")
   )
-  checkmate::assert_character(
-    password, len = 1, null.ok = FALSE, any.missing = FALSE
-  )
-  url_check(base_url)
+  url_check(login[["base_url"]])
 
   # check and convert the value of 'since'
   if (since != 0 && !inherits(since, "Date")) {
@@ -57,11 +59,7 @@ read_sormas <- function(base_url, user_name, password, disease, since = 0) {
   # check if the specified disease is accounted for in SORMAS
   cli::cli_progress_step("Checking whether the disease names are correct.")
   disease <- tolower(disease)
-  sormas_diseases <- sormas_get_diseases(
-    base_url = base_url,
-    user_name = user_name,
-    password = password
-  )
+  sormas_diseases <- sormas_get_diseases(login = login)
   sormas_diseases[["disease"]] <- tolower(sormas_diseases[["disease"]])
   verdict <- match(disease, sormas_diseases[["disease"]])
   if (all(is.na(verdict))) {
@@ -83,12 +81,17 @@ read_sormas <- function(base_url, user_name, password, disease, since = 0) {
   cli::cli_progress_step("Getting clinical data")
   # send a query to fetch the data from the cases endpoint
   cases_data <- sormas_get_cases_data(
-    base_url, user_name, password, disease, since
+    login = login,
+    disease = disease,
+    since = since
   )
 
   cli::cli_progress_step("Getting socio-demographic data")
   # get the persons data
-  persons_data <- sormas_get_persons_data(base_url, user_name, password, since)
+  persons_data <- sormas_get_persons_data(
+    login = login,
+    since = since
+  )
 
   # keep only persons with a corresponding uuid from the cases data frame
   # the person's uuid has a foreign key in the cases table. this is used to
@@ -102,7 +105,10 @@ read_sormas <- function(base_url, user_name, password, disease, since = 0) {
   # contact tracing data such as 'date_first_contact', 'date_last_contact'.
   # the case and contact data will be merged based on their 'uuid' column
   # Note that not all cases have reported contact information
-  contact_data <- sormas_get_contact_data(base_url, user_name, password, since)
+  contact_data <- sormas_get_contact_data(
+    login = login,
+    since = since
+  )
   final_data <- final_data |> dplyr::left_join(contact_data, by = "case_id")
 
   cli::cli_progress_step("Getting laboratory tests data")
@@ -110,8 +116,10 @@ read_sormas <- function(base_url, user_name, password, disease, since = 0) {
   # Pathogen tests are linked with sample. The sample then is connected to a
   # case. From the pathogen test data, we can extract the Ct values and the
   # associated sample case uuids.
-  pathogen_tests_data <- sormas_get_pathogen_data(base_url, user_name,
-                                                  password, since)
+  pathogen_tests_data <- sormas_get_pathogen_data(
+    login = login,
+    since = since
+  )
   final_data <- final_data |> dplyr::left_join(
     pathogen_tests_data,
     by = "case_id"

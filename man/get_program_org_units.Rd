@@ -23,19 +23,20 @@ Get organisation units that are associated with a given program
 }
 \examples{
 # login to the DHIS2 instance
-login <- dhis2_login(
-  base_url = "https://smc.moh.gm/dhis",
+dhis2_login <- login(
+  type = "dhis2",
+  from = "https://smc.moh.gm/dhis",
   user_name = "test",
   password = "Gambia@123"
 )
 
 # fetch the organisation units
-org_units <- get_organisation_units(login)
+org_units <- get_organisation_units(login = dhis2_login)
 
 # get the organisation units associated with the following program
 'E5IUQuHg3Mg'
 target_org_units <- get_program_org_units(
-  login = login,
+  login = dhis2_login,
   program = "E5IUQuHg3Mg",
   org_units = org_units
 )
