@@ -1,12 +1,8 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file. -->
-
 <!-- The code to render this README is stored in .github/workflows/render-readme.yaml -->
-
 <!-- Variables marked with double curly braces will be transformed beforehand: -->
-
 <!-- `packagename` is extracted from the DESCRIPTION file -->
-
 <!-- `gh_repo` is extracted via a special environment variable in GitHub Actions -->
 
 # readepi: Read data from health information systems <img src="man/figures/logo.svg" align="right" width="130"/>
