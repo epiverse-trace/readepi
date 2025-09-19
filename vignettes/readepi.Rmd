@@ -138,7 +138,7 @@ The current version of **{readepi}** supports reading data from two common HIS: 
 
 ## Importing data from DHIS2
 
-The [District Health Information Software (DHIS2)](https://dhis2.org/about/) is an open source software used by many health institutions to store, manage and analyze various types of health data. The `read_dhis2()` function can be used to import data from [DHIS2 Tracker](https://dhis2.org/tracker-in-action/) instances through their API with following arguments:
+The [District Health Information Software (DHIS2)](https://dhis2.org/about-2/) is an open source software used by many health institutions to store, manage and analyze various types of health data. The `read_dhis2()` function can be used to import data from [DHIS2 Tracker](https://dhis2.org/tracker-in-action/) instances through their API with following arguments:
 
 -   `login`: A `httr2_response` object returned by the `login()` function
 -   `org_unit`: A character with the organisation unit ID or name
