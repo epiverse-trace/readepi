@@ -1,162 +1,55 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/404.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/articles/design_principle.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/articles/readepi.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/index.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/dhis2_check_attributes.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/dhis2_get_attributes.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/dhis2_get_query_params.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/dhis2_get_relevant_attributes.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/dhis2_login.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/dhis2_make_api_request.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/dhis2_subset_fields.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/dhis2_subset_records.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/fingertips_get_args.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/fingertips_get_id_from_dm_id.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/fingertips_get_id_from_dm_name.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/fingertips_get_id_from_name.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/fingertips_get_id_from_profile.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/fingertips_get_metadata.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/fingertips_get_profile_name.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/fingertips_subset_columns.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/fingertips_subset_rows.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/read_credentials.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/read_from_dhis2.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/read_from_fingertips.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/read_from_redcap.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/readepi.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/redcap_get_results.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/redcap_import_data.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/redcap_read_data.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/redcap_read_fields.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/redcap_read_records.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/redcap_read_rows_columns.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/show_example_file.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/show_tables.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_connect_to_server.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_fetch_data_from_query.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_get_id_column_name.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_identify_table_and_query.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_identify_table_name.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_select_data.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_select_entire_dataset.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_select_fields_only.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_select_records_and_fields.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_select_records_only.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/sql_server_read_data.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/url_check.html</loc>
-  </url>
-  <url>
-    <loc>https://epiverse-trace.github.io/readepi/reference/visualise_table.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://epiverse-trace.github.io/readepi/404.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/LICENSE-text.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/LICENSE.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/articles/design_principle.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/articles/index.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/articles/install_drivers.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/articles/query_parameters.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/articles/readepi.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/authors.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/index.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/news/index.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/check_org_unit.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/check_program.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/convert_to_date.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/dhis2_login.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/fields_check.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_api_version.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_data_elements.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_entity_attributes.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_entity_data.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_event_data.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_event_ids.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_org_unit_as_long.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_org_unit_levels.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_org_units.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_organisation_units.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_program_org_units.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_program_stages.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_programs.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_request_params.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/get_tracked_entities.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/index.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/login.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/lookup_table.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/query_check.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/read_dhis2.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/read_rdbms.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/read_sormas.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/request_parameters.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/server_fetch_data.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/server_make_query.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/server_make_sql_expression.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/server_make_subsetting_query.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/show_tables.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/sormas_get_api_specification.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/sormas_get_cases_data.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/sormas_get_contact_data.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/sormas_get_data_dictionary.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/sormas_get_diseases.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/sormas_get_pathogen_data.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/sormas_get_persons_data.html</loc></url>
+<url><loc>https://epiverse-trace.github.io/readepi/reference/url_check.html</loc></url>
 </urlset>
+

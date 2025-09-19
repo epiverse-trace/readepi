@@ -1,11 +1,12 @@
 pandoc: 3.1.11
-pkgdown: 2.0.9
+pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   design_principle: design_principle.html
+  install_drivers: install_drivers.html
+  query_parameters: query_parameters.html
   readepi: readepi.html
-last_built: 2024-06-11T12:29Z
+last_built: 2025-09-19T09:48Z
 urls:
   reference: https://epiverse-trace.github.io/readepi/reference
   article: https://epiverse-trace.github.io/readepi/articles
-
