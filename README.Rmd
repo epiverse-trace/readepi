@@ -21,39 +21,45 @@ knitr::opts_chunk$set(
 )
 ```
 
-# readepi: Read data from health information systems <img src="man/figures/logo.svg" align="right" width="130"/>
+# {{ packagename }}: Read data from health information systems <img src="man/figures/logo.svg" align="right" width="130"/>
 
 <!-- badges: start -->
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/mit/)
 [![R-CMD-check](https://github.com/epiverse-trace/readepi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/epiverse-trace/readepi/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/epiverse-trace/readepi/branch/main/graph/badge.svg)](https://app.codecov.io/gh/epiverse-trace/readepi?branch=main) [![lifecycle-concept](https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-maturing.svg)](https://www.reconverse.org/lifecycle.html#concept)
 <!-- badges: end -->
 
-**{readepi}** is an R package for reading data from several health information systems (HIS) including public repositories, relational database management systems (RDBMS).
+**{{ packagename }}** is an R package for reading data from several health information systems (HIS) including public repositories, relational database management systems (RDBMS).
 
-**{readepi}** currently supports reading data from the followings:
+**{{ packagename }}** currently supports reading data from the followings:
 
 -   RDBMS (Relational Database Management Systems) such as MS SQL,  MySQL, PostgreSQL, and SQLite\ 
 -   [DHIS2](https://dhis2.org/about/): an open source and web-based platform for managing health information\
 -   [SORMAS](https://sormas.org/): a eHealth system for monitoring the spread of infectious diseases and responding to outbreak situations
 
-**{readepi}** returns a data frame with the data from the specified system.
+**{{ packagename }}** returns a data frame with the data from the specified system.
 
-**{readepi}** is developed by [Epiverse-TRACE](https://data.org/initiatives/epiverse/) team at the [Medical Research Center, The Gambia unit at London School of Hygiene and Tropical Medicine](https://www.lshtm.ac.uk/research/units/mrc-gambia).
+**{{ packagename }}** is developed by [Epiverse-TRACE](https://data.org/initiatives/epiverse/) team at the [Medical Research Center, The Gambia unit at London School of Hygiene and Tropical Medicine](https://www.lshtm.ac.uk/research/units/mrc-gambia).
 
 
 ## Installation
 
-You can install the development version of **{readepi}** from [GitHub](https://github.com/epiverse-trace/readepi) with:
+**{{ packagename }}** can be installed from CRAN using
+
+```{r message=FALSE, eval=FALSE}
+install.packages("readepi")
+```
+
+The latest development version of **{{ packagename }}** from [GitHub](https://github.com/epiverse-trace/readepi) with:
 
 ```{r message=FALSE}
 if (!require("pak")) install.packages("pak")
-pak::pak("epiverse-trace/readepi")
+pak::pak("{{ gh_repo }}")
 library(readepi)
 ```
 
 ## Quick start
 
-**{readepi}** currently has three main functions that read data from a specified source. While the arguments to these functions are generally similar, some are specific to their data source (see the **vignette** for more details). The examples below show how to use the package functionalities to import data from a variety of sources.
+**{{ packagename }}** currently has three main functions that read data from a specified source. While the arguments to these functions are generally similar, some are specific to their data source (see the **vignette** for more details). The examples below show how to use the package functionalities to import data from a variety of sources.
 
 ### Reading data from RDBMS
 
@@ -139,7 +145,7 @@ covid_cases <- readepi::read_sormas(
 
 ## Package Vignettes
 
-The vignette of the **{readepi}** package contains detailed illustrations about the use of each function and the description of every argument. This can be accessed by typing the command below:
+The vignette of the **{{ packagename }}** package contains detailed illustrations about the use of each function and the description of every argument. This can be accessed by typing the command below:
 
 ```{r eval=FALSE}
 # OPEN THE VIGNETTE WITHIN RSTUDIO

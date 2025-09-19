@@ -5,7 +5,7 @@ Version: 0.1.0
 Authors@R: c(
     person("Karim", "Mané", , "karim.mane@lshtm.ac.uk", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0002-9892-2999")),
-    person("Emmanuel", "Kabuga", , "kabuga@aims.ac.za", role = c("ctb"),
+    person("Emmanuel", "Kabuga", , "kabuga@aims.ac.za", role = "ctb",
            comment = c(ORCID = "0009-0006-2291-709X")),
     person("Bubacarr", "Bah", , "Bubacarr.Bah1@lshtm.ac.uk", role = "ctb",
            comment = c(ORCID = "0000-0003-3318-6668")),
@@ -21,14 +21,17 @@ Authors@R: c(
     person("London School of Hygiene and Tropical Medicine, LSHTM", role = "cph"),
     person("data.org", role = "fnd")
   )
-Description:  Import Data from  Relational Database Management Systems
-    (RDBMS) and Health Information Systems ('HIS').
-    The current version of the package supports importing data from RDBMS such as'MS SQL',
-    'MySQL', 'PostGRESQL', and 'SQLite', and two HIS ('DHIS2' and 'SORMAS').
+Description: Import Data from Relational Database Management Systems
+    (RDBMS) and Health Information Systems ('HIS').  The current version
+    of the package supports importing data from RDBMS such as'MS SQL',
+    'MySQL', 'PostGRESQL', and 'SQLite', and two HIS ('DHIS2' and
+    'SORMAS').
 License: MIT + file LICENSE
 URL: https://epiverse-trace.github.io/readepi/,
     https://github.com/epiverse-trace/readepi/
 BugReports: https://github.com/epiverse-trace/readepi/issues
+Depends: 
+    R (>= 4.1.0)
 Imports: 
     checkmate,
     cli,
@@ -53,10 +56,8 @@ VignetteBuilder:
     knitr
 Config/Needs/website: epiverse-trace/epiversetheme
 Config/testthat/edition: 3
-SystemRequirements: odbc, libmariadbclient-dev
 Encoding: UTF-8
+LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Depends: 
-    R (>= 4.1.0)
-LazyData: true
+SystemRequirements: odbc, libmariadbclient-dev

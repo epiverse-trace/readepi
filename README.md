@@ -1,8 +1,12 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file. -->
+
 <!-- The code to render this README is stored in .github/workflows/render-readme.yaml -->
+
 <!-- Variables marked with double curly braces will be transformed beforehand: -->
+
 <!-- `packagename` is extracted from the DESCRIPTION file -->
+
 <!-- `gh_repo` is extracted via a special environment variable in GitHub Actions -->
 
 # readepi: Read data from health information systems <img src="man/figures/logo.svg" align="right" width="130"/>
@@ -17,11 +21,11 @@ coverage](https://codecov.io/gh/epiverse-trace/readepi/branch/main/graph/badge.s
 [![lifecycle-concept](https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-maturing.svg)](https://www.reconverse.org/lifecycle.html#concept)
 <!-- badges: end -->
 
-**{readepi}** is an R package for reading data from several health
+**readepi** is an R package for reading data from several health
 information systems (HIS) including public repositories, relational
 database management systems (RDBMS).
 
-**{readepi}** currently supports reading data from the followings:
+**readepi** currently supports reading data from the followings:
 
 - RDBMS (Relational Database Management Systems) such as MS SQL, MySQL,
   PostgreSQL, and SQLite 
@@ -30,10 +34,10 @@ database management systems (RDBMS).
 - [SORMAS](https://sormas.org/): a eHealth system for monitoring the
   spread of infectious diseases and responding to outbreak situations
 
-**{readepi}** returns a data frame with the data from the specified
+**readepi** returns a data frame with the data from the specified
 system.
 
-**{readepi}** is developed by
+**readepi** is developed by
 [Epiverse-TRACE](https://data.org/initiatives/epiverse/) team at the
 [Medical Research Center, The Gambia unit at London School of Hygiene
 and Tropical
@@ -41,7 +45,13 @@ Medicine](https://www.lshtm.ac.uk/research/units/mrc-gambia).
 
 ## Installation
 
-You can install the development version of **{readepi}** from
+**readepi** can be installed from CRAN using
+
+``` r
+install.packages("readepi")
+```
+
+The latest development version of **readepi** from
 [GitHub](https://github.com/epiverse-trace/readepi) with:
 
 ``` r
@@ -52,7 +62,7 @@ library(readepi)
 
 ## Quick start
 
-**{readepi}** currently has three main functions that read data from a
+**readepi** currently has three main functions that read data from a
 specified source. While the arguments to these functions are generally
 similar, some are specific to their data source (see the **vignette**
 for more details). The examples below show how to use the package
@@ -148,9 +158,9 @@ covid_cases <- readepi::read_sormas(
 
 ## Package Vignettes
 
-The vignette of the **{readepi}** package contains detailed
-illustrations about the use of each function and the description of
-every argument. This can be accessed by typing the command below:
+The vignette of the **readepi** package contains detailed illustrations
+about the use of each function and the description of every argument.
+This can be accessed by typing the command below:
 
 ``` r
 # OPEN THE VIGNETTE WITHIN RSTUDIO
