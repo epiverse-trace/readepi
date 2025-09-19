@@ -27,8 +27,7 @@ Description: Import Data from Relational Database Management Systems
     'MySQL', 'PostGRESQL', and 'SQLite', and two HIS ('DHIS2' and
     'SORMAS').
 License: MIT + file LICENSE
-URL: https://epiverse-trace.github.io/readepi/,
-    https://github.com/epiverse-trace/readepi/
+URL: https://epiverse-trace.github.io/readepi/, https://github.com/epiverse-trace/readepi/, https://github.com/epiverse-trace/readepi
 BugReports: https://github.com/epiverse-trace/readepi/issues
 Depends: 
     R (>= 4.1.0)
