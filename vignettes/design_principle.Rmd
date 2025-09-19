@@ -42,7 +42,7 @@ Many R packages have been developed over the years to read data stored
 in a file or in a directory containing multiple files. We recommend the
 [{rio}](http://gesistsa.github.io/rio/) package for importing data that
 are relatively small in size and the
-[{data.table}](https://cran.r-project.org/web/packages/data.table/vignettes/)
+[{data.table}](https://CRAN.R-project.org/package=data.table)
 package for large files. For retrieving data from RDBMS, we recommend
 the [{DBI}](https://dbi.r-dbi.org/) package.
 
