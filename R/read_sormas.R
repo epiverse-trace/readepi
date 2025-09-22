@@ -14,18 +14,20 @@
 #' @export
 #'
 #' @examples
-#' # establish the connection to the SORMAS system
-#' sormas_login <- login(
-#'   type = "sormas",
-#'   from = "https://demo.sormas.org/sormas-rest",
-#'   user_name = "SurvSup",
-#'   password = "Lk5R7JXeZSEc"
-#' )
-#' # fetch all COVID (coronavirus) cases from the test SORMAS instance
-#' covid_cases <- read_sormas(
-#'   login = sormas_login,
-#'   disease = "coronavirus"
-#' )
+#' \dontrun{
+#'   # establish the connection to the SORMAS system
+#'   sormas_login <- login(
+#'     type = "sormas",
+#'     from = "https://demo.sormas.org/sormas-rest",
+#'     user_name = "SurvSup",
+#'     password = "Lk5R7JXeZSEc"
+#'   )
+#'   # fetch all COVID (coronavirus) cases from the test SORMAS instance
+#'   covid_cases <- read_sormas(
+#'     login = sormas_login,
+#'     disease = "coronavirus"
+#'   )
+#' }
 #'
 #' @details
 #' Note that the some values in the `date_of_birth` column of the output object

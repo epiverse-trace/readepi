@@ -9,36 +9,38 @@
 #' @export
 #'
 #' @examples
-#' # login to the DHIS2 instance
-#' dhis2_login <- login(
-#'   type = "dhis2",
-#'   from = "https://smc.moh.gm/dhis",
-#'   user_name = "test",
-#'   password = "Gambia@123"
-#' )
-#' program = "E5IUQuHg3Mg"
-#' org_unit = "GcLhRNAFppR"
-#' data <- read_dhis2(
-#'   login = dhis2_login,
-#'   org_unit = org_unit,
-#'   program = program
-#' )
+#' \dontrun{
+#'   # login to the DHIS2 instance
+#'   dhis2_login <- login(
+#'     type = "dhis2",
+#'     from = "https://smc.moh.gm/dhis",
+#'     user_name = "test",
+#'     password = "Gambia@123"
+#'   )
+#'   program = "E5IUQuHg3Mg"
+#'   org_unit = "GcLhRNAFppR"
+#'   data <- read_dhis2(
+#'     login = dhis2_login,
+#'     org_unit = org_unit,
+#'     program = program
+#'   )
 #'
-#' # fetch data from the test DHIS2 instance
-#' dhis2_login <- login(
-#'   type = "dhis2",
-#'   from = "https://play.im.dhis2.org/stable-2-42-1",
-#'   user_name = "admin",
-#'   password = "district"
-#' )
-#' org_unit <- "DiszpKrYNg8"
-#' program <- "IpHINAT79UW"
+#'   # fetch data from the test DHIS2 instance
+#'   dhis2_login <- login(
+#'     type = "dhis2",
+#'     from = "https://play.im.dhis2.org/stable-2-42-1",
+#'     user_name = "admin",
+#'     password = "district"
+#'   )
+#'   org_unit <- "DiszpKrYNg8"
+#'   program <- "IpHINAT79UW"
 #'
-#' data <- read_dhis2(
-#'   login = dhis2_login,
-#'   org_unit = org_unit,
-#'   program = program
-#' )
+#'   data <- read_dhis2(
+#'     login = dhis2_login,
+#'     org_unit = org_unit,
+#'     program = program
+#'   )
+#' }
 read_dhis2 <- function(login, org_unit, program) {
   checkmate::assert_class(login, classes = "httr2_response", null.ok = FALSE)
   checkmate::assert_character(org_unit, any.missing = FALSE, null.ok = FALSE)
