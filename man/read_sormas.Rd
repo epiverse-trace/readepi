@@ -29,17 +29,19 @@ might not have some missing elements such a missing year (NA-12-26), month
 (2025-NA-01) or date (2025-12-NA), or a combination of two missing elements.
 }
 \examples{
-# establish the connection to the SORMAS system
-sormas_login <- login(
-  type = "sormas",
-  from = "https://demo.sormas.org/sormas-rest",
-  user_name = "SurvSup",
-  password = "Lk5R7JXeZSEc"
-)
-# fetch all COVID (coronavirus) cases from the test SORMAS instance
-covid_cases <- read_sormas(
-  login = sormas_login,
-  disease = "coronavirus"
-)
+\dontrun{
+  # establish the connection to the SORMAS system
+  sormas_login <- login(
+    type = "sormas",
+    from = "https://demo.sormas.org/sormas-rest",
+    user_name = "SurvSup",
+    password = "Lk5R7JXeZSEc"
+  )
+  # fetch all COVID (coronavirus) cases from the test SORMAS instance
+  covid_cases <- read_sormas(
+    login = sormas_login,
+    disease = "coronavirus"
+  )
+}
 
 }
