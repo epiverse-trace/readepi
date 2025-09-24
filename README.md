@@ -22,16 +22,16 @@ coverage](https://codecov.io/gh/epiverse-trace/readepi/branch/main/graph/badge.s
 <!-- badges: end -->
 
 **readepi** is an R package for reading data from several health
-information systems (HIS) including public repositories, relational
-database management systems (RDBMS).
+information systems (HIS) and relational database management systems
+(RDBMS).
 
 **readepi** currently supports reading data from the followings:
 
-- RDBMS (Relational Database Management Systems) such as MS SQL, MySQL,
-  PostgreSQL, and SQLite 
+- RDBMS (Relational Database Management Systems) including MS SQL,
+  MySQL, PostgreSQL, and SQLite 
 - [DHIS2](https://dhis2.org/about-2/): an open source and web-based
   platform for managing health information  
-- [SORMAS](https://sormas.org/): a eHealth system for monitoring the
+- [SORMAS](https://sormas.org/): an eHealth system for monitoring the
   spread of infectious diseases and responding to outbreak situations
 
 **readepi** returns a data frame with the data from the specified
