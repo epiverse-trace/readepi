@@ -17,15 +17,17 @@ and their corresponding names.
 Get all data elements from a specific DHIS2 instance
 }
 \examples{
-# establish the connection to the system
-dhis2_login <- login(
-  type = "dhis2",
-  from = "https://smc.moh.gm/dhis",
-  user_name = "test",
-  password = "Gambia@123"
-)
+\dontrun{
+  # establish the connection to the system
+  dhis2_login <- login(
+    type = "dhis2",
+    from = "https://smc.moh.gm/dhis",
+    user_name = "test",
+    password = "Gambia@123"
+  )
 
-# retrieve the data elements
-data_elements <- get_data_elements(login = dhis2_login)
+  # retrieve the data elements
+  data_elements <- get_data_elements(login = dhis2_login)
+}
 
 }

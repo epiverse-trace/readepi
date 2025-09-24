@@ -30,18 +30,20 @@ are not found, the function displays a message and proceeds with
 the valid ones.
 }
 \examples{
-# establish the connection to the DHIS2 instance
-dhis2_login <- login(
-  type = "dhis2",
-  from = "https://smc.moh.gm/dhis",
-  user_name = "test",
-  password = "Gambia@123"
-)
+\dontrun{
+  # establish the connection to the DHIS2 instance
+  dhis2_login <- login(
+    type = "dhis2",
+    from = "https://smc.moh.gm/dhis",
+    user_name = "test",
+    password = "Gambia@123"
+  )
 
-# get the list of all program stages from the DHIS2 instance
-all_program_stages <- get_program_stages(
-  login = dhis2_login,
-  program = "E5IUQuHg3Mg",
-  programs = NULL
-)
+  # get the list of all program stages from the DHIS2 instance
+  all_program_stages <- get_program_stages(
+    login = dhis2_login,
+    program = "E5IUQuHg3Mg",
+    programs = NULL
+  )
+}
 }

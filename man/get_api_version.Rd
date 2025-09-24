@@ -16,14 +16,16 @@ A numeric with minor version of the API
 Get DHIS2 API version
 }
 \examples{
-# login to the DHIS2 instance
-dhis2_login <- login(
-  type = "dhis2",
-  from = "https://smc.moh.gm/dhis",
-  user_name = "test",
-  password = "Gambia@123"
-)
+\dontrun{
+  # login to the DHIS2 instance
+  dhis2_login <- login(
+    type = "dhis2",
+    from = "https://smc.moh.gm/dhis",
+    user_name = "test",
+    password = "Gambia@123"
+  )
 
-# get the API version
-api_version <- get_api_version(login = dhis2_login)
+  # get the API version
+  api_version <- get_api_version(login = dhis2_login)
+}
 }
