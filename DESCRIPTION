@@ -22,10 +22,10 @@ Authors@R: c(
     person("data.org", role = "fnd")
   )
 Description: Import Data from Relational Database Management Systems
-    (RDBMS) and Health Information Systems ('HIS').  The current version
-    of the package supports importing data from RDBMS such as'MS SQL',
-    'MySQL', 'PostGRESQL', and 'SQLite', and two HIS ('DHIS2' and
-    'SORMAS').
+    (RDBMS) and Health Information Systems ('HIS'). The current version of the
+    package supports importing data from RDBMS including 'MS SQL', 'MySQL',
+    'PostGRESQL', and 'SQLite', as well as from two HIS platforms: 'DHIS2' and
+    'SORMAS'.
 License: MIT + file LICENSE
 URL: https://epiverse-trace.github.io/readepi/, https://github.com/epiverse-trace/readepi/, https://github.com/epiverse-trace/readepi
 BugReports: https://github.com/epiverse-trace/readepi/issues
