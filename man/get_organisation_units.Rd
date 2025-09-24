@@ -31,15 +31,17 @@ function,
 }
 }
 \examples{
-# establish the connection to the system
-dhis2_login <- login(
-  type = "dhis2",
-  from = "https://smc.moh.gm/dhis",
-  user_name = "test",
-  password = "Gambia@123"
-)
+\dontrun{
+  # establish the connection to the system
+  dhis2_login <- login(
+    type = "dhis2",
+    from = "https://smc.moh.gm/dhis",
+    user_name = "test",
+    password = "Gambia@123"
+  )
 
-# fetch the organisation units
-org_units <- get_organisation_units(login = dhis2_login)
+  # fetch the organisation units
+  org_units <- get_organisation_units(login = dhis2_login)
+}
 
 }

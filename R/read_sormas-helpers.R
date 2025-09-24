@@ -5,16 +5,18 @@
 #' @return A vector of the list of disease names in a SORMAS instance
 #' @export
 #' @examples
-#' # establish the connection to the SORMAS system
-#' sormas_login <- login(
-#'   type = "sormas",
-#'   from = "https://demo.sormas.org/sormas-rest",
-#'   user_name = "SurvSup",
-#'   password = "Lk5R7JXeZSEc"
-#' )
-#' disease_names <- sormas_get_diseases(
-#'   login = sormas_login
-#' )
+#' \dontrun{
+#'   # establish the connection to the SORMAS system
+#'   sormas_login <- login(
+#'     type = "sormas",
+#'     from = "https://demo.sormas.org/sormas-rest",
+#'     user_name = "SurvSup",
+#'     password = "Lk5R7JXeZSEc"
+#'   )
+#'   disease_names <- sormas_get_diseases(
+#'     login = sormas_login
+#'   )
+#' }
 #'
 sormas_get_diseases <- function(login) {
   target_url <- file.path(

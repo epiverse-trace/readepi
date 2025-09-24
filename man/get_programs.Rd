@@ -19,15 +19,17 @@ The function first fetches all programs from the DHIS2 Aggregate system,
 then distinguishes the Tracker and Aggregate programs.
 }
 \examples{
-# establish the connection to the system
-dhis2_login <- login(
-  type = "dhis2",
-  from = "https://smc.moh.gm/dhis",
-  user_name = "test",
-  password = "Gambia@123"
-)
+\dontrun{
+  # establish the connection to the system
+  dhis2_login <- login(
+    type = "dhis2",
+    from = "https://smc.moh.gm/dhis",
+    user_name = "test",
+    password = "Gambia@123"
+  )
 
-# fetch the programs
-programs <- get_programs(login = dhis2_login)
+  # fetch the programs
+  programs <- get_programs(login = dhis2_login)
+}
 
 }

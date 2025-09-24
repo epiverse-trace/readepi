@@ -27,30 +27,32 @@ events and tracked entity IDs
 Get tracked entity attributes, their corresponding IDs and event IDs
 }
 \examples{
-# login to the DHIS2 instance
-dhis2_login <- login(
-  type = "dhis2",
-  from = "https://smc.moh.gm/dhis",
-  user_name = "test",
-  password = "Gambia@123"
-)
+\dontrun{
+  # login to the DHIS2 instance
+  dhis2_login <- login(
+    type = "dhis2",
+    from = "https://smc.moh.gm/dhis",
+    user_name = "test",
+    password = "Gambia@123"
+  )
 
-# set the program and org unit IDs
-program <- "E5IUQuHg3Mg"
-org_unit <- "GcLhRNAFppR"
+  # set the program and org unit IDs
+  program <- "E5IUQuHg3Mg"
+  org_unit <- "GcLhRNAFppR"
 
-# get the api version
-api_version <- get_api_version(login = dhis2_login)
+  # get the api version
+  api_version <- get_api_version(login = dhis2_login)
 
-# get all the organisation units from the DHIS2 instance
-org_units <- get_organisation_units(login = dhis2_login)
+  # get all the organisation units from the DHIS2 instance
+  org_units <- get_organisation_units(login = dhis2_login)
 
-# get the tracked entity attributes
-tracked_entity_attributes <- get_tracked_entities(
-  login = dhis2_login,
-  api_version = api_version,
-  org_unit = org_unit,
-  program = program,
-  org_units = org_units
-)
+  # get the tracked entity attributes
+  tracked_entity_attributes <- get_tracked_entities(
+    login = dhis2_login,
+    api_version = api_version,
+    org_unit = org_unit,
+    program = program,
+    org_units = org_units
+  )
+}
 }
