@@ -1,5 +1,14 @@
 # readepi (development version)
 
+# readepi 1.0.2
+
+## Enhancements
+
+* Update document output syntax for all vignettes (#87, @Karim-Mane).
+
+* Make sure to not evaluate on CRAN code chunk between line 86 and 123 
+(#87, @Karim-Mane).
+
 # readepi 1.0.0
 
 ## Enhancements
