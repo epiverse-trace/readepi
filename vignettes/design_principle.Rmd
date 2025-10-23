@@ -1,6 +1,8 @@
 ---
 title: "Package design vignette for {readepi}"
-output: rmarkdown::html_vignette
+output:
+  html_document:
+    syntax_highlighting: tango
 vignette: >
   %\VignetteIndexEntry{Package Design vignette for {readepi}}
   %\VignetteEncoding{UTF-8}

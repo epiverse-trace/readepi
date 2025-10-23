@@ -1,6 +1,8 @@
 ---
 title: "install_drivers"
-output: rmarkdown::html_vignette
+output:
+  html_document:
+    syntax_highlighting: tango
 vignette: >
   %\VignetteIndexEntry{install_drivers}
   %\VignetteEngine{knitr::rmarkdown}
