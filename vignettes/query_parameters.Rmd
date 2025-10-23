@@ -1,6 +1,8 @@
 ---
 title: "query_parameters"
-output: rmarkdown::html_vignette
+output:
+  html_document:
+    syntax_highlighting: tango
 vignette: >
   %\VignetteIndexEntry{query_parameters}
   %\VignetteEngine{knitr::rmarkdown}

@@ -232,8 +232,10 @@ convert_to_date <- function(data, target_columns) {
   rownames(converted_df) <- NULL
   data[, target_columns] <- data.frame(converted_df) |>
     dplyr::mutate(
-      dplyr::across(target_columns, ~ as.Date(as.character(.x),
-                                              format = "%Y-%m-%d"))
+      dplyr::across(
+        dplyr::all_of(target_columns), ~ as.Date(as.character(.x),
+                                                 format = "%Y-%m-%d")
+      )
     )
   return(data)
 }
