@@ -6,8 +6,11 @@
 
 * Update document output syntax for all vignettes (#87, @Karim-Mane).
 
-* Make sure to not evaluate on CRAN code chunk between line 86 and 123 
+* Make sure to not evaluate on CRAN code chunk between line 86 and 123
 (#87, @Karim-Mane).
+
+* Split previous coded chunk with examples for how to import data from RDBMS,
+and set `eval=FALSE` to avoid CRAN and CI platform fails (#88, @Karim-Mane). 
 
 # readepi 1.0.0
 
