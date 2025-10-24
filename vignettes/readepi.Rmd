@@ -103,7 +103,7 @@ tables <- show_tables(login = rdbms_login)
 head(tables)
 ```
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL
 # QUERY
 dat <- read_rdbms(
@@ -112,7 +112,7 @@ dat <- read_rdbms(
 )
 ```
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY
 # PARAMETERS ARE SPECIFIED AS A LIST
 dat <- read_rdbms(
@@ -121,13 +121,20 @@ dat <- read_rdbms(
 )
 ```
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 # SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
 dat <- read_rdbms(
     login = rdbms_login,
     query = "select author.author_id, author.name,
   family_author.author_id from author left join family_author on
   author.author_id = family_author.author_id"
+)
+```
+
+```{r echo=FALSE, eval=TRUE}
+# LOAD THE DATA OBTAINED FROM THE COMMAND ABOVE
+dat <- readRDS(
+  system.file("extdata", "server_data.RDS", package = "readepi")
 )
 ```
 
