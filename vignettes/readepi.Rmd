@@ -84,7 +84,7 @@ Health related research data are usually stored in either relational databases o
     2.  fields: a vector of column names. When specified, only those columns will be returned. Default is `NULL`.
     3.  filter: an expression or a vector of values used to filter the rows from the table of interest. This should be of the same length as the value for the 'select'. Default is `NULL`.
 
-```{r eval=identical(tolower(Sys.getenv("NOT_CRAN")), "true")}
+```{r eval=TRUE}
 # CONNECT TO THE TEST MYSQL SERVER
 rdbms_login <- login(
   type = "mysql",
@@ -95,25 +95,33 @@ rdbms_login <- login(
   db_name = "Rfam",
   port = 4497
 )
+```
 
+```{r eval=TRUE}
 # DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST
 tables <- show_tables(login = rdbms_login)
 head(tables)
+```
 
+```{r eval=TRUE}
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL
 # QUERY
 dat <- read_rdbms(
   login = rdbms_login,
   query = "select * from author"
 )
+```
 
+```{r eval=TRUE}
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY
 # PARAMETERS ARE SPECIFIED AS A LIST
 dat <- read_rdbms(
   login = rdbms_login,
   query = list(table = "author", fields = NULL, filter = NULL)
 )
+```
 
+```{r eval=TRUE}
 # SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
 dat <- read_rdbms(
     login = rdbms_login,
