@@ -1,4 +1,4 @@
-# readepi 1.0.2
+# readepi (development version)
 
 # readepi 1.0.2
 
