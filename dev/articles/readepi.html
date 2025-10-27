@@ -213,29 +213,29 @@ value for the ‘select’. Default is <code>NULL</code>.</li>
 <span>  driver_name <span class="op">=</span> <span class="st">""</span>,</span>
 <span>  db_name <span class="op">=</span> <span class="st">"Rfam"</span>,</span>
 <span>  port <span class="op">=</span> <span class="fl">4497</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST</span></span>
 <span><span class="va">tables</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/show_tables.html">show_tables</a></span><span class="op">(</span>login <span class="op">=</span> <span class="va">rdbms_login</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">tables</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] "_annotated_file"     "_family_file"        "_genome_data"       </span></span>
-<span><span class="co">#&gt; [4] "_lock"               "_overlap"            "_overlap_membership"</span></span>
-<span></span>
-<span><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL</span></span>
+<span><span class="co">#&gt; [4] "_lock"               "_overlap"            "_overlap_membership"</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL</span></span>
 <span><span class="co"># QUERY</span></span>
 <span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_rdbms.html">read_rdbms</a></span><span class="op">(</span></span>
 <span>  login <span class="op">=</span> <span class="va">rdbms_login</span>,</span>
 <span>  query <span class="op">=</span> <span class="st">"select * from author"</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY</span></span>
 <span><span class="co"># PARAMETERS ARE SPECIFIED AS A LIST</span></span>
 <span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_rdbms.html">read_rdbms</a></span><span class="op">(</span></span>
 <span>  login <span class="op">=</span> <span class="va">rdbms_login</span>,</span>
 <span>  query <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>table <span class="op">=</span> <span class="st">"author"</span>, fields <span class="op">=</span> <span class="cn">NULL</span>, filter <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
-<span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE</span></span>
+<span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE</span></span>
 <span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_rdbms.html">read_rdbms</a></span><span class="op">(</span></span>
 <span>    login <span class="op">=</span> <span class="va">rdbms_login</span>,</span>
 <span>    query <span class="op">=</span> <span class="st">"select author.author_id, author.name,</span></span>
@@ -53864,7 +53864,7 @@ NA
 112
 </td>
 <td style="text-align:left;">
-Mädler, G
+MÃ¤dler, G
 </td>
 <td style="text-align:right;">
 NA
@@ -53913,7 +53913,7 @@ the developers of the package aware of this problem.</p>
 supports basic authentication, i.e., using the user name and password.
 An example of how to establish a connection to a DHIS2 instance is shown
 below.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># CONNECT TO A DHIS2 INSTANCE</span></span>
 <span><span class="va">dhis2_login</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/login.html">login</a></span><span class="op">(</span></span>
 <span>  type <span class="op">=</span> <span class="st">"dhis2"</span>,</span>
@@ -53926,7 +53926,7 @@ call of the <code><a href="../reference/read_dhis2.html">read_dhis2()</a></code>
 exported the following functions to help users access and identify the
 correct organisation unit and program names and IDs for a given DHIS2
 instance.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># GET THE LIST OF ALL ORGANISATION UNITS IN AN HIERARCHICAL ORDER</span></span>
 <span><span class="va">org_units</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_organisation_units.html">get_organisation_units</a></span><span class="op">(</span>login <span class="op">=</span> <span class="va">dhis2_login</span><span class="op">)</span></span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
@@ -84489,7 +84489,7 @@ d84Dj2RbKDz
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># GET THE LIST OF ALL PROGRAMS</span></span>
 <span><span class="va">programs</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_programs.html">get_programs</a></span><span class="op">(</span>login <span class="op">=</span> <span class="va">dhis2_login</span><span class="op">)</span></span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
@@ -84534,7 +84534,7 @@ aggregate
 <p>Similarly, users can also access the list of all data elements and
 program stages from a given DHIS2 instance as shown in the code chunks
 below.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># GET THE LIST OF ALL DATA ELEMENTS</span></span>
 <span><span class="va">data_elements</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_data_elements.html">get_data_elements</a></span><span class="op">(</span>login <span class="op">=</span> <span class="va">dhis2_login</span><span class="op">)</span></span></code></pre></div>
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
@@ -85883,7 +85883,7 @@ bozvJOyK3qS
 </tbody>
 </table>
 </div>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># GET THE LIST OF ALL PROGRAM STAGES FOR A GIVEN PROGRAM ID</span></span>
 <span><span class="va">program_stages</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_program_stages.html">get_program_stages</a></span><span class="op">(</span></span>
 <span>  login <span class="op">=</span> <span class="va">dhis2_login</span>,</span>
@@ -85926,7 +85926,7 @@ JWFEa8t5ini
 registered for a specific program. To know the organisation units that
 run a particular program, use the <code><a href="../reference/get_program_org_units.html">get_program_org_units()</a></code>
 function as shown in the example below.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># GET THE LIST OF ORGANISATION UNITS RUNNING THE SPECIFIED PROGRAM</span></span>
 <span><span class="va">target_org_units</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_program_org_units.html">get_program_org_units</a></span><span class="op">(</span></span>
 <span>    login <span class="op">=</span> <span class="va">dhis2_login</span>,</span>
@@ -86239,7 +86239,7 @@ Sare Biru
 <p>After identifying the correct organisation unit and program IDs or
 names, users can import the corresponding data using the
 <code><a href="../reference/read_dhis2.html">read_dhis2()</a></code> with the following syntax:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_dhis2.html">read_dhis2</a></span><span class="op">(</span></span>
 <span>  login <span class="op">=</span> <span class="va">dhis2_login</span>,</span>
@@ -88691,7 +88691,7 @@ diseases of interest.</li>
 </ul>
 <p>Users can get the list of all diseases available on their SORMAS
 system using the <code><a href="../reference/sormas_get_diseases.html">sormas_get_diseases()</a></code> function.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb15"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># ESTABLISH THE CONNECTION TO THE SORMAS SYSTEM</span></span>
 <span><span class="va">sormas_login</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/login.html">login</a></span><span class="op">(</span></span>
 <span>  type <span class="op">=</span> <span class="st">"sormas"</span>,</span>
@@ -88707,14 +88707,14 @@ system using the <code><a href="../reference/sormas_get_diseases.html">sormas_ge
 <p>When relevant, users can download the data dictionary into a specific
 folder using the <code><a href="../reference/sormas_get_data_dictionary.html">sormas_get_data_dictionary()</a></code>. This
 provides an idea of the content of each column.</p>
-<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># DOWNLOAD AND SAVE THE DATA DICTIONARY IN YOUR CURRENT DIRECTORY</span></span>
 <span><span class="va">path_to_dictionary</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/sormas_get_data_dictionary.html">sormas_get_data_dictionary</a></span><span class="op">(</span>path <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/getwd.html" class="external-link">getwd</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="va">path_to_dictionary</span></span>
 <span><span class="co">#&gt; [1] "/home/runner/work/readepi/readepi/vignettes/dictionary."</span></span></code></pre></div>
 <p>A call of the <code><a href="../reference/read_sormas.html">read_sormas()</a></code> function looks like
 below.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE FROM THE</span></span>
 <span><span class="co"># BEGINNING OF DATA COLLECTION</span></span>
 <span><span class="va">covid_cases</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_sormas.html">read_sormas</a></span><span class="op">(</span></span>
