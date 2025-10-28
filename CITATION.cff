@@ -169,6 +169,9 @@ references:
     email: hadley@posit.co
   - family-names: Gjoneski
     given-names: Oliver
+  - family-names: Couch
+    given-names: Simon
+    email: simon.couch@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.odbc
 - type: software
