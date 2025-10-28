@@ -1,6 +1,6 @@
 # readepi (development version)
 
-* Bubacarr Bah is now the maintainer of the packages ()
+* Bubacarr Bah is now the maintainer of the packages (#91, @Karim-Mane).
 
 # readepi 1.0.2
 
