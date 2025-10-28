@@ -2,6 +2,8 @@
 
 * Bubacarr Bah is now the maintainer of the packages (#91, @Karim-Mane).
 
+* Added package citation instructions in README file (#92, @Karim-Mane).
+
 # readepi 1.0.2
 
 ## Enhancements

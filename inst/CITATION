@@ -9,6 +9,10 @@ bibentry(
             family = "Mané"
         ),
         person(
+            given = "Emmanuel",
+            family = "Kabuga"
+        ),
+        person(
             given = "Nuredin",
             family = "Mohammed"
         ),
