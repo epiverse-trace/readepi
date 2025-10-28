@@ -190,3 +190,24 @@ Please note that the readepi project is released with a [Contributor
 Code of
 Conduct](https://github.com/epiverse-trace/.github/blob/main/CODE_OF_CONDUCT.md).
 By contributing to this project, you agree to abide by its terms.
+
+## Citing this package
+
+``` r
+citation("readepi")
+#> To cite readepi in publications use:
+#> 
+#>   Karim Mané, Nuredin Mohammed, Bankolé Ahadzie, Abdoelnaser
+#>   Degoot, Bubacarr Bah (2023). readepi: Read Data From Health
+#>   Information Systems website:
+#>   https://github.com/epiverse-trace/readepi/
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {Read Data From Health Information Systems},
+#>     author = {Karim Mané and Nuredin Mohammed and Bubacarr Bah and Bankolé Ahadzie and Abdoelnaser Degoot},
+#>     year = {2023},
+#>     url = {https://github.com/epiverse-trace/readepi},
+#>   }
+```
