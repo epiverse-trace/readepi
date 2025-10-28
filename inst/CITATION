@@ -33,8 +33,8 @@ bibentry(
   url = "https://github.com/epiverse-trace/readepi",
   textVersion =
   sprintf("%s %s %s",
-  "Karim Mané, Nuredin Mohammed, Bankolé Ahadzie, Abdoelnaser Degoot, Bubacarr Bah (2025).",
-  "readepi: Read Data From Health Information Systems",
-  "website: https://github.com/epiverse-trace/readepi/"
+  "Karim Mané, Emmanuel Kabuga, Bankolé Ahadzie, Abdoelnaser Degoot, Nuredin Mohammed, Bubacarr Bah (2025).",
+  "readepi: Read Data From Relational Database Management Systems and Health Information Systems",
+  "website: https://epiverse-trace.github.io/readepi/"
   )
 )
