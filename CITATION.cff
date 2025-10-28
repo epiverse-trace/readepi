@@ -2,7 +2,7 @@
 # CITATION file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
 # --------------------------------------------
- 
+
 cff-version: 1.2.0
 message: 'To cite package "readepi" in publications use:'
 type: software
@@ -40,7 +40,7 @@ preferred-citation:
     given-names: Bankolé
   - family-names: Degoot
     given-names: Abdoelnaser
-  year: '2023'
+  year: '2025'
   url: https://github.com/epiverse-trace/readepi
 repository: https://CRAN.R-project.org/package=readepi
 repository-code: https://github.com/epiverse-trace/readepi

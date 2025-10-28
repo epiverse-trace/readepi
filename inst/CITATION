@@ -25,11 +25,11 @@ bibentry(
             family = "Degoot"
         )
       ),
-  year = "2023",
+  year = "2025",
   url = "https://github.com/epiverse-trace/readepi",
   textVersion =
   sprintf("%s %s %s",
-  "Karim Mané, Nuredin Mohammed, Bankolé Ahadzie, Abdoelnaser Degoot, Bubacarr Bah (2023).",
+  "Karim Mané, Nuredin Mohammed, Bankolé Ahadzie, Abdoelnaser Degoot, Bubacarr Bah (2025).",
   "readepi: Read Data From Health Information Systems",
   "website: https://github.com/epiverse-trace/readepi/"
   )

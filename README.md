@@ -198,7 +198,7 @@ citation("readepi")
 #> To cite readepi in publications use:
 #> 
 #>   Karim Mané, Nuredin Mohammed, Bankolé Ahadzie, Abdoelnaser
-#>   Degoot, Bubacarr Bah (2023). readepi: Read Data From Health
+#>   Degoot, Bubacarr Bah (2025). readepi: Read Data From Health
 #>   Information Systems website:
 #>   https://github.com/epiverse-trace/readepi/
 #> 
@@ -207,7 +207,7 @@ citation("readepi")
 #>   @Manual{,
 #>     title = {Read Data From Health Information Systems},
 #>     author = {Karim Mané and Nuredin Mohammed and Bubacarr Bah and Bankolé Ahadzie and Abdoelnaser Degoot},
-#>     year = {2023},
+#>     year = {2025},
 #>     url = {https://github.com/epiverse-trace/readepi},
 #>   }
 ```
