@@ -5,7 +5,7 @@ Version: 1.0.2.9000
 Authors@R: c(
     person("Karim", "Mané", , "karim.mane@lshtm.ac.uk", role = "aut",
            comment = c(ORCID = "0000-0002-9892-2999")),
-    person("Emmanuel", "Kabuga", , "kabuga@aims.ac.za", role = "ctb",
+    person("Emmanuel", "Kabuga", , "kabuga@aims.ac.za", role = "aut",
            comment = c(ORCID = "0009-0006-2291-709X")),
     person("Bubacarr", "Bah", , "Bubacarr.Bah1@lshtm.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0003-3318-6668")),
