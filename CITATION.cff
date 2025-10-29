@@ -2,7 +2,7 @@
 # CITATION file created with {cffr} R package
 # See also: https://docs.ropensci.org/cffr/
 # --------------------------------------------
- 
+
 cff-version: 1.2.0
 message: 'To cite package "readepi" in publications use:'
 type: software
@@ -24,6 +24,10 @@ authors:
   given-names: Karim
   email: karim.mane@lshtm.ac.uk
   orcid: https://orcid.org/0000-0002-9892-2999
+- family-names: Kabuga
+  given-names: Emmanuel
+  email: kabuga@aims.ac.za
+  orcid: https://orcid.org/0009-0006-2291-709X
 - family-names: Bah
   given-names: Bubacarr
   email: Bubacarr.Bah1@lshtm.ac.uk
@@ -38,6 +42,8 @@ preferred-citation:
     orcid: https://orcid.org/0000-0002-9892-2999
   - family-names: Kabuga
     given-names: Emmanuel
+    email: kabuga@aims.ac.za
+    orcid: https://orcid.org/0009-0006-2291-709X
   - family-names: Mohammed
     given-names: Nuredin
   - family-names: Bah
@@ -169,9 +175,6 @@ references:
     email: hadley@posit.co
   - family-names: Gjoneski
     given-names: Oliver
-  - family-names: Couch
-    given-names: Simon
-    email: simon.couch@posit.co
   year: '2025'
   doi: 10.32614/CRAN.package.odbc
 - type: software

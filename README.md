@@ -197,16 +197,17 @@ By contributing to this project, you agree to abide by its terms.
 citation("readepi")
 #> To cite readepi in publications use:
 #> 
-#>   Karim Mané, Nuredin Mohammed, Bankolé Ahadzie, Abdoelnaser
-#>   Degoot, Bubacarr Bah (2025). readepi: Read Data From Health
+#>   Karim Mané, Emmanuel Kabuga, Bankolé Ahadzie, Abdoelnaser
+#>   Degoot, Nuredin Mohammed, Bubacarr Bah (2025). readepi: Read
+#>   Data From Relational Database Management Systems and Health
 #>   Information Systems website:
-#>   https://github.com/epiverse-trace/readepi/
+#>   https://epiverse-trace.github.io/readepi/
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
 #>   @Manual{,
 #>     title = {Read Data From Health Information Systems},
-#>     author = {Karim Mané and Nuredin Mohammed and Bubacarr Bah and Bankolé Ahadzie and Abdoelnaser Degoot},
+#>     author = {Karim Mané and Emmanuel Kabuga and Nuredin Mohammed and Bubacarr Bah and Bankolé Ahadzie and Abdoelnaser Degoot},
 #>     year = {2025},
 #>     url = {https://github.com/epiverse-trace/readepi},
 #>   }
