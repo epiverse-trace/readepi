@@ -1,7 +1,7 @@
 Package: readepi
 Title: Read Data from Relational Database Management Systems and Health
     Information Systems
-Version: 1.0.3
+Version: 1.0.3.9000
 Authors@R: c(
     person("Karim", "Mané", , "karim.mane@lshtm.ac.uk", role = "aut",
            comment = c(ORCID = "0000-0002-9892-2999")),
