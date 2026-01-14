@@ -3,7 +3,7 @@
 #' @description The function assumes the user has read access to the database.
 #'    Importing data from RDBMS requires the installation of the appropriate
 #'    `driver` that is compatible with the server version hosting the database.
-#'    For more details, see the 
+#'    For more details, see the
 #'    [Installing drivers](../articles/install_drivers.html) on
 #'    how to install the driver.
 #'
