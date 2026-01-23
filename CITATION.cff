@@ -9,7 +9,7 @@ type: software
 license: MIT
 title: 'readepi: Read Data from Relational Database Management Systems and Health
   Information Systems'
-version: 1.0.3.9000
+version: 1.0.4
 identifiers:
 - type: doi
   value: 10.32614/CRAN.package.readepi
@@ -81,7 +81,7 @@ references:
   institution:
     name: R Foundation for Statistical Computing
     address: Vienna, Austria
-  year: '2025'
+  year: '2026'
   version: '>= 4.1.0'
 - type: software
   title: checkmate
@@ -94,7 +94,7 @@ references:
     given-names: Michel
     email: michellang@gmail.com
     orcid: https://orcid.org/0000-0001-9754-0393
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.checkmate
 - type: software
   title: cli
@@ -106,7 +106,7 @@ references:
   - family-names: Csárdi
     given-names: Gábor
     email: gabor@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.cli
 - type: software
   title: DBI
@@ -122,7 +122,7 @@ references:
     given-names: Kirill
     email: kirill@cynkra.com
     orcid: https://orcid.org/0000-0002-1416-3412
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.DBI
 - type: software
   title: dplyr
@@ -147,7 +147,7 @@ references:
     given-names: Davis
     email: davis@posit.co
     orcid: https://orcid.org/0000-0003-4777-038X
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.dplyr
 - type: software
   title: httr2
@@ -159,7 +159,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.httr2
 - type: software
   title: odbc
@@ -178,7 +178,7 @@ references:
   - family-names: Couch
     given-names: Simon
     email: simon.couch@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.odbc
 - type: software
   title: pool
@@ -195,7 +195,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.pool
 - type: software
   title: purrr
@@ -211,7 +211,7 @@ references:
   - family-names: Henry
     given-names: Lionel
     email: lionel@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.purrr
 - type: software
   title: RMySQL
@@ -233,7 +233,7 @@ references:
     email: hadley@rstudio.com
   - family-names: Horner
     given-names: Jeffrey
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.RMySQL
 - type: software
   title: RSQLite
@@ -252,7 +252,7 @@ references:
     given-names: David A.
   - family-names: Falcon
     given-names: Seth
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.RSQLite
 - type: software
   title: tidyr
@@ -269,7 +269,7 @@ references:
     email: davis@posit.co
   - family-names: Girlich
     given-names: Maximilian
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.tidyr
 - type: software
   title: cyclocomp
@@ -280,7 +280,7 @@ references:
   authors:
   - family-names: Csardi
     given-names: Gabor
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.cyclocomp
 - type: software
   title: DiagrammeR
@@ -296,7 +296,7 @@ references:
   - family-names: Roy
     given-names: Olivier
     email: olivierroy71@hotmail.com
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.DiagrammeR
 - type: software
   title: httptest
@@ -309,7 +309,7 @@ references:
     given-names: Neal
     email: neal.p.richardson@gmail.com
     orcid: https://orcid.org/0009-0002-7992-3520
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.httptest
 - type: software
   title: kableExtra
@@ -322,7 +322,7 @@ references:
     given-names: Hao
     email: haozhu233@gmail.com
     orcid: https://orcid.org/0000-0002-3386-6076
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.kableExtra
 - type: software
   title: knitr
@@ -335,7 +335,7 @@ references:
     given-names: Yihui
     email: xie@yihui.name
     orcid: https://orcid.org/0000-0003-0645-5666
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.knitr
 - type: software
   title: rmarkdown
@@ -379,7 +379,7 @@ references:
     given-names: Richard
     email: rich@posit.co
     orcid: https://orcid.org/0000-0003-3925-190X
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.rmarkdown
 - type: software
   title: testthat
@@ -391,7 +391,7 @@ references:
   - family-names: Wickham
     given-names: Hadley
     email: hadley@posit.co
-  year: '2025'
+  year: '2026'
   doi: 10.32614/CRAN.package.testthat
   version: '>= 3.0.0'
 
