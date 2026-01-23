@@ -1,0 +1,67 @@
+# Changelog
+
+## readepi (development version)
+
+## readepi 1.0.3
+
+CRAN release: 2025-10-29
+
+- Bubacarr Bah is now the maintainer of the packages
+  ([\#91](https://github.com/epiverse-trace/readepi/issues/91),
+  [@Karim-Mane](https://github.com/Karim-Mane)).
+
+- Added package citation instructions in README file
+  ([\#92](https://github.com/epiverse-trace/readepi/issues/92),
+  [@Karim-Mane](https://github.com/Karim-Mane)).
+
+## readepi 1.0.2
+
+CRAN release: 2025-10-27
+
+### Enhancements
+
+- Update document output syntax for all vignettes
+  ([\#87](https://github.com/epiverse-trace/readepi/issues/87),
+  [@Karim-Mane](https://github.com/Karim-Mane)).
+
+- Make sure to not evaluate on CRAN code chunk between line 86 and 123
+  ([\#87](https://github.com/epiverse-trace/readepi/issues/87),
+  [@Karim-Mane](https://github.com/Karim-Mane)).
+
+- Split previous coded chunk with examples for how to import data from
+  RDBMS, and set `eval=FALSE` to avoid CRAN and CI platform fails
+  ([\#88](https://github.com/epiverse-trace/readepi/issues/88),
+  [@Karim-Mane](https://github.com/Karim-Mane)).
+
+## readepi 1.0.0
+
+### Enhancements
+
+- Modified package design for harmonised data import mechanism from
+  RDBMS, DHIS2, SORMAS
+  ([\#80](https://github.com/epiverse-trace/readepi/issues/80),
+  [@Karim-Mane](https://github.com/Karim-Mane)).
+
+- [`login()`](https://epiverse-trace.github.io/readepi/dev/reference/login.md),
+  [`read_dhis2()`](https://epiverse-trace.github.io/readepi/dev/reference/read_dhis2.md),
+  [`read_sormas()`](https://epiverse-trace.github.io/readepi/dev/reference/read_sormas.md)
+  functions and their helpers for connection to the system and data
+  extraction from DHIS2 and SORMAS
+  ([\#80](https://github.com/epiverse-trace/readepi/issues/80),
+  [@Karim-Mane](https://github.com/Karim-Mane)).
+
+- Added new vignettes (`query_parameters.Rmd` and `install_drivers.Rmd`)
+  that describe, respectively, how to use the query parameters and how
+  to install the Microsoft drivers that are necessary to import data
+  from MS SQL servers on Linux and OSX systems
+  ([\#80](https://github.com/epiverse-trace/readepi/issues/80),
+  [@Karim-Mane](https://github.com/Karim-Mane)).
+
+- Added Emmanuel Kabuga as an author for his valuable contribution to
+  this release
+  ([\#80](https://github.com/epiverse-trace/readepi/issues/80),
+  [@Karim-Mane](https://github.com/Karim-Mane)).
+
+## readepi 0.0.1
+
+- Added a `NEWS.md` file to track changes to the package.
