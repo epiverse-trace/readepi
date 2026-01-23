@@ -21,7 +21,7 @@ test_that("read_rdbms works as expected", {
     query = list(table = "author", select = NULL, filter = NULL)
   )
   expect_s3_class(authors_list, "data.frame")
-  expect_identical(dim(authors_list), c(121L, 6L))
+  expect_identical(dim(authors_list), c(131L, 6L))
   expect_named(authors_list, c("author_id", "name", "last_name", "initials",
                                "orcid", "synonyms"))
 
@@ -31,7 +31,7 @@ test_that("read_rdbms works as expected", {
     query = "select * from author"
   )
   expect_s3_class(authors_list, "data.frame")
-  expect_identical(dim(authors_list), c(121L, 6L))
+  expect_identical(dim(authors_list), c(131L, 6L))
   expect_named(authors_list, c("author_id", "name", "last_name", "initials",
                                "orcid", "synonyms"))
 
@@ -41,6 +41,6 @@ test_that("read_rdbms works as expected", {
     query = "select author_id, name, last_name from author"
   )
   expect_s3_class(dat, "data.frame")
-  expect_identical(dim(dat), c(121L, 3L))
+  expect_identical(dim(dat), c(131L, 3L))
   expect_named(dat, c("author_id", "name", "last_name"))
 })
