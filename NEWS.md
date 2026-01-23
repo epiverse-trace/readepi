@@ -1,5 +1,7 @@
 # readepi 1.0.4
 
+* Corrected relative paths flagged by CRAN checks()
+
 # readepi 1.0.3
 
 * Bubacarr Bah is now the maintainer of the packages (#91, @Karim-Mane).
