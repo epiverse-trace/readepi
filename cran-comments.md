@@ -17,6 +17,13 @@ This is a resubmission. In this version I have:
   `read_sormas()` functions. This helps in reducing the execution time of
   `devtools::run_examples()`.
 
+## Resubmission
+
+This is a resubmission. In this version I have:
+
+  * Fixed test file size issues.
+  * Corrected relative paths flagged by CRAN checks.
+
 ## R CMD check results
 
 0 errors | 0 warnings | 1 note
