@@ -1,5 +1,5 @@
 ---
-title: "install_drivers"
+title: "Installing drivers"
 output:
   html_document:
     syntax_highlighting: tango

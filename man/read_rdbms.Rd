@@ -27,7 +27,8 @@ argument.
 The function assumes the user has read access to the database.
 Importing data from RDBMS requires the installation of the appropriate
 \code{driver} that is compatible with the server version hosting the database.
-For more details, see the \href{../vignettes/install_drivers.Rmd}{vignette} on
+For more details, see the
+\href{../articles/install_drivers.html}{Installing drivers} on
 how to install the driver.
 }
 \examples{
