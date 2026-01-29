@@ -13,7 +13,7 @@
     <a href="https://epiverse-trace.github.io/" class="external-link"><img src="https://epiverse-trace.github.io/blueprints/logo_white.svg" id="logo" alt="Epiverse-TRACE"></a>
     <a class="navbar-brand me-2" href="../index.html">readepi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.3</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.4</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,8 +26,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/design_principle.html">Package design vignette for {readepi}</a></li>
-    <li><a class="dropdown-item" href="../articles/install_drivers.html">install_drivers</a></li>
-    <li><a class="dropdown-item" href="../articles/query_parameters.html">query_parameters</a></li>
+    <li><a class="dropdown-item" href="../articles/install_drivers.html">Installing drivers</a></li>
+    <li><a class="dropdown-item" href="../articles/query_parameters.html">Query parameters</a></li>
   </ul></li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -54,8 +54,7 @@
 
       <div class="section-desc"><p><a href="https://epiverse-trace.github.io/readepi/">readepi</a> functions available to end-users</p></div>
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -66,103 +65,120 @@
 
         </dt>
         <dd>Establish connection to a DHIS2 instance</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_api_version.html">get_api_version()</a></code>
 
         </dt>
         <dd>Get DHIS2 API version</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_data_elements.html">get_data_elements()</a></code>
 
         </dt>
         <dd>Get all data elements from a specific DHIS2 instance</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_organisation_units.html">get_organisation_units()</a></code>
 
         </dt>
         <dd>Get the organization units from a specific DHIS2 instance</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_program_org_units.html">get_program_org_units()</a></code>
 
         </dt>
         <dd>Get organisation units that are associated with a given program</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_program_stages.html">get_program_stages()</a></code>
 
         </dt>
         <dd>Get program stages for one or more DHSI2 programs</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_programs.html">get_programs()</a></code>
 
         </dt>
         <dd>get all programs from a given specific DHIS2 instance</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_tracked_entities.html">get_tracked_entities()</a></code>
 
         </dt>
         <dd>Get tracked entity attributes, their corresponding IDs and event IDs</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="login.html">login()</a></code>
 
         </dt>
         <dd>Establish a connection to the HIS of interest.</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="lookup_table.html">lookup_table</a></code>
 
         </dt>
         <dd>Lookup table</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="read_dhis2.html">read_dhis2()</a></code>
 
         </dt>
         <dd>Import data from DHIS2</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="read_rdbms.html">read_rdbms()</a></code>
 
         </dt>
         <dd>Import data from relational database management systems (RDBMS).</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="read_sormas.html">read_sormas()</a></code>
 
         </dt>
         <dd>Import data from SORMAS</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="request_parameters.html">request_parameters</a></code>
 
         </dt>
         <dd>Request parameters</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="show_tables.html">show_tables()</a></code>
 
         </dt>
         <dd>Display the list of tables in a database</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="sormas_get_api_specification.html">sormas_get_api_specification()</a></code>
 
         </dt>
         <dd>Download the API specification file from SORMAS</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="sormas_get_data_dictionary.html">sormas_get_data_dictionary()</a></code>
 
         </dt>
         <dd>Download SORMAS data dictionary</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="sormas_get_diseases.html">sormas_get_diseases()</a></code>
 
@@ -173,14 +189,12 @@
 
       <div class="section-desc"><p><a href="https://epiverse-trace.github.io/readepi/">readepi</a> functions for internal use</p></div>
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
       <h3 id="shared-helpers">Shared helpers<a class="anchor" aria-label="anchor" href="#shared-helpers"></a></h3>
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -196,8 +210,7 @@
       <h3 id="sormas">SORMAS<a class="anchor" aria-label="anchor" href="#sormas"></a></h3>
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -208,43 +221,50 @@
 
         </dt>
         <dd>Download the API specification file from SORMAS</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="sormas_get_cases_data.html">sormas_get_cases_data()</a></code>
 
         </dt>
         <dd>Get case data from a SORMAS instance</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="sormas_get_contact_data.html">sormas_get_contact_data()</a></code>
 
         </dt>
         <dd>Get contact data from SORMAS</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="sormas_get_data_dictionary.html">sormas_get_data_dictionary()</a></code>
 
         </dt>
         <dd>Download SORMAS data dictionary</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="sormas_get_diseases.html">sormas_get_diseases()</a></code>
 
         </dt>
         <dd>Get the list of disease names from a SORMAS instance</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="sormas_get_pathogen_data.html">sormas_get_pathogen_data()</a></code>
 
         </dt>
         <dd>Get pathogen tests data from SORMAS</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="sormas_get_persons_data.html">sormas_get_persons_data()</a></code>
 
         </dt>
         <dd>Get personal data of cases from a SORMAS instance</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="convert_to_date.html">convert_to_date()</a></code>
 
@@ -255,8 +275,7 @@
       <h3 id="dhis-">DHIS2<a class="anchor" aria-label="anchor" href="#dhis-"></a></h3>
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -267,55 +286,64 @@
 
         </dt>
         <dd>Transform the organisation units data frame from large to long format</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_org_unit_levels.html">get_org_unit_levels()</a></code>
 
         </dt>
         <dd>Extract the DHSI2 organization unit's hierarchical levels.</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_org_units.html">get_org_units()</a></code>
 
         </dt>
         <dd>Retrieve DHIS2 organization units, along with their IDs, names, parent IDs, and levels.</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="check_org_unit.html">check_org_unit()</a></code>
 
         </dt>
         <dd>Validate user-specified organisation unit ID or name.</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="check_program.html">check_program()</a></code>
 
         </dt>
         <dd>Validate and retrieve program IDs</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_entity_attributes.html">get_entity_attributes()</a></code>
 
         </dt>
         <dd>Get the attribute names and ids of the tracked entities</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_event_data.html">get_event_data()</a></code>
 
         </dt>
         <dd>Get event data from the newer DHIS2 versions (version &gt;= 2.41)</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_entity_data.html">get_entity_data()</a></code>
 
         </dt>
         <dd>Get tracked entity attributes</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_event_ids.html">get_event_ids()</a></code>
 
         </dt>
         <dd>Get event IDs for specific tracked entity</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="get_request_params.html">get_request_params()</a></code>
 
@@ -326,8 +354,7 @@
       <h3 id="rdbms">RDBMS<a class="anchor" aria-label="anchor" href="#rdbms"></a></h3>
 
 
-
-    </div><div class="section level2">
+      <dl></dl></div><div class="section level2">
 
 
 
@@ -338,31 +365,36 @@
 
         </dt>
         <dd>Fetch all or specific rows and columns from a table</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="server_make_query.html">server_make_query()</a></code>
 
         </dt>
         <dd>Make an SQL query from a list of query parameters</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="server_make_sql_expression.html">server_make_sql_expression()</a></code>
 
         </dt>
         <dd>Convert R expression into SQL expression</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="server_make_subsetting_query.html">server_make_subsetting_query()</a></code>
 
         </dt>
         <dd>Create a subsetting query</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="query_check.html">query_check()</a></code>
 
         </dt>
         <dd>Check whether the user-provided query is valid</dd>
-      </dl><dl><dt>
+
+        <dt>
 
           <code><a href="fields_check.html">fields_check()</a></code>
 
@@ -378,7 +410,7 @@
 </div>
 
 <div class="pkgdown-footer-right">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.3. Theme provided by <a href="https://github.com/epiverse-trace/epiversetheme" class="external-link">epiversetheme</a> 0.1.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.2.0. Theme provided by <a href="https://github.com/epiverse-trace/epiversetheme" class="external-link">epiversetheme</a> 0.1.0.</p>
 </div>
 
     </footer></div>

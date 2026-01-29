@@ -1,0 +1,105 @@
+# Query parameters
+
+## Introduction
+
+For a successful API or database request, users are required to provide
+details about where the data can be found and which data they want the
+reading function to return. These information is generally designated as
+**query paramaters** and can vary depending on the type of HIS. In the
+sections below, we will describe the query parameters and define how to
+use them when fetching data from our target HIS.
+
+### RDBMS query parameters
+
+Following a successful authentication using the
+[`login()`](https://epiverse-trace.github.io/readepi/reference/login.md)
+function, the connection with the database is established. Users can
+then determine the name of the table in the database, where the dataset
+of interest is stored. They can also inform the reading function about
+what entries and/or fields they are mainly interested in. These pieces
+of information are passed to the
+[`read_rdbms()`](https://epiverse-trace.github.io/readepi/reference/read_rdbms.md)
+via the `query` argument. In the current version of the package, the
+`query` can be either:
+
+1.  An **SQL query** where the parameters are embedded within an SQL
+    request, or
+2.  A **list** with the following elements:
+
+- `table`: a string with the table name.
+- `fields`: a vector of column names. When specified, only those columns
+  will be returned. Default is `NULL`.
+- `filter`: an expression or a vector of values used to filter the rows
+  from the table of interest. Default is `NULL`.
+
+#### Examples
+
+Say our connection object is `rdbms_login` and we are aiming to fetch
+data from the `author` table. Suppose that table contains article first
+author’s details. From that table, we are only interest in return
+author’s name, surname and orcid for the first ten authors. The value of
+the `query` argument will look like below:
+
+``` r
+## AS A LIST
+read_rdbms(
+  login = rdbms_login,
+  query = list(
+    table  = "author",
+    fields = c("name", "last_name", "orcid"),
+    filter = 1:10
+  )
+)
+
+## AS AN SQL QUERY - FOR MySQL server
+read_rdbms(
+  login = rdbms_login,
+  query = "SELECT name, last_name, orcid FROM author LIMIT 10"
+)
+```
+
+Note that the syntax in the SQL query depends on the server type. The
+example above is tailored for a MySQL server. If you wish to explore the
+syntax for other server types, see
+[here](https://www.w3schools.com/sqL/) for more details.
+
+### DHIS2 query parameters
+
+To account for diversity of query parameters across multiple DHSI2
+versions, a table detailing query parameters appropriate to each version
+is provided within this package as a variable under the name
+`request_parameters`. This variable is a data frame that contains the
+following details.
+
+``` r
+readepi::request_parameters |>
+  kableExtra::kbl() |>
+  kableExtra::kable_paper("striped", font_size = 14, full_width = TRUE) |>
+  kableExtra::scroll_box(height = "200px", width = "100%",
+                         box_css = "border: 1px solid #ddd; padding: 5px; ",
+                         extra_css = NULL,
+                         fixed_thead = TRUE)
+```
+
+| version   | e_endpoint     | e_orgunit | e_teid                | e_oumode    | e_response | te_endpoint             | te_orgunit | te_teid       | te_oumode   | te_response            | paging          |
+|:----------|:---------------|:----------|:----------------------|:------------|:-----------|:------------------------|:-----------|:--------------|:------------|:-----------------------|:----------------|
+| \<=37     | events         | orgUnit   | trackedEntityInstance | ouMode      | events     | trackedEntityInstances  | ou         | trackedEntity | ouMode      | trackedEntityInstances | skipPaging=true |
+| \[38-40\] | tracker/events | orgUnit   | trackedEntityInstance | ouMode      | instances  | tracker/trackedEntities | orgUnit    | trackedEntity | ouMode      | instances              | skipPaging=true |
+| \>=41     | tracker/events | orgUnit   | trackedEntity         | orgUnitMode | events     | tracker/trackedEntities | orgUnits   | trackedEntity | orgUnitMode | trackedEntities        | paging=false    |
+
+### SORMAS query parameters
+
+In the current implementation of the package, the
+[`read_sormas()`](https://epiverse-trace.github.io/readepi/reference/read_sormas.md)
+and its surrogate functions use the following basic query parameters
+with their default values:
+
+- `disease`: a character with the name of the disease of interest. Use
+  the
+  [`sormas_get_diseases()`](https://epiverse-trace.github.io/readepi/reference/sormas_get_diseases.md)
+  function to get the list of all available diseases.
+- `filter`: an expression used to filter on rows. The current version
+  uses the default value: **all**, i.e., returning all rows.
+- `since`: a value of type Date in ISO8601 format (YYYY-mm-dd). The
+  current version uses the default value: **NULL**, i.e., returning all
+  rows since the beginning of data collection.
