@@ -114,9 +114,11 @@ sormas_get_cases_data <- function(login, disease, since) {
     dplyr::select(dplyr::all_of(cols_from_cases))
 
   # convert date variables into ISO8601 format
+  target_cols <- c("date_onset", "date_admission")
+  target_cols <- target_cols[which(target_cols %in% names(dat))]
   dat <- convert_to_date(
     dat,
-    target_columns = c("date_onset", "date_admission")
+    target_columns = target_cols
   )
 
   return(dat)

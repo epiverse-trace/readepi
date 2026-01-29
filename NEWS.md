@@ -1,4 +1,6 @@
-# readepi (development version)
+# readepi 1.0.4
+
+* Corrected relative paths flagged by CRAN checks()
 
 # readepi 1.0.3
 
