@@ -66,7 +66,7 @@ rdbms_login <- login(
 )
 
 # CONNECT TO A SORMAS SYSTEM
-dhis2_login <- login(
+sormas_login <- login(
   type = "sormas",
   from  = "https://demo.sormas.org/sormas-rest",
   user_name = "SurvSup",
