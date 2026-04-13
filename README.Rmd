@@ -28,7 +28,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/epiverse-trace/readepi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/epiverse-trace/readepi/actions/workflows/R-CMD-check.yaml) [![Codecov test coverage](https://codecov.io/gh/epiverse-trace/readepi/branch/main/graph/badge.svg)](https://app.codecov.io/gh/epiverse-trace/readepi?branch=main) [![lifecycle-concept](https://raw.githubusercontent.com/reconverse/reconverse.github.io/master/images/badge-maturing.svg)](https://www.reconverse.org/lifecycle.html#concept)
 <!-- badges: end -->
 
-**{{ packagename }}** is an R package for reading data from several health information systems (HIS) and relational database management systems (RDBMS).
+**{{ packagename }}** is an R package for reading data from health information systems (HIS) and relational database management systems (RDBMS).
 
 **{{ packagename }}** currently supports reading data from the followings:
 
@@ -71,7 +71,7 @@ The `read_rdbms()` function is used to import data from a variety of RDBMS, incl
 Users can read data from a RDBMS by providing a list with the query parameters of interest or an SQL query (for more information, see the **vignette**). 
 
 ```{r eval=FALSE}
-# CONNECT TO THE TEST MYSQL SERVER
+# CONNECT TO A TEST MYSQL SERVER
 rdbms_login <- readepi::login(
   from = "mysql-rfam-public.ebi.ac.uk",
   type = "mysql",
@@ -112,23 +112,23 @@ dat <- readepi::read_rdbms(
 # CONNECT TO A DHIS2 INSTANCE
 dhis2_login <- readepi::login(
   type = "dhis2",
-  from = "https://smc.moh.gm/dhis",
-  user_name = "test",
-  password = "Gambia@123"
+  from = "https://play.im.dhis2.org/stable-2-42-4",
+  user_name = "admin",
+  password = "district"
 )
 
-# IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
+# IMPORT DATA FROM DHIS2 FOR A SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
 data <- readepi::read_dhis2(
   login = dhis2_login,
-  org_unit = "GcLhRNAFppR",
-  program = "E5IUQuHg3Mg"
+  org_unit = "vRC0stJ5y9Q",
+  program = "IpHINAT79UW"
 )
 ```
 
 ### Reading data from SORMAS
 
 ```{r eval=FALSE}
-# CONNECT TO THE SORMAS SYSTEM
+# CONNECT TO A SORMAS SYSTEM
 sormas_login <- readepi::login(
   type = "sormas",
   from = "https://demo.sormas.org/sormas-rest",

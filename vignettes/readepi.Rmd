@@ -25,7 +25,7 @@ The main objective of the **{readepi}** package is to simplify the process of re
 The current implementation of **{readepi}** provides functions for reading data from two common HIS: ([SORMAS](https://sormas.org/), [DHIS2](https://dhis2.org/), and RDBMS such as MS SQL, MySQL, PostgreSQL, and SQLite. Other utility functions for accessing relevant files and data are also included in this package.
 
 ```{r setup, eval=TRUE}
-# LOAD readepi
+# Load readepi
 library(readepi)
 ```
 
@@ -46,15 +46,8 @@ To read data from RDBMS and HIS, the user is expected to have, at least, read ac
 -   `port`: The port ID (optional). This is only needed for connecting to RDBMS only.
 
 ```{r}
-# CONNECT TO A DHIS2 INSTANCE
-dhis2_login <- login(
-  type = "dhis2",
-  from  = "https://smc.moh.gm/dhis",
-  user_name = "test",
-  password  = "Gambia@123"
-)
 
-# CONNECT TO THE TEST MYSQL SERVER
+# Connect to a test MYSQL server
 rdbms_login <- login(
   type = "mysql",
   from = "mysql-rfam-public.ebi.ac.uk",
@@ -65,7 +58,15 @@ rdbms_login <- login(
   port = 4497
 )
 
-# CONNECT TO A SORMAS SYSTEM
+# Connect to a DHIS2 instance
+dhis2_login <- login(
+  type = "dhis2",
+  from  = "https://play.im.dhis2.org/stable-2-42-4",
+  user_name = "admin",
+  password  = "district"
+)
+
+# Connect to a SORMAS system
 sormas_login <- login(
   type = "sormas",
   from  = "https://demo.sormas.org/sormas-rest",
@@ -168,9 +169,9 @@ In the current version, the `login()` function only supports basic authenticatio
 # CONNECT TO A DHIS2 INSTANCE
 dhis2_login <- login(
   type = "dhis2",
-  from = "https://smc.moh.gm/dhis",
-  user_name = "test",
-  password = "Gambia@123"
+  from = "https://play.im.dhis2.org/stable-2-42-4",
+  user_name = "admin",
+  password = "district"
 )
 ```
 
@@ -227,7 +228,7 @@ data_elements |>
 # GET THE LIST OF ALL PROGRAM STAGES FOR A GIVEN PROGRAM ID
 program_stages <- get_program_stages(
   login = dhis2_login,
-  program = "E5IUQuHg3Mg",
+  program = "LqUtsxvm60C",
   programs = programs
 )
 ```
@@ -248,7 +249,7 @@ It is important to know that not all organisation units are registered for a spe
 # GET THE LIST OF ORGANISATION UNITS RUNNING THE SPECIFIED PROGRAM
 target_org_units <- get_program_org_units(
     login = dhis2_login,
-    program = "E5IUQuHg3Mg",
+    program = "LqUtsxvm60C",
     org_units = org_units
   )
 ```
@@ -269,15 +270,8 @@ After identifying the correct organisation unit and program IDs or names, users 
 # IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
 data <- read_dhis2(
   login = dhis2_login,
-  org_unit = "GcLhRNAFppR",
-  program = "E5IUQuHg3Mg"
-)
-
-# IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM NAMES
-data <- read_dhis2(
-  login = dhis2_login,
-  org_unit = "Keneba",
-  program = "Child Registration & Treatment "
+  org_unit = "vRC0stJ5y9Q",
+  program = "IpHINAT79UW"
 )
 ```
 
