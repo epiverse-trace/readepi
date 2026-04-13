@@ -6,14 +6,14 @@ test_that("read_dhis2 works as expected", {
   # establish the connection to the system
   dhis2_login <- login(
     type = "dhis2",
-    from = "https://smc.moh.gm/dhis",
-    user_name = "test",
-    password = "Gambia@123"
+    from = "https://play.im.dhis2.org/stable-2-41-8",
+    user_name = "admin",
+    password = "district"
   )
 
   # use the program and organisation unit IDs
-  program <- "E5IUQuHg3Mg"
-  org_unit <- "GcLhRNAFppR"
+  program <- "IpHINAT79UW"
+  org_unit <- "XjpmsLNjyrz"
 
   # import data from the specified program and org unit
   data <- read_dhis2(
@@ -22,11 +22,11 @@ test_that("read_dhis2 works as expected", {
     program = program
   )
   expect_s3_class(data, "data.frame")
-  expect_identical(dim(data), c(1116L, 69L))
+  expect_identical(dim(data), c(40L, 26L))
 
   # use the program and organisation unit names
-  program <- "Child Registration & Treatment "
-  org_unit <- "Keneba"
+  program <- "Child Programme"
+  org_unit <- "Magbaft MCHP"
 
   # import data from the specified program and org unit
   data <- read_dhis2(
@@ -35,7 +35,7 @@ test_that("read_dhis2 works as expected", {
     program = program
   )
   expect_s3_class(data, "data.frame")
-  expect_identical(dim(data), c(1116L, 69L))
+  expect_identical(dim(data), c(40L, 26L))
 })
 
 test_that("read_dhis2 fails as expected", {
@@ -44,10 +44,10 @@ test_that("read_dhis2 fails as expected", {
     read_dhis2(
       login = dhis2_login,
       org_unit = "I0v1SmdpPzT",
-      program = "Child Registration & Treatment "
+      program = "Child Programme"
     ),
     regexp = cat(
-      "The specified organisation unit does not run the program E5IUQuHg3Mg"
+      "The specified organisation unit does not run the program IpHINAT79UW"
     )
   )
 })
