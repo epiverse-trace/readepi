@@ -30,3 +30,18 @@ This is a resubmission. In this version I have:
 
 * This is a new release.
 
+## Resubmission
+
+This is a resubmission. In this version I have:
+
+* Updated the examples for reading data from DHIS2 in the vignettes to ensure full compliance with CRAN policies (e.g., no external API calls during checks).
+* Addressed all issues flagged in the previous CRAN checks.
+* Improved the readability and structure of the README and related documentation.
+* Verified that all examples and vignettes run without errors, warnings, or notes under `R CMD check --as-cran`.
+
+## R CMD check results
+
+0 errors | 0 warnings | 1 note
+
+* This is a new release.
+
