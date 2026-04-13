@@ -17,3 +17,6 @@
 ^README_files
 ^data-raw$
 ^CRAN-SUBMISSION$
+^\.Rhistory$
+^\.RData$
+^\.DS_Store$
