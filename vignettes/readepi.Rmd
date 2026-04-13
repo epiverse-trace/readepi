@@ -35,7 +35,7 @@ Users of operating systems other than Microsoft need to have the appropriate MS 
 
 ## Authentication
 
-To read data from RDBMS and HIS, the user is expected to have, at least, read access to the system. To establish the connection to their system, users can call the `login()` function with the following arguments:
+To read data from RDBMS and HIS APIs, the user is expected to have, at least, read access to the system. To establish the connection to their system, users can call the `login()` function with the following arguments:
 
 -   `from`: The URL to the system of interest. For APIs, this must be the base URL (required).
 -   `type`: The source name (required). The current version of the package covers the following RDBMS and HIS types: "ms sql", "mysql", "postgresql", "sqlite", "dhis2", "sormas".
@@ -44,36 +44,6 @@ To read data from RDBMS and HIS, the user is expected to have, at least, read ac
 -   `driver_name`: The driver name (optional). This is only needed for connecting to RDBMS only.
 -   `db_name`: The database name (optional). This is only needed for connecting to RDBMS only.
 -   `port`: The port ID (optional). This is only needed for connecting to RDBMS only.
-
-```{r}
-
-# Connect to a test MYSQL server
-rdbms_login <- login(
-  type = "mysql",
-  from = "mysql-rfam-public.ebi.ac.uk",
-  user_name = "rfamro",
-  password = "",
-  driver_name = "",
-  db_name = "Rfam",
-  port = 4497
-)
-
-# Connect to a DHIS2 instance
-dhis2_login <- login(
-  type = "dhis2",
-  from  = "https://play.im.dhis2.org/stable-2-42-4",
-  user_name = "admin",
-  password  = "district"
-)
-
-# Connect to a SORMAS system
-sormas_login <- login(
-  type = "sormas",
-  from  = "https://demo.sormas.org/sormas-rest",
-  user_name = "SurvSup",
-  password  = "Lk5R7JXeZSEc"
-)
-```
 
 ## Reading data from RDBMS
 
@@ -169,7 +139,7 @@ In the current version, the `login()` function only supports basic authenticatio
 # CONNECT TO A DHIS2 INSTANCE
 dhis2_login <- login(
   type = "dhis2",
-  from = "https://play.im.dhis2.org/stable-2-42-4",
+  from = "https://play.im.dhis2.org/stable-2-41-8",
   user_name = "admin",
   password = "district"
 )
@@ -228,7 +198,7 @@ data_elements |>
 # GET THE LIST OF ALL PROGRAM STAGES FOR A GIVEN PROGRAM ID
 program_stages <- get_program_stages(
   login = dhis2_login,
-  program = "LqUtsxvm60C",
+  program = "IpHINAT79UW",
   programs = programs
 )
 ```
@@ -249,7 +219,7 @@ It is important to know that not all organisation units are registered for a spe
 # GET THE LIST OF ORGANISATION UNITS RUNNING THE SPECIFIED PROGRAM
 target_org_units <- get_program_org_units(
     login = dhis2_login,
-    program = "LqUtsxvm60C",
+    program = "IpHINAT79UW",
     org_units = org_units
   )
 ```
@@ -270,7 +240,7 @@ After identifying the correct organisation unit and program IDs or names, users 
 # IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
 data <- read_dhis2(
   login = dhis2_login,
-  org_unit = "vRC0stJ5y9Q",
+  org_unit = "XjpmsLNjyrz",
   program = "IpHINAT79UW"
 )
 ```
