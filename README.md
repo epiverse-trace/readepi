@@ -120,7 +120,7 @@ dat <- readepi::read_rdbms(
 # CONNECT TO A DHIS2 INSTANCE
 dhis2_login <- readepi::login(
   type = "dhis2",
-  from = "https://play.im.dhis2.org/stable-2-42-4",
+  from = "https://play.im.dhis2.org/stable-2-41-8",
   user_name = "admin",
   password = "district"
 )
@@ -128,7 +128,7 @@ dhis2_login <- readepi::login(
 # IMPORT DATA FROM DHIS2 FOR A SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
 data <- readepi::read_dhis2(
   login = dhis2_login,
-  org_unit = "vRC0stJ5y9Q",
+  org_unit = "XjpmsLNjyrz",
   program = "IpHINAT79UW"
 )
 ```
