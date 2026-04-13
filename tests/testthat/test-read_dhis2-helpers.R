@@ -5,9 +5,9 @@ testthat::skip_on_ci()
 test_that("get_org_unit_as_long with a non-data frame object", {
   dhis2_login <- login(
     type = "dhis2",
-    from = "https://smc.moh.gm/dhis",
-    user_name = "test",
-    password = "Gambia@123"
+    from = "https://play.im.dhis2.org/stable-2-41-8",
+    user_name = "admin",
+    password = "district"
   )
   expect_error(
     get_org_unit_as_long(
@@ -41,13 +41,13 @@ test_that("get_org_unit_as_long with a non-data frame object", {
 test_that("check_program fails as expected", {
   dhis2_login <- login(
     type = "dhis2",
-    from = "https://smc.moh.gm/dhis",
-    user_name = "test",
-    password = "Gambia@123"
+    from = "https://play.im.dhis2.org/stable-2-41-8",
+    user_name = "admin",
+    password = "district"
   )
   programs <- get_programs(login = dhis2_login)
   program_name <- "fake_program"
-  program_id <- "E5IUQuHgXXX"
+  program_id <- "IpHINAT7XXX"
 
   expect_error(
     check_program(
@@ -65,7 +65,7 @@ test_that("check_program fails as expected", {
     regexp = cat("You provided an incorrect program ID or name.")
   )
 
-  program_id <- c("E5IUQuHg3Mg", "E5IUQuHgXXX")
+  program_id <- c("IpHINAT79UW", "E5IUQuHgXXX")
   expect_message(
     check_program(
       login = dhis2_login,

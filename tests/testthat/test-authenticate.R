@@ -54,9 +54,9 @@ test_that("login fails with a wrong URL", {
 test_that("login works as expected when connecting to DHIS2", {
   dhis2_login <- login(
     type = "dhis2",
-    from = "https://smc.moh.gm/dhis",
-    user_name = "test",
-    password = "Gambia@123"
+    from = "https://play.im.dhis2.org/stable-2-41-8",
+    user_name = "admin",
+    password = "district"
   )
   expect_true(inherits(dhis2_login, "httr2_response"))
   expect_identical(dhis2_login$status_code, 200L)
@@ -67,8 +67,8 @@ test_that("login fails with a wrong URL for DHIS2", {
     login(
       type = "dhis2",
       from = "fake-url",
-      user_name = "test",
-      password = "Gambia@123"
+      user_name = "admin",
+      password = "district"
     ),
     regexp = cat("Incorrect domain name in the provided URL!")
   )
@@ -78,9 +78,9 @@ test_that("login fails if username is not provided", {
   expect_error(
     login(
       type = "dhis2",
-      from = "https://smc.moh.gm/dhis",
+      from = "https://play.im.dhis2.org/stable-2-41-8",
       user_name = NULL,
-      password = "Gambia@123"
+      password = "district"
     ),
     regexp = cat("Assertion on',user_name,'failed: user_name must be provided.")
   )

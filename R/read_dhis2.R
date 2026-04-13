@@ -13,12 +13,12 @@
 #'   # login to the DHIS2 instance
 #'   dhis2_login <- login(
 #'     type = "dhis2",
-#'     from = "https://smc.moh.gm/dhis",
-#'     user_name = "test",
-#'     password = "Gambia@123"
+#'     from = "https://play.im.dhis2.org/stable-2-41-8",
+#'     user_name = "admin",
+#'     password = "district"
 #'   )
-#'   program = "E5IUQuHg3Mg"
-#'   org_unit = "GcLhRNAFppR"
+#'   program = "IpHINAT79UW"
+#'   org_unit = "XjpmsLNjyrz"
 #'   data <- read_dhis2(
 #'     login = dhis2_login,
 #'     org_unit = org_unit,
