@@ -11,30 +11,18 @@
 #' @examples
 #' \dontrun{
 #'   # login to the DHIS2 instance
-#'   dhis2_login <- login(
-#'     type = "dhis2",
-#'     from = "https://play.im.dhis2.org/stable-2-41-8",
-#'     user_name = "admin",
-#'     password = "district"
-#'   )
-#'   program = "IpHINAT79UW"
-#'   org_unit = "XjpmsLNjyrz"
-#'   data <- read_dhis2(
-#'     login = dhis2_login,
-#'     org_unit = org_unit,
-#'     program = program
-#'   )
 #'
-#'   # fetch data from the test DHIS2 instance
 #'   dhis2_login <- login(
 #'     type = "dhis2",
 #'     from = "https://play.im.dhis2.org/stable-2-42-1",
 #'     user_name = "admin",
 #'     password = "district"
 #'   )
+#'
 #'   org_unit <- "DiszpKrYNg8"
 #'   program <- "IpHINAT79UW"
 #'
+#'  # fetch the data from specific program an unit
 #'   data <- read_dhis2(
 #'     login = dhis2_login,
 #'     org_unit = org_unit,
