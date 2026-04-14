@@ -1,8 +1,7 @@
 # readepi: Read data from health information systems
 
-**readepi** is an R package for reading data from several health
-information systems (HIS) and relational database management systems
-(RDBMS).
+**readepi** is an R package for reading data from health information
+systems (HIS) and relational database management systems (RDBMS).
 
 **readepi** currently supports reading data from the followings:
 
@@ -65,7 +64,7 @@ parameters of interest or an SQL query (for more information, see the
 **vignette**).
 
 ``` r
-# CONNECT TO THE TEST MYSQL SERVER
+# CONNECT TO A TEST MYSQL SERVER
 rdbms_login <- readepi::login(
   from = "mysql-rfam-public.ebi.ac.uk",
   type = "mysql",
@@ -106,23 +105,23 @@ dat <- readepi::read_rdbms(
 # CONNECT TO A DHIS2 INSTANCE
 dhis2_login <- readepi::login(
   type = "dhis2",
-  from = "https://smc.moh.gm/dhis",
-  user_name = "test",
-  password = "Gambia@123"
+  from = "https://play.im.dhis2.org/stable-2-41-8",
+  user_name = "admin",
+  password = "district"
 )
 
-# IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
+# IMPORT DATA FROM DHIS2 FOR A SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
 data <- readepi::read_dhis2(
   login = dhis2_login,
-  org_unit = "GcLhRNAFppR",
-  program = "E5IUQuHg3Mg"
+  org_unit = "XjpmsLNjyrz",
+  program = "IpHINAT79UW"
 )
 ```
 
 ### Reading data from SORMAS
 
 ``` r
-# CONNECT TO THE SORMAS SYSTEM
+# CONNECT TO A SORMAS SYSTEM
 sormas_login <- readepi::login(
   type = "sormas",
   from = "https://demo.sormas.org/sormas-rest",
@@ -178,11 +177,10 @@ By contributing to this project, you agree to abide by its terms.
 citation("readepi")
 #> To cite readepi in publications use:
 #> 
-#>   Karim Mané, Emmanuel Kabuga, Bankolé Ahadzie, Abdoelnaser
-#>   Degoot, Nuredin Mohammed, Bubacarr Bah (2025). readepi: Read
-#>   Data From Relational Database Management Systems and Health
-#>   Information Systems website:
-#>   https://epiverse-trace.github.io/readepi/
+#>   Karim Mané, Emmanuel Kabuga, Bankolé Ahadzie, Abdoelnaser Degoot,
+#>   Nuredin Mohammed, Bubacarr Bah (2025). readepi: Read Data From
+#>   Relational Database Management Systems and Health Information Systems
+#>   website: https://epiverse-trace.github.io/readepi/
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 

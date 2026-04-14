@@ -35,7 +35,7 @@
     <a href="https://epiverse-trace.github.io/" class="external-link"><img src="https://epiverse-trace.github.io/blueprints/logo_white.svg" id="logo" alt="Epiverse-TRACE"></a>
     <a class="navbar-brand me-2" href="index.html">readepi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.4</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Released version">1.0.6</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -83,7 +83,7 @@
 </div>
 <!-- badges: start -->
 
-<p><strong>readepi</strong> is an R package for reading data from several health information systems (HIS) and relational database management systems (RDBMS).</p>
+<p><strong>readepi</strong> is an R package for reading data from health information systems (HIS) and relational database management systems (RDBMS).</p>
 <p><strong>readepi</strong> currently supports reading data from the followings:</p>
 <ul>
 <li>RDBMS (Relational Database Management Systems) including MS SQL, MySQL, PostgreSQL, and SQLite </li>
@@ -120,7 +120,7 @@
 </ul>
 <p>Users can read data from a RDBMS by providing a list with the query parameters of interest or an SQL query (for more information, see the <strong>vignette</strong>).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># CONNECT TO THE TEST MYSQL SERVER</span></span>
+<code class="sourceCode R"><span><span class="co"># CONNECT TO A TEST MYSQL SERVER</span></span>
 <span><span class="va">rdbms_login</span> <span class="op">&lt;-</span> <span class="fu">readepi</span><span class="fu">::</span><span class="fu"><a href="reference/login.html">login</a></span><span class="op">(</span></span>
 <span>  from <span class="op">=</span> <span class="st">"mysql-rfam-public.ebi.ac.uk"</span>,</span>
 <span>  type <span class="op">=</span> <span class="st">"mysql"</span>,</span>
@@ -161,23 +161,23 @@
 <code class="sourceCode R"><span><span class="co"># CONNECT TO A DHIS2 INSTANCE</span></span>
 <span><span class="va">dhis2_login</span> <span class="op">&lt;-</span> <span class="fu">readepi</span><span class="fu">::</span><span class="fu"><a href="reference/login.html">login</a></span><span class="op">(</span></span>
 <span>  type <span class="op">=</span> <span class="st">"dhis2"</span>,</span>
-<span>  from <span class="op">=</span> <span class="st">"https://smc.moh.gm/dhis"</span>,</span>
-<span>  user_name <span class="op">=</span> <span class="st">"test"</span>,</span>
-<span>  password <span class="op">=</span> <span class="st">"Gambia@123"</span></span>
+<span>  from <span class="op">=</span> <span class="st">"https://play.im.dhis2.org/stable-2-41-8"</span>,</span>
+<span>  user_name <span class="op">=</span> <span class="st">"admin"</span>,</span>
+<span>  password <span class="op">=</span> <span class="st">"district"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs</span></span>
+<span><span class="co"># IMPORT DATA FROM DHIS2 FOR A SPECIFIED ORGANISATION UNIT AND PROGRAM IDs</span></span>
 <span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu">readepi</span><span class="fu">::</span><span class="fu"><a href="reference/read_dhis2.html">read_dhis2</a></span><span class="op">(</span></span>
 <span>  login <span class="op">=</span> <span class="va">dhis2_login</span>,</span>
-<span>  org_unit <span class="op">=</span> <span class="st">"GcLhRNAFppR"</span>,</span>
-<span>  program <span class="op">=</span> <span class="st">"E5IUQuHg3Mg"</span></span>
+<span>  org_unit <span class="op">=</span> <span class="st">"XjpmsLNjyrz"</span>,</span>
+<span>  program <span class="op">=</span> <span class="st">"IpHINAT79UW"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="reading-data-from-sormas">Reading data from SORMAS<a class="anchor" aria-label="anchor" href="#reading-data-from-sormas"></a>
 </h3>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># CONNECT TO THE SORMAS SYSTEM</span></span>
+<code class="sourceCode R"><span><span class="co"># CONNECT TO A SORMAS SYSTEM</span></span>
 <span><span class="va">sormas_login</span> <span class="op">&lt;-</span> <span class="fu">readepi</span><span class="fu">::</span><span class="fu"><a href="reference/login.html">login</a></span><span class="op">(</span></span>
 <span>  type <span class="op">=</span> <span class="st">"sormas"</span>,</span>
 <span>  from <span class="op">=</span> <span class="st">"https://demo.sormas.org/sormas-rest"</span>,</span>
@@ -229,11 +229,10 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"readepi"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; To cite readepi in publications use:</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;   Karim Mané, Emmanuel Kabuga, Bankolé Ahadzie, Abdoelnaser</span></span>
-<span><span class="co">#&gt;   Degoot, Nuredin Mohammed, Bubacarr Bah (2025). readepi: Read</span></span>
-<span><span class="co">#&gt;   Data From Relational Database Management Systems and Health</span></span>
-<span><span class="co">#&gt;   Information Systems website:</span></span>
-<span><span class="co">#&gt;   https://epiverse-trace.github.io/readepi/</span></span>
+<span><span class="co">#&gt;   Karim Mané, Emmanuel Kabuga, Bankolé Ahadzie, Abdoelnaser Degoot,</span></span>
+<span><span class="co">#&gt;   Nuredin Mohammed, Bubacarr Bah (2025). readepi: Read Data From</span></span>
+<span><span class="co">#&gt;   Relational Database Management Systems and Health Information Systems</span></span>
+<span><span class="co">#&gt;   website: https://epiverse-trace.github.io/readepi/</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
 <span><span class="co">#&gt; </span></span>

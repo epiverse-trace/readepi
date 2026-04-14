@@ -1,6 +1,12 @@
 # Changelog
 
+## readepi 1.0.6
+
+## readepi 1.0.5
+
 ## readepi 1.0.4
+
+CRAN release: 2026-01-29
 
 - Corrected relative paths flagged by CRAN checks()
 
