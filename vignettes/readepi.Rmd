@@ -119,7 +119,7 @@ dat |>
                          fixed_thead = TRUE)
 ```
 
-# Reading data from HIS
+# Reading data from HIS APIs
 
 The current version of **{readepi}** supports reading data from two common HIS: [DHIS2](https://dhis2.org/), and [SORMAS](https://sormas.org/).
 
