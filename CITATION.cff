@@ -9,7 +9,7 @@ type: software
 license: MIT
 title: 'readepi: Read Data from Relational Database Management Systems and Health
   Information Systems'
-version: 1.0.4
+version: 1.0.5
 identifiers:
 - type: doi
   value: 10.32614/CRAN.package.readepi
@@ -280,6 +280,7 @@ references:
   authors:
   - family-names: Csardi
     given-names: Gabor
+    email: csardi.gabor@gmail.com
   year: '2026'
   doi: 10.32614/CRAN.package.cyclocomp
 - type: software
