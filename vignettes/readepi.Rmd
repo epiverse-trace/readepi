@@ -55,7 +55,7 @@ Health related research data are usually stored in either relational databases o
     2.  fields: a vector of column names. When specified, only those columns will be returned. Default is `NULL`.
     3.  filter: an expression or a vector of values used to filter the rows from the table of interest. This should be of the same length as the value for the 'select'. Default is `NULL`.
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 # CONNECT TO THE TEST MYSQL SERVER
 rdbms_login <- login(
   type = "mysql",
