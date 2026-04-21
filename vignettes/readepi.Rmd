@@ -22,7 +22,7 @@ Health-related data in general, and epidemiological data in particular, are stor
 
 The main objective of the **{readepi}** package is to simplify the process of reading health-related data from diverse sources, allowing the user to focus more on downstream analysis tasks.
 
-The current implementation of **{readepi}** provides functions for reading data from two common HIS: ([SORMAS](https://www.sormas.org/), [DHIS2](https://www.dhis2.org/), and RDBMS such as MS SQL, MySQL, PostgreSQL, and SQLite. Other utility functions for accessing relevant files and data are also included in this package.
+The current implementation of **{readepi}** provides functions for reading data from two common HIS: ([SORMAS](https://www.sormas.org/), [DHIS2](https://dhis2.org/), and RDBMS such as MS SQL, MySQL, PostgreSQL, and SQLite. Other utility functions for accessing relevant files and data are also included in this package.
 
 ```{r setup, eval=TRUE}
 # Load readepi
