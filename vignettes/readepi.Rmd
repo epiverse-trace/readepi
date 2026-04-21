@@ -276,7 +276,7 @@ Users can get the list of all diseases available on their SORMAS system using th
 # ESTABLISH THE CONNECTION TO THE SORMAS SYSTEM
 sormas_login <- login(
   type = "sormas",
-  from = "https://demo.sormas.org/sormas-rest",
+  from = "https://demo.sormas.org/sormas-rest/",
   user_name = "SurvSup",
   password = "Lk5R7JXeZSEc"
 )
