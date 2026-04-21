@@ -57,7 +57,7 @@ To import data from these sources, users must have read access and
 provide the relevant query parameters to fetch the target data. The
 current version of [readepi](https://epiverse-trace.github.io/readepi/)
 supports importing data from: - **HISs**: [DHIS2](https://dhis2.org/)
-and [SORMAS](https://sormas.org/),
+and [SORMAS](https://www.sormas.org/),
 
 - **RDBMS**: MS SQL, SQLite, MySQL, and PostgreSQL.
 

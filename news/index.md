@@ -1,8 +1,10 @@
 # Changelog
 
-## readepi 1.0.6
-
 ## readepi 1.0.5
+
+- corrected outdated DHIS2 demonstration servers used in examples
+  ([\#99](https://github.com/epiverse-trace/readepi/issues/99),
+  [@Degoot-AM](https://github.com/Degoot-AM))
 
 ## readepi 1.0.4
 
