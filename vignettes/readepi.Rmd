@@ -68,7 +68,7 @@ rdbms_login <- login(
 )
 ```
 
-```{r eval=TRUE}
+```{r eval=FALSE}
 # DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST
 tables <- show_tables(login = rdbms_login)
 head(tables)
@@ -102,6 +102,8 @@ dat <- read_rdbms(
 )
 ```
 
+The package includes a set of pre-configured author names and IDs that can be used to populate the query above. The table below lists these built-in server details. 
+
 ```{r echo=FALSE, eval=TRUE}
 # LOAD THE DATA OBTAINED FROM THE COMMAND ABOVE
 dat <- readRDS(
@@ -121,7 +123,7 @@ dat |>
 
 # Reading data from HIS APIs
 
-The current version of **{readepi}** supports reading data from two common HIS: [DHIS2](https://www.dhis2.org/), and [SORMAS](https://www.sormas.org/).
+The current version of **{readepi}** supports reading data from two common HIS: [DHIS2](https://dhis2.org/), and [SORMAS](https://www.sormas.org/).
 
 ## Importing data from DHIS2
 
