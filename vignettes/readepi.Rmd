@@ -55,7 +55,7 @@ Health related research data are usually stored in either relational databases o
     2.  fields: a vector of column names. When specified, only those columns will be returned. Default is `NULL`.
     3.  filter: an expression or a vector of values used to filter the rows from the table of interest. This should be of the same length as the value for the 'select'. Default is `NULL`.
 
-```{r eval=FALSE}
+```{r rdbms-login, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # CONNECT TO THE TEST MYSQL SERVER
 rdbms_login <- login(
   type = "mysql",
@@ -68,13 +68,13 @@ rdbms_login <- login(
 )
 ```
 
-```{r eval=FALSE}
+```{r display-tables, eval = identical(Sys.getenv("NOT_CRAN"), "true") }
 # DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST
 tables <- show_tables(login = rdbms_login)
 head(tables)
 ```
 
-```{r eval=FALSE}
+```{r rdbms-query, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL
 # QUERY
 dat <- read_rdbms(
@@ -83,7 +83,7 @@ dat <- read_rdbms(
 )
 ```
 
-```{r eval=FALSE}
+```{r rdbms-data, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY
 # PARAMETERS ARE SPECIFIED AS A LIST
 dat <- read_rdbms(
@@ -92,7 +92,7 @@ dat <- read_rdbms(
 )
 ```
 
-```{r eval=FALSE}
+```{r rdbms-filter, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # SELECT FEW COLUMNS FROM ONE TABLE AND LEFT JOIN WITH ANOTHER TABLE
 dat <- read_rdbms(
     login = rdbms_login,
@@ -104,14 +104,14 @@ dat <- read_rdbms(
 
 The package includes a set of pre-configured author names and IDs that can be used to populate the query above. The table below lists these built-in server details. 
 
-```{r echo=FALSE, eval=TRUE}
+```{r pak-data, echo=FALSE, eval=TRUE}
 # LOAD THE DATA OBTAINED FROM THE COMMAND ABOVE
 dat <- readRDS(
   system.file("extdata", "server_data.RDS", package = "readepi")
 )
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r dispaly-data, echo=FALSE, eval=TRUE}
 dat |>
   kableExtra::kbl() |>
   kableExtra::kable_paper("striped", font_size = 14, full_width = TRUE) |>
