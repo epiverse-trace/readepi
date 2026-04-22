@@ -9,8 +9,9 @@ systems (HIS) and relational database management systems (RDBMS).
   MySQL, PostgreSQL, and SQLite 
 - [DHIS2](https://dhis2.org/about-2/): an open source and web-based
   platform for managing health information  
-- [SORMAS](https://sormas.org/): an eHealth system for monitoring the
-  spread of infectious diseases and responding to outbreak situations
+- [SORMAS](https://www.sormas.org/): an eHealth system for monitoring
+  the spread of infectious diseases and responding to outbreak
+  situations
 
 **readepi** returns a data frame with the data from the specified
 system.
@@ -78,7 +79,7 @@ rdbms_login <- readepi::login(
 # DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST
 tables <- readepi::show_tables(login = rdbms_login)
 
-# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL QUERY
+# READING ALL FIELDS AND RECORDS FROM ONE TABLE (`author`) USING AN SQL QUERY
 dat <- readepi::read_rdbms(
   login = rdbms_login,
   query = "select * from author"
@@ -92,7 +93,8 @@ dat <- readepi::read_rdbms(
   author.author_id = family_author.author_id"
 )
 
-# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY PARAMETERS ARE SPECIFIED AS A LIST
+# READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY
+# PARAMETERS ARE SPECIFIED AS A LIST
 dat <- readepi::read_rdbms(
   login = rdbms_login,
   query = list(table = "author", fields = NULL, filter = NULL)
@@ -132,7 +134,7 @@ sormas_login <- readepi::login(
 # FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE
 covid_cases <- readepi::read_sormas(
   login = sormas_login,
-  disease = "coronavirus",
+  disease = "coronavirus"
 )
 ```
 
@@ -177,10 +179,9 @@ By contributing to this project, you agree to abide by its terms.
 citation("readepi")
 #> To cite readepi in publications use:
 #> 
-#>   Karim Mané, Emmanuel Kabuga, Bankolé Ahadzie, Abdoelnaser Degoot,
-#>   Nuredin Mohammed, Bubacarr Bah (2025). readepi: Read Data From
-#>   Relational Database Management Systems and Health Information Systems
-#>   website: https://epiverse-trace.github.io/readepi/
+#>   Karim Mané, Emmanuel Kabuga, Bankolé Ahadzie, Abdoelnaser Degoot, Nuredin Mohammed, Bubacarr
+#>   Bah (2025). readepi: Read Data From Relational Database Management Systems and Health
+#>   Information Systems website: https://epiverse-trace.github.io/readepi/
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 

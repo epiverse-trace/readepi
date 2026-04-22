@@ -91,7 +91,7 @@
 <a href="https://dhis2.org/about-2/" class="external-link">DHIS2</a>: an open source and web-based platform for managing health information<br>
 </li>
 <li>
-<a href="https://sormas.org/" class="external-link">SORMAS</a>: an eHealth system for monitoring the spread of infectious diseases and responding to outbreak situations</li>
+<a href="https://www.sormas.org/" class="external-link">SORMAS</a>: an eHealth system for monitoring the spread of infectious diseases and responding to outbreak situations</li>
 </ul>
 <p><strong>readepi</strong> returns a data frame with the data from the specified system.</p>
 <p><strong>readepi</strong> is developed by <a href="https://data.org/initiatives/epiverse/" class="external-link">Epiverse-TRACE</a> team at the <a href="https://www.lshtm.ac.uk/research/units/mrc-gambia" class="external-link">Medical Research Center, The Gambia unit at London School of Hygiene and Tropical Medicine</a>.</p>
@@ -134,7 +134,7 @@
 <span><span class="co"># DISPLAY THE LIST OF TABLES FROM A DATABASE OF INTEREST</span></span>
 <span><span class="va">tables</span> <span class="op">&lt;-</span> <span class="fu">readepi</span><span class="fu">::</span><span class="fu"><a href="reference/show_tables.html">show_tables</a></span><span class="op">(</span>login <span class="op">=</span> <span class="va">rdbms_login</span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) USING AN SQL QUERY</span></span>
+<span><span class="co"># READING ALL FIELDS AND RECORDS FROM ONE TABLE (`author`) USING AN SQL QUERY</span></span>
 <span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">readepi</span><span class="fu">::</span><span class="fu"><a href="reference/read_rdbms.html">read_rdbms</a></span><span class="op">(</span></span>
 <span>  login <span class="op">=</span> <span class="va">rdbms_login</span>,</span>
 <span>  query <span class="op">=</span> <span class="st">"select * from author"</span></span>
@@ -148,7 +148,8 @@
 <span><span class="st">  author.author_id = family_author.author_id"</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY PARAMETERS ARE SPECIFIED AS A LIST</span></span>
+<span><span class="co"># READING ALL FIELDS AND ALL RECORDS FROM ONE TABLE (`author`) WHERE QUERY</span></span>
+<span><span class="co"># PARAMETERS ARE SPECIFIED AS A LIST</span></span>
 <span><span class="va">dat</span> <span class="op">&lt;-</span> <span class="fu">readepi</span><span class="fu">::</span><span class="fu"><a href="reference/read_rdbms.html">read_rdbms</a></span><span class="op">(</span></span>
 <span>  login <span class="op">=</span> <span class="va">rdbms_login</span>,</span>
 <span>  query <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span>table <span class="op">=</span> <span class="st">"author"</span>, fields <span class="op">=</span> <span class="cn">NULL</span>, filter <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span>
@@ -188,7 +189,7 @@
 <span><span class="co"># FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE</span></span>
 <span><span class="va">covid_cases</span> <span class="op">&lt;-</span> <span class="fu">readepi</span><span class="fu">::</span><span class="fu"><a href="reference/read_sormas.html">read_sormas</a></span><span class="op">(</span></span>
 <span>  login <span class="op">=</span> <span class="va">sormas_login</span>,</span>
-<span>  disease <span class="op">=</span> <span class="st">"coronavirus"</span>,</span>
+<span>  disease <span class="op">=</span> <span class="st">"coronavirus"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
@@ -229,10 +230,9 @@
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"readepi"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; To cite readepi in publications use:</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt;   Karim Mané, Emmanuel Kabuga, Bankolé Ahadzie, Abdoelnaser Degoot,</span></span>
-<span><span class="co">#&gt;   Nuredin Mohammed, Bubacarr Bah (2025). readepi: Read Data From</span></span>
-<span><span class="co">#&gt;   Relational Database Management Systems and Health Information Systems</span></span>
-<span><span class="co">#&gt;   website: https://epiverse-trace.github.io/readepi/</span></span>
+<span><span class="co">#&gt;   Karim Mané, Emmanuel Kabuga, Bankolé Ahadzie, Abdoelnaser Degoot, Nuredin Mohammed, Bubacarr</span></span>
+<span><span class="co">#&gt;   Bah (2025). readepi: Read Data From Relational Database Management Systems and Health</span></span>
+<span><span class="co">#&gt;   Information Systems website: https://epiverse-trace.github.io/readepi/</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></span>
 <span><span class="co">#&gt; </span></span>
