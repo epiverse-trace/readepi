@@ -137,7 +137,7 @@ It is important to note that the request parameters used in the internal functio
 
 In the current version, the `login()` function only supports basic authentication, i.e., using the user name and password. An example of how to establish a connection to a DHIS2 instance is shown below.
 
-```{r eval=TRUE}
+```{r dhis2-login, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # CONNECT TO A DHIS2 INSTANCE
 dhis2_login <- login(
   type = "dhis2",
@@ -149,12 +149,12 @@ dhis2_login <- login(
 
 Organisation units and programs are the key elements for a successful call of the `read_dhis2()` function. For this reason, we exported the following functions to help users access and identify the correct organisation unit and program names and IDs for a given DHIS2 instance.
 
-```{r eval=TRUE}
+```{r org-units, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # GET THE LIST OF ALL ORGANISATION UNITS IN AN HIERARCHICAL ORDER
 org_units <- get_organisation_units(login = dhis2_login)
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r display-org-units, echo=FALSE, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 org_units |>
   kableExtra::kbl() |>
   kableExtra::kable_paper("striped", font_size = 14, full_width = TRUE) |>
@@ -164,12 +164,12 @@ org_units |>
                          fixed_thead = TRUE)
 ```
 
-```{r eval=TRUE}
+```{r dhis2-programs, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # GET THE LIST OF ALL PROGRAMS
 programs <- get_programs(login = dhis2_login)
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r display-programs, echo=FALSE, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 programs |>
   kableExtra::kbl() |>
   kableExtra::kable_paper("striped", font_size = 14, full_width = TRUE) |>
@@ -181,12 +181,12 @@ programs |>
 
 Similarly, users can also access the list of all data elements and program stages from a given DHIS2 instance as shown in the code chunks below.
 
-```{r eval=TRUE}
+```{r dish2-elements, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # GET THE LIST OF ALL DATA ELEMENTS
 data_elements <- get_data_elements(login = dhis2_login)
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r display-elements, echo=FALSE, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 data_elements |>
   kableExtra::kbl() |>
   kableExtra::kable_paper("striped", font_size = 14, full_width = TRUE) |>
@@ -196,7 +196,7 @@ data_elements |>
                          fixed_thead = TRUE)
 ```
 
-```{r eval=TRUE}
+```{r dhis2-stages, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # GET THE LIST OF ALL PROGRAM STAGES FOR A GIVEN PROGRAM ID
 program_stages <- get_program_stages(
   login = dhis2_login,
@@ -205,7 +205,7 @@ program_stages <- get_program_stages(
 )
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r display-stages, echo=FALSE, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 program_stages |>
   kableExtra::kbl() |>
   kableExtra::kable_paper("striped", font_size = 14, full_width = TRUE) |>
@@ -217,7 +217,7 @@ program_stages |>
 
 It is important to know that not all organisation units are registered for a specific program. To know the organisation units that run a particular program, use the `get_program_org_units()` function as shown in the example below.
 
-```{r eval=TRUE}
+```{r target-units, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # GET THE LIST OF ORGANISATION UNITS RUNNING THE SPECIFIED PROGRAM
 target_org_units <- get_program_org_units(
     login = dhis2_login,
@@ -226,7 +226,7 @@ target_org_units <- get_program_org_units(
   )
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r display-target-units, echo=FALSE, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 target_org_units |>
   kableExtra::kbl() |>
   kableExtra::kable_paper("striped", font_size = 14, full_width = TRUE) |>
@@ -238,7 +238,7 @@ target_org_units |>
 
 After identifying the correct organisation unit and program IDs or names, users can import the corresponding data using the `read_dhis2()` with the following syntax:
 
-```{r eval=TRUE}
+```{r org-codes, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # IMPORT DATA FROM DHIS2 FOR THE SPECIFIED ORGANISATION UNIT AND PROGRAM IDs
 data <- read_dhis2(
   login = dhis2_login,
@@ -247,7 +247,7 @@ data <- read_dhis2(
 )
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r display-codes, echo=FALSE, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 data[1:50, 1:15] |>
   kableExtra::kbl() |>
   kableExtra::kable_paper("striped", font_size = 14, full_width = TRUE) |>
@@ -272,7 +272,7 @@ It is important to note that SORMAS does not support basic authentication i.e., 
 
 Users can get the list of all diseases available on their SORMAS system using the `sormas_get_diseases()` function.
 
-```{r eval=TRUE}
+```{r sormas-login, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # ESTABLISH THE CONNECTION TO THE SORMAS SYSTEM
 sormas_login <- login(
   type = "sormas",
@@ -289,7 +289,7 @@ disease_names <- sormas_get_diseases(
 
 When relevant, users can download the data dictionary into a specific folder using the `sormas_get_data_dictionary()`. This provides an idea of the content of each column.
 
-```{r eval=TRUE}
+```{r sormas-dict, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # DOWNLOAD AND SAVE THE DATA DICTIONARY IN YOUR CURRENT DIRECTORY
 path_to_dictionary <- sormas_get_data_dictionary(path = getwd())
 path_to_dictionary
@@ -297,7 +297,7 @@ path_to_dictionary
 
 A call of the `read_sormas()` function looks like below.
 
-```{r eval=TRUE}
+```{r sormas-cases, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 # FETCH ALL COVID (coronavirus) CASES FROM THE TEST SORMAS INSTANCE FROM THE
 # BEGINNING OF DATA COLLECTION
 covid_cases <- read_sormas(
@@ -315,7 +315,7 @@ covid_cases <- read_sormas(
 )
 ```
 
-```{r echo=FALSE, eval=TRUE}
+```{r display-cases, echo=FALSE, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
 covid_cases[, 1:15] |>
   kableExtra::kbl() |>
   kableExtra::kable_paper("striped", font_size = 14, full_width = TRUE) |>
