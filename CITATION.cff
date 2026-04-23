@@ -9,7 +9,7 @@ type: software
 license: MIT
 title: 'readepi: Read Data from Relational Database Management Systems and Health
   Information Systems'
-version: 1.0.5
+version: 1.0.6
 identifiers:
 - type: doi
   value: 10.32614/CRAN.package.readepi
