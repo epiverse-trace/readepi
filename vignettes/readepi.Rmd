@@ -11,7 +11,7 @@ vignette: >
 ---
 
 ```{r, include = FALSE}
-knitr::opts_chunk[["set"]](collapse = TRUE, comment = "#>", eval=FALSE,
+knitr::opts_chunk[["set"]](collapse = TRUE, comment = "#>", eval = FALSE,
                            fig.width = 7L, fig.height = 7L, message = FALSE,
                            fig.align = "center", warning = FALSE, dpi = 300L)
 ```
