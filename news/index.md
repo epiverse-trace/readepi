@@ -2,6 +2,8 @@
 
 ## readepi 1.0.5
 
+CRAN release: 2026-04-22
+
 - corrected outdated DHIS2 demonstration servers used in examples
   ([\#99](https://github.com/epiverse-trace/readepi/issues/99),
   [@Degoot-AM](https://github.com/Degoot-AM))

@@ -5008,7 +5008,7 @@ built-in server details.
 |        77 | Weinberg Z, Ames TD  |        NA |
 |       112 | MÃ¤dler, G           |        NA |
 
-## Reading data from HIS APIs
+## Reading data from HIS
 
 The current version of **{readepi}** supports reading data from two
 common HIS: [DHIS2](https://dhis2.org/), and
@@ -5032,7 +5032,7 @@ API with following arguments:
 - `program`: A character with the program ID or name
 
 It is important to note that the request parameters used in the internal
-functions of the package vary depending on the API version. Currently,
+functions of the package vary depending on the API version. Currently
 {readepi} accounts for versions from **2.22** to **2.42**. The later is
 the current version of the DHIS2 test instance. Newer versions (**\>
 2.42**) might require a different syntax for the request parameters
@@ -5073,7 +5073,7 @@ org_units <- get_organisation_units(login = dhis2_login)
 
 |           | National_name | National_id | District_name  | District_id | Chiefdom_name              | Chiefdom_id | Facility_name                                    | Facility_id |
 |:----------|:--------------|:------------|:---------------|:------------|:---------------------------|:------------|:-------------------------------------------------|:------------|
-| test_1    | Sierra Leone  | ImspTQPwCqd | 2333019 REGION | HusrJtEhxkh | 2333019 DISTRICT           | LTSgRfnphE3 | 2333019 Facility                                 | HLlUJamOZAJ |
+| test_1    | Sierra Leone  | ImspTQPwCqd | 2025804 REGION | bvFpcX9uNFU | 2025804 DISTRICT           | ZOBVX2OPgCk | 2025804 FACILITY                                 | Hrznulj9bQ5 |
 | test_2    | Sierra Leone  | ImspTQPwCqd | Western Area   | at6UHUQatSo | Rural Western Area         | qtr8GGlm4gg | Adonkia CHP                                      | Rp268JB6Ne4 |
 | test_3    | Sierra Leone  | ImspTQPwCqd | Western Area   | at6UHUQatSo | Rural Western Area         | qtr8GGlm4gg | Afro Arab Clinic                                 | cDw53Ej8rju |
 | test_4    | Sierra Leone  | ImspTQPwCqd | Bo             | O6uvpzGd5pu | Kakua                      | U6Kr7Gtpidn | Agape CHP                                        | GvFqTavdpGE |
@@ -6248,9 +6248,8 @@ programs <- get_programs(login = dhis2_login)
 
 | displayName                                         | id          | type      |
 |:----------------------------------------------------|:------------|:----------|
-| 2333019 COVID Patient Tracker                       | Srox4qPpCA9 | tracker   |
+| 2025804 COVID-19 SCREENING EVENT PROGRAM            | UwuYbc82kW5 | aggregate |
 | Antenatal care visit                                | lxAQ7Zs9VYR | aggregate |
-| Child Health Data Quality issues                    | kKwL434hhb6 | tracker   |
 | Child Programme                                     | IpHINAT79UW | tracker   |
 | Contraceptives Voucher Program                      | kla3mAPgvCH | aggregate |
 | Information Campaign                                | q04UBOqq3rp | aggregate |
@@ -6261,9 +6260,7 @@ programs <- get_programs(login = dhis2_login)
 | Malaria testing and surveillance                    | bMcwwoVnbSR | aggregate |
 | MNCH / PNC (Adult Woman)                            | uy2gU8kT1jF | tracker   |
 | Provider Follow-up and Support Tool                 | fDd25txQckK | tracker   |
-| Respiratory Infection Surveillance                  | a7GpXeCg2Zc | tracker   |
 | TB program                                          | ur1Edk5Oe2n | tracker   |
-| VIP Household Poverty Graduation Tracker            | TnHL6jUr9YI | tracker   |
 | WHO RMNCH Tracker                                   | WSGAb5XwJ3Y | tracker   |
 | XX MAL RDT - Case Registration                      | MoUd5BTQ3lY | aggregate |
 
@@ -6278,33 +6275,11 @@ data_elements <- get_data_elements(login = dhis2_login)
 
 | name                                                                                                     | id          |
 |:---------------------------------------------------------------------------------------------------------|:------------|
-| 1923322 Confirmed Cases                                                                                  | xtB9X3fe206 |
-| 1923322 COVID-19 Deaths                                                                                  | kh1TjJhAjDm |
-| 1923322 Positive Results                                                                                 | C9UfTWZ282V |
-| 1923322 Tests Conducted                                                                                  | x6tcA7dRQTH |
-| 2333019 Confirmed Cases                                                                                  | kNn5YQQBi4A |
-| 2333019 Cough                                                                                            | TYeCCS3AojL |
-| 2333019 COVID-19 Deaths                                                                                  | nbNJ4yy7tZL |
-| 2333019 Dose Number                                                                                      | QerXbcdOhuk |
-| 2333019 Fever                                                                                            | PFzUxJwx7oq |
-| 2333019 Hospital Admissions                                                                              | zgNw1g1I1tE |
-| 2333019 Hospitalized                                                                                     | ksuzFtUuFxj |
-| 2333019 HOSPITALIZED                                                                                     | eqViCY7tmjY |
-| 2333019 ICU Admissions                                                                                   | QHnjDBYwWTa |
-| 2333019 ICU Required                                                                                     | rGATSqoLGmr |
-| 2333019 ICU REQUIRED                                                                                     | VF9yLT7p4ad |
-| 2333019 Oxygen Level (%)                                                                                 | LQiutOs5cJH |
-| 2333019 Patient Status                                                                                   | aXMVI1Cmayj |
-| 2333019 Positive Results                                                                                 | P8ojd7klZlF |
-| 2333019 Recovered Cases                                                                                  | aW7Wm5i7rxm |
-| 2333019 Suspected Cases                                                                                  | y1n0jVCv5UD |
-| 2333019 Symptom Severity                                                                                 | auaW5gI9sh1 |
-| 2333019 Tests Conducted                                                                                  | zCksjT84oYN |
-| 2333019 TEST STATUS                                                                                      | CzrkK6Lb4Sf |
-| 2333019 Vaccination Date                                                                                 | iw4Wd3Bss77 |
-| 2333019 Vaccinations Administered                                                                        | OJ5MOETcLiN |
-| 2333019 Vaccine Type                                                                                     | KKJwxA9lYg8 |
-| 2333019 Ventilator Patients                                                                              | sDPoglVhYAr |
+| 2025804 OXYGEN LEVEL                                                                                     | OvuKXtCRjt1 |
+| 2025804 SYMPTOMS PRESENT                                                                                 | DPLF9z575Ok |
+| 2025804 TEMPERATURE                                                                                      | wnH56P7KSRt |
+| 2025804 TEST RESULT                                                                                      | fXXZjDkJtf4 |
+| 2025804 TRAVEL HISTORY                                                                                   | TmbqsjSnGSt |
 | Accute Flaccid Paralysis (Deaths \< 5 yrs)                                                               | FTRrcoaog83 |
 | Acute Flaccid Paralysis (AFP) follow-up                                                                  | P3jJH5Tu5VC |
 | Acute Flaccid Paralysis (AFP) new                                                                        | FQ2o8UBlcrS |
@@ -6370,21 +6345,6 @@ data_elements <- get_data_elements(login = dhis2_login)
 | Case detection                                                                                           | fazCI2ygYkq |
 | Case Investigation Conducted By                                                                          | eYApmORDKgx |
 | Case species classification                                                                              | lvx6qda7SN0 |
-| Child_Health_DQI - Action                                                                                | bFJQalbEep7 |
-| Child_Health_DQI - Action description                                                                    | piPCj3onZzi |
-| Child_Health_DQI - Azure URL                                                                             | WpeU9ogY7DD |
-| Child_Health_DQI - Category option                                                                       | ocNjI8o1R36 |
-| Child_Health_DQI - Comments                                                                              | FFdcrSK8jp4 |
-| Child_Health_DQI - Contact Emails                                                                        | kSmwy7Ls7Qs |
-| Child_Health_DQI - Country                                                                               | vAbG9CW7UnT |
-| Child_Health_DQI - Data Element                                                                          | J27ZcsbhAoY |
-| Child_Health_DQI - Description                                                                           | spdKPjgQcJ0 |
-| Child_Health_DQI - Follow-up                                                                             | XHZ5vNjYmsS |
-| Child_Health_DQI - Issue correlative number                                                              | GSQuhvcctiK |
-| Child_Health_DQI - Issue number                                                                          | H9jXxBAT0zH |
-| Child_Health_DQI - Period                                                                                | vPgKmjcj2vK |
-| Child_Health_DQI - Section Number                                                                        | rQvo5OXQVeA |
-| Child_Health_DQI - Status                                                                                | a7xSZLoq7wG |
 | Children from Gen.Paed. ward tested for HIV                                                              | hhevl49MXyA |
 | Children from Gen.Paed. ward with positive HIV result                                                    | HL77Pems4Cv |
 | Children from TB ward tested for HIV                                                                     | ydvyXLhIbTn |
@@ -6405,7 +6365,6 @@ data_elements <- get_data_elements(login = dhis2_login)
 | Clinical Malnutrition follow-up                                                                          | HJulLfnIAE3 |
 | Clinical Malnutrition new                                                                                | TBbCcJfZ91x |
 | Clinical Malnutrition referrals                                                                          | oNyB0VOXIM8 |
-| Clinical Signs                                                                                           | t9mr73VOPzS |
 | Clinical status                                                                                          | SzVk2KvkSSd |
 | CMC Clients offered information on range of methods exist                                                | LHXqz53TmPe |
 | CMC COPE has been introduced at the facility and staff conducted a COPE exercise during the past quarter | OJSkJXzhdU1 |
@@ -6548,23 +6507,7 @@ data_elements <- get_data_elements(login = dhis2_login)
 | Documentation                                                                                            | ulD2zW0TIy2 |
 | DOT 3 days                                                                                               | iI24WVP95js |
 | Dysentery (Deaths \< 5 yrs)                                                                              | Ix2HsbDMLea |
-| Eco:Enough clothing                                                                                      | aYCa2fFYSjg |
-| Eco:Floor made of cement                                                                                 | DqqQ6FUnGwG |
-| Eco:Household living above MK454.46/day                                                                  | eC3QcCevxqg |
-| Eco:House wall made of burnt bricks or cement                                                            | iPtv14JEGhp |
-| Eco:Member of VSL group                                                                                  | EczIun0GXok |
-| Eco:Own bicycle or access bicycle taxi                                                                   | ETiWtrwUs0U |
-| Eco:Own radio or cellphone                                                                               | UOsEwlSbgpQ |
-| Eco:Roof made of iron sheets                                                                             | hV0nUE6QwBX |
-| Eco:Trained in financial literacy                                                                        | LTo0ctbDsXq |
-| Eco:Type of lighting used                                                                                | GiGkUtqnIkx |
-| Eco:Use mattresses for bedding                                                                           | z7S3MI8ToQB |
 | EDC Unit Assitant                                                                                        | zSl1hUZBDHY |
-| Edu:Child missed school due to fees                                                                      | z6DKfJdSnyc |
-| Edu:Child missed school due to uniform                                                                   | RrFsKjYjSJu |
-| Edu:Child receiving Scondary bursary or scholarship                                                      | HfVM4PNBU8T |
-| Edu:Children attend school regularly                                                                     | zIFeHasMni6 |
-| Edu:Household has school-going children                                                                  | EkYRGa56n6l |
 | Effectiveness of response                                                                                | NiF6K3MXHsi |
 | EHO                                                                                                      | kFmyXB7IYrK |
 | Equipment is placed in appropriate reachable areas                                                       | uZJkd96hYCm |
@@ -6593,7 +6536,6 @@ data_elements <- get_data_elements(login = dhis2_login)
 | Facility has access to stable electrical power                                                           | UMJym1vYPSu |
 | Facility has access to stable Internet connectivity                                                      | MJYalhqFsHK |
 | Fever                                                                                                    | rzhHSqK3lQq |
-| Final Diagnostic Outcome                                                                                 | RHF0Q3DcEuv |
 | Foci malaria positive                                                                                    | JmZ0m8Q3gwh |
 | Foci malaria test                                                                                        | rFQNCGMYud2 |
 | Focus date of classification                                                                             | bl7EMKxJIIT |
@@ -6633,14 +6575,6 @@ data_elements <- get_data_elements(login = dhis2_login)
 | HIV positive women assessed for ART eligibility by clinical staging                                      | CwnEqKR0ebt |
 | HIV related deaths (children)                                                                            | pN3V4jZeCmU |
 | HIV: testing                                                                                             | R4KStuS8qt7 |
-| HLTH:Children enrolled in CCFLS                                                                          | g7x4uGpEyS3 |
-| HLTH:Children under 5 malnourished                                                                       | ffN6JSGDMWB |
-| HLTH:Household able to purchase medication                                                               | yPIqmWNjEAT |
-| HLTH:Household member participating in CCFLS                                                             | WLlqiGKUUui |
-| HLTH:Number of malnourished children                                                                     | oi1ixBeMdoC |
-| HLTH:OFSP quantity                                                                                       | VIf7HukjE4R |
-| HLTH:OFSP support date                                                                                   | h5QVAPBGGaQ |
-| HLTH:Received OFSP vines                                                                                 | W02QdQ4ZyKe |
 | Household Investigation Conducted By                                                                     | VGASkvkD2Vf |
 | Household location                                                                                       | F3ogKBuviRA |
 | Household members fever past month                                                                       | rIjZnxmjGpg |
@@ -6873,7 +6807,6 @@ data_elements <- get_data_elements(login = dhis2_login)
 | Penta2 doses given                                                                                       | I78gJm4KBo7 |
 | Penta3 doses given                                                                                       | n6aMJNLdvep |
 | People included                                                                                          | DX4LVYeP7bw |
-| Persistent Cough                                                                                         | DghKuGKaCRx |
 | PFS Date of training (end of training)                                                                   | qpQinIDQ6Uy |
 | PFS End-of-training assessment - CAC counseling                                                          | zNXca47AaTh |
 | PFS End-of-training assessment - CAC MVA                                                                 | fQMBEt42CSl |
@@ -7060,7 +6993,6 @@ data_elements <- get_data_elements(login = dhis2_login)
 | Residents had malaria past month                                                                         | ECjafwJrxL5 |
 | Residents in household                                                                                   | lezQpdvvGjY |
 | Residents in household who slept under a net the previous night                                          | KA6RY4BB41F |
-| Respiratory Distress                                                                                     | nxIP2uQoeZo |
 | Results of case investigation (parasite prevalence among tested)                                         | AscpjfkjEks |
 | Results post-response                                                                                    | xb5oJFjopGD |
 | Schistosomiasis follow-up                                                                                | GYm08KsVDOz |
@@ -7143,8 +7075,6 @@ data_elements <- get_data_elements(login = dhis2_login)
 | Stock PHU start balance BCG                                                                              | t99PL3gUxIl |
 | Stock PHU start balance Measles                                                                          | vEAo4KwsAzl |
 | Stock PHU start balance OPV                                                                              | iuSIObmKutb |
-| Symptomatic Presentation                                                                                 | jHP1ZNwOB3U |
-| Symptom Onset Date                                                                                       | pBqJdyUgWki |
 | Symptoms                                                                                                 | XCMLePzaZiL |
 | TB Case Definition                                                                                       | HmkXnHJxcD1 |
 | TB Cohort new SS+ completed                                                                              | JFJfrQRwKUH |
@@ -7223,7 +7153,6 @@ data_elements <- get_data_elements(login = dhis2_login)
 | VCCT No reiciving result & post-test counselling                                                         | CjLP7zAhlP4 |
 | VCCT No Test                                                                                             | bmW8ktueArb |
 | Vector behavior (based on study)                                                                         | RKJ08MlK5kr |
-| VIP: Participation Status                                                                                | C9dwHWt0V42 |
 | Vitamin A given at postnatal                                                                             | btSSE4w61kd |
 | Vitamin A given to \< 5y                                                                                 | tU7GixyHhsv |
 | Voucher HTC                                                                                              | b6dOUjAarHD |
@@ -7364,15 +7293,6 @@ data_elements <- get_data_elements(login = dhis2_login)
 | Wounds/Trauma referrals                                                                                  | JMKtVQ5HasH |
 | WP1                                                                                                      | zHaIxBfQMZk |
 | WP2                                                                                                      | HUYDWrGgTdI |
-| WSH:Handwashing facility next to pit latrine                                                             | YwMZsvroz7m |
-| WSH:Household drinks from unprotected water source                                                       | mtf5M68hDh9 |
-| WSH:Household owns pit latrine                                                                           | Q81ctCSWDzH |
-| WSH:Household uses borehole/communal tap water                                                           | jkI1um5RomO |
-| WSH:SanPlat Support Date                                                                                 | JsCDbefoLPQ |
-| WSH:Skyloo Support Date                                                                                  | yjX8ghYGaFh |
-| WSH:Supported with improved pit latrine (SanPlat)                                                        | OTSM7CGZcV1 |
-| WSH:Supported with Skyloo pit latrine                                                                    | xawp2WLpT5s |
-| WSH:Water access within 10 minutes                                                                       | JmYdBulmVUB |
 | XX MAL RDT TRK - Age                                                                                     | vcSXdYGa5St |
 | XX MAL RDT TRK - Diagnosis Method                                                                        | lWLkpWMHqEq |
 | XX MAL RDT TRK - Diagnosis Type                                                                          | QMLLmxjsFqk |

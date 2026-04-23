@@ -2,12 +2,13 @@
 
 ## Introduction
 
-For a successful API or database request, users are required to provide
-details about where the data can be found and which data they want the
-reading function to return. These information is generally designated as
-**query paramaters** and can vary depending on the type of HIS. In the
-sections below, we will describe the query parameters and define how to
-use them when fetching data from our target HIS.
+For a successful Health Information System (HIS) or database request,
+users are required to provide details about where the data can be found
+and which data they want the reading function to return. These
+information is generally designated as **query paramaters** and can vary
+depending on the type of HIS. In the sections below, we will describe
+the query parameters and define how to use them when fetching data from
+our target HIS.
 
 ### RDBMS query parameters
 
