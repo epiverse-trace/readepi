@@ -121,7 +121,7 @@ dat |>
                          fixed_thead = TRUE)
 ```
 
-# Reading data from HIS APIs
+# Reading data from HIS 
 
 The current version of **{readepi}** supports reading data from two common HIS: [DHIS2](https://dhis2.org/), and [SORMAS](https://www.sormas.org/).
 
@@ -133,7 +133,7 @@ The [District Health Information Software (DHIS2)](https://dhis2.org/about-2/) i
 -   `org_unit`: A character with the organisation unit ID or name
 -   `program`: A character with the program ID or name
 
-It is important to note that the request parameters used in the internal functions of the package vary depending on the API version. Currently, {readepi} accounts for versions from **2.22** to **2.42**. The later is the current version of the DHIS2 test instance. Newer versions (**\> 2.42**) might require a different syntax for the request parameters depending on how they are defined by the DHIS2 developers. This can result in the failure of the `read_dhis2()` function when importing data from those newer versions. An issue can be raised [here](https://github.com/epiverse-trace/readepi/issues) to make the developers of the package aware of this problem.
+It is important to note that the request parameters used in the internal functions of the package vary depending on the API version. Currently {readepi} accounts for versions from **2.22** to **2.42**. The later is the current version of the DHIS2 test instance. Newer versions (**\> 2.42**) might require a different syntax for the request parameters depending on how they are defined by the DHIS2 developers. This can result in the failure of the `read_dhis2()` function when importing data from those newer versions. An issue can be raised [here](https://github.com/epiverse-trace/readepi/issues) to make the developers of the package aware of this problem.
 
 In the current version, the `login()` function only supports basic authentication, i.e., using the user name and password. An example of how to establish a connection to a DHIS2 instance is shown below.
 
@@ -178,6 +178,7 @@ programs |>
                          extra_css = NULL,
                          fixed_thead = TRUE)
 ```
+
 
 Similarly, users can also access the list of all data elements and program stages from a given DHIS2 instance as shown in the code chunks below.
 
@@ -236,6 +237,7 @@ target_org_units |>
                          fixed_thead = TRUE)
 ```
 
+
 After identifying the correct organisation unit and program IDs or names, users can import the corresponding data using the `read_dhis2()` with the following syntax:
 
 ```{r org-codes, eval = identical(Sys.getenv("NOT_CRAN"), "true")}
@@ -256,6 +258,7 @@ data[1:50, 1:15] |>
                          extra_css = NULL,
                          fixed_thead = TRUE)
 ```
+
 
 ## Importing data from SORMAS
 
