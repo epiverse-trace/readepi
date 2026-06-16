@@ -23,7 +23,7 @@ Establish connection to a DHIS2 instance
 \examples{
 \dontrun{
   dhis2_log <- dhis2_login(
-    base_url = "https://play.im.dhis2.org/stable-2-42-1",
+    base_url = "https://play.im.dhis2.org/stable-2-42-8-1",
     user_name = "admin",
     password = "district"
   )

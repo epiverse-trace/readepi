@@ -62,9 +62,9 @@ bearer token).
 \dontrun{
   dhi2s_login <- login(
     type = "dhis2",
-    from = "https://smc.moh.gm/dhis",
-    user_name = "test",
-    password = "Gambia@123"
+    from = "https://play.im.dhis2.org/stable-2-41-8-1",
+    user_name = "admin",
+    password = "district"
   )
 }
 

@@ -58,5 +58,5 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.3.3
 SystemRequirements: odbc, libmariadbclient-dev
+Config/roxygen2/version: 8.0.0

@@ -5,7 +5,7 @@ testthat::skip_on_ci()
 test_that("get_org_unit_as_long with a non-data frame object", {
   dhis2_login <- login(
     type = "dhis2",
-    from = "https://play.im.dhis2.org/stable-2-41-8",
+    from = "https://play.im.dhis2.org/stable-2-41-8-1",
     user_name = "admin",
     password = "district"
   )
@@ -41,7 +41,7 @@ test_that("get_org_unit_as_long with a non-data frame object", {
 test_that("check_program fails as expected", {
   dhis2_login <- login(
     type = "dhis2",
-    from = "https://play.im.dhis2.org/stable-2-41-8",
+    from = "https://play.im.dhis2.org/stable-2-41-8-1",
     user_name = "admin",
     password = "district"
   )

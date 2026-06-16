@@ -113,7 +113,7 @@ dat <- readepi::read_rdbms(
 # CONNECT TO A DHIS2 INSTANCE
 dhis2_login <- readepi::login(
   type = "dhis2",
-  from = "https://play.im.dhis2.org/stable-2-41-8",
+  from = "https://play.im.dhis2.org/stable-2-41-8-1",
   user_name = "admin",
   password = "district"
 )
